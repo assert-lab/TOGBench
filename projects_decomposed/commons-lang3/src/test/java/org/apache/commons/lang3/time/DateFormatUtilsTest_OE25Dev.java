@@ -57,6 +57,15 @@ public class DateFormatUtilsTest_OE25Dev {
     }
 
     //-----------------------------------------------------------------------
+    @Test
+    public void testConstructor() {
+        assertNotNull(new DateFormatUtils());
+        final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
+        assertEquals(1, cons.length);
+        assertTrue(Modifier.isPublic(cons[0].getModifiers()));
+        assertTrue(Modifier.isPublic(DateFormatUtils.class.getModifiers()));
+        assertFalse(Modifier.isFinal(DateFormatUtils.class.getModifiers()));
+    }
 
     @Test
     public void testDateISO() {
@@ -73,8 +82,65 @@ public class DateFormatUtilsTest_OE25Dev {
     }
 
     //-----------------------------------------------------------------------
+    @Test
+    public void testFormat() {
+        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
+        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
+        c.setTimeZone(TimeZone.getDefault());
+        final StringBuilder buffer = new StringBuilder ();
+        final int year = c.get(Calendar.YEAR);
+        final int month = c.get(Calendar.MONTH) + 1;
+        final int day = c.get(Calendar.DAY_OF_MONTH);
+        final int hour = c.get(Calendar.HOUR_OF_DAY);
+        buffer.append (year);
+        buffer.append(month);
+        buffer.append(day);
+        buffer.append(hour);
+        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH"));
+
+        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime().getTime(), "yyyyMdH"));
+
+        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH", Locale.US));
+
+        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime().getTime(), "yyyyMdH", Locale.US));
+    }
 
     //-----------------------------------------------------------------------
+    @Test
+    public void testFormatCalendar() {
+        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
+        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
+        c.setTimeZone(TimeZone.getDefault());
+        final StringBuilder buffer = new StringBuilder ();
+        final int year = c.get(Calendar.YEAR);
+        final int month = c.get(Calendar.MONTH) + 1;
+        final int day = c.get(Calendar.DAY_OF_MONTH);
+        final int hour = c.get(Calendar.HOUR_OF_DAY);
+        buffer.append (year);
+        buffer.append(month);
+        buffer.append(day);
+        buffer.append(hour);
+        assertEquals(buffer.toString(), DateFormatUtils.format(c, "yyyyMdH"));
+
+        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH"));
+
+        assertEquals(buffer.toString(), DateFormatUtils.format(c, "yyyyMdH", Locale.US));
+
+        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH", Locale.US));
+    }
+
+    @Test
+    public void testFormatUTC() {
+        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
+        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
+        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern()));
+
+        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime().getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern()));
+
+        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(), Locale.US));
+
+        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime().getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(), Locale.US));
+    }
 
     private void testGmtMinus3(final String expectedValue, final String pattern) {
         final TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
@@ -87,26 +153,56 @@ public class DateFormatUtilsTest_OE25Dev {
         DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.parse(date);
     }
 
+    @DefaultTimeZone("UTC")
+    @Test
+    public void testLang530() throws ParseException {
+        final Date d = new Date();
+        final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
+        final Date d2 = DateUtils.parseDate(isoDateStr, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
+        // the format loses milliseconds so have to reintroduce them
+        assertEquals(d.getTime(), d2.getTime() + d.getTime() % 1000, "Date not equal to itself ISO formatted and parsed");
+    }
+
     /**
      * According to LANG-916 (https://issues.apache.org/jira/browse/LANG-916),
      * the format method did contain a bug: it did not use the TimeZone data.
      *
      * This method test that the bug is fixed.
      */
-
-    @DefaultLocale(language = "en")
     @Test
-    public void testSMTP() {
-        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
-        Calendar june = createJuneTestDate(timeZone);
+    public void testLang916() {
 
-        assertFormats("Sun, 08 Jun 2003 10:11:12 -0300", DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern(),
-                timeZone, june);
+        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
+        cal.clear();
+        cal.set(2009, 9, 16, 8, 42, 16);
 
-        timeZone = FastTimeZone.getGmtTimeZone();
-        june = createJuneTestDate(timeZone);
-        assertFormats("Sun, 08 Jun 2003 10:11:12 +0000", DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern(),
-                timeZone, june);
+        // Long.
+        {
+            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
+            assertEquals("2009-10-16T08:42:16+02:00", value, "long");
+        }
+        {
+            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
+            assertEquals("2009-10-16T12:12:16+05:30", value, "long");
+        }
+        {
+            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
+            assertEquals("2009-10-16T07:42:16+01:00", value, "long");
+        }
+
+        // Calendar.
+        {
+            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
+            assertEquals("2009-10-16T08:42:16+02:00", value, "calendar");
+        }
+        {
+            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
+            assertEquals("2009-10-16T12:12:16+05:30", value, "calendar");
+        }
+        {
+            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
+            assertEquals("2009-10-16T07:42:16+01:00", value, "calendar");
+        }
     }
 
     @Test
@@ -129,401 +225,93 @@ public class DateFormatUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testConstructor_1_oe() {
-        assertNotNull(new DateFormatUtils());
+    public void testSMTP_1_oe_1_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+                final String expectedValue = "Sun, 08 Jun 2003 10:11:12 -0300";
+        final String pattern = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone1 = timeZone;
+        final Calendar cal = june;
+        assertEquals(expectedValue, DateFormatUtils.format(cal.getTime(), pattern, timeZone1));
     }
 
     @Test
-    public void testConstructor_2_oe() {
+    public void testSMTP_1_oe_2_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+                final String expectedValue = "Sun, 08 Jun 2003 10:11:12 -0300";
+        final String pattern = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone1 = timeZone;
+        final Calendar cal = june;
         // removed other assertion
-        final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
-        assertEquals(1, cons.length);
+                assertEquals(expectedValue, DateFormatUtils.format(cal.getTime().getTime(), pattern, timeZone1));
     }
 
     @Test
-    public void testConstructor_3_oe() {
+    public void testSMTP_1_oe_3_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+                final String expectedValue = "Sun, 08 Jun 2003 10:11:12 -0300";
+        final String pattern = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone1 = timeZone;
+        final Calendar cal = june;
         // removed other assertion
-        final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
-        // removed other assertion
-        assertTrue(Modifier.isPublic(cons[0].getModifiers()));
+                // removed other assertion
+                assertEquals(expectedValue, DateFormatUtils.format(cal, pattern, timeZone1));
     }
 
     @Test
-    public void testConstructor_4_oe() {
+    public void testSMTP_2_oe_1_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
         // removed other assertion
-        final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
-        // removed other assertion
-        // removed other assertion
-        assertTrue(Modifier.isPublic(DateFormatUtils.class.getModifiers()));
+
+        timeZone = FastTimeZone.getGmtTimeZone();
+        june = createJuneTestDate(timeZone);
+                final String expectedValue = "Sun, 08 Jun 2003 10:11:12 +0000";
+        final String pattern = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone1 = timeZone;
+        final Calendar cal = june;
+        assertEquals(expectedValue, DateFormatUtils.format(cal.getTime(), pattern, timeZone1));
     }
 
     @Test
-    public void testConstructor_5_oe() {
+    public void testSMTP_2_oe_2_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
         // removed other assertion
-        final Constructor<?>[] cons = DateFormatUtils.class.getDeclaredConstructors();
+
+        timeZone = FastTimeZone.getGmtTimeZone();
+        june = createJuneTestDate(timeZone);
+                final String expectedValue = "Sun, 08 Jun 2003 10:11:12 +0000";
+        final String pattern = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone1 = timeZone;
+        final Calendar cal = june;
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(Modifier.isFinal(DateFormatUtils.class.getModifiers()));
+                assertEquals(expectedValue, DateFormatUtils.format(cal.getTime().getTime(), pattern, timeZone1));
     }
 
     @Test
-    public void testFormat_1_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH"));
-    }
-
-    @Test
-    public void testFormat_2_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        // removed other assertion
-
-        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime().getTime(), "yyyyMdH"));
-    }
-
-    @Test
-    public void testFormat_3_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        // removed other assertion
+    public void testSMTP_2_oe_3_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
 
         // removed other assertion
 
-        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH", Locale.US));
-    }
-
-    @Test
-    public void testFormat_4_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
+        timeZone = FastTimeZone.getGmtTimeZone();
+        june = createJuneTestDate(timeZone);
+                final String expectedValue = "Sun, 08 Jun 2003 10:11:12 +0000";
+        final String pattern = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone1 = timeZone;
+        final Calendar cal = june;
         // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime().getTime(), "yyyyMdH", Locale.US));
-    }
-
-    @Test
-    public void testFormatCalendar_1_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        assertEquals(buffer.toString(), DateFormatUtils.format(c, "yyyyMdH"));
-    }
-
-    @Test
-    public void testFormatCalendar_2_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        // removed other assertion
-
-        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH"));
-    }
-
-    @Test
-    public void testFormatCalendar_3_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        // removed other assertion
-
-        // removed other assertion
-
-        assertEquals(buffer.toString(), DateFormatUtils.format(c, "yyyyMdH", Locale.US));
-    }
-
-    @Test
-    public void testFormatCalendar_4_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        c.setTimeZone(TimeZone.getDefault());
-        final StringBuilder buffer = new StringBuilder ();
-        final int year = c.get(Calendar.YEAR);
-        final int month = c.get(Calendar.MONTH) + 1;
-        final int day = c.get(Calendar.DAY_OF_MONTH);
-        final int hour = c.get(Calendar.HOUR_OF_DAY);
-        buffer.append (year);
-        buffer.append(month);
-        buffer.append(day);
-        buffer.append(hour);
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        assertEquals(buffer.toString(), DateFormatUtils.format(c.getTime(), "yyyyMdH", Locale.US));
-    }
-
-    @Test
-    public void testFormatUTC_1_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern()));
-    }
-
-    @Test
-    public void testFormatUTC_2_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        // removed other assertion
-
-        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime().getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern()));
-    }
-
-    @Test
-    public void testFormatUTC_3_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        // removed other assertion
-
-        // removed other assertion
-
-        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(), Locale.US));
-    }
-
-    @Test
-    public void testFormatUTC_4_oe() {
-        final Calendar c = Calendar.getInstance(FastTimeZone.getGmtTimeZone());
-        c.set(2005, Calendar.JANUARY, 1, 12, 0, 0);
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        assertEquals ("2005-01-01T12:00:00", DateFormatUtils.formatUTC(c.getTime().getTime(), DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(), Locale.US));
-    }
-
-    @Test
-    public void testLang530_1_oe() throws ParseException {
-        final Date d = new Date();
-        final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
-        final Date d2 = DateUtils.parseDate(isoDateStr, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
-        // the format loses milliseconds so have to reintroduce them
-        assertEquals(d.getTime(), d2.getTime() + d.getTime() % 1000, "Date not equal to itself ISO formatted and parsed");
-    }
-
-    @Test
-    public void testLang916_1_oe() {
-
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
-        cal.clear();
-        cal.set(2009, 9, 16, 8, 42, 16);
-
-        // Long.
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            assertEquals("2009-10-16T08:42:16+02:00", value, "long");
-    }
-    }
-
-    @Test
-    public void testLang916_2_oe() {
-
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
-        cal.clear();
-        cal.set(2009, 9, 16, 8, 42, 16);
-
-        // Long.
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            assertEquals("2009-10-16T12:12:16+05:30", value, "long");
-    }
-    }
-
-    @Test
-    public void testLang916_3_oe() {
-
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
-        cal.clear();
-        cal.set(2009, 9, 16, 8, 42, 16);
-
-        // Long.
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
-            assertEquals("2009-10-16T07:42:16+01:00", value, "long");
-    }
-    }
-
-    @Test
-    public void testLang916_4_oe() {
-
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
-        cal.clear();
-        cal.set(2009, 9, 16, 8, 42, 16);
-
-        // Long.
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
-            // removed other assertion
-        }
-
-        // Calendar.
-        {
-            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            assertEquals("2009-10-16T08:42:16+02:00", value, "calendar");
-    }
-    }
-
-    @Test
-    public void testLang916_5_oe() {
-
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
-        cal.clear();
-        cal.set(2009, 9, 16, 8, 42, 16);
-
-        // Long.
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
-            // removed other assertion
-        }
-
-        // Calendar.
-        {
-            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            assertEquals("2009-10-16T12:12:16+05:30", value, "calendar");
-    }
-    }
-
-    @Test
-    public void testLang916_6_oe() {
-
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
-        cal.clear();
-        cal.set(2009, 9, 16, 8, 42, 16);
-
-        // Long.
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal.getTimeInMillis(), DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
-            // removed other assertion
-        }
-
-        // Calendar.
-        {
-            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/Paris"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Asia/Kolkata"));
-            // removed other assertion
-        }
-        {
-            final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
-            assertEquals("2009-10-16T07:42:16+01:00", value, "calendar");
-    }
+                // removed other assertion
+                assertEquals(expectedValue, DateFormatUtils.format(cal, pattern, timeZone1));
     }
 
 }

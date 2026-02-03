@@ -29,87 +29,74 @@ class SlerpTest_OE25Dev {
     private static final double INV_SQRT_2 = 1.0 / SQRT_2;
 
     @Test
-    void testSlerp_sphericalAlgorithm() {
+    void testSlerp_sphericalAlgorithm_allOutputsAreInPositivePolarForm() {
         // arrange
         Quaternion q1 = createZRotation(0.75 * Math.PI);
         Quaternion q2 = createZRotation(-0.75 * Math.PI);
 
         Slerp slerp = new Slerp(q1, q2);
 
-        // act/assert
-        // the algorithm should follow the path around the pi coordinate of the circle rather than
-        // the one through the zero coordinate
-        assertQuaternion(q1.positivePolarForm(), slerp.apply(0));
-        assertQuaternion(createZRotation(0.875 * Math.PI), slerp.apply(0.25));
-        assertQuaternion(createZRotation(Math.PI), slerp.apply(0.5));
-        assertQuaternion(createZRotation(-0.875 * Math.PI), slerp.apply(0.75));
-        assertQuaternion(q2.positivePolarForm(), slerp.apply(1));
+        final int numSteps = 200;
+        final double delta = 1d / numSteps;
+        for (int step = 0; step <= numSteps; step++) {
+            final double t = -10 + step * delta;
+
+            // act
+            Quaternion result = slerp.apply(t);
+
+            // assert
+            Assertions.assertEquals(1.0, result.norm(), EPS);
+            Assertions.assertTrue(result.getW() >= 0.0);
+        }
     }
 
     @Test
-    void testSlerp_nonNormalizedInputs() {
-        // arrange
-        Quaternion q1 = createZRotation(0).multiply(10.0);
-        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
-
-        Slerp slerp = new Slerp(q1, q2);
-
-        // act/assert
-        assertQuaternion(q1.positivePolarForm(), slerp.apply(0));
-        assertQuaternion(createZRotation(0.25 * Math.PI), slerp.apply(0.25));
-        assertQuaternion(createZRotation(0.5 * Math.PI), slerp.apply(0.5));
-        assertQuaternion(createZRotation(0.75 * Math.PI), slerp.apply(0.75));
-        assertQuaternion(q2.positivePolarForm(), slerp.apply(1));
-    }
-
-    @Test
-    void testSlerp_linearAlgorithm() {
+    void testSlerp_linearAlgorithm_allOutputsAreInPositivePolarForm() {
         // arrange
         Quaternion q1 = createZRotation(0.75 * Math.PI);
         Quaternion q2 = createZRotation(0.76 * Math.PI);
 
         Slerp slerp = new Slerp(q1, q2);
 
-        // act/assert
-        assertQuaternion(q1.positivePolarForm(), slerp.apply(0));
-        assertQuaternion(createZRotation(0.7525 * Math.PI), slerp.apply(0.25));
-        assertQuaternion(createZRotation(0.755 * Math.PI), slerp.apply(0.5));
-        assertQuaternion(createZRotation(0.7575 * Math.PI), slerp.apply(0.75));
-        assertQuaternion(q2.positivePolarForm(), slerp.apply(1));
+        final int numSteps = 200;
+        final double delta = 1d / numSteps;
+        for (int step = 0; step <= numSteps; step++) {
+            final double t = -10 + step * delta;
+
+            // act
+            Quaternion result = slerp.apply(t);
+
+            // assert
+            Assertions.assertEquals(1.0, result.norm(), EPS);
+            Assertions.assertTrue(result.getW() >= 0.0);
+        }
     }
 
     @Test
-    void testSlerp_identicalInputs() {
+    void testVectorTransform_simple() {
         // arrange
-        Quaternion q1 = createZRotation(0);
-        Quaternion q2 = createZRotation(0);
+        Quaternion q0 = Quaternion.of(1, 0, 0, 0); // rotation of zero
+        Quaternion q1 = Quaternion.of(0, 0, 0, 1); // pi rotation around +z
 
-        Slerp slerp = new Slerp(q1, q2);
+        Slerp slerp = new Slerp(q0, q1);
+
+        double[] vec = {2, 0, 1};
 
         // act/assert
-        Quaternion expected = q1.positivePolarForm();
+        Assertions.assertArrayEquals(new double[] {2, 0, 1},
+            transformVector(slerp.apply(0), vec), EPS);
 
-        assertQuaternion(expected, slerp.apply(0));
-        assertQuaternion(expected, slerp.apply(0.5));
-        assertQuaternion(expected, slerp.apply(1));
-    }
+        Assertions.assertArrayEquals(new double[] {SQRT_2, SQRT_2, 1},
+            transformVector(slerp.apply(0.25), vec), EPS);
 
-    @Test
-    void testSlerp_tOutsideOfZeroToOne() {
-        // arrange
-        Quaternion q1 = createZRotation(0);
-        Quaternion q2 = createZRotation(0.25 * Math.PI);
+        Assertions.assertArrayEquals(new double[] {0, 2, 1},
+            transformVector(slerp.apply(0.5), vec), EPS);
 
-        Slerp slerp = new Slerp(q1, q2);
+        Assertions.assertArrayEquals(new double[] {-SQRT_2, SQRT_2, 1},
+            transformVector(slerp.apply(0.75), vec), EPS);
 
-        // act/assert
-        assertQuaternion(createZRotation(-0.5 * Math.PI).positivePolarForm(), slerp.apply(-2));
-        assertQuaternion(createZRotation(-0.25 * Math.PI).positivePolarForm(), slerp.apply(-1));
-
-        assertQuaternion(createZRotation(0).positivePolarForm(), slerp.apply(0));
-
-        assertQuaternion(createZRotation(0.25 * Math.PI), slerp.apply(1));
-        assertQuaternion(createZRotation(0.5 * Math.PI), slerp.apply(2));
+        Assertions.assertArrayEquals(new double[] {-2, 0, 1},
+            transformVector(slerp.apply(1), vec), EPS);
     }
 
     @Test
@@ -186,6 +173,34 @@ class SlerpTest_OE25Dev {
             double angle = angle(slerpVec, startVec);
             Assertions.assertTrue(Precision.compareTo(angle,prevAngle,EPS)>= 0,"Expected slerp angle to continuously increase;previous angle was " + prevAngle + " and new angle is " + angle);
         }
+    }
+
+    @Test
+    void testVectorTransform_tOutsideOfZeroToOne_() {
+        // arrange
+        double angle1 = Math.PI * 0.25;
+        double angle2 = Math.PI * 0.75;
+
+        double halfAngle1 = 0.5 * angle1;
+        double halfAngle2 = 0.5 * angle2;
+
+        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
+        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
+
+        double[] vec = new double[] {1, 0, 0};
+
+        // act/assert
+        Slerp slerp12 = new Slerp(q1, q2);
+        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp12.apply(-4.5), vec), EPS);
+        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp12.apply(-0.5), vec), EPS);
+        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp12.apply(1.5), vec), EPS);
+        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp12.apply(5.5), vec), EPS);
+
+        Slerp slerp21 = new Slerp(q2, q1);
+        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp21.apply(-4.5), vec), EPS);
+        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp21.apply(-0.5), vec), EPS);
+        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp21.apply(1.5), vec), EPS);
+        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp21.apply(5.5), vec), EPS);
     }
 
     /**
@@ -270,93 +285,1463 @@ class SlerpTest_OE25Dev {
     }
 
     @Test
-    void testSlerp_sphericalAlgorithm_allOutputsAreInPositivePolarForm_1_oe() {
+    void testSlerp_sphericalAlgorithm_1_oe_1_oe() {
         // arrange
         Quaternion q1 = createZRotation(0.75 * Math.PI);
         Quaternion q2 = createZRotation(-0.75 * Math.PI);
 
         Slerp slerp = new Slerp(q1, q2);
 
-        final int numSteps = 200;
-        final double delta = 1d / numSteps;
-        for (int step = 0; step <= numSteps; step++) {
-            final double t = -10 + step * delta;
-
-            // act
-            Quaternion result = slerp.apply(t);
-
-            // assert
-            Assertions.assertEquals(1.0, result.norm(), EPS);
-    }
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
     }
 
     @Test
-    void testSlerp_sphericalAlgorithm_allOutputsAreInPositivePolarForm_2_oe() {
+    void testSlerp_sphericalAlgorithm_1_oe_2_oe() {
         // arrange
         Quaternion q1 = createZRotation(0.75 * Math.PI);
         Quaternion q2 = createZRotation(-0.75 * Math.PI);
 
         Slerp slerp = new Slerp(q1, q2);
 
-        final int numSteps = 200;
-        final double delta = 1d / numSteps;
-        for (int step = 0; step <= numSteps; step++) {
-            final double t = -10 + step * delta;
-
-            // act
-            Quaternion result = slerp.apply(t);
-
-            // assert
-            // removed other assertion
-            Assertions.assertTrue(result.getW() >= 0.0);
-    }
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
     }
 
     @Test
-    void testSlerp_linearAlgorithm_allOutputsAreInPositivePolarForm_1_oe() {
+    void testSlerp_sphericalAlgorithm_1_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_1_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_2_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_2_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_2_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_2_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_3_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_3_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_3_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_3_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_4_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(-0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_4_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(-0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_4_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(-0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_4_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(-0.875 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_5_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_5_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_5_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_sphericalAlgorithm_5_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(-0.75 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // the algorithm should follow the path around the pi coordinate of the circle rather than
+        // the one through the zero coordinate
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_1_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_1_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_1_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_1_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_2_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_2_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_2_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_2_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_3_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_3_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_3_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_3_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_4_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.75 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_4_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.75 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_4_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.75 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_4_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.75 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_5_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_5_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_5_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_nonNormalizedInputs_5_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0).multiply(10.0);
+        Quaternion q2 = createZRotation(Math.PI).multiply(0.2);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_1_oe_1_oe() {
         // arrange
         Quaternion q1 = createZRotation(0.75 * Math.PI);
         Quaternion q2 = createZRotation(0.76 * Math.PI);
 
         Slerp slerp = new Slerp(q1, q2);
 
-        final int numSteps = 200;
-        final double delta = 1d / numSteps;
-        for (int step = 0; step <= numSteps; step++) {
-            final double t = -10 + step * delta;
-
-            // act
-            Quaternion result = slerp.apply(t);
-
-            // assert
-            Assertions.assertEquals(1.0, result.norm(), EPS);
-    }
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
     }
 
     @Test
-    void testSlerp_linearAlgorithm_allOutputsAreInPositivePolarForm_2_oe() {
+    void testSlerp_linearAlgorithm_1_oe_2_oe() {
         // arrange
         Quaternion q1 = createZRotation(0.75 * Math.PI);
         Quaternion q2 = createZRotation(0.76 * Math.PI);
 
         Slerp slerp = new Slerp(q1, q2);
 
-        final int numSteps = 200;
-        final double delta = 1d / numSteps;
-        for (int step = 0; step <= numSteps; step++) {
-            final double t = -10 + step * delta;
-
-            // act
-            Quaternion result = slerp.apply(t);
-
-            // assert
-            // removed other assertion
-            Assertions.assertTrue(result.getW() >= 0.0);
-    }
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
     }
 
     @Test
-    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_1_oe() {
+    void testSlerp_linearAlgorithm_1_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_1_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = q1.positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_2_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7525 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_2_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7525 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_2_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7525 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_2_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7525 * Math.PI);
+        final Quaternion actual = slerp.apply(0.25);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_3_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.755 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_3_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.755 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_3_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.755 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_3_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.755 * Math.PI);
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_4_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7575 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_4_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7575 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_4_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7575 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_4_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.7575 * Math.PI);
+        final Quaternion actual = slerp.apply(0.75);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_5_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_5_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_5_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_linearAlgorithm_5_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0.75 * Math.PI);
+        Quaternion q2 = createZRotation(0.76 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected = q2.positivePolarForm();
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_1_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                Assertions.assertEquals(expected1.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_1_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected1.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_1_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_1_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_2_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                Assertions.assertEquals(expected1.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_2_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected1.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_2_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_2_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_3_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                Assertions.assertEquals(expected1.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_3_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected1.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_3_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_identicalInputs_3_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_2_oe_1_oe() {
         // arrange
         Quaternion q1 = createZRotation(0.5 * Math.PI);
         Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
@@ -364,285 +1749,675 @@ class SlerpTest_OE25Dev {
         Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Assertions.assertEquals(-1.0, q1.dot(q2), EPS);
+        // removed other assertion
+
+        Quaternion expected = q1.positivePolarForm();
+
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                Assertions.assertEquals(expected1.getW(), actual.getW(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_simple_1_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_2_oe_2_oe() {
         // arrange
-        Quaternion q0 = Quaternion.of(1, 0, 0, 0); // rotation of zero
-        Quaternion q1 = Quaternion.of(0, 0, 0, 1); // pi rotation around +z
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        Slerp slerp = new Slerp(q0, q1);
-
-        double[] vec = {2, 0, 1};
-
-        // act/assert
-        Assertions.assertArrayEquals(new double[] {2, 0, 1}, transformVector(slerp.apply(0), vec), EPS);
-    }
-
-    @Test
-    void testVectorTransform_simple_2_oe() {
-        // arrange
-        Quaternion q0 = Quaternion.of(1, 0, 0, 0); // rotation of zero
-        Quaternion q1 = Quaternion.of(0, 0, 0, 1); // pi rotation around +z
-
-        Slerp slerp = new Slerp(q0, q1);
-
-        double[] vec = {2, 0, 1};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
         // removed other assertion
 
-        Assertions.assertArrayEquals(new double[] {SQRT_2, SQRT_2, 1}, transformVector(slerp.apply(0.25), vec), EPS);
+        Quaternion expected = q1.positivePolarForm();
+
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected1.getX(), actual.getX(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_simple_3_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_2_oe_3_oe() {
         // arrange
-        Quaternion q0 = Quaternion.of(1, 0, 0, 0); // rotation of zero
-        Quaternion q1 = Quaternion.of(0, 0, 0, 1); // pi rotation around +z
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        Slerp slerp = new Slerp(q0, q1);
-
-        double[] vec = {2, 0, 1};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
         // removed other assertion
 
-        // removed other assertion
+        Quaternion expected = q1.positivePolarForm();
 
-        Assertions.assertArrayEquals(new double[] {0, 2, 1}, transformVector(slerp.apply(0.5), vec), EPS);
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getY(), actual.getY(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_simple_4_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_2_oe_4_oe() {
         // arrange
-        Quaternion q0 = Quaternion.of(1, 0, 0, 0); // rotation of zero
-        Quaternion q1 = Quaternion.of(0, 0, 0, 1); // pi rotation around +z
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        Slerp slerp = new Slerp(q0, q1);
-
-        double[] vec = {2, 0, 1};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
         // removed other assertion
 
-        // removed other assertion
+        Quaternion expected = q1.positivePolarForm();
 
-        // removed other assertion
-
-        Assertions.assertArrayEquals(new double[] {-SQRT_2, SQRT_2, 1}, transformVector(slerp.apply(0.75), vec), EPS);
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getZ(), actual.getZ(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_simple_5_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_3_oe_1_oe() {
         // arrange
-        Quaternion q0 = Quaternion.of(1, 0, 0, 0); // rotation of zero
-        Quaternion q1 = Quaternion.of(0, 0, 0, 1); // pi rotation around +z
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        Slerp slerp = new Slerp(q0, q1);
-
-        double[] vec = {2, 0, 1};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
         // removed other assertion
 
-        // removed other assertion
+        Quaternion expected = q1.positivePolarForm();
 
         // removed other assertion
-
-        // removed other assertion
-
-        Assertions.assertArrayEquals(new double[] {-2, 0, 1}, transformVector(slerp.apply(1), vec), EPS);
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                Assertions.assertEquals(expected1.getW(), actual.getW(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__1_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_3_oe_2_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
-        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp12.apply(-4.5), vec), EPS);
+        // removed other assertion
+
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected1.getX(), actual.getX(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__2_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_3_oe_3_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
         // removed other assertion
-        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp12.apply(-0.5), vec), EPS);
+
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getY(), actual.getY(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__3_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_3_oe_4_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
         // removed other assertion
+
+        Quaternion expected = q1.positivePolarForm();
+
         // removed other assertion
-        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp12.apply(1.5), vec), EPS);
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(0.5);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getZ(), actual.getZ(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__4_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_4_oe_1_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
+        // removed other assertion
+
+        Quaternion expected = q1.positivePolarForm();
+
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp12.apply(5.5), vec), EPS);
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                Assertions.assertEquals(expected1.getW(), actual.getW(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__5_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_4_oe_2_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Slerp slerp21 = new Slerp(q2, q1);
-        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp21.apply(-4.5), vec), EPS);
+        Quaternion expected = q1.positivePolarForm();
+
+        // removed other assertion
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected1.getX(), actual.getX(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__6_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_4_oe_3_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Slerp slerp21 = new Slerp(q2, q1);
+        Quaternion expected = q1.positivePolarForm();
+
         // removed other assertion
-        Assertions.assertArrayEquals(new double[] {-1, 0, 0}, transformVector(slerp21.apply(-0.5), vec), EPS);
+        // removed other assertion
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getY(), actual.getY(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__7_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_4_oe_4_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0.5 * Math.PI);
+        Quaternion q2 = createZRotation(1.5 * Math.PI).conjugate(); // 3pi/2 around -z
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Slerp slerp21 = new Slerp(q2, q1);
+        Quaternion expected = q1.positivePolarForm();
+
         // removed other assertion
         // removed other assertion
-        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp21.apply(1.5), vec), EPS);
+                final Quaternion expected1 = expected;
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected1 + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected1.getZ(), actual.getZ(), EPS, msg);
     }
 
     @Test
-    void testVectorTransform_tOutsideOfZeroToOne__8_oe() {
+    void testSlerp_tOutsideOfZeroToOne_1_oe_1_oe() {
         // arrange
-        double angle1 = Math.PI * 0.25;
-        double angle2 = Math.PI * 0.75;
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
 
-        double halfAngle1 = 0.5 * angle1;
-        double halfAngle2 = 0.5 * angle2;
-
-        Quaternion q1 = Quaternion.of(Math.cos(halfAngle1), 0, 0, Math.sin(halfAngle1)); // pi/4 around +z
-        Quaternion q2 = Quaternion.of(Math.cos(halfAngle2), 0, 0, Math.sin(halfAngle2)); // 3pi/4 around +z
-
-        double[] vec = new double[] {1, 0, 0};
+        Slerp slerp = new Slerp(q1, q2);
 
         // act/assert
-        Slerp slerp12 = new Slerp(q1, q2);
+                final Quaternion expected = createZRotation(-0.5 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_1_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = createZRotation(-0.5 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_1_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = createZRotation(-0.5 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_1_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+                final Quaternion expected = createZRotation(-0.5 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_2_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
         // removed other assertion
+                final Quaternion expected = createZRotation(-0.25 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_2_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
         // removed other assertion
+                final Quaternion expected = createZRotation(-0.25 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_2_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(-0.25 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_2_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+                final Quaternion expected = createZRotation(-0.25 * Math.PI).positivePolarForm();
+        final Quaternion actual = slerp.apply(-1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_3_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
         // removed other assertion
         // removed other assertion
 
-        Slerp slerp21 = new Slerp(q2, q1);
+                final Quaternion expected = createZRotation(0).positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_3_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
         // removed other assertion
         // removed other assertion
+
+                final Quaternion expected = createZRotation(0).positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_3_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
         // removed other assertion
-        Assertions.assertArrayEquals(new double[] {1, 0, 0}, transformVector(slerp21.apply(5.5), vec), EPS);
+        // removed other assertion
+
+                final Quaternion expected = createZRotation(0).positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_3_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+                final Quaternion expected = createZRotation(0).positivePolarForm();
+        final Quaternion actual = slerp.apply(0);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_4_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_4_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_4_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_4_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+                final Quaternion expected = createZRotation(0.25 * Math.PI);
+        final Quaternion actual = slerp.apply(1);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_5_oe_1_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_5_oe_2_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_5_oe_3_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
+
+    @Test
+    void testSlerp_tOutsideOfZeroToOne_5_oe_4_oe() {
+        // arrange
+        Quaternion q1 = createZRotation(0);
+        Quaternion q2 = createZRotation(0.25 * Math.PI);
+
+        Slerp slerp = new Slerp(q1, q2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+                final Quaternion expected = createZRotation(0.5 * Math.PI);
+        final Quaternion actual = slerp.apply(2);
+        String msg = "Expected quaternion to equal " + expected + " but was " + actual;
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
     }
 
 }

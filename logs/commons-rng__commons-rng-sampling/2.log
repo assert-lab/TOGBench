@@ -1,0 +1,94 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-rng-sampling >---------------
+[INFO] Building Apache Commons RNG Sampling 1.4
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-rng-sampling ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-rng-sampling ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-rng-sampling ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-rng-sampling ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-rng-sampling ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-rng-sampling ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-sampling ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling
+[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 2026-02-03 13:42:14-0600
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-sampling ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-rng-sampling ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 62 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/classes
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/PoissonSampler.java:[53,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/ContinuousUniformSampler.java:[29,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/AhrensDieterMarsagliaTsangGammaSampler.java:[54,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/ChengBetaSampler.java:[39,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/InverseTransformDiscreteSampler.java:[59,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/InverseTransformParetoSampler.java:[29,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/AhrensDieterExponentialSampler.java:[34,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSampler.java:[53,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/InverseTransformContinuousSampler.java:[59,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/main/java/org/apache/commons/rng/sampling/distribution/RejectionInversionZipfSampler.java:[30,13] org.apache.commons.rng.sampling.distribution.SamplerBase in org.apache.commons.rng.sampling.distribution has been deprecated
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-rng-sampling ---
+[WARNING] Manifest org.apache.commons:commons-rng-sampling:jar:1.4 : Export org.apache.commons.rng.sampling,  has 1,  private references [org.apache.commons.rng.sampling.distribution]
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-rng-sampling ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-sampling ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 55 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/test-classes
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[51,21] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[160,21] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[41,19] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[544,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-sampling ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-sampling ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-sampling ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.rng.sampling.distribution.DirichletSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 s - in org.apache.commons.rng.sampling.distribution.DirichletSamplerTest_OE25Dev
+[INFO] Running org.apache.commons.rng.sampling.CombinationSamplerTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 s - in org.apache.commons.rng.sampling.CombinationSamplerTest_OE25Dev
+[INFO] Running org.apache.commons.rng.sampling.ListSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.rng.sampling.ListSamplerTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.630 s
+[INFO] Finished at: 2026-02-03T13:42:27-06:00
+[INFO] ------------------------------------------------------------------------

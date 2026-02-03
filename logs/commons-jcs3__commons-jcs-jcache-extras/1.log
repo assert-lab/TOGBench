@@ -31,7 +31,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-extras ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras
-[INFO] Storing buildNumber: 096bdf15456a4d833b6cf23506c3db7b96292bf1 at timestamp: 1770119319441
+[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147672181
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache-extras ---
@@ -58,7 +58,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache-extras ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 12 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/target/test-classes
+[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java uses or overrides a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/loader/CompositeCacheLoaderTest.java: Some input files use unchecked or unsafe operations.
@@ -68,48 +68,13 @@
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ commons-jcs3-jcache-extras ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.664 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
-[INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.317 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.095 s  <<< FAILURE!
-java.lang.AssertionError: expected:<2> but was:<1>
-	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_3_oe(CacheLoaderAdapterTest_OE25Dev.java:86)
-
-[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.065 s  <<< FAILURE!
-java.lang.AssertionError: expected:<2> but was:<1>
-	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_6_oe(CacheLoaderAdapterTest_OE25Dev.java:161)
-
-[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Failures: 
-[ERROR]   CacheLoaderAdapterTest_OE25Dev.checkLoadAll_3_oe:86 expected:<2> but was:<1>
-[ERROR]   CacheLoaderAdapterTest_OE25Dev.checkLoadAll_6_oe:161 expected:<2> but was:<1>
-[INFO] 
-[ERROR] Tests run: 21, Failures: 2, Errors: 0, Skipped: 0
-[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  25.581 s
-[INFO] Finished at: 2026-02-03T05:49:00-06:00
+[INFO] Total time:  13.048 s
+[INFO] Finished at: 2026-02-03T13:41:21-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-extras: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-extras: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

@@ -1,0 +1,1095 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-vfs2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (vfs-jar-manifest) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi
+    [touch] Creating /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-vfs2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
+[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147743811
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 293 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ commons-vfs2 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2:jar:2.9.0 : Unused Import-Package instructions: [org.apache.jackrabbit.*] 
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 64 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 178 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (default) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [move] Moving 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes/test-data/code
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-vfs2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-vfs2 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.189 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.testNestedJunction_2_oe_1_oe  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.createVirtualFileSystem(String)" because the return value of "org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.getManager()" is null
+	at org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.testNestedJunction_2_oe_1_oe(JunctionTests_OE25Dev.java:79)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.testNestedJunction_4_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.createVirtualFileSystem(String)" because the return value of "org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.getManager()" is null
+	at org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.testNestedJunction_4_oe_1_oe(JunctionTests_OE25Dev.java:97)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.UrlStructureTests_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.UrlStructureTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.UrlStructureTests_OE25Dev.testFolderURL_3_oe_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] Tests run: 18, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_11_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_11_oe_1_oe(NamingTests_OE25Dev.java:634)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_18_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_18_oe_1_oe(NamingTests_OE25Dev.java:977)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_7_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_7_oe_1_oe(NamingTests_OE25Dev.java:496)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_13_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_13_oe_1_oe(NamingTests_OE25Dev.java:717)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_2_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_2_oe_1_oe(NamingTests_OE25Dev.java:383)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_9_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_9_oe_1_oe(NamingTests_OE25Dev.java:559)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_15_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_15_oe_1_oe(NamingTests_OE25Dev.java:812)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_4_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_4_oe_1_oe(NamingTests_OE25Dev.java:420)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_10_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_10_oe_1_oe(NamingTests_OE25Dev.java:595)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_17_oe_1_oe  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_17_oe_1_oe(NamingTests_OE25Dev.java:919)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_6_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_6_oe_1_oe(NamingTests_OE25Dev.java:469)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_12_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_12_oe_1_oe(NamingTests_OE25Dev.java:674)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_1_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_1_oe_1_oe(NamingTests_OE25Dev.java:369)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_8_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_8_oe_1_oe(NamingTests_OE25Dev.java:526)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_14_oe_1_oe  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_14_oe_1_oe(NamingTests_OE25Dev.java:763)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_3_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_3_oe_1_oe(NamingTests_OE25Dev.java:400)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_16_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_16_oe_1_oe(NamingTests_OE25Dev.java:864)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_5_oe_1_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
+	at org.apache.commons.vfs2.NamingTests_OE25Dev.testNameResolution_5_oe_1_oe(NamingTests_OE25Dev.java:443)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:177)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.LastModifiedTests_OE25Dev
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.LastModifiedTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.LastModifiedTests_OE25Dev.testSetLastModifiedFolder_1_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.LastModifiedTests_OE25Dev.testSetLastModifiedFile_1_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.UrlTests_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.UrlTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.UrlTests_OE25Dev.testUnknownURL_3_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev
+[ERROR] Tests run: 8, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testManualCache_1_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testOnCallCache_2_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testManualCache_3_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testOnResolveCache_1_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testOnCallCache_1_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testOnResolveCache_3_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testManualCache_2_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderCacheStrategyTests_OE25Dev.testOnResolveCache_2_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.ProviderReadTests_OE25Dev
+[ERROR] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderReadTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testStructure_1_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testStructure_1_oe_2_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testStructure_1_oe_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testStructure_1_oe_4_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testFolderContent_2_oe_1_oe  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: This test's read folder should not be null
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.getFileSystem(AbstractProviderTestCase.java:230)
+	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:289)
+	at junit.framework.TestCase.runBare(TestCase.java:142)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:130)
+	at junit.framework.TestSuite.runTest(TestSuite.java:241)
+	at junit.framework.TestSuite.run(TestSuite.java:236)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   LastModifiedTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   LastModifiedTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderCacheStrategyTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderReadTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderReadTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderReadTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderReadTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   ProviderReadTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   UrlStructureTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR]   UrlTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
+[ERROR] Errors: 
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_10_oe_1_oe:595 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_11_oe_1_oe:634 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_12_oe_1_oe:674 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_13_oe_1_oe:717 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_14_oe_1_oe:763 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_15_oe_1_oe:812 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_16_oe_1_oe:864 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_17_oe_1_oe:919 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_18_oe_1_oe:977 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_1_oe_1_oe:369 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_2_oe_1_oe:383 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_3_oe_1_oe:400 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_4_oe_1_oe:420 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_5_oe_1_oe:443 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_6_oe_1_oe:469 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_7_oe_1_oe:496 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_8_oe_1_oe:526 NullPointer
+[ERROR]   NamingTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNameResolution_9_oe_1_oe:559 NullPointer
+[ERROR]   JunctionTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNestedJunction_2_oe_1_oe:79 NullPointer
+[ERROR]   JunctionTests_OE25Dev>AbstractProviderTestCase.runTest:309->testNestedJunction_4_oe_1_oe:97 NullPointer
+[INFO] 
+[ERROR] Tests run: 57, Failures: 17, Errors: 20, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.175 s
+[INFO] Finished at: 2026-02-03T13:42:33-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-vfs2: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

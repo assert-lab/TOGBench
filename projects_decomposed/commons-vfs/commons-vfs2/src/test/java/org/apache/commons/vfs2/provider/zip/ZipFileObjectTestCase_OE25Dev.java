@@ -77,9 +77,61 @@ public class ZipFileObjectTestCase_OE25Dev {
      *
      * @throws IOException
      */
+
+    /**
+     * Tests that we can read more than one file within a Zip file, especially after closing each FileObject.
+     *
+     * @throws IOException
+     */
+
+    /**
+     * Tests that we can get a stream from one file in a zip file, then close another file from the same zip, then
+     * process the initial input stream.
+     *
+     * @throws IOException
+     */
+
+    /**
+     * Tests that we can get a stream from one file in a zip file, then close another file from the same zip, then
+     * process the initial input stream. If our internal reference counting is correct, the test passes.
+     *
+     * @throws IOException
+     */
+
+    /**
+     * Test read file with special name in a zip file
+     */
+    @Test
+    public void testReadSpecialNameFileInZipFile() throws FileSystemException {
+
+        final File testFile = new File("src/test/resources/test-data/special_fileName.zip");
+        final String[] fileNames = {"file.txt", "file^.txt", "file~.txt", "file?.txt", "file@.txt", "file$.txt",
+                                    "file*.txt", "file&.txt", "file#.txt", "file%.txt", "file!.txt"};
+        final FileSystemManager manager = VFS.getManager();
+        final String baseUrl = "zip:file:"+testFile.getAbsolutePath();
+
+        // test
+        try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
+            // test getChildren() number equal
+            Assert.assertEquals(fileObject.getChildren().length, fileNames.length);
+
+            // test getChild(String)
+            for (final String fileName : fileNames) {
+                Assert.assertNotNull("can't read file " + fileName, fileObject.getChild(fileName));
+            }
+        }
+    }
+
+    /**
+     * Tests that we can resolve a file in a Zip file, then close the container zip, which should still let us delete
+     * the Zip file.
+     *
+     * @throws IOException
+     */
+
     @Test
     @Ignore("Shows that leaving a stream open and not closing any resource leaves the container file locked")
-    public void testLeaveNestedFileOpen() throws IOException {
+    public void testLeaveNestedFileOpen_1_oe_1_oe() throws IOException {
         final File newZipFile = createTempFile();
         final FileSystemManager manager = VFS.getManager();
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
@@ -87,16 +139,12 @@ public class ZipFileObjectTestCase_OE25Dev {
             final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
             getInputStreamAndAssert(zipFileObject1, "1");
         }
-        assertDelete(newZipFile);
+                final File fileObject = newZipFile;
+        Assert.assertTrue("Could not delete file", fileObject.delete());
     }
 
-    /**
-     * Tests that we can read more than one file within a Zip file, especially after closing each FileObject.
-     *
-     * @throws IOException
-     */
     @Test
-    public void testReadingFilesInZipFile() throws IOException {
+    public void testReadingFilesInZipFile_1_oe_1_oe() throws IOException {
         final File newZipFile = createTempFile();
         final FileSystemManager manager = VFS.getManager();
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
@@ -107,17 +155,12 @@ public class ZipFileObjectTestCase_OE25Dev {
             }
             resolveReadAssert(zipFileObject, NESTED_FILE_2);
         }
-        assertDelete(newZipFile);
+                final File fileObject = newZipFile;
+        Assert.assertTrue("Could not delete file", fileObject.delete());
     }
 
-    /**
-     * Tests that we can get a stream from one file in a zip file, then close another file from the same zip, then
-     * process the initial input stream.
-     *
-     * @throws IOException
-     */
     @Test
-    public void testReadingOneAfterClosingAnotherFile() throws IOException {
+    public void testReadingOneAfterClosingAnotherFile_1_oe_1_oe() throws IOException {
         final File newZipFile = createTempFile();
         final FileSystemManager manager = VFS.getManager();
         final FileObject zipFileObject1;
@@ -131,17 +174,12 @@ public class ZipFileObjectTestCase_OE25Dev {
         readAndAssert(zipFileObject1, inputStream1, "1");
         // clean up
         zipFileObject1.close();
-        assertDelete(newZipFile);
+                final File fileObject = newZipFile;
+        Assert.assertTrue("Could not delete file", fileObject.delete());
     }
 
-    /**
-     * Tests that we can get a stream from one file in a zip file, then close another file from the same zip, then
-     * process the initial input stream. If our internal reference counting is correct, the test passes.
-     *
-     * @throws IOException
-     */
     @Test
-    public void testReadingOneAfterClosingAnotherStream() throws IOException {
+    public void testReadingOneAfterClosingAnotherStream_1_oe_1_oe() throws IOException {
         final File newZipFile = createTempFile();
         final FileSystemManager manager = VFS.getManager();
         final FileObject zipFileObject1;
@@ -157,21 +195,12 @@ public class ZipFileObjectTestCase_OE25Dev {
         readAndAssert(zipFileObject1, inputStream1, "1");
         // clean up
         zipFileObject1.close();
-        assertDelete(newZipFile);
+                final File fileObject = newZipFile;
+        Assert.assertTrue("Could not delete file", fileObject.delete());
     }
 
-    /**
-     * Test read file with special name in a zip file
-     */
-
-    /**
-     * Tests that we can resolve a file in a Zip file, then close the container zip, which should still let us delete
-     * the Zip file.
-     *
-     * @throws IOException
-     */
     @Test
-    public void testResolveNestedFileWithoutCleanup() throws IOException {
+    public void testResolveNestedFileWithoutCleanup_1_oe_1_oe() throws IOException {
         final File newZipFile = createTempFile();
         final FileSystemManager manager = VFS.getManager();
         try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
@@ -179,44 +208,8 @@ public class ZipFileObjectTestCase_OE25Dev {
             // We resolve a nested file and do nothing else.
             final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
         }
-        assertDelete(newZipFile);
-    }
-
-    @Test
-    public void testReadSpecialNameFileInZipFile_1_oe() throws FileSystemException {
-
-        final File testFile = new File("src/test/resources/test-data/special_fileName.zip");
-        final String[] fileNames = {"file.txt", "file^.txt", "file~.txt", "file?.txt", "file@.txt", "file$.txt",
-                                    "file*.txt", "file&.txt", "file#.txt", "file%.txt", "file!.txt"};
-        final FileSystemManager manager = VFS.getManager();
-        final String baseUrl = "zip:file:"+testFile.getAbsolutePath();
-
-        // test
-        try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
-            // test getChildren() number equal
-            Assert.assertEquals(fileObject.getChildren().length, fileNames.length);
-    }
-    }
-
-    @Test
-    public void testReadSpecialNameFileInZipFile_2_oe() throws FileSystemException {
-
-        final File testFile = new File("src/test/resources/test-data/special_fileName.zip");
-        final String[] fileNames = {"file.txt", "file^.txt", "file~.txt", "file?.txt", "file@.txt", "file$.txt",
-                                    "file*.txt", "file&.txt", "file#.txt", "file%.txt", "file!.txt"};
-        final FileSystemManager manager = VFS.getManager();
-        final String baseUrl = "zip:file:"+testFile.getAbsolutePath();
-
-        // test
-        try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
-            // test getChildren() number equal
-            // removed other assertion
-
-            // test getChild(String)
-            for (final String fileName : fileNames) {
-                Assert.assertNotNull("can't read file " + fileName, fileObject.getChild(fileName));
-    }
-    }
+                final File fileObject = newZipFile;
+        Assert.assertTrue("Could not delete file", fileObject.delete());
     }
 
 }

@@ -59,7 +59,7 @@ def fix_csv(csv_path: Path):
 def main():
     root = Path(__file__).resolve().parent.parent
     for project in (root / "projects_decomposed").iterdir():
-        csv_file = project / "dataset" / "inputs.csv"
+        csv_file = project / "dataset" / "inputs_custom_to_standard.csv"
         if csv_file.exists():
             print(f"Fixing {csv_file}")
             fix_csv(csv_file)

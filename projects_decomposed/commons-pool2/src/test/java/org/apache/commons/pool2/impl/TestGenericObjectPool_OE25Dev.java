@@ -917,6 +917,108 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
      * Check that a pool that starts an evictor, but is never closed does not
      * leave EvictionTimer executor running. Confirmation check is in {@link #tearDown()}.
      */
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testAbandonedPool() throws Exception {
+        final GenericObjectPoolConfig<String> config = new GenericObjectPoolConfig<>();
+        config.setJmxEnabled(false);
+        GenericObjectPool<String> abandoned = new GenericObjectPool<>(simpleFactory, config);
+        abandoned.setTimeBetweenEvictionRuns(Duration.ofMillis(100)); // Starts evictor
+        assertEquals(abandoned.getRemoveAbandonedTimeout(), abandoned.getRemoveAbandonedTimeoutDuration().getSeconds());
+
+        // This is ugly, but forces GC to hit the pool
+        final WeakReference<GenericObjectPool<String>> ref = new WeakReference<>(abandoned);
+        abandoned = null;
+        while (ref.get() != null) {
+            System.gc();
+            Thread.sleep(100);
+        }
+    }
+
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testAddObject() throws Exception {
+        assertEquals( 0, genericObjectPool.getNumIdle(),"should be zero idle");
+        genericObjectPool.addObject();
+        assertEquals( 1, genericObjectPool.getNumIdle(),"should be one idle");
+        assertEquals( 0, genericObjectPool.getNumActive(),"should be zero active");
+        final String obj = genericObjectPool.borrowObject();
+        assertEquals( 0, genericObjectPool.getNumIdle(),"should be zero idle");
+        assertEquals( 1, genericObjectPool.getNumActive(),"should be one active");
+        genericObjectPool.returnObject(obj);
+        assertEquals( 1, genericObjectPool.getNumIdle(),"should be one idle");
+        assertEquals( 0, genericObjectPool.getNumActive(),"should be zero active");
+    }
+
+    @Test
+    public void testAppendStats() {
+        assertFalse(genericObjectPool.getMessageStatistics());
+        assertEquals("foo", (genericObjectPool.appendStats("foo")));
+        try (final GenericObjectPool<?> pool = new GenericObjectPool<>(new SimpleFactory())) {
+            pool.setMessagesStatistics(true);
+            assertNotEquals("foo", (pool.appendStats("foo")));
+            pool.setMessagesStatistics(false);
+            assertEquals("foo", (pool.appendStats("foo")));
+        }
+    }
+
+    @Test
+    public void testBorrowTimings() throws Exception {
+        // Borrow
+        final String object = genericObjectPool.borrowObject();
+        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
+        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
+        // In the initial state, the active duration is the time between "now" and the creation time.
+        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
+        // But... this PO might have already been used in other tests in this class.
+
+        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
+        final Instant lastReturnInstant1 = po.getLastReturnInstant();
+        final Instant lastUsedInstant1 = po.getLastUsedInstant();
+
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(lastBorrowInstant1));
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(lastReturnInstant1));
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(lastUsedInstant1));
+        assertThat(po.getCreateTime(), lessThanOrEqualTo(lastBorrowInstant1.toEpochMilli()));
+        assertThat(po.getCreateTime(), lessThanOrEqualTo(lastReturnInstant1.toEpochMilli()));
+        assertThat(po.getCreateTime(), lessThanOrEqualTo(lastUsedInstant1.toEpochMilli()));
+
+        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
+        // Need an API in Java 8 to get the clock granularity.
+        Thread.sleep(200);
+
+        assertFalse(po.getActiveDuration().isNegative());
+        assertFalse(po.getActiveDuration().isZero());
+        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
+        assertThat(1L,lessThanOrEqualTo(2L));// sanity check assertThat(Duration.ZERO,lessThanOrEqualTo(Duration.ZERO.plusNanos(1)));// sanity check assertThat(po.getActiveDuration(),lessThanOrEqualTo(po.getIdleDuration()));
+        // Deprecated
+        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
+        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
+        //
+        // TODO How to compare ID with AD since other tests may have touched the PO?
+        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getIdleTime()));
+        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getIdleTimeMillis()));
+        //
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastBorrowInstant()));
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastReturnInstant()));
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastUsedInstant()));
+
+        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
+        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
+        assertThat(lastUsedInstant1, lessThanOrEqualTo(po.getLastUsedInstant()));
+
+        genericObjectPool.returnObject(object);
+
+        assertFalse(po.getActiveDuration().isNegative());
+        assertFalse(po.getActiveDuration().isZero());
+        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
+        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
+
+        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
+        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
+        assertThat(lastUsedInstant1, lessThanOrEqualTo(po.getLastUsedInstant()));
+    }
 
     /*
      * Note: This test relies on timing for correct execution. There *should* be
@@ -926,14 +1028,116 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     @SuppressWarnings({
         "rawtypes", "unchecked"
     })
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testBorrowObjectFairness() throws Exception {
+
+        final int numThreads = 40;
+        final int maxTotal = 40;
+
+        final GenericObjectPoolConfig config = new GenericObjectPoolConfig();
+        config.setMaxTotal(maxTotal);
+        config.setMaxIdle(maxTotal);
+        config.setFairness(true);
+        config.setLifo(false);
+
+        genericObjectPool = new GenericObjectPool(simpleFactory, config);
+
+        // Exhaust the pool
+        final String[] objects = new String[maxTotal];
+        for (int i = 0; i < maxTotal; i++) {
+            objects[i] = genericObjectPool.borrowObject();
+        }
+
+        // Start and park threads waiting to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            threads[i] = new TestThread(genericObjectPool, 1, 0, 2000, false, String.valueOf(i % maxTotal));
+            final Thread t = new Thread(threads[i]);
+            t.start();
+            // Short delay to ensure threads start in correct order
+            try {
+                Thread.sleep(10);
+            } catch (final InterruptedException e) {
+                fail(e.toString());
+            }
+        }
+
+        // Return objects, other threads should get served in order
+        for (int i = 0; i < maxTotal; i++) {
+            genericObjectPool.returnObject(objects[i]);
+        }
+
+        // Wait for threads to finish
+        for (int i = 0; i < numThreads; i++) {
+            while (!(threads[i]).complete()) {
+                Waiter.sleepQuietly(500L);
+            }
+            if (threads[i].failed()) {
+                fail("Thread " + i + " failed: " + threads[i].error.toString());
+            }
+        }
+    }
 
     /**
      * On first borrow, first object fails validation, second object is OK.
      * Subsequent borrows are OK. This was POOL-152.
      * @throws Exception
      */
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testBrokenFactoryShouldNotBlockPool() throws Exception {
+        final int maxTotal = 1;
+
+        simpleFactory.setMaxTotal(maxTotal);
+        genericObjectPool.setMaxTotal(maxTotal);
+        genericObjectPool.setBlockWhenExhausted(true);
+        genericObjectPool.setTestOnBorrow(true);
+
+        // First borrow object will need to create a new object which will fail
+        // validation.
+        String obj = null;
+        Exception ex = null;
+        simpleFactory.setValid(false);
+        try {
+            obj = genericObjectPool.borrowObject();
+        } catch (final Exception e) {
+            ex = e;
+        }
+        // Failure expected
+        assertNotNull(ex);
+        assertTrue(ex instanceof NoSuchElementException);
+        assertNull(obj);
+
+        // Configure factory to create valid objects so subsequent borrows work
+        simpleFactory.setValid(true);
+
+        // Subsequent borrows should be OK
+        obj = genericObjectPool.borrowObject();
+        assertNotNull(obj);
+        genericObjectPool.returnObject(obj);
+    }
 
     // POOL-259
+    @Test
+    public void testClientWaitStats() throws Exception {
+        final SimpleFactory factory = new SimpleFactory();
+        // Give makeObject a little latency
+        factory.setMakeLatency(200);
+        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory, new GenericObjectPoolConfig<>())) {
+            final String s = pool.borrowObject();
+            // First borrow waits on create, so wait time should be at least 200 ms
+            // Allow 100ms error in clock times
+            assertTrue(pool.getMaxBorrowWaitTimeMillis() >= 100);
+            assertTrue(pool.getMeanBorrowWaitTimeMillis() >= 100);
+            pool.returnObject(s);
+            pool.borrowObject();
+            // Second borrow does not have to wait on create, average should be about 100
+            assertTrue(pool.getMaxBorrowWaitTimeMillis() > 100);
+            assertTrue(pool.getMeanBorrowWaitTimeMillis() < 200);
+            assertTrue(pool.getMeanBorrowWaitTimeMillis() > 20);
+        }
+    }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
@@ -998,1687 +1202,8 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
      *
      * @throws Exception May occur in some failure modes
      */
-
-
-
-    /**
-     * Verifies that when a factory's makeObject produces instances that are not
-     * discernible by equals, the pool can handle them.
-     *
-     * JIRA: POOL-283
-     */
     @Test
-    public void testEqualsIndiscernible() throws Exception {
-        final HashSetFactory factory = new HashSetFactory();
-        try (final GenericObjectPool<HashSet<String>> pool = new GenericObjectPool<>(factory,
-                new GenericObjectPoolConfig<>())) {
-            final HashSet<String> s1 = pool.borrowObject();
-            final HashSet<String> s2 = pool.borrowObject();
-            pool.returnObject(s1);
-            pool.returnObject(s2);
-        }
-    }
-
-    /**
-     * Tests addObject contention between ensureMinIdle triggered by
-     * the Evictor with minIdle &gt; 0 and borrowObject.
-     *
-     * @throws Exception May occur in some failure modes
-     */
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictFIFO() throws Exception {
-        checkEvict(false);
-    }
-
-    /**
-     * Test to make sure evictor visits least recently used objects first,
-     * regardless of FIFO/LIFO.
-     *
-     * JIRA: POOL-86
-     *
-     * @throws Exception May occur in some failure modes
-     */
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionOrder() throws Exception {
-        checkEvictionOrder(false);
-        tearDown();
-        setUp();
-        checkEvictionOrder(true);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictLIFO() throws Exception {
-        checkEvict(true);
-    }
-
-    /**
-     * Verifies that the evictor visits objects in expected order
-     * and frequency.
-     *
-     * @throws Exception May occur in some failure modes
-     */
-    @Test
-    public void testEvictorVisiting() throws Exception {
-        checkEvictorVisiting(true);
-        checkEvictorVisiting(false);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictWhileEmpty() throws Exception {
-        genericObjectPool.evict();
-        genericObjectPool.evict();
-        genericObjectPool.close();
-    }
-
-    /**
-     * Verify that threads waiting on a depleted pool get served when a checked out object is
-     * invalidated.
-     *
-     * JIRA: POOL-240
-     *
-     * @throws Exception May occur in some failure modes
-     */
-
-    /**
-     * Ensure the pool is registered.
-     */
-
-    /**
-     * Test the following scenario:
-     *   Thread 1 borrows an instance
-     *   Thread 2 starts to borrow another instance before thread 1 returns its instance
-     *   Thread 1 returns its instance while thread 2 is validating its newly created instance
-     * The test verifies that the instance created by Thread 2 is not leaked.
-     *
-     * @throws Exception May occur in some failure modes
-     */
-
-    /**
-     * Showcasing a possible deadlock situation as reported in POOL-356
-     */
-
-    /**
-     * Verifies that maxTotal is not exceeded when factory destroyObject
-     * has high latency, testOnReturn is set and there is high incidence of
-     * validation failures.
-     */
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotalInvariant() {
-        final int maxTotal = 15;
-        simpleFactory.setEvenValid(false);     // Every other validation fails
-        simpleFactory.setDestroyLatency(100);  // Destroy takes 100 ms
-        simpleFactory.setMaxTotal(maxTotal); // (makes - destroys) bound
-        simpleFactory.setValidationEnabled(true);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxIdle(-1);
-        genericObjectPool.setTestOnReturn(true);
-        genericObjectPool.setMaxWaitMillis(1000L);
-        runTestThreads(5, 10, 50, genericObjectPool);
-    }
-
-    /*
-     * Test multi-threaded pool access.
-     * Multiple threads, but maxTotal only allows half the threads to succeed.
-     *
-     * This test was prompted by Continuum build failures in the Commons DBCP test case:
-     * TestPerUserPoolDataSource.testMultipleThreads2()
-     * Let's see if the this fails on Continuum too!
-     */
-
-    /**
-     * Verifies that returning an object twice (without borrow in between) causes ISE
-     * but does not re-validate or re-passivate the instance.
-     *
-     * JIRA: POOL-285
-     */
-
-    // POOL-248
-
-    /**
-     * Verifies that when a borrowed object is mutated in a way that does not
-     * preserve equality and hashcode, the pool can recognized it on return.
-     *
-     * JIRA: POOL-284
-     */
-    @Test
-    public void testMutable() throws Exception {
-        final HashSetFactory factory = new HashSetFactory();
-        try (final GenericObjectPool<HashSet<String>> pool = new GenericObjectPool<>(factory,
-                new GenericObjectPoolConfig<>())) {
-            final HashSet<String> s1 = pool.borrowObject();
-            final HashSet<String> s2 = pool.borrowObject();
-            s1.add("One");
-            s2.add("One");
-            pool.returnObject(s1);
-            pool.returnObject(s2);
-        }
-    }
-
-    /**
-     * Verifies that concurrent threads never "share" instances
-     */
-
-    /**
-     * POOL-376
-     */
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testNoInvalidateNPE() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setMaxWaitMillis(-1);
-        final String obj = genericObjectPool.borrowObject();
-        // Make validation fail - this will cause create() to return null
-        simpleFactory.setValid(false);
-        // Create a take waiter
-        final WaitingTestThread wtt = new WaitingTestThread(genericObjectPool, 200);
-        wtt.start();
-        // Give wtt time to start
-        Thread.sleep(200);
-        genericObjectPool.invalidateObject(obj);
-        // Now allow create to succeed so waiter can be served
-        simpleFactory.setValid(true);
-    }
-
-    /**
-     * This is the test case for POOL-263. It is disabled since it will always
-     * pass without artificial delay being injected into GOP.returnObject() and
-     * a way to this hasn't currently been found that doesn't involve
-     * polluting the GOP implementation. The artificial delay needs to be
-     * inserted just before the final call to isLifo() in the returnObject()
-     * method.
-     */
-    //@Test
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        assertConfiguration(expected,genericObjectPool);
-        expected.setMaxTotal(2);
-        expected.setMaxIdle(3);
-        expected.setMaxWait(Duration.ofMillis(5));
-        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
-        expected.setNumTestsPerEvictionRun(9);
-        expected.setTestOnCreate(true);
-        expected.setTestOnBorrow(true);
-        expected.setTestOnReturn(true);
-        expected.setTestWhileIdle(true);
-        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
-        expected.setBlockWhenExhausted(false);
-        genericObjectPool.setConfig(expected);
-        assertConfiguration(expected,genericObjectPool);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testThreaded1() throws Exception {
-        genericObjectPool.setMaxTotal(15);
-        genericObjectPool.setMaxIdle(15);
-        genericObjectPool.setMaxWaitMillis(1000L);
-        runTestThreads(20, 100, 50, genericObjectPool);
-    }
-
-    /**
-     * Tests POOL-361
-     */
-
-    /**
-     * Tests POOL-361
-     */
-
-    /**
-     * Verify that threads waiting on a depleted pool get served when a returning object fails
-     * validation.
-     *
-     * JIRA: POOL-240
-     *
-     * @throws Exception May occur in some failure modes
-     */
-    @Test
-    public void testValidationFailureOnReturnFreesCapacity() throws Exception {
-        final SimpleFactory factory = new SimpleFactory();
-        factory.setValid(false); // Validate will always fail
-        factory.setValidationEnabled(true);
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory)) {
-            pool.setMaxTotal(2);
-            pool.setMaxWaitMillis(1500);
-            pool.setTestOnReturn(true);
-            pool.setTestOnBorrow(false);
-            // Borrow an instance and hold if for 5 seconds
-            final WaitingTestThread thread1 = new WaitingTestThread(pool, 5000);
-            thread1.start();
-            // Borrow another instance and return it after 500 ms (validation will fail)
-            final WaitingTestThread thread2 = new WaitingTestThread(pool, 500);
-            thread2.start();
-            Thread.sleep(50);
-            // Try to borrow an object
-            final String obj = pool.borrowObject();
-            pool.returnObject(obj);
-        }
-    }
-
-    // POOL-276
-
-    /**
-     * POOL-189
-     *
-     * @throws Exception May occur in some failure modes
-     */
-
-    @SuppressWarnings("deprecation")
-    private void assertConfiguration(final GenericObjectPoolConfig<?> expected, final GenericObjectPool<?> actual) {
-        assertEquals(Boolean.valueOf(expected.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),"testOnCreate");
-        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),"testOnBorrow");
-        assertEquals(Boolean.valueOf(expected.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),"testOnReturn");
-        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),"testWhileIdle");
-        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),"whenExhaustedAction");
-        assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
-        assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
-        assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
-        assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
-        assertEquals(expected.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
-        assertEquals(expected.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
-        assertEquals(expected.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
-        assertEquals(expected.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
-        assertEquals(expected.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
-        assertEquals(expected.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
-        assertEquals(expected.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
-        assertEquals(expected.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
-        assertEquals(expected.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
-        assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
-    }
-
-    // custom assertion
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration() {
-        assertConfiguration(new GenericObjectPoolConfig<>(),genericObjectPool);
-    }
-
-    @Test
-    public void testAbandonedPool_1_oe() throws Exception {
-        final GenericObjectPoolConfig<String> config = new GenericObjectPoolConfig<>();
-        config.setJmxEnabled(false);
-        GenericObjectPool<String> abandoned = new GenericObjectPool<>(simpleFactory, config);
-        abandoned.setTimeBetweenEvictionRuns(Duration.ofMillis(100)); // Starts evictor
-        assertEquals(abandoned.getRemoveAbandonedTimeout(), abandoned.getRemoveAbandonedTimeoutDuration().getSeconds());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_1_oe() throws Exception {
-        assertEquals( 0, genericObjectPool.getNumIdle(),"should be zero idle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_2_oe() throws Exception {
-        // removed other assertion
-        genericObjectPool.addObject();
-        assertEquals( 1, genericObjectPool.getNumIdle(),"should be one idle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_3_oe() throws Exception {
-        // removed other assertion
-        genericObjectPool.addObject();
-        // removed other assertion
-        assertEquals( 0, genericObjectPool.getNumActive(),"should be zero active");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_4_oe() throws Exception {
-        // removed other assertion
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
-        final String obj = genericObjectPool.borrowObject();
-        assertEquals( 0, genericObjectPool.getNumIdle(),"should be zero idle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_5_oe() throws Exception {
-        // removed other assertion
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        assertEquals( 1, genericObjectPool.getNumActive(),"should be one active");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_6_oe() throws Exception {
-        // removed other assertion
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        // removed other assertion
-        genericObjectPool.returnObject(obj);
-        assertEquals( 1, genericObjectPool.getNumIdle(),"should be one idle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testAddObject_7_oe() throws Exception {
-        // removed other assertion
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        // removed other assertion
-        genericObjectPool.returnObject(obj);
-        // removed other assertion
-        assertEquals( 0, genericObjectPool.getNumActive(),"should be zero active");
-    }
-
-    @Test
-    public void testAppendStats_1_oe() {
-        assertFalse(genericObjectPool.getMessageStatistics());
-    }
-
-    @Test
-    public void testAppendStats_2_oe() {
-        // removed other assertion
-        assertEquals("foo", (genericObjectPool.appendStats("foo")));
-    }
-
-    @Test
-    public void testAppendStats_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        try (final GenericObjectPool<?> pool = new GenericObjectPool<>(new SimpleFactory())) {
-            pool.setMessagesStatistics(true);
-            assertNotEquals("foo", (pool.appendStats("foo")));
-    }
-    }
-
-    @Test
-    public void testAppendStats_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        try (final GenericObjectPool<?> pool = new GenericObjectPool<>(new SimpleFactory())) {
-            pool.setMessagesStatistics(true);
-            // removed other assertion
-            pool.setMessagesStatistics(false);
-            assertEquals("foo", (pool.appendStats("foo")));
-    }
-    }
-
-    @Test
-    public void testBorrowTimings_1_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(lastBorrowInstant1));
-    }
-
-    @Test
-    public void testBorrowTimings_2_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(lastReturnInstant1));
-    }
-
-    @Test
-    public void testBorrowTimings_3_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(lastUsedInstant1));
-    }
-
-    @Test
-    public void testBorrowTimings_4_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getCreateTime(), lessThanOrEqualTo(lastBorrowInstant1.toEpochMilli()));
-    }
-
-    @Test
-    public void testBorrowTimings_5_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getCreateTime(), lessThanOrEqualTo(lastReturnInstant1.toEpochMilli()));
-    }
-
-    @Test
-    public void testBorrowTimings_6_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getCreateTime(), lessThanOrEqualTo(lastUsedInstant1.toEpochMilli()));
-    }
-
-    @Test
-    public void testBorrowTimings_7_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        assertFalse(po.getActiveDuration().isNegative());
-    }
-
-    @Test
-    public void testBorrowTimings_8_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        assertFalse(po.getActiveDuration().isZero());
-    }
-
-    @Test
-    public void testBorrowTimings_9_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        assertThat(1L,lessThanOrEqualTo(2L));// sanity check assertThat(Duration.ZERO,lessThanOrEqualTo(Duration.ZERO.plusNanos(1)));// sanity check assertThat(po.getActiveDuration(),lessThanOrEqualTo(po.getIdleDuration()));
-    }
-
-    @Test
-    public void testBorrowTimings_10_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
-    }
-
-    @Test
-    public void testBorrowTimings_11_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
-    }
-
-    @Test
-    public void testBorrowTimings_12_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getIdleTime()));
-    }
-
-    @Test
-    public void testBorrowTimings_13_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getIdleTimeMillis()));
-    }
-
-    @Test
-    public void testBorrowTimings_14_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastBorrowInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_15_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastReturnInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_16_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastUsedInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_17_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_18_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_19_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertThat(lastUsedInstant1, lessThanOrEqualTo(po.getLastUsedInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_20_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        assertFalse(po.getActiveDuration().isNegative());
-    }
-
-    @Test
-    public void testBorrowTimings_21_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        assertFalse(po.getActiveDuration().isZero());
-    }
-
-    @Test
-    public void testBorrowTimings_22_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
-    }
-
-    @Test
-    public void testBorrowTimings_23_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
-    }
-
-    @Test
-    public void testBorrowTimings_24_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_25_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_26_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertThat(lastUsedInstant1, lessThanOrEqualTo(po.getLastUsedInstant()));
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBorrowObjectFairness_1_oe() throws Exception {
-
-        final int numThreads = 40;
-        final int maxTotal = 40;
-
-        final GenericObjectPoolConfig config = new GenericObjectPoolConfig();
-        config.setMaxTotal(maxTotal);
-        config.setMaxIdle(maxTotal);
-        config.setFairness(true);
-        config.setLifo(false);
-
-        genericObjectPool = new GenericObjectPool(simpleFactory, config);
-
-        // Exhaust the pool
-        final String[] objects = new String[maxTotal];
-        for (int i = 0; i < maxTotal; i++) {
-            objects[i] = genericObjectPool.borrowObject();
-        }
-
-        // Start and park threads waiting to borrow objects
-        final TestThread[] threads = new TestThread[numThreads];
-        for(int i=0;i<numThreads;i++) {
-            threads[i] = new TestThread(genericObjectPool, 1, 0, 2000, false, String.valueOf(i % maxTotal));
-            final Thread t = new Thread(threads[i]);
-            t.start();
-            // Short delay to ensure threads start in correct order
-            try {
-                Thread.sleep(10);
-            } catch (final InterruptedException e) {
-                fail(e.toString());
-    }
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBorrowObjectFairness_2_oe() throws Exception {
-
-        final int numThreads = 40;
-        final int maxTotal = 40;
-
-        final GenericObjectPoolConfig config = new GenericObjectPoolConfig();
-        config.setMaxTotal(maxTotal);
-        config.setMaxIdle(maxTotal);
-        config.setFairness(true);
-        config.setLifo(false);
-
-        genericObjectPool = new GenericObjectPool(simpleFactory, config);
-
-        // Exhaust the pool
-        final String[] objects = new String[maxTotal];
-        for (int i = 0; i < maxTotal; i++) {
-            objects[i] = genericObjectPool.borrowObject();
-        }
-
-        // Start and park threads waiting to borrow objects
-        final TestThread[] threads = new TestThread[numThreads];
-        for(int i=0;i<numThreads;i++) {
-            threads[i] = new TestThread(genericObjectPool, 1, 0, 2000, false, String.valueOf(i % maxTotal));
-            final Thread t = new Thread(threads[i]);
-            t.start();
-            // Short delay to ensure threads start in correct order
-            try {
-                Thread.sleep(10);
-            } catch (final InterruptedException e) {
-                // removed other assertion
-            }
-        }
-
-        // Return objects, other threads should get served in order
-        for (int i = 0; i < maxTotal; i++) {
-            genericObjectPool.returnObject(objects[i]);
-        }
-
-        // Wait for threads to finish
-        for (int i = 0; i < numThreads; i++) {
-            while (!(threads[i]).complete()) {
-                Waiter.sleepQuietly(500L);
-            }
-            if (threads[i].failed()) {
-                fail("Thread " + i + " failed: " + threads[i].error.toString());
-    }
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBrokenFactoryShouldNotBlockPool_1_oe() throws Exception {
-        final int maxTotal = 1;
-
-        simpleFactory.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setTestOnBorrow(true);
-
-        // First borrow object will need to create a new object which will fail
-        // validation.
-        String obj = null;
-        Exception ex = null;
-        simpleFactory.setValid(false);
-        try {
-            obj = genericObjectPool.borrowObject();
-        } catch (final Exception e) {
-            ex = e;
-        }
-        // Failure expected
-        assertNotNull(ex);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBrokenFactoryShouldNotBlockPool_2_oe() throws Exception {
-        final int maxTotal = 1;
-
-        simpleFactory.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setTestOnBorrow(true);
-
-        // First borrow object will need to create a new object which will fail
-        // validation.
-        String obj = null;
-        Exception ex = null;
-        simpleFactory.setValid(false);
-        try {
-            obj = genericObjectPool.borrowObject();
-        } catch (final Exception e) {
-            ex = e;
-        }
-        // Failure expected
-        // removed other assertion
-        assertTrue(ex instanceof NoSuchElementException);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBrokenFactoryShouldNotBlockPool_3_oe() throws Exception {
-        final int maxTotal = 1;
-
-        simpleFactory.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setTestOnBorrow(true);
-
-        // First borrow object will need to create a new object which will fail
-        // validation.
-        String obj = null;
-        Exception ex = null;
-        simpleFactory.setValid(false);
-        try {
-            obj = genericObjectPool.borrowObject();
-        } catch (final Exception e) {
-            ex = e;
-        }
-        // Failure expected
-        // removed other assertion
-        // removed other assertion
-        assertNull(obj);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBrokenFactoryShouldNotBlockPool_4_oe() throws Exception {
-        final int maxTotal = 1;
-
-        simpleFactory.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setTestOnBorrow(true);
-
-        // First borrow object will need to create a new object which will fail
-        // validation.
-        String obj = null;
-        Exception ex = null;
-        simpleFactory.setValid(false);
-        try {
-            obj = genericObjectPool.borrowObject();
-        } catch (final Exception e) {
-            ex = e;
-        }
-        // Failure expected
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Configure factory to create valid objects so subsequent borrows work
-        simpleFactory.setValid(true);
-
-        // Subsequent borrows should be OK
-        obj = genericObjectPool.borrowObject();
-        assertNotNull(obj);
-    }
-
-    @Test
-    public void testClientWaitStats_1_oe() throws Exception {
-        final SimpleFactory factory = new SimpleFactory();
-        // Give makeObject a little latency
-        factory.setMakeLatency(200);
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory, new GenericObjectPoolConfig<>())) {
-            final String s = pool.borrowObject();
-            // First borrow waits on create, so wait time should be at least 200 ms
-            // Allow 100ms error in clock times
-            assertTrue(pool.getMaxBorrowWaitTimeMillis() >= 100);
-    }
-    }
-
-    @Test
-    public void testClientWaitStats_2_oe() throws Exception {
-        final SimpleFactory factory = new SimpleFactory();
-        // Give makeObject a little latency
-        factory.setMakeLatency(200);
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory, new GenericObjectPoolConfig<>())) {
-            final String s = pool.borrowObject();
-            // First borrow waits on create, so wait time should be at least 200 ms
-            // Allow 100ms error in clock times
-            // removed other assertion
-            assertTrue(pool.getMeanBorrowWaitTimeMillis() >= 100);
-    }
-    }
-
-    @Test
-    public void testClientWaitStats_3_oe() throws Exception {
-        final SimpleFactory factory = new SimpleFactory();
-        // Give makeObject a little latency
-        factory.setMakeLatency(200);
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory, new GenericObjectPoolConfig<>())) {
-            final String s = pool.borrowObject();
-            // First borrow waits on create, so wait time should be at least 200 ms
-            // Allow 100ms error in clock times
-            // removed other assertion
-            // removed other assertion
-            pool.returnObject(s);
-            pool.borrowObject();
-            // Second borrow does not have to wait on create, average should be about 100
-            assertTrue(pool.getMaxBorrowWaitTimeMillis() > 100);
-    }
-    }
-
-    @Test
-    public void testClientWaitStats_4_oe() throws Exception {
-        final SimpleFactory factory = new SimpleFactory();
-        // Give makeObject a little latency
-        factory.setMakeLatency(200);
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory, new GenericObjectPoolConfig<>())) {
-            final String s = pool.borrowObject();
-            // First borrow waits on create, so wait time should be at least 200 ms
-            // Allow 100ms error in clock times
-            // removed other assertion
-            // removed other assertion
-            pool.returnObject(s);
-            pool.borrowObject();
-            // Second borrow does not have to wait on create, average should be about 100
-            // removed other assertion
-            assertTrue(pool.getMeanBorrowWaitTimeMillis() < 200);
-    }
-    }
-
-    @Test
-    public void testClientWaitStats_5_oe() throws Exception {
-        final SimpleFactory factory = new SimpleFactory();
-        // Give makeObject a little latency
-        factory.setMakeLatency(200);
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory, new GenericObjectPoolConfig<>())) {
-            final String s = pool.borrowObject();
-            // First borrow waits on create, so wait time should be at least 200 ms
-            // Allow 100ms error in clock times
-            // removed other assertion
-            // removed other assertion
-            pool.returnObject(s);
-            pool.borrowObject();
-            // Second borrow does not have to wait on create, average should be about 100
-            // removed other assertion
-            // removed other assertion
-            assertTrue(pool.getMeanBorrowWaitTimeMillis() > 20);
-    }
-    }
-
-    @Test
-    public void testConcurrentInvalidate_1_oe() throws Exception {
+    public void testConcurrentInvalidate() throws Exception {
         // Get allObjects and idleObjects loaded with some instances
         final int nObjects = 1000;
         genericObjectPool.setMaxTotal(nObjects);
@@ -2725,14 +1250,15 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     }
 
     @Test
-    public void testConstructorNullFactory_1_oe() {
+    public void testConstructorNullFactory() {
         // add dummy assert (won't be invoked because of IAE) to avoid "unused" warning
-        assertThrows(IllegalArgumentException.class, () -> new GenericObjectPool<>(null));
+        assertThrows(IllegalArgumentException.class,
+                () -> new GenericObjectPool<>(null));
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_1_oe() {
+    public void testConstructors() {
 
         // Make constructor arguments all different from defaults
         final int minIdle = 2;
@@ -2752,541 +1278,21 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
         try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
             assertEquals(GenericObjectPoolConfig.DEFAULT_MAX_IDLE, dummyPool.getMaxIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_2_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_MAX_WAIT_MILLIS, dummyPool.getMaxWaitMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_3_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
             assertEquals(GenericObjectPoolConfig.DEFAULT_MIN_IDLE, dummyPool.getMinIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_4_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(GenericObjectPoolConfig.DEFAULT_MAX_TOTAL, dummyPool.getMaxTotal());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_5_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS,dummyPool.getMinEvictableIdleTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_6_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME,dummyPool.getMinEvictableIdleTime());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_7_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME,dummyPool.getMinEvictableIdleDuration());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_8_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_NUM_TESTS_PER_EVICTION_RUN,dummyPool.getNumTestsPerEvictionRun());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_9_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_BORROW),Boolean.valueOf(dummyPool.getTestOnBorrow()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_10_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_RETURN),Boolean.valueOf(dummyPool.getTestOnReturn()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_11_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_WHILE_IDLE),Boolean.valueOf(dummyPool.getTestWhileIdle()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_12_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS,dummyPool.getDurationBetweenEvictionRuns());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_13_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS_MILLIS,dummyPool.getTimeBetweenEvictionRunsMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_14_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS,dummyPool.getTimeBetweenEvictionRuns());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_15_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_BLOCK_WHEN_EXHAUSTED),Boolean.valueOf(dummyPool.getBlockWhenExhausted()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_16_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_LIFO), Boolean.valueOf(dummyPool.getLifo()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_17_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
         }
 
         final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
@@ -3297,910 +1303,52 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         config.setMaxWait(maxWaitDuration);
         config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
         assertEquals(minEvictableIdleMillis, config.getMinEvictableIdleTime().toMillis());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_18_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
         config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
         config.setTestOnBorrow(testOnBorrow);
         config.setTestOnReturn(testOnReturn);
         config.setTestWhileIdle(testWhileIdle);
         config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
         assertEquals(timeBetweenEvictionRunsMillis, config.getTimeBetweenEvictionRuns().toMillis());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_19_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
         config.setBlockWhenExhausted(blockWhenExhausted);
         try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
             assertEquals(maxIdle, dummyPool.getMaxIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_20_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
             assertEquals(maxWaitDuration, dummyPool.getMaxWaitDuration());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_21_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
             assertEquals(maxWaitMillis, dummyPool.getMaxWaitMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_22_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(minIdle, dummyPool.getMinIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_23_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(maxTotal, dummyPool.getMaxTotal());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_24_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(minEvictableIdleMillis, dummyPool.getMinEvictableIdleTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_25_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(numTestsPerEvictionRun, dummyPool.getNumTestsPerEvictionRun());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_26_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(testOnBorrow), Boolean.valueOf(dummyPool.getTestOnBorrow()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_27_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(testOnReturn), Boolean.valueOf(dummyPool.getTestOnReturn()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_28_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(testWhileIdle), Boolean.valueOf(dummyPool.getTestWhileIdle()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_29_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(timeBetweenEvictionRunsMillis, dummyPool.getTimeBetweenEvictionRunsMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_30_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(blockWhenExhausted), Boolean.valueOf(dummyPool.getBlockWhenExhausted()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testConstructors_31_oe() {
-
-        // Make constructor arguments all different from defaults
-        final int minIdle = 2;
-        final Duration maxWaitDuration = Duration.ofMillis(3);
-        final long maxWaitMillis = maxWaitDuration.toMillis();
-        final int maxIdle = 4;
-        final int maxTotal = 5;
-        final Duration minEvictableIdleDuration = Duration.ofMillis(6);
-        final long minEvictableIdleMillis = minEvictableIdleDuration.toMillis();
-        final int numTestsPerEvictionRun = 7;
-        final boolean testOnBorrow = true;
-        final boolean testOnReturn = true;
-        final boolean testWhileIdle = true;
-        final long timeBetweenEvictionRunsMillis = 8;
-        final boolean blockWhenExhausted = false;
-        final boolean lifo = false;
-        final PooledObjectFactory<Object> dummyFactory = new DummyFactory();
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        final GenericObjectPoolConfig<Object> config = new GenericObjectPoolConfig<>();
-        config.setLifo(lifo);
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setMaxTotal(maxTotal);
-        config.setMaxWait(maxWaitDuration);
-        config.setMinEvictableIdleTimeMillis(minEvictableIdleMillis);
-        // removed other assertion
-        config.setNumTestsPerEvictionRun(numTestsPerEvictionRun);
-        config.setTestOnBorrow(testOnBorrow);
-        config.setTestOnReturn(testOnReturn);
-        config.setTestWhileIdle(testWhileIdle);
-        config.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        // removed other assertion
-        config.setBlockWhenExhausted(blockWhenExhausted);
-        try (GenericObjectPool<Object> dummyPool = new GenericObjectPool<>(dummyFactory, config)) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
             assertEquals(Boolean.valueOf(lifo), Boolean.valueOf(dummyPool.getLifo()));
+        }
     }
+
+
+
+    /**
+     * Verifies that when a factory's makeObject produces instances that are not
+     * discernible by equals, the pool can handle them.
+     *
+     * JIRA: POOL-283
+     */
+    @Test
+    public void testEqualsIndiscernible() throws Exception {
+        final HashSetFactory factory = new HashSetFactory();
+        try (final GenericObjectPool<HashSet<String>> pool = new GenericObjectPool<>(factory,
+                new GenericObjectPoolConfig<>())) {
+            final HashSet<String> s1 = pool.borrowObject();
+            final HashSet<String> s2 = pool.borrowObject();
+            pool.returnObject(s1);
+            pool.returnObject(s2);
+        }
     }
 
     @Test
-    public void testErrorFactoryDoesNotBlockThreads_1_oe() throws Exception {
+    public void testErrorFactoryDoesNotBlockThreads() throws Exception {
 
         final CreateErrorFactory factory = new CreateErrorFactory();
         try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
@@ -4241,155 +1389,22 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
                 count++;
             }
             assertFalse(thread1.isAlive());
-    }
-    }
-
-    @Test
-    public void testErrorFactoryDoesNotBlockThreads_2_oe() throws Exception {
-
-        final CreateErrorFactory factory = new CreateErrorFactory();
-        try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
-
-            createFailFactoryPool.setMaxTotal(1);
-
-            // Try and borrow the first object from the pool
-            final WaitingTestThread thread1 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread to reach semaphore
-            while (!factory.hasQueuedThreads()) {
-                Thread.sleep(200);
-            }
-
-            // Try and borrow the second object from the pool
-            final WaitingTestThread thread2 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread2.start();
-            // Pool will not call factory since maximum number of object creations
-            // are already queued.
-
-            // Thread 2 will wait on an object being returned to the pool
-            // Give thread 2 a chance to reach this state
-            Thread.sleep(1000);
-
-            // Release thread1
-            factory.release();
-            // Pre-release thread2
-            factory.release();
-
-            // Both threads should now complete.
-            boolean threadRunning = true;
-            int count = 0;
-            while (threadRunning && count < 15) {
-                threadRunning = thread1.isAlive();
-                threadRunning = thread2.isAlive();
-                Thread.sleep(200);
-                count++;
-            }
-            // removed other assertion
             assertFalse(thread2.isAlive());
-    }
-    }
-
-    @Test
-    public void testErrorFactoryDoesNotBlockThreads_3_oe() throws Exception {
-
-        final CreateErrorFactory factory = new CreateErrorFactory();
-        try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
-
-            createFailFactoryPool.setMaxTotal(1);
-
-            // Try and borrow the first object from the pool
-            final WaitingTestThread thread1 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread to reach semaphore
-            while (!factory.hasQueuedThreads()) {
-                Thread.sleep(200);
-            }
-
-            // Try and borrow the second object from the pool
-            final WaitingTestThread thread2 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread2.start();
-            // Pool will not call factory since maximum number of object creations
-            // are already queued.
-
-            // Thread 2 will wait on an object being returned to the pool
-            // Give thread 2 a chance to reach this state
-            Thread.sleep(1000);
-
-            // Release thread1
-            factory.release();
-            // Pre-release thread2
-            factory.release();
-
-            // Both threads should now complete.
-            boolean threadRunning = true;
-            int count = 0;
-            while (threadRunning && count < 15) {
-                threadRunning = thread1.isAlive();
-                threadRunning = thread2.isAlive();
-                Thread.sleep(200);
-                count++;
-            }
-            // removed other assertion
-            // removed other assertion
 
             assertTrue(thread1.thrown instanceof UnknownError);
-    }
-    }
-
-    @Test
-    public void testErrorFactoryDoesNotBlockThreads_4_oe() throws Exception {
-
-        final CreateErrorFactory factory = new CreateErrorFactory();
-        try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
-
-            createFailFactoryPool.setMaxTotal(1);
-
-            // Try and borrow the first object from the pool
-            final WaitingTestThread thread1 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread to reach semaphore
-            while (!factory.hasQueuedThreads()) {
-                Thread.sleep(200);
-            }
-
-            // Try and borrow the second object from the pool
-            final WaitingTestThread thread2 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread2.start();
-            // Pool will not call factory since maximum number of object creations
-            // are already queued.
-
-            // Thread 2 will wait on an object being returned to the pool
-            // Give thread 2 a chance to reach this state
-            Thread.sleep(1000);
-
-            // Release thread1
-            factory.release();
-            // Pre-release thread2
-            factory.release();
-
-            // Both threads should now complete.
-            boolean threadRunning = true;
-            int count = 0;
-            while (threadRunning && count < 15) {
-                threadRunning = thread1.isAlive();
-                threadRunning = thread2.isAlive();
-                Thread.sleep(200);
-                count++;
-            }
-            // removed other assertion
-            // removed other assertion
-
-            // removed other assertion
             assertTrue(thread2.thrown instanceof UnknownError);
-    }
+        }
     }
 
+    /**
+     * Tests addObject contention between ensureMinIdle triggered by
+     * the Evictor with minIdle &gt; 0 and borrowObject.
+     *
+     * @throws Exception May occur in some failure modes
+     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictAddObjects_1_oe() throws Exception {
+    public void testEvictAddObjects() throws Exception {
         simpleFactory.setMakeLatency(300);
         simpleFactory.setMaxTotal(2);
         genericObjectPool.setMaxTotal(2);
@@ -4408,7 +1423,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_1_oe() throws Exception {
+    public void testEvictFIFO() throws Exception {
+        checkEvict(false);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction() throws Exception {
         genericObjectPool.setMaxIdle(500);
         genericObjectPool.setMaxTotal(500);
         genericObjectPool.setNumTestsPerEvictionRun(100);
@@ -4426,178 +1447,16 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(1000L);
         assertTrue(genericObjectPool.getNumIdle() < 500,"Should be less than 500 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_2_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 400,"Should be less than 400 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_3_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 300,"Should be less than 300 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_4_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 200,"Should be less than 200 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_5_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 100,"Should be less than 100 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_6_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_7_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
 
         for (int i = 0; i < 500; i++) {
             active[i] = genericObjectPool.borrowObject();
@@ -4608,251 +1467,21 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(1000L);
         assertTrue(genericObjectPool.getNumIdle() < 500,"Should be less than 500 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_8_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 400,"Should be less than 400 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_9_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 300,"Should be less than 300 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_10_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 200,"Should be less than 200 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_11_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertTrue(genericObjectPool.getNumIdle() < 100,"Should be less than 100 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction_12_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(100);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
-        Waiter.sleepQuietly(600L);
-        // removed other assertion
         Waiter.sleepQuietly(600L);
         assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionInvalid_1_oe() throws Exception {
+    public void testEvictionInvalid() throws Exception {
 
         try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
 
@@ -4885,51 +1514,30 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
             // Should have an empty pool
             assertEquals( 0, invalidFactoryPool.getNumIdle(),"Idle count different than expected.");
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionInvalid_2_oe() throws Exception {
-
-        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
-
-            invalidFactoryPool.setMaxIdle(1);
-            invalidFactoryPool.setMaxTotal(1);
-            invalidFactoryPool.setTestOnBorrow(false);
-            invalidFactoryPool.setTestOnReturn(false);
-            invalidFactoryPool.setTestWhileIdle(true);
-            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
-            invalidFactoryPool.setNumTestsPerEvictionRun(1);
-
-            final Object p = invalidFactoryPool.borrowObject();
-            invalidFactoryPool.returnObject(p);
-
-            // Run eviction in a separate thread
-            final Thread t = new EvictionThread<>(invalidFactoryPool);
-            t.start();
-
-            // Sleep to make sure evictor has started
-            Thread.sleep(300);
-
-            try {
-                invalidFactoryPool.borrowObject(1);
-            } catch (final NoSuchElementException nsee) {
-                // Ignore
-            }
-
-            // Make sure evictor has finished
-            Thread.sleep(1000);
-
-            // Should have an empty pool
-            // removed other assertion
             assertEquals( 0, invalidFactoryPool.getNumActive(),"Total count different than expected.");
+        }
     }
+
+    /**
+     * Test to make sure evictor visits least recently used objects first,
+     * regardless of FIFO/LIFO.
+     *
+     * JIRA: POOL-86
+     *
+     * @throws Exception May occur in some failure modes
+     */
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEvictionOrder() throws Exception {
+        checkEvictionOrder(false);
+        tearDown();
+        setUp();
+        checkEvictionOrder(true);
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_1_oe() throws Exception {
+    public void testEvictionPolicy() throws Exception {
         genericObjectPool.setMaxIdle(500);
         genericObjectPool.setMaxTotal(500);
         genericObjectPool.setNumTestsPerEvictionRun(500);
@@ -4938,147 +1546,25 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setTestWhileIdle(true);
 
         // ClassNotFoundException
-        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(Long.toString(System.currentTimeMillis())), "setEvictionPolicyClassName must throw an error if the class name is invalid.");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_2_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
+        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(Long.toString(System.currentTimeMillis())),
+                "setEvictionPolicyClassName must throw an error if the class name is invalid.");
 
         // InstantiationException
-        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(java.io.Serializable.class.getName()), "setEvictionPolicyClassName must throw an error if the class name is invalid.");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_3_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
-
-        // InstantiationException
-        // removed other assertion
+        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(java.io.Serializable.class.getName()),
+                "setEvictionPolicyClassName must throw an error if the class name is invalid.");
 
         // IllegalAccessException
-        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(java.util.Collections.class.getName()), "setEvictionPolicyClassName must throw an error if the class name is invalid.");
-    }
+        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(java.util.Collections.class.getName()),
+                "setEvictionPolicyClassName must throw an error if the class name is invalid.");
 
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_4_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
-
-        // InstantiationException
-        // removed other assertion
-
-        // IllegalAccessException
-        // removed other assertion
-
-        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(java.lang.String.class.getName()), () -> "setEvictionPolicyClassName must throw an error if a class that does not implement EvictionPolicy is specified.");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_5_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
-
-        // InstantiationException
-        // removed other assertion
-
-        // IllegalAccessException
-        // removed other assertion
-
-        // removed other assertion
+        assertThrows(IllegalArgumentException.class, () -> genericObjectPool.setEvictionPolicyClassName(java.lang.String.class.getName()),
+                () -> "setEvictionPolicyClassName must throw an error if a class that does not implement EvictionPolicy is specified.");
 
         genericObjectPool.setEvictionPolicy(new TestEvictionPolicy<>());
         assertEquals(TestEvictionPolicy.class.getName(), genericObjectPool.getEvictionPolicyClassName());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_6_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
-
-        // InstantiationException
-        // removed other assertion
-
-        // IllegalAccessException
-        // removed other assertion
-
-        // removed other assertion
-
-        genericObjectPool.setEvictionPolicy(new TestEvictionPolicy<>());
-        // removed other assertion
 
         genericObjectPool.setEvictionPolicyClassName(TestEvictionPolicy.class.getName());
         assertEquals(TestEvictionPolicy.class.getName(), genericObjectPool.getEvictionPolicyClassName());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_7_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
-
-        // InstantiationException
-        // removed other assertion
-
-        // IllegalAccessException
-        // removed other assertion
-
-        // removed other assertion
-
-        genericObjectPool.setEvictionPolicy(new TestEvictionPolicy<>());
-        // removed other assertion
-
-        genericObjectPool.setEvictionPolicyClassName(TestEvictionPolicy.class.getName());
-        // removed other assertion
 
         final String[] active = new String[500];
         for (int i = 0; i < 500; i++) {
@@ -5093,48 +1579,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // evictions
         Waiter.sleepQuietly(1000L);
         assertEquals(500, genericObjectPool.getNumIdle(), "Should be 500 idle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionPolicy_8_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMaxTotal(500);
-        genericObjectPool.setNumTestsPerEvictionRun(500);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-        genericObjectPool.setTestWhileIdle(true);
-
-        // ClassNotFoundException
-        // removed other assertion
-
-        // InstantiationException
-        // removed other assertion
-
-        // IllegalAccessException
-        // removed other assertion
-
-        // removed other assertion
-
-        genericObjectPool.setEvictionPolicy(new TestEvictionPolicy<>());
-        // removed other assertion
-
-        genericObjectPool.setEvictionPolicyClassName(TestEvictionPolicy.class.getName());
-        // removed other assertion
-
-        final String[] active = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 500; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        // Eviction policy ignores first 1500 attempts to evict and then always
-        // evicts. After 1s, there should have been two runs of 500 tests so no
-        // evictions
-        Waiter.sleepQuietly(1000L);
-        // removed other assertion
         // A further 1s wasn't enough so allow 2s for the evictor to clear out
         // all of the idle objects.
         Waiter.sleepQuietly(2000L);
@@ -5143,7 +1587,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionSoftMinIdle_1_oe() throws Exception {
+    public void testEvictionSoftMinIdle() throws Exception {
         class TimeTest extends BasePooledObjectFactory<TimeTest> {
             private final long createTimeMillis;
 
@@ -5191,70 +1635,17 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             Thread.sleep(1500L);
             timePool.evict();
             assertEquals( 2, timePool.getNumIdle(),"Idle count different than expected.");
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionSoftMinIdle_2_oe() throws Exception {
-        class TimeTest extends BasePooledObjectFactory<TimeTest> {
-            private final long createTimeMillis;
-
-            public TimeTest() {
-                createTimeMillis = System.currentTimeMillis();
-            }
-
-            @Override
-            public TimeTest create() throws Exception {
-                return new TimeTest();
-            }
-
-            public long getCreateTimeMillis() {
-                return createTimeMillis;
-            }
-
-            @Override
-            public PooledObject<TimeTest> wrap(final TimeTest value) {
-                return new DefaultPooledObject<>(value);
-            }
-        }
-
-        try (final GenericObjectPool<TimeTest> timePool = new GenericObjectPool<>(new TimeTest())) {
-
-            timePool.setMaxIdle(5);
-            timePool.setMaxTotal(5);
-            timePool.setNumTestsPerEvictionRun(5);
-            timePool.setMinEvictableIdle(Duration.ofSeconds(3));
-            timePool.setMinEvictableIdleTime(Duration.ofSeconds(3));
-            timePool.setSoftMinEvictableIdleTime(TestConstants.ONE_SECOND_DURATION);
-            timePool.setMinIdle(2);
-
-            final TimeTest[] active = new TimeTest[5];
-            final Long[] creationTime = new Long[5];
-            for (int i = 0; i < 5; i++) {
-                active[i] = timePool.borrowObject();
-                creationTime[i] = Long.valueOf((active[i]).getCreateTimeMillis());
-            }
-
-            for (int i = 0; i < 5; i++) {
-                timePool.returnObject(active[i]);
-            }
-
-            // Soft evict all but minIdle(2)
-            Thread.sleep(1500L);
-            timePool.evict();
-            // removed other assertion
 
             // Hard evict the rest.
             Thread.sleep(2000L);
             timePool.evict();
             assertEquals( 0, timePool.getNumIdle(),"Idle count different than expected.");
-    }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionWithNegativeNumTests_1_oe() throws Exception {
+    public void testEvictionWithNegativeNumTests() throws Exception {
         // when numTestsPerEvictionRun is negative, it represents a fraction of the idle objects to test
         genericObjectPool.setMaxIdle(6);
         genericObjectPool.setMaxTotal(6);
@@ -5272,89 +1663,43 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(100L);
         assertTrue(genericObjectPool.getNumIdle() <= 6,"Should at most 6 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionWithNegativeNumTests_2_oe() throws Exception {
-        // when numTestsPerEvictionRun is negative, it represents a fraction of the idle objects to test
-        genericObjectPool.setMaxIdle(6);
-        genericObjectPool.setMaxTotal(6);
-        genericObjectPool.setNumTestsPerEvictionRun(-2);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-
-        final String[] active = new String[6];
-        for (int i = 0; i < 6; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 6; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(100L);
-        // removed other assertion
         Waiter.sleepQuietly(100L);
         assertTrue(genericObjectPool.getNumIdle() <= 3,"Should at most 3 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionWithNegativeNumTests_3_oe() throws Exception {
-        // when numTestsPerEvictionRun is negative, it represents a fraction of the idle objects to test
-        genericObjectPool.setMaxIdle(6);
-        genericObjectPool.setMaxTotal(6);
-        genericObjectPool.setNumTestsPerEvictionRun(-2);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-
-        final String[] active = new String[6];
-        for (int i = 0; i < 6; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 6; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(100L);
-        // removed other assertion
-        Waiter.sleepQuietly(100L);
-        // removed other assertion
         Waiter.sleepQuietly(100L);
         assertTrue(genericObjectPool.getNumIdle() <= 2,"Should be at most 2 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEvictionWithNegativeNumTests_4_oe() throws Exception {
-        // when numTestsPerEvictionRun is negative, it represents a fraction of the idle objects to test
-        genericObjectPool.setMaxIdle(6);
-        genericObjectPool.setMaxTotal(6);
-        genericObjectPool.setNumTestsPerEvictionRun(-2);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-
-        final String[] active = new String[6];
-        for (int i = 0; i < 6; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        for (int i = 0; i < 6; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(100L);
-        // removed other assertion
-        Waiter.sleepQuietly(100L);
-        // removed other assertion
-        Waiter.sleepQuietly(100L);
-        // removed other assertion
         Waiter.sleepQuietly(100L);
         assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionInValidationDuringEviction_1_oe() throws Exception {
+    public void testEvictLIFO() throws Exception {
+        checkEvict(true);
+    }
+
+    /**
+     * Verifies that the evictor visits objects in expected order
+     * and frequency.
+     *
+     * @throws Exception May occur in some failure modes
+     */
+    @Test
+    public void testEvictorVisiting() throws Exception {
+        checkEvictorVisiting(true);
+        checkEvictorVisiting(false);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEvictWhileEmpty() throws Exception {
+        genericObjectPool.evict();
+        genericObjectPool.evict();
+        genericObjectPool.close();
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionInValidationDuringEviction() throws Exception {
         genericObjectPool.setMaxIdle(1);
         genericObjectPool.setMinEvictableIdleTime(Duration.ZERO);
         genericObjectPool.setTestWhileIdle(true);
@@ -5365,44 +1710,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         simpleFactory.setThrowExceptionOnValidate(true);
 
         assertThrows(RuntimeException.class, () -> genericObjectPool.evict());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionInValidationDuringEviction_2_oe() throws Exception {
-        genericObjectPool.setMaxIdle(1);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ZERO);
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String active = genericObjectPool.borrowObject();
-        genericObjectPool.returnObject(active);
-
-        simpleFactory.setThrowExceptionOnValidate(true);
-
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionInValidationDuringEviction_3_oe() throws Exception {
-        genericObjectPool.setMaxIdle(1);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ZERO);
-        genericObjectPool.setTestWhileIdle(true);
-
-        final String active = genericObjectPool.borrowObject();
-        genericObjectPool.returnObject(active);
-
-        simpleFactory.setThrowExceptionOnValidate(true);
-
-        // removed other assertion
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnActivateDuringBorrow_1_oe() throws Exception {
+    public void testExceptionOnActivateDuringBorrow() throws Exception {
         final String obj1 = genericObjectPool.borrowObject();
         final String obj2 = genericObjectPool.borrowObject();
         genericObjectPool.returnObject(obj1);
@@ -5413,129 +1727,32 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // First attempt throws, but loop continues and second succeeds
         final String obj = genericObjectPool.borrowObject();
         assertEquals(1, genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnActivateDuringBorrow_2_oe() throws Exception {
-        final String obj1 = genericObjectPool.borrowObject();
-        final String obj2 = genericObjectPool.borrowObject();
-        genericObjectPool.returnObject(obj1);
-        genericObjectPool.returnObject(obj2);
-        simpleFactory.setThrowExceptionOnActivate(true);
-        simpleFactory.setEvenValid(false);
-        // Activation will now throw every other time
-        // First attempt throws, but loop continues and second succeeds
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnActivateDuringBorrow_3_oe() throws Exception {
-        final String obj1 = genericObjectPool.borrowObject();
-        final String obj2 = genericObjectPool.borrowObject();
-        genericObjectPool.returnObject(obj1);
-        genericObjectPool.returnObject(obj2);
-        simpleFactory.setThrowExceptionOnActivate(true);
-        simpleFactory.setEvenValid(false);
-        // Activation will now throw every other time
-        // First attempt throws, but loop continues and second succeeds
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        // removed other assertion
 
         genericObjectPool.returnObject(obj);
         simpleFactory.setValid(false);
         // Validation will now fail on activation when borrowObject returns
         // an idle instance, and then when attempting to create a new instance
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnActivateDuringBorrow_4_oe() throws Exception {
-        final String obj1 = genericObjectPool.borrowObject();
-        final String obj2 = genericObjectPool.borrowObject();
-        genericObjectPool.returnObject(obj1);
-        genericObjectPool.returnObject(obj2);
-        simpleFactory.setThrowExceptionOnActivate(true);
-        simpleFactory.setEvenValid(false);
-        // Activation will now throw every other time
-        // First attempt throws, but loop continues and second succeeds
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(obj);
-        simpleFactory.setValid(false);
-        // Validation will now fail on activation when borrowObject returns
-        // an idle instance, and then when attempting to create a new instance
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnActivateDuringBorrow_5_oe() throws Exception {
-        final String obj1 = genericObjectPool.borrowObject();
-        final String obj2 = genericObjectPool.borrowObject();
-        genericObjectPool.returnObject(obj1);
-        genericObjectPool.returnObject(obj2);
-        simpleFactory.setThrowExceptionOnActivate(true);
-        simpleFactory.setEvenValid(false);
-        // Activation will now throw every other time
-        // First attempt throws, but loop continues and second succeeds
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(obj);
-        simpleFactory.setValid(false);
-        // Validation will now fail on activation when borrowObject returns
-        // an idle instance, and then when attempting to create a new instance
-        // removed other assertion
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringBorrow_1_oe() throws Exception {
+    public void testExceptionOnDestroyDuringBorrow() throws Exception {
         simpleFactory.setThrowExceptionOnDestroy(true);
         genericObjectPool.setTestOnBorrow(true);
         genericObjectPool.borrowObject();
         simpleFactory.setValid(false); // Make validation fail on next borrow attempt
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringBorrow_2_oe() throws Exception {
-        simpleFactory.setThrowExceptionOnDestroy(true);
-        genericObjectPool.setTestOnBorrow(true);
-        genericObjectPool.borrowObject();
-        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
-        // removed other assertion
         assertEquals(1, genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringBorrow_3_oe() throws Exception {
-        simpleFactory.setThrowExceptionOnDestroy(true);
-        genericObjectPool.setTestOnBorrow(true);
-        genericObjectPool.borrowObject();
-        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
-        // removed other assertion
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringReturn_1_oe() throws Exception {
+    public void testExceptionOnDestroyDuringReturn() throws Exception {
         simpleFactory.setThrowExceptionOnDestroy(true);
         genericObjectPool.setTestOnReturn(true);
         final String obj1 = genericObjectPool.borrowObject();
@@ -5543,24 +1760,12 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         simpleFactory.setValid(false); // Make validation fail
         genericObjectPool.returnObject(obj1);
         assertEquals(1, genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringReturn_2_oe() throws Exception {
-        simpleFactory.setThrowExceptionOnDestroy(true);
-        genericObjectPool.setTestOnReturn(true);
-        final String obj1 = genericObjectPool.borrowObject();
-        genericObjectPool.borrowObject();
-        simpleFactory.setValid(false); // Make validation fail
-        genericObjectPool.returnObject(obj1);
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnPassivateDuringReturn_1_oe() throws Exception {
+    public void testExceptionOnPassivateDuringReturn() throws Exception {
         final String obj = genericObjectPool.borrowObject();
         simpleFactory.setThrowExceptionOnPassivate(true);
         genericObjectPool.returnObject(obj);
@@ -5568,7 +1773,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     }
 
     @Test
-    public void testFailingFactoryDoesNotBlockThreads_1_oe() throws Exception {
+    public void testFailingFactoryDoesNotBlockThreads() throws Exception {
 
         final CreateFailFactory factory = new CreateFailFactory();
         try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
@@ -5609,288 +1814,94 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
                 count++;
             }
             assertFalse(thread1.isAlive());
-    }
-    }
-
-    @Test
-    public void testFailingFactoryDoesNotBlockThreads_2_oe() throws Exception {
-
-        final CreateFailFactory factory = new CreateFailFactory();
-        try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
-
-            createFailFactoryPool.setMaxTotal(1);
-
-            // Try and borrow the first object from the pool
-            final WaitingTestThread thread1 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread to reach semaphore
-            while (!factory.hasQueuedThreads()) {
-                Thread.sleep(200);
-            }
-
-            // Try and borrow the second object from the pool
-            final WaitingTestThread thread2 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread2.start();
-            // Pool will not call factory since maximum number of object creations
-            // are already queued.
-
-            // Thread 2 will wait on an object being returned to the pool
-            // Give thread 2 a chance to reach this state
-            Thread.sleep(1000);
-
-            // Release thread1
-            factory.release();
-            // Pre-release thread2
-            factory.release();
-
-            // Both threads should now complete.
-            boolean threadRunning = true;
-            int count = 0;
-            while (threadRunning && count < 15) {
-                threadRunning = thread1.isAlive();
-                threadRunning = thread2.isAlive();
-                Thread.sleep(200);
-                count++;
-            }
-            // removed other assertion
             assertFalse(thread2.isAlive());
-    }
-    }
-
-    @Test
-    public void testFailingFactoryDoesNotBlockThreads_3_oe() throws Exception {
-
-        final CreateFailFactory factory = new CreateFailFactory();
-        try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
-
-            createFailFactoryPool.setMaxTotal(1);
-
-            // Try and borrow the first object from the pool
-            final WaitingTestThread thread1 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread to reach semaphore
-            while (!factory.hasQueuedThreads()) {
-                Thread.sleep(200);
-            }
-
-            // Try and borrow the second object from the pool
-            final WaitingTestThread thread2 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread2.start();
-            // Pool will not call factory since maximum number of object creations
-            // are already queued.
-
-            // Thread 2 will wait on an object being returned to the pool
-            // Give thread 2 a chance to reach this state
-            Thread.sleep(1000);
-
-            // Release thread1
-            factory.release();
-            // Pre-release thread2
-            factory.release();
-
-            // Both threads should now complete.
-            boolean threadRunning = true;
-            int count = 0;
-            while (threadRunning && count < 15) {
-                threadRunning = thread1.isAlive();
-                threadRunning = thread2.isAlive();
-                Thread.sleep(200);
-                count++;
-            }
-            // removed other assertion
-            // removed other assertion
 
             assertTrue(thread1.thrown instanceof UnsupportedCharsetException);
-    }
-    }
-
-    @Test
-    public void testFailingFactoryDoesNotBlockThreads_4_oe() throws Exception {
-
-        final CreateFailFactory factory = new CreateFailFactory();
-        try (final GenericObjectPool<String> createFailFactoryPool = new GenericObjectPool<>(factory)) {
-
-            createFailFactoryPool.setMaxTotal(1);
-
-            // Try and borrow the first object from the pool
-            final WaitingTestThread thread1 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread to reach semaphore
-            while (!factory.hasQueuedThreads()) {
-                Thread.sleep(200);
-            }
-
-            // Try and borrow the second object from the pool
-            final WaitingTestThread thread2 = new WaitingTestThread(createFailFactoryPool, 0);
-            thread2.start();
-            // Pool will not call factory since maximum number of object creations
-            // are already queued.
-
-            // Thread 2 will wait on an object being returned to the pool
-            // Give thread 2 a chance to reach this state
-            Thread.sleep(1000);
-
-            // Release thread1
-            factory.release();
-            // Pre-release thread2
-            factory.release();
-
-            // Both threads should now complete.
-            boolean threadRunning = true;
-            int count = 0;
-            while (threadRunning && count < 15) {
-                threadRunning = thread1.isAlive();
-                threadRunning = thread2.isAlive();
-                Thread.sleep(200);
-                count++;
-            }
-            // removed other assertion
-            // removed other assertion
-
-            // removed other assertion
             assertTrue(thread2.thrown instanceof UnsupportedCharsetException);
-    }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO_1_oe() throws Exception {
+    public void testFIFO() throws Exception {
         genericObjectPool.setLifo(false);
         genericObjectPool.addObject(); // "0"
         genericObjectPool.addObject(); // "1"
         genericObjectPool.addObject(); // "2"
         assertEquals( "0", genericObjectPool.borrowObject(),"Oldest");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO_2_oe() throws Exception {
-        genericObjectPool.setLifo(false);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
         assertEquals( "1", genericObjectPool.borrowObject(),"Middle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO_3_oe() throws Exception {
-        genericObjectPool.setLifo(false);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
         assertEquals( "2", genericObjectPool.borrowObject(),"Youngest");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO_4_oe() throws Exception {
-        genericObjectPool.setLifo(false);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         final String o = genericObjectPool.borrowObject();
         assertEquals( "3", o,"new-3");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO_5_oe() throws Exception {
-        genericObjectPool.setLifo(false);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final String o = genericObjectPool.borrowObject();
-        // removed other assertion
         genericObjectPool.returnObject(o);
         assertEquals( o, genericObjectPool.borrowObject(),"returned-3");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO_6_oe() throws Exception {
-        genericObjectPool.setLifo(false);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final String o = genericObjectPool.borrowObject();
-        // removed other assertion
-        genericObjectPool.returnObject(o);
-        // removed other assertion
         assertEquals( "4", genericObjectPool.borrowObject(),"new-4");
     }
 
     @Test
-    public void testGetFactoryType_DefaultPooledObjectFactory_1_oe() {
+    public void testGetFactoryType_DefaultPooledObjectFactory() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(createDefaultPooledObjectFactory())) {
             assertNotNull((pool.getFactoryType()));
-    }
+        }
     }
 
     @Test
-    public void testGetFactoryType_NullPooledObjectFactory_1_oe() {
+    public void testGetFactoryType_NullPooledObjectFactory() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(createNullPooledObjectFactory())) {
             assertNotNull((pool.getFactoryType()));
-    }
+        }
     }
 
     @Test
-    public void testGetFactoryType_PoolUtilsSynchronizedDefaultPooledFactory_1_oe() {
+    public void testGetFactoryType_PoolUtilsSynchronizedDefaultPooledFactory() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(
                 PoolUtils.synchronizedPooledFactory(createDefaultPooledObjectFactory()))) {
             assertNotNull((pool.getFactoryType()));
-    }
+        }
     }
 
     @Test
-    public void testGetFactoryType_PoolUtilsSynchronizedNullPooledFactory_1_oe() {
+    public void testGetFactoryType_PoolUtilsSynchronizedNullPooledFactory() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(
                 PoolUtils.synchronizedPooledFactory(createNullPooledObjectFactory()))) {
             assertNotNull((pool.getFactoryType()));
-    }
+        }
     }
 
     @Test
-    public void testGetFactoryType_SynchronizedDefaultPooledObjectFactory_1_oe() {
+    public void testGetFactoryType_SynchronizedDefaultPooledObjectFactory() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(
                 new TestSynchronizedPooledObjectFactory<>(createDefaultPooledObjectFactory()))) {
             assertNotNull((pool.getFactoryType()));
-    }
+        }
     }
 
     @Test
-    public void testGetFactoryType_SynchronizedNullPooledObjectFactory_1_oe() {
+    public void testGetFactoryType_SynchronizedNullPooledObjectFactory() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(
                 new TestSynchronizedPooledObjectFactory<>(createNullPooledObjectFactory()))) {
             assertNotNull((pool.getFactoryType()));
-    }
+        }
     }
 
     @Test
-    public void testGetStatsString_1_oe() {
+    public void testGetStatsString() {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(
                 new TestSynchronizedPooledObjectFactory<>(createNullPooledObjectFactory()))) {
             assertNotNull(pool.getStatsString());
-    }
+        }
     }
 
+    /**
+     * Verify that threads waiting on a depleted pool get served when a checked out object is
+     * invalidated.
+     *
+     * JIRA: POOL-240
+     *
+     * @throws Exception May occur in some failure modes
+     */
     @Test
-    public void testInvalidateFreesCapacity_1_oe() throws Exception {
+    public void testInvalidateFreesCapacity() throws Exception {
         final SimpleFactory factory = new SimpleFactory();
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory)) {
             pool.setMaxTotal(2);
@@ -5909,48 +1920,26 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             Thread.sleep(600); // Wait for thread2 to timeout
             if (thread2.thrown != null) {
                 fail(thread2.thrown.toString());
-    }
-    }
+            }
+        }
     }
 
+    /**
+     * Ensure the pool is registered.
+     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testJmxRegistration_1_oe() {
+    public void testJmxRegistration() {
         final ObjectName oname = genericObjectPool.getJmxName();
         final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
         final Set<ObjectName> result = mbs.queryNames(oname, null);
         assertEquals(1, result.size());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testJmxRegistration_2_oe() {
-        final ObjectName oname = genericObjectPool.getJmxName();
-        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        final Set<ObjectName> result = mbs.queryNames(oname, null);
-        // removed other assertion
         genericObjectPool.jmxUnregister();
 
         final GenericObjectPoolConfig<String> config = new GenericObjectPoolConfig<>();
         config.setJmxEnabled(false);
         try (final GenericObjectPool<String> poolWithoutJmx = new GenericObjectPool<>(simpleFactory, config)) {
             assertNull(poolWithoutJmx.getJmxName());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testJmxRegistration_3_oe() {
-        final ObjectName oname = genericObjectPool.getJmxName();
-        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        final Set<ObjectName> result = mbs.queryNames(oname, null);
-        // removed other assertion
-        genericObjectPool.jmxUnregister();
-
-        final GenericObjectPoolConfig<String> config = new GenericObjectPoolConfig<>();
-        config.setJmxEnabled(false);
-        try (final GenericObjectPool<String> poolWithoutJmx = new GenericObjectPool<>(simpleFactory, config)) {
-            // removed other assertion
             config.setJmxEnabled(true);
             poolWithoutJmx.jmxUnregister();
         }
@@ -5958,98 +1947,39 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         config.setJmxNameBase(null);
         try (final GenericObjectPool<String> poolWithDefaultJmxNameBase = new GenericObjectPool<>(simpleFactory, config)) {
             assertNotNull(poolWithDefaultJmxNameBase.getJmxName());
-    }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO_1_oe() throws Exception {
+    public void testLIFO() throws Exception {
         final String o;
         genericObjectPool.setLifo(true);
         genericObjectPool.addObject(); // "0"
         genericObjectPool.addObject(); // "1"
         genericObjectPool.addObject(); // "2"
         assertEquals( "2", genericObjectPool.borrowObject(),"Youngest");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO_2_oe() throws Exception {
-        final String o;
-        genericObjectPool.setLifo(true);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
         assertEquals( "1", genericObjectPool.borrowObject(),"Middle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO_3_oe() throws Exception {
-        final String o;
-        genericObjectPool.setLifo(true);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
         assertEquals( "0", genericObjectPool.borrowObject(),"Oldest");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO_4_oe() throws Exception {
-        final String o;
-        genericObjectPool.setLifo(true);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         o = genericObjectPool.borrowObject();
         assertEquals( "3", o,"new-3");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO_5_oe() throws Exception {
-        final String o;
-        genericObjectPool.setLifo(true);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        o = genericObjectPool.borrowObject();
-        // removed other assertion
         genericObjectPool.returnObject(o);
         assertEquals( o, genericObjectPool.borrowObject(),"returned-3");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO_6_oe() throws Exception {
-        final String o;
-        genericObjectPool.setLifo(true);
-        genericObjectPool.addObject(); // "0"
-        genericObjectPool.addObject(); // "1"
-        genericObjectPool.addObject(); // "2"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        o = genericObjectPool.borrowObject();
-        // removed other assertion
-        genericObjectPool.returnObject(o);
-        // removed other assertion
         assertEquals( "4", genericObjectPool.borrowObject(),"new-4");
     }
 
+    /**
+     * Test the following scenario:
+     *   Thread 1 borrows an instance
+     *   Thread 2 starts to borrow another instance before thread 1 returns its instance
+     *   Thread 1 returns its instance while thread 2 is validating its newly created instance
+     * The test verifies that the instance created by Thread 2 is not leaked.
+     *
+     * @throws Exception May occur in some failure modes
+     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMakeConcurrentWithReturn_1_oe() throws Exception {
+    public void testMakeConcurrentWithReturn() throws Exception {
         genericObjectPool.setTestOnBorrow(true);
         simpleFactory.setValid(true);
         // Borrow and return an instance, with a short wait
@@ -6061,29 +1991,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final String instance = genericObjectPool.borrowObject();
         // Now make sure that we have not leaked an instance
         assertEquals(simpleFactory.getMakeCounter(), genericObjectPool.getNumIdle() + 1);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMakeConcurrentWithReturn_2_oe() throws Exception {
-        genericObjectPool.setTestOnBorrow(true);
-        simpleFactory.setValid(true);
-        // Borrow and return an instance, with a short wait
-        final WaitingTestThread thread1 = new WaitingTestThread(genericObjectPool, 200);
-        thread1.start();
-        Thread.sleep(50); // wait for validation to succeed
-        // Slow down validation and borrow an instance
-        simpleFactory.setValidateLatency(400);
-        final String instance = genericObjectPool.borrowObject();
-        // Now make sure that we have not leaked an instance
-        // removed other assertion
         genericObjectPool.returnObject(instance);
         assertEquals(simpleFactory.getMakeCounter(), genericObjectPool.getNumIdle());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdle_1_oe() throws Exception {
+    public void testMaxIdle() throws Exception {
         genericObjectPool.setMaxTotal(100);
         genericObjectPool.setMaxIdle(8);
         final String[] active = new String[100];
@@ -6091,59 +2005,17 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             active[i] = genericObjectPool.borrowObject();
         }
         assertEquals(100,genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdle_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(100);
-        genericObjectPool.setMaxIdle(8);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        // removed other assertion
         assertEquals(0,genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdle_3_oe() throws Exception {
-        genericObjectPool.setMaxTotal(100);
-        genericObjectPool.setMaxIdle(8);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        // removed other assertion
-        // removed other assertion
         for(int i=0;i<100;i++) {
             genericObjectPool.returnObject(active[i]);
             assertEquals(99 - i,genericObjectPool.getNumActive());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdle_4_oe() throws Exception {
-        genericObjectPool.setMaxTotal(100);
-        genericObjectPool.setMaxIdle(8);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        // removed other assertion
-        // removed other assertion
-        for(int i=0;i<100;i++) {
-            genericObjectPool.returnObject(active[i]);
-            // removed other assertion
             assertEquals((i < 8 ? i+1 : 8),genericObjectPool.getNumIdle());
-    }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdleZero_1_oe() throws Exception {
+    public void testMaxIdleZero() throws Exception {
         genericObjectPool.setMaxTotal(100);
         genericObjectPool.setMaxIdle(0);
         final String[] active = new String[100];
@@ -6151,60 +2023,21 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             active[i] = genericObjectPool.borrowObject();
         }
         assertEquals(100,genericObjectPool.getNumActive());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdleZero_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(100);
-        genericObjectPool.setMaxIdle(0);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        // removed other assertion
         assertEquals(0,genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdleZero_3_oe() throws Exception {
-        genericObjectPool.setMaxTotal(100);
-        genericObjectPool.setMaxIdle(0);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        // removed other assertion
-        // removed other assertion
         for(int i=0;i<100;i++) {
             genericObjectPool.returnObject(active[i]);
             assertEquals(99 - i,genericObjectPool.getNumActive());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdleZero_4_oe() throws Exception {
-        genericObjectPool.setMaxTotal(100);
-        genericObjectPool.setMaxIdle(0);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-        // removed other assertion
-        // removed other assertion
-        for(int i=0;i<100;i++) {
-            genericObjectPool.returnObject(active[i]);
-            // removed other assertion
             assertEquals(0, genericObjectPool.getNumIdle());
-    }
+        }
     }
 
+    /**
+     * Showcasing a possible deadlock situation as reported in POOL-356
+     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     @SuppressWarnings("rawtypes")
-    public void testMaxIdleZeroUnderLoad_1_oe() {
+    public void testMaxIdleZeroUnderLoad() {
         // Config
         final int numThreads = 199; // And main thread makes a round 200.
         final int numIter = 20;
@@ -6246,55 +2079,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
                 // Shouldn't happen
                 e.printStackTrace();
                 fail("Exception on borrow");
-    }
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    @SuppressWarnings("rawtypes")
-    public void testMaxIdleZeroUnderLoad_2_oe() {
-        // Config
-        final int numThreads = 199; // And main thread makes a round 200.
-        final int numIter = 20;
-        final int delay = 25;
-        final int maxTotal = 10;
-
-        simpleFactory.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
-
-        // this is important to trigger POOL-356
-        genericObjectPool.setMaxIdle(0);
-
-        // Start threads to borrow objects
-        final TestThread[] threads = new TestThread[numThreads];
-        for(int i=0;i<numThreads;i++) {
-            // Factor of 2 on iterations so main thread does work whilst other
-            // threads are running. Factor of 2 on delay so average delay for
-            // other threads == actual delay for main thread
-            threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
-            final Thread t = new Thread(threads[i]);
-            t.start();
-        }
-        // Give the threads a chance to start doing some work
-        Waiter.sleepQuietly(100L);
-
-        for (int i = 0; i < numIter; i++) {
-            String obj = null;
-            try {
-                Waiter.sleepQuietly(delay);
-                obj = genericObjectPool.borrowObject();
-                // Under load, observed numActive > maxTotal
-                if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
-                    throw new IllegalStateException("Too many active objects");
-                }
-                Waiter.sleepQuietly(delay);
-            } catch (final Exception e) {
-                // Shouldn't happen
-                e.printStackTrace();
-                // removed other assertion
             } finally {
                 if (obj != null) {
                     try {
@@ -6313,13 +2097,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             if (threads[i].failed()) {
                 threads[i].error.printStackTrace();
                 fail("Thread " + i + " failed: " + threads[i].error.toString());
-    }
-    }
+            }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotal_1_oe() throws Exception {
+    public void testMaxTotal() throws Exception {
         genericObjectPool.setMaxTotal(3);
         genericObjectPool.setBlockWhenExhausted(false);
 
@@ -6329,10 +2113,30 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
     }
 
+    /**
+     * Verifies that maxTotal is not exceeded when factory destroyObject
+     * has high latency, testOnReturn is set and there is high incidence of
+     * validation failures.
+     */
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalInvariant() {
+        final int maxTotal = 15;
+        simpleFactory.setEvenValid(false);     // Every other validation fails
+        simpleFactory.setDestroyLatency(100);  // Destroy takes 100 ms
+        simpleFactory.setMaxTotal(maxTotal); // (makes - destroys) bound
+        simpleFactory.setValidationEnabled(true);
+        genericObjectPool.setMaxTotal(maxTotal);
+        genericObjectPool.setMaxIdle(-1);
+        genericObjectPool.setTestOnReturn(true);
+        genericObjectPool.setMaxWaitMillis(1000L);
+        runTestThreads(5, 10, 50, genericObjectPool);
+    }
+
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     @SuppressWarnings("rawtypes")
-    public void testMaxTotalUnderLoad_1_oe() {
+    public void testMaxTotalUnderLoad() {
         // Config
         final int numThreads = 199; // And main thread makes a round 200.
         final int numIter = 20;
@@ -6371,52 +2175,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
                 // Shouldn't happen
                 e.printStackTrace();
                 fail("Exception on borrow");
-    }
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    @SuppressWarnings("rawtypes")
-    public void testMaxTotalUnderLoad_2_oe() {
-        // Config
-        final int numThreads = 199; // And main thread makes a round 200.
-        final int numIter = 20;
-        final int delay = 25;
-        final int maxTotal = 10;
-
-        simpleFactory.setMaxTotal(maxTotal);
-        genericObjectPool.setMaxTotal(maxTotal);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
-
-        // Start threads to borrow objects
-        final TestThread[] threads = new TestThread[numThreads];
-        for(int i=0;i<numThreads;i++) {
-            // Factor of 2 on iterations so main thread does work whilst other
-            // threads are running. Factor of 2 on delay so average delay for
-            // other threads == actual delay for main thread
-            threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
-            final Thread t = new Thread(threads[i]);
-            t.start();
-        }
-        // Give the threads a chance to start doing some work
-        Waiter.sleepQuietly(5000);
-
-        for (int i = 0; i < numIter; i++) {
-            String obj = null;
-            try {
-                Waiter.sleepQuietly(delay);
-                obj = genericObjectPool.borrowObject();
-                // Under load, observed numActive > maxTotal
-                if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
-                    throw new IllegalStateException("Too many active objects");
-                }
-                Waiter.sleepQuietly(delay);
-            } catch (final Exception e) {
-                // Shouldn't happen
-                e.printStackTrace();
-                // removed other assertion
             } finally {
                 if (obj != null) {
                     try {
@@ -6434,21 +2192,29 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             }
             if(threads[i].failed()) {
                 fail("Thread " + i + " failed: " + threads[i].error.toString());
-    }
-    }
+            }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotalZero_1_oe() throws Exception {
+    public void testMaxTotalZero() throws Exception {
         genericObjectPool.setMaxTotal(0);
         genericObjectPool.setBlockWhenExhausted(false);
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
     }
 
+    /*
+     * Test multi-threaded pool access.
+     * Multiple threads, but maxTotal only allows half the threads to succeed.
+     *
+     * This test was prompted by Continuum build failures in the Commons DBCP test case:
+     * TestPerUserPoolDataSource.testMultipleThreads2()
+     * Let's see if the this fails on Continuum too!
+     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxWaitMultiThreaded_1_oe() throws Exception {
+    public void testMaxWaitMultiThreaded() throws Exception {
         final long maxWait = 500; // wait for connection
         final long holdTime = 2 * maxWait; // how long to hold connection
         final int threads = 10; // number of threads to grab the object initially
@@ -6495,7 +2261,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdle_1_oe() throws Exception {
+    public void testMinIdle() throws Exception {
         genericObjectPool.setMaxIdle(500);
         genericObjectPool.setMinIdle(5);
         genericObjectPool.setMaxTotal(10);
@@ -6506,48 +2272,12 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdle_2_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         final String[] active = new String[5];
         active[0] = genericObjectPool.borrowObject();
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdle_3_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        final String[] active = new String[5];
-        active[0] = genericObjectPool.borrowObject();
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         for (int i = 1; i < 5; i++) {
             active[i] = genericObjectPool.borrowObject();
@@ -6555,34 +2285,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdle_4_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        final String[] active = new String[5];
-        active[0] = genericObjectPool.borrowObject();
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for (int i = 1; i < 5; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         for (int i = 0; i < 5; i++) {
             genericObjectPool.returnObject(active[i]);
@@ -6594,7 +2296,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotal_1_oe() throws Exception {
+    public void testMinIdleMaxTotal() throws Exception {
         genericObjectPool.setMaxIdle(500);
         genericObjectPool.setMinIdle(5);
         genericObjectPool.setMaxTotal(10);
@@ -6605,46 +2307,11 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotal_2_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         final String[] active = new String[10];
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotal_3_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        final String[] active = new String[10];
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         for (int i = 0; i < 5; i++) {
             active[i] = genericObjectPool.borrowObject();
@@ -6652,33 +2319,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotal_4_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        final String[] active = new String[10];
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for (int i = 0; i < 5; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         for(int i = 0 ; i < 5 ; i++) {
             genericObjectPool.returnObject(active[i]);
@@ -6686,40 +2326,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(10, genericObjectPool.getNumIdle(), "Should be 10 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotal_5_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        final String[] active = new String[10];
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for (int i = 0; i < 5; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for(int i = 0 ; i < 5 ; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         for (int i = 0; i < 10; i++) {
             active[i] = genericObjectPool.borrowObject();
@@ -6727,47 +2333,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(0, genericObjectPool.getNumIdle(), "Should be 0 idle, found " + genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotal_6_oe() throws Exception {
-        genericObjectPool.setMaxIdle(500);
-        genericObjectPool.setMinIdle(5);
-        genericObjectPool.setMaxTotal(10);
-        genericObjectPool.setNumTestsPerEvictionRun(0);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-        genericObjectPool.setTestWhileIdle(true);
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        final String[] active = new String[10];
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for (int i = 0; i < 5; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for(int i = 0 ; i < 5 ; i++) {
-            genericObjectPool.returnObject(active[i]);
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
-
-        for (int i = 0; i < 10; i++) {
-            active[i] = genericObjectPool.borrowObject();
-        }
-
-        Waiter.sleepQuietly(150L);
-        // removed other assertion
 
         for (int i = 0; i < 10; i++) {
             genericObjectPool.returnObject(active[i]);
@@ -6777,228 +2342,93 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         assertEquals(10, genericObjectPool.getNumIdle(), "Should be 10 idle, found " + genericObjectPool.getNumIdle());
     }
 
+    /**
+     * Verifies that returning an object twice (without borrow in between) causes ISE
+     * but does not re-validate or re-passivate the instance.
+     *
+     * JIRA: POOL-285
+     */
     @Test
-    public void testMultipleReturn_1_oe() throws Exception {
+    public void testMultipleReturn() throws Exception {
         final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
         try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
             pool.setTestOnReturn(true);
             final Waiter waiter = pool.borrowObject();
             pool.returnObject(waiter);
             assertEquals(1, waiter.getValidationCount());
-    }
-    }
-
-    @Test
-    public void testMultipleReturn_2_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject();
-            pool.returnObject(waiter);
-            // removed other assertion
             assertEquals(1, waiter.getPassivationCount());
-    }
-    }
-
-    @Test
-    public void testMultipleReturn_4_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject();
-            pool.returnObject(waiter);
-            // removed other assertion
-            // removed other assertion
             try {
                 pool.returnObject(waiter);
-                // removed other assertion
+                fail("Expecting IllegalStateException from multiple return");
             } catch (final IllegalStateException ex) {
                 // Exception is expected, now check no repeat validation/passivation
                 assertEquals(1, waiter.getValidationCount());
-    }
-    }
-    }
-
-    @Test
-    public void testMultipleReturn_5_oe() throws Exception {
-        final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
-        try (final GenericObjectPool<Waiter> pool = new GenericObjectPool<>(factory)) {
-            pool.setTestOnReturn(true);
-            final Waiter waiter = pool.borrowObject();
-            pool.returnObject(waiter);
-            // removed other assertion
-            // removed other assertion
-            try {
-                pool.returnObject(waiter);
-                // removed other assertion
-            } catch (final IllegalStateException ex) {
-                // Exception is expected, now check no repeat validation/passivation
-                // removed other assertion
                 assertEquals(1, waiter.getPassivationCount());
-    }
-    }
+            }
+        }
     }
 
+    // POOL-248
     @Test
-    public void testMultipleReturnOfSameObject_1_oe() throws Exception {
+    public void testMultipleReturnOfSameObject() throws Exception {
         try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
 
             assertEquals(0, pool.getNumActive());
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_2_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
             assertEquals(0, pool.getNumIdle());
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_3_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
 
             final String obj = pool.borrowObject();
 
             assertEquals(1, pool.getNumActive());
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_4_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
-
-            final String obj = pool.borrowObject();
-
-            // removed other assertion
             assertEquals(0, pool.getNumIdle());
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_5_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
-
-            final String obj = pool.borrowObject();
-
-            // removed other assertion
-            // removed other assertion
 
             pool.returnObject(obj);
 
             assertEquals(0, pool.getNumActive());
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_6_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
-
-            final String obj = pool.borrowObject();
-
-            // removed other assertion
-            // removed other assertion
-
-            pool.returnObject(obj);
-
-            // removed other assertion
             assertEquals(1, pool.getNumIdle());
-    }
-    }
 
-    @Test
-    public void testMultipleReturnOfSameObject_7_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
-
-            final String obj = pool.borrowObject();
-
-            // removed other assertion
-            // removed other assertion
-
-            pool.returnObject(obj);
-
-            // removed other assertion
-            // removed other assertion
-
-            assertThrows(IllegalStateException.class, () -> pool.returnObject(obj));
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_8_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
-
-            final String obj = pool.borrowObject();
-
-            // removed other assertion
-            // removed other assertion
-
-            pool.returnObject(obj);
-
-            // removed other assertion
-            // removed other assertion
-
-            // removed other assertion
+            assertThrows(IllegalStateException.class,
+                    () -> pool.returnObject(obj));
 
             assertEquals(0, pool.getNumActive());
-    }
-    }
-
-    @Test
-    public void testMultipleReturnOfSameObject_9_oe() throws Exception {
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(simpleFactory, new GenericObjectPoolConfig<>())) {
-
-            // removed other assertion
-            // removed other assertion
-
-            final String obj = pool.borrowObject();
-
-            // removed other assertion
-            // removed other assertion
-
-            pool.returnObject(obj);
-
-            // removed other assertion
-            // removed other assertion
-
-            // removed other assertion
-
-            // removed other assertion
             assertEquals(1, pool.getNumIdle());
+        }
     }
+
+    /**
+     * Verifies that when a borrowed object is mutated in a way that does not
+     * preserve equality and hashcode, the pool can recognized it on return.
+     *
+     * JIRA: POOL-284
+     */
+    @Test
+    public void testMutable() throws Exception {
+        final HashSetFactory factory = new HashSetFactory();
+        try (final GenericObjectPool<HashSet<String>> pool = new GenericObjectPool<>(factory,
+                new GenericObjectPoolConfig<>())) {
+            final HashSet<String> s1 = pool.borrowObject();
+            final HashSet<String> s2 = pool.borrowObject();
+            s1.add("One");
+            s2.add("One");
+            pool.returnObject(s1);
+            pool.returnObject(s2);
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testNegativeMaxTotal_1_oe() throws Exception {
+    public void testNegativeMaxTotal() throws Exception {
         genericObjectPool.setMaxTotal(-1);
         genericObjectPool.setBlockWhenExhausted(false);
         final String obj = genericObjectPool.borrowObject();
         assertEquals(getNthObject(0),obj);
+        genericObjectPool.returnObject(obj);
     }
 
+    /**
+     * Verifies that concurrent threads never "share" instances
+     */
     @Test
-    public void testNoInstanceOverlap_1_oe() {
+    public void testNoInstanceOverlap() {
         final int maxTotal = 5;
         final int numThreads = 100;
         final int delay = 1;
@@ -7012,34 +2442,39 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             pool.setMaxWaitMillis(-1);
             runTestThreads(numThreads, iterations, delay, pool);
             assertEquals(0, pool.getDestroyedByBorrowValidationCount());
-    }
+        }
     }
 
-    public void testPreparePool_1_oe() throws Exception {
+    /**
+     * POOL-376
+     */
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNoInvalidateNPE() throws Exception {
+        genericObjectPool.setMaxTotal(1);
+        genericObjectPool.setTestOnCreate(true);
+        genericObjectPool.setMaxWaitMillis(-1);
+        final String obj = genericObjectPool.borrowObject();
+        // Make validation fail - this will cause create() to return null
+        simpleFactory.setValid(false);
+        // Create a take waiter
+        final WaitingTestThread wtt = new WaitingTestThread(genericObjectPool, 200);
+        wtt.start();
+        // Give wtt time to start
+        Thread.sleep(200);
+        genericObjectPool.invalidateObject(obj);
+        // Now allow create to succeed so waiter can be served
+        simpleFactory.setValid(true);
+    }
+
+    public void testPreparePool() throws Exception {
         genericObjectPool.setMinIdle(1);
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.preparePool();
         assertEquals(1, genericObjectPool.getNumIdle());
-    }
-
-    public void testPreparePool_2_oe() throws Exception {
-        genericObjectPool.setMinIdle(1);
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.preparePool();
-        // removed other assertion
         final String obj = genericObjectPool.borrowObject();
         genericObjectPool.preparePool();
         assertEquals(0, genericObjectPool.getNumIdle());
-    }
-
-    public void testPreparePool_3_oe() throws Exception {
-        genericObjectPool.setMinIdle(1);
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.preparePool();
-        // removed other assertion
-        final String obj = genericObjectPool.borrowObject();
-        genericObjectPool.preparePool();
-        // removed other assertion
         genericObjectPool.setMinIdle(0);
         genericObjectPool.returnObject(obj);
         genericObjectPool.preparePool();
@@ -7048,7 +2483,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test/* maxWaitMillis x2 + padding */
     @Timeout(value = 1200, unit = TimeUnit.MILLISECONDS)
-    public void testReturnBorrowObjectWithingMaxWaitMillis_1_oe() throws Exception {
+    public void testReturnBorrowObjectWithingMaxWaitMillis() throws Exception {
         final long maxWaitMillis = 500;
 
         try (final GenericObjectPool<String> createSlowObjectFactoryPool = new GenericObjectPool<>(
@@ -7064,61 +2499,31 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             Thread.sleep(100);
 
             // another one tries borrowObject. It should return within maxWaitMillis.
-            assertThrows(NoSuchElementException.class, () -> createSlowObjectFactoryPool.borrowObject(maxWaitMillis), "borrowObject must fail due to timeout by maxWaitMillis");
-    }
-    }
-
-    @Test/* maxWaitMillis x2 + padding */
-    @Timeout(value = 1200, unit = TimeUnit.MILLISECONDS)
-    public void testReturnBorrowObjectWithingMaxWaitMillis_2_oe() throws Exception {
-        final long maxWaitMillis = 500;
-
-        try (final GenericObjectPool<String> createSlowObjectFactoryPool = new GenericObjectPool<>(
-                createSlowObjectFactory(60000))) {
-            createSlowObjectFactoryPool.setMaxTotal(1);
-            createSlowObjectFactoryPool.setMaxWaitMillis(maxWaitMillis);
-
-            // thread1 tries creating a slow object to make pool full.
-            final WaitingTestThread thread1 = new WaitingTestThread(createSlowObjectFactoryPool, 0);
-            thread1.start();
-
-            // Wait for thread1's reaching to create().
-            Thread.sleep(100);
-
-            // another one tries borrowObject. It should return within maxWaitMillis.
-            // removed other assertion
+            assertThrows(NoSuchElementException.class, () -> createSlowObjectFactoryPool.borrowObject(maxWaitMillis),
+                    "borrowObject must fail due to timeout by maxWaitMillis");
 
             assertTrue(thread1.isAlive());
-    }
+        }
     }
 
-    public void testReturnObject_1_oe() throws Exception {
+    /**
+     * This is the test case for POOL-263. It is disabled since it will always
+     * pass without artificial delay being injected into GOP.returnObject() and
+     * a way to this hasn't currently been found that doesn't involve
+     * polluting the GOP implementation. The artificial delay needs to be
+     * inserted just before the final call to isLifo() in the returnObject()
+     * method.
+     */
+    //@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testReturnObject() throws Exception {
 
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.setMaxIdle(-1);
         final String active = genericObjectPool.borrowObject();
 
         assertEquals(1, genericObjectPool.getNumActive());
-    }
-
-    public void testReturnObject_2_oe() throws Exception {
-
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setMaxIdle(-1);
-        final String active = genericObjectPool.borrowObject();
-
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumIdle());
-    }
-
-    public void testReturnObject_3_oe() throws Exception {
-
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setMaxIdle(-1);
-        final String active = genericObjectPool.borrowObject();
-
-        // removed other assertion
-        // removed other assertion
 
         final Thread t = new Thread(() -> genericObjectPool.close());
         t.start();
@@ -7135,1925 +2540,108 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_1_oe() throws Exception {
+    public void testSettersAndGetters() throws Exception {
         {
             // The object receives an Exception during its creation to prevent
             // memory leaks. See BaseGenericObjectPool constructor for more details.
             assertEquals(false, "".equals(genericObjectPool.getCreationStackTrace()));
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_2_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getBorrowedCount());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_3_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getReturnedCount());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_4_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getCreatedCount());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_5_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getDestroyedCount());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_6_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getDestroyedByEvictorCount());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_7_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getDestroyedByBorrowValidationCount());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_8_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getMeanActiveTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_9_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getMeanIdleTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_10_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getMeanBorrowWaitTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_11_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getMaxBorrowWaitTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_12_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             assertEquals(0, genericObjectPool.getNumIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_13_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
         }
         {
             genericObjectPool.setMaxTotal(123);
             assertEquals(123,genericObjectPool.getMaxTotal());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_14_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
         }
         {
             genericObjectPool.setMaxIdle(12);
             assertEquals(12,genericObjectPool.getMaxIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_15_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
         }
         {
             genericObjectPool.setMaxWaitMillis(1234L);
             assertEquals(1234L,genericObjectPool.getMaxWaitMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_16_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
         }
         {
             genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
             assertEquals(12345L,genericObjectPool.getMinEvictableIdleDuration().toMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_17_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
             assertEquals(12345L,genericObjectPool.getMinEvictableIdleTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_18_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
             assertEquals(12345L,genericObjectPool.getMinEvictableIdleTime().toMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_19_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
         }
         {
             genericObjectPool.setNumTestsPerEvictionRun(11);
             assertEquals(11,genericObjectPool.getNumTestsPerEvictionRun());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_20_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
         }
         {
             genericObjectPool.setTestOnBorrow(true);
             assertTrue(genericObjectPool.getTestOnBorrow());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_21_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
             genericObjectPool.setTestOnBorrow(false);
             assertFalse(genericObjectPool.getTestOnBorrow());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_22_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
         }
         {
             genericObjectPool.setTestOnReturn(true);
             assertTrue(genericObjectPool.getTestOnReturn());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_23_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
             genericObjectPool.setTestOnReturn(false);
             assertFalse(genericObjectPool.getTestOnReturn());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_24_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
         }
         {
             genericObjectPool.setTestWhileIdle(true);
             assertTrue(genericObjectPool.getTestWhileIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_25_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
             genericObjectPool.setTestWhileIdle(false);
             assertFalse(genericObjectPool.getTestWhileIdle());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_26_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
         }
         {
             genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
             assertEquals(11235L,genericObjectPool.getDurationBetweenEvictionRuns().toMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_27_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
             assertEquals(11235L,genericObjectPool.getTimeBetweenEvictionRunsMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_28_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
-            // removed other assertion
             assertEquals(11235L,genericObjectPool.getTimeBetweenEvictionRuns().toMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_29_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
         }
         {
             genericObjectPool.setSoftMinEvictableIdleTimeMillis(12135L);
             assertEquals(12135L,genericObjectPool.getSoftMinEvictableIdleDuration().toMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_30_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setSoftMinEvictableIdleTimeMillis(12135L);
-            // removed other assertion
             assertEquals(12135L,genericObjectPool.getSoftMinEvictableIdleTimeMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_31_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setSoftMinEvictableIdleTimeMillis(12135L);
-            // removed other assertion
-            // removed other assertion
             assertEquals(12135L,genericObjectPool.getSoftMinEvictableIdleTime().toMillis());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_32_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setSoftMinEvictableIdleTimeMillis(12135L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
         }
         {
             genericObjectPool.setBlockWhenExhausted(true);
             assertTrue(genericObjectPool.getBlockWhenExhausted());
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters_33_oe() throws Exception {
-        {
-            // The object receives an Exception during its creation to prevent
-            // memory leaks. See BaseGenericObjectPool constructor for more details.
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxTotal(123);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxIdle(12);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMaxWaitMillis(1234L);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setMinEvictableIdleTimeMillis(12345L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setNumTestsPerEvictionRun(11);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnBorrow(true);
-            // removed other assertion
-            genericObjectPool.setTestOnBorrow(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestOnReturn(true);
-            // removed other assertion
-            genericObjectPool.setTestOnReturn(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTestWhileIdle(true);
-            // removed other assertion
-            genericObjectPool.setTestWhileIdle(false);
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setTimeBetweenEvictionRunsMillis(11235L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setSoftMinEvictableIdleTimeMillis(12135L);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        {
-            genericObjectPool.setBlockWhenExhausted(true);
-            // removed other assertion
             genericObjectPool.setBlockWhenExhausted(false);
             assertFalse(genericObjectPool.getBlockWhenExhausted());
-    }
+        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testStartAndStopEvictor_1_oe() throws Exception {
+    public void testStartAndStopEvictor() throws Exception {
         // set up pool without evictor
         genericObjectPool.setMaxIdle(6);
         genericObjectPool.setMaxTotal(6);
@@ -9074,32 +2662,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
             // note that it stays populated
             assertEquals(6,genericObjectPool.getNumIdle(),"Should have 6 idle");
-    }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testStartAndStopEvictor_2_oe() throws Exception {
-        // set up pool without evictor
-        genericObjectPool.setMaxIdle(6);
-        genericObjectPool.setMaxTotal(6);
-        genericObjectPool.setNumTestsPerEvictionRun(6);
-        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
-
-        for (int j = 0; j < 2; j++) {
-            // populate the pool
-            {
-                final String[] active = new String[6];
-                for (int i = 0; i < 6; i++) {
-                    active[i] = genericObjectPool.borrowObject();
-                }
-                for (int i = 0; i < 6; i++) {
-                    genericObjectPool.returnObject(active[i]);
-                }
-            }
-
-            // note that it stays populated
-            // removed other assertion
 
             // start the evictor
             genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(50));
@@ -9109,11 +2671,14 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
             // assert that the evictor has cleared out the pool
             assertEquals(0,genericObjectPool.getNumIdle(),"Should have 0 idle");
-    }
+
+            // stop the evictor
+            genericObjectPool.startEvictor(Duration.ZERO);
+        }
     }
 
     @Test
-    public void testSwallowedExceptionListener_1_oe() {
+    public void testSwallowedExceptionListener() {
         genericObjectPool.setSwallowedExceptionListener(null); // must simply return
         final List<Exception> swallowedExceptions = new ArrayList<>();
         /*
@@ -9134,54 +2699,50 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.swallowException(e2);
 
         assertThrows(OutOfMemoryError.class, () -> genericObjectPool.swallowException(e1));
-    }
-
-    @Test
-    public void testSwallowedExceptionListener_2_oe() {
-        genericObjectPool.setSwallowedExceptionListener(null); // must simply return
-        final List<Exception> swallowedExceptions = new ArrayList<>();
-        /*
-         * A simple listener, that will throw a OOM on 3rd exception.
-         */
-        final SwallowedExceptionListener listener = e -> {
-            if (swallowedExceptions.size() == 2) {
-                throw new OutOfMemoryError();
-            }
-            swallowedExceptions.add(e);
-        };
-        genericObjectPool.setSwallowedExceptionListener(listener);
-
-        final Exception e1 = new Exception();
-        final Exception e2 = new ArrayIndexOutOfBoundsException();
-
-        genericObjectPool.swallowException(e1);
-        genericObjectPool.swallowException(e2);
-
-        // removed other assertion
 
         assertEquals(2, swallowedExceptions.size());
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testTimeoutNoLeak_1_oe() throws Exception {
+    public void testThreaded1() throws Exception {
+        genericObjectPool.setMaxTotal(15);
+        genericObjectPool.setMaxIdle(15);
+        genericObjectPool.setMaxWaitMillis(1000L);
+        runTestThreads(20, 100, 50, genericObjectPool);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testTimeoutNoLeak() throws Exception {
         genericObjectPool.setMaxTotal(2);
         genericObjectPool.setMaxWaitMillis(10);
         genericObjectPool.setBlockWhenExhausted(true);
         final String obj = genericObjectPool.borrowObject();
         final String obj2 = genericObjectPool.borrowObject();
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
+        genericObjectPool.returnObject(obj2);
+        genericObjectPool.returnObject(obj);
+
+        genericObjectPool.borrowObject();
+        genericObjectPool.borrowObject();
     }
 
+    /**
+     * Tests POOL-361
+     */
     @Test
-    public void testValidateOnCreate_1_oe() throws Exception {
+    public void testValidateOnCreate() throws Exception {
         genericObjectPool.setTestOnCreate(true);
         genericObjectPool.addObject();
         assertEquals(1, simpleFactory.validateCounter);
     }
 
+    /**
+     * Tests POOL-361
+     */
     @Test
-    public void testValidateOnCreateFailure_1_oe() throws Exception {
+    public void testValidateOnCreateFailure() throws Exception {
         genericObjectPool.setTestOnCreate(true);
         genericObjectPool.setTestOnBorrow(false);
         genericObjectPool.setMaxTotal(2);
@@ -9190,78 +2751,50 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.addObject();
         genericObjectPool.addObject();
         assertEquals(0, genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    public void testValidateOnCreateFailure_2_oe() throws Exception {
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setTestOnBorrow(false);
-        genericObjectPool.setMaxTotal(2);
-        simpleFactory.setValid(false);
-        // Make sure failed validations do not leak capacity
-        genericObjectPool.addObject();
-        genericObjectPool.addObject();
-        // removed other assertion
         assertEquals(0, genericObjectPool.getNumActive());
-    }
-
-    @Test
-    public void testValidateOnCreateFailure_3_oe() throws Exception {
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setTestOnBorrow(false);
-        genericObjectPool.setMaxTotal(2);
-        simpleFactory.setValid(false);
-        // Make sure failed validations do not leak capacity
-        genericObjectPool.addObject();
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
         simpleFactory.setValid(true);
         final String obj = genericObjectPool.borrowObject();
         assertNotNull(obj);
-    }
-
-    @Test
-    public void testValidateOnCreateFailure_4_oe() throws Exception {
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setTestOnBorrow(false);
-        genericObjectPool.setMaxTotal(2);
-        simpleFactory.setValid(false);
-        // Make sure failed validations do not leak capacity
-        genericObjectPool.addObject();
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
-        simpleFactory.setValid(true);
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
         genericObjectPool.addObject();
         // Should have one idle, one out now
         assertEquals(1, genericObjectPool.getNumIdle());
-    }
-
-    @Test
-    public void testValidateOnCreateFailure_5_oe() throws Exception {
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setTestOnBorrow(false);
-        genericObjectPool.setMaxTotal(2);
-        simpleFactory.setValid(false);
-        // Make sure failed validations do not leak capacity
-        genericObjectPool.addObject();
-        genericObjectPool.addObject();
-        // removed other assertion
-        // removed other assertion
-        simpleFactory.setValid(true);
-        final String obj = genericObjectPool.borrowObject();
-        // removed other assertion
-        genericObjectPool.addObject();
-        // Should have one idle, one out now
-        // removed other assertion
         assertEquals(1, genericObjectPool.getNumActive());
+	}
+
+    /**
+     * Verify that threads waiting on a depleted pool get served when a returning object fails
+     * validation.
+     *
+     * JIRA: POOL-240
+     *
+     * @throws Exception May occur in some failure modes
+     */
+    @Test
+    public void testValidationFailureOnReturnFreesCapacity() throws Exception {
+        final SimpleFactory factory = new SimpleFactory();
+        factory.setValid(false); // Validate will always fail
+        factory.setValidationEnabled(true);
+        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(factory)) {
+            pool.setMaxTotal(2);
+            pool.setMaxWaitMillis(1500);
+            pool.setTestOnReturn(true);
+            pool.setTestOnBorrow(false);
+            // Borrow an instance and hold if for 5 seconds
+            final WaitingTestThread thread1 = new WaitingTestThread(pool, 5000);
+            thread1.start();
+            // Borrow another instance and return it after 500 ms (validation will fail)
+            final WaitingTestThread thread2 = new WaitingTestThread(pool, 500);
+            thread2.start();
+            Thread.sleep(50);
+            // Try to borrow an object
+            final String obj = pool.borrowObject();
+            pool.returnObject(obj);
+        }
     }
 
+    // POOL-276
     @Test
-    public void testValidationOnCreateOnly_1_oe() throws Exception {
+    public void testValidationOnCreateOnly() throws Exception {
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.setTestOnCreate(true);
         genericObjectPool.setTestOnBorrow(false);
@@ -9270,18 +2803,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         final String o1 = genericObjectPool.borrowObject();
         assertEquals("0", o1);
-    }
-
-    @Test
-    public void testValidationOnCreateOnly_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setTestOnBorrow(false);
-        genericObjectPool.setTestOnReturn(false);
-        genericObjectPool.setTestWhileIdle(false);
-
-        final String o1 = genericObjectPool.borrowObject();
-        // removed other assertion
         final Timer t = new Timer();
         t.schedule(
                 new TimerTask() {
@@ -9293,57 +2814,31 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         final String o2 = genericObjectPool.borrowObject();
         assertEquals("0", o2);
-    }
-
-    @Test
-    public void testValidationOnCreateOnly_3_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setTestOnCreate(true);
-        genericObjectPool.setTestOnBorrow(false);
-        genericObjectPool.setTestOnReturn(false);
-        genericObjectPool.setTestWhileIdle(false);
-
-        final String o1 = genericObjectPool.borrowObject();
-        // removed other assertion
-        final Timer t = new Timer();
-        t.schedule(
-                new TimerTask() {
-                    @Override
-                    public void run() {
-                        genericObjectPool.returnObject(o1);
-                    }
-                }, 3000);
-
-        final String o2 = genericObjectPool.borrowObject();
-        // removed other assertion
 
         assertEquals(1, simpleFactory.validateCounter);
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlock_1_oe() throws Exception {
+    public void testWhenExhaustedBlock() throws Exception {
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.setBlockWhenExhausted(true);
         genericObjectPool.setMaxWaitMillis(10L);
         final String obj1 = genericObjectPool.borrowObject();
         assertNotNull(obj1);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlock_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setMaxWaitMillis(10L);
-        final String obj1 = genericObjectPool.borrowObject();
-        // removed other assertion
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
+        genericObjectPool.returnObject(obj1);
+        genericObjectPool.close();
     }
 
+    /**
+     * POOL-189
+     *
+     * @throws Exception May occur in some failure modes
+     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlockClosePool_1_oe() throws Exception {
+    public void testWhenExhaustedBlockClosePool() throws Exception {
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.setBlockWhenExhausted(true);
         genericObjectPool.setMaxWaitMillis(-1);
@@ -9351,18 +2846,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         // Make sure an object was obtained
         assertNotNull(obj1);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlockClosePool_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setMaxWaitMillis(-1);
-        final Object obj1 = genericObjectPool.borrowObject();
-
-        // Make sure an object was obtained
-        // removed other assertion
 
         // Create a separate thread to try and borrow another object
         final WaitingTestThread wtt = new WaitingTestThread(genericObjectPool, 200);
@@ -9382,7 +2865,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlockInterrupt_1_oe() throws Exception {
+    public void testWhenExhaustedBlockInterrupt() throws Exception {
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.setBlockWhenExhausted(true);
         genericObjectPool.setMaxWaitMillis(-1);
@@ -9390,18 +2873,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         // Make sure on object was obtained
         assertNotNull(obj1);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlockInterrupt_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setMaxWaitMillis(-1);
-        final String obj1 = genericObjectPool.borrowObject();
-
-        // Make sure on object was obtained
-        // removed other assertion
 
         // Create a separate thread to try and borrow another object
         final WaitingTestThread wtt = new WaitingTestThread(genericObjectPool, 200000);
@@ -9415,31 +2886,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         // Check thread was interrupted
         assertTrue(wtt.thrown instanceof InterruptedException);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlockInterrupt_4_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setBlockWhenExhausted(true);
-        genericObjectPool.setMaxWaitMillis(-1);
-        final String obj1 = genericObjectPool.borrowObject();
-
-        // Make sure on object was obtained
-        // removed other assertion
-
-        // Create a separate thread to try and borrow another object
-        final WaitingTestThread wtt = new WaitingTestThread(genericObjectPool, 200000);
-        wtt.start();
-        // Give wtt time to start
-        Thread.sleep(200);
-        wtt.interrupt();
-
-        // Give interrupt time to take effect
-        Thread.sleep(200);
-
-        // Check thread was interrupted
-        // removed other assertion
 
         // Return object to the pool
         genericObjectPool.returnObject(obj1);
@@ -9449,408 +2895,87 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         String obj2 = null;
         try {
             obj2 = genericObjectPool.borrowObject();
-            // removed other assertion
+            assertNotNull(obj2);
         } catch (final NoSuchElementException e) {
             // Not expected
             fail("NoSuchElementException not expected");
-    }
+        }
+        genericObjectPool.returnObject(obj2);
+        genericObjectPool.close();
+
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedFail_1_oe() throws Exception {
+    public void testWhenExhaustedFail() throws Exception {
         genericObjectPool.setMaxTotal(1);
         genericObjectPool.setBlockWhenExhausted(false);
         final String obj1 = genericObjectPool.borrowObject();
         assertNotNull(obj1);
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedFail_2_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setBlockWhenExhausted(false);
-        final String obj1 = genericObjectPool.borrowObject();
-        // removed other assertion
         assertThrows(NoSuchElementException.class, () -> genericObjectPool.borrowObject());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedFail_3_oe() throws Exception {
-        genericObjectPool.setMaxTotal(1);
-        genericObjectPool.setBlockWhenExhausted(false);
-        final String obj1 = genericObjectPool.borrowObject();
-        // removed other assertion
-        // removed other assertion
         genericObjectPool.returnObject(obj1);
         assertEquals(1, genericObjectPool.getNumIdle());
+        genericObjectPool.close();
     }
+
+    @SuppressWarnings("deprecation")
+    private void assertConfiguration(final GenericObjectPoolConfig<?> expected, final GenericObjectPool<?> actual) {
+        assertEquals(Boolean.valueOf(expected.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),"testOnCreate");
+        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),"testOnBorrow");
+        assertEquals(Boolean.valueOf(expected.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),"testOnReturn");
+        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),"testWhileIdle");
+        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),"whenExhaustedAction");
+        assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
+        assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
+        assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
+        assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
+        assertEquals(expected.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+        assertEquals(expected.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+        assertEquals(expected.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+        assertEquals(expected.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+        assertEquals(expected.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+        assertEquals(expected.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+        assertEquals(expected.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+        assertEquals(expected.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+        assertEquals(expected.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+        assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    }
+
+    // custom assertion
+
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_1_oe() throws Exception {
+    public void testInlined() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         
         final GenericObjectPoolConfig<?> expected_alias_1 = expected;
         final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
         assertEquals(Boolean.valueOf(expected_alias_1.getTestOnCreate()),Boolean.valueOf(actual_alias_1.getTestOnCreate()),"testOnCreate");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_2_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
         assertEquals(Boolean.valueOf(expected_alias_1.getTestOnBorrow()),Boolean.valueOf(actual_alias_1.getTestOnBorrow()),"testOnBorrow");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_3_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
         assertEquals(Boolean.valueOf(expected_alias_1.getTestOnReturn()),Boolean.valueOf(actual_alias_1.getTestOnReturn()),"testOnReturn");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_4_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(Boolean.valueOf(expected_alias_1.getTestWhileIdle()),Boolean.valueOf(actual_alias_1.getTestWhileIdle()),"testWhileIdle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_5_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(Boolean.valueOf(expected_alias_1.getBlockWhenExhausted()),Boolean.valueOf(actual_alias_1.getBlockWhenExhausted()),"whenExhaustedAction");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_6_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMaxTotal(), actual_alias_1.getMaxTotal(), "maxTotal");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_7_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMaxIdle(), actual_alias_1.getMaxIdle(), "maxIdle");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_8_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMaxWaitMillis(), actual_alias_1.getMaxWaitMillis(), "maxWaitDuration");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_9_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMaxWaitDuration(), actual_alias_1.getMaxWaitDuration(), "maxWaitDuration");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_10_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMinEvictableIdleTimeMillis(),actual_alias_1.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_11_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMinEvictableIdleTime(),actual_alias_1.getMinEvictableIdleTime(),"minEvictableIdleTime");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_12_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getMinEvictableIdleDuration(),actual_alias_1.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_13_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getNumTestsPerEvictionRun(),actual_alias_1.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_14_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getEvictorShutdownTimeoutDuration(),actual_alias_1.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_15_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getEvictorShutdownTimeoutMillis(),actual_alias_1.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_16_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getEvictorShutdownTimeout(),actual_alias_1.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_17_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getTimeBetweenEvictionRunsMillis(),actual_alias_1.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_18_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getDurationBetweenEvictionRuns(),actual_alias_1.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testInlined_19_oe() throws Exception {
-        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
-        
-        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
-        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(expected_alias_1.getTimeBetweenEvictionRuns(),actual_alias_1.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_1_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl1_expected.getTestOnCreate()),Boolean.valueOf(inl1_actual.getTestOnCreate()),"testOnCreate");
@@ -9858,322 +2983,396 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_2_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_2_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl1_expected.getTestOnBorrow()),Boolean.valueOf(inl1_actual.getTestOnBorrow()),"testOnBorrow");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_3_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_3_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl1_expected.getTestOnReturn()),Boolean.valueOf(inl1_actual.getTestOnReturn()),"testOnReturn");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_4_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_4_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl1_expected.getTestWhileIdle()),Boolean.valueOf(inl1_actual.getTestWhileIdle()),"testWhileIdle");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_5_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_5_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl1_expected.getBlockWhenExhausted()),Boolean.valueOf(inl1_actual.getBlockWhenExhausted()),"whenExhaustedAction");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_6_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_6_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMaxTotal(), inl1_actual.getMaxTotal(), "maxTotal");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_7_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_7_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMaxIdle(), inl1_actual.getMaxIdle(), "maxIdle");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_8_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_8_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMaxWaitMillis(), inl1_actual.getMaxWaitMillis(), "maxWaitDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_9_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_9_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMaxWaitDuration(), inl1_actual.getMaxWaitDuration(), "maxWaitDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_10_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_10_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMinEvictableIdleTimeMillis(),inl1_actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_11_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_11_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMinEvictableIdleTime(),inl1_actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_12_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_12_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getMinEvictableIdleDuration(),inl1_actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_13_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_13_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getNumTestsPerEvictionRun(),inl1_actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_14_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_14_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getEvictorShutdownTimeoutDuration(),inl1_actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_15_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_15_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getEvictorShutdownTimeoutMillis(),inl1_actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_16_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_16_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getEvictorShutdownTimeout(),inl1_actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_17_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_17_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getTimeBetweenEvictionRunsMillis(),inl1_actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_18_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_18_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getDurationBetweenEvictionRuns(),inl1_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration_1_serial_19_oe_1_oe() {
+    public void testDefaultConfiguration_1_serial_19_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
                 assertEquals(inl1_expected.getTimeBetweenEvictionRuns(),inl1_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_1_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_1_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl2_expected.getTestOnCreate()),Boolean.valueOf(inl2_actual.getTestOnCreate()),"testOnCreate");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_2_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_2_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl2_expected.getTestOnBorrow()),Boolean.valueOf(inl2_actual.getTestOnBorrow()),"testOnBorrow");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_3_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_3_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl2_expected.getTestOnReturn()),Boolean.valueOf(inl2_actual.getTestOnReturn()),"testOnReturn");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_4_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_4_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl2_expected.getTestWhileIdle()),Boolean.valueOf(inl2_actual.getTestWhileIdle()),"testWhileIdle");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_5_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_5_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl2_expected.getBlockWhenExhausted()),Boolean.valueOf(inl2_actual.getBlockWhenExhausted()),"whenExhaustedAction");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_6_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_6_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMaxTotal(), inl2_actual.getMaxTotal(), "maxTotal");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_7_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_7_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMaxIdle(), inl2_actual.getMaxIdle(), "maxIdle");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_8_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_8_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMaxWaitMillis(), inl2_actual.getMaxWaitMillis(), "maxWaitDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_9_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_9_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMaxWaitDuration(), inl2_actual.getMaxWaitDuration(), "maxWaitDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_10_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_10_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMinEvictableIdleTimeMillis(),inl2_actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_11_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_11_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMinEvictableIdleTime(),inl2_actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_12_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_12_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getMinEvictableIdleDuration(),inl2_actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_13_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_13_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getNumTestsPerEvictionRun(),inl2_actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_14_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_14_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getEvictorShutdownTimeoutDuration(),inl2_actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_15_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_15_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getEvictorShutdownTimeoutMillis(),inl2_actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_16_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_16_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getEvictorShutdownTimeout(),inl2_actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_17_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_17_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getTimeBetweenEvictionRunsMillis(),inl2_actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_18_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_18_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getDurationBetweenEvictionRuns(),inl2_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_1_serial_19_oe_1_oe() throws Exception {
+    public void testSetConfig_1_serial_19_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
                 assertEquals(inl2_expected.getTimeBetweenEvictionRuns(),inl2_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_1_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_1_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10191,11 +3390,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl3_expected.getTestOnCreate()),Boolean.valueOf(inl3_actual.getTestOnCreate()),"testOnCreate");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_2_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_2_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10213,11 +3414,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl3_expected.getTestOnBorrow()),Boolean.valueOf(inl3_actual.getTestOnBorrow()),"testOnBorrow");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_3_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_3_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10235,11 +3438,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl3_expected.getTestOnReturn()),Boolean.valueOf(inl3_actual.getTestOnReturn()),"testOnReturn");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_4_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_4_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10257,11 +3462,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl3_expected.getTestWhileIdle()),Boolean.valueOf(inl3_actual.getTestWhileIdle()),"testWhileIdle");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_5_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_5_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10279,11 +3486,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(Boolean.valueOf(inl3_expected.getBlockWhenExhausted()),Boolean.valueOf(inl3_actual.getBlockWhenExhausted()),"whenExhaustedAction");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_6_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_6_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10301,11 +3510,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMaxTotal(), inl3_actual.getMaxTotal(), "maxTotal");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_7_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_7_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10323,11 +3534,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMaxIdle(), inl3_actual.getMaxIdle(), "maxIdle");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_8_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_8_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10345,11 +3558,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMaxWaitMillis(), inl3_actual.getMaxWaitMillis(), "maxWaitDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_9_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_9_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10367,11 +3582,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMaxWaitDuration(), inl3_actual.getMaxWaitDuration(), "maxWaitDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_10_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_10_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10389,11 +3606,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMinEvictableIdleTimeMillis(),inl3_actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_11_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_11_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10411,11 +3630,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMinEvictableIdleTime(),inl3_actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_12_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_12_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10433,11 +3654,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getMinEvictableIdleDuration(),inl3_actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_13_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_13_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10455,11 +3678,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getNumTestsPerEvictionRun(),inl3_actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_14_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_14_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10477,11 +3702,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getEvictorShutdownTimeoutDuration(),inl3_actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_15_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_15_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10499,11 +3726,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getEvictorShutdownTimeoutMillis(),inl3_actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_16_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_16_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10521,11 +3750,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getEvictorShutdownTimeout(),inl3_actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_17_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_17_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10543,11 +3774,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getTimeBetweenEvictionRunsMillis(),inl3_actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_18_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_18_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10565,11 +3798,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getDurationBetweenEvictionRuns(),inl3_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    
+
     }
 
 @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSetConfig_2_serial_19_oe_1_oe() throws Exception {
+    public void testSetConfig_2_serial_19_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         // removed other assertion
         expected.setMaxTotal(2);
@@ -10587,6 +3822,1262 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
                 assertEquals(inl3_expected.getTimeBetweenEvictionRuns(),inl3_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    
+
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_1_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        assertEquals(Boolean.valueOf(expected1.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),"testOnCreate");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_2_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),"testOnBorrow");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_3_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),"testOnReturn");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_4_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),"testWhileIdle");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_5_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),"whenExhaustedAction");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_6_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_7_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_8_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_9_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_10_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_11_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_12_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_13_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_14_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_15_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_16_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_17_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_18_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_oe_19_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_1_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        assertEquals(Boolean.valueOf(expected1.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),"testOnCreate");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_2_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),"testOnBorrow");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_3_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),"testOnReturn");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_4_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),"testWhileIdle");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_5_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected1.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),"whenExhaustedAction");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_6_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_7_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_8_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_9_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_10_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_11_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_12_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_13_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_14_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_15_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_16_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_17_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_18_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_oe_19_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+                final GenericObjectPoolConfig<?> expected1 = expected;
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected1.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_1_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        assertEquals(Boolean.valueOf(expected.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),"testOnCreate");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_2_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                assertEquals(Boolean.valueOf(expected.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),"testOnBorrow");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_3_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),"testOnReturn");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_4_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),"testWhileIdle");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_5_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),"whenExhaustedAction");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_6_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_7_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_8_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_9_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_10_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_11_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_12_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_13_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_14_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_15_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_16_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_17_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_18_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_oe_19_oe() {
+                final GenericObjectPoolConfig<?> expected = new GenericObjectPoolConfig<>();
+        final GenericObjectPool<?> actual = genericObjectPool;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 }

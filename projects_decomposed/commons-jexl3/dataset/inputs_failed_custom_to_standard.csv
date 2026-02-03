@@ -1,0 +1,13 @@
+id,test_prefix,test_name
+jexl_221_1_1,"    @Test
+    public void testBadParse_1_oe_1_oe() throws Exception {
+        try {
+                        final JexlContext jc = new MapContext();
+            final String expression = ""empty()"";
+            final Object expected = null;
+            final JexlExpression e = JEXL.createExpression(expression);
+                    final Object actual = e.evaluate(jc);
+                    Assert.assertEquals(expression, expected, actual);
+    }
+    }
+",JexlTest::testBadParse_1_oe_1_oe

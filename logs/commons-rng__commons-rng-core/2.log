@@ -1,0 +1,87 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.apache.commons:commons-rng-core >-----------------
+[INFO] Building Apache Commons RNG Core 1.4
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-rng-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-rng-core ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-rng-core ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-rng-core ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-rng-core ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-rng-core ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-core ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
+[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 2026-02-03 13:42:08-0600
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-rng-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 63 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-rng-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-rng-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 55 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[52,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[59,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[60,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[61,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[62,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[63,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-core ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-core ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[WARNING] Tests run: 136, Failures: 0, Errors: 0, Skipped: 8, Time elapsed: 0.93 s - in org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 136, Failures: 0, Errors: 0, Skipped: 8
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.207 s
+[INFO] Finished at: 2026-02-03T13:42:22-06:00
+[INFO] ------------------------------------------------------------------------

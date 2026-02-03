@@ -25,7 +25,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ bcel ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel
-[INFO] Storing buildNumber: 096bdf15456a4d833b6cf23506c3db7b96292bf1 at timestamp: 1770119358450
+[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147697327
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ bcel ---
@@ -53,148 +53,43 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ bcel ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 110 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/test-classes
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ bcel ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ bcel ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.bcel.generic.JdkGenericDumpTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in org.apache.bcel.generic.JdkGenericDumpTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.122 s <<< FAILURE! - in org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] testsetInstructionnotI_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0.106 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[ERROR] testsetInstructionNull_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[INFO] Running org.apache.bcel.generic.TypeTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.bcel.generic.TypeTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] testsetInstructionNull_1_oe(org.apache.bcel.generic.BranchHandleTestCase_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[ERROR] testsetInstructionnotBI_1_oe(org.apache.bcel.generic.BranchHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[INFO] Running org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
-[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s - in org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.MethodGenTestCase_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.bcel.generic.MethodGenTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
-[INFO] Running org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
-[INFO] Running org.apache.bcel.AnonymousClassTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.bcel.AnonymousClassTestCase_OE25Dev
-[INFO] Running org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
-[INFO] Running org.apache.bcel.PLSETestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.bcel.PLSETestCase_OE25Dev
-[INFO] Running org.apache.bcel.ElementValueGenTestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.bcel.ElementValueGenTestCase_OE25Dev
-[INFO] Running org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
-[INFO] Running org.apache.bcel.classfile.UtilityTestCase_OE25Dev
-[ERROR] Tests run: 13, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.bcel.classfile.UtilityTestCase_OE25Dev
-[ERROR] testSignatureToStringWithGenerics_10_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
-junit.framework.ComparisonFailure: type parameters signature expected:<<K1 extends K,[V1 extends V>()com.google.common.cache.Weigher<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>()com.google.common.cache.Weigher<K1, ]V1>>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_10_oe(UtilityTestCase_OE25Dev.java:138)
-
-[ERROR] testSignatureToStringWithGenerics_11_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: type parameters signature expected:<<K1 extends K,[V1 extends V>(com.google.common.cache.Weigher<? super K1,? super V1>)com.google.common.cache.CacheBuilder<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>(com.google.common.cache.Weigher<? super K1, ? super V1>)com.google.common.cache.CacheBuilder<K1, ]V1>>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_11_oe(UtilityTestCase_OE25Dev.java:157)
-
-[ERROR] testSignatureToStringWithGenerics_12_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.ComparisonFailure: class signature expected:<...ds java.lang.Object,[E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N,]E>> but was:<...ds java.lang.Object,[ E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N, ]E>>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_12_oe(UtilityTestCase_OE25Dev.java:177)
-
-[ERROR] testSignatureToStringWithGenerics_13_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: class signature expected:<<K extends Object,[]V extends Object> ex...> but was:<<K extends Object,[ ]V extends Object> ex...>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_13_oe(UtilityTestCase_OE25Dev.java:198)
-
-[ERROR] testSignatureToStringWithGenerics_1_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: generic signature expected:<java.util.Map<X,[]java.util.List<Y>>> but was:<java.util.Map<X,[ ]java.util.List<Y>>>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_1_oe(UtilityTestCase_OE25Dev.java:26)
-
-[ERROR] testSignatureToStringWithGenerics_4_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: generic signature expected:<...truct.image.GrayU8>,[]boofcv.struct.image....> but was:<...truct.image.GrayU8>,[ ]boofcv.struct.image....>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_4_oe(UtilityTestCase_OE25Dev.java:49)
-
-[ERROR] testSignatureToStringWithGenerics_5_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: generic signature expected:<java.util.Map<?,[]?>> but was:<java.util.Map<?,[ ]?>>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_5_oe(UtilityTestCase_OE25Dev.java:60)
-
-[ERROR] testSignatureToStringWithGenerics_7_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: type parameters signature expected:<...io.ByteProcessor<T>,[]int)T> but was:<...io.ByteProcessor<T>,[ ]int)T>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_7_oe(UtilityTestCase_OE25Dev.java:87)
-
-[ERROR] testSignatureToStringWithGenerics_8_oe(org.apache.bcel.classfile.UtilityTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.ComparisonFailure: type parameters signature expected:<...io.ByteProcessor<T>,[]int)T> but was:<...io.ByteProcessor<T>,[ ]int)T>
-	at org.apache.bcel.classfile.UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_8_oe(UtilityTestCase_OE25Dev.java:103)
-
-[INFO] Running org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.ClassPathRepositoryTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.util.ClassPathRepositoryTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.LruCacheClassPathRepositoryTestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.apache.bcel.util.LruCacheClassPathRepositoryTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.InstructionFinderTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.bcel.util.InstructionFinderTest_OE25Dev
-[INFO] Running org.apache.bcel.util.ClassPathTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.ClassPathTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
-[INFO] Running org.apache.bcel.CounterVisitorTestCase_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.bcel.CounterVisitorTestCase_OE25Dev
-[INFO] Running org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
-[INFO] Running org.apache.bcel.InstructionFinderTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.InstructionFinderTestCase_OE25Dev
-[INFO] Running org.apache.bcel.verifier.VerifierTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.bcel.verifier.VerifierTestCase_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Failures: 
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_10_oe:138 type parameters signature expected:<<K1 extends K,[V1 extends V>()com.google.common.cache.Weigher<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>()com.google.common.cache.Weigher<K1, ]V1>>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_11_oe:157 type parameters signature expected:<<K1 extends K,[V1 extends V>(com.google.common.cache.Weigher<? super K1,? super V1>)com.google.common.cache.CacheBuilder<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>(com.google.common.cache.Weigher<? super K1, ? super V1>)com.google.common.cache.CacheBuilder<K1, ]V1>>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_12_oe:177 class signature expected:<...ds java.lang.Object,[E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N,]E>> but was:<...ds java.lang.Object,[ E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N, ]E>>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_13_oe:198 class signature expected:<<K extends Object,[]V extends Object> ex...> but was:<<K extends Object,[ ]V extends Object> ex...>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_1_oe:26 generic signature expected:<java.util.Map<X,[]java.util.List<Y>>> but was:<java.util.Map<X,[ ]java.util.List<Y>>>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_4_oe:49 generic signature expected:<...truct.image.GrayU8>,[]boofcv.struct.image....> but was:<...truct.image.GrayU8>,[ ]boofcv.struct.image....>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_5_oe:60 generic signature expected:<java.util.Map<?,[]?>> but was:<java.util.Map<?,[ ]?>>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_7_oe:87 type parameters signature expected:<...io.ByteProcessor<T>,[]int)T> but was:<...io.ByteProcessor<T>,[ ]int)T>
-[ERROR]   UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_8_oe:103 type parameters signature expected:<...io.ByteProcessor<T>,[]int)T> but was:<...io.ByteProcessor<T>,[ ]int)T>
-[ERROR]   BranchHandleTestCase_OE25Dev.testsetInstructionNull_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[ERROR]   BranchHandleTestCase_OE25Dev.testsetInstructionnotBI_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[ERROR]   InstructionHandleTestCase_OE25Dev.testsetInstructionNull_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[ERROR]   InstructionHandleTestCase_OE25Dev.testsetInstructionnotI_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[INFO] 
-[ERROR] Tests run: 206, Failures: 13, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] Compiling 87 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[716,26] variable methodName is already defined in method test_standard_8_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[755,26] variable methodName is already defined in method test_standard_8_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[928,26] variable methodName is already defined in method test_standard_13_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[989,26] variable methodName is already defined in method test_standard_13_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1058,26] variable methodName is already defined in method test_standard_14_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1123,26] variable methodName is already defined in method test_standard_14_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1165,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1203,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1250,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1293,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1344,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1391,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe_2_oe()
+[INFO] 12 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  15.390 s
-[INFO] Finished at: 2026-02-03T05:49:31-06:00
+[INFO] Total time:  22.254 s
+[INFO] Finished at: 2026-02-03T13:41:55-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project bcel: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project bcel: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[716,26] variable methodName is already defined in method test_standard_8_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[755,26] variable methodName is already defined in method test_standard_8_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[928,26] variable methodName is already defined in method test_standard_13_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[989,26] variable methodName is already defined in method test_standard_13_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1058,26] variable methodName is already defined in method test_standard_14_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1123,26] variable methodName is already defined in method test_standard_14_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1165,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1203,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_8_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1250,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1293,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_10_oe_2_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1344,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe_1_oe()
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/GeneratingAnnotatedClassesTestCase_OE25Dev.java:[1391,30] variable methodName is already defined in method testTransformClassToClassGen_ArrayAndAnnotationTypes_11_oe_2_oe()
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

@@ -85,7 +85,7 @@ public class ParameterTest_OE25Dev extends AbstractCommonTest {
         return name;
     }
 
-    public void testAllValid_1_oe() {
+    public void testAllValid_2_oe_1_oe() {
 
         // Create bean to run test on.
         NameBean bean = createNameBean();
@@ -101,8 +101,387 @@ public class ParameterTest_OE25Dev extends AbstractCommonTest {
         try {
             validator.validate();
         } catch(Exception e) {
-            fail("Validator.validate() threw " + e);
+            // removed other assertion
+        }
+                final Validator validator1 = validator;
+        final String name = Validator.BEAN_PARAM;
+        final Class<?> type = Object.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
     }
+
+    public void testAllValid_2_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+                final Validator validator1 = validator;
+        final String name = Validator.BEAN_PARAM;
+        final Class<?> type = Object.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
+    }
+
+    public void testAllValid_3_oe_1_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.FIELD_PARAM;
+        final Class<?> type = Field.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
+    }
+
+    public void testAllValid_3_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.FIELD_PARAM;
+        final Class<?> type = Field.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
+    }
+
+    public void testAllValid_4_oe_1_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.FORM_PARAM;
+        final Class<?> type = Form.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
+    }
+
+    public void testAllValid_4_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.FORM_PARAM;
+        final Class<?> type = Form.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
+    }
+
+    public void testAllValid_5_oe_1_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.LOCALE_PARAM;
+        final Class<?> type = Locale.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
+    }
+
+    public void testAllValid_5_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.LOCALE_PARAM;
+        final Class<?> type = Locale.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
+    }
+
+    public void testAllValid_6_oe_1_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.VALIDATOR_ACTION_PARAM;
+        final Class<?> type = ValidatorAction.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
+    }
+
+    public void testAllValid_6_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.VALIDATOR_ACTION_PARAM;
+        final Class<?> type = ValidatorAction.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
+    }
+
+    public void testAllValid_7_oe_1_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.VALIDATOR_PARAM;
+        final Class<?> type = Validator.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
+    }
+
+    public void testAllValid_7_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.VALIDATOR_PARAM;
+        final Class<?> type = Validator.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
+    }
+
+    public void testAllValid_8_oe_1_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.VALIDATOR_RESULTS_PARAM;
+        final Class<?> type = ValidatorResults.class;
+        Object value = validator1.getParameterValue(name);
+                assertNotNull("Expected '" + type.getName() + "' but was null", value);
+    }
+
+    public void testAllValid_8_oe_2_oe() {
+
+        // Create bean to run test on.
+        NameBean bean = createNameBean();
+
+        Validator validator = new Validator(resources, FORM_KEY);
+
+        // add the name bean to the validator as a resource
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, bean);
+        validator.setParameter(Validator.LOCALE_PARAM, Locale.getDefault());
+
+        // Get results of the validation.
+        try {
+            validator.validate();
+        } catch(Exception e) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Validator validator1 = validator;
+        final String name = Validator.VALIDATOR_RESULTS_PARAM;
+        final Class<?> type = ValidatorResults.class;
+        Object value = validator1.getParameterValue(name);
+                // removed other assertion
+                assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
     }
 
 }

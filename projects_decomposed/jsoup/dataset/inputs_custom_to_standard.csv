@@ -1,0 +1,457 @@
+id,test_prefix,test_name
+jsoup_840_5_1,"    @Test
+    public void testPathScopedCookies_5_oe_1_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+                final Document doc = doc3;
+        assertEquals(2,doc.select(""table tr"").size());// two of three sent to servlet(/ and /CookieServlet);
+    }
+",SessionTest::testPathScopedCookies_5_oe_1_oe
+jsoup_840_5_2,"    @Test
+    public void testPathScopedCookies_5_oe_2_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+                final Document doc = doc3;
+        // removed other assertion
+                Elements doc3Els = keyEls(""One"",doc);
+                assertEquals(2, doc3Els.size());
+    }
+",SessionTest::testPathScopedCookies_5_oe_2_oe
+jsoup_840_5_3,"    @Test
+    public void testPathScopedCookies_5_oe_3_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+                final Document doc = doc3;
+        // removed other assertion
+                Elements doc3Els = keyEls(""One"",doc);
+                // removed other assertion
+                assertEquals(""CookieServlet"", doc3Els.get(0).text()); // ordered by most specific path;
+    }
+",SessionTest::testPathScopedCookies_5_oe_3_oe
+jsoup_840_5_4,"    @Test
+    public void testPathScopedCookies_5_oe_4_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+                final Document doc = doc3;
+        // removed other assertion
+                Elements doc3Els = keyEls(""One"",doc);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(""Root"", doc3Els.get(1).text()); // ordered by most specific path;
+    }
+",SessionTest::testPathScopedCookies_5_oe_4_oe
+jsoup_840_6_1,"    @Test
+    public void testPathScopedCookies_6_oe_1_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+                final Document doc = echo;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                assertEquals(2, echoEls.size());
+    }
+",SessionTest::testPathScopedCookies_6_oe_1_oe
+jsoup_840_6_2,"    @Test
+    public void testPathScopedCookies_6_oe_2_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+                final Document doc = echo;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                assertEquals(""EchoServlet"", echoEls.get(0).text()); // ordered by most specific path - /Echo;
+    }
+",SessionTest::testPathScopedCookies_6_oe_2_oe
+jsoup_840_6_3,"    @Test
+    public void testPathScopedCookies_6_oe_3_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+                final Document doc = echo;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                // removed other assertion
+                assertEquals(""Root"", echoEls.get(1).text()); // ordered by most specific path - /;
+    }
+",SessionTest::testPathScopedCookies_6_oe_3_oe
+jsoup_841_2_1,"    @Test
+    public void testPathScopedCookiesOnRedirect_2_oe_1_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+                final Document doc = doc1;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                assertEquals(2, echoEls.size());
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_2_oe_1_oe
+jsoup_841_2_2,"    @Test
+    public void testPathScopedCookiesOnRedirect_2_oe_2_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+                final Document doc = doc1;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                assertEquals(""EchoServlet"", echoEls.get(0).text()); // ordered by most specific path - /Echo;
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_2_oe_2_oe
+jsoup_841_2_3,"    @Test
+    public void testPathScopedCookiesOnRedirect_2_oe_3_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+                final Document doc = doc1;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                // removed other assertion
+                assertEquals(""Root"", echoEls.get(1).text()); // ordered by most specific path - / // checks we only have /echo cookies;
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_2_oe_3_oe
+jsoup_841_3_1,"    @Test
+    public void testPathScopedCookiesOnRedirect_3_oe_1_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+                final Document doc = doc2;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                assertEquals(2, echoEls.size());
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_3_oe_1_oe
+jsoup_841_3_2,"    @Test
+    public void testPathScopedCookiesOnRedirect_3_oe_2_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+                final Document doc = doc2;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                assertEquals(""EchoServlet"", echoEls.get(0).text()); // ordered by most specific path - /Echo;
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_3_oe_2_oe
+jsoup_841_3_3,"    @Test
+    public void testPathScopedCookiesOnRedirect_3_oe_3_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+                final Document doc = doc2;
+        Elements echoEls = keyEls(""Cookie: One"", doc);  // two of three sent to servlet (/ and /EchoServlet)
+                // removed other assertion
+                // removed other assertion
+                assertEquals(""Root"", echoEls.get(1).text()); // ordered by most specific path - / // test retained in session;
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_3_oe_3_oe
+jsoup_841_4_1,"    @Test
+    public void testPathScopedCookiesOnRedirect_4_oe_1_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+        // removed other assertion
+
+        Document doc3 = session.newRequest()
+            .url(CookieServlet.Url)
+            .get();
+                final Document doc = doc3;
+        assertEquals(2,doc.select(""table tr"").size());// two of three sent to servlet(/ and /CookieServlet);
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_4_oe_1_oe
+jsoup_841_4_2,"    @Test
+    public void testPathScopedCookiesOnRedirect_4_oe_2_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+        // removed other assertion
+
+        Document doc3 = session.newRequest()
+            .url(CookieServlet.Url)
+            .get();
+                final Document doc = doc3;
+        // removed other assertion
+                Elements doc3Els = keyEls(""One"",doc);
+                assertEquals(2, doc3Els.size());
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_4_oe_2_oe
+jsoup_841_4_3,"    @Test
+    public void testPathScopedCookiesOnRedirect_4_oe_3_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+        // removed other assertion
+
+        Document doc3 = session.newRequest()
+            .url(CookieServlet.Url)
+            .get();
+                final Document doc = doc3;
+        // removed other assertion
+                Elements doc3Els = keyEls(""One"",doc);
+                // removed other assertion
+                assertEquals(""CookieServlet"", doc3Els.get(0).text()); // ordered by most specific path;
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_4_oe_3_oe
+jsoup_841_4_4,"    @Test
+    public void testPathScopedCookiesOnRedirect_4_oe_4_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        // removed other assertion
+        // removed other assertion
+
+        Document doc2 = session.newRequest()
+            .url(EchoServlet.Url)
+            .get();
+        // removed other assertion
+
+        Document doc3 = session.newRequest()
+            .url(CookieServlet.Url)
+            .get();
+                final Document doc = doc3;
+        // removed other assertion
+                Elements doc3Els = keyEls(""One"",doc);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(""Root"", doc3Els.get(1).text()); // ordered by most specific path // and so were the /cookie cookies;
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_4_oe_4_oe

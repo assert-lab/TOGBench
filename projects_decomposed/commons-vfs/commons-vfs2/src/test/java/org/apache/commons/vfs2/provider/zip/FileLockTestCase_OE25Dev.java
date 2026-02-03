@@ -86,7 +86,39 @@ public class FileLockTestCase_OE25Dev {
     }
 
     @Test
-    public void testReadClosedFileObject() throws Exception {
+    public void testCannotDeleteWhileStreaming2() throws Exception {
+        Assume.assumeTrue(SystemUtils.IS_OS_WINDOWS);
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertFalse("Could not delete file", newZipFile.delete());
+            }
+        }
+    }
+
+    /**
+     * This test checks whether we can modify an underlying Zip file after we have performed IO operations on files
+     * within it, but although we no longer have any FileObjects explicitly open.
+     *
+     * @throws Exception
+     */
+
+    @Test
+    public void testCannotDeleteWhileStreaming_2_oe_1_oe() throws Exception {
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                if (SystemUtils.IS_OS_WINDOWS) {
+                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                    // removed other assertion
+                }
+            }
+        }
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
+
+    @Test
+    public void testReadClosedFileObject_1_oe_1_oe() throws Exception {
         final FileObject zipFileObjectRef;
         try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
             zipFileObjectRef = zipFileObject;
@@ -99,91 +131,70 @@ public class FileLockTestCase_OE25Dev {
         } finally {
             zipFileObjectRef.close();
         }
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
-    public void testResolveAndOpenCloseContent() throws Exception {
+    public void testResolveAndOpenCloseContent_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseContent();
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
-    public void testResolveAndOpenCloseContent3() throws Exception {
+    public void testResolveAndOpenCloseContent3_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseContent();
         resolveAndOpenCloseContent();
         resolveAndOpenCloseContent();
 
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
-    /**
-     * This test checks whether we can modify an underlying Zip file after we have performed IO operations on files
-     * within it, but although we no longer have any FileObjects explicitly open.
-     *
-     * @throws Exception
-     */
     @Test
-    public void testResolveAndOpenCloseInputStream() throws Exception {
+    public void testResolveAndOpenCloseInputStream_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseInputStream();
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
-    public void testResolveAndOpenCloseInputStream3() throws Exception {
+    public void testResolveAndOpenCloseInputStream3_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseInputStream();
         resolveAndOpenCloseInputStream();
         resolveAndOpenCloseInputStream();
 
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
-    public void testResolveAndOpenReadCloseInputStream() throws Exception {
+    public void testResolveAndOpenReadCloseInputStream_1_oe_1_oe() throws Exception {
         resolveAndOpenReadCloseInputStream();
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
-    public void testResolveAndOpenReadCloseInputStream3() throws Exception {
+    public void testResolveAndOpenReadCloseInputStream3_1_oe_1_oe() throws Exception {
         resolveAndOpenReadCloseInputStream();
         resolveAndOpenReadCloseInputStream();
         resolveAndOpenReadCloseInputStream();
-        assertDelete();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
     @Test
-    public void testResolveOpenCloseNestedInputStreams() throws Exception {
+    public void testResolveOpenCloseNestedInputStreams_1_oe_1_oe() throws Exception {
         try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
             try (final FileObject zipFileObject2 = manager.resolveFile(zipFileUri)) {
                 zipFileObject2.getContent().getInputStream().close();
             }
             zipFileObject.getContent().getInputStream().close();
         }
-        assertDelete();
-    }
-
-    @Test
-    public void testCannotDeleteWhileStreaming_1_oe() throws Exception {
-        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
-            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
-                if (SystemUtils.IS_OS_WINDOWS) {
-                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
-                    Assert.assertFalse("Could not delete file", newZipFile.delete());
-    }
-    }
-    }
-    }
-
-    @Test
-    public void testCannotDeleteWhileStreaming2_1_oe() throws Exception {
-        Assume.assumeTrue(SystemUtils.IS_OS_WINDOWS);
-        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
-            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
                 // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
-                Assert.assertFalse("Could not delete file", newZipFile.delete());
-    }
-    }
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
     }
 
 }

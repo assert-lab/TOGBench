@@ -40,21 +40,125 @@ class ListSamplerTest_OE25Dev {
     private final UniformRandomProvider rng = RandomSource.ISAAC.create(6543432321L);
     private final ChiSquareTest chiSquareTest = new ChiSquareTest();
 
-    /**
-     * Test shuffle matches {@link PermutationSampler#shuffle(UniformRandomProvider, int[])}.
-     * The implementation may be different but the result is a Fisher-Yates shuffle so the
-     * output order should match.
-     */
     @Test
-    void testShuffleMatchesPermutationSamplerShuffle() {
+    void testSample() {
+        final String[][] c = {{"0", "1"}, {"0", "2"}, {"0", "3"}, {"0", "4"},
+                              {"1", "2"}, {"1", "3"}, {"1", "4"},
+                              {"2", "3"}, {"2", "4"},
+                              {"3", "4"}};
+        final long[] observed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        final double[] expected = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
+
+        final HashSet<String> cPop = new HashSet<>(); // {0, 1, 2, 3, 4}.
+        for (int i = 0; i < 5; i++) {
+            cPop.add(Integer.toString(i));
+        }
+
+        final List<Set<String>> sets = new ArrayList<>(); // 2-sets from 5.
+        for (int i = 0; i < 10; i++) {
+            final HashSet<String> hs = new HashSet<>();
+            hs.add(c[i][0]);
+            hs.add(c[i][1]);
+            sets.add(hs);
+        }
+
+        for (int i = 0; i < 1000; i++) {
+            observed[findSample(sets, ListSampler.sample(rng, new ArrayList<>(cPop), 2))]++;
+        }
+
+        // Pass if we cannot reject null hypothesis that distributions are the same.
+        Assertions.assertFalse(chiSquareTest.chiSquareTest(expected, observed, 0.001));
+    }
+
+    @Test
+    void testSampleWhole() {
+        // Sample of size = size of collection must return the same collection.
+        final List<String> list = new ArrayList<>();
+        list.add("one");
+
+        final List<String> one = ListSampler.sample(rng, list, 1);
+        Assertions.assertEquals(1, one.size());
+        Assertions.assertTrue(one.contains("one"));
+    }
+
+    @Test
+    void testSamplePrecondition1() {
+        // Must fail for sample size > collection size.
+        final List<String> list = new ArrayList<>();
+        list.add("one");
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> ListSampler.sample(rng, list, 2));
+    }
+
+    @Test
+    void testSamplePrecondition2() {
+        // Must fail for empty collection.
+        final List<String> list = new ArrayList<>();
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> ListSampler.sample(rng, list, 1));
+    }
+
+    @Test
+    void testShuffle() {
         final List<Integer> orig = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             orig.add((i + 1) * rng.nextInt());
         }
 
-        assertShuffleMatchesPermutationSamplerShuffle(new ArrayList<>(orig));
-        assertShuffleMatchesPermutationSamplerShuffle(new LinkedList<>(orig));
+        final List<Integer> arrayList = new ArrayList<>(orig);
+
+        ListSampler.shuffle(rng, arrayList);
+        // Ensure that at least one entry has moved.
+        Assertions.assertTrue(compare(orig, arrayList, 0, orig.size(), false), "ArrayList");
+
+        final List<Integer> linkedList = new LinkedList<>(orig);
+
+        ListSampler.shuffle(rng, linkedList);
+        // Ensure that at least one entry has moved.
+        Assertions.assertTrue(compare(orig, linkedList, 0, orig.size(), false), "LinkedList");
     }
+
+    @Test
+    void testShuffleTail() {
+        final List<Integer> orig = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            orig.add((i + 1) * rng.nextInt());
+        }
+        final List<Integer> list = new ArrayList<>(orig);
+
+        final int start = 4;
+        ListSampler.shuffle(rng, list, start, false);
+
+        // Ensure that all entries below index "start" did not move.
+        Assertions.assertTrue(compare(orig, list, 0, start, true));
+
+        // Ensure that at least one entry has moved.
+        Assertions.assertTrue(compare(orig, list, start, orig.size(), false));
+    }
+
+    @Test
+    void testShuffleHead() {
+        final List<Integer> orig = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            orig.add((i + 1) * rng.nextInt());
+        }
+        final List<Integer> list = new ArrayList<>(orig);
+
+        final int start = 4;
+        ListSampler.shuffle(rng, list, start, true);
+
+        // Ensure that all entries above index "start" did not move.
+        Assertions.assertTrue(compare(orig, list, start + 1, orig.size(), true));
+
+        // Ensure that at least one entry has moved.
+        Assertions.assertTrue(compare(orig, list, 0, start + 1, false));
+    }
+
+    /**
+     * Test shuffle matches {@link PermutationSampler#shuffle(UniformRandomProvider, int[])}.
+     * The implementation may be different but the result is a Fisher-Yates shuffle so the
+     * output order should match.
+     */
 
     /**
      * Test shuffle matches {@link PermutationSampler#shuffle(UniformRandomProvider, int[], int, boolean)}.
@@ -194,169 +298,62 @@ class ListSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSample_1_oe() {
-        final String[][] c = {{"0", "1"}, {"0", "2"}, {"0", "3"}, {"0", "4"},
-                              {"1", "2"}, {"1", "3"}, {"1", "4"},
-                              {"2", "3"}, {"2", "4"},
-                              {"3", "4"}};
-        final long[] observed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        final double[] expected = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
-
-        final HashSet<String> cPop = new HashSet<>(); // {0, 1, 2, 3, 4}.
-        for (int i = 0; i < 5; i++) {
-            cPop.add(Integer.toString(i));
-        }
-
-        final List<Set<String>> sets = new ArrayList<>(); // 2-sets from 5.
+    void testShuffleMatchesPermutationSamplerShuffle_1_oe_1_oe() {
+        final List<Integer> orig = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            final HashSet<String> hs = new HashSet<>();
-            hs.add(c[i][0]);
-            hs.add(c[i][1]);
-            sets.add(hs);
+            orig.add((i + 1) * rng.nextInt());
         }
 
-        for (int i = 0; i < 1000; i++) {
-            observed[findSample(sets, ListSampler.sample(rng, new ArrayList<>(cPop), 2))]++;
-        }
-
-        // Pass if we cannot reject null hypothesis that distributions are the same.
-        Assertions.assertFalse(chiSquareTest.chiSquareTest(expected, observed, 0.001));
+                final List<Integer> list = new ArrayList<>(orig);
+        final int[] array = new int[list.size()];
+                ListIterator<Integer> it = list.listIterator();
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = it.next();
+                }
+        
+                // Identical RNGs
+                final long seed = RandomSource.createLong();
+                final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(seed);
+                final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(seed);
+        
+                ListSampler.shuffle(rng1, list);
+                PermutationSampler.shuffle(rng2, array);
+        
+                final Supplier<String> msg = () -> "Type=" + list.getClass().getSimpleName();
+                it = list.listIterator();
+                for (int i = 0; i < array.length; i++) {
+                    Assertions.assertEquals(array[i], it.next().intValue(), msg);
+    }
     }
 
     @Test
-    void testSampleWhole_1_oe() {
-        // Sample of size = size of collection must return the same collection.
-        final List<String> list = new ArrayList<>();
-        list.add("one");
+    void testShuffleMatchesPermutationSamplerShuffle_2_oe_1_oe() {
+        final List<Integer> orig = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            orig.add((i + 1) * rng.nextInt());
+        }
 
-        final List<String> one = ListSampler.sample(rng, list, 1);
-        Assertions.assertEquals(1, one.size());
-    }
-
-    @Test
-    void testSampleWhole_2_oe() {
-        // Sample of size = size of collection must return the same collection.
-        final List<String> list = new ArrayList<>();
-        list.add("one");
-
-        final List<String> one = ListSampler.sample(rng, list, 1);
         // removed other assertion
-        Assertions.assertTrue(one.contains("one"));
+                final List<Integer> list = new LinkedList<>(orig);
+        final int[] array = new int[list.size()];
+                ListIterator<Integer> it = list.listIterator();
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = it.next();
+                }
+        
+                // Identical RNGs
+                final long seed = RandomSource.createLong();
+                final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(seed);
+                final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(seed);
+        
+                ListSampler.shuffle(rng1, list);
+                PermutationSampler.shuffle(rng2, array);
+        
+                final Supplier<String> msg = () -> "Type=" + list.getClass().getSimpleName();
+                it = list.listIterator();
+                for (int i = 0; i < array.length; i++) {
+                    Assertions.assertEquals(array[i], it.next().intValue(), msg);
     }
-
-    @Test
-    void testSamplePrecondition1_1_oe() {
-        // Must fail for sample size > collection size.
-        final List<String> list = new ArrayList<>();
-        list.add("one");
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ListSampler.sample(rng, list, 2));
-    }
-
-    @Test
-    void testSamplePrecondition2_1_oe() {
-        // Must fail for empty collection.
-        final List<String> list = new ArrayList<>();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ListSampler.sample(rng, list, 1));
-    }
-
-    @Test
-    void testShuffle_1_oe() {
-        final List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-
-        final List<Integer> arrayList = new ArrayList<>(orig);
-
-        ListSampler.shuffle(rng, arrayList);
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, arrayList, 0, orig.size(), false), "ArrayList");
-    }
-
-    @Test
-    void testShuffle_2_oe() {
-        final List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-
-        final List<Integer> arrayList = new ArrayList<>(orig);
-
-        ListSampler.shuffle(rng, arrayList);
-        // Ensure that at least one entry has moved.
-        // removed other assertion
-
-        final List<Integer> linkedList = new LinkedList<>(orig);
-
-        ListSampler.shuffle(rng, linkedList);
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, linkedList, 0, orig.size(), false), "LinkedList");
-    }
-
-    @Test
-    void testShuffleTail_1_oe() {
-        final List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-        final List<Integer> list = new ArrayList<>(orig);
-
-        final int start = 4;
-        ListSampler.shuffle(rng, list, start, false);
-
-        // Ensure that all entries below index "start" did not move.
-        Assertions.assertTrue(compare(orig, list, 0, start, true));
-    }
-
-    @Test
-    void testShuffleTail_2_oe() {
-        final List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-        final List<Integer> list = new ArrayList<>(orig);
-
-        final int start = 4;
-        ListSampler.shuffle(rng, list, start, false);
-
-        // Ensure that all entries below index "start" did not move.
-        // removed other assertion
-
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, list, start, orig.size(), false));
-    }
-
-    @Test
-    void testShuffleHead_1_oe() {
-        final List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-        final List<Integer> list = new ArrayList<>(orig);
-
-        final int start = 4;
-        ListSampler.shuffle(rng, list, start, true);
-
-        // Ensure that all entries above index "start" did not move.
-        Assertions.assertTrue(compare(orig, list, start + 1, orig.size(), true));
-    }
-
-    @Test
-    void testShuffleHead_2_oe() {
-        final List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-        final List<Integer> list = new ArrayList<>(orig);
-
-        final int start = 4;
-        ListSampler.shuffle(rng, list, start, true);
-
-        // Ensure that all entries above index "start" did not move.
-        // removed other assertion
-
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, list, 0, start + 1, false));
     }
 
 }

@@ -36,6 +36,20 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         return new Capability[] {Capability.URI};
     }
 
+    @Test
+    public void testReservedCharacter_Space() throws FileSystemException {
+        try (final FileObject fileObject = getReadFolder().resolveFile("file with spaces.txt")) {
+            final URL url = fileObject.getURL();
+            final String string = url.toString();
+            assertTrue(string, string.contains("file%20with%20spaces.txt"));
+        }
+        try (final FileObject fileObject = getReadFolder().resolveFile("file%20with%20spaces.txt")) {
+            final URL url = fileObject.getURL();
+            final String string = url.toString();
+            assertTrue(string, string.contains("file%20with%20spaces.txt"));
+        }
+    }
+
     /**
      * Tests that unknown files have no content.
      */
@@ -43,6 +57,19 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
     /**
      * Tests url.
      */
+    @Test
+    public void testURL() throws Exception {
+        final FileObject file = getReadFolder().resolveFile("some-dir/");
+        final URL url = file.getURL();
+
+        assertEquals(file.getName().getURI(), url.toExternalForm());
+
+        final URL parentURL = new URL(url, "..");
+        assertEquals(file.getParent().getURL(), parentURL);
+
+        final URL rootURL = new URL(url, "/");
+        assertEquals(file.getFileSystem().getRoot().getURL(), rootURL);
+    }
 
     /**
      * Tests content.
@@ -71,39 +98,24 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
     /**
      * Tests content.
      */
-
     @Test
-    public void testReservedCharacter_Space_1_oe() throws FileSystemException {
-        try (final FileObject fileObject = getReadFolder().resolveFile("file with spaces.txt")) {
-            final URL url = fileObject.getURL();
-            final String string = url.toString();
-            assertTrue(string, string.contains("file%20with%20spaces.txt"));
-    }
-    }
+    public void testURLContentProvider() throws Exception {
+        // Test non-empty file
+        final FileObject file = getReadFolder().resolveFile("file1.txt");
+        assertTrue(file.exists());
 
-    @Test
-    public void testReservedCharacter_Space_2_oe() throws FileSystemException {
-        try (final FileObject fileObject = getReadFolder().resolveFile("file with spaces.txt")) {
-            final URL url = fileObject.getURL();
-            final String string = url.toString();
-            // removed other assertion
-        }
-        try (final FileObject fileObject = getReadFolder().resolveFile("file%20with%20spaces.txt")) {
-            final URL url = fileObject.getURL();
-            final String string = url.toString();
-            assertTrue(string, string.contains("file%20with%20spaces.txt"));
-    }
+        final String uri = file.getURL().toExternalForm();
+        final FileSystemOptions options = getReadFolder().getFileSystem().getFileSystemOptions();
+
+        final FileObject f1 = getManager().resolveFile(uri, options);
+        final FileObject f2 = getManager().resolveFile(uri, options);
+
+        assertEquals("Two files resolved by URI must be equals on " + uri, f1, f2);
+        assertSame("Resolving two times should not produce new filesystem on " + uri,f1.getFileSystem(),f2.getFileSystem());
     }
 
     @Test
-    public void testUnknownURL_1_oe() throws Exception {
-        // Try getting the content of an unknown file
-        final FileObject unknownFile = getReadFolder().resolveFile("unknown-file");
-        assertFalse(unknownFile.exists());
-    }
-
-    @Test
-    public void testUnknownURL_4_oe() throws Exception {
+    public void testUnknownURL_3_oe_1_oe() throws Exception {
         // Try getting the content of an unknown file
         final FileObject unknownFile = getReadFolder().resolveFile("unknown-file");
         // removed other assertion
@@ -113,80 +125,11 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
             connection.getInputStream();
             // removed other assertion
         } catch (final IOException e) {
-            // removed other assertion
-        }
-        assertEquals(-1, connection.getContentLength());
+                        final String code = "vfs.provider/read-not-file.error";
+            final Object param = unknownFile;
+            final Throwable throwable = e;
+            assertSameMessage(code, new Object[] { param }, throwable);
     }
-
-    @Test
-    public void testURL_1_oe() throws Exception {
-        final FileObject file = getReadFolder().resolveFile("some-dir/");
-        final URL url = file.getURL();
-
-        assertEquals(file.getName().getURI(), url.toExternalForm());
-    }
-
-    @Test
-    public void testURL_2_oe() throws Exception {
-        final FileObject file = getReadFolder().resolveFile("some-dir/");
-        final URL url = file.getURL();
-
-        // removed other assertion
-
-        final URL parentURL = new URL(url, "..");
-        assertEquals(file.getParent().getURL(), parentURL);
-    }
-
-    @Test
-    public void testURL_3_oe() throws Exception {
-        final FileObject file = getReadFolder().resolveFile("some-dir/");
-        final URL url = file.getURL();
-
-        // removed other assertion
-
-        final URL parentURL = new URL(url, "..");
-        // removed other assertion
-
-        final URL rootURL = new URL(url, "/");
-        assertEquals(file.getFileSystem().getRoot().getURL(), rootURL);
-    }
-
-    @Test
-    public void testURLContentProvider_1_oe() throws Exception {
-        // Test non-empty file
-        final FileObject file = getReadFolder().resolveFile("file1.txt");
-        assertTrue(file.exists());
-    }
-
-    @Test
-    public void testURLContentProvider_2_oe() throws Exception {
-        // Test non-empty file
-        final FileObject file = getReadFolder().resolveFile("file1.txt");
-        // removed other assertion
-
-        final String uri = file.getURL().toExternalForm();
-        final FileSystemOptions options = getReadFolder().getFileSystem().getFileSystemOptions();
-
-        final FileObject f1 = getManager().resolveFile(uri, options);
-        final FileObject f2 = getManager().resolveFile(uri, options);
-
-        assertEquals("Two files resolved by URI must be equals on " + uri, f1, f2);
-    }
-
-    @Test
-    public void testURLContentProvider_3_oe() throws Exception {
-        // Test non-empty file
-        final FileObject file = getReadFolder().resolveFile("file1.txt");
-        // removed other assertion
-
-        final String uri = file.getURL().toExternalForm();
-        final FileSystemOptions options = getReadFolder().getFileSystem().getFileSystemOptions();
-
-        final FileObject f1 = getManager().resolveFile(uri, options);
-        final FileObject f2 = getManager().resolveFile(uri, options);
-
-        // removed other assertion
-        assertSame("Resolving two times should not produce new filesystem on " + uri,f1.getFileSystem(),f2.getFileSystem());
     }
 
 }

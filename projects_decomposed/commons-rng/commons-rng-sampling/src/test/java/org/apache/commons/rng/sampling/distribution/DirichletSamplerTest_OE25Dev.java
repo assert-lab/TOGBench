@@ -31,29 +31,67 @@ import org.apache.commons.rng.simple.RandomSource;
  * Test for {@link DirichletSampler}.
  */
 class DirichletSamplerTest_OE25Dev {
+    @Test
+    void testDistributionThrowsWithInvalidNumberOfCategories() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0));
+    }
+
+    @Test
+    void testDistributionThrowsWithZeroConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0, 0.0));
+    }
+
+    @Test
+    void testDistributionThrowsWithNaNConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0, Double.NaN));
+    }
+
+    @Test
+    void testDistributionThrowsWithInfiniteConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithInvalidNumberOfCategories() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> DirichletSampler.symmetric(rng, 1, 1.0));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithZeroConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.symmetric(rng, 2, 0.0));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithNaNConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.symmetric(rng, 2, Double.NaN));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithInfiniteConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY));
+    }
 
     /**
      * Create condition so that all samples are zero and it is impossible to normalise the
      * samples to sum to 1. These should be ignored and the sample is repeated until
      * normalisation is possible.
      */
-    @Test
-    void testInvalidSampleIsIgnored() {
-        // An RNG implementation which should create zero samples from the underlying
-        // exponential sampler for an initial sequence.
-        final UniformRandomProvider rng = new SplitMix64(0L) {
-            private int i;
-
-            @Override
-            public long next() {
-                return i++ < 10 ? 0L : super.next();
-            }
-        };
-
-        // Alpha=1 will use an exponential sampler
-        final DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
-        assertSample(2, sampler.sample());
-    }
 
     @Test
     void testSharedStateSampler() {
@@ -96,6 +134,14 @@ class DirichletSamplerTest_OE25Dev {
     /**
      * Test the toString method. This is added to ensure coverage.
      */
+    @Test
+    void testToString() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
+        final DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
+        Assertions.assertTrue(sampler1.toString().toLowerCase().contains("dirichlet"));
+        Assertions.assertTrue(sampler2.toString().toLowerCase().contains("dirichlet"));
+    }
 
     @Test
     void testSampling1() {
@@ -220,68 +266,50 @@ class DirichletSamplerTest_OE25Dev {
     }
 
     @Test
-    void testDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0));
+    void testInvalidSampleIsIgnored_1_oe_1_oe() {
+        // An RNG implementation which should create zero samples from the underlying
+        // exponential sampler for an initial sequence.
+        final UniformRandomProvider rng = new SplitMix64(0L) {
+            private int i;
+
+            @Override
+            public long next() {
+                return i++ < 10 ? 0L : super.next();
+            }
+        };
+
+        // Alpha=1 will use an exponential sampler
+        final DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
+                final int k = 2;
+        final double[] x = sampler.sample();
+        Assertions.assertEquals(k, x.length, "Number of categories");
     }
 
     @Test
-    void testDistributionThrowsWithZeroConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, 0.0));
-    }
+    void testInvalidSampleIsIgnored_1_oe_2_oe() {
+        // An RNG implementation which should create zero samples from the underlying
+        // exponential sampler for an initial sequence.
+        final UniformRandomProvider rng = new SplitMix64(0L) {
+            private int i;
 
-    @Test
-    void testDistributionThrowsWithNaNConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.NaN));
-    }
+            @Override
+            public long next() {
+                return i++ < 10 ? 0L : super.next();
+            }
+        };
 
-    @Test
-    void testDistributionThrowsWithInfiniteConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY));
-    }
-
-    @Test
-    void testSymmetricDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 1, 1.0));
-    }
-
-    @Test
-    void testSymmetricDistributionThrowsWithZeroConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, 0.0));
-    }
-
-    @Test
-    void testSymmetricDistributionThrowsWithNaNConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.NaN));
-    }
-
-    @Test
-    void testSymmetricDistributionThrowsWithInfiniteConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY));
-    }
-
-    @Test
-    void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
-        final DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
-        Assertions.assertTrue(sampler1.toString().toLowerCase().contains("dirichlet"));
-    }
-
-    @Test
-    void testToString_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
-        final DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
+        // Alpha=1 will use an exponential sampler
+        final DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
+                final int k = 2;
+        final double[] x = sampler.sample();
         // removed other assertion
-        Assertions.assertTrue(sampler2.toString().toLowerCase().contains("dirichlet"));
+                // There are always at least 2 categories
+                double sum = x[0] + x[1];
+                // Sum the rest
+                for (int i = 2; i < x.length; i++) {
+                    sum += x[i];
+                }
+                Assertions.assertEquals(1.0, sum, 1e-10, "Invalid sum");
     }
 
 }

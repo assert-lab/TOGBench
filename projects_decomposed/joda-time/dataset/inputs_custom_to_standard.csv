@@ -1,0 +1,1671 @@
+id,test_prefix,test_name
+joda_335_18_1,"    public void testStandard_18_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testStandard_18_oe_1_oe
+joda_336_17_1,"    public void testYearMonthDayTime_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.yearMonthDayTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYearMonthDayTime_17_oe_1_oe
+joda_337_13_1,"    public void testYearMonthDay_13_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.yearMonthDay();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYearMonthDay_13_oe_1_oe
+joda_338_17_1,"    public void testYearWeekDayTime_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.yearWeekDayTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYearWeekDayTime_17_oe_1_oe
+joda_339_13_1,"    public void testYearWeekDay_13_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.yearWeekDay();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYearWeekDay_13_oe_1_oe
+joda_340_16_1,"    public void testYearDayTime_16_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.yearDayTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYearDayTime_16_oe_1_oe
+joda_341_12_1,"    public void testYearDay_12_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.yearDay();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYearDay_12_oe_1_oe
+joda_342_15_1,"    public void testDayTime_15_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.dayTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testDayTime_15_oe_1_oe
+joda_343_14_1,"    public void testTime_14_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.time();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testTime_14_oe_1_oe
+joda_344_11_1,"    public void testYears_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.years();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testYears_11_oe_1_oe
+joda_345_11_1,"    public void testMonths_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.months();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMonths_11_oe_1_oe
+joda_346_11_1,"    public void testWeeks_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.weeks();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testWeeks_11_oe_1_oe
+joda_347_11_1,"    public void testDays_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.days();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testDays_11_oe_1_oe
+joda_348_11_1,"    public void testHours_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.hours();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testHours_11_oe_1_oe
+joda_349_11_1,"    public void testMinutes_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.minutes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMinutes_11_oe_1_oe
+joda_350_11_1,"    public void testSeconds_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.seconds();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testSeconds_11_oe_1_oe
+joda_351_11_1,"    public void testMillis_11_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.millis();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMillis_11_oe_1_oe
+joda_353_12_1,"    public void testForFields2_12_oe_1_oe() throws Exception {
+        DurationFieldType[] types = new DurationFieldType[] {
+            DurationFieldType.years(),
+            DurationFieldType.hours(),
+        };
+        PeriodType type = PeriodType.forFields(types);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testForFields2_12_oe_1_oe
+joda_354_12_1,"    public void testForFields3_12_oe_1_oe() throws Exception {
+        DurationFieldType[] types = new DurationFieldType[] {
+            DurationFieldType.months(),
+            DurationFieldType.weeks(),
+        };
+        PeriodType type = PeriodType.forFields(types);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testForFields3_12_oe_1_oe
+joda_359_17_1,"    public void testMaskYears_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withYearsRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskYears_17_oe_1_oe
+joda_360_17_1,"    public void testMaskMonths_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withMonthsRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskMonths_17_oe_1_oe
+joda_361_17_1,"    public void testMaskWeeks_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withWeeksRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskWeeks_17_oe_1_oe
+joda_362_17_1,"    public void testMaskDays_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withDaysRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskDays_17_oe_1_oe
+joda_363_17_1,"    public void testMaskHours_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withHoursRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskHours_17_oe_1_oe
+joda_364_17_1,"    public void testMaskMinutes_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withMinutesRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskMinutes_17_oe_1_oe
+joda_365_17_1,"    public void testMaskSeconds_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withSecondsRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskSeconds_17_oe_1_oe
+joda_366_17_1,"    public void testMaskMillis_17_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withMillisRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskMillis_17_oe_1_oe
+joda_367_15_1,"    public void testMaskHoursMinutesSeconds_15_oe_1_oe() throws Exception {
+        PeriodType type = PeriodType.standard().withHoursRemoved().withMinutesRemoved().withSecondsRemoved();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final PeriodType type1 = type;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(type1);
+                oos.close();
+                byte[] bytes = baos.toByteArray();
+        
+                ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+                ObjectInputStream ois = new ObjectInputStream(bais);
+                PeriodType result = (PeriodType) ois.readObject();
+                ois.close();
+        
+                assertEquals(type1,result);
+    }
+",TestPeriodType::testMaskHoursMinutesSeconds_15_oe_1_oe
+joda_1256_7_1,"    public void test_era_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.era();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_era_7_oe_1_oe
+joda_1257_7_1,"    public void test_centuryOfEra_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.centuryOfEra();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_centuryOfEra_7_oe_1_oe
+joda_1258_7_1,"    public void test_yearOfCentury_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.yearOfCentury();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_yearOfCentury_7_oe_1_oe
+joda_1259_7_1,"    public void test_yearOfEra_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.yearOfEra();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_yearOfEra_7_oe_1_oe
+joda_1260_7_1,"    public void test_year_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.year();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_year_7_oe_1_oe
+joda_1261_7_1,"    public void test_monthOfYear_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.monthOfYear();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_monthOfYear_7_oe_1_oe
+joda_1262_7_1,"    public void test_weekyearOfCentury_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.weekyearOfCentury();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_weekyearOfCentury_7_oe_1_oe
+joda_1263_7_1,"    public void test_weekyear_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.weekyear();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_weekyear_7_oe_1_oe
+joda_1264_7_1,"    public void test_weekOfWeekyear_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.weekOfWeekyear();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_weekOfWeekyear_7_oe_1_oe
+joda_1265_7_1,"    public void test_dayOfYear_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.dayOfYear();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_dayOfYear_7_oe_1_oe
+joda_1266_7_1,"    public void test_dayOfMonth_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.dayOfMonth();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_dayOfMonth_7_oe_1_oe
+joda_1267_7_1,"    public void test_dayOfWeek_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.dayOfWeek();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_dayOfWeek_7_oe_1_oe
+joda_1268_7_1,"    public void test_halfdayOfDay_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.halfdayOfDay();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_halfdayOfDay_7_oe_1_oe
+joda_1269_7_1,"    public void test_clockhourOfDay_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.clockhourOfDay();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_clockhourOfDay_7_oe_1_oe
+joda_1270_7_1,"    public void test_clockhourOfHalfday_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.clockhourOfHalfday();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_clockhourOfHalfday_7_oe_1_oe
+joda_1271_7_1,"    public void test_hourOfHalfday_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.hourOfHalfday();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_hourOfHalfday_7_oe_1_oe
+joda_1272_7_1,"    public void test_hourOfDay_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.hourOfDay();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_hourOfDay_7_oe_1_oe
+joda_1273_7_1,"    public void test_minuteOfDay_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.minuteOfDay();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_minuteOfDay_7_oe_1_oe
+joda_1274_7_1,"    public void test_minuteOfHour_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.minuteOfHour();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_minuteOfHour_7_oe_1_oe
+joda_1275_7_1,"    public void test_secondOfDay_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.secondOfDay();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_secondOfDay_7_oe_1_oe
+joda_1276_7_1,"    public void test_secondOfMinute_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.secondOfMinute();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_secondOfMinute_7_oe_1_oe
+joda_1277_7_1,"    public void test_millisOfDay_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.millisOfDay();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_millisOfDay_7_oe_1_oe
+joda_1278_7_1,"    public void test_millisOfSecond_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DateTimeFieldType type = DateTimeFieldType.millisOfSecond();
+        DateTimeFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDateTimeFieldType::test_millisOfSecond_7_oe_1_oe
+joda_1510_2_1,"    public void testConstructorEx1_Type_int_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial(null, 4);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""must not be null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx1_Type_int_2_oe_1_oe
+joda_1513_2_1,"    public void testConstructorEx_Type_int_Chrono_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial(null, 4, ISO_UTC);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""must not be null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx_Type_int_Chrono_2_oe_1_oe
+joda_1518_2_1,"    public void testConstructorEx1_TypeArray_intArray_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial((DateTimeFieldType[]) null, new int[] {1});
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""must not be null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx1_TypeArray_intArray_2_oe_1_oe
+joda_1519_2_1,"    public void testConstructorEx3_TypeArray_intArray_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear()}, null);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""must not be null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx3_TypeArray_intArray_2_oe_1_oe
+joda_1520_2_1,"    public void testConstructorEx5_TypeArray_intArray_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear()}, new int[2]);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""same length"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx5_TypeArray_intArray_2_oe_1_oe
+joda_1521_2_1,"    public void testConstructorEx6_TypeArray_intArray_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial(new DateTimeFieldType[] {null, DateTimeFieldType.dayOfYear()}, new int[2]);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""contain null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx6_TypeArray_intArray_2_oe_1_oe
+joda_1521_4_1,"    public void testConstructorEx6_TypeArray_intArray_4_oe_1_oe() throws Throwable {
+        try {
+            new Partial(new DateTimeFieldType[] {null, DateTimeFieldType.dayOfYear()}, new int[2]);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        try {
+            new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear(), null}, new int[2]);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""contain null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx6_TypeArray_intArray_4_oe_1_oe
+joda_1524_2_1,"    public void testConstructorEx9_TypeArray_intArray_2_oe_1_oe() throws Throwable {
+        int[] values = new int[] {3, 0};
+        DateTimeFieldType[] types = new DateTimeFieldType[] {
+            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.dayOfWeek()};
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""Value 0"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx9_TypeArray_intArray_2_oe_1_oe
+joda_1527_2_1,"    public void testConstructorEx_Partial_2_oe_1_oe() throws Throwable {
+        try {
+            new Partial((ReadablePartial) null);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+                        final Exception ex1 = ex;
+            final String str = ""must not be null"";
+            assertEquals(ex1.getMessage()+ "": "" + str,true,ex1.getMessage().indexOf(str)>= 0);
+    }
+    }
+",TestPartial_Constructors::testConstructorEx_Partial_2_oe_1_oe
+joda_1563_5_1,"    public void test_eras_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.eras();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_eras_5_oe_1_oe
+joda_1564_5_1,"    public void test_centuries_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.centuries();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_centuries_5_oe_1_oe
+joda_1565_5_1,"    public void test_years_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.years();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_years_5_oe_1_oe
+joda_1566_5_1,"    public void test_months_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.months();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_months_5_oe_1_oe
+joda_1567_5_1,"    public void test_weekyears_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.weekyears();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_weekyears_5_oe_1_oe
+joda_1568_5_1,"    public void test_weeks_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.weeks();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_weeks_5_oe_1_oe
+joda_1569_5_1,"    public void test_days_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.days();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_days_5_oe_1_oe
+joda_1570_5_1,"    public void test_halfdays_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.halfdays();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_halfdays_5_oe_1_oe
+joda_1571_5_1,"    public void test_hours_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.hours();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_hours_5_oe_1_oe
+joda_1572_5_1,"    public void test_minutes_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.minutes();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_minutes_5_oe_1_oe
+joda_1573_5_1,"    public void test_seconds_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.seconds();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_seconds_5_oe_1_oe
+joda_1574_5_1,"    public void test_millis_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final DurationFieldType type = DurationFieldType.millis();
+        DurationFieldType result = doSerialization(type);
+                assertSame(type,result);
+    }
+",TestDurationFieldType::test_millis_5_oe_1_oe
+joda_3461_1_1,"    public void test_appendTimeZoneOffset_print_min1max1_1_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 1).toFormatter();
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max1_1_oe_1_oe
+joda_3461_1_2,"    public void test_appendTimeZoneOffset_print_min1max1_1_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 1).toFormatter();
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max1_1_oe_2_oe
+joda_3461_2_1,"    public void test_appendTimeZoneOffset_print_min1max1_2_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 1).toFormatter();
+        // removed other assertion
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max1_2_oe_1_oe
+joda_3461_2_2,"    public void test_appendTimeZoneOffset_print_min1max1_2_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 1).toFormatter();
+        // removed other assertion
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max1_2_oe_2_oe
+joda_3462_1_1,"    public void test_appendTimeZoneOffset_print_min1max2_1_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 2).toFormatter();
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max2_1_oe_1_oe
+joda_3462_1_2,"    public void test_appendTimeZoneOffset_print_min1max2_1_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 2).toFormatter();
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max2_1_oe_2_oe
+joda_3462_2_1,"    public void test_appendTimeZoneOffset_print_min1max2_2_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 2).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max2_2_oe_1_oe
+joda_3462_2_2,"    public void test_appendTimeZoneOffset_print_min1max2_2_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 2).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max2_2_oe_2_oe
+joda_3463_1_1,"    public void test_appendTimeZoneOffset_print_min1max3_1_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 3).toFormatter();
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max3_1_oe_1_oe
+joda_3463_1_2,"    public void test_appendTimeZoneOffset_print_min1max3_1_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 3).toFormatter();
+                final String expected = ""+02"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max3_1_oe_2_oe
+joda_3463_2_1,"    public void test_appendTimeZoneOffset_print_min1max3_2_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 3).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30:12"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max3_2_oe_1_oe
+joda_3463_2_2,"    public void test_appendTimeZoneOffset_print_min1max3_2_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 1, 3).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30:12"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min1max3_2_oe_2_oe
+joda_3464_1_1,"    public void test_appendTimeZoneOffset_print_min2max2_1_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 2).toFormatter();
+                final String expected = ""+02:00"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max2_1_oe_1_oe
+joda_3464_1_2,"    public void test_appendTimeZoneOffset_print_min2max2_1_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 2).toFormatter();
+                final String expected = ""+02:00"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max2_1_oe_2_oe
+joda_3464_2_1,"    public void test_appendTimeZoneOffset_print_min2max2_2_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 2).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max2_2_oe_1_oe
+joda_3464_2_2,"    public void test_appendTimeZoneOffset_print_min2max2_2_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 2).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max2_2_oe_2_oe
+joda_3465_1_1,"    public void test_appendTimeZoneOffset_print_min2max3_1_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 3).toFormatter();
+                final String expected = ""+02:00"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max3_1_oe_1_oe
+joda_3465_1_2,"    public void test_appendTimeZoneOffset_print_min2max3_1_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 3).toFormatter();
+                final String expected = ""+02:00"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max3_1_oe_2_oe
+joda_3465_2_1,"    public void test_appendTimeZoneOffset_print_min2max3_2_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 3).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30:12"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max3_2_oe_1_oe
+joda_3465_2_2,"    public void test_appendTimeZoneOffset_print_min2max3_2_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 2, 3).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30:12"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min2max3_2_oe_2_oe
+joda_3466_1_1,"    public void test_appendTimeZoneOffset_print_min3max3_1_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 3, 3).toFormatter();
+                final String expected = ""+02:00:00"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min3max3_1_oe_1_oe
+joda_3466_1_2,"    public void test_appendTimeZoneOffset_print_min3max3_1_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 3, 3).toFormatter();
+                final String expected = ""+02:00:00"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_0200);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min3max3_1_oe_2_oe
+joda_3466_2_1,"    public void test_appendTimeZoneOffset_print_min3max3_2_oe_1_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 3, 3).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30:12"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        assertEquals(expected,f1.print(dt));
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min3max3_2_oe_1_oe
+joda_3466_2_2,"    public void test_appendTimeZoneOffset_print_min3max3_2_oe_2_oe() throws IOException {
+        DateTimeFormatter f = new DateTimeFormatterBuilder().appendTimeZoneOffset(""Z"", true, 3, 3).toFormatter();
+        // removed other assertion
+                final String expected = ""+02:30:12"";
+        final DateTimeFormatter f1 = f;
+        final DateTime dt = new DateTime(2007,3,4,0,0,0,OFFSET_023012);
+        // removed other assertion
+                StringWriter out = new StringWriter();
+                try {
+                    f1.printTo(out, dt);
+                } catch (IOException ex) {
+                    AssertionFailedError failure = new AssertionFailedError();
+                    failure.initCause(ex);
+                    throw failure;
+                }
+                assertEquals(expected,out.toString());
+    }
+",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_print_min3max3_2_oe_2_oe

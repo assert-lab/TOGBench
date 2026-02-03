@@ -8,6 +8,16 @@ find projects_decomposed -type d -name "dataset" -exec rm -rf {} +
 
 python3 scripts_trial/1_build_dataset.py
 
+# map custom assertion method
+for p in projects_decomposed/*; do
+  [ -d "$p" ] || continue
+  echo "=== $(basename "$p") ==="
+  python3 scripts_trial/custom_assert_define.py --project_root "$p"
+done
+
+# inline custom assert
+python3 scripts_trial/inline_custom.py
+
 python3 scripts_trial/dataset_post_process.py
 
 python3 scripts_trial/2_filter_compilable_tests.py

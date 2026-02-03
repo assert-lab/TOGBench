@@ -42,4 +42,18 @@ public class VerifierArrayAccessTestCase extends AbstractVerifierTestCase {
                 "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.");
     }
 
+        public void testValidArrayAccess_2_oe() throws IOException {
+        final String classname = "TestArrayAccess01";
+        final String message = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
+        final String testClassname = TEST_PACKAGE + classname;
+         assertTrue(message, doAllPasses(testClassname));
+
+        new TestArrayAccess02Creator().create();
+        final String classname1 = "TestArrayAccess02";
+        final String message1 = "Verification of an arraystore instruction on an array that is not compatible with the stored element must pass.";
+        final String testClassname1 = TEST_PACKAGE + classname1;
+                assertTrue(message1, doAllPasses(testClassname1));
+    }
+
+
 }

@@ -65,26 +65,53 @@ public class LastModifiedTests_OE25Dev extends AbstractProviderTestCase {
      *
      * @throws FileSystemException if error occurred
      */
+    @Test
+    public void testGetAccurary() throws FileSystemException {
+        final FileObject file = getReadFolder().resolveFile("file1.txt");
+        final long lastModTimeAccuracyMillis = (long) file.getFileSystem().getLastModTimeAccuracy();
+        // System.out.println("Accuracy on " + file.getFileSystem().getRootURI() + " is " + lastModTimeAccuracy + " as
+        // told by " + file.getFileSystem().getClass().getCanonicalName());
+        assertTrue("Accuracy must be positive", lastModTimeAccuracyMillis >= 0);
+        // just any sane limit
+        assertTrue("Accuracy must be < 2m", lastModTimeAccuracyMillis < Duration.ofMinutes(2).toMillis());
+    }
 
     /**
      * Tests getting the last modified time of a file.
      *
      * @throws FileSystemException if error occurred
      */
+    @Test
+    public void testGetLastModifiedFile() throws FileSystemException {
+        final FileObject file = getReadFolder().resolveFile("file1.txt");
+        assertNotEquals(0L, file.getContent().getLastModifiedTime());
+    }
 
     /**
      * Tests getting the last modified time of a folder.
      *
      * @throws FileSystemException if error occurred
      */
+    @Test
+    public void testGetLastModifiedFolder() throws FileSystemException {
+        final FileObject file = getReadFolder().resolveFile("dir1");
+        assertNotEquals(0L, file.getContent().getLastModifiedTime());
+    }
 
     /**
      * Tests setting the last modified time of file.
      *
      * @throws FileSystemException if error occurred
      */
+
+    /**
+     * Tests setting the last modified time of a folder.
+     *
+     * @throws FileSystemException if error occurred
+     */
+
     @Test
-    public void testSetLastModifiedFile() throws FileSystemException {
+    public void testSetLastModifiedFile_1_oe_1_oe() throws FileSystemException {
         final long yesterdayMillis = Instant.now().minus(ONE_DAY).toEpochMilli();
 
         if (getReadFolder().getFileSystem().hasCapability(Capability.SET_LAST_MODIFIED_FILE)) {
@@ -94,18 +121,23 @@ public class LastModifiedTests_OE25Dev extends AbstractProviderTestCase {
             final long lastModTimeAccuracyMillis = (long) file.getFileSystem().getLastModTimeAccuracy();
             // folder.refresh(); TODO: does not work with SSH VFS-563
             final long lastModifiedTime = file.getContent().getLastModifiedTime();
-            assertDeltaMillis("set/getLastModified on File", yesterdayMillis, lastModifiedTime,
-                lastModTimeAccuracyMillis);
-        }
+                        final String message = "set/getLastModified on File";
+            final long expected = yesterdayMillis;
+            final long actual = lastModifiedTime;
+            final long delta = lastModTimeAccuracyMillis;
+            if (expected == actual) {
+                        return;
+                    }
+                    // getLastModTimeAccuracy() is not accurate
+                    final long actualDelta = Math.abs(expected - actual);
+                    if (actualDelta > Math.max(delta, 1000)) {
+                        Assert.fail(String.format("%s expected=%,d(%s),actual=%,d(%s),expected delta=%,d,actual delta=%,d",message,Long.valueOf(expected),new Date(expected).toString(),Long.valueOf(actual),new Date(actual).toString(),Long.valueOf(delta),Long.valueOf(actualDelta)));
+    }
+    }
     }
 
-    /**
-     * Tests setting the last modified time of a folder.
-     *
-     * @throws FileSystemException if error occurred
-     */
     @Test
-    public void testSetLastModifiedFolder() throws FileSystemException {
+    public void testSetLastModifiedFolder_1_oe_1_oe() throws FileSystemException {
         final long yesterdayMillis = Instant.now().minus(ONE_DAY).toEpochMilli();
 
         if (getReadFolder().getFileSystem().hasCapability(Capability.SET_LAST_MODIFIED_FOLDER)) {
@@ -115,41 +147,19 @@ public class LastModifiedTests_OE25Dev extends AbstractProviderTestCase {
             final long lastModTimeAccuracyMillis = (long) folder.getFileSystem().getLastModTimeAccuracy();
             // folder.refresh(); TODO: does not work with SSH VFS-563
             final long lastModifiedTime = folder.getContent().getLastModifiedTime();
-            assertDeltaMillis("set/getLastModified on Folder", yesterdayMillis, lastModifiedTime,
-                lastModTimeAccuracyMillis);
-        }
+                        final String message = "set/getLastModified on Folder";
+            final long expected = yesterdayMillis;
+            final long actual = lastModifiedTime;
+            final long delta = lastModTimeAccuracyMillis;
+            if (expected == actual) {
+                        return;
+                    }
+                    // getLastModTimeAccuracy() is not accurate
+                    final long actualDelta = Math.abs(expected - actual);
+                    if (actualDelta > Math.max(delta, 1000)) {
+                        Assert.fail(String.format("%s expected=%,d(%s),actual=%,d(%s),expected delta=%,d,actual delta=%,d",message,Long.valueOf(expected),new Date(expected).toString(),Long.valueOf(actual),new Date(actual).toString(),Long.valueOf(delta),Long.valueOf(actualDelta)));
     }
-
-    @Test
-    public void testGetAccurary_1_oe() throws FileSystemException {
-        final FileObject file = getReadFolder().resolveFile("file1.txt");
-        final long lastModTimeAccuracyMillis = (long) file.getFileSystem().getLastModTimeAccuracy();
-        // System.out.println("Accuracy on " + file.getFileSystem().getRootURI() + " is " + lastModTimeAccuracy + " as
-        // told by " + file.getFileSystem().getClass().getCanonicalName());
-        assertTrue("Accuracy must be positive", lastModTimeAccuracyMillis >= 0);
     }
-
-    @Test
-    public void testGetAccurary_2_oe() throws FileSystemException {
-        final FileObject file = getReadFolder().resolveFile("file1.txt");
-        final long lastModTimeAccuracyMillis = (long) file.getFileSystem().getLastModTimeAccuracy();
-        // System.out.println("Accuracy on " + file.getFileSystem().getRootURI() + " is " + lastModTimeAccuracy + " as
-        // told by " + file.getFileSystem().getClass().getCanonicalName());
-        // removed other assertion
-        // just any sane limit
-        assertTrue("Accuracy must be < 2m", lastModTimeAccuracyMillis < Duration.ofMinutes(2).toMillis());
-    }
-
-    @Test
-    public void testGetLastModifiedFile_1_oe() throws FileSystemException {
-        final FileObject file = getReadFolder().resolveFile("file1.txt");
-        assertNotEquals(0L, file.getContent().getLastModifiedTime());
-    }
-
-    @Test
-    public void testGetLastModifiedFolder_1_oe() throws FileSystemException {
-        final FileObject file = getReadFolder().resolveFile("dir1");
-        assertNotEquals(0L, file.getContent().getLastModifiedTime());
     }
 
 }

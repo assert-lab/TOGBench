@@ -48,6 +48,82 @@ class NormTest_OE25Dev {
     private static final BigDecimal SCALE2 = new BigDecimal(SCALE * SCALE);
 
     @Test
+    void testManhattan_2d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L1.of(0d, -0d));
+        Assertions.assertEquals(3d, Norm.L1.of(-1d, 2d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.NaN, 1d));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(1d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.POSITIVE_INFINITY, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(0d,Double.POSITIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testManhattan_3d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L1.of(0d, -0d, 0d));
+        Assertions.assertEquals(6d, Norm.L1.of(-1d, 2d, -3d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(Double.MAX_VALUE, Double.MAX_VALUE, 0d));
+
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.NaN, -2d, 1d));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.NaN, 1d));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, 1d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.POSITIVE_INFINITY, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,2d,-4d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,-4d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testManhattan_array() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.L1.of(new double[0]));
+
+        Assertions.assertEquals(0d, Norm.L1.of(new double[] {0d, -0d}));
+        Assertions.assertEquals(6d, Norm.L1.of(new double[] {-1d, 2d, -3d}));
+        Assertions.assertEquals(10d, Norm.L1.of(new double[] {-1d, 2d, -3d, 4d}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L1.of(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
+
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(new double[] {-2d, Double.NaN, 1d}));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN, 1d}));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L1.of(new double[] {Double.POSITIVE_INFINITY, 0d}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L1.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+    }
+
+    @Test
+    void testEuclidean_2d_simple() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L2.of(0d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(1d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(0d, 1d));
+        Assertions.assertEquals(5d, Norm.L2.of(-3d, 4d));
+        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, Double.MIN_VALUE));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Math.sqrt(2), Norm.L2.of(1d, -1d));
+
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, Double.POSITIVE_INFINITY));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN));
+        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.NaN,Double.NEGATIVE_INFINITY));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(1d,Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,-1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
     void testEuclidean_2d_scaled() {
         // arrange
         final double[] ones = new double[] {1, 1};
@@ -71,6 +147,13 @@ class NormTest_OE25Dev {
     }
 
     @Test
+    void testEuclidean_2d_dominantValue() {
+        // act/assert
+        Assertions.assertEquals(Math.PI, Norm.L2.of(-Math.PI, 0x1.0p-55));
+        Assertions.assertEquals(Math.PI, Norm.L2.of(0x1.0p-55, -Math.PI));
+    }
+
+    @Test
     void testEuclidean_2d_random() {
         // arrange
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 1L);
@@ -80,20 +163,21 @@ class NormTest_OE25Dev {
     }
 
     @Test
-    void testEuclidean_2d_vsHypot() {
+    void testEuclidean_2d_vsArray() {
         // arrange
-        final int samples = 1000;
-        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+        final double[][] inputs = {
+            {-4.074598908124454E-9, 9.897869969944898E-28},
+            {1.3472131556526359E-27, -9.064577177323565E9},
+            {-3.9219339341360245E149, -7.132522817112096E148},
+            {-1.4888098520466735E153, -2.9099184907796666E150},
+            {-8.659395144898396E-152, -1.123275532302136E-150},
+            {-3.660198254902351E-152, -6.656524053354807E-153}
+        };
 
         // act/assert
-        assertEuclidean2dVersusHypot(-10, +10, samples, rng);
-        assertEuclidean2dVersusHypot(0, +20, samples, rng);
-        assertEuclidean2dVersusHypot(-20, 0, samples, rng);
-        assertEuclidean2dVersusHypot(-20, +20, samples, rng);
-        assertEuclidean2dVersusHypot(-100, +100, samples, rng);
-        assertEuclidean2dVersusHypot(LARGE_THRESH_EXP - 10, LARGE_THRESH_EXP + 10, samples, rng);
-        assertEuclidean2dVersusHypot(SMALL_THRESH_EXP - 10, SMALL_THRESH_EXP + 10, samples, rng);
-        assertEuclidean2dVersusHypot(-600, +600, samples, rng);
+        for (final double[] input : inputs) {
+            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
+        }
     }
 
     /** Assert that the Norms euclidean 2D computation produces similar error behavior to Math.hypot().
@@ -129,6 +213,29 @@ class NormTest_OE25Dev {
     }
 
     @Test
+    void testEuclidean_3d_simple() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L2.of(0d, 0d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(1d, 0d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(0d, 1d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(0d, 0d, 1d));
+        Assertions.assertEquals(5 * Math.sqrt(2), Norm.L2.of(-3d, -4d, 5d));
+        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, 0d, Double.MIN_VALUE));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE));
+
+        Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(1d, -1d, 1d));
+
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, 0d, Double.NaN));
+        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NaN,1d));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
     void testEuclidean_3d_scaled() {
         // arrange
         final double[] ones = new double[] {1, 1, 1};
@@ -160,6 +267,60 @@ class NormTest_OE25Dev {
     }
 
     @Test
+    void testEuclidean_3d_vsArray() {
+        // arrange
+        final double[][] inputs = {
+            {-4.074598908124454E-9, 9.897869969944898E-28, 7.849935157082846E-14},
+            {1.3472131556526359E-27, -9.064577177323565E9, 323771.526282239},
+            {-3.9219339341360245E149, -7.132522817112096E148, -3.427334456813165E147},
+            {-1.4888098520466735E153, -2.9099184907796666E150, 1.0144962310234785E152},
+            {-8.659395144898396E-152, -1.123275532302136E-150, -2.151505326692001E-152},
+            {-3.660198254902351E-152, -6.656524053354807E-153, -3.198606556986218E-154}
+        };
+
+        // act/assert
+        for (final double[] input : inputs) {
+            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1],input[2]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
+        }
+    }
+
+    @Test
+    void testEuclidean_array_simple() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.L2.of(new double[0]));
+
+        Assertions.assertEquals(5d, Norm.L2.of(new double[] {-3d, 4d}));
+
+        Assertions.assertEquals(Math.sqrt(2), Norm.L2.of(new double[] {1d, -1d}));
+        Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(new double[] {1d, -1d, 1d}));
+        Assertions.assertEquals(2, Norm.L2.of(new double[] {1d, -1d, 1d, -1d}));
+
+        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
+        Assertions.assertEquals(directEuclideanNorm(longVec), Norm.L2.of(longVec));
+
+        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(new double[] {0d, Double.MIN_VALUE}));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(new double[] {Double.MAX_VALUE, 0d}));
+
+        final double[] maxVec = new double[1000];
+        Arrays.fill(maxVec, Double.MAX_VALUE);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(maxVec));
+
+        final double[] largeThreshVec = new double[1000];
+        Arrays.fill(largeThreshVec, 0x1.0p496);
+        Assertions.assertEquals(Math.sqrt(largeThreshVec.length) * largeThreshVec[0], Norm.L2.of(largeThreshVec));
+
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(new double[] {-2d, Double.NaN, 1d}));
+        Assertions.assertEquals(Double.NaN,
+                Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, 1, 0}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L2.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+    }
+
+    @Test
     void testEuclidean_array_scaled() {
         // arrange
         final double[] ones = new double[] {1, 1, 1, 1};
@@ -188,6 +349,62 @@ class NormTest_OE25Dev {
         checkEuclideanRandom(4, rng);
         checkEuclideanRandom(10, rng);
         checkEuclideanRandom(100, rng);
+    }
+
+    @Test
+    void testMaximum_2d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.LINF.of(0d, -0d));
+        Assertions.assertEquals(2d, Norm.LINF.of(1d, -2d));
+        Assertions.assertEquals(3d, Norm.LINF.of(3d, 1d));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.NaN, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(0d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.POSITIVE_INFINITY, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.NEGATIVE_INFINITY, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testMaximum_3d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.LINF.of(0d, -0d, 0d));
+        Assertions.assertEquals(3d, Norm.LINF.of(1d, -2d, 3d));
+        Assertions.assertEquals(4d, Norm.LINF.of(-4d, -2d, 3d));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.NaN, 3d, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(3d, Double.NaN, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(3d, 0d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, 1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.POSITIVE_INFINITY, 1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, 1d, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testMaximum_array() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.LINF.of(new double[0]));
+
+        Assertions.assertEquals(0d, Norm.LINF.of(new double[] {0d, -0d}));
+        Assertions.assertEquals(3d, Norm.LINF.of(new double[] {-1d, 2d, -3d}));
+        Assertions.assertEquals(4d, Norm.LINF.of(new double[] {-1d, 2d, -3d, 4d}));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
+
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(new double[] {-2d, Double.NaN, 1d}));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN}));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.LINF.of(new double[] {0d, Double.POSITIVE_INFINITY}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.LINF.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
     }
 
     /** Check a number of random vectors of length {@code len} with various exponent
@@ -372,1474 +589,571 @@ class NormTest_OE25Dev {
     }
 
     @Test
-    void testManhattan_2d_1_oe() {
-        // act/assert
-        Assertions.assertEquals(0d, Norm.L1.of(0d, -0d));
-    }
-
-    @Test
-    void testManhattan_2d_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(3d, Norm.L1.of(-1d, 2d));
-    }
-
-    @Test
-    void testManhattan_2d_3_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(Double.MAX_VALUE, Double.MAX_VALUE));
-    }
-
-    @Test
-    void testManhattan_2d_4_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.NaN, 1d));
-    }
-
-    @Test
-    void testManhattan_2d_5_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(1d, Double.NaN));
-    }
-
-    @Test
-    void testManhattan_2d_6_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.POSITIVE_INFINITY, Double.NaN));
-    }
-
-    @Test
-    void testManhattan_2d_7_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,0d));
-    }
-
-    @Test
-    void testManhattan_2d_8_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(0d,Double.POSITIVE_INFINITY));
-    }
-
-    @Test
-    void testManhattan_2d_9_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testManhattan_3d_1_oe() {
-        // act/assert
-        Assertions.assertEquals(0d, Norm.L1.of(0d, -0d, 0d));
-    }
-
-    @Test
-    void testManhattan_3d_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(6d, Norm.L1.of(-1d, 2d, -3d));
-    }
-
-    @Test
-    void testManhattan_3d_3_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(Double.MAX_VALUE, Double.MAX_VALUE, 0d));
-    }
-
-    @Test
-    void testManhattan_3d_4_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.NaN, -2d, 1d));
-    }
-
-    @Test
-    void testManhattan_3d_5_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.NaN, 1d));
-    }
-
-    @Test
-    void testManhattan_3d_6_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, 1d, Double.NaN));
-    }
-
-    @Test
-    void testManhattan_3d_7_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.POSITIVE_INFINITY, Double.NaN));
-    }
-
-    @Test
-    void testManhattan_3d_8_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,2d,-4d));
-    }
-
-    @Test
-    void testManhattan_3d_9_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,-4d));
-    }
-
-    @Test
-    void testManhattan_3d_10_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testManhattan_array_1_oe() {
-        // act/assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.L1.of(new double[0]));
-    }
-
-    @Test
-    void testManhattan_array_2_oe() {
-        // act/assert
-        // removed other assertion
-
-        Assertions.assertEquals(0d, Norm.L1.of(new double[] {0d, -0d}));
-    }
-
-    @Test
-    void testManhattan_array_3_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(6d, Norm.L1.of(new double[] {-1d, 2d, -3d}));
-    }
-
-    @Test
-    void testManhattan_array_4_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(10d, Norm.L1.of(new double[] {-1d, 2d, -3d, 4d}));
-    }
-
-    @Test
-    void testManhattan_array_5_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
-    }
-
-    @Test
-    void testManhattan_array_6_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(new double[] {-2d, Double.NaN, 1d}));
-    }
-
-    @Test
-    void testManhattan_array_7_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L1.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN, 1d}));
-    }
-
-    @Test
-    void testManhattan_array_8_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(new double[] {Double.POSITIVE_INFINITY, 0d}));
-    }
-
-    @Test
-    void testManhattan_array_9_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_1_oe() {
-        // act/assert
-        Assertions.assertEquals(0d, Norm.L2.of(0d, 0d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(1d, Norm.L2.of(1d, 0d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_3_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(1d, Norm.L2.of(0d, 1d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_4_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(5d, Norm.L2.of(-3d, 4d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_5_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, Double.MIN_VALUE));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_6_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_7_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(Double.MAX_VALUE, Double.MAX_VALUE));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_8_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Math.sqrt(2), Norm.L2.of(1d, -1d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_9_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_10_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, Double.POSITIVE_INFINITY));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_11_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_12_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.NaN,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_13_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(1d,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_14_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,-1d));
-    }
-
-    @Test
-    void testEuclidean_2d_simple_15_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testEuclidean_2d_dominantValue_1_oe() {
-        // act/assert
-        Assertions.assertEquals(Math.PI, Norm.L2.of(-Math.PI, 0x1.0p-55));
-    }
-
-    @Test
-    void testEuclidean_2d_dominantValue_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(Math.PI, Norm.L2.of(0x1.0p-55, -Math.PI));
-    }
-
-    @Test
-    void testEuclidean_2d_vsArray_1_oe() {
+    void testEuclidean_2d_vsHypot_1_oe_1_oe() {
         // arrange
-        final double[][] inputs = {
-            {-4.074598908124454E-9, 9.897869969944898E-28},
-            {1.3472131556526359E-27, -9.064577177323565E9},
-            {-3.9219339341360245E149, -7.132522817112096E148},
-            {-1.4888098520466735E153, -2.9099184907796666E150},
-            {-8.659395144898396E-152, -1.123275532302136E-150},
-            {-3.660198254902351E-152, -6.656524053354807E-153}
-        };
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
 
         // act/assert
-        for (final double[] input : inputs) {
-            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
-    }
+                final int minExp = -10;
+        final int maxExp = +10;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_3d_simple_1_oe() {
-        // act/assert
-        Assertions.assertEquals(0d, Norm.L2.of(0d, 0d, 0d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(1d, Norm.L2.of(1d, 0d, 0d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_3_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(1d, Norm.L2.of(0d, 1d, 0d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_4_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(1d, Norm.L2.of(0d, 0d, 1d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_5_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(5 * Math.sqrt(2), Norm.L2.of(-3d, -4d, 5d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_6_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, 0d, Double.MIN_VALUE));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_7_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d, 0d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_8_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_9_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(1d, -1d, 1d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_10_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d, 0d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_11_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN, 0d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_12_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, 0d, Double.NaN));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_13_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NaN,1d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_14_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,1d));
-    }
-
-    @Test
-    void testEuclidean_3d_simple_15_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testEuclidean_3d_vsArray_1_oe() {
+    void testEuclidean_2d_vsHypot_1_oe_2_oe() {
         // arrange
-        final double[][] inputs = {
-            {-4.074598908124454E-9, 9.897869969944898E-28, 7.849935157082846E-14},
-            {1.3472131556526359E-27, -9.064577177323565E9, 323771.526282239},
-            {-3.9219339341360245E149, -7.132522817112096E148, -3.427334456813165E147},
-            {-1.4888098520466735E153, -2.9099184907796666E150, 1.0144962310234785E152},
-            {-8.659395144898396E-152, -1.123275532302136E-150, -2.151505326692001E-152},
-            {-3.660198254902351E-152, -6.656524053354807E-153, -3.198606556986218E-154}
-        };
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
 
         // act/assert
-        for (final double[] input : inputs) {
-            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1],input[2]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
-    }
-    }
-
-    @Test
-    void testEuclidean_array_simple_1_oe() {
-        // act/assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.L2.of(new double[0]));
-    }
-
-    @Test
-    void testEuclidean_array_simple_2_oe() {
-        // act/assert
-        // removed other assertion
-
-        Assertions.assertEquals(5d, Norm.L2.of(new double[] {-3d, 4d}));
-    }
-
-    @Test
-    void testEuclidean_array_simple_3_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-
-        Assertions.assertEquals(Math.sqrt(2), Norm.L2.of(new double[] {1d, -1d}));
+                final int minExp = -10;
+        final int maxExp = +10;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testEuclidean_array_simple_4_oe() {
+    void testEuclidean_2d_vsHypot_2_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(new double[] {1d, -1d, 1d}));
+                final int minExp = 0;
+        final int maxExp = +20;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_array_simple_5_oe() {
+    void testEuclidean_2d_vsHypot_2_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(2, Norm.L2.of(new double[] {1d, -1d, 1d, -1d}));
+                final int minExp = 0;
+        final int maxExp = +20;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testEuclidean_array_simple_6_oe() {
+    void testEuclidean_2d_vsHypot_3_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        Assertions.assertEquals(directEuclideanNorm(longVec), Norm.L2.of(longVec));
+                final int minExp = -20;
+        final int maxExp = 0;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_array_simple_7_oe() {
+    void testEuclidean_2d_vsHypot_3_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
-        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(new double[] {0d, Double.MIN_VALUE}));
+                final int minExp = -20;
+        final int maxExp = 0;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testEuclidean_array_simple_8_oe() {
+    void testEuclidean_2d_vsHypot_4_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(new double[] {Double.MAX_VALUE, 0d}));
+                final int minExp = -20;
+        final int maxExp = +20;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_array_simple_9_oe() {
+    void testEuclidean_2d_vsHypot_4_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(maxVec));
+                final int minExp = -20;
+        final int maxExp = +20;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testEuclidean_array_simple_10_oe() {
+    void testEuclidean_2d_vsHypot_5_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        // removed other assertion
-
-        final double[] largeThreshVec = new double[1000];
-        Arrays.fill(largeThreshVec, 0x1.0p496);
-        Assertions.assertEquals(Math.sqrt(largeThreshVec.length) * largeThreshVec[0], Norm.L2.of(largeThreshVec));
+                final int minExp = -100;
+        final int maxExp = +100;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_array_simple_11_oe() {
+    void testEuclidean_2d_vsHypot_5_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        // removed other assertion
-
-        final double[] largeThreshVec = new double[1000];
-        Arrays.fill(largeThreshVec, 0x1.0p496);
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(new double[] {-2d, Double.NaN, 1d}));
+                final int minExp = -100;
+        final int maxExp = +100;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testEuclidean_array_simple_12_oe() {
+    void testEuclidean_2d_vsHypot_6_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        // removed other assertion
-
-        final double[] largeThreshVec = new double[1000];
-        Arrays.fill(largeThreshVec, 0x1.0p496);
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN}));
+                final int minExp = LARGE_THRESH_EXP - 10;
+        final int maxExp = LARGE_THRESH_EXP + 10;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_array_simple_13_oe() {
+    void testEuclidean_2d_vsHypot_6_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        // removed other assertion
-
-        final double[] largeThreshVec = new double[1000];
-        Arrays.fill(largeThreshVec, 0x1.0p496);
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, 1, 0}));
+                final int minExp = LARGE_THRESH_EXP - 10;
+        final int maxExp = LARGE_THRESH_EXP + 10;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testEuclidean_array_simple_14_oe() {
+    void testEuclidean_2d_vsHypot_7_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        // removed other assertion
-
-        final double[] largeThreshVec = new double[1000];
-        Arrays.fill(largeThreshVec, 0x1.0p496);
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+                final int minExp = SMALL_THRESH_EXP - 10;
+        final int maxExp = SMALL_THRESH_EXP + 10;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testEuclidean_array_simple_15_oe() {
+    void testEuclidean_2d_vsHypot_7_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final double[] maxVec = new double[1000];
-        Arrays.fill(maxVec, Double.MAX_VALUE);
-        // removed other assertion
-
-        final double[] largeThreshVec = new double[1000];
-        Arrays.fill(largeThreshVec, 0x1.0p496);
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+        // removed other assertion
+                final int minExp = SMALL_THRESH_EXP - 10;
+        final int maxExp = SMALL_THRESH_EXP + 10;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
-    void testMaximum_2d_1_oe() {
+    void testEuclidean_2d_vsHypot_8_oe_1_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
         // act/assert
-        Assertions.assertEquals(0d, Norm.LINF.of(0d, -0d));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int minExp = -600;
+        final int maxExp = +600;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
     }
 
     @Test
-    void testMaximum_2d_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(2d, Norm.LINF.of(1d, -2d));
-    }
+    void testEuclidean_2d_vsHypot_8_oe_2_oe() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
 
-    @Test
-    void testMaximum_2d_3_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(3d, Norm.LINF.of(3d, 1d));
-    }
-
-    @Test
-    void testMaximum_2d_4_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(Double.MAX_VALUE, Double.MAX_VALUE));
-    }
-
-    @Test
-    void testMaximum_2d_5_oe() {
         // act/assert
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.NaN, 0d));
-    }
-
-    @Test
-    void testMaximum_2d_6_oe() {
-        // act/assert
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(0d, Double.NaN));
-    }
-
-    @Test
-    void testMaximum_2d_7_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.POSITIVE_INFINITY, Double.NaN));
-    }
-
-    @Test
-    void testMaximum_2d_8_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d));
-    }
-
-    @Test
-    void testMaximum_2d_9_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.NEGATIVE_INFINITY, 0d));
-    }
-
-    @Test
-    void testMaximum_2d_10_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testMaximum_2d_11_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testMaximum_3d_1_oe() {
-        // act/assert
-        Assertions.assertEquals(0d, Norm.LINF.of(0d, -0d, 0d));
-    }
-
-    @Test
-    void testMaximum_3d_2_oe() {
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(3d, Norm.LINF.of(1d, -2d, 3d));
-    }
-
-    @Test
-    void testMaximum_3d_3_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(4d, Norm.LINF.of(-4d, -2d, 3d));
-    }
-
-    @Test
-    void testMaximum_3d_4_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
-    }
-
-    @Test
-    void testMaximum_3d_5_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.NaN, 3d, 0d));
-    }
-
-    @Test
-    void testMaximum_3d_6_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(3d, Double.NaN, 0d));
-    }
-
-    @Test
-    void testMaximum_3d_7_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(3d, 0d, Double.NaN));
-    }
-
-    @Test
-    void testMaximum_3d_8_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, Double.NaN));
-    }
-
-    @Test
-    void testMaximum_3d_9_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, 1d));
-    }
-
-    @Test
-    void testMaximum_3d_10_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.POSITIVE_INFINITY, 1d));
-    }
-
-    @Test
-    void testMaximum_3d_11_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, 1d, Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testMaximum_3d_12_oe() {
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
-    }
-
-    @Test
-    void testMaximum_array_1_oe() {
-        // act/assert
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.LINF.of(new double[0]));
-    }
-
-    @Test
-    void testMaximum_array_2_oe() {
-        // act/assert
-        // removed other assertion
-
-        Assertions.assertEquals(0d, Norm.LINF.of(new double[] {0d, -0d}));
-    }
-
-    @Test
-    void testMaximum_array_3_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(3d, Norm.LINF.of(new double[] {-1d, 2d, -3d}));
-    }
-
-    @Test
-    void testMaximum_array_4_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(4d, Norm.LINF.of(new double[] {-1d, 2d, -3d, 4d}));
-    }
-
-    @Test
-    void testMaximum_array_5_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
-    }
-
-    @Test
-    void testMaximum_array_6_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(new double[] {-2d, Double.NaN, 1d}));
-    }
-
-    @Test
-    void testMaximum_array_7_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.NaN, Norm.LINF.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN}));
-    }
-
-    @Test
-    void testMaximum_array_8_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(new double[] {0d, Double.POSITIVE_INFINITY}));
-    }
-
-    @Test
-    void testMaximum_array_9_oe() {
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+                final int minExp = -600;
+        final int maxExp = +600;
+        final int samples1 = samples;
+        final UniformRandomProvider rng1 = rng;
+        // generate random inputs
+                final double[][] inputs = new double[samples1][];
+                for (int i = 0; i < samples1; ++i) {
+                    inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng1);
+                }
+        
+                // compute exact results
+                final double[] exactResults = new double[samples1];
+                for (int i = 0; i < samples1; ++i) {
+                    exactResults[i] = exactEuclideanNorm(inputs[i]);
+                }
+        
+                // compute the std devs
+                final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+                final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+        
+                // ensure that we are within the ballpark of Math.hypot
+                // removed other assertion
+        
+                Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
 }

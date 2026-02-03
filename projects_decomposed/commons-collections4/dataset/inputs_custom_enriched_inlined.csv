@@ -1,0 +1,1054 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file,inlined
+coll_122_1,"    @Test
+    public void testSingletonPatternInSerialization_1_oe() {
+        final Object[] singletones = new Object[] {
+                ExceptionTransformer.INSTANCE,
+                NOPTransformer.INSTANCE,
+                StringValueTransformer.stringValueTransformer(),
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization(""Singleton pattern broken for "" + original.getClass(), original);
+    }
+    }
+",TransformerUtilsTest::testSingletonPatternInSerialization_1_oe,assertSameAfterSerialization,"     * @see #assertSameAfterSerialization(Object)
+     */
+    public static void assertSameAfterSerialization(final String msg, final Object o) {
+        try {
+            // write object to byte buffer
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.close();
+
+            // read same object from byte buffer
+            final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(is);
+            final Object object = ois.readObject();
+            ois.close();
+
+            // assert that original object and deserialized objects are the same
+            assertSame(msg, o, object);
+        } catch (final IOException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        } catch (final ClassNotFoundException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/TestUtils.java,
+coll_207_1,"    @Test
+    public void testSingletonPatternInSerialization_1_oe() {
+        final Object[] singletones = new Object[] {
+                ExceptionClosure.INSTANCE,
+                NOPClosure.INSTANCE,
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization( ""Singletone patern broken for "" + original.getClass(), original );
+    }
+    }
+",ClosureUtilsTest::testSingletonPatternInSerialization_1_oe,assertSameAfterSerialization,"     * @see #assertSameAfterSerialization(Object)
+     */
+    public static void assertSameAfterSerialization(final String msg, final Object o) {
+        try {
+            // write object to byte buffer
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.close();
+
+            // read same object from byte buffer
+            final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(is);
+            final Object object = ois.readObject();
+            ois.close();
+
+            // assert that original object and deserialized objects are the same
+            assertSame(msg, o, object);
+        } catch (final IOException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        } catch (final ClassNotFoundException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/TestUtils.java,
+coll_220_1,"    @Test
+    public void testSingletonPatternInSerialization_1_oe() {
+        final Object[] singletones = new Object[] {
+                ExceptionFactory.INSTANCE,
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization( ""Singletone patern broken for "" + original.getClass(), original );
+    }
+    }
+",FactoryUtilsTest::testSingletonPatternInSerialization_1_oe,assertSameAfterSerialization,"     * @see #assertSameAfterSerialization(Object)
+     */
+    public static void assertSameAfterSerialization(final String msg, final Object o) {
+        try {
+            // write object to byte buffer
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.close();
+
+            // read same object from byte buffer
+            final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(is);
+            final Object object = ois.readObject();
+            ois.close();
+
+            // assert that original object and deserialized objects are the same
+            assertSame(msg, o, object);
+        } catch (final IOException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        } catch (final ClassNotFoundException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/TestUtils.java,
+coll_251_1,"    @Test
+    public void testSingletonPatternInSerialization_1_oe() {
+        final Object[] singletones = new Object[] {
+                ExceptionPredicate.INSTANCE,
+                FalsePredicate.INSTANCE,
+                NotNullPredicate.INSTANCE,
+                NullPredicate.INSTANCE,
+                TruePredicate.INSTANCE
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization( ""Singletone patern broken for "" + original.getClass(), original );
+    }
+    }
+",PredicateUtilsTest::testSingletonPatternInSerialization_1_oe,assertSameAfterSerialization,"     * @see #assertSameAfterSerialization(Object)
+     */
+    public static void assertSameAfterSerialization(final String msg, final Object o) {
+        try {
+            // write object to byte buffer
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.close();
+
+            // read same object from byte buffer
+            final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(is);
+            final Object object = ois.readObject();
+            ois.close();
+
+            // assert that original object and deserialized objects are the same
+            assertSame(msg, o, object);
+        } catch (final IOException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        } catch (final ClassNotFoundException e) {
+            // should never happen
+            throw new RuntimeException(e);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/TestUtils.java,
+coll_315_2,"    @Test
+    public void collect_2_oe() {
+        final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
+        Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
+        // removed other assertion
+        assertCollectResult(collection);
+    }
+",CollectionUtilsTest::collect_2_oe,assertCollectResult,"    private void assertCollectResult(final Collection<Number> collection) {
+        assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+        assertTrue(collection.contains(2L) && !collection.contains(1));
+    }
+",src/test/java/org/apache/commons/collections4/CollectionUtilsTest.java,"    @Test
+    public void collect_2_oe() {
+        final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
+        Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
+        // removed other assertion
+                final Collection<Number> collection1 = collection;
+        assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+                assertTrue(collection1.contains(2L) && !collection1.contains(1));
+    }
+"
+coll_315_4,"    @Test
+    public void collect_4_oe() {
+        final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
+        Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
+        // removed other assertion
+        // removed other assertion
+
+        ArrayList<Number> list;
+        list = CollectionUtils.collect(collectionA, transformer, new ArrayList<Number>());
+        // removed other assertion
+        assertCollectResult(list);
+    }
+",CollectionUtilsTest::collect_4_oe,assertCollectResult,"    private void assertCollectResult(final Collection<Number> collection) {
+        assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+        assertTrue(collection.contains(2L) && !collection.contains(1));
+    }
+",src/test/java/org/apache/commons/collections4/CollectionUtilsTest.java,"    @Test
+    public void collect_4_oe() {
+        final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
+        Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
+        // removed other assertion
+        // removed other assertion
+
+        ArrayList<Number> list;
+        list = CollectionUtils.collect(collectionA, transformer, new ArrayList<Number>());
+        // removed other assertion
+                final Collection<Number> collection1 = list;
+        assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+                assertTrue(collection1.contains(2L) && !collection1.contains(1));
+    }
+"
+coll_315_6,"    @Test
+    public void collect_6_oe() {
+        final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
+        Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
+        // removed other assertion
+        // removed other assertion
+
+        ArrayList<Number> list;
+        list = CollectionUtils.collect(collectionA, transformer, new ArrayList<Number>());
+        // removed other assertion
+        // removed other assertion
+
+        Iterator<Integer> iterator = null;
+        list = CollectionUtils.collect(iterator, transformer, new ArrayList<Number>());
+
+        iterator = iterableA.iterator();
+        list = CollectionUtils.collect(iterator, transformer, list);
+        // removed other assertion
+        assertCollectResult(collection);
+    }
+",CollectionUtilsTest::collect_6_oe,assertCollectResult,"    private void assertCollectResult(final Collection<Number> collection) {
+        assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+        assertTrue(collection.contains(2L) && !collection.contains(1));
+    }
+",src/test/java/org/apache/commons/collections4/CollectionUtilsTest.java,"    @Test
+    public void collect_6_oe() {
+        final Transformer<Number, Long> transformer = TransformerUtils.constantTransformer(2L);
+        Collection<Number> collection = CollectionUtils.<Integer, Number>collect(iterableA, transformer);
+        // removed other assertion
+        // removed other assertion
+
+        ArrayList<Number> list;
+        list = CollectionUtils.collect(collectionA, transformer, new ArrayList<Number>());
+        // removed other assertion
+        // removed other assertion
+
+        Iterator<Integer> iterator = null;
+        list = CollectionUtils.collect(iterator, transformer, new ArrayList<Number>());
+
+        iterator = iterableA.iterator();
+        list = CollectionUtils.collect(iterator, transformer, list);
+        // removed other assertion
+                final Collection<Number> collection1 = collection;
+        assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+                assertTrue(collection1.contains(2L) && !collection1.contains(1));
+    }
+"
+coll_766_1,"    @Test
+    public void testLoadClassLoaderResource_1_oe() throws Exception {
+        assertContents(factory.load(ClassLoader.getSystemClassLoader(), ""properties/test.properties""));
+    }
+",AbstractPropertiesFactoryTest::testLoadClassLoaderResource_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadClassLoaderResource_1_oe() throws Exception {
+                final T properties = factory.load(ClassLoader.getSystemClassLoader(), ""properties/test.properties"");
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+"
+coll_767_1,"    @Test
+    public void testLoadFile_1_oe() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toFile()));
+    }
+",AbstractPropertiesFactoryTest::testLoadFile_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadFile_1_oe() throws Exception {
+                final T properties = factory.load(Paths.get(PATH_STRING).toFile());
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+"
+coll_768_1,"    @Test
+    public void testLoadFileName_1_oe() throws Exception {
+        assertContents(factory.load(PATH_STRING));
+    }
+",AbstractPropertiesFactoryTest::testLoadFileName_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadFileName_1_oe() throws Exception {
+                final T properties = factory.load(PATH_STRING);
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+"
+coll_769_1,"    @Test
+    public void testLoadInputStream_1_oe() throws Exception {
+        try (final FileInputStream inputStream = new FileInputStream(PATH_STRING)) {
+            assertContents(factory.load(inputStream));
+    }
+    }
+",AbstractPropertiesFactoryTest::testLoadInputStream_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadInputStream_1_oe() throws Exception {
+        try (final FileInputStream inputStream = new FileInputStream(PATH_STRING)) {
+                        final T properties = factory.load(inputStream);
+            Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                    Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+    }
+"
+coll_770_1,"    @Test
+    public void testLoadPath_1_oe() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING)));
+    }
+",AbstractPropertiesFactoryTest::testLoadPath_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadPath_1_oe() throws Exception {
+                final T properties = factory.load(Paths.get(PATH_STRING));
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+"
+coll_771_1,"    @Test
+    public void testLoadReader_1_oe() throws Exception {
+        try (final BufferedReader inputStream = Files.newBufferedReader(Paths.get(PATH_STRING))) {
+            assertContents(factory.load(inputStream));
+    }
+    }
+",AbstractPropertiesFactoryTest::testLoadReader_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadReader_1_oe() throws Exception {
+        try (final BufferedReader inputStream = Files.newBufferedReader(Paths.get(PATH_STRING))) {
+                        final T properties = factory.load(inputStream);
+            Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                    Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+    }
+"
+coll_772_1,"    @Test
+    public void testLoadUri_1_oe() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toUri()));
+    }
+",AbstractPropertiesFactoryTest::testLoadUri_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadUri_1_oe() throws Exception {
+                final T properties = factory.load(Paths.get(PATH_STRING).toUri());
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+"
+coll_773_1,"    @Test
+    public void testLoadUrl_1_oe() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toUri().toURL()));
+    }
+",AbstractPropertiesFactoryTest::testLoadUrl_1_oe,assertContents,"    private void assertContents(final T properties) {
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+",src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,"    @Test
+    public void testLoadUrl_1_oe() throws Exception {
+                final T properties = factory.load(Paths.get(PATH_STRING).toUri().toURL());
+        Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+                Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+    }
+"
+coll_848_1,"    @Test
+    public void testConstructorPlusAdd_1_oe() {
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>();
+        for (final String topCitie : topCities) {
+            comparator.add(topCitie);
+        }
+        final String[] keys = topCities.clone();
+        assertComparatorYieldsOrder(keys, comparator);
+    }
+",FixedOrderComparatorTest::testConstructorPlusAdd_1_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testConstructorPlusAdd_1_oe() {
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>();
+        for (final String topCitie : topCities) {
+            comparator.add(topCitie);
+        }
+        final String[] keys = topCities.clone();
+                final String[] orderedObjects = keys;
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"
+coll_849_1,"    @Test
+    public void testArrayConstructor_1_oe() {
+        final String[] keys = topCities.clone();
+        final String[] topCitiesForTest = topCities.clone();
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        assertComparatorYieldsOrder(keys, comparator);
+    }
+",FixedOrderComparatorTest::testArrayConstructor_1_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testArrayConstructor_1_oe() {
+        final String[] keys = topCities.clone();
+        final String[] topCitiesForTest = topCities.clone();
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+                final String[] orderedObjects = keys;
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"
+coll_849_2,"    @Test
+    public void testArrayConstructor_2_oe() {
+        final String[] keys = topCities.clone();
+        final String[] topCitiesForTest = topCities.clone();
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        // removed other assertion
+        // test that changing input after constructor has no effect
+        topCitiesForTest[0] = ""Brighton"";
+        assertComparatorYieldsOrder(keys, comparator);
+    }
+",FixedOrderComparatorTest::testArrayConstructor_2_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testArrayConstructor_2_oe() {
+        final String[] keys = topCities.clone();
+        final String[] topCitiesForTest = topCities.clone();
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        // removed other assertion
+        // test that changing input after constructor has no effect
+        topCitiesForTest[0] = ""Brighton"";
+                final String[] orderedObjects = keys;
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"
+coll_850_1,"    @Test
+    public void testListConstructor_1_oe() {
+        final String[] keys = topCities.clone();
+        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        assertComparatorYieldsOrder(keys, comparator);
+    }
+",FixedOrderComparatorTest::testListConstructor_1_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testListConstructor_1_oe() {
+        final String[] keys = topCities.clone();
+        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+                final String[] orderedObjects = keys;
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"
+coll_850_2,"    @Test
+    public void testListConstructor_2_oe() {
+        final String[] keys = topCities.clone();
+        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        // removed other assertion
+        // test that changing input after constructor has no effect
+        topCitiesForTest.set(0, ""Brighton"");
+        assertComparatorYieldsOrder(keys, comparator);
+    }
+",FixedOrderComparatorTest::testListConstructor_2_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testListConstructor_2_oe() {
+        final String[] keys = topCities.clone();
+        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        // removed other assertion
+        // test that changing input after constructor has no effect
+        topCitiesForTest.set(0, ""Brighton"");
+                final String[] orderedObjects = keys;
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"
+coll_853_5,"    @Test
+    public void testUnknownObjectBehavior_5_oe() {
+        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        try {
+            comparator.compare(""New York"", ""Minneapolis"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        try {
+            comparator.compare(""Minneapolis"", ""New York"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        // removed other assertion
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
+        // removed other assertion
+        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.addFirst(""Minneapolis"");
+        assertComparatorYieldsOrder(keys.toArray(new String[0]), comparator);
+    }
+",FixedOrderComparatorTest::testUnknownObjectBehavior_5_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testUnknownObjectBehavior_5_oe() {
+        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        try {
+            comparator.compare(""New York"", ""Minneapolis"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        try {
+            comparator.compare(""Minneapolis"", ""New York"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        // removed other assertion
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
+        // removed other assertion
+        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.addFirst(""Minneapolis"");
+                final String[] orderedObjects = keys.toArray(new String[0]);
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"
+coll_853_9,"    @Test
+    public void testUnknownObjectBehavior_9_oe() {
+        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        try {
+            comparator.compare(""New York"", ""Minneapolis"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        try {
+            comparator.compare(""Minneapolis"", ""New York"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        // removed other assertion
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
+        // removed other assertion
+        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.addFirst(""Minneapolis"");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
+        keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.add(""Minneapolis"");
+        assertComparatorYieldsOrder(keys.toArray(new String[0]), comparator);
+    }
+",FixedOrderComparatorTest::testUnknownObjectBehavior_9_oe,assertComparatorYieldsOrder,"    private void assertComparatorYieldsOrder(final String[] orderedObjects,
+                                             final Comparator<String> comparator) {
+        final String[] keys = orderedObjects.clone();
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+        }
+    }
+",src/test/java/org/apache/commons/collections4/comparators/FixedOrderComparatorTest.java,"    @Test
+    public void testUnknownObjectBehavior_9_oe() {
+        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        try {
+            comparator.compare(""New York"", ""Minneapolis"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        try {
+            comparator.compare(""Minneapolis"", ""New York"");
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        // removed other assertion
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
+        // removed other assertion
+        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.addFirst(""Minneapolis"");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
+        keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.add(""Minneapolis"");
+                final String[] orderedObjects = keys.toArray(new String[0]);
+        final Comparator<String> comparator1 = comparator;
+        final String[] keys = orderedObjects.clone();
+        
+                // shuffle until the order changes.  It's extremely rare that
+                // this requires more than one shuffle.
+        
+                boolean isInNewOrder = false;
+                final Random rand = new Random();
+                while (keys.length > 1 && !isInNewOrder) {
+                    // shuffle:
+                    for (int i = keys.length-1; i > 0; i--) {
+                        final String swap = keys[i];
+                        final int j = rand.nextInt(i+1);
+                        keys[i] = keys[j];
+                        keys[j] = swap;
+                    }
+        
+                    // testShuffle
+                    for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                        if( !orderedObjects[i].equals(keys[i])) {
+                            isInNewOrder = true;
+                        }
+                    }
+                }
+        
+                // The real test:  sort and make sure they come out right.
+        
+                Arrays.sort(keys, comparator1);
+        
+                for (int i = 0; i < orderedObjects.length; i++) {
+                    assertEquals(orderedObjects[i], keys[i]);
+                }
+    }
+"

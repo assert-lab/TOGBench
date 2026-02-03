@@ -75,6 +75,32 @@ public abstract class AbstractAsyncHttpClientFactoryTest_OE25Dev {
    * If the class is specified via a system property then that class should be returned
    */
   // ===================================================================================================================================
+  @Test
+  public void testFactoryWithSystemProperty() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
+    }
+  }
+
+  @Test
+  public void testGetAsyncHttpClientConfigWithSystemProperty() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
+    }
+  }
+
+  @Test
+  public void testGetAsyncHttpClientProviderWithSystemProperty() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
+    }
+  }
 
   // ===================================================================================================================================
 
@@ -82,29 +108,13 @@ public abstract class AbstractAsyncHttpClientFactoryTest_OE25Dev {
    * If any of the constructors of the class fail then a AsyncHttpClientException is thrown.
    */
   // ===================================================================================================================================
-
-  @Test
-  public void testGetAsyncHttpClientConfigWithBadAsyncHttpClient() throws IOException {
+  @Test(expectedExceptions = BadAsyncHttpClientException.class)
+  public void testFactoryWithBadAsyncHttpClient() throws IOException {
     System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
     AsyncHttpClientConfigHelper.reloadProperties();
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      assertException(e);
+      Assert.fail("BadAsyncHttpClientException should have been thrown before this point");
     }
-    // Assert.fail("AsyncHttpClientImplException should have been thrown before this point");
-  }
-
-  @Test
-  public void testGetAsyncHttpClientProviderWithBadAsyncHttpClient() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      assertException(e);
-    }
-    // Assert.fail("AsyncHttpClientImplException should have been thrown before this point");
   }
 
   // ===================================================================================================================================
@@ -112,10 +122,38 @@ public abstract class AbstractAsyncHttpClientFactoryTest_OE25Dev {
   /*
    * If the system property exists instantiate the class else if the class is not found throw an AsyncHttpClientException.
    */
+  @Test(expectedExceptions = AsyncHttpClientImplException.class)
+  public void testFactoryWithNonExistentAsyncHttpClient() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    }
+    Assert.fail("AsyncHttpClientImplException should have been thrown before this point");
+  }
 
   /**
    * If property is specified but the class can’t be created or found for any reason subsequent calls should throw an AsyncClientException.
    */
+  @Test(expectedExceptions = AsyncHttpClientImplException.class)
+  public void testRepeatedCallsToBadAsyncHttpClient() throws IOException {
+    boolean exceptionCaught = false;
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    Assert.assertTrue(exceptionCaught, "Didn't catch exception the first time");
+    exceptionCaught = false;
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    Assert.assertTrue(exceptionCaught, "Didn't catch exception the second time");
+  }
 
   private void assertClientWorks(AsyncHttpClient asyncHttpClient) throws Exception {
     Response response = asyncHttpClient.prepareGet("http://localhost:" + port + "/foo/test").execute().get();
@@ -128,103 +166,59 @@ public abstract class AbstractAsyncHttpClientFactoryTest_OE25Dev {
   }
 
   @Test
-  public void testGetAsyncHttpClient_1_oe() throws Exception {
+  public void testGetAsyncHttpClient_2_oe_1_oe() throws Exception {
     try (AsyncHttpClient asyncHttpClient = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.assertTrue(asyncHttpClient.getClass().equals(DefaultAsyncHttpClient.class));
+      // removed other assertion
+            final AsyncHttpClient asyncHttpClient1 = asyncHttpClient;
+      Response response = asyncHttpClient1.prepareGet("http://localhost:" + port + "/foo/test").execute().get();
+          Assert.assertEquals(200, response.getStatusCode());
   }
   }
 
   @Test
-  public void testGetAsyncHttpClientConfig_1_oe() throws Exception {
+  public void testGetAsyncHttpClientConfig_2_oe_1_oe() throws Exception {
     try (AsyncHttpClient asyncHttpClient = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.assertTrue(asyncHttpClient.getClass().equals(DefaultAsyncHttpClient.class));
+      // removed other assertion
+            final AsyncHttpClient asyncHttpClient1 = asyncHttpClient;
+      Response response = asyncHttpClient1.prepareGet("http://localhost:" + port + "/foo/test").execute().get();
+          Assert.assertEquals(200, response.getStatusCode());
   }
   }
 
   @Test
-  public void testGetAsyncHttpClientProvider_1_oe() throws Exception {
+  public void testGetAsyncHttpClientProvider_2_oe_1_oe() throws Exception {
     try (AsyncHttpClient asyncHttpClient = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.assertTrue(asyncHttpClient.getClass().equals(DefaultAsyncHttpClient.class));
+      // removed other assertion
+            final AsyncHttpClient asyncHttpClient1 = asyncHttpClient;
+      Response response = asyncHttpClient1.prepareGet("http://localhost:" + port + "/foo/test").execute().get();
+          Assert.assertEquals(200, response.getStatusCode());
   }
   }
 
   @Test
-  public void testFactoryWithSystemProperty_1_oe() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
-  }
-  }
-
-  @Test
-  public void testGetAsyncHttpClientConfigWithSystemProperty_1_oe() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
-  }
-  }
-
-  @Test
-  public void testGetAsyncHttpClientProviderWithSystemProperty_1_oe() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
-  }
-  }
-
-  @Test(expectedExceptions = BadAsyncHttpClientException.class)
-  public void testFactoryWithBadAsyncHttpClient_1_oe() throws IOException {
+  public void testGetAsyncHttpClientConfigWithBadAsyncHttpClient_1_oe_1_oe() throws IOException {
     System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
     AsyncHttpClientConfigHelper.reloadProperties();
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      Assert.fail("BadAsyncHttpClientException should have been thrown before this point");
-  }
-  }
-
-  @Test(expectedExceptions = AsyncHttpClientImplException.class)
-  public void testFactoryWithNonExistentAsyncHttpClient_1_oe() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       //
-    }
-    Assert.fail("AsyncHttpClientImplException should have been thrown before this point");
+    } catch (AsyncHttpClientImplException e) {
+            final AsyncHttpClientImplException e1 = e;
+      InvocationTargetException t = (InvocationTargetException) e1.getCause();
+          Assert.assertTrue(t.getCause() instanceof BadAsyncHttpClientException);
+  }
   }
 
-  @Test(expectedExceptions = AsyncHttpClientImplException.class)
-  public void testRepeatedCallsToBadAsyncHttpClient_1_oe() throws IOException {
-    boolean exceptionCaught = false;
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+  @Test
+  public void testGetAsyncHttpClientProviderWithBadAsyncHttpClient_1_oe_1_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
     AsyncHttpClientConfigHelper.reloadProperties();
     try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
       //
     } catch (AsyncHttpClientImplException e) {
-      exceptionCaught = true;
-    }
-    Assert.assertTrue(exceptionCaught, "Didn't catch exception the first time");
+            final AsyncHttpClientImplException e1 = e;
+      InvocationTargetException t = (InvocationTargetException) e1.getCause();
+          Assert.assertTrue(t.getCause() instanceof BadAsyncHttpClientException);
   }
-
-  @Test(expectedExceptions = AsyncHttpClientImplException.class)
-  public void testRepeatedCallsToBadAsyncHttpClient_2_oe() throws IOException {
-    boolean exceptionCaught = false;
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      exceptionCaught = true;
-    }
-    // removed other assertion
-    exceptionCaught = false;
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      exceptionCaught = true;
-    }
-    Assert.assertTrue(exceptionCaught, "Didn't catch exception the second time");
   }
 
 }

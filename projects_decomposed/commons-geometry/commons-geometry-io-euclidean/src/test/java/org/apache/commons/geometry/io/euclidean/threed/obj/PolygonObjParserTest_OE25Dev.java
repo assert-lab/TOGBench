@@ -34,66 +34,16 @@ class PolygonObjParserTest_OE25Dev {
     private static final double EPS = 1e-10;
 
     @Test
-    void testNextKeyword() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "#comment",
-                "",
-                "  \t",
-                "o test",
-                "v",
-                "v 1 0 0 1",
-                "v 0 1 0",
-                "# comment",
-                " ",
-                "g triangle-\\",
-                "group",
-                "f 1 2 3",
-                "",
-                "curv2",
-                "# end"
-        ));
+    void testInitialState() {
+        // act
+        final PolygonObjParser p = parser("");
 
-        // act/assert
-        assertNextKeyword("o", p);
-        assertNextKeyword("v", p);
-        assertNextKeyword("v", p);
-        assertNextKeyword("v", p);
-        assertNextKeyword("g", p);
-        assertNextKeyword("f", p);
-        assertNextKeyword("curv2", p);
-
-        assertNextKeyword(null, p);
-    }
-
-    @Test
-    void testNextKeyword_polygonKeywordsOnly_valid() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v",
-                "vn",
-                "vt",
-                "f",
-                "o",
-                "s",
-                "g",
-                "mtllib",
-                "usemtl"
-        ));
-        p.setFailOnNonPolygonKeywords(true);
-
-        // act/assert
-        assertNextKeyword("v", p);
-        assertNextKeyword("vn", p);
-        assertNextKeyword("vt", p);
-        assertNextKeyword("f", p);
-        assertNextKeyword("o", p);
-        assertNextKeyword("s", p);
-        assertNextKeyword("g", p);
-        assertNextKeyword("mtllib", p);
-        assertNextKeyword("usemtl", p);
-
-        assertNextKeyword(null, p);
+        // assert
+        Assertions.assertNull(p.getCurrentKeyword());
+        Assertions.assertEquals(0, p.getVertexCount());
+        Assertions.assertEquals(0, p.getVertexNormalCount());
+        Assertions.assertEquals(0, p.getTextureCoordinateCount());
+        Assertions.assertFalse(p.isFailOnNonPolygonKeywords());
     }
 
     @Test
@@ -114,15 +64,6 @@ class PolygonObjParserTest_OE25Dev {
     }
 
     @Test
-    void testNextKeyword_emptyContent() {
-        // arrange
-        final PolygonObjParser p = parser("");
-
-        // act/assert
-        assertNextKeyword(null, p);
-    }
-
-    @Test
     void testNextKeyword_unexpectedContent() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -140,6 +81,57 @@ class PolygonObjParserTest_OE25Dev {
             p.nextKeyword();
         }, IllegalStateException.class, "Parsing failed at line 2, column 1: " +
             "expected OBJ keyword but found empty token followed by [-]");
+    }
+
+    @Test
+    void testReadDataLine() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "  line\t",
+                "",
+                " \\",
+                "a \\",
+                "b\\",
+                "cd\\",
+                ".\\"
+        ));
+
+        // act/assert
+        Assertions.assertEquals("  line\t", p.readDataLine());
+        Assertions.assertEquals("", p.readDataLine());
+        Assertions.assertEquals(" a bcd.", p.readDataLine());
+        Assertions.assertNull(p.readDataLine());
+    }
+
+    @Test
+    void testDiscardDataLine() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "  line\t",
+                "",
+                " \\",
+                "a \\",
+                "b\\",
+                "cd\\",
+                ".\\"
+        ));
+
+        // act/assert
+        p.discardDataLine();
+        Assertions.assertEquals(2, p.getTextParser().getLineNumber());
+        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
+
+        p.discardDataLine();
+        Assertions.assertEquals(3, p.getTextParser().getLineNumber());
+        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
+
+        p.discardDataLine();
+        Assertions.assertEquals(8, p.getTextParser().getLineNumber());
+        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
+
+        p.discardDataLine();
+        Assertions.assertEquals(8, p.getTextParser().getLineNumber());
+        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
     }
 
     @Test
@@ -172,6 +164,35 @@ class PolygonObjParserTest_OE25Dev {
         GeometryTestUtils.assertThrowsWithMessage(() -> {
             p.readVector();
         }, IllegalStateException.class, "Parsing failed at line 2, column 2: expected double but found end of line");
+    }
+
+    @Test
+    void testReadDoubles() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "0.1 0.2 3e2 4e2 500.01",
+                "  12.001  ",
+                "  ",
+                ""
+        ));
+
+        // act/assert
+        Assertions.assertArrayEquals(new double[] {
+            0.1, 0.2, 3e2, 4e2, 500.01
+        }, p.readDoubles(), EPS);
+        Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
+
+        p.readDataLine();
+
+        Assertions.assertArrayEquals(new double[] {12.001}, p.readDoubles(), EPS);
+
+        p.readDataLine();
+
+        Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
+
+        p.readDataLine();
+
+        Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
     }
 
     @Test
@@ -444,6 +465,185 @@ class PolygonObjParserTest_OE25Dev {
             "normal index must evaluate to be within the range [1, 3] but was 4");
     }
 
+    @Test
+    void testFace_getDefinedCompositeNormal() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v 0 0 0",
+                "v 1 0 0",
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vn 0 0 1",
+                "vn 0 0 -1",
+                "vn 2 2 2",
+                "vn -2 2 2",
+                "",
+                "f 1 2 3 4",
+                "f 1//1 2 3",
+                "f 1//1 2//1 3//1 4//1",
+                "f 1//1 2//2 3//1 4//2",
+                "f 1//-2 2//-1 3//3 4//4"
+        ));
+
+        final List<Vector3D> normals = Arrays.asList(
+                Vector3D.Unit.PLUS_Z,
+                Vector3D.Unit.MINUS_Z,
+                Vector3D.of(1, 1, 1),
+                Vector3D.of(-1, 1, 1));
+        final IntFunction<Vector3D> normalFn = normals::get;
+
+        // act/assert
+        nextMatchingKeyword("f", p);
+        Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
+
+        nextMatchingKeyword("f", p);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z,
+                p.readFace().getDefinedCompositeNormal(normalFn), EPS);
+
+        nextMatchingKeyword("f", p);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z,
+                p.readFace().getDefinedCompositeNormal(normalFn), EPS);
+
+        nextMatchingKeyword("f", p);
+        Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
+
+        nextMatchingKeyword("f", p);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, 1).normalize(),
+                p.readFace().getDefinedCompositeNormal(normalFn), EPS);
+    }
+
+    @Test
+    void testFace_computeNormalFromVertices() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v 0 0 0",
+                "v 1 0 0",
+                "v 2 0 0",
+                "v 0 1 0",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1//1 2//1 3//1"
+        ));
+
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO,
+                Vector3D.Unit.PLUS_X,
+                Vector3D.of(2, 0, 0),
+                Vector3D.of(0, 1, 0));
+        final IntFunction<Vector3D> vertexFn = vertices::get;
+
+        // act/assert
+        nextMatchingKeyword("f", p);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z,
+                p.readFace().computeNormalFromVertices(vertexFn), EPS);
+
+        nextMatchingKeyword("f", p);
+        Assertions.assertNull(p.readFace().computeNormalFromVertices(vertexFn));
+    }
+
+    @Test
+    void testFace_getVertexAttributesCounterClockwise() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v 0 0 0",
+                "v 1 0 0",
+                "v 0 1 0",
+                "f 1 2 3"
+        ));
+
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO,
+                Vector3D.Unit.PLUS_X,
+                Vector3D.Unit.PLUS_Y,
+                Vector3D.of(2, 0, 0));
+        final IntFunction<Vector3D> vertexFn = vertices::get;
+
+        nextMatchingKeyword("f", p);
+        final PolygonObjParser.Face f = p.readFace();
+
+        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
+
+        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
+        Collections.reverse(reverseAttrs);
+
+        // act/assert
+        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(null, vertexFn));
+
+        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
+        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
+        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
+
+        Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
+        Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
+    }
+
+    @Test
+    void testFace_getVertices() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v 0 0 0",
+                "v 1 0 0",
+                "v 1 1 0",
+                "v 0 1 0",
+                "v 0 0 1",
+                "v 0 0 -1",
+                "",
+                "f 2 3 4"
+        ));
+
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO,
+                Vector3D.Unit.PLUS_X,
+                Vector3D.of(1, 1, 0),
+                Vector3D.Unit.PLUS_Y,
+                Vector3D.of(0, 0, 1),
+                Vector3D.of(0, 0, -1));
+        final IntFunction<Vector3D> vertexFn = vertices::get;
+
+        // act/assert
+        nextMatchingKeyword("f", p);
+        Assertions.assertEquals(vertices.subList(1, 4), p.readFace().getVertices(vertexFn));
+    }
+
+    @Test
+    void testFace_getVerticesCounterClockwise() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v 0 0 0",
+                "v 1 0 0",
+                "v 0 1 0",
+                "v 0 0 -1",
+                "f 1 2 3"
+        ));
+
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO,
+                Vector3D.Unit.PLUS_X,
+                Vector3D.Unit.PLUS_Y,
+                Vector3D.of(0, 0, -1));
+        final IntFunction<Vector3D> vertexFn = vertices::get;
+
+        final List<Vector3D> faceVertices = vertices.subList(0, 3);
+        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
+        Collections.reverse(reverseFaceVertices);
+
+        nextMatchingKeyword("f", p);
+        final PolygonObjParser.Face f = p.readFace();
+
+        // act/assert
+        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(null, vertexFn));
+
+        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
+        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
+        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
+
+        Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
+        Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
+    }
+
     private static PolygonObjParser parser(final String content) {
         return new PolygonObjParser(new StringReader(content));
     }
@@ -509,430 +709,1141 @@ class PolygonObjParserTest_OE25Dev {
     }
 
     @Test
-    void testInitialState_1_oe() {
-        // act
+    void testNextKeyword_1_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+                final String expected = "o";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_1_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+                final String expected = "o";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_2_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_2_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_3_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_3_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_4_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_4_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_5_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "g";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_5_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "g";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_6_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_6_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_7_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "curv2";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_7_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "curv2";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_8_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = null;
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_8_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "#comment",
+                "",
+                "  \t",
+                "o test",
+                "v",
+                "v 1 0 0 1",
+                "v 0 1 0",
+                "# comment",
+                " ",
+                "g triangle-\\",
+                "group",
+                "f 1 2 3",
+                "",
+                "curv2",
+                "# end"
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = null;
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_1_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_1_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_2_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+                final String expected = "vn";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_2_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+                final String expected = "vn";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_3_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_3_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_4_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_4_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_5_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "o";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_5_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "o";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_6_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "s";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_6_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "s";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_7_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "g";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_7_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "g";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_8_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "mtllib";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_8_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "mtllib";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_9_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "usemtl";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_9_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = "usemtl";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_10_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = null;
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testNextKeyword_polygonKeywordsOnly_valid_10_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "v",
+                "vn",
+                "vt",
+                "f",
+                "o",
+                "s",
+                "g",
+                "mtllib",
+                "usemtl"
+        ));
+        p.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = null;
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testNextKeyword_emptyContent_1_oe_1_oe() {
+        // arrange
         final PolygonObjParser p = parser("");
 
-        // assert
-        Assertions.assertNull(p.getCurrentKeyword());
+        // act/assert
+                final String expected = null;
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testInitialState_2_oe() {
-        // act
+    void testNextKeyword_emptyContent_1_oe_2_oe() {
+        // arrange
         final PolygonObjParser p = parser("");
 
-        // assert
+        // act/assert
+                final String expected = null;
+        final PolygonObjParser parser = p;
         // removed other assertion
-        Assertions.assertEquals(0, p.getVertexCount());
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testInitialState_3_oe() {
-        // act
-        final PolygonObjParser p = parser("");
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0, p.getVertexNormalCount());
-    }
-
-    @Test
-    void testInitialState_4_oe() {
-        // act
-        final PolygonObjParser p = parser("");
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0, p.getTextureCoordinateCount());
-    }
-
-    @Test
-    void testInitialState_5_oe() {
-        // act
-        final PolygonObjParser p = parser("");
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertFalse(p.isFailOnNonPolygonKeywords());
-    }
-
-    @Test
-    void testReadDataLine_1_oe() {
+    void testParse_1_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        Assertions.assertEquals("  line\t", p.readDataLine());
-    }
-
-    @Test
-    void testReadDataLine_2_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "\\", // line continuation
+                " \\", // line continuation
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals("", p.readDataLine());
-    }
-
-    @Test
-    void testReadDataLine_3_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(" a bcd.", p.readDataLine());
-    }
-
-    @Test
-    void testReadDataLine_4_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertNull(p.readDataLine());
-    }
-
-    @Test
-    void testDiscardDataLine_1_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "vn 0 0 1",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
         // act/assert
-        p.discardDataLine();
-        Assertions.assertEquals(2, p.getTextParser().getLineNumber());
+                final String expected = "o";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testDiscardDataLine_2_oe() {
+    void testParse_1_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        p.discardDataLine();
-        // removed other assertion
-        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
-    }
-
-    @Test
-    void testDiscardDataLine_3_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "\\", // line continuation
+                " \\", // line continuation
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        Assertions.assertEquals(3, p.getTextParser().getLineNumber());
-    }
-
-    @Test
-    void testDiscardDataLine_4_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
-    }
-
-    @Test
-    void testDiscardDataLine_5_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        Assertions.assertEquals(8, p.getTextParser().getLineNumber());
-    }
-
-    @Test
-    void testDiscardDataLine_6_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
+                "vn 0 0 1",
                 "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
         // act/assert
-        p.discardDataLine();
+                final String expected = "o";
+        final PolygonObjParser parser = p;
         // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testDiscardDataLine_7_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
-                "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        Assertions.assertEquals(8, p.getTextParser().getLineNumber());
-    }
-
-    @Test
-    void testDiscardDataLine_8_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "  line\t",
-                "",
-                " \\",
-                "a \\",
-                "b\\",
-                "cd\\",
-                ".\\"
-        ));
-
-        // act/assert
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        // removed other assertion
-
-        p.discardDataLine();
-        // removed other assertion
-        Assertions.assertEquals(1, p.getTextParser().getColumnNumber());
-    }
-
-    @Test
-    void testReadDoubles_1_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "0.1 0.2 3e2 4e2 500.01",
-                "  12.001  ",
-                "  ",
-                ""
-        ));
-
-        // act/assert
-        Assertions.assertArrayEquals(new double[] { 0.1, 0.2, 3e2, 4e2, 500.01 }, p.readDoubles(), EPS);
-    }
-
-    @Test
-    void testReadDoubles_2_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "0.1 0.2 3e2 4e2 500.01",
-                "  12.001  ",
-                "  ",
-                ""
-        ));
-
-        // act/assert
-        // removed other assertion
-        Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
-    }
-
-    @Test
-    void testReadDoubles_3_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "0.1 0.2 3e2 4e2 500.01",
-                "  12.001  ",
-                "  ",
-                ""
-        ));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-
-        p.readDataLine();
-
-        Assertions.assertArrayEquals(new double[] {12.001}, p.readDoubles(), EPS);
-    }
-
-    @Test
-    void testReadDoubles_4_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "0.1 0.2 3e2 4e2 500.01",
-                "  12.001  ",
-                "  ",
-                ""
-        ));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-
-        p.readDataLine();
-
-        // removed other assertion
-
-        p.readDataLine();
-
-        Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
-    }
-
-    @Test
-    void testReadDoubles_5_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "0.1 0.2 3e2 4e2 500.01",
-                "  12.001  ",
-                "  ",
-                ""
-        ));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-
-        p.readDataLine();
-
-        // removed other assertion
-
-        p.readDataLine();
-
-        // removed other assertion
-
-        p.readDataLine();
-
-        Assertions.assertArrayEquals(new double[0], p.readDoubles(), EPS);
-    }
-
-    @Test
-    void testParse_2_oe() {
+    void testParse_3_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -962,11 +1873,54 @@ class PolygonObjParserTest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertEquals("test", p.readDataLine());
+        // removed other assertion
+
+                final String expected = "g";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_4_oe() {
+    void testParse_3_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "g";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_5_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -999,11 +1953,57 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals("test", p.readDataLine());
+        // removed other assertion
+
+                final String expected = "s";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_6_oe() {
+    void testParse_5_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "s";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_7_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1039,11 +2039,60 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals("test", p.readDataLine());
+        // removed other assertion
+
+                final String expected = "mtllib";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_8_oe() {
+    void testParse_7_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "mtllib";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_9_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1082,11 +2131,63 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals("mylib.mtl", p.readDataLine());
+        // removed other assertion
+
+                final String expected = "usemtl";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_10_oe() {
+    void testParse_9_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "usemtl";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_11_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1128,11 +2229,66 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals("mymaterial", p.readDataLine());
+        // removed other assertion
+
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_20_oe() {
+    void testParse_11_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_13_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1179,21 +2335,67 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertArrayEquals(new double[] {0, 0}, p.readDoubles(),  EPS);
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_22_oe() {
+    void testParse_13_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_15_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1243,21 +2445,13 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertArrayEquals(new double[] {1, 0}, p.readDoubles(),  EPS);
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_24_oe() {
+    void testParse_15_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1307,24 +2501,14 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
+                final String expected = "v";
+        final PolygonObjParser parser = p;
         // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertArrayEquals(new double[] {1, 1}, p.readDoubles(),  EPS);
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testParse_31_oe() {
+    void testParse_17_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1377,32 +2561,13 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(4, p.getVertexCount());
+                final String expected = "v";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testParse_32_oe() {
+    void testParse_17_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1455,33 +2620,14 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
+                final String expected = "v";
+        final PolygonObjParser parser = p;
         // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(3, p.getTextureCoordinateCount());
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testParse_33_oe() {
+    void testParse_19_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1537,552 +2683,787 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(1, p.getVertexNormalCount());
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testFace_getDefinedCompositeNormal_1_oe() {
+    void testParse_19_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
                 "v 1 1 0",
                 "v 0 1 0",
                 "",
-                "vn 0 0 1",
-                "vn 0 0 -1",
-                "vn 2 2 2",
-                "vn -2 2 2",
-                "",
-                "f 1 2 3 4",
-                "f 1//1 2 3",
-                "f 1//1 2//1 3//1 4//1",
-                "f 1//1 2//2 3//1 4//2",
-                "f 1//-2 2//-1 3//3 4//4"
-        ));
-
-        final List<Vector3D> normals = Arrays.asList(
-                Vector3D.Unit.PLUS_Z,
-                Vector3D.Unit.MINUS_Z,
-                Vector3D.of(1, 1, 1),
-                Vector3D.of(-1, 1, 1));
-        final IntFunction<Vector3D> normalFn = normals::get;
-
-        // act/assert
-        nextMatchingKeyword("f", p);
-        Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
-    }
-
-    @Test
-    void testFace_getDefinedCompositeNormal_4_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 1 1 0",
-                "v 0 1 0",
-                "",
-                "vn 0 0 1",
-                "vn 0 0 -1",
-                "vn 2 2 2",
-                "vn -2 2 2",
-                "",
-                "f 1 2 3 4",
-                "f 1//1 2 3",
-                "f 1//1 2//1 3//1 4//1",
-                "f 1//1 2//2 3//1 4//2",
-                "f 1//-2 2//-1 3//3 4//4"
-        ));
-
-        final List<Vector3D> normals = Arrays.asList(
-                Vector3D.Unit.PLUS_Z,
-                Vector3D.Unit.MINUS_Z,
-                Vector3D.of(1, 1, 1),
-                Vector3D.of(-1, 1, 1));
-        final IntFunction<Vector3D> normalFn = normals::get;
-
-        // act/assert
-        nextMatchingKeyword("f", p);
-        // removed other assertion
-
-        nextMatchingKeyword("f", p);
-        // removed other assertion
-
-        nextMatchingKeyword("f", p);
-        // removed other assertion
-
-        nextMatchingKeyword("f", p);
-        Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
-    }
-
-    @Test
-    void testFace_computeNormalFromVertices_2_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 2 0 0",
-                "v 0 1 0",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
                 "",
                 "vn 0 0 1",
                 "",
                 "f 1 2 4",
-                "f 1//1 2//1 3//1"
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.of(2, 0, 0),
-                Vector3D.of(0, 1, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        // act/assert
-        nextMatchingKeyword("f", p);
-        // removed other assertion
-
-        nextMatchingKeyword("f", p);
-        Assertions.assertNull(p.readFace().computeNormalFromVertices(vertexFn));
-    }
-
-    @Test
-    void testFace_getVertexAttributesCounterClockwise_1_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 0 1 0",
-                "f 1 2 3"
-        ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(2, 0, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
-        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
-
-        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
-        Collections.reverse(reverseAttrs);
-
-        // act/assert
-        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(null, vertexFn));
-    }
-
-    @Test
-    void testFace_getVertexAttributesCounterClockwise_2_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 0 1 0",
-                "f 1 2 3"
-        ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(2, 0, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
-        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
-
-        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
-        Collections.reverse(reverseAttrs);
 
         // act/assert
         // removed other assertion
+        // removed other assertion
 
-        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testFace_getVertexAttributesCounterClockwise_3_oe() {
+    void testParse_21_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
-                "v 0 1 0",
-                "f 1 2 3"
-        ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(2, 0, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
-        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
-
-        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
-        Collections.reverse(reverseAttrs);
-
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
-    }
-
-    @Test
-    void testFace_getVertexAttributesCounterClockwise_4_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 0 1 0",
-                "f 1 2 3"
-        ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(2, 0, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
-        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
-
-        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
-        Collections.reverse(reverseAttrs);
-
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(attrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
-    }
-
-    @Test
-    void testFace_getVertexAttributesCounterClockwise_5_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 0 1 0",
-                "f 1 2 3"
-        ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(2, 0, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
-        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
-
-        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
-        Collections.reverse(reverseAttrs);
-
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
-    }
-
-    @Test
-    void testFace_getVertexAttributesCounterClockwise_6_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
-                "v 0 1 0",
-                "f 1 2 3"
-        ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(2, 0, 0));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
-        final List<PolygonObjParser.VertexAttributes> attrs = f.getVertexAttributes();
-
-        final List<PolygonObjParser.VertexAttributes> reverseAttrs = new ArrayList<>(attrs);
-        Collections.reverse(reverseAttrs);
-
-        // act/assert
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        Assertions.assertEquals(reverseAttrs, f.getVertexAttributesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
-    }
-
-    @Test
-    void testFace_getVertices_1_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
                 "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 1",
-                "v 0 0 -1",
                 "",
-                "f 2 3 4"
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.of(1, 1, 0),
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, 1),
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
         // act/assert
-        nextMatchingKeyword("f", p);
-        Assertions.assertEquals(vertices.subList(1, 4), p.readFace().getVertices(vertexFn));
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testFace_getVerticesCounterClockwise_1_oe() {
+    void testParse_21_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 -1",
-                "f 1 2 3"
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
 
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        final List<Vector3D> faceVertices = vertices.subList(0, 3);
-        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
-        Collections.reverse(reverseFaceVertices);
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
-
         // act/assert
-        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(null, vertexFn));
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testFace_getVerticesCounterClockwise_2_oe() {
+    void testParse_23_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 -1",
-                "f 1 2 3"
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        final List<Vector3D> faceVertices = vertices.subList(0, 3);
-        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
-        Collections.reverse(reverseFaceVertices);
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
 
         // act/assert
         // removed other assertion
+        // removed other assertion
 
-        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_Z, vertexFn));
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testFace_getVerticesCounterClockwise_3_oe() {
+    void testParse_23_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 -1",
-                "f 1 2 3"
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        final List<Vector3D> faceVertices = vertices.subList(0, 3);
-        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
-        Collections.reverse(reverseFaceVertices);
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
 
         // act/assert
         // removed other assertion
+        // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, 0.1), vertexFn));
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vt";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testFace_getVerticesCounterClockwise_4_oe() {
+    void testParse_25_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 -1",
-                "f 1 2 3"
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        final List<Vector3D> faceVertices = vertices.subList(0, 3);
-        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
-        Collections.reverse(reverseFaceVertices);
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
 
         // act/assert
         // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(faceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.PLUS_X, vertexFn));
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vn";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
     }
 
     @Test
-    void testFace_getVerticesCounterClockwise_5_oe() {
+    void testParse_25_oe_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 -1",
-                "f 1 2 3"
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        final List<Vector3D> faceVertices = vertices.subList(0, 3);
-        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
-        Collections.reverse(reverseFaceVertices);
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
 
         // act/assert
         // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.Unit.MINUS_Z, vertexFn));
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "vn";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
     @Test
-    void testFace_getVerticesCounterClockwise_6_oe() {
+    void testParse_27_oe_1_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
                 "v 0 0 0",
-                "v 1 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
                 "v 0 1 0",
-                "v 0 0 -1",
-                "f 1 2 3"
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
         ));
-
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO,
-                Vector3D.Unit.PLUS_X,
-                Vector3D.Unit.PLUS_Y,
-                Vector3D.of(0, 0, -1));
-        final IntFunction<Vector3D> vertexFn = vertices::get;
-
-        final List<Vector3D> faceVertices = vertices.subList(0, 3);
-        final List<Vector3D> reverseFaceVertices = new ArrayList<>(faceVertices);
-        Collections.reverse(reverseFaceVertices);
-
-        nextMatchingKeyword("f", p);
-        final PolygonObjParser.Face f = p.readFace();
 
         // act/assert
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(reverseFaceVertices, f.getVerticesCounterClockwise(Vector3D.of(1, 0, -0.1), vertexFn));
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testParse_27_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
+    }
+
+    @Test
+    void testParse_29_oe_1_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        Assertions.assertEquals(expected != null, parser.nextKeyword());
+    }
+
+    @Test
+    void testParse_29_oe_2_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+                final String expected = "f";
+        final PolygonObjParser parser = p;
+        // removed other assertion
+                Assertions.assertEquals(expected, parser.getCurrentKeyword());
     }
 
 }

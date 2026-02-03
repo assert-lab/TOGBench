@@ -38,19 +38,7 @@ public class UrlStructureTests_OE25Dev extends AbstractProviderTestCase {
      */
 
     @Test
-    public void testFolderURL_1_oe() throws Exception {
-        final FileObject folder = getReadFolder().resolveFile("dir1");
-        if (folder.getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {
-            // test might not fail on e.g. HttpFileSystem as there are no directories.
-            // A Directory do have a content on http. e.g a generated directory listing or the index.html page.
-            return;
-        }
-
-        assertTrue(folder.exists());
-    }
-
-    @Test
-    public void testFolderURL_2_oe() throws Exception {
+    public void testFolderURL_3_oe_1_oe() throws Exception {
         final FileObject folder = getReadFolder().resolveFile("dir1");
         if (folder.getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {
             // test might not fail on e.g. HttpFileSystem as there are no directories.
@@ -62,7 +50,12 @@ public class UrlStructureTests_OE25Dev extends AbstractProviderTestCase {
 
         // Try getting the content of a folder
         try (final InputStream inputStream = folder.getURL().openConnection().getInputStream()) {
-            fail();
+            // removed other assertion
+        } catch (final IOException e) {
+                        final String code = "vfs.provider/read-not-file.error";
+            final Object param = folder;
+            final Throwable throwable = e;
+            assertSameMessage(code, new Object[] { param }, throwable);
     }
     }
 

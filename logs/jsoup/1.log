@@ -21,7 +21,7 @@
 [INFO] Copying 70 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
-[INFO] Compiling 77 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] Compiling 63 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ jsoup ---
 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
@@ -29,200 +29,16 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.jsoup.select.CssTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s - in org.jsoup.select.CssTest_OE25Dev
-[INFO] Running org.jsoup.parser.ParserTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.jsoup.parser.ParserTest_OE25Dev
-[INFO] Running org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.496 s - in org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.jsoup.safety.SafelistTest_OE25Dev
-[INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
-[ERROR] Tests run: 15, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 2.506 s <<< FAILURE! - in org.jsoup.nodes.ElementIT_OE25Dev
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_4_oe  Time elapsed: 0.166 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_4_oe(ElementIT_OE25Dev.java:262)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_5_oe  Time elapsed: 0.196 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_5_oe(ElementIT_OE25Dev.java:291)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_6_oe  Time elapsed: 0.176 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_6_oe(ElementIT_OE25Dev.java:321)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_7_oe  Time elapsed: 0.148 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_7_oe(ElementIT_OE25Dev.java:352)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_8_oe  Time elapsed: 0.216 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_8_oe(ElementIT_OE25Dev.java:385)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_9_oe  Time elapsed: 0.185 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparentExistingContent_9_oe(ElementIT_OE25Dev.java:419)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_3_oe  Time elapsed: 0.15 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_3_oe(ElementIT_OE25Dev.java:79)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_4_oe  Time elapsed: 0.223 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_4_oe(ElementIT_OE25Dev.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_5_oe  Time elapsed: 0.167 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_5_oe(ElementIT_OE25Dev.java:130)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[ERROR] org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_6_oe  Time elapsed: 0.114 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
-	at java.base/java.util.Objects.checkIndex(Objects.java:361)
-	at java.base/java.util.ArrayList.get(ArrayList.java:427)
-	at org.jsoup.nodes.ElementIT_OE25Dev.testFastReparent_6_oe(ElementIT_OE25Dev.java:157)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[INFO] Running org.jsoup.integration.SessionIT_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.918 s <<< FAILURE! - in org.jsoup.integration.SessionIT_OE25Dev
-[ERROR] org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe  Time elapsed: 11.18 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe(SessionIT_OE25Dev.java:120)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
-[INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
-[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.544 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
 [INFO] Running org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Running org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.86 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.079 s - in org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s - in org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.507 s - in org.jsoup.integration.SessionTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Failures: 
-[ERROR]   SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe:120 expected: <19> but was: <18>
-[ERROR] Errors: 
-[ERROR]   ElementIT_OE25Dev.testFastReparentExistingContent_4_oe:262 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparentExistingContent_5_oe:291 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparentExistingContent_6_oe:321 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparentExistingContent_7_oe:352 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparentExistingContent_8_oe:385 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparentExistingContent_9_oe:419 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparent_3_oe:79 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparent_4_oe:104 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparent_5_oe:130 » IndexOutOfBounds Index 0 out of bounds for length 0
-[ERROR]   ElementIT_OE25Dev.testFastReparent_6_oe:157 » IndexOutOfBounds Index 0 out of bounds for length 0
-[INFO] 
-[ERROR] Tests run: 403, Failures: 1, Errors: 10, Skipped: 1
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:03 min
-[INFO] Finished at: 2026-02-03T05:52:05-06:00
+[INFO] Total time:  12.456 s
+[INFO] Finished at: 2026-02-03T13:42:30-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jsoup: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

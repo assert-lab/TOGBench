@@ -1,0 +1,34 @@
+id,test_prefix,test_name
+weav_10_1_1,"    @Test
+    public void testParseTypes_1_oe_1_oe() {
+                final Iterable<E> iterable = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements = Number.class;
+        final Iterator<E> iterator = iterable.iterator();
+                for (E e : expectedElements) {
+                    assertTrue(iterator.hasNext());
+    }
+    }
+",UtilsTest::testParseTypes_1_oe_1_oe
+weav_10_1_2,"    @Test
+    public void testParseTypes_1_oe_2_oe() {
+                final Iterable<E> iterable = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements = Number.class;
+        final Iterator<E> iterator = iterable.iterator();
+                for (E e : expectedElements) {
+                    // removed other assertion
+                    assertEquals(e, iterator.next());
+    }
+    }
+",UtilsTest::testParseTypes_1_oe_2_oe
+weav_10_1_3,"    @Test
+    public void testParseTypes_1_oe_3_oe() {
+                final Iterable<E> iterable = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements = Number.class;
+        final Iterator<E> iterator = iterable.iterator();
+                for (E e : expectedElements) {
+                    // removed other assertion
+                    // removed other assertion
+                }
+                assertFalse(iterator.hasNext());
+    }
+",UtilsTest::testParseTypes_1_oe_3_oe

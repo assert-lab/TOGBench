@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 096bdf15456a4d833b6cf23506c3db7b96292bf1 at timestamp: 1770119392218
+[INFO] Storing buildNumber: 4a1f1c4f1560b9aec5cc8215abfe118f0fdac836 at timestamp: 1770147730567
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
@@ -51,50 +51,212 @@ main:
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-fraction ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/test-classes
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-fraction ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-fraction ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.245 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.017 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2308)
-
-[INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.488 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2172)
-
-[INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Failures: 
-[ERROR]   BigFractionTest_OE25Dev.testParse_1_oe:2172 expected: <-1 / 2> but was: <1 / 2>
-[ERROR]   FractionTest_OE25Dev.testParse_1_oe:2308 expected: <-1 / 2> but was: <1 / 2>
-[INFO] 
-[ERROR] Tests run: 526, Failures: 2, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1192,29] cannot find symbol
+  symbol:   class T
+  location: class org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1195,28] incompatible types: unexpected return value
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1289,29] cannot find symbol
+  symbol:   class T
+  location: class org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1292,28] incompatible types: unexpected return value
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1388,29] cannot find symbol
+  symbol:   class T
+  location: class org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1391,28] incompatible types: unexpected return value
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[457,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[471,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[486,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[633,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[634,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[646,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[647,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[660,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[661,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[676,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[677,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[690,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[691,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[705,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[706,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[722,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[723,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[737,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[738,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[753,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[754,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[771,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[772,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[787,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[788,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[804,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[805,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[823,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[824,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[840,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[841,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[858,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[859,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[878,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[879,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[896,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[897,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[915,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[916,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[940,57] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[941,65] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[963,57] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[964,65] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[987,57] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[988,65] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1019,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1020,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1049,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1050,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1080,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1081,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1113,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1114,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1144,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1145,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1176,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1177,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1225,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1239,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1254,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1271,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1286,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1302,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1321,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1337,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1354,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1373,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1390,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1408,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1781,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1782,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1791,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1792,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1802,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1803,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1814,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1815,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1827,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1828,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1847,41] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1848,51] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1869,49] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1870,43] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1892,49] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1893,43] incompatible types: long cannot be converted to java.math.BigInteger
+[INFO] 91 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.943 s
-[INFO] Finished at: 2026-02-03T05:49:59-06:00
+[INFO] Total time:  13.516 s
+[INFO] Finished at: 2026-02-03T13:42:19-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-fraction: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1192,29] cannot find symbol
+[ERROR]   symbol:   class T
+[ERROR]   location: class org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1195,28] incompatible types: unexpected return value
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1289,29] cannot find symbol
+[ERROR]   symbol:   class T
+[ERROR]   location: class org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1292,28] incompatible types: unexpected return value
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1388,29] cannot find symbol
+[ERROR]   symbol:   class T
+[ERROR]   location: class org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/CommonsLangPortedFractionTest_OE25Dev.java:[1391,28] incompatible types: unexpected return value
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[457,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[471,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[486,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[633,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[634,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[646,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[647,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[660,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[661,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[676,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[677,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[690,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[691,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[705,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[706,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[722,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[723,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[737,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[738,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[753,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[754,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[771,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[772,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[787,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[788,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[804,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[805,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[823,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[824,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[840,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[841,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[858,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[859,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[878,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[879,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[896,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[897,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[915,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[916,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[940,57] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[941,65] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[963,57] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[964,65] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[987,57] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[988,65] incompatible types: java.math.BigInteger cannot be converted to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1019,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1020,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1049,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1050,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1080,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1081,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1113,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1114,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1144,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1145,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1176,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1177,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1225,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1239,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1254,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1271,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1286,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1302,47] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1321,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1337,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1354,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1373,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1390,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1408,41] incompatible types: possible lossy conversion from long to int
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1781,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1782,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1791,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1792,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1802,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1803,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1814,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1815,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1827,38] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1828,40] incompatible types: int cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1847,41] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1848,51] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1869,49] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1870,43] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1892,49] incompatible types: long cannot be converted to java.math.BigInteger
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev.java:[1893,43] incompatible types: long cannot be converted to java.math.BigInteger
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

@@ -20,25 +20,21 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 3 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/DefaultRxHttpClientTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/DefaultRxHttpClientTest.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-rxjava2 ---
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running TestSuite
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.841 sec - in TestSuite
-
-Results :
-
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
-
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.845 s
-[INFO] Finished at: 2026-02-03T05:48:57-06:00
+[INFO] Total time:  9.331 s
+[INFO] Finished at: 2026-02-03T13:41:25-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-rxjava2: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

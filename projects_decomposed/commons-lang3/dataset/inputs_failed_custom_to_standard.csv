@@ -1,0 +1,2509 @@
+id,test_prefix,test_name
+lang_203_1_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_1_oe_1_oe() {
+        this.        final String name = CharEncoding.ISO_8859_1;
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_1_oe_1_oe
+lang_203_2_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_2_oe_1_oe() {
+        // removed other assertion
+        this.        final String name = CharEncoding.US_ASCII;
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_2_oe_1_oe
+lang_203_3_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_3_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        this.        final String name = CharEncoding.UTF_16;
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_3_oe_1_oe
+lang_203_4_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_4_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        this.        final String name = CharEncoding.UTF_16BE;
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_4_oe_1_oe
+lang_203_5_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_5_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        this.        final String name = CharEncoding.UTF_16LE;
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_5_oe_1_oe
+lang_203_6_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_6_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        this.        final String name = CharEncoding.UTF_8;
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_6_oe_1_oe
+lang_538_13_1,"    @Test
+    public void testAbbreviate_StringStringIntInt_13_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = ""abcdef{{{{"";
+        final String abbrevMarker = ""{{{{"";
+        final int offset = 4;
+        final int maxWidth = 10;
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+                final String message = ""abbreviate(String,String,int,int) failed"";
+                final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+                if (offset >= 0 && offset < abcdefghijklmno.length()) {
+                    assertTrue(actual.indexOf((char)('a' + offset))!= -1,message + "" -- should contain offset character"");
+    }
+    }
+
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }",StringUtilsTest::testAbbreviate_StringStringIntInt_13_oe_1_oe
+lang_538_13_2,"    @Test
+    public void testAbbreviate_StringStringIntInt_13_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = ""abcdef{{{{"";
+        final String abbrevMarker = ""{{{{"";
+        final int offset = 4;
+        final int maxWidth = 10;
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+                final String message = ""abbreviate(String,String,int,int) failed"";
+                final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+                if (offset >= 0 && offset < abcdefghijklmno.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual.length()<= maxWidth,message + "" -- should not be greater than maxWidth"");
+    }
+
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }",StringUtilsTest::testAbbreviate_StringStringIntInt_13_oe_2_oe
+lang_538_13_3,"    @Test
+    public void testAbbreviate_StringStringIntInt_13_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected = ""abcdef{{{{"";
+        final String abbrevMarker = ""{{{{"";
+        final int offset = 4;
+        final int maxWidth = 10;
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+                final String message = ""abbreviate(String,String,int,int) failed"";
+                final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+                if (offset >= 0 && offset < abcdefghijklmno.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected, actual, message);
+    }
+
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }",StringUtilsTest::testAbbreviate_StringStringIntInt_13_oe_3_oe
+lang_780_1_1,"    @Test
+    public void testIsEquals_1_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_1_oe
+lang_780_1_2,"    @Test
+    public void testIsEquals_1_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_2_oe
+lang_780_1_3,"    @Test
+    public void testIsEquals_1_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_3_oe
+lang_780_1_4,"    @Test
+    public void testIsEquals_1_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_4_oe
+lang_780_1_5,"    @Test
+    public void testIsEquals_1_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_5_oe
+lang_780_1_6,"    @Test
+    public void testIsEquals_1_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_6_oe
+lang_780_1_7,"    @Test
+    public void testIsEquals_1_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_7_oe
+lang_780_1_8,"    @Test
+    public void testIsEquals_1_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_8_oe
+lang_780_1_9,"    @Test
+    public void testIsEquals_1_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.        final Object array1 = larray1;
+        final Object array2 = larray2;
+        final Object array3 = larray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_1_oe_9_oe
+lang_780_2_1,"    @Test
+    public void testIsEquals_2_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_1_oe
+lang_780_2_2,"    @Test
+    public void testIsEquals_2_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_2_oe
+lang_780_2_3,"    @Test
+    public void testIsEquals_2_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_3_oe
+lang_780_2_4,"    @Test
+    public void testIsEquals_2_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_4_oe
+lang_780_2_5,"    @Test
+    public void testIsEquals_2_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_5_oe
+lang_780_2_6,"    @Test
+    public void testIsEquals_2_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_6_oe
+lang_780_2_7,"    @Test
+    public void testIsEquals_2_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_7_oe
+lang_780_2_8,"    @Test
+    public void testIsEquals_2_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_8_oe
+lang_780_2_9,"    @Test
+    public void testIsEquals_2_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.        final Object array1 = iarray1;
+        final Object array2 = iarray2;
+        final Object array3 = iarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_2_oe_9_oe
+lang_780_3_1,"    @Test
+    public void testIsEquals_3_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_1_oe
+lang_780_3_2,"    @Test
+    public void testIsEquals_3_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_2_oe
+lang_780_3_3,"    @Test
+    public void testIsEquals_3_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_3_oe
+lang_780_3_4,"    @Test
+    public void testIsEquals_3_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_4_oe
+lang_780_3_5,"    @Test
+    public void testIsEquals_3_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_5_oe
+lang_780_3_6,"    @Test
+    public void testIsEquals_3_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_6_oe
+lang_780_3_7,"    @Test
+    public void testIsEquals_3_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_7_oe
+lang_780_3_8,"    @Test
+    public void testIsEquals_3_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_8_oe
+lang_780_3_9,"    @Test
+    public void testIsEquals_3_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.        final Object array1 = sarray1;
+        final Object array2 = sarray2;
+        final Object array3 = sarray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_3_oe_9_oe
+lang_780_4_1,"    @Test
+    public void testIsEquals_4_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_1_oe
+lang_780_4_2,"    @Test
+    public void testIsEquals_4_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_2_oe
+lang_780_4_3,"    @Test
+    public void testIsEquals_4_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_3_oe
+lang_780_4_4,"    @Test
+    public void testIsEquals_4_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_4_oe
+lang_780_4_5,"    @Test
+    public void testIsEquals_4_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_5_oe
+lang_780_4_6,"    @Test
+    public void testIsEquals_4_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_6_oe
+lang_780_4_7,"    @Test
+    public void testIsEquals_4_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_7_oe
+lang_780_4_8,"    @Test
+    public void testIsEquals_4_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_8_oe
+lang_780_4_9,"    @Test
+    public void testIsEquals_4_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        this.        final Object array1 = farray1;
+        final Object array2 = farray2;
+        final Object array3 = farray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_4_oe_9_oe
+lang_780_5_1,"    @Test
+    public void testIsEquals_5_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_1_oe
+lang_780_5_2,"    @Test
+    public void testIsEquals_5_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_2_oe
+lang_780_5_3,"    @Test
+    public void testIsEquals_5_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_3_oe
+lang_780_5_4,"    @Test
+    public void testIsEquals_5_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_4_oe
+lang_780_5_5,"    @Test
+    public void testIsEquals_5_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_5_oe
+lang_780_5_6,"    @Test
+    public void testIsEquals_5_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_6_oe
+lang_780_5_7,"    @Test
+    public void testIsEquals_5_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_7_oe
+lang_780_5_8,"    @Test
+    public void testIsEquals_5_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_8_oe
+lang_780_5_9,"    @Test
+    public void testIsEquals_5_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        this.        final Object array1 = darray1;
+        final Object array2 = darray2;
+        final Object array3 = darray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_5_oe_9_oe
+lang_780_6_1,"    @Test
+    public void testIsEquals_6_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_1_oe
+lang_780_6_2,"    @Test
+    public void testIsEquals_6_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_2_oe
+lang_780_6_3,"    @Test
+    public void testIsEquals_6_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_3_oe
+lang_780_6_4,"    @Test
+    public void testIsEquals_6_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_4_oe
+lang_780_6_5,"    @Test
+    public void testIsEquals_6_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_5_oe
+lang_780_6_6,"    @Test
+    public void testIsEquals_6_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_6_oe
+lang_780_6_7,"    @Test
+    public void testIsEquals_6_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_7_oe
+lang_780_6_8,"    @Test
+    public void testIsEquals_6_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_8_oe
+lang_780_6_9,"    @Test
+    public void testIsEquals_6_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        this.        final Object array1 = byteArray1;
+        final Object array2 = byteArray2;
+        final Object array3 = byteArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_6_oe_9_oe
+lang_780_7_1,"    @Test
+    public void testIsEquals_7_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_1_oe
+lang_780_7_2,"    @Test
+    public void testIsEquals_7_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_2_oe
+lang_780_7_3,"    @Test
+    public void testIsEquals_7_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_3_oe
+lang_780_7_4,"    @Test
+    public void testIsEquals_7_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_4_oe
+lang_780_7_5,"    @Test
+    public void testIsEquals_7_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_5_oe
+lang_780_7_6,"    @Test
+    public void testIsEquals_7_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_6_oe
+lang_780_7_7,"    @Test
+    public void testIsEquals_7_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_7_oe
+lang_780_7_8,"    @Test
+    public void testIsEquals_7_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_8_oe
+lang_780_7_9,"    @Test
+    public void testIsEquals_7_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        this.        final Object array1 = charArray1;
+        final Object array2 = charArray2;
+        final Object array3 = charArray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_7_oe_9_oe
+lang_780_8_1,"    @Test
+    public void testIsEquals_8_oe_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_1_oe
+lang_780_8_2,"    @Test
+    public void testIsEquals_8_oe_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array2, array2));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_2_oe
+lang_780_8_3,"    @Test
+    public void testIsEquals_8_oe_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                assertTrue(ArrayUtils.isEquals(array3, array3));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_3_oe
+lang_780_8_4,"    @Test
+    public void testIsEquals_8_oe_4_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_4_oe
+lang_780_8_5,"    @Test
+    public void testIsEquals_8_oe_5_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_5_oe
+lang_780_8_6,"    @Test
+    public void testIsEquals_8_oe_6_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array3));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_6_oe
+lang_780_8_7,"    @Test
+    public void testIsEquals_8_oe_7_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array3, array1));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_7_oe
+lang_780_8_8,"    @Test
+    public void testIsEquals_8_oe_8_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array1, array2));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_8_oe
+lang_780_8_9,"    @Test
+    public void testIsEquals_8_oe_9_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        // removed other assertion
+
+        final float[][] farray1 = new float[][]{{2, 5}, {4, 5}};
+        final float[][] farray2 = new float[][]{{2, 5}, {4, 6}};
+        final float[] farray3 = new float[]{2, 5};
+        // removed other assertion
+
+        final double[][] darray1 = new double[][]{{2, 5}, {4, 5}};
+        final double[][] darray2 = new double[][]{{2, 5}, {4, 6}};
+        final double[] darray3 = new double[]{2, 5};
+        // removed other assertion
+
+        final byte[][] byteArray1 = new byte[][]{{2, 5}, {4, 5}};
+        final byte[][] byteArray2 = new byte[][]{{2, 5}, {4, 6}};
+        final byte[] byteArray3 = new byte[]{2, 5};
+        // removed other assertion
+
+        final char[][] charArray1 = new char[][]{{2, 5}, {4, 5}};
+        final char[][] charArray2 = new char[][]{{2, 5}, {4, 6}};
+        final char[] charArray3 = new char[]{2, 5};
+        // removed other assertion
+
+        final boolean[][] barray1 = new boolean[][]{{true, false}, {true, true}};
+        final boolean[][] barray2 = new boolean[][]{{true, false}, {true, false}};
+        final boolean[] barray3 = new boolean[]{false, true};
+        this.        final Object array1 = barray1;
+        final Object array2 = barray2;
+        final Object array3 = barray3;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",ArrayUtilsTest::testIsEquals_8_oe_9_oe

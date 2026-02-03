@@ -35,8 +35,8 @@ def is_syntax_ok(test_prefix: str) -> bool:
 
 
 def process_project_dataset(dataset_dir: Path):
-    inputs_path = dataset_dir / "inputs.csv"
-    meta_path = dataset_dir / "meta.csv"
+    inputs_path = dataset_dir / "inputs_custom_to_standard.csv"
+    meta_path = dataset_dir / "meta_custom_to_standard.csv"
 
     if not inputs_path.exists() or not meta_path.exists():
         return
@@ -107,13 +107,13 @@ def process_project_dataset(dataset_dir: Path):
 
     # Write failed rows into separate files
     if failed_inputs:
-        with (dataset_dir / "inputs_failed.csv").open("w", encoding="utf-8", newline="") as f:
+        with (dataset_dir / "inputs_failed_custom_to_standard.csv").open("w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=failed_inputs[0].keys())
             writer.writeheader()
             writer.writerows(failed_inputs)
 
     if failed_meta:
-        with (dataset_dir / "meta_failed.csv").open("w", encoding="utf-8", newline="") as f:
+        with (dataset_dir / "meta_failed_custom_to_standard.csv").open("w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=failed_meta[0].keys())
             writer.writeheader()
             writer.writerows(failed_meta)

@@ -126,153 +126,13 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
     /**
      * Tests conversion from absolute to relative names.
      */
-
-    /**
-     * Tests resolution of absolute names.
-     */
     @Test
-    public void testAbsoluteNames() throws Exception {
-        // Test against the base folder
-        FileName name = getReadFolder().getName();
-        checkAbsoluteNames(name);
-
-        // Test against the root
-        name = getReadFolder().getFileSystem().getRoot().getName();
-        checkAbsoluteNames(name);
-
-        // Test against some unknown file
-        name = getManager().resolveName(name, "a/b/unknown");
-        checkAbsoluteNames(name);
-    }
-
-    /**
-     * Tests child file names.
-     */
-
-    /**
-     * Tests descendent name resolution.
-     */
-    @Test
-    public void testDescendentName() throws Exception {
-        final FileName baseName = getReadFolder().getName();
-
-        // Test direct child
-        String path = baseName.getPath() + "/some-child";
-        assertSameName(path, baseName, "some-child", NameScope.DESCENDENT);
-
-        // Test compound name
-        path = path + "/grand-child";
-        assertSameName(path, baseName, "some-child/grand-child", NameScope.DESCENDENT);
-
-        // Test relative names
-        assertSameName(path, baseName, "./some-child/grand-child", NameScope.DESCENDENT);
-        assertSameName(path, baseName, "./nada/../some-child/grand-child", NameScope.DESCENDENT);
-        assertSameName(path, baseName, "some-child/./grand-child", NameScope.DESCENDENT);
-
-        // Test badly formed descendent names
-        checkDescendentNames(baseName, NameScope.DESCENDENT);
-    }
-
-    /**
-     * Tests relative name resolution, relative to the base folder.
-     */
-    @Test
-    public void testNameResolution() throws Exception {
-        final FileName baseName = getReadFolder().getName();
-        final String parentPath = baseName.getParent().getPath();
-        final String path = baseName.getPath();
-        final String childPath = path + "/some-child";
-
-        // Test empty relative path
-        assertSameName(path, baseName, "");
-
-        // Test . relative path
-        assertSameName(path, baseName, ".");
-
-        // Test ./ relative path
-        assertSameName(path, baseName, "./");
-
-        // Test .// relative path
-        assertSameName(path, baseName, ".//");
-
-        // Test .///.///. relative path
-        assertSameName(path, baseName, ".///.///.");
-        assertSameName(path, baseName, "./\\/.\\//.");
-
-        // Test <elem>/.. relative path
-        assertSameName(path, baseName, "a/..");
-
-        // Test .. relative path
-        assertSameName(parentPath, baseName, "..");
-
-        // Test ../ relative path
-        assertSameName(parentPath, baseName, "../");
-
-        // Test ..//./ relative path
-        assertSameName(parentPath, baseName, "..//./");
-        assertSameName(parentPath, baseName, "..//.\\");
-
-        // Test <elem>/../.. relative path
-        assertSameName(parentPath, baseName, "a/../..");
-
-        // Test <elem> relative path
-        assertSameName(childPath, baseName, "some-child");
-
-        // Test ./<elem> relative path
-        assertSameName(childPath, baseName, "./some-child");
-
-        // Test ./<elem>/ relative path
-        assertSameName(childPath, baseName, "./some-child/");
-
-        // Test <elem>/././././ relative path
-        assertSameName(childPath, baseName, "./some-child/././././");
-
-        // Test <elem>/../<elem> relative path
-        assertSameName(childPath, baseName, "a/../some-child");
-
-        // Test <elem>/<elem>/../../<elem> relative path
-        assertSameName(childPath, baseName, "a/b/../../some-child");
-    }
-
-    /**
-     * Tests resolution of relative file names via the FS manager
-     */
-
-    /**
-     * Tests encoding of relative URI.
-     */
-
-    /**
-     * Checks that a file name converts to an expected relative path
-     */
-    private void testRelName(final FileName baseName, final String relPath) throws Exception {
-        final FileName expectedName = getManager().resolveName(baseName, relPath);
-
-        // Convert to relative path, and check
-        final String actualRelPath = baseName.getRelativeName(expectedName);
-        assertEquals(relPath, actualRelPath);
-    }
-
-    /**
-     * Tests the root file name.
-     */
-
-    @Test
-    public void testAbsoluteNameConvert_1_oe() throws Exception {
+    public void testAbsoluteNameConvert() throws Exception {
         final FileName baseName = getReadFolder().getName();
 
         String path = "/test1/test2";
         FileName name = getManager().resolveName(baseName, path);
         assertEquals(path, name.getPath());
-    }
-
-    @Test
-    public void testAbsoluteNameConvert_2_oe() throws Exception {
-        final FileName baseName = getReadFolder().getName();
-
-        String path = "/test1/test2";
-        FileName name = getManager().resolveName(baseName, path);
-        // removed other assertion
 
         // Try child and descendent names
         testRelName(name, "child");
@@ -304,132 +164,122 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         path = "/";
         name = getManager().resolveName(baseName, path);
         assertEquals(path, name.getPath());
+
+        // Try child and descendent names (against root)
+        testRelName(name, "child");
+        testRelName(name, "child1/child2");
+
+        // Try own name (against root)
+        testRelName(name, ".");
     }
 
+    /**
+     * Tests resolution of absolute names.
+     */
     @Test
-    public void testChildName_1_oe() throws Exception {
+    public void testAbsoluteNames() throws Exception {
+        // Test against the base folder
+        FileName name = getReadFolder().getName();
+        checkAbsoluteNames(name);
+
+        // Test against the root
+        name = getReadFolder().getFileSystem().getRoot().getName();
+        checkAbsoluteNames(name);
+
+        // Test against some unknown file
+        name = getManager().resolveName(name, "a/b/unknown");
+        checkAbsoluteNames(name);
+    }
+
+    /**
+     * Tests child file names.
+     */
+    @Test
+    public void testChildName() throws Exception {
         final FileName baseName = getReadFolder().getName();
         final String basePath = baseName.getPath();
         final FileName name = getManager().resolveName(baseName, "some-child", NameScope.CHILD);
 
         // Test path is absolute
         assertTrue("is absolute", basePath.startsWith("/"));
-    }
-
-    @Test
-    public void testChildName_2_oe() throws Exception {
-        final FileName baseName = getReadFolder().getName();
-        final String basePath = baseName.getPath();
-        final FileName name = getManager().resolveName(baseName, "some-child", NameScope.CHILD);
-
-        // Test path is absolute
-        // removed other assertion
 
         // Test base name
         assertEquals("base name", "some-child", name.getBaseName());
-    }
-
-    @Test
-    public void testChildName_3_oe() throws Exception {
-        final FileName baseName = getReadFolder().getName();
-        final String basePath = baseName.getPath();
-        final FileName name = getManager().resolveName(baseName, "some-child", NameScope.CHILD);
-
-        // Test path is absolute
-        // removed other assertion
-
-        // Test base name
-        // removed other assertion
 
         // Test absolute path
         assertEquals("absolute path", basePath + "/some-child", name.getPath());
-    }
-
-    @Test
-    public void testChildName_4_oe() throws Exception {
-        final FileName baseName = getReadFolder().getName();
-        final String basePath = baseName.getPath();
-        final FileName name = getManager().resolveName(baseName, "some-child", NameScope.CHILD);
-
-        // Test path is absolute
-        // removed other assertion
-
-        // Test base name
-        // removed other assertion
-
-        // Test absolute path
-        // removed other assertion
 
         // Test parent path
         assertEquals("parent absolute path", basePath, name.getParent().getPath());
+
+        // Try using a compound name to find a child
+        assertBadName(name, "a/b", NameScope.CHILD);
+
+        // Check other invalid names
+        checkDescendentNames(name, NameScope.CHILD);
     }
 
+    /**
+     * Tests descendent name resolution.
+     */
     @Test
-    public void testRelativeURI_1_oe() throws Exception {
+    public void testDescendentName() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+
+        // Test direct child
+        String path = baseName.getPath() + "/some-child";
+        assertSameName(path, baseName, "some-child", NameScope.DESCENDENT);
+
+        // Test compound name
+        path = path + "/grand-child";
+        assertSameName(path, baseName, "some-child/grand-child", NameScope.DESCENDENT);
+
+        // Test relative names
+        assertSameName(path, baseName, "./some-child/grand-child", NameScope.DESCENDENT);
+        assertSameName(path, baseName, "./nada/../some-child/grand-child", NameScope.DESCENDENT);
+        assertSameName(path, baseName, "some-child/./grand-child", NameScope.DESCENDENT);
+
+        // Test badly formed descendent names
+        checkDescendentNames(baseName, NameScope.DESCENDENT);
+    }
+
+    /**
+     * Tests relative name resolution, relative to the base folder.
+     */
+
+    /**
+     * Tests resolution of relative file names via the FS manager
+     */
+    @Test
+    public void testRelativeURI() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
 
         // Locate the base dir
         FileObject file = getManager().resolveFile(".");
         assertSame("file object", getReadFolder(), file);
-    }
-
-    @Test
-    public void testRelativeURI_2_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-
-        // Locate the base dir
-        FileObject file = getManager().resolveFile(".");
-        // removed other assertion
 
         // Locate a child
         file = getManager().resolveFile("some-child");
         assertSame("file object", getReadFolder(), file.getParent());
-    }
-
-    @Test
-    public void testRelativeURI_3_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-
-        // Locate the base dir
-        FileObject file = getManager().resolveFile(".");
-        // removed other assertion
-
-        // Locate a child
-        file = getManager().resolveFile("some-child");
-        // removed other assertion
 
         // Locate a descendent
         file = getManager().resolveFile("some-folder/some-file");
         assertSame("file object", getReadFolder(), file.getParent().getParent());
-    }
-
-    @Test
-    public void testRelativeURI_4_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-
-        // Locate the base dir
-        FileObject file = getManager().resolveFile(".");
-        // removed other assertion
-
-        // Locate a child
-        file = getManager().resolveFile("some-child");
-        // removed other assertion
-
-        // Locate a descendent
-        file = getManager().resolveFile("some-folder/some-file");
-        // removed other assertion
 
         // Locate parent
         file = getManager().resolveFile("..");
         assertSame("file object", getReadFolder().getParent(), file);
+
+        // free basefile
+        getManager().setBaseFile((FileObject) null);
     }
 
+    /**
+     * Tests encoding of relative URI.
+     */
     @Test
-    public void testRelativeUriEncoding_1_oe() throws Exception {
+    public void testRelativeUriEncoding() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
         final String path = getReadFolder().getName().getPath();
@@ -437,94 +287,20 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         // §1 Encode "some file"
         FileObject file = getManager().resolveFile("%73%6f%6d%65%20%66%69%6c%65");
         assertEquals(path + "/some file", file.getName().getPathDecoded());
-    }
-
-    @Test
-    public void testRelativeUriEncoding_2_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-        final String path = getReadFolder().getName().getPath();
-
-        // §1 Encode "some file"
-        FileObject file = getManager().resolveFile("%73%6f%6d%65%20%66%69%6c%65");
-        // removed other assertion
 
         // §2 Encode "."
         file = getManager().resolveFile("%2e");
         // 18-6-2005 imario@apache.org: no need to keep the "current directory"
         // assertEquals(path + "/.", file.getName().getPathDecoded());
         assertEquals(path, file.getName().getPathDecoded());
-    }
-
-    @Test
-    public void testRelativeUriEncoding_3_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-        final String path = getReadFolder().getName().getPath();
-
-        // §1 Encode "some file"
-        FileObject file = getManager().resolveFile("%73%6f%6d%65%20%66%69%6c%65");
-        // removed other assertion
-
-        // §2 Encode "."
-        file = getManager().resolveFile("%2e");
-        // 18-6-2005 imario@apache.org: no need to keep the "current directory"
-        // assertEquals(path + "/.", file.getName().getPathDecoded());
-        // removed other assertion
 
         // §3 Encode '%'
         file = getManager().resolveFile("a%25");
         assertEquals(path + "/a%", file.getName().getPathDecoded());
-    }
-
-    @Test
-    public void testRelativeUriEncoding_4_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-        final String path = getReadFolder().getName().getPath();
-
-        // §1 Encode "some file"
-        FileObject file = getManager().resolveFile("%73%6f%6d%65%20%66%69%6c%65");
-        // removed other assertion
-
-        // §2 Encode "."
-        file = getManager().resolveFile("%2e");
-        // 18-6-2005 imario@apache.org: no need to keep the "current directory"
-        // assertEquals(path + "/.", file.getName().getPathDecoded());
-        // removed other assertion
-
-        // §3 Encode '%'
-        file = getManager().resolveFile("a%25");
-        // removed other assertion
 
         // §4 Encode /
         file = getManager().resolveFile("dir%2fchild");
         assertEquals(path + "/dir/child", file.getName().getPathDecoded());
-    }
-
-    @Test
-    public void testRelativeUriEncoding_5_oe() throws Exception {
-        // Build base dir
-        getManager().setBaseFile(getReadFolder());
-        final String path = getReadFolder().getName().getPath();
-
-        // §1 Encode "some file"
-        FileObject file = getManager().resolveFile("%73%6f%6d%65%20%66%69%6c%65");
-        // removed other assertion
-
-        // §2 Encode "."
-        file = getManager().resolveFile("%2e");
-        // 18-6-2005 imario@apache.org: no need to keep the "current directory"
-        // assertEquals(path + "/.", file.getName().getPathDecoded());
-        // removed other assertion
-
-        // §3 Encode '%'
-        file = getManager().resolveFile("a%25");
-        // removed other assertion
-
-        // §4 Encode /
-        file = getManager().resolveFile("dir%2fchild");
-        // removed other assertion
 
         // §5 Encode \
         file = getManager().resolveFile("dir%5cchild");
@@ -533,42 +309,728 @@ public class NamingTests_OE25Dev extends AbstractProviderTestCase {
         // platforms
         // assertEquals(path + "/dir\\child", file.getName().getPathDecoded());
         assertEquals(path + "/dir/child", file.getName().getPathDecoded());
+
+        // §6 Use "%" literal
+        try {
+            getManager().resolveFile("%");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+
+        // §7 Not enough digits in encoded char
+        try {
+            getManager().resolveFile("%5");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+
+        // §8 Invalid digit in encoded char
+        try {
+            getManager().resolveFile("%q");
+            fail();
+        } catch (final FileSystemException e) {
+        }
+
+        // free basefile
+        getManager().setBaseFile((FileObject) null);
     }
 
+    /**
+     * Checks that a file name converts to an expected relative path
+     */
+    private void testRelName(final FileName baseName, final String relPath) throws Exception {
+        final FileName expectedName = getManager().resolveName(baseName, relPath);
+
+        // Convert to relative path, and check
+        final String actualRelPath = baseName.getRelativeName(expectedName);
+        assertEquals(relPath, actualRelPath);
+    }
+
+    /**
+     * Tests the root file name.
+     */
     @Test
-    public void testRootFileName_1_oe() throws Exception {
+    public void testRootFileName() throws Exception {
         // Locate the root file
         final FileName rootName = getReadFolder().getFileSystem().getRoot().getName();
 
         // Test that the root path is "/"
         assertEquals("root path", "/", rootName.getPath());
-    }
-
-    @Test
-    public void testRootFileName_2_oe() throws Exception {
-        // Locate the root file
-        final FileName rootName = getReadFolder().getFileSystem().getRoot().getName();
-
-        // Test that the root path is "/"
-        // removed other assertion
 
         // Test that the root basname is ""
         assertEquals("root base name", "", rootName.getBaseName());
-    }
-
-    @Test
-    public void testRootFileName_3_oe() throws Exception {
-        // Locate the root file
-        final FileName rootName = getReadFolder().getFileSystem().getRoot().getName();
-
-        // Test that the root path is "/"
-        // removed other assertion
-
-        // Test that the root basname is ""
-        // removed other assertion
 
         // Test that the root name has no parent
         assertNull("root parent", rootName.getParent());
+    }
+
+    @Test
+    public void testNameResolution_1_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = "";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_2_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = ".";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_3_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = "./";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_4_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = ".//";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_5_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = ".///.///.";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_6_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = "./\\/.\\//.";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_7_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+                final String expectedPath = path;
+        final FileName baseName1 = baseName;
+        final String relName = "a/..";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_8_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+                final String expectedPath = parentPath;
+        final FileName baseName1 = baseName;
+        final String relName = "..";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_9_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+                final String expectedPath = parentPath;
+        final FileName baseName1 = baseName;
+        final String relName = "../";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_10_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+                final String expectedPath = parentPath;
+        final FileName baseName1 = baseName;
+        final String relName = "..//./";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_11_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+                final String expectedPath = parentPath;
+        final FileName baseName1 = baseName;
+        final String relName = "..//.\\";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_12_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+                final String expectedPath = parentPath;
+        final FileName baseName1 = baseName;
+        final String relName = "a/../..";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_13_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+        // removed other assertion
+
+        // Test <elem> relative path
+                final String expectedPath = childPath;
+        final FileName baseName1 = baseName;
+        final String relName = "some-child";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_14_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+        // removed other assertion
+
+        // Test <elem> relative path
+        // removed other assertion
+
+        // Test ./<elem> relative path
+                final String expectedPath = childPath;
+        final FileName baseName1 = baseName;
+        final String relName = "./some-child";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_15_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+        // removed other assertion
+
+        // Test <elem> relative path
+        // removed other assertion
+
+        // Test ./<elem> relative path
+        // removed other assertion
+
+        // Test ./<elem>/ relative path
+                final String expectedPath = childPath;
+        final FileName baseName1 = baseName;
+        final String relName = "./some-child/";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_16_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+        // removed other assertion
+
+        // Test <elem> relative path
+        // removed other assertion
+
+        // Test ./<elem> relative path
+        // removed other assertion
+
+        // Test ./<elem>/ relative path
+        // removed other assertion
+
+        // Test <elem>/././././ relative path
+                final String expectedPath = childPath;
+        final FileName baseName1 = baseName;
+        final String relName = "./some-child/././././";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_17_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+        // removed other assertion
+
+        // Test <elem> relative path
+        // removed other assertion
+
+        // Test ./<elem> relative path
+        // removed other assertion
+
+        // Test ./<elem>/ relative path
+        // removed other assertion
+
+        // Test <elem>/././././ relative path
+        // removed other assertion
+
+        // Test <elem>/../<elem> relative path
+                final String expectedPath = childPath;
+        final FileName baseName1 = baseName;
+        final String relName = "a/../some-child";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
+    }
+
+    @Test
+    public void testNameResolution_18_oe_1_oe() throws Exception {
+        final FileName baseName = getReadFolder().getName();
+        final String parentPath = baseName.getParent().getPath();
+        final String path = baseName.getPath();
+        final String childPath = path + "/some-child";
+
+        // Test empty relative path
+        // removed other assertion
+
+        // Test . relative path
+        // removed other assertion
+
+        // Test ./ relative path
+        // removed other assertion
+
+        // Test .// relative path
+        // removed other assertion
+
+        // Test .///.///. relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/.. relative path
+        // removed other assertion
+
+        // Test .. relative path
+        // removed other assertion
+
+        // Test ../ relative path
+        // removed other assertion
+
+        // Test ..//./ relative path
+        // removed other assertion
+        // removed other assertion
+
+        // Test <elem>/../.. relative path
+        // removed other assertion
+
+        // Test <elem> relative path
+        // removed other assertion
+
+        // Test ./<elem> relative path
+        // removed other assertion
+
+        // Test ./<elem>/ relative path
+        // removed other assertion
+
+        // Test <elem>/././././ relative path
+        // removed other assertion
+
+        // Test <elem>/../<elem> relative path
+        // removed other assertion
+
+        // Test <elem>/<elem>/../../<elem> relative path
+                final String expectedPath = childPath;
+        final FileName baseName1 = baseName;
+        final String relName = "a/b/../../some-child";
+        assertSameName(expectedPath, baseName1, relName, NameScope.FILE_SYSTEM);
     }
 
 }
