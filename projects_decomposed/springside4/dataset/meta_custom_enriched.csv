@@ -1,2 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name,custom_assert_name
-springside4_89_1,springside4,XmlMapperTest,objectToXml_1_oe,modules/utils/src/test/java/org/springside/modules/utils/mapper/XmlMapperTest.java,,,,assert,unknown,custom,assertXmlByDom4j,assertXmlByDom4j

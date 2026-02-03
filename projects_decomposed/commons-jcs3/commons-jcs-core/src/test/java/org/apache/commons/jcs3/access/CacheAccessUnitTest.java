@@ -139,8 +139,7 @@ public class CacheAccessUnitTest
 
         access.setDefaultElementAttributes( attr );
 
-        assertEquals( "Wrong element attributes.", attr.getMaxLife(), access.getDefaultElementAttributes()
-            .getMaxLife() );
+        assertEquals("Wrong element attributes.",attr.getMaxLife(),access.getDefaultElementAttributes().getMaxLife());
 
         final String key = "mykey";
         final String value = "myvalue";
@@ -149,8 +148,7 @@ public class CacheAccessUnitTest
 
         final ICacheElement<String, String> element = access.getCacheElement( key );
 
-        assertEquals( "Wrong max life.  Should have the new value.", maxLife, element.getElementAttributes()
-            .getMaxLife() );
+        assertEquals("Wrong max life. Should have the new value.",maxLife,element.getElementAttributes().getMaxLife());
     }
 
     /**

@@ -177,7 +177,7 @@ joda_481_23,joda-time,TestDateMidnight_Basics,testGet_DateTimeField_23_oe,src/te
 joda_482_23,joda-time,TestDateMidnight_Basics,testGet_DateTimeFieldType_23_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
 joda_484_1,joda-time,TestDateMidnight_Basics,testWithers_1_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
 joda_484_2,joda-time,TestDateMidnight_Basics,testWithers_2_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
-joda_486_12,joda-time,TestDateMidnight_Basics,testCompareTo_12_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
+joda_486_11,joda-time,TestDateMidnight_Basics,testCompareTo_11_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
 joda_515_1,joda-time,TestDateMidnight_Basics,testWithField2_1_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
 joda_517_1,joda-time,TestDateMidnight_Basics,testWithFieldAdded2_1_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
 joda_518_1,joda-time,TestDateMidnight_Basics,testWithFieldAdded3_1_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,assert,unknown,standard,fail
@@ -455,7 +455,7 @@ joda_1381_1,joda-time,TestTimeOfDay_Properties,testPropertySetMilli_1_oe,src/tes
 joda_1381_2,joda-time,TestTimeOfDay_Properties,testPropertySetMilli_2_oe,src/test/java/org/joda/time/TestTimeOfDay_Properties.java,,,,assert,unknown,standard,fail
 joda_1382_4,joda-time,TestTimeOfDay_Properties,testPropertyCompareToMilli_4_oe,src/test/java/org/joda/time/TestTimeOfDay_Properties.java,,,,assert,unknown,standard,fail
 joda_1382_8,joda-time,TestTimeOfDay_Properties,testPropertyCompareToMilli_8_oe,src/test/java/org/joda/time/TestTimeOfDay_Properties.java,,,,assert,unknown,standard,fail
-joda_1384_23,joda-time,TestInstant_Basics,testGet_DateTimeFieldType_23_oe,src/test/java/org/joda/time/TestInstant_Basics.java,,,,assert,unknown,standard,fail
+joda_1384_19,joda-time,TestInstant_Basics,testGet_DateTimeFieldType_19_oe,src/test/java/org/joda/time/TestInstant_Basics.java,,,,assert,unknown,standard,fail
 joda_1385_23,joda-time,TestInstant_Basics,testGet_DateTimeField_23_oe,src/test/java/org/joda/time/TestInstant_Basics.java,,,,assert,unknown,standard,fail
 joda_1388_12,joda-time,TestInstant_Basics,testCompareTo_12_oe,src/test/java/org/joda/time/TestInstant_Basics.java,,,,assert,unknown,standard,fail
 joda_1418_6,joda-time,TestBaseSingleFieldPeriod,testFactory_between_RInstant_6_oe,src/test/java/org/joda/time/TestBaseSingleFieldPeriod.java,,,,assert,unknown,standard,fail
@@ -752,7 +752,6 @@ joda_1958_5,joda-time,TestPeriod_Constructors,testConstructor_long_fixedZone_5_o
 joda_1958_6,joda-time,TestPeriod_Constructors,testConstructor_long_fixedZone_6_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,assertEquals
 joda_1958_7,joda-time,TestPeriod_Constructors,testConstructor_long_fixedZone_7_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,assertEquals
 joda_1958_8,joda-time,TestPeriod_Constructors,testConstructor_long_fixedZone_8_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,assertEquals
-joda_1958_9,joda-time,TestPeriod_Constructors,testConstructor_long_fixedZone_9_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,assertEquals
 joda_1974_1,joda-time,TestPeriod_Constructors,testConstructor_8int__PeriodType3_1_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,fail
 joda_2000_1,joda-time,TestPeriod_Constructors,testConstructor_RP_RP3_1_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,fail
 joda_2001_1,joda-time,TestPeriod_Constructors,testConstructor_RP_RP4_1_oe,src/test/java/org/joda/time/TestPeriod_Constructors.java,,,,assert,unknown,standard,fail
@@ -957,7 +956,6 @@ joda_2656_4,joda-time,TestDuration_Basics,testToPeriod_4_oe,src/test/java/org/jo
 joda_2656_5,joda-time,TestDuration_Basics,testToPeriod_5_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2656_6,joda-time,TestDuration_Basics,testToPeriod_6_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2656_7,joda-time,TestDuration_Basics,testToPeriod_7_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
-joda_2656_8,joda-time,TestDuration_Basics,testToPeriod_8_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2657_1,joda-time,TestDuration_Basics,testToPeriod_fixedZone_1_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2657_2,joda-time,TestDuration_Basics,testToPeriod_fixedZone_2_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2657_3,joda-time,TestDuration_Basics,testToPeriod_fixedZone_3_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
@@ -965,7 +963,6 @@ joda_2657_4,joda-time,TestDuration_Basics,testToPeriod_fixedZone_4_oe,src/test/j
 joda_2657_5,joda-time,TestDuration_Basics,testToPeriod_fixedZone_5_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2657_6,joda-time,TestDuration_Basics,testToPeriod_fixedZone_6_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2657_7,joda-time,TestDuration_Basics,testToPeriod_fixedZone_7_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
-joda_2657_8,joda-time,TestDuration_Basics,testToPeriod_fixedZone_8_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,assertEquals
 joda_2688_1,joda-time,TestDuration_Basics,testNegated_long3_1_oe,src/test/java/org/joda/time/TestDuration_Basics.java,,,,assert,unknown,standard,fail
 joda_2703_3,joda-time,TestYearMonth_Basics,testGet_3_oe,src/test/java/org/joda/time/TestYearMonth_Basics.java,,,,assert,unknown,standard,fail
 joda_2703_4,joda-time,TestYearMonth_Basics,testGet_4_oe,src/test/java/org/joda/time/TestYearMonth_Basics.java,,,,assert,unknown,standard,fail
@@ -1003,13 +1000,13 @@ joda_2823_12,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_in
 joda_2823_13,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_int_int_int_int_13_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2823_14,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_int_int_int_int_14_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2823_15,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_int_int_int_int_15_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
+joda_2824_8,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_8_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2824_9,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_9_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2824_10,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_10_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2824_11,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_11_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2824_12,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_12_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2824_13,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_13_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2824_14,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_14_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
-joda_2824_15,joda-time,TestLocalDateTime_Constructors,testConstructor_int_int_int_Chronology_15_oe,src/test/java/org/joda/time/TestLocalDateTime_Constructors.java,,,,assert,unknown,standard,fail
 joda_2828_1,joda-time,TestMutableInterval_Updates,testSetInterval_long_long2_1_oe,src/test/java/org/joda/time/TestMutableInterval_Updates.java,,,,assert,unknown,standard,fail
 joda_2830_1,joda-time,TestMutableInterval_Updates,testSetInterval_RI_RI2_1_oe,src/test/java/org/joda/time/TestMutableInterval_Updates.java,,,,assert,unknown,standard,fail
 joda_2835_1,joda-time,TestMutableInterval_Updates,testSetInterval_RInterval2_1_oe,src/test/java/org/joda/time/TestMutableInterval_Updates.java,,,,assert,unknown,standard,fail

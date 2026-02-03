@@ -132,9 +132,7 @@ public class MemoryTestCase {
             // force garbage collection and  verify that the componentLoader
             // has been garbage-collected
             forceGarbageCollection(weakRefToComponent1);
-            assertNull(
-                "Component classloader did not release properly; memory leak present",
-                weakRefToComponent1.get());
+            assertNull("Component classloader did not release properly;memory leak present",weakRefToComponent1.get());
         } finally {
             // Restore context classloader that was present before this
             // test started, so that in case of a test failure we don't stuff
@@ -189,9 +187,7 @@ public class MemoryTestCase {
               // verify that this new object does implement the Converter type
               // despite being loaded via a classloader different from the one
               // that loaded the Converter class.
-              assertTrue(
-                "Converter loader via child does not implement parent type",
-                Converter.class.isInstance(newFloatConverter));
+              assertTrue("Converter loader via child does not implement parent type",Converter.class.isInstance(newFloatConverter));
 
               // this converter registration will only apply to the
               // componentLoader classloader...
@@ -227,9 +223,7 @@ public class MemoryTestCase {
             // force garbage collection and  verify that the componentLoader
             // has been garbage-collected
             forceGarbageCollection(weakRefToComponent);
-            assertNull(
-                "Component classloader did not release properly; memory leak present",
-                weakRefToComponent.get());
+            assertNull("Component classloader did not release properly;memory leak present",weakRefToComponent.get());
         } finally {
             // Restore context classloader that was present before this
             // test started. It is expected to be the same as the system

@@ -121,7 +121,7 @@ public class ArrayListIteratorTest_OE25Dev<E> extends ArrayIteratorTest<E> {
         try {
             iter.previous();
         } catch (final Exception e) {
-            assertTrue( "NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 

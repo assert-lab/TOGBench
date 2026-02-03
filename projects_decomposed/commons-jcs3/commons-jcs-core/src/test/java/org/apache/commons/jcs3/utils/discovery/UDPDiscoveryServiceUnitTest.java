@@ -68,10 +68,8 @@ public class UDPDiscoveryServiceUnitTest
         service.addOrUpdateService( discoveredService );
 
         // VERIFY
-        assertTrue( "Service should be in the service list.", service.getDiscoveredServices()
-            .contains( discoveredService ) );
-        assertTrue( "Service should be in the listener list.", discoveryListener.discoveredServices
-            .contains( discoveredService ) );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
     }
 
     /** Verify that the list is updated. */
@@ -100,18 +98,15 @@ public class UDPDiscoveryServiceUnitTest
 
         // VERIFY
         assertEquals( "Should only be one in the set.", 1, service.getDiscoveredServices().size() );
-        assertTrue( "Service should be in the service list.", service.getDiscoveredServices()
-            .contains( discoveredService ) );
-        assertTrue( "Service should be in the listener list.", discoveryListener.discoveredServices
-            .contains( discoveredService ) );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
 
         // need to update the time this sucks. add has no effect convert to a map
         for (final DiscoveredService service1 : service.getDiscoveredServices())
         {
             if ( discoveredService.equals( service1 ) )
             {
-                assertEquals( "The match should have the new last heard from time.", service1.getLastHearFromTime(),
-                              discoveredService2.getLastHearFromTime() );
+                assertEquals("The match should have the new last heard from time.",service1.getLastHearFromTime(),discoveredService2.getLastHearFromTime());
             }
         }
         // the mock has a list from all add calls.
@@ -145,26 +140,22 @@ public class UDPDiscoveryServiceUnitTest
 
         // VERIFY
         assertEquals( "Should only be one in the set.", 1, service.getDiscoveredServices().size() );
-        assertTrue( "Service should be in the service list.", service.getDiscoveredServices()
-            .contains( discoveredService ) );
-        assertTrue( "Service should be in the listener list.", discoveryListener.discoveredServices
-            .contains( discoveredService ) );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
 
         // need to update the time this sucks. add has no effect convert to a map
         for (final DiscoveredService service1 : service.getDiscoveredServices())
         {
             if ( discoveredService.equals( service1 ) )
             {
-                assertEquals( "The match should have the new last heard from time.", service1.getLastHearFromTime(),
-                              discoveredService2.getLastHearFromTime() );
+                assertEquals("The match should have the new last heard from time.",service1.getLastHearFromTime(),discoveredService2.getLastHearFromTime());
                 assertEquals( "The names should be updated.", service1.getCacheNames() + "", differentCacheNames + "" );
             }
         }
         // the mock has a list from all add calls.
         // it should have been called when the list changed.
         assertEquals( "Mock should have been called twice.", 2, discoveryListener.discoveredServices.size() );
-        assertEquals( "The second mock listener add should be discoveredService2", discoveredService2,
-                      discoveryListener.discoveredServices.get( 1 ) );
+        assertEquals("The second mock listener add should be discoveredService2",discoveredService2,discoveryListener.discoveredServices.get(1));
     }
 
     /** Verify that the list is updated. */
@@ -182,9 +173,7 @@ public class UDPDiscoveryServiceUnitTest
         service.removeDiscoveredService( discoveredService );
 
         // VERIFY
-        assertFalse( "Service should not be in the service list.", service.getDiscoveredServices()
-            .contains( discoveredService ) );
-        assertFalse( "Service should not be in the listener list.", discoveryListener.discoveredServices
-            .contains( discoveredService ) );
+        assertFalse("Service should not be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertFalse("Service should not be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
     }
 }

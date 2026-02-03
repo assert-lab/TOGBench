@@ -1079,7 +1079,6 @@ vfs_356_2,commons-vfs,NullFilesCacheTests,testBasicCacheOps_2_oe,commons-vfs2/sr
 vfs_356_3,commons-vfs,NullFilesCacheTests,testBasicCacheOps_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertNull
 vfs_356_4,commons-vfs,NullFilesCacheTests,testBasicCacheOps_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertFalse
 vfs_356_5,commons-vfs,NullFilesCacheTests,testBasicCacheOps_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertNull
-vfs_356_6,commons-vfs,NullFilesCacheTests,testBasicCacheOps_6_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertNull
 vfs_357_1,commons-vfs,NullFilesCacheTests,testClass_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertNotNull
 vfs_357_2,commons-vfs,NullFilesCacheTests,testClass_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertTrue
 vfs_358_1,commons-vfs,NullFilesCacheTests,testFilesCache_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown,standard,assertNotNull

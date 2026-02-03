@@ -111,8 +111,7 @@ class BinaryStlWriterTest {
         // assert
         final byte[] bytes = out.toByteArray();
 
-        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 + (2 * StlConstants.BINARY_TRIANGLE_BYTES),
-                bytes.length);
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 +(2 * StlConstants.BINARY_TRIANGLE_BYTES),bytes.length);
 
         assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
         Assertions.assertEquals(2, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, Integer.BYTES));
@@ -164,8 +163,7 @@ class BinaryStlWriterTest {
         // assert
         final byte[] bytes = out.toByteArray();
 
-        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 + (2 * StlConstants.BINARY_TRIANGLE_BYTES),
-                bytes.length);
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 +(2 * StlConstants.BINARY_TRIANGLE_BYTES),bytes.length);
 
         assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
         Assertions.assertEquals(2, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, Integer.BYTES));
@@ -224,8 +222,7 @@ class BinaryStlWriterTest {
         // assert
         final byte[] bytes = out.toByteArray();
 
-        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 + (3 * StlConstants.BINARY_TRIANGLE_BYTES),
-                bytes.length);
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 +(3 * StlConstants.BINARY_TRIANGLE_BYTES),bytes.length);
 
         assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
         Assertions.assertEquals(3, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, Integer.BYTES));

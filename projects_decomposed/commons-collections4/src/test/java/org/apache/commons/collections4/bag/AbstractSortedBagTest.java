@@ -58,10 +58,8 @@ public abstract class AbstractSortedBagTest<T> extends AbstractBagTest<T> {
             assertEquals("Element appears to be out of order.", last, confiter.next());
         }
         if (getCollection().size() > 0) {
-            assertEquals("Incorrect element returned by first().", first,
-                getCollection().first());
-            assertEquals("Incorrect element returned by last().", last,
-                getCollection().last());
+            assertEquals("Incorrect element returned by first().",first,getCollection().first());
+            assertEquals("Incorrect element returned by last().",last,getCollection().last());
         }
     }
 

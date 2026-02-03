@@ -94,7 +94,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         try {
             iter.next();
         } catch (final Exception e) {
-            assertTrue( "NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 
@@ -126,7 +126,7 @@ public class ArrayIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
             iter.next();
         }
 
-        assertEquals( "the count should be right using ArrayIterator(Object,1," + (testArray.length - 1) + ") ", count, testArray.length - 2);
+        assertEquals("the count should be right using ArrayIterator(Object,1," +(testArray.length - 1)+ ")",count,testArray.length - 2);
     }
 
     public void testIndexedArray_7_oe() {

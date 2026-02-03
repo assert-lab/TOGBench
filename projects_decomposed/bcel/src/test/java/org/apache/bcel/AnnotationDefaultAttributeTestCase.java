@@ -38,9 +38,7 @@ public class AnnotationDefaultAttributeTestCase extends AbstractTestCase
         final AnnotationDefault a = (AnnotationDefault) findAttribute(
                 "AnnotationDefault", m.getAttributes());
         final SimpleElementValue val = (SimpleElementValue) a.getDefaultValue();
-        assertTrue("Should be STRING but is " + val.getElementValueType(), val
-                .getElementValueType() == ElementValue.STRING);
-        assertTrue("Should have default of bananas but default is "
-                + val.getValueString(), val.getValueString().equals("bananas"));
+        assertTrue("Should be STRING but is " + val.getElementValueType(),val .getElementValueType()== ElementValue.STRING);
+        assertTrue("Should have default of bananas but default is " + val.getValueString(),val.getValueString().equals("bananas"));
     }
 }

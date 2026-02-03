@@ -726,7 +726,7 @@ class GreatArcTest_OE25Dev {
         final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
 
         // act/assert
-        Assertions.assertEquals(SplitLocation.NEITHER, arc.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,arc.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z,TEST_PRECISION)).getLocation());
     }
 
     @Test
@@ -736,7 +736,7 @@ class GreatArcTest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(SplitLocation.NEITHER, arc.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,arc.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z,TEST_PRECISION)).getLocation());
     }
 
 }

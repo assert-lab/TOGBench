@@ -36,9 +36,7 @@ class LogBinomialCoefficientTest {
 
         for (int n = 1; n < 10; n++) {
             for (int k = 0; k <= n; k++) {
-                Assertions.assertEquals(
-                        Math.log(BinomialCoefficientTest.binomialCoefficient(n, k)),
-                                    LogBinomialCoefficient.value(n, k), 1e-12, n + " choose " + k);
+                Assertions.assertEquals(Math.log(BinomialCoefficientTest.binomialCoefficient(n,k)),LogBinomialCoefficient.value(n,k),1e-12,n + " choose " + k);
             }
         }
 
@@ -46,10 +44,7 @@ class LogBinomialCoefficientTest {
         final int[] k = {17, 33, 10, 1500 - 4, 4};
         for (int i = 0; i < n.length; i++) {
             final long expected = BinomialCoefficientTest.binomialCoefficient(n[i], k[i]);
-            Assertions.assertEquals(
-                    Math.log(expected),
-                                LogBinomialCoefficient.value(n[i], k[i]),
-                                0d, "log(" + n[i] + " choose " + k[i] + ")");
+            Assertions.assertEquals(Math.log(expected),LogBinomialCoefficient.value(n[i],k[i]),0d,"log(" + n[i] + " choose " + k[i] + ")");
         }
     }
 
@@ -91,8 +86,7 @@ class LogBinomialCoefficientTest {
                 }
 
                 if (!shouldThrow && exactResult > 1) {
-                    Assertions.assertEquals(1,
-                                        LogBinomialCoefficient.value(n, k) / Math.log(exactResult), 1e-10, n + " choose " + k);
+                    Assertions.assertEquals(1,LogBinomialCoefficient.value(n,k)/ Math.log(exactResult),1e-10,n + " choose " + k);
                 }
             }
         }

@@ -127,8 +127,7 @@ public class DocumentTest {
         Document clone = doc.clone();
 
         assertEquals(doc.html(), clone.html());
-        assertEquals("<!doctype html><html><head><title>Doctype test</title></head><body></body></html>",
-                TextUtil.stripNewlines(clone.html()));
+        assertEquals("<!doctype html><html><head><title>Doctype test</title></head><body></body></html>",TextUtil.stripNewlines(clone.html()));
     }
 
     @Test public void testLocation() throws IOException {
@@ -156,22 +155,10 @@ public class DocumentTest {
         Document doc = Jsoup.parse(h);
 
         doc.outputSettings().syntax(Syntax.html);
-        assertEquals("<!doctype html>\n" +
-                "<html>\n" +
-                " <head></head>\n" +
-                " <body>\n" +
-                "  <img async checked src=\"&amp;<>&quot;\">&lt;&gt;&amp;\"<foo />bar\n" +
-                " </body>\n" +
-                "</html>", doc.html());
+        assertEquals("<!doctype html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async checked src=\"&amp;<>&quot;\">&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
 
         doc.outputSettings().syntax(Document.OutputSettings.Syntax.xml);
-        assertEquals("<!DOCTYPE html>\n" +
-                "<html>\n" +
-                " <head></head>\n" +
-                " <body>\n" +
-                "  <img async=\"\" checked=\"checked\" src=\"&amp;&lt;>&quot;\" />&lt;&gt;&amp;\"<foo />bar\n" +
-                " </body>\n" +
-                "</html>", doc.html());
+        assertEquals("<!DOCTYPE html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async=\"\" checked=\"checked\" src=\"&amp;&lt;>&quot;\" />&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
     }
 
     @Test public void htmlParseDefaultsToHtmlOutputSyntax() {
@@ -468,8 +455,7 @@ public class DocumentTest {
         String output = new String(doc.html().getBytes(doc.outputSettings().charset()), doc.outputSettings().charset());
 
         assertFalse(output.contains("?"), "Should not have contained a '?'.");
-        assertTrue(output.contains("&#xa0;") || output.contains("&nbsp;"),
-                "Should have contained a '&#xa0;' or a '&nbsp;'.");
+        assertTrue(output.contains("&#xa0;")|| output.contains("&nbsp;"),"Should have contained a '&#xa0;' or a '&nbsp;'.");
     }
 
     @Test public void parseAndHtmlOnDifferentThreads() throws InterruptedException {
@@ -520,16 +506,8 @@ public class DocumentTest {
         assertSame(frameset, body);
         assertEquals("frame", body.child(0).tagName());
 
-        assertNull(doc.selectFirst("body")); // did not vivify a body element
-
-        String expected = "<html>\n" +
-            " <head>\n" +
-            "  <title>Frame Test</title>\n" +
-            " </head>\n" +
-            " <frameset id=\"id\">\n" +
-            "  <frame src=\"foo.html\">\n" +
-            " </frameset>\n" +
-            "</html>";
+        assertNull(doc.selectFirst("body"));// did not vivify a body element 
+        String expected = "<html>\n" + " <head>\n" + " <title>Frame Test</title>\n" + " </head>\n" + " <frameset id=\"id\">\n" + " <frame src=\"foo.html\">\n" + " </frameset>\n" + "</html>";
         assertEquals(expected, doc.html());
     }
 }

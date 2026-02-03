@@ -100,8 +100,7 @@ public class StreamsTest {
                     .filter(asIntPredicate(se)).collect(Collectors.toList());
                 final UndeclaredThrowableException thrown = assertThrows(UndeclaredThrowableException.class,
                     testMethod);
-                assertAll(() -> assertThat(thrown.getMessage(), is(nullValue())),
-                    () -> assertThat(thrown.getCause(), is(equalTo(se))));
+                assertAll(()-> assertThat(thrown.getMessage(),is(nullValue())),()-> assertThat(thrown.getCause(),is(equalTo(se))));
             }));
     }
 
@@ -130,8 +129,7 @@ public class StreamsTest {
                 final Executable seTestMethod = () -> Failable.stream(input).forEach(asIntConsumer(se));
                 final UndeclaredThrowableException seThrown = assertThrows(UndeclaredThrowableException.class,
                     seTestMethod);
-                assertAll(() -> assertThat(seThrown.getMessage(), is(nullValue())),
-                    () -> assertThat(seThrown.getCause(), is(equalTo(se))));
+                assertAll(()-> assertThat(seThrown.getMessage(),is(nullValue())),()-> assertThat(seThrown.getCause(),is(equalTo(se))));
             }));
     }
 

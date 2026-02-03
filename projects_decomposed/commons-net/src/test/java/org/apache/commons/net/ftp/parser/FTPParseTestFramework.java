@@ -47,8 +47,7 @@ public abstract class FTPParseTestFramework extends TestCase
         {
 
             final FTPFile f = parser.parseFTPEntry(test);
-            assertNull("Should have Failed to parse <" + test + ">",
-                       nullFileOrNullDate(f));
+            assertNull("Should have Failed to parse <" + test + ">",nullFileOrNullDate(f));
 
             doAdditionalBadTests(test, f);
         }

@@ -141,8 +141,7 @@ public class BooleanUtilsTest {
         assertFalse(BooleanUtils.toBoolean("trux"));
         assertFalse(BooleanUtils.toBoolean("false"));
         assertFalse(BooleanUtils.toBoolean("a"));
-        assertTrue(BooleanUtils.toBoolean("true")); // interned handled differently
-        assertTrue(BooleanUtils.toBoolean(new StringBuilder("tr").append("ue").toString()));
+        assertTrue(BooleanUtils.toBoolean("true"));// interned handled differently assertTrue(BooleanUtils.toBoolean(new StringBuilder("tr").append("ue").toString()));
         assertTrue(BooleanUtils.toBoolean("truE"));
         assertTrue(BooleanUtils.toBoolean("trUe"));
         assertTrue(BooleanUtils.toBoolean("trUE"));
@@ -287,15 +286,11 @@ public class BooleanUtilsTest {
         assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("TruE"));
         assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("TruE"));
 
-        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("y")); // yes
-        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("Y"));
-        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("t")); // true
-        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("T"));
+        assertEquals(Boolean.TRUE,BooleanUtils.toBooleanObject("y"));// yes assertEquals(Boolean.TRUE,BooleanUtils.toBooleanObject("Y"));
+        assertEquals(Boolean.TRUE,BooleanUtils.toBooleanObject("t"));// true assertEquals(Boolean.TRUE,BooleanUtils.toBooleanObject("T"));
         assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("1"));
-        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("f")); // false
-        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("F"));
-        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("n")); // No
-        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("N"));
+        assertEquals(Boolean.FALSE,BooleanUtils.toBooleanObject("f"));// false assertEquals(Boolean.FALSE,BooleanUtils.toBooleanObject("F"));
+        assertEquals(Boolean.FALSE,BooleanUtils.toBooleanObject("n"));// No assertEquals(Boolean.FALSE,BooleanUtils.toBooleanObject("N"));
         assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("0"));
         assertNull(BooleanUtils.toBooleanObject("z"));
 

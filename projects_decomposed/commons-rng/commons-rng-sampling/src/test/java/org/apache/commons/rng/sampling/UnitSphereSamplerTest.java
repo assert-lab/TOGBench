@@ -116,9 +116,7 @@ class UnitSphereSamplerTest {
         // the p-value requires the complimentary error function.
         final double absSum = Math.abs(sum);
         final double max = Math.sqrt(numberOfBits) * 2.576;
-        Assertions.assertTrue(absSum <= max,
-            () -> "Walked too far astray: " + absSum + " > " + max +
-                  " (test will fail randomly about 1 in 100 times)");
+        Assertions.assertTrue(absSum <= max,()-> "Walked too far astray: " + absSum + " > " + max + "(test will fail randomly about 1 in 100 times)");
     }
 
     /**

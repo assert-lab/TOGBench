@@ -3780,7 +3780,7 @@ class Vector3DTest_OE25Dev {
         final String str = v.toString();
 
         // assert
-        Assertions.assertTrue(pattern.matcher(str).matches(), "Expected string " + str + " to match regex " + pattern);
+        Assertions.assertTrue(pattern.matcher(str).matches(),"Expected string " + str + " to match regex " + pattern);
     }
 
     @Test

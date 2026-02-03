@@ -74,7 +74,7 @@ public class FilePathUtilTest_OE25Dev {
 		// removed other assertion
 		// removed other assertion
 
-		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg/"))) .isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg/"))).isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
 	}
 
 	@Test
@@ -91,7 +91,7 @@ public class FilePathUtilTest_OE25Dev {
 
 		// removed other assertion
 
-		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg.txt"))) .isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg.txt"))).isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
 	}
 
 	@Test

@@ -599,7 +599,7 @@ public class XMLConfigurationTest_OE25Dev {
             XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misshaped tag at 176 [character 14 line 4]", e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped tag at 176 [character 14 line 4]",e.getMessage());
     }
     }
 
@@ -618,7 +618,7 @@ public class XMLConfigurationTest_OE25Dev {
             XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misshaped meta tag at 214 [character 12 line 7]", e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped meta tag at 214 [character 12 line 7]",e.getMessage());
     }
     }
 
@@ -637,7 +637,7 @@ public class XMLConfigurationTest_OE25Dev {
             XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misshaped meta tag at 213 [character 12 line 7]", e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped meta tag at 213 [character 12 line 7]",e.getMessage());
     }
     }
 
@@ -656,7 +656,7 @@ public class XMLConfigurationTest_OE25Dev {
             XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misplaced '<' at 193 [character 4 line 6]", e.getMessage());
+            assertEquals("Expecting an exception message","Misplaced '<' at 193 [character 4 line 6]",e.getMessage());
     }
     }
 
@@ -677,7 +677,7 @@ public class XMLConfigurationTest_OE25Dev {
             XML.toJSONObject(xmlStr, config);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Expected 'CDATA[' at 204 [character 11 line 5]", e.getMessage());
+            assertEquals("Expecting an exception message","Expected 'CDATA[' at 204 [character 11 line 5]",e.getMessage());
     }
     }
 
@@ -705,7 +705,7 @@ public class XMLConfigurationTest_OE25Dev {
         XMLParserConfiguration config = new XMLParserConfiguration().withcDataTagName("altContent");
         String finalStr = XML.toString(expectedJsonObject, null, config);
         String expectedFinalStr = "<addresses>&gt;</addresses>";
-        assertTrue("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]", expectedFinalStr.equals(finalStr));
+        assertTrue("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr.equals(finalStr));
     }
 
     @Test
@@ -718,7 +718,7 @@ public class XMLConfigurationTest_OE25Dev {
         String expectedFinalStr = "<addresses>"+
                 "1\n2\n3"+
                 "</addresses>";
-        assertTrue("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]", expectedFinalStr.equals(finalStr));
+        assertTrue("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr.equals(finalStr));
     }
 
     @Test
@@ -732,7 +732,7 @@ public class XMLConfigurationTest_OE25Dev {
         String expectedFinalStr = "<addresses>"+
                 "<something>1</something><something>2</something><something>3</something>"+
                 "</addresses>";
-        assertTrue("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]", expectedFinalStr.equals(finalStr));
+        assertTrue("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr.equals(finalStr));
     }
 
     @Test
@@ -1752,7 +1752,7 @@ public class XMLConfigurationTest_OE25Dev {
                         .withKeepStrings(true)
                         .withcDataTagName("altContent"));
         // removed other assertion
-        assertTrue("5. jsonObject found", jsonObject.get("tag1") instanceof JSONObject);
+        assertTrue("5. jsonObject found",jsonObject.get("tag1")instanceof JSONObject);
     }
 
     @Test
@@ -1983,7 +1983,7 @@ public class XMLConfigurationTest_OE25Dev {
         jsonObject = jsonObject.getJSONObject("tag1");
         // removed other assertion
         // removed other assertion
-        assertTrue("5. contained content jsonArray found", jsonObject.get("altContent") instanceof JSONArray);
+        assertTrue("5. contained content jsonArray found",jsonObject.get("altContent")instanceof JSONArray);
     }
 
     @Test
@@ -2509,7 +2509,7 @@ public class XMLConfigurationTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         jsonObject = jsonObject.getJSONObject("tag1");
-        assertTrue("6. contained content found", "val1".equals(jsonObject.get("altContent")));
+        assertTrue("6. contained content found","val1".equals(jsonObject.get("altContent")));
     }
 
     @Test
@@ -2825,7 +2825,7 @@ public class XMLConfigurationTest_OE25Dev {
                         .withKeepStrings(true)
                         .withcDataTagName("altContent"));
         // removed other assertion
-        assertTrue("7. jsonArray found", jsonObject.get("tag1") instanceof JSONArray);
+        assertTrue("7. jsonArray found",jsonObject.get("tag1")instanceof JSONArray);
     }
 
     @Test
@@ -3050,7 +3050,7 @@ public class XMLConfigurationTest_OE25Dev {
         // removed other assertion
         jsonArray = jsonObject.getJSONArray("tag1");
         // removed other assertion
-        assertTrue("7. contained array found", jsonArray.get(0) instanceof JSONArray);
+        assertTrue("7. contained array found",jsonArray.get(0)instanceof JSONArray);
     }
 
     @Test
@@ -3844,7 +3844,7 @@ public class XMLConfigurationTest_OE25Dev {
                         .withcDataTagName("altContent");
         JSONObject jsonObject = XML.toJSONObject(xmlStr, config);
         // num is parsed as a string
-        assertEquals(jsonObject.getJSONObject("addresses"). getJSONObject("address").getString("num"), "1");
+        assertEquals(jsonObject.getJSONObject("addresses"). getJSONObject("address").getString("num"),"1");
     }
 
     @Test
@@ -3894,7 +3894,7 @@ public class XMLConfigurationTest_OE25Dev {
         jsonObject = XML.toJSONObject(xmlStr, 
                 XMLParserConfiguration.KEEP_STRINGS);
         // num is parsed as a string
-        assertEquals(jsonObject.getJSONObject("addresses"). getJSONObject("address").getString("num"), "1");
+        assertEquals(jsonObject.getJSONObject("addresses"). getJSONObject("address").getString("num"),"1");
     }
 
     @Test
@@ -3955,7 +3955,7 @@ public class XMLConfigurationTest_OE25Dev {
         config = new XMLParserConfiguration().withcDataTagName("altContent");
         jsonObject = XML.toJSONObject(xmlStr, config);
         // num is parsed as a number
-        assertEquals(jsonObject.getJSONObject("addresses"). getJSONObject("address").getInt("num"), 1);
+        assertEquals(jsonObject.getJSONObject("addresses"). getJSONObject("address").getInt("num"),1);
     }
 
 }

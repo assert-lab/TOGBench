@@ -426,7 +426,7 @@ public class WrapDynaBeanTestCase_OE25Dev extends BasicDynaBeanTestCase {
 
     public void testGetWrapDynaClassFromCache_1_oe() {
         final WrapDynaClass clazz = WrapDynaClass.createDynaClass(TestBean.class);
-        assertSame("Instance not cached", clazz, WrapDynaClass.createDynaClass(TestBean.class));
+        assertSame("Instance not cached",clazz,WrapDynaClass.createDynaClass(TestBean.class));
     }
 
     public void testGetWrapDynaClassFromCacheWithPropUtils_1_oe() {

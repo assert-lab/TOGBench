@@ -69,18 +69,11 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
     private void checkAnnotationEntry(final AnnotationEntry a, final String name, final String elementname,
             final String elementvalue)
     {
-        assertTrue("Expected AnnotationEntry to have name " + name
-                + " but it had name " + a.getAnnotationType(), a.getAnnotationType()
-                .equals(name));
-        assertTrue("Expected AnnotationEntry to have one element but it had "
-                + a.getElementValuePairs().length, a.getElementValuePairs().length == 1);
+        assertTrue("Expected AnnotationEntry to have name " + name + " but it had name " + a.getAnnotationType(),a.getAnnotationType().equals(name));
+        assertTrue("Expected AnnotationEntry to have one element but it had " + a.getElementValuePairs().length,a.getElementValuePairs().length == 1);
         final ElementValuePair envp = a.getElementValuePairs()[0];
-        assertTrue("Expected element name " + elementname + " but was "
-                + envp.getNameString(), elementname
-                .equals(envp.getNameString()));
-        assertTrue("Expected element value " + elementvalue + " but was "
-                + envp.getValue().stringifyValue(), elementvalue.equals(envp
-                .getValue().stringifyValue()));
+        assertTrue("Expected element name " + elementname + " but was " + envp.getNameString(),elementname .equals(envp.getNameString()));
+        assertTrue("Expected element value " + elementvalue + " but was " + envp.getValue().stringifyValue(),elementvalue.equals(envp .getValue().stringifyValue()));
     }
 
     // helper methods
@@ -93,9 +86,7 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
             {
                 if (!element.getValue().stringifyValue().equals(tostring))
                 {
-                    fail("Expected element " + name + " to have value "
-                            + tostring + " but it had value "
-                            + element.getValue().stringifyValue());
+                    fail("Expected element " + name + " to have value " + tostring + " but it had value " + element.getValue().stringifyValue());
                 }
                 return;
             }
@@ -163,7 +154,7 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
             System.err.println("With AnnotationEntrys: "
                     + dumpAnnotationEntries(f.getAnnotationEntries()));
         }
-        assertTrue("Should be 2 AnnotationEntrys on this field, but there are " + f.getAnnotationEntries().length, f.getAnnotationEntries().length == 2);
+        assertTrue("Should be 2 AnnotationEntrys on this field,but there are " + f.getAnnotationEntries().length,f.getAnnotationEntries().length == 2);
     }
 
 }

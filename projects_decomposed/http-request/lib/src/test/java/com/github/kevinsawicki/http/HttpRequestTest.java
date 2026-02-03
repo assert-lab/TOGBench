@@ -175,10 +175,8 @@ public class HttpRequestTest extends ServerTestCase {
     };
     HttpRequest request = get(url);
     assertNotNull(request.getConnection());
-    assertEquals(30000, request.readTimeout(30000).getConnection()
-        .getReadTimeout());
-    assertEquals(50000, request.connectTimeout(50000).getConnection()
-        .getConnectTimeout());
+    assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
+    assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
     assertEquals(2500, request.bufferSize(2500).bufferSize());
     assertFalse(request.ignoreCloseExceptions(false).ignoreCloseExceptions());
     assertFalse(request.useCaches(false).getConnection().getUseCaches());
@@ -786,8 +784,7 @@ public class HttpRequestTest extends ServerTestCase {
     int code = post(url).form(data).form("zip", "12345").code();
     assertEquals(HTTP_OK, code);
     assertEquals("name=user&number=100&zip=12345", body.get());
-    assertEquals("application/x-www-form-urlencoded; charset=UTF-8",
-        contentType.get());
+    assertEquals("application/x-www-form-urlencoded;charset=UTF-8",contentType.get());
   }
 
   /**
@@ -1807,13 +1804,9 @@ public class HttpRequestTest extends ServerTestCase {
   public void singleVerifier() {
     HttpRequest request1 = get("https://localhost").trustAllHosts();
     HttpRequest request2 = get("https://localhost").trustAllHosts();
-    assertNotNull(((HttpsURLConnection) request1.getConnection())
-        .getHostnameVerifier());
-    assertNotNull(((HttpsURLConnection) request2.getConnection())
-        .getHostnameVerifier());
-    assertEquals(
-        ((HttpsURLConnection) request1.getConnection()).getHostnameVerifier(),
-        ((HttpsURLConnection) request2.getConnection()).getHostnameVerifier());
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
   }
 
   /**
@@ -1823,13 +1816,9 @@ public class HttpRequestTest extends ServerTestCase {
   public void singleSslSocketFactory() {
     HttpRequest request1 = get("https://localhost").trustAllCerts();
     HttpRequest request2 = get("https://localhost").trustAllCerts();
-    assertNotNull(((HttpsURLConnection) request1.getConnection())
-        .getSSLSocketFactory());
-    assertNotNull(((HttpsURLConnection) request2.getConnection())
-        .getSSLSocketFactory());
-    assertEquals(
-        ((HttpsURLConnection) request1.getConnection()).getSSLSocketFactory(),
-        ((HttpsURLConnection) request2.getConnection()).getSSLSocketFactory());
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 
   /**
@@ -3032,10 +3021,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendMappedQueryParamsWithNoPath() throws Exception {
-    assertEquals(
-        "http://test.com/?a=b",
-        HttpRequest.append("http://test.com",
-            Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com",Collections.singletonMap("a","b")));
   }
 
   /**
@@ -3045,8 +3031,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendVarargsQueryParmasWithNoPath() throws Exception {
-    assertEquals("http://test.com/?a=b",
-        HttpRequest.append("http://test.com", "a", "b"));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com","a","b"));
   }
 
   /**
@@ -3056,14 +3041,8 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendMappedQueryParamsWithPath() throws Exception {
-    assertEquals(
-        "http://test.com/segment1?a=b",
-        HttpRequest.append("http://test.com/segment1",
-            Collections.singletonMap("a", "b")));
-    assertEquals(
-        "http://test.com/?a=b",
-        HttpRequest.append("http://test.com/",
-            Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1",Collections.singletonMap("a","b")));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/",Collections.singletonMap("a","b")));
   }
 
   /**
@@ -3073,10 +3052,8 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendVarargsQueryParamsWithPath() throws Exception {
-    assertEquals("http://test.com/segment1?a=b",
-        HttpRequest.append("http://test.com/segment1", "a", "b"));
-    assertEquals("http://test.com/?a=b",
-        HttpRequest.append("http://test.com/", "a", "b"));
+    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1","a","b"));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/","a","b"));
   }
 
   /**
@@ -3089,8 +3066,7 @@ public class HttpRequestTest extends ServerTestCase {
     Map<String, Object> params = new LinkedHashMap<String, Object>();
     params.put("a", "b");
     params.put("c", "d");
-    assertEquals("http://test.com/1?a=b&c=d",
-        HttpRequest.append("http://test.com/1", params));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1",params));
   }
 
   /**
@@ -3100,8 +3076,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendMultipleVarargsQueryParams() throws Exception {
-    assertEquals("http://test.com/1?a=b&c=d",
-        HttpRequest.append("http://test.com/1", "a", "b", "c", "d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1","a","b","c","d"));
   }
 
   /**
@@ -3111,8 +3086,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendNullMappedQueryParams() throws Exception {
-    assertEquals("http://test.com/1",
-        HttpRequest.append("http://test.com/1", (Map<?, ?>) null));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Map<?,?>)null));
   }
 
   /**
@@ -3122,8 +3096,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendNullVaragsQueryParams() throws Exception {
-    assertEquals("http://test.com/1",
-        HttpRequest.append("http://test.com/1", (Object[]) null));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Object[])null));
   }
 
   /**
@@ -3133,10 +3106,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendEmptyMappedQueryParams() throws Exception {
-    assertEquals(
-        "http://test.com/1",
-        HttpRequest.append("http://test.com/1",
-            Collections.<String, String> emptyMap()));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",Collections.<String,String> emptyMap()));
   }
 
   /**
@@ -3146,8 +3116,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendEmptyVarargsQueryParams() throws Exception {
-    assertEquals("http://test.com/1",
-        HttpRequest.append("http://test.com/1", new Object[0]));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",new Object[0]));
   }
 
   /**
@@ -3160,8 +3129,7 @@ public class HttpRequestTest extends ServerTestCase {
     Map<String, Object> params = new LinkedHashMap<String, Object>();
     params.put("a", null);
     params.put("b", null);
-    assertEquals("http://test.com/1?a=&b=",
-        HttpRequest.append("http://test.com/1", params));
+    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1",params));
   }
 
   /**
@@ -3171,8 +3139,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendWithNullVaragsQueryParamValues() throws Exception {
-    assertEquals("http://test.com/1?a=&b=",
-        HttpRequest.append("http://test.com/1", "a", null, "b", null));
+    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1","a",null,"b",null));
   }
 
   /**
@@ -3188,10 +3155,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendMappedQueryParamsWithExistingQueryStart() {
-    assertEquals(
-        "http://test.com/1?a=b",
-        HttpRequest.append("http://test.com/1?",
-            Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?",Collections.singletonMap("a","b")));
   }
 
   /**
@@ -3199,8 +3163,7 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendVarargsQueryParamsWithExistingQueryStart() {
-    assertEquals("http://test.com/1?a=b",
-        HttpRequest.append("http://test.com/1?", "a", "b"));
+    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?","a","b"));
   }
 
   /**
@@ -3208,14 +3171,8 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendMappedQueryParamsWithExistingParams() {
-    assertEquals(
-        "http://test.com/1?a=b&c=d",
-        HttpRequest.append("http://test.com/1?a=b",
-            Collections.singletonMap("c", "d")));
-    assertEquals(
-        "http://test.com/1?a=b&c=d",
-        HttpRequest.append("http://test.com/1?a=b&",
-            Collections.singletonMap("c", "d")));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b",Collections.singletonMap("c","d")));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&",Collections.singletonMap("c","d")));
 
   }
 
@@ -3224,10 +3181,8 @@ public class HttpRequestTest extends ServerTestCase {
    */
   @Test
   public void appendWithVarargsQueryParamsWithExistingParams() {
-    assertEquals("http://test.com/1?a=b&c=d",
-        HttpRequest.append("http://test.com/1?a=b", "c", "d"));
-    assertEquals("http://test.com/1?a=b&c=d",
-        HttpRequest.append("http://test.com/1?a=b&", "c", "d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b","c","d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&","c","d"));
   }
 
   /**

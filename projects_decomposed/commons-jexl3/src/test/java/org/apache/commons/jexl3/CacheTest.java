@@ -592,9 +592,7 @@ public class CacheTest extends JexlTestCase {
                     final String sany = xany.getMessage();
                     final String tname = getClass().getName();
                     if (!sany.startsWith(tname)) {
-                        Assert.fail("debug mode should carry caller information, "
-                                + sany + ", "
-                                + tname);
+                        Assert.fail("debug mode should carry caller information," + sany + "," + tname);
                     }
                 }
             }

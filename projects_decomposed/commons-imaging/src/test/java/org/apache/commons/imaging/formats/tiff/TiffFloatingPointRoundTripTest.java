@@ -140,9 +140,7 @@ public class TiffFloatingPointRoundTripTest extends TiffBaseTest {
             final int[] pixel = new int[width * height];
             bImage.getRGB(0, 0, width, height, pixel, 0, width);
             for (int k = 0; k < pixel.length; k++) {
-                assertEquals(argb[k], pixel[k],
-                    "Extracted data does not match original, test "
-                    + i + ", index " + k);
+                assertEquals(argb[k],pixel[k],"Extracted data does not match original,test " + i + ",index " + k);
             }
             final float meanValue = pi.getMeanFound();
             assertEquals(0.5, meanValue, 1.0e-5, "Invalid numeric values in " + name);

@@ -86,9 +86,7 @@ public class IndexedDiskCacheOptimizationUnitTest
             SleepUtil.sleepAtLeast( 2000 );
         }
 
-        assertTrue( "The post optimization size should be smaller."
-                +"sizeAfterRemove=" + sizeAfterRemove + " sizeBeforeRemove= " +sizeBeforeRemove
-                , sizeAfterRemove < sizeBeforeRemove );
+        assertTrue("The post optimization size should be smaller." +"sizeAfterRemove=" + sizeAfterRemove + " sizeBeforeRemove= " +sizeBeforeRemove,sizeAfterRemove < sizeBeforeRemove);
         assertEquals( "The file size is not as expected size.", expectedSizeAfterRemove, sizeAfterRemove );
     }
 }

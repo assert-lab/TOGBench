@@ -164,11 +164,7 @@ public class FTPTimestampParserImplTest_OE25Dev extends TestCase {
         final int inmon = expected.get(Calendar.MONTH);
         if (indom != outdom || inmon != outmon || inyear != outyear){
             final Format longFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-            fail("Test: '"+msg+"' Server="+longFormat.format(servertime.getTime())
-                    +". Failed to parse "+shortDate + (lenient ? " (lenient)" : " (non-lenient)")
-                    +" using " + shortFormat.toPattern()
-                    +". Actual "+longFormat.format(output.getTime())
-                    +". Expected "+longFormat.format(expected.getTime()));
+            fail("Test: '"+msg+"' Server="+longFormat.format(servertime.getTime())+". Failed to parse "+shortDate +(lenient ? "(lenient)" : "(non-lenient)")+" using " + shortFormat.toPattern()+". Actual "+longFormat.format(output.getTime())+". Expected "+longFormat.format(expected.getTime()));
         }
     }
 

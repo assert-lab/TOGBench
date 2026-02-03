@@ -31,22 +31,13 @@ public class QueryLoaderTest_OE25Dev extends BaseTestCase {
         QueryLoader loader = QueryLoader.instance();
         Map<String,String> q = loader.load(QUERIES);
         Map<String,String> q2 = loader.load(QUERIES);
-        assertTrue(q == q2); // pointer comparison should return true;
+        assertTrue(q == q2);// pointer comparison should return true assertEquals("SELECT * FROM SomeTable",q.get("test.query"));
     }
 
     public void testLoad_2_oe() throws IOException {
         QueryLoader loader = QueryLoader.instance();
         Map<String,String> q = loader.load(QUERIES);
         Map<String,String> q2 = loader.load(QUERIES);
-        // removed other assertion
-        assertEquals("SELECT * FROM SomeTable", q.get("test.query"));
-    }
-
-    public void testLoad_3_oe() throws IOException {
-        QueryLoader loader = QueryLoader.instance();
-        Map<String,String> q = loader.load(QUERIES);
-        Map<String,String> q2 = loader.load(QUERIES);
-        // removed other assertion
         // removed other assertion
 
         loader.unload(QUERIES);

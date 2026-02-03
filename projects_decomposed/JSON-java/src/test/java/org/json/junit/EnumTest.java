@@ -192,11 +192,9 @@ public class EnumTest {
         MyEnumClass myEnumClass = new MyEnumClass();
         
         String str1 = JSONObject.valueToString(myEnum);
-        assertTrue("actual myEnum: "+str1+" expected: "+expectedStr1,
-                str1.equals(expectedStr1));
+        assertTrue("actual myEnum: "+str1+" expected: "+expectedStr1,str1.equals(expectedStr1));
         String str2 = JSONObject.valueToString(myEnumField);
-        assertTrue("actual myEnumField: "+str2+" expected: "+expectedStr2,
-                str2.equals(expectedStr2));
+        assertTrue("actual myEnumField: "+str2+" expected: "+expectedStr2,str2.equals(expectedStr2));
 
         /**
          * However, an enum within another class will not be rendered
@@ -206,8 +204,7 @@ public class EnumTest {
         myEnumClass.setMyEnum(MyEnum.VAL1);
         myEnumClass.setMyEnumField(MyEnumField.VAL1);
         String str3 = JSONObject.valueToString(myEnumClass);
-        assertTrue("actual myEnumClass: "+str3+" expected: "+expectedStr3,
-                str3.startsWith(expectedStr3));
+        assertTrue("actual myEnumClass: "+str3+" expected: "+expectedStr3,str3.startsWith(expectedStr3));
     }
 
     /**
@@ -380,8 +377,7 @@ public class EnumTest {
         actualEnum = jsonObject.optEnum(MyEnumField.class, "noKey", null);
         assertNull("opt null", actualEnum);
         
-        assertNull("Expected Null when the enum class is null",
-                jsonObject.optEnum(null, "enumKey"));
+        assertNull("Expected Null when the enum class is null",jsonObject.optEnum(null,"enumKey"));
 
         /**
          * Exercise the proposed enum API methods on JSONArray

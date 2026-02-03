@@ -213,15 +213,9 @@ public class TypeUtilsTest<B> {
         final boolean isAssignable = TypeUtils.isAssignable(type2, type1);
 
         if (expected) {
-            assertTrue(isAssignable,
-                    "[" + i1 + ", " + i2 + "]: From "
-                                + String.valueOf(type2) + " to "
-                                + String.valueOf(type1));
+            assertTrue(isAssignable,"[" + i1 + "," + i2 + "]: From " + String.valueOf(type2)+ " to " + String.valueOf(type1));
         } else {
-            assertFalse(isAssignable,
-                    "[" + i1 + ", " + i2 + "]: From "
-                                + String.valueOf(type2) + " to "
-                                + String.valueOf(type1));
+            assertFalse(isAssignable,"[" + i1 + "," + i2 + "]: From " + String.valueOf(type2)+ " to " + String.valueOf(type1));
         }
     }
 
@@ -263,8 +257,7 @@ public class TypeUtilsTest<B> {
                 iterableType);
         final TypeVariable<?> treeSetTypeVar = TreeSet.class.getTypeParameters()[0];
         assertTrue(typeVarAssigns.containsKey(treeSetTypeVar));
-        assertEquals(iterableType.getActualTypeArguments()[0], typeVarAssigns
-                .get(treeSetTypeVar));
+        assertEquals(iterableType.getActualTypeArguments()[0],typeVarAssigns .get(treeSetTypeVar));
     }
 
     @Test
@@ -331,20 +324,14 @@ public class TypeUtilsTest<B> {
         final Type foosFieldType = GenericTypeHolder.class.getDeclaredField("foos").getGenericType();
         final Type genericParentT = GenericParent.class.getTypeParameters()[0];
         assertEquals(GenericParent.class, TypeUtils.getRawType(stringParentFieldType, null));
-        assertEquals(GenericParent.class, TypeUtils.getRawType(integerParentFieldType,
-                        null));
+        assertEquals(GenericParent.class,TypeUtils.getRawType(integerParentFieldType,null));
         assertEquals(List.class, TypeUtils.getRawType(foosFieldType, null));
-        assertEquals(String.class, TypeUtils.getRawType(genericParentT,
-                StringParameterizedChild.class));
-        assertEquals(String.class, TypeUtils.getRawType(genericParentT,
-                stringParentFieldType));
-        assertEquals(Foo.class, TypeUtils.getRawType(Iterable.class.getTypeParameters()[0],
-                foosFieldType));
-        assertEquals(Foo.class, TypeUtils.getRawType(List.class.getTypeParameters()[0],
-                foosFieldType));
+        assertEquals(String.class,TypeUtils.getRawType(genericParentT,StringParameterizedChild.class));
+        assertEquals(String.class,TypeUtils.getRawType(genericParentT,stringParentFieldType));
+        assertEquals(Foo.class,TypeUtils.getRawType(Iterable.class.getTypeParameters()[0],foosFieldType));
+        assertEquals(Foo.class,TypeUtils.getRawType(List.class.getTypeParameters()[0],foosFieldType));
         assertNull(TypeUtils.getRawType(genericParentT, GenericParent.class));
-        assertEquals(GenericParent[].class, TypeUtils.getRawType(GenericTypeHolder.class
-                .getDeclaredField("barParents").getGenericType(), null));
+        assertEquals(GenericParent[].class,TypeUtils.getRawType(GenericTypeHolder.class .getDeclaredField("barParents").getGenericType(),null));
     }
 
     @Test
@@ -355,25 +342,20 @@ public class TypeUtilsTest<B> {
 
         typeVarAssigns = TypeUtils.getTypeArguments(Integer.class, Comparable.class);
         treeSetTypeVar = Comparable.class.getTypeParameters()[0];
-        assertTrue(typeVarAssigns.containsKey(treeSetTypeVar),
-                "Type var assigns for Comparable from Integer: " + typeVarAssigns);
+        assertTrue(typeVarAssigns.containsKey(treeSetTypeVar),"Type var assigns for Comparable from Integer: " + typeVarAssigns);
         typeArg = typeVarAssigns.get(treeSetTypeVar);
-        assertEquals(Integer.class, typeVarAssigns.get(treeSetTypeVar),
-                "Type argument of Comparable from Integer: " + typeArg);
+        assertEquals(Integer.class,typeVarAssigns.get(treeSetTypeVar),"Type argument of Comparable from Integer: " + typeArg);
 
         typeVarAssigns = TypeUtils.getTypeArguments(int.class, Comparable.class);
         treeSetTypeVar = Comparable.class.getTypeParameters()[0];
-        assertTrue(typeVarAssigns.containsKey(treeSetTypeVar),
-                "Type var assigns for Comparable from int: " + typeVarAssigns);
+        assertTrue(typeVarAssigns.containsKey(treeSetTypeVar),"Type var assigns for Comparable from int: " + typeVarAssigns);
         typeArg = typeVarAssigns.get(treeSetTypeVar);
-        assertEquals(Integer.class, typeVarAssigns.get(treeSetTypeVar),
-                "Type argument of Comparable from int: " + typeArg);
+        assertEquals(Integer.class,typeVarAssigns.get(treeSetTypeVar),"Type argument of Comparable from int: " + typeArg);
 
         final Collection<Integer> col = Collections.emptyList();
         typeVarAssigns = TypeUtils.getTypeArguments(List.class, Collection.class);
         treeSetTypeVar = Comparable.class.getTypeParameters()[0];
-        assertFalse(typeVarAssigns.containsKey(treeSetTypeVar),
-                "Type var assigns for Collection from List: " + typeVarAssigns);
+        assertFalse(typeVarAssigns.containsKey(treeSetTypeVar),"Type var assigns for Collection from List: " + typeVarAssigns);
 
         typeVarAssigns = TypeUtils.getTypeArguments(AAAClass.BBBClass.class, AAClass.BBClass.class);
         assertEquals(2, typeVarAssigns.size());
@@ -683,8 +665,7 @@ public class TypeUtilsTest<B> {
         dis = uhder;
         assertTrue(TypeUtils.isAssignable(uhderType, disType));
         dis = ding;
-        assertFalse(TypeUtils.isAssignable(dingType, disType),
-                String.format("type %s not assignable to %s!", dingType, disType));
+        assertFalse(TypeUtils.isAssignable(dingType,disType),String.format("type %s not assignable to %s!",dingType,disType));
         dis = tester;
         assertTrue(TypeUtils.isAssignable(testerType, disType));
         // dis = tester2;
@@ -795,10 +776,8 @@ public class TypeUtilsTest<B> {
         assertFalse(paramType.getClass().isAssignableFrom(testUnassignableClass));
 
         final GenericArrayType arrayType = TypeUtils.genericArrayType(paramType);
-        assertFalse(TypeUtils.isAssignable(arrayType, paramType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", arrayType, paramType));
-        assertFalse(TypeUtils.isAssignable(paramType, arrayType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", paramType, arrayType));
+        assertFalse(TypeUtils.isAssignable(arrayType,paramType),()-> String.format("TypeUtils.isAssignable(%s,%s)",arrayType,paramType));
+        assertFalse(TypeUtils.isAssignable(paramType,arrayType),()-> String.format("TypeUtils.isAssignable(%s,%s)",paramType,arrayType));
     }
 
     @Test
@@ -814,10 +793,8 @@ public class TypeUtilsTest<B> {
         assertFalse(paramType.getClass().isAssignableFrom(GenericArrayType.class));
 
         final GenericArrayType testType = TypeUtils.genericArrayType(paramType);
-        assertFalse(TypeUtils.isAssignable(paramType, testType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", paramType, testType));
-        assertFalse(TypeUtils.isAssignable(testType, paramType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", testType, paramType));
+        assertFalse(TypeUtils.isAssignable(paramType,testType),()-> String.format("TypeUtils.isAssignable(%s,%s)",paramType,testType));
+        assertFalse(TypeUtils.isAssignable(testType,paramType),()-> String.format("TypeUtils.isAssignable(%s,%s)",testType,paramType));
     }
 
     @Test
@@ -836,10 +813,8 @@ public class TypeUtilsTest<B> {
         final WildcardType testType = TypeUtils.WILDCARD_ALL;
         // TODO This test returns true unlike the test above.
         // Is this a bug in this test or in the main code?
-        assertFalse(TypeUtils.isAssignable(paramType, testType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", paramType, testType));
-        assertFalse(TypeUtils.isAssignable(testType, paramType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", testType, paramType));
+        assertFalse(TypeUtils.isAssignable(paramType,testType),()-> String.format("TypeUtils.isAssignable(%s,%s)",paramType,testType));
+        assertFalse(TypeUtils.isAssignable(testType,paramType),()-> String.format("TypeUtils.isAssignable(%s,%s)",testType,paramType));
     }
 
     @Test
@@ -855,10 +830,8 @@ public class TypeUtilsTest<B> {
         assertFalse(paramType.getClass().isAssignableFrom(Object.class));
 
         final Type testType = Object.class;
-        assertTrue(TypeUtils.isAssignable(paramType, testType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", paramType, testType));
-        assertFalse(TypeUtils.isAssignable(testType, paramType),
-                () -> String.format("TypeUtils.isAssignable(%s, %s)", testType, paramType));
+        assertTrue(TypeUtils.isAssignable(paramType,testType),()-> String.format("TypeUtils.isAssignable(%s,%s)",paramType,testType));
+        assertFalse(TypeUtils.isAssignable(testType,paramType),()-> String.format("TypeUtils.isAssignable(%s,%s)",testType,paramType));
     }
 
     @SuppressWarnings("boxing") // boxing is deliberate here
@@ -917,8 +890,7 @@ public class TypeUtilsTest<B> {
     @Test
     public void testParameterize() throws Exception {
         final ParameterizedType stringComparableType = TypeUtils.parameterize(Comparable.class, String.class);
-        assertTrue(TypeUtils.equals(getClass().getField("stringComparable").getGenericType(),
-            stringComparableType));
+        assertTrue(TypeUtils.equals(getClass().getField("stringComparable").getGenericType(),stringComparableType));
         assertEquals("java.lang.Comparable<java.lang.String>", stringComparableType.toString());
     }
 
@@ -980,8 +952,7 @@ public class TypeUtilsTest<B> {
     public void testWildcardType() throws Exception {
         final WildcardType simpleWildcard = TypeUtils.wildcardType().withUpperBounds(String.class).build();
         final Field cClass = AClass.class.getField("cClass");
-        assertTrue(TypeUtils.equals(((ParameterizedType) cClass.getGenericType()).getActualTypeArguments()[0],
-            simpleWildcard));
+        assertTrue(TypeUtils.equals(((ParameterizedType)cClass.getGenericType()).getActualTypeArguments()[0],simpleWildcard));
         assertEquals(String.format("? extends %s", String.class.getName()), TypeUtils.toString(simpleWildcard));
         assertEquals(String.format("? extends %s", String.class.getName()), simpleWildcard.toString());
     }

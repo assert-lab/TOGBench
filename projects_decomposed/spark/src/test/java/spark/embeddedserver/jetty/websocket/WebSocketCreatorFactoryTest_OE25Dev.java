@@ -77,7 +77,7 @@ public class WebSocketCreatorFactoryTest_OE25Dev {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertEquals( "WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'", ex.getMessage());
+            assertEquals("WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'",ex.getMessage());
     }
     }
 

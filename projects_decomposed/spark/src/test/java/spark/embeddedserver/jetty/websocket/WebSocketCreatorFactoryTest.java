@@ -32,9 +32,7 @@ public class WebSocketCreatorFactoryTest {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
             fail("Handler creation should have thrown an IllegalArgumentException");
         } catch (IllegalArgumentException ex) {
-            assertEquals(
-                    "WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'",
-                    ex.getMessage());
+            assertEquals("WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'",ex.getMessage());
         }
     }
 

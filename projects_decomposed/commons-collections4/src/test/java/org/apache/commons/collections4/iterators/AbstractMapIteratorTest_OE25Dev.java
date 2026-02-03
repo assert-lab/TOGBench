@@ -418,7 +418,7 @@ public abstract class AbstractMapIteratorTest_OE25Dev<K, V> extends AbstractIter
         // removed other assertion
         // removed other assertion
         // test against confirmed, as map may contain value twice
-        assertEquals("Map must not contain old value", confirmed.containsValue(old), map.containsValue(old));
+        assertEquals("Map must not contain old value",confirmed.containsValue(old),map.containsValue(old));
     }
 
     public void testMapIteratorSet_8_oe() {

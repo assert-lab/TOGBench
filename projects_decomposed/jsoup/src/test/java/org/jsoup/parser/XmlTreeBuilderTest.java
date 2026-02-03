@@ -30,8 +30,7 @@ public class XmlTreeBuilderTest {
         String xml = "<doc id=2 href='/bar'>Foo <br /><link>One</link><link>Two</link></doc>";
         XmlTreeBuilder tb = new XmlTreeBuilder();
         Document doc = tb.parse(xml, "http://foo.com/");
-        assertEquals("<doc id=\"2\" href=\"/bar\">Foo <br /><link>One</link><link>Two</link></doc>",
-                TextUtil.stripNewlines(doc.html()));
+        assertEquals("<doc id=\"2\" href=\"/bar\">Foo <br /><link>One</link><link>Two</link></doc>",TextUtil.stripNewlines(doc.html()));
         assertEquals(doc.getElementById("2").absUrl("href"), "http://foo.com/bar");
     }
 
@@ -41,8 +40,7 @@ public class XmlTreeBuilderTest {
         String xml = "<doc><val>One<val>Two</val></bar>Three</doc>";
         XmlTreeBuilder tb = new XmlTreeBuilder();
         Document doc = tb.parse(xml, "http://foo.com/");
-        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",
-                TextUtil.stripNewlines(doc.html()));
+        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",TextUtil.stripNewlines(doc.html()));
     }
 
     @Test
@@ -50,16 +48,14 @@ public class XmlTreeBuilderTest {
         String xml = "<!DOCTYPE HTML><!-- a comment -->One <qux />Two";
         XmlTreeBuilder tb = new XmlTreeBuilder();
         Document doc = tb.parse(xml, "http://foo.com/");
-        assertEquals("<!DOCTYPE HTML><!-- a comment -->One <qux />Two",
-                TextUtil.stripNewlines(doc.html()));
+        assertEquals("<!DOCTYPE HTML><!-- a comment -->One <qux />Two",TextUtil.stripNewlines(doc.html()));
     }
 
     @Test
     public void testSupplyParserToJsoupClass() {
         String xml = "<doc><val>One<val>Two</val></bar>Three</doc>";
         Document doc = Jsoup.parse(xml, "http://foo.com/", Parser.xmlParser());
-        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",
-                TextUtil.stripNewlines(doc.html()));
+        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",TextUtil.stripNewlines(doc.html()));
     }
 
     @Disabled
@@ -72,8 +68,7 @@ public class XmlTreeBuilderTest {
         Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
         Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
 
-        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",
-                TextUtil.stripNewlines(xmlDoc.html()));
+        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",TextUtil.stripNewlines(xmlDoc.html()));
         assertNotEquals(htmlDoc, xmlDoc);
         assertEquals(xmlDoc, autoXmlDoc);
         assertEquals(1, htmlDoc.select("head").size()); // html parser normalises
@@ -86,8 +81,7 @@ public class XmlTreeBuilderTest {
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",
-                TextUtil.stripNewlines(doc.html()));
+        assertEquals("<doc><val>One<val>Two</val>Three</val></doc>",TextUtil.stripNewlines(doc.html()));
     }
 
     @Test
@@ -136,8 +130,7 @@ public class XmlTreeBuilderTest {
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
         assertEquals("ISO-8859-1", doc.charset().name());
-        assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><data>äöåéü</data>",
-            TextUtil.stripNewlines(doc.html()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><data>äöåéü</data>",TextUtil.stripNewlines(doc.html()));
     }
 
     @Test
@@ -174,11 +167,7 @@ public class XmlTreeBuilderTest {
         Document document = Document.createShell("");
         document.outputSettings().syntax(Syntax.xml);
         document.charset(StandardCharsets.UTF_8);
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-            "<html>\n" +
-            " <head></head>\n" +
-            " <body></body>\n" +
-            "</html>", document.outerHtml());
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<html>\n" + " <head></head>\n" + " <body></body>\n" + "</html>",document.outerHtml());
     }
 
     @Test
@@ -225,9 +214,7 @@ public class XmlTreeBuilderTest {
         Element div = doc.getElementById("1");
         assertEquals("<html>\n <foo><&amp;", div.text());
         assertEquals(0, div.children().size());
-        assertEquals(1, div.childNodeSize()); // no elements, one text node
-
-        assertEquals("<div id=\"1\"><![CDATA[\n<html>\n <foo><&amp;]]></div>", div.outerHtml());
+        assertEquals(1,div.childNodeSize());// no elements,one text node assertEquals("<div id=\"1\"><![CDATA[\n<html>\n <foo><&amp;]]></div>",div.outerHtml());
 
         CDataNode cdata = (CDataNode) div.textNodes().get(0);
         assertEquals("\n<html>\n <foo><&amp;", cdata.text());

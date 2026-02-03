@@ -83,7 +83,7 @@ public class PropertyTest_OE25Dev {
         JSONObject jsonObject = Property.toJSONObject(properties);
 
         // removed other assertion
-        assertTrue("jsonObject should contain Illinois property", "Springfield".equals(jsonObject.get("Illinois")));
+        assertTrue("jsonObject should contain Illinois property","Springfield".equals(jsonObject.get("Illinois")));
     }
 
     @Test
@@ -100,7 +100,7 @@ public class PropertyTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("jsonObject should contain Missouri property", "Jefferson City".equals(jsonObject.get("Missouri")));
+        assertTrue("jsonObject should contain Missouri property","Jefferson City".equals(jsonObject.get("Missouri")));
     }
 
     @Test
@@ -118,7 +118,7 @@ public class PropertyTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("jsonObject should contain Washington property", "Olympia".equals(jsonObject.get("Washington")));
+        assertTrue("jsonObject should contain Washington property","Olympia".equals(jsonObject.get("Washington")));
     }
 
     @Test
@@ -137,7 +137,7 @@ public class PropertyTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("jsonObject should contain California property", "Sacramento".equals(jsonObject.get("California")));
+        assertTrue("jsonObject should contain California property","Sacramento".equals(jsonObject.get("California")));
     }
 
     @Test
@@ -157,14 +157,14 @@ public class PropertyTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("jsonObject should contain Indiana property", "Indianapolis".equals(jsonObject.get("Indiana")));
+        assertTrue("jsonObject should contain Indiana property","Indianapolis".equals(jsonObject.get("Indiana")));
     }
 
     @Test
     public void shouldHandleNullJSONProperty_1_oe() {
         JSONObject jsonObject= null;
         Properties properties = Property.toProperties(jsonObject);
-        assertTrue("properties should be empty", properties.size() == 0);
+        assertTrue("properties should be empty",properties.size()== 0);
     }
 
     @Test
@@ -180,7 +180,7 @@ public class PropertyTest_OE25Dev {
         JSONObject jsonObject = Property.toJSONObject(properties);
         Properties jsonProperties = Property.toProperties(jsonObject);
 
-        assertTrue("property objects should match", properties.equals(jsonProperties));
+        assertTrue("property objects should match",properties.equals(jsonProperties));
     }
 
 }

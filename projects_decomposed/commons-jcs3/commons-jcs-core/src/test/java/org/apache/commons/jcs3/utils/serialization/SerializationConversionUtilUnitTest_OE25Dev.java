@@ -241,7 +241,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         // VERIFY
         // removed other assertion
         // removed other assertion
-        assertEquals( "Attributes should be the same.", before.getElementAttributes().getMaxLife(), after .getElementAttributes().getMaxLife() );
+        assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
     }
 
     public void testSimpleConversion_5_oe()
@@ -438,7 +438,7 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         // VERIFY
         // removed other assertion
         // removed other assertion
-        assertEquals( "Attributes should be the same.", before.getElementAttributes().getMaxLife(), after .getElementAttributes().getMaxLife() );
+        assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
     }
 
     public void testAccidentalDoubleConversion_5_oe()

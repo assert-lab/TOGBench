@@ -558,7 +558,7 @@ class Point2STest_OE25Dev {
 
                 // check that the azimuth and polar components of the point are correct by creating a
                 // new point and checking the distance
-                Assertions.assertEquals(Math.PI, Point2S.of(result.getAzimuth(), result.getPolar()).distance(pt), TEST_EPS);
+                Assertions.assertEquals(Math.PI,Point2S.of(result.getAzimuth(),result.getPolar()).distance(pt),TEST_EPS);
     }
     }
     }

@@ -51,30 +51,30 @@ public class TestZoneInfoCompiler_OE25Dev extends TestCase {
   public void testTestOne_1_oe() {
     DateTimeZone dateTimeZone = DateTimeZone.forOffsetMillis(8);
 
-    assertTrue(ZoneInfoCompiler.test("+02:15", dateTimeZone));
+    assertTrue(ZoneInfoCompiler.test("+02:15",dateTimeZone));
   }
 
   public void testTestTwo_1_oe() {
     DateTimeZoneBuilder dateTimeZoneBuilder = new DateTimeZoneBuilder();
     DateTimeZone dateTimeZone = dateTimeZoneBuilder.toDateTimeZone("7M6 _n'63", true);
 
-    assertTrue(ZoneInfoCompiler.test("7M6 _n'63", dateTimeZone));
+    assertTrue(ZoneInfoCompiler.test("7M6 _n'63",dateTimeZone));
   }
 
   public void testParseZoneCharFive_1_oe() {
-    assertEquals('s', ZoneInfoCompiler.parseZoneChar('s'));
+    assertEquals('s',ZoneInfoCompiler.parseZoneChar('s'));
   }
 
   public void testParseYearAndParseYearReturningPositiveAndParseYearWithNegative_1_oe() {
-    assertEquals(Integer.MAX_VALUE, ZoneInfoCompiler.parseYear("maximum", (-2512)));
+    assertEquals(Integer.MAX_VALUE,ZoneInfoCompiler.parseYear("maximum",(-2512)));
   }
 
   public void testParseYearAndParseYearReturningNegativeOne_1_oe() {
-    assertEquals(Integer.MIN_VALUE, ZoneInfoCompiler.parseYear("min", (-1881443201)));
+    assertEquals(Integer.MIN_VALUE,ZoneInfoCompiler.parseYear("min",(-1881443201)));
   }
 
   public void testParseYearAndParseYearReturningNegativeTwo_1_oe() {
-    assertEquals(Integer.MIN_VALUE, ZoneInfoCompiler.parseYear("minimum", (-1971487955)));
+    assertEquals(Integer.MIN_VALUE,ZoneInfoCompiler.parseYear("minimum",(-1971487955)));
   }
 
   public void testWriteZoneInfoMapThrowsIllegalArgumentException_2_oe() throws IOException {
@@ -88,7 +88,7 @@ public class TestZoneInfoCompiler_OE25Dev extends TestCase {
       ZoneInfoCompiler.writeZoneInfoMap(null, hashMapTwo);
       // removed other assertion
     } catch (IllegalArgumentException e) {
-      assertEquals(ZoneInfoCompiler.class.getName(), e.getStackTrace()[0].getClassName());
+      assertEquals(ZoneInfoCompiler.class.getName(),e.getStackTrace()[0].getClassName());
   }
   }
 

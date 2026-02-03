@@ -162,20 +162,11 @@ public abstract class AbstractBidiMapTest<K, V> extends AbstractIterableMapTest<
         final BidiMap<K, V> map = makeFullMap();
         final BidiMap<V, K> inverseMap = map.inverseBidiMap();
 
-        assertSame(
-            "Inverse of inverse is not equal to original.",
-            map,
-            inverseMap.inverseBidiMap());
+        assertSame("Inverse of inverse is not equal to original.",map,inverseMap.inverseBidiMap());
 
-        assertEquals(
-            "Value not found for key.",
-            getSampleKeys()[0],
-            inverseMap.get(getSampleValues()[0]));
+        assertEquals("Value not found for key.",getSampleKeys()[0],inverseMap.get(getSampleValues()[0]));
 
-        assertEquals(
-            "Key not found for value.",
-            getSampleValues()[0],
-            inverseMap.getKey(getSampleKeys()[0]));
+        assertEquals("Key not found for value.",getSampleValues()[0],inverseMap.getKey(getSampleKeys()[0]));
     }
 
     //-----------------------------------------------------------------------
@@ -201,14 +192,9 @@ public abstract class AbstractBidiMapTest<K, V> extends AbstractIterableMapTest<
         final Object newValue = "newValue";
         entry.setValue((T) newValue);
 
-        assertEquals(
-            "Modifying entrySet did not affect underlying Map.",
-            newValue,
-            map.get(key));
+        assertEquals("Modifying entrySet did not affect underlying Map.",newValue,map.get(key));
 
-        assertNull(
-            "Modifying entrySet did not affect inverse Map.",
-            map.getKey(oldValue));
+        assertNull("Modifying entrySet did not affect inverse Map.",map.getKey(oldValue));
     }
 
     //-----------------------------------------------------------------------
@@ -299,12 +285,8 @@ public abstract class AbstractBidiMapTest<K, V> extends AbstractIterableMapTest<
         assertTrue("Key was not removed.", !map.containsKey(key));
         assertTrue("Value was not removed.", !map.containsValue(value));
 
-        assertTrue(
-            "Key was not removed from inverse map.",
-            !map.inverseBidiMap().containsValue(key));
-        assertTrue(
-            "Value was not removed from inverse map.",
-            !map.inverseBidiMap().containsKey(value));
+        assertTrue("Key was not removed from inverse map.",!map.inverseBidiMap().containsValue(key));
+        assertTrue("Value was not removed from inverse map.",!map.inverseBidiMap().containsKey(value));
     }
 
     //-----------------------------------------------------------------------
@@ -325,12 +307,8 @@ public abstract class AbstractBidiMapTest<K, V> extends AbstractIterableMapTest<
         assertTrue("Key was not removed.", !map.containsKey(key));
         assertTrue("Value was not removed.", !map.containsValue(value));
 
-        assertTrue(
-            "Key was not removed from inverse map.",
-            !map.inverseBidiMap().containsValue(key));
-        assertTrue(
-            "Value was not removed from inverse map.",
-            !map.inverseBidiMap().containsKey(value));
+        assertTrue("Key was not removed from inverse map.",!map.inverseBidiMap().containsValue(key));
+        assertTrue("Value was not removed from inverse map.",!map.inverseBidiMap().containsKey(value));
     }
 
     /**

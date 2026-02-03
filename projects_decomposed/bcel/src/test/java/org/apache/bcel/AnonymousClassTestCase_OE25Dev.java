@@ -26,7 +26,7 @@ public class AnonymousClassTestCase_OE25Dev extends AbstractTestCase
     public void testRegularClassIsNotAnonymous_1_oe() throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnonymousClassTest");
-        assertFalse("regular outer classes are not anonymous", clazz .isAnonymous());
+        assertFalse("regular outer classes are not anonymous",clazz .isAnonymous());
     }
 
     public void testRegularClassIsNotAnonymous_2_oe() throws ClassNotFoundException
@@ -40,7 +40,7 @@ public class AnonymousClassTestCase_OE25Dev extends AbstractTestCase
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnonymousClassTest$X");
-        assertFalse("regular inner classes are not anonymous", clazz .isAnonymous());
+        assertFalse("regular inner classes are not anonymous",clazz .isAnonymous());
     }
 
     public void testNamedInnerClassIsNotAnonymous_2_oe()
@@ -55,7 +55,7 @@ public class AnonymousClassTestCase_OE25Dev extends AbstractTestCase
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnonymousClassTest$Y");
-        assertFalse("regular static inner classes are not anonymous", clazz .isAnonymous());
+        assertFalse("regular static inner classes are not anonymous",clazz .isAnonymous());
     }
 
     public void testStaticInnerClassIsNotAnonymous_2_oe()

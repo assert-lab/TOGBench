@@ -232,7 +232,7 @@ public abstract class NumberConverterTestBase_OE25Dev extends TestCase {
         for(int i=0;i<number.length;i++) {
             final Object val = makeConverter().convert(getExpectedType(),number[i]);
             // removed other assertion
-            assertTrue( "Convert " + message[i] + " should return a " + getExpectedType().getName(), getExpectedType().isInstance(val));
+            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),getExpectedType().isInstance(val));
     }
     }
 

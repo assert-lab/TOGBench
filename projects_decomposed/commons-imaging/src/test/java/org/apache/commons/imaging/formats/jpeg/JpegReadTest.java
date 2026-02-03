@@ -60,8 +60,7 @@ public class JpegReadTest extends JpegBaseTest {
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);
         } catch (final ImageReadException imageReadException) {
-            assertEquals("Only sequential, baseline JPEGs are supported at the moment",
-                    imageReadException.getMessage());
+            assertEquals("Only sequential,baseline JPEGs are supported at the moment",imageReadException.getMessage());
         }
     }
 

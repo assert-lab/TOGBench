@@ -38,9 +38,7 @@ class FractionTest {
     private static void assertFraction(int expectedNumerator, int expectedDenominator, Fraction actual) {
         Assertions.assertEquals(expectedNumerator, actual.getNumerator());
         Assertions.assertEquals(expectedDenominator, actual.getDenominator());
-        Assertions.assertEquals(
-            Integer.signum(expectedNumerator) * Integer.signum(expectedDenominator),
-            actual.signum());
+        Assertions.assertEquals(Integer.signum(expectedNumerator)* Integer.signum(expectedDenominator),actual.signum());
     }
 
     private static void assertDoubleValue(double expected, int numerator, int denominator) {
@@ -551,8 +549,7 @@ class FractionTest {
             Fraction.of(-5, 2)
         };
         for (final Fraction fraction : fractions) {
-            Assertions.assertEquals(fraction,
-                                    TestUtils.serializeAndRecover(fraction));
+            Assertions.assertEquals(fraction,TestUtils.serializeAndRecover(fraction));
         }
     }
 
@@ -602,8 +599,7 @@ class FractionTest {
         };
         int inc = 0;
         for (final Fraction fraction : fractions) {
-            Assertions.assertEquals(fraction,
-                                    Fraction.parse(validExpressions[inc]));
+            Assertions.assertEquals(fraction,Fraction.parse(validExpressions[inc]));
             inc++;
         }
 

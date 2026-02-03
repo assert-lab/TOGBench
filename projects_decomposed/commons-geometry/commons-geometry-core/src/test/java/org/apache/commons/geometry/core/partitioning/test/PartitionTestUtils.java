@@ -58,15 +58,11 @@ public final class PartitionTestUtils {
     public static void assertSegmentsEqual(final TestLineSegment expected, final TestLineSegment actual) {
         final String msg = "Expected line segment to equal " + expected + " but was " + actual;
 
-        Assertions.assertEquals(expected.getStartPoint().getX(),
-                actual.getStartPoint().getX(), EPS, msg);
-        Assertions.assertEquals(expected.getStartPoint().getY(),
-                actual.getStartPoint().getY(), EPS, msg);
+        Assertions.assertEquals(expected.getStartPoint().getX(),actual.getStartPoint().getX(),EPS,msg);
+        Assertions.assertEquals(expected.getStartPoint().getY(),actual.getStartPoint().getY(),EPS,msg);
 
-        Assertions.assertEquals(expected.getEndPoint().getX(),
-                actual.getEndPoint().getX(), EPS, msg);
-        Assertions.assertEquals(expected.getEndPoint().getY(),
-                actual.getEndPoint().getY(), EPS, msg);
+        Assertions.assertEquals(expected.getEndPoint().getX(),actual.getEndPoint().getX(),EPS,msg);
+        Assertions.assertEquals(expected.getEndPoint().getY(),actual.getEndPoint().getY(),EPS,msg);
     }
 
     /** Assert that all given points lie in the expected location of the region.

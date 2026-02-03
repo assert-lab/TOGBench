@@ -60,7 +60,7 @@ public class TestCachedDateTimeZone extends TestCase {
     public void test_caching() throws Exception {
         CachedDateTimeZone zone1 = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
         CachedDateTimeZone zone2 = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
-        assertSame(zone1, zone2);
+        assertSame(zone1,zone2);
     }
 
     //-----------------------------------------------------------------------
@@ -78,7 +78,7 @@ public class TestCachedDateTimeZone extends TestCase {
         CachedDateTimeZone result = (CachedDateTimeZone) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertEquals(test,result);
     }
 
 }

@@ -120,8 +120,7 @@ public class CharacterReaderTest {
     @Test public void consumeToChar() {
         CharacterReader r = new CharacterReader("One Two Three");
         assertEquals("One ", r.consumeTo('T'));
-        assertEquals("", r.consumeTo('T')); // on Two
-        assertEquals('T', r.consume());
+        assertEquals("",r.consumeTo('T'));// on Two assertEquals('T',r.consume());
         assertEquals("wo ", r.consumeTo('T'));
         assertEquals('T', r.consume());
         assertEquals("hree", r.consumeTo('T')); // consume to end
@@ -226,8 +225,7 @@ public class CharacterReaderTest {
 
         assertTrue(r.containsIgnoreCase("</title>"));
         assertFalse(r.containsIgnoreCase("</not>"));
-        assertFalse(r.containsIgnoreCase("</not>")); // cached, but we only test functionally here
-        assertTrue(r.containsIgnoreCase("</title>"));
+        assertFalse(r.containsIgnoreCase("</not>"));// cached,but we only test functionally here assertTrue(r.containsIgnoreCase("</title>"));
         r.consumeTo("</title>");
         assertTrue(r.containsIgnoreCase("</title>"));
         r.consumeTo("<p>");
@@ -241,12 +239,9 @@ public class CharacterReaderTest {
         r.consumeTo("</TITLE>");
         r.consumeTo("<p>");
         assertTrue(r.matches("<p>"));
-        assertFalse(r.containsIgnoreCase("</title>")); // because we haven't buffered up yet, we don't know
-        r.consumeTo("<foo>");
-        assertFalse(r.matches("<foo>")); // buffer underrun
-        r.consumeTo("<foo>");
-        assertTrue(r.matches("<foo>")); // cross the buffer
-        assertTrue(r.containsIgnoreCase("</TITLE>"));
+        assertFalse(r.containsIgnoreCase("</title>"));// because we haven't buffered up yet,we don't know r.consumeTo("<foo>");
+        assertFalse(r.matches("<foo>"));// buffer underrun r.consumeTo("<foo>");
+        assertTrue(r.matches("<foo>"));// cross the buffer assertTrue(r.containsIgnoreCase("</TITLE>"));
         assertTrue(r.containsIgnoreCase("</title>"));
     }
 

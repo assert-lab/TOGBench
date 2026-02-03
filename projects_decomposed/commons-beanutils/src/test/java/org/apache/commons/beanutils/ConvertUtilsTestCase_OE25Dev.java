@@ -264,13 +264,11 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
     private void checkIntegerArray(final Object value, final int intArray[]) {
 
         assertNotNull("Returned value is not null", value);
-        assertEquals("Returned value is int[]",
-                     intArray.getClass(), value.getClass());
+        assertEquals("Returned value is int[]",intArray.getClass(),value.getClass());
         final int results[] = (int[]) value;
         assertEquals("Returned array length", intArray.length, results.length);
         for (int i = 0; i < intArray.length; i++) {
-            assertEquals("Returned array value " + i,
-                         intArray[i], results[i]);
+            assertEquals("Returned array value " + i,intArray[i],results[i]);
         }
 
     }
@@ -279,14 +277,11 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
     private void checkStringArray(final Object value, final String stringArray[]) {
 
         assertNotNull("Returned value is not null", value);
-        assertEquals("Returned value is String[]",
-                     stringArray.getClass(), value.getClass());
+        assertEquals("Returned value is String[]",stringArray.getClass(),value.getClass());
         final String results[] = (String[]) value;
-        assertEquals("Returned array length",
-                     stringArray.length, results.length);
+        assertEquals("Returned array length",stringArray.length,results.length);
         for (int i = 0; i < stringArray.length; i++) {
-            assertEquals("Returned array value " + i,
-                         stringArray[i], results[i]);
+            assertEquals("Returned array value " + i,stringArray[i],results[i]);
         }
 
     }
@@ -470,7 +465,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = ConvertUtils.convert("foo", Double.TYPE);
         // removed other assertion
-        assertEquals(((Double) value).doubleValue(), 0.0, 0.005);
+        assertEquals(((Double)value).doubleValue(),0.0,0.005);
     }
 
     public void testNegativeScalar_12_oe() {
@@ -624,7 +619,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = ConvertUtils.convert("foo", Float.TYPE);
         // removed other assertion
-        assertEquals(((Float) value).floatValue(), (float) 0.0, (float) 0.005);
+        assertEquals(((Float)value).floatValue(),(float)0.0,(float)0.005);
     }
 
     public void testNegativeScalar_16_oe() {
@@ -713,7 +708,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = ConvertUtils.convert("foo", Float.class);
         // removed other assertion
-        assertEquals(((Float) value).floatValue(), (float) 0.0, (float) 0.005);
+        assertEquals(((Float)value).floatValue(),(float)0.0,(float)0.005);
     }
 
     public void testNegativeScalar_18_oe() {
@@ -1427,7 +1422,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         final String stringArray1[] = { "abc" };
         final String stringArray2[] = { "abc", "def" };
 
-        assertEquals("intArray0", null, ConvertUtils.convert(intArray0));
+        assertEquals("intArray0",null,ConvertUtils.convert(intArray0));
     }
 
     public void testObjectToStringArray_2_oe() {
@@ -1440,7 +1435,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         final String stringArray2[] = { "abc", "def" };
 
         // removed other assertion
-        assertEquals("intArray1", "123", ConvertUtils.convert(intArray1));
+        assertEquals("intArray1","123",ConvertUtils.convert(intArray1));
     }
 
     public void testObjectToStringArray_3_oe() {
@@ -1454,7 +1449,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         // removed other assertion
         // removed other assertion
-        assertEquals("intArray2", "123", ConvertUtils.convert(intArray2));
+        assertEquals("intArray2","123",ConvertUtils.convert(intArray2));
     }
 
     public void testObjectToStringArray_4_oe() {
@@ -1470,7 +1465,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
 
-        assertEquals("stringArray0", null, ConvertUtils.convert(stringArray0));
+        assertEquals("stringArray0",null,ConvertUtils.convert(stringArray0));
     }
 
     public void testObjectToStringArray_5_oe() {
@@ -1487,7 +1482,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
 
         // removed other assertion
-        assertEquals("stringArray1", "abc", ConvertUtils.convert(stringArray1));
+        assertEquals("stringArray1","abc",ConvertUtils.convert(stringArray1));
     }
 
     public void testObjectToStringArray_6_oe() {
@@ -1505,25 +1500,25 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         // removed other assertion
         // removed other assertion
-        assertEquals("stringArray2", "abc", ConvertUtils.convert(stringArray2));
+        assertEquals("stringArray2","abc",ConvertUtils.convert(stringArray2));
     }
 
     public void testObjectToStringScalar_1_oe() {
 
-        assertEquals("Boolean->String", "false", ConvertUtils.convert(Boolean.FALSE));
+        assertEquals("Boolean->String","false",ConvertUtils.convert(Boolean.FALSE));
     }
 
     public void testObjectToStringScalar_2_oe() {
 
         // removed other assertion
-        assertEquals("Boolean->String", "true", ConvertUtils.convert(Boolean.TRUE));
+        assertEquals("Boolean->String","true",ConvertUtils.convert(Boolean.TRUE));
     }
 
     public void testObjectToStringScalar_3_oe() {
 
         // removed other assertion
         // removed other assertion
-        assertEquals("Byte->String", "123", ConvertUtils.convert(new Byte((byte) 123)));
+        assertEquals("Byte->String","123",ConvertUtils.convert(new Byte((byte)123)));
     }
 
     public void testObjectToStringScalar_4_oe() {
@@ -1531,7 +1526,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Character->String", "a", ConvertUtils.convert(new Character('a')));
+        assertEquals("Character->String","a",ConvertUtils.convert(new Character('a')));
     }
 
     public void testObjectToStringScalar_5_oe() {
@@ -1540,7 +1535,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Double->String", "123.0", ConvertUtils.convert(new Double(123.0)));
+        assertEquals("Double->String","123.0",ConvertUtils.convert(new Double(123.0)));
     }
 
     public void testObjectToStringScalar_6_oe() {
@@ -1550,7 +1545,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Float->String", "123.0", ConvertUtils.convert(new Float((float) 123.0)));
+        assertEquals("Float->String","123.0",ConvertUtils.convert(new Float((float)123.0)));
     }
 
     public void testObjectToStringScalar_7_oe() {
@@ -1561,7 +1556,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Integer->String", "123", ConvertUtils.convert(new Integer(123)));
+        assertEquals("Integer->String","123",ConvertUtils.convert(new Integer(123)));
     }
 
     public void testObjectToStringScalar_8_oe() {
@@ -1573,7 +1568,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Long->String", "123", ConvertUtils.convert(new Long(123)));
+        assertEquals("Long->String","123",ConvertUtils.convert(new Long(123)));
     }
 
     public void testObjectToStringScalar_9_oe() {
@@ -1586,7 +1581,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Short->String", "123", ConvertUtils.convert(new Short((short) 123)));
+        assertEquals("Short->String","123",ConvertUtils.convert(new Short((short)123)));
     }
 
     public void testObjectToStringScalar_10_oe() {
@@ -1600,7 +1595,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("String->String", "abc", ConvertUtils.convert("abc"));
+        assertEquals("String->String","abc",ConvertUtils.convert("abc"));
     }
 
     public void testObjectToStringScalar_11_oe() {
@@ -1615,7 +1610,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("String->String null", null, ConvertUtils.convert(null));
+        assertEquals("String->String null",null,ConvertUtils.convert(null));
     }
 
     public void testPositiveArray_1_oe() {
@@ -4345,7 +4340,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = ConvertUtils.convert("123.456", Float.TYPE);
         // removed other assertion
-        assertEquals(((Float) value).floatValue(), (float) 123.456, (float) 0.005);
+        assertEquals(((Float)value).floatValue(),(float)123.456,(float)0.005);
     }
 
     public void testPositiveScalar_49_oe() {
@@ -4554,7 +4549,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = ConvertUtils.convert("123.456", Float.class);
         // removed other assertion
-        assertEquals(((Float) value).floatValue(), (float) 123.456, (float) 0.005);
+        assertEquals(((Float)value).floatValue(),(float)123.456,(float)0.005);
     }
 
     public void testPositiveScalar_51_oe() {
@@ -6840,7 +6835,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         Object
         value = utilsOne.convert("true", Boolean.TYPE);
         // removed other assertion
-        assertEquals( "Standard conversion failed (1)", ((Boolean) value).booleanValue(), true);
+        assertEquals("Standard conversion failed(1)",((Boolean)value).booleanValue(),true);
     }
 
     public void testSeparateConvertInstances_3_oe() throws Exception {
@@ -6869,7 +6864,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = utilsTwo.convert("true", Boolean.TYPE);
         // removed other assertion
-        assertEquals( "Standard conversion failed (2)", ((Boolean) value).booleanValue(), true);
+        assertEquals("Standard conversion failed(2)",((Boolean)value).booleanValue(),true);
     }
 
     public void testSeparateConvertInstances_8_oe() throws Exception {
@@ -7084,7 +7079,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = utilsTwo.convert("true", Boolean.TYPE);
         // removed other assertion
-        assertEquals( "Standard conversion failed (4)", ((Boolean) value).booleanValue(), true);
+        assertEquals("Standard conversion failed(4)",((Boolean)value).booleanValue(),true);
     }
 
     public void testDeregisteringSingleConverter_1_oe() throws Exception {
@@ -7099,7 +7094,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
         final Object
         value = ConvertUtils.convert("true", Boolean.TYPE);
         // removed other assertion
-        assertEquals( "Standard conversion failed (1)", ((Boolean) value).booleanValue(), true);
+        assertEquals("Standard conversion failed(1)",((Boolean)value).booleanValue(),true);
     }
 
     public void testDeregisteringSingleConverter_3_oe() throws Exception {
@@ -7292,7 +7287,7 @@ public class ConvertUtilsTestCase_OE25Dev extends TestCase {
     public void testConvertUnsupportedTargetType_1_oe() {
         final ConvertUtilsBean utils = new ConvertUtilsBean();
         final Object value = "A test value";
-        assertSame("Got different object", value, utils.convert(value, getClass()));
+        assertSame("Got different object",value,utils.convert(value,getClass()));
     }
 
 }

@@ -420,8 +420,8 @@ pool_12_2,"    @Test
     }
     }
 ",TestKeyedObjectPool::testKPOFBorrowObjectUsages_2_oe
-pool_14_8,"    @Test
-    public void testKPOFReturnObjectUsages_8_oe() throws Exception {
+pool_14_7,"    @Test
+    public void testKPOFReturnObjectUsages_7_oe() throws Exception {
         final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
         final KeyedObjectPool<Object,Object> pool;
         try {
@@ -460,9 +460,6 @@ pool_14_8,"    @Test
         TestObjectPool.removeDestroyObjectCall(factory.getMethodCalls()); // The exact timing of destroyObject is flexible here.
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        reset(pool, factory, expectedMethods);
         obj = pool.borrowObject(KEY);
         clear(factory, expectedMethods);
         factory.setPassivateObjectFail(true);
@@ -474,7 +471,7 @@ pool_14_8,"    @Test
     }
     }
     }
-",TestKeyedObjectPool::testKPOFReturnObjectUsages_8_oe
+",TestKeyedObjectPool::testKPOFReturnObjectUsages_7_oe
 pool_17_7,"    @Test
     public void testCheckMinIdleKeyedObjectPool_7_oe() throws Exception {
         // removed other assertion

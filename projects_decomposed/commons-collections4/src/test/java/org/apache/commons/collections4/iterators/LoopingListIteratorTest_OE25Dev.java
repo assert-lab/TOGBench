@@ -119,7 +119,7 @@ public class LoopingListIteratorTest_OE25Dev {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
 
         // removed other assertion
-        assertEquals("a", loop.next());     // <a>;
+        assertEquals("a",loop.next());// <a> assertTrue(loop.hasNext());
     }
 
     @Test
@@ -129,8 +129,7 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
-        assertTrue(loop.hasNext());
+        assertEquals("a",loop.next());// <a> assertTrue(loop.hasNext());
     }
 
     @Test
@@ -140,9 +139,8 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("a", loop.next());     // <a>;
+        assertEquals("a",loop.next());// <a> assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -152,11 +150,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
-        assertTrue(loop.hasNext());
+        assertEquals("a",loop.previous());// <a> assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -166,12 +162,10 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("a", loop.next());     // <a>;
+        assertEquals("a",loop.previous());// <a> assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -181,118 +175,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        // removed other assertion
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testLooping1_8_oe() throws Exception {
-        final List<String> list = Arrays.asList("a");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals("a", loop.previous()); // <a>;
-    }
-
-    @Test
-    public void testLooping1_9_oe() throws Exception {
-        final List<String> list = Arrays.asList("a");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testLooping1_10_oe() throws Exception {
-        final List<String> list = Arrays.asList("a");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals("a", loop.previous()); // <a>;
-    }
-
-    @Test
-    public void testLooping1_11_oe() throws Exception {
-        final List<String> list = Arrays.asList("a");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testLooping1_12_oe() throws Exception {
-        final List<String> list = Arrays.asList("a");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         assertEquals("a", loop.previous()); // <a>;
     }
@@ -311,7 +196,7 @@ public class LoopingListIteratorTest_OE25Dev {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
 
         // removed other assertion
-        assertEquals("a", loop.next());     // a <b>;
+        assertEquals("a",loop.next());// a <b> assertTrue(loop.hasNext());
     }
 
     @Test
@@ -321,8 +206,7 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
-        assertTrue(loop.hasNext());
+        assertEquals("b",loop.next());// <a> b assertTrue(loop.hasNext());
     }
 
     @Test
@@ -332,9 +216,8 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("b", loop.next());     // <a> b;
+        assertEquals("a",loop.next());// a <b> loop.reset();// <a> b assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -344,11 +227,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
-        assertTrue(loop.hasNext());
+        assertEquals("b",loop.previous());// a <b> assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -358,12 +239,10 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("a", loop.next());     // a <b>;
+        assertEquals("a",loop.previous());// <a> b assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -373,136 +252,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        // removed other assertion
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testLooping2_8_oe() throws Exception {
-        final List<String> list = Arrays.asList("a", "b");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        // removed other assertion
-        assertEquals("b", loop.previous()); // a <b>;
-    }
-
-    @Test
-    public void testLooping2_9_oe() throws Exception {
-        final List<String> list = Arrays.asList("a", "b");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testLooping2_10_oe() throws Exception {
-        final List<String> list = Arrays.asList("a", "b");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals("a", loop.previous()); // <a> b;
-    }
-
-    @Test
-    public void testLooping2_11_oe() throws Exception {
-        final List<String> list = Arrays.asList("a", "b");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testLooping2_12_oe() throws Exception {
-        final List<String> list = Arrays.asList("a", "b");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         assertEquals("b", loop.previous()); // a <b>;
     }
@@ -683,7 +435,7 @@ public class LoopingListIteratorTest_OE25Dev {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         // removed other assertion
-        assertEquals("a", loop.next()); // a <b> c;
+        assertEquals("a",loop.next());// a <b> c loop.remove();// <b> c assertEquals(2,list.size());
     }
 
     @Test
@@ -693,8 +445,8 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <b> c
-        assertEquals(2, list.size());
+
+        assertTrue(loop.hasNext());
     }
 
     @Test
@@ -704,10 +456,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
 
-        assertTrue(loop.hasNext());
+        // removed other assertion
+        assertEquals("b",loop.next());// b <c> loop.remove();// <c> assertEquals(1,list.size());
     }
 
     @Test
@@ -717,11 +468,11 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
 
         // removed other assertion
-        assertEquals("b", loop.next()); // b <c>;
+        // removed other assertion
+
+        assertTrue(loop.hasNext());
     }
 
     @Test
@@ -731,13 +482,12 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <c>
-        assertEquals(1, list.size());
+
+        // removed other assertion
+        assertEquals("c",loop.next());// <c> loop.remove();// --- assertEquals(0,list.size());
     }
 
     @Test
@@ -747,75 +497,11 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                  // <c>
-        // removed other assertion
-
-        assertTrue(loop.hasNext());
-    }
-
-    @Test
-    public void testRemovingElementsAndIteratingForward_8_oe() {
-        final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         // removed other assertion
-        // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // <c>
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals("c", loop.next()); // <c>;
-    }
-
-    @Test
-    public void testRemovingElementsAndIteratingForward_9_oe() {
-        final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // <c>
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // ---
-        assertEquals(0, list.size());
-    }
-
-    @Test
-    public void testRemovingElementsAndIteratingForward_10_oe() {
-        final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // <b> c
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // <c>
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                  // ---
         // removed other assertion
 
         assertFalse(loop.hasNext());
@@ -835,7 +521,7 @@ public class LoopingListIteratorTest_OE25Dev {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         // removed other assertion
-        assertEquals("c", loop.previous()); // a b <c>;
+        assertEquals("c",loop.previous());// a b <c> loop.remove();// <a> b assertEquals(2,list.size());
     }
 
     @Test
@@ -845,8 +531,8 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a> b
-        assertEquals(2, list.size());
+
+        assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -856,10 +542,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
 
-        assertTrue(loop.hasPrevious());
+        // removed other assertion
+        assertEquals("b",loop.previous());// a <b> loop.remove();// <a> assertEquals(1,list.size());
     }
 
     @Test
@@ -869,11 +554,11 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
 
         // removed other assertion
-        assertEquals("b", loop.previous()); // a <b>;
+        // removed other assertion
+
+        assertTrue(loop.hasPrevious());
     }
 
     @Test
@@ -883,13 +568,12 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a>
-        assertEquals(1, list.size());
+
+        // removed other assertion
+        assertEquals("a",loop.previous());// <a> loop.remove();// --- assertEquals(0,list.size());
     }
 
     @Test
@@ -899,75 +583,11 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        loop.remove();                      // <a>
-        // removed other assertion
-
-        assertTrue(loop.hasPrevious());
-    }
-
-    @Test
-    public void testRemovingElementsAndIteratingBackwards_8_oe() {
-        final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         // removed other assertion
-        // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // <a>
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals("a", loop.previous()); // <a>;
-    }
-
-    @Test
-    public void testRemovingElementsAndIteratingBackwards_9_oe() {
-        final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // <a>
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // ---
-        assertEquals(0, list.size());
-    }
-
-    @Test
-    public void testRemovingElementsAndIteratingBackwards_10_oe() {
-        final List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // <a> b
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // <a>
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        loop.remove();                      // ---
         // removed other assertion
 
         assertFalse(loop.hasPrevious());
@@ -1179,7 +799,7 @@ public class LoopingListIteratorTest_OE25Dev {
         LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
 
         loop.add("a");                      // <a> b e f
-        assertEquals("b", loop.next());     // a <b> e f;
+        assertEquals("b",loop.next());// a <b> e f loop.reset();// <a> b e f assertEquals("a",loop.next());// a <b> e f assertEquals("b",loop.next());// a b <e> f loop.add("c");// a b c <e> f assertEquals("e",loop.next());// a b c e <f> assertEquals("e",loop.previous());// a b c <e> f assertEquals("c",loop.previous());// a b <c> e f assertEquals("c",loop.next());// a b c <e> f loop.add("d");// a b c d <e> f loop.reset();// <a> b c d e f assertEquals("a",loop.next());// a <b> c d e f assertEquals("b",loop.next());// a b <c> d e f assertEquals("c",loop.next());// a b c <d> e f assertEquals("d",loop.next());// a b c d <e> f assertEquals("e",loop.next());// a b c d e <f> assertEquals("f",loop.next());// <a> b c d e f assertEquals("a",loop.next());// a <b> c d e f list = new ArrayList<>(Arrays.asList("b","e","f"));
     }
 
     @Test
@@ -1189,8 +809,10 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        assertEquals("a", loop.next());     // a <b> e f;
+        loop = new LoopingListIterator<>(list); // <b> e f
+
+        loop.add("a");                      // a <b> e f
+        assertEquals("a",loop.previous());// a b e <f> loop.reset();// <a> b e f assertEquals("f",loop.previous());// a b e <f> assertEquals("e",loop.previous());// a b <e> f loop.add("d");// a b d <e> f assertEquals("d",loop.previous());// a b <d> e f loop.add("c");// a b c <d> e f assertEquals("c",loop.previous());// a b <c> d e f loop.reset();
     }
 
     @Test
@@ -1200,9 +822,11 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
+        loop = new LoopingListIterator<>(list); // <b> e f
+
+        loop.add("a");                      // a <b> e f
         // removed other assertion
-        assertEquals("b", loop.next());     // a b <e> f;
+        assertEquals("a", loop.next());     // a <b> c d e f;
     }
 
     @Test
@@ -1212,12 +836,12 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
+        loop = new LoopingListIterator<>(list); // <b> e f
 
-        loop.add("c");                      // a b c <e> f
-        assertEquals("e", loop.next());     // a b c e <f>;
+        loop.add("a");                      // a <b> e f
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", loop.next());     // a b <c> d e f;
     }
 
     @Test
@@ -1227,13 +851,13 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
+        loop = new LoopingListIterator<>(list); // <b> e f
 
-        loop.add("c");                      // a b c <e> f
+        loop.add("a");                      // a <b> e f
         // removed other assertion
-        assertEquals("e", loop.previous()); // a b c <e> f;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("c", loop.next());     // a b c <d> e f;
     }
 
     @Test
@@ -1243,14 +867,14 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
+        loop = new LoopingListIterator<>(list); // <b> e f
 
-        loop.add("c");                      // a b c <e> f
+        loop.add("a");                      // a <b> e f
         // removed other assertion
         // removed other assertion
-        assertEquals("c", loop.previous()); // a b <c> e f;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("d", loop.next());     // a b c d <e> f;
     }
 
     @Test
@@ -1260,15 +884,15 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
+        loop = new LoopingListIterator<>(list); // <b> e f
 
-        loop.add("c");                      // a b c <e> f
+        loop.add("a");                      // a <b> e f
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("c", loop.next());     // a b c <e> f;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("e", loop.next());     // a b c d e <f>;
     }
 
     @Test
@@ -1278,19 +902,16 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
+        loop = new LoopingListIterator<>(list); // <b> e f
 
-        loop.add("c");                      // a b c <e> f
+        loop.add("a");                      // a <b> e f
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        assertEquals("a", loop.next());     // a <b> c d e f;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("f", loop.next());     // <a> b c d e f;
     }
 
     @Test
@@ -1300,676 +921,10 @@ public class LoopingListIteratorTest_OE25Dev {
 
         loop.add("a");                      // <a> b e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        assertEquals("b", loop.next());     // a b <c> d e f;
-    }
-
-    @Test
-    public void testAdd_10_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        assertEquals("c", loop.next());     // a b c <d> e f;
-    }
-
-    @Test
-    public void testAdd_11_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("d", loop.next());     // a b c d <e> f;
-    }
-
-    @Test
-    public void testAdd_12_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("e", loop.next());     // a b c d e <f>;
-    }
-
-    @Test
-    public void testAdd_13_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("f", loop.next());     // <a> b c d e f;
-    }
-
-    @Test
-    public void testAdd_14_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("a", loop.next());     // a <b> c d e f;
-    }
-
-    @Test
-    public void testAdd_15_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        assertEquals("a", loop.previous()); // a b e <f>;
-    }
-
-    @Test
-    public void testAdd_16_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
         loop = new LoopingListIterator<>(list); // <b> e f
 
         loop.add("a");                      // a <b> e f
         // removed other assertion
-        loop.reset();                       // <a> b e f
-        assertEquals("f", loop.previous()); // a b e <f>;
-    }
-
-    @Test
-    public void testAdd_17_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        assertEquals("e", loop.previous()); // a b <e> f;
-    }
-
-    @Test
-    public void testAdd_18_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        assertEquals("d", loop.previous()); // a b <d> e f;
-    }
-
-    @Test
-    public void testAdd_19_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        assertEquals("c", loop.previous()); // a b <c> d e f;
-    }
-
-    @Test
-    public void testAdd_20_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
-        assertEquals("a", loop.next());     // a <b> c d e f;
-    }
-
-    @Test
-    public void testAdd_21_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
-        // removed other assertion
-        assertEquals("b", loop.next());     // a b <c> d e f;
-    }
-
-    @Test
-    public void testAdd_22_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
-        // removed other assertion
-        // removed other assertion
-        assertEquals("c", loop.next());     // a b c <d> e f;
-    }
-
-    @Test
-    public void testAdd_23_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("d", loop.next());     // a b c d <e> f;
-    }
-
-    @Test
-    public void testAdd_24_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("e", loop.next());     // a b c d e <f>;
-    }
-
-    @Test
-    public void testAdd_25_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("f", loop.next());     // <a> b c d e f;
-    }
-
-    @Test
-    public void testAdd_26_oe() {
-        List<String> list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // <a> b e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("c");                      // a b c <e> f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
-        loop = new LoopingListIterator<>(list); // <b> e f
-
-        loop.add("a");                      // a <b> e f
-        // removed other assertion
-        loop.reset();                       // <a> b e f
-        // removed other assertion
-        // removed other assertion
-
-        loop.add("d");                      // a b d <e> f
-        // removed other assertion
-
-        loop.add("c");                      // a b c <d> e f
-        // removed other assertion
-
-        loop.reset();
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2004,7 +959,7 @@ public class LoopingListIteratorTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertEquals("a", loop.next());        // a <b> c;
+        assertEquals("a",loop.next());// a <b> c assertEquals(1,loop.nextIndex());
     }
 
     @Test
@@ -2016,7 +971,7 @@ public class LoopingListIteratorTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertEquals(1, loop.nextIndex());
+        assertEquals(0, loop.previousIndex());
     }
 
     @Test
@@ -2029,7 +984,8 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(0, loop.previousIndex());
+
+        assertEquals("a",loop.previous());// <a> b c assertEquals(0,loop.nextIndex());
     }
 
     @Test
@@ -2042,9 +998,9 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
-        assertEquals("a", loop.previous());    // <a> b c;
+        // removed other assertion
+        assertEquals(2, loop.previousIndex());
     }
 
     @Test
@@ -2057,10 +1013,11 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // removed other assertion
-        assertEquals(0, loop.nextIndex());
+        // removed other assertion
+
+        assertEquals("c",loop.previous());// a b <c> assertEquals(2,loop.nextIndex());
     }
 
     @Test
@@ -2073,11 +1030,12 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        assertEquals(2, loop.previousIndex());
+
+        // removed other assertion
+        assertEquals(1, loop.previousIndex());
     }
 
     @Test
@@ -2090,13 +1048,14 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
-        assertEquals("c", loop.previous());    // a b <c>;
+        assertEquals("b",loop.previous());// a <b> c assertEquals(1,loop.nextIndex());
     }
 
     @Test
@@ -2109,14 +1068,15 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // removed other assertion
-        assertEquals(2, loop.nextIndex());
+        assertEquals(0, loop.previousIndex());
     }
 
     @Test
@@ -2129,15 +1089,17 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        assertEquals(1, loop.previousIndex());
+
+        assertEquals("a",loop.previous());// <a> b c assertEquals(0,loop.nextIndex());
     }
 
     @Test
@@ -2150,148 +1112,16 @@ public class LoopingListIteratorTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertEquals("b", loop.previous());    // a <b> c;
-    }
-
-    @Test
-    public void testNextAndPreviousIndex_13_oe() {
-        final List<String> list = Arrays.asList("a", "b", "c");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(1, loop.nextIndex());
-    }
-
-    @Test
-    public void testNextAndPreviousIndex_14_oe() {
-        final List<String> list = Arrays.asList("a", "b", "c");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(0, loop.previousIndex());
-    }
-
-    @Test
-    public void testNextAndPreviousIndex_15_oe() {
-        final List<String> list = Arrays.asList("a", "b", "c");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertEquals("a", loop.previous());    // <a> b c;
-    }
-
-    @Test
-    public void testNextAndPreviousIndex_16_oe() {
-        final List<String> list = Arrays.asList("a", "b", "c");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(0, loop.nextIndex());
-    }
-
-    @Test
-    public void testNextAndPreviousIndex_17_oe() {
-        final List<String> list = Arrays.asList("a", "b", "c");
-        final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
         // removed other assertion
         assertEquals(2, loop.previousIndex());
     }

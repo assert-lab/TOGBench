@@ -43,20 +43,20 @@ class FactorialDoubleTest_OE25Dev {
     @Test
     void testFactorialDirect_1_oe() {
         for (int i = 1; i < 21; i++) {
-            Assertions.assertEquals( factorialDirect(i), FactorialDouble.create().value(i), i + "!");
+            Assertions.assertEquals(factorialDirect(i),FactorialDouble.create().value(i),i + "!");
     }
     }
 
     @Test
     void testLargestFactorialDouble_1_oe() {
         final int n = 170;
-        Assertions.assertNotEquals( Double.POSITIVE_INFINITY, FactorialDouble.create().value(n), () -> n + "!");
+        Assertions.assertNotEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
     }
 
     @Test
     void testFactorialDoubleTooLarge_1_oe() {
         final int n = 171;
-        Assertions.assertEquals( Double.POSITIVE_INFINITY, FactorialDouble.create().value(n), () -> n + "!");
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
     }
 
     @Test
@@ -79,7 +79,7 @@ class FactorialDoubleTest_OE25Dev {
 
         for (int i = 0; i < max; i++) {
             final double expected = factorialDirect(i);
-            Assertions.assertEquals( expected, f.value(i), 100 * Math.ulp(expected), i + "! ");
+            Assertions.assertEquals(expected,f.value(i),100 * Math.ulp(expected),i + "! ");
     }
     }
 
@@ -90,7 +90,7 @@ class FactorialDoubleTest_OE25Dev {
 
         for (int i = 0; i < max; i++) {
             final double expected = factorialDirect(i);
-            Assertions.assertEquals( expected, f.value(i), 100 * Math.ulp(expected), i + "! ");
+            Assertions.assertEquals(expected,f.value(i),100 * Math.ulp(expected),i + "! ");
     }
     }
 

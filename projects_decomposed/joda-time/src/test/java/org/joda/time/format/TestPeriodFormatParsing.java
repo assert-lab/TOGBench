@@ -94,23 +94,23 @@ public class TestPeriodFormatParsing extends TestCase {
     public void testParseStandard1() {
         PeriodFormatter parser = PeriodFormat.getDefault();
         Period p = parser.parsePeriod("6 years, 3 months and 2 days");
-        assertEquals(new Period(6, 3, 0, 2, 0, 0, 0, 0), p);
+        assertEquals(new Period(6,3,0,2,0,0,0,0),p);
     }
 
     public void testParseNegativeMillis1() {
         Period period = new Period(0, 0, 0, -1);
         String formatted = period.toString();
-        assertEquals("PT-0.001S", formatted);
+        assertEquals("PT-0.001S",formatted);
         Period parsed = Period.parse(formatted);
-        assertEquals(period, parsed);
+        assertEquals(period,parsed);
     }
 
     public void testParseNegativeMillis2() {
         Period period = new Period(0, 0, 0, -999);
         String formatted = period.toString();
-        assertEquals("PT-0.999S", formatted);
+        assertEquals("PT-0.999S",formatted);
         Period parsed = Period.parse(formatted);
-        assertEquals(period, parsed);
+        assertEquals(period,parsed);
     }
 
     public void testParseCustom1() {
@@ -125,28 +125,28 @@ public class TestPeriodFormatParsing extends TestCase {
         Period p;
 
         p = new Period(47, 55, 0, 0);
-        assertEquals("47:55", formatter.print(p));
-        assertEquals(p, formatter.parsePeriod("47:55"));
-        assertEquals(p, formatter.parsePeriod("047:055"));
+        assertEquals("47:55",formatter.print(p));
+        assertEquals(p,formatter.parsePeriod("47:55"));
+        assertEquals(p,formatter.parsePeriod("047:055"));
 
         p = new Period(7, 5, 0, 0);
-        assertEquals("7:05", formatter.print(p));
-        assertEquals(p, formatter.parsePeriod("7:05"));
-        assertEquals(p, formatter.parsePeriod("7:5"));
-        assertEquals(p, formatter.parsePeriod("07:05"));
+        assertEquals("7:05",formatter.print(p));
+        assertEquals(p,formatter.parsePeriod("7:05"));
+        assertEquals(p,formatter.parsePeriod("7:5"));
+        assertEquals(p,formatter.parsePeriod("07:05"));
 
         p = new Period(0, 5, 0, 0);
-        assertEquals("0:05", formatter.print(p));
-        assertEquals(p, formatter.parsePeriod("0:05"));
-        assertEquals(p, formatter.parsePeriod("0:5"));
-        assertEquals(p, formatter.parsePeriod("00:005"));
-        assertEquals(p, formatter.parsePeriod("0:005"));
+        assertEquals("0:05",formatter.print(p));
+        assertEquals(p,formatter.parsePeriod("0:05"));
+        assertEquals(p,formatter.parsePeriod("0:5"));
+        assertEquals(p,formatter.parsePeriod("00:005"));
+        assertEquals(p,formatter.parsePeriod("0:005"));
 
         p = new Period(0, 0, 0, 0);
-        assertEquals("0:00", formatter.print(p));
-        assertEquals(p, formatter.parsePeriod("0:00"));
-        assertEquals(p, formatter.parsePeriod("0:0"));
-        assertEquals(p, formatter.parsePeriod("00:00"));
+        assertEquals("0:00",formatter.print(p));
+        assertEquals(p,formatter.parsePeriod("0:00"));
+        assertEquals(p,formatter.parsePeriod("0:0"));
+        assertEquals(p,formatter.parsePeriod("00:00"));
     }
 
 }

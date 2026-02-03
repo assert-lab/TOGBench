@@ -37,8 +37,7 @@ public class CleanerTest {
         String h = "<div><p><a href='javascript:sendAllMoney()'>Dodgy</a> <A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic());
 
-        assertEquals("<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>",
-                TextUtil.stripNewlines(cleanHtml));
+        assertEquals("<p><a rel=\"nofollow\">Dodgy</a> <a href=\"http://nice.com\" rel=\"nofollow\">Nice</a></p><blockquote>Hello</blockquote>",TextUtil.stripNewlines(cleanHtml));
     }
 
     @Test public void basicWithImagesTest() {
@@ -71,16 +70,14 @@ public class CleanerTest {
         String h = "<div><p><A HREF='HTTP://nice.com'>Nice</a></p><blockquote>Hello</blockquote>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic().removeEnforcedAttribute("a", "rel"));
 
-        assertEquals("<p><a href=\"http://nice.com\">Nice</a></p><blockquote>Hello</blockquote>",
-                TextUtil.stripNewlines(cleanHtml));
+        assertEquals("<p><a href=\"http://nice.com\">Nice</a></p><blockquote>Hello</blockquote>",TextUtil.stripNewlines(cleanHtml));
     }
 
     @Test public void testRemoveProtocols() {
         String h = "<p>Contact me <a href='mailto:info@example.com'>here</a></p>";
         String cleanHtml = Jsoup.clean(h, Safelist.basic().removeProtocols("a", "href", "ftp", "mailto"));
 
-        assertEquals("<p>Contact me <a rel=\"nofollow\">here</a></p>",
-                TextUtil.stripNewlines(cleanHtml));
+        assertEquals("<p>Contact me <a rel=\"nofollow\">here</a></p>",TextUtil.stripNewlines(cleanHtml));
     }
 
     @MultiLocaleTest
@@ -272,10 +269,7 @@ public class CleanerTest {
         String defaultOut = Jsoup.clean(html, "http://foo.com/", Safelist.relaxed());
         assertNotSame(defaultOut, customOut);
 
-        assertEquals("<div><p>&Bscr;</p></div>", customOut); // entities now prefers shorted names if aliased
-        assertEquals("<div>\n" +
-            " <p>ℬ</p>\n" +
-            "</div>", defaultOut);
+        assertEquals("<div><p>&Bscr;</p></div>",customOut);// entities now prefers shorted names if aliased assertEquals("<div>\n" + " <p>ℬ</p>\n" + "</div>",defaultOut);
 
         os.charset("ASCII");
         os.escapeMode(Entities.EscapeMode.base);
@@ -286,8 +280,7 @@ public class CleanerTest {
     @Test public void handlesFramesets() {
         String dirty = "<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\" /><frame src=\"foo\" /></frameset></html>";
         String clean = Jsoup.clean(dirty, Safelist.basic());
-        assertEquals("", clean); // nothing good can come out of that
-
+        assertEquals("",clean);// nothing good can come out of that 
         Document dirtyDoc = Jsoup.parse(dirty);
         Document cleanDoc = new Cleaner(Safelist.basic()).clean(dirtyDoc);
         assertNotNull(cleanDoc);
@@ -346,8 +339,7 @@ public class CleanerTest {
         String clean = Jsoup.clean(orig, allow);
         boolean isValid = Jsoup.isValid(orig, allow);
 
-        assertEquals(orig, TextUtil.stripNewlines(clean)); // only difference is pretty print wrap & indent
-        assertTrue(isValid);
+        assertEquals(orig,TextUtil.stripNewlines(clean));// only difference is pretty print wrap & indent assertTrue(isValid);
     }
 
     @Test public void copiesOutputSettings() {

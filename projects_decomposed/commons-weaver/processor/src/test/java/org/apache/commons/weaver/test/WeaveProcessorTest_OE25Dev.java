@@ -215,7 +215,7 @@ public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
         // removed other assertion
         
         // removed other assertion
-        Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList( TestBeanWithClassAnnotation.class, TestBeanWithMethodAnnotation.class)));
+        Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
     }
 
 }

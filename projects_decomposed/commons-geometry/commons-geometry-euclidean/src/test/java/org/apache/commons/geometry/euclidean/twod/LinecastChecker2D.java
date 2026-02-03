@@ -113,8 +113,7 @@ public class LinecastChecker2D {
             final LinecastPoint2D actual = results.get(i);
 
             if (!eq(expected, actual)) {
-                Assertions.fail("Unexpected linecast point at index " + i + " expected " + expected +
-                        " but was " + actual);
+                Assertions.fail("Unexpected linecast point at index " + i + " expected " + expected + " but was " + actual);
             }
         }
     }
@@ -132,8 +131,7 @@ public class LinecastChecker2D {
             Assertions.assertNotNull(result, "Expected linecastFirst result to not be null");
 
             if (!eq(expected, result)) {
-                Assertions.fail("Unexpected result from linecastFirst: expected " + expected +
-                        " but was " + result);
+                Assertions.fail("Unexpected result from linecastFirst: expected " + expected + " but was " + result);
             }
         }
     }

@@ -200,9 +200,7 @@ public class ClassUtilsTest  {
         assertEquals("WithoutPackage", ClassUtils.getAbbreviatedName("WithoutPackage", 1));
         assertEquals("j.l.String", ClassUtils.getAbbreviatedName("java.lang.String", 1));
         assertEquals("o.a.c.l.ClassUtils", ClassUtils.getAbbreviatedName("org.apache.commons.lang3.ClassUtils", 18));
-        assertEquals("org.apache.commons.lang3.ClassUtils",
-                              ClassUtils.getAbbreviatedName("org.apache.commons.lang3.ClassUtils",
-                              "org.apache.commons.lang3.ClassUtils".length()));
+        assertEquals("org.apache.commons.lang3.ClassUtils",ClassUtils.getAbbreviatedName("org.apache.commons.lang3.ClassUtils","org.apache.commons.lang3.ClassUtils".length()));
         assertEquals("o.a.c.l.ClassUtils", ClassUtils.getAbbreviatedName("o.a.c.l.ClassUtils", 18));
         assertEquals("o..c.l.ClassUtils", ClassUtils.getAbbreviatedName("o..c.l.ClassUtils", 18));
         assertEquals(".", ClassUtils.getAbbreviatedName(".", 18));
@@ -436,16 +434,11 @@ public class ClassUtilsTest  {
 
     @Test
     public void test_getPackageCanonicalName_String() {
-        assertEquals("org.apache.commons.lang3",
-            ClassUtils.getPackageCanonicalName("org.apache.commons.lang3.ClassUtils"));
-        assertEquals("org.apache.commons.lang3",
-            ClassUtils.getPackageCanonicalName("[Lorg.apache.commons.lang3.ClassUtils;"));
-        assertEquals("org.apache.commons.lang3",
-            ClassUtils.getPackageCanonicalName("[[Lorg.apache.commons.lang3.ClassUtils;"));
-        assertEquals("org.apache.commons.lang3",
-            ClassUtils.getPackageCanonicalName("org.apache.commons.lang3.ClassUtils[]"));
-        assertEquals("org.apache.commons.lang3",
-            ClassUtils.getPackageCanonicalName("org.apache.commons.lang3.ClassUtils[][]"));
+        assertEquals("org.apache.commons.lang3",ClassUtils.getPackageCanonicalName("org.apache.commons.lang3.ClassUtils"));
+        assertEquals("org.apache.commons.lang3",ClassUtils.getPackageCanonicalName("[Lorg.apache.commons.lang3.ClassUtils;"));
+        assertEquals("org.apache.commons.lang3",ClassUtils.getPackageCanonicalName("[[Lorg.apache.commons.lang3.ClassUtils;"));
+        assertEquals("org.apache.commons.lang3",ClassUtils.getPackageCanonicalName("org.apache.commons.lang3.ClassUtils[]"));
+        assertEquals("org.apache.commons.lang3",ClassUtils.getPackageCanonicalName("org.apache.commons.lang3.ClassUtils[][]"));
         assertEquals("", ClassUtils.getPackageCanonicalName("[I"));
         assertEquals("", ClassUtils.getPackageCanonicalName("[[I"));
         assertEquals("", ClassUtils.getPackageCanonicalName("int[]"));
@@ -787,10 +780,7 @@ public class ClassUtilsTest  {
         assertFalse(ClassUtils.isAssignable(null, array2));
         assertTrue(ClassUtils.isAssignable(null, array0));
         assertTrue(ClassUtils.isAssignable(array0, array0));
-        assertTrue(ClassUtils.isAssignable(array0, (Class<?>[]) null)); // explicit cast to avoid warning
-        assertTrue(ClassUtils.isAssignable(null, (Class<?>[]) null)); // explicit cast to avoid warning
-
-        assertFalse(ClassUtils.isAssignable(array1, array1s));
+        assertTrue(ClassUtils.isAssignable(array0,(Class<?>[])null));// explicit cast to avoid warning assertTrue(ClassUtils.isAssignable(null,(Class<?>[])null));// explicit cast to avoid warning assertFalse(ClassUtils.isAssignable(array1,array1s));
         assertTrue(ClassUtils.isAssignable(array1s, array1s));
         assertTrue(ClassUtils.isAssignable(array1s, array1));
 
@@ -1349,14 +1339,11 @@ public class ClassUtilsTest  {
     public void testPrimitivesToWrappers() {
         // test null
 //        assertNull("null -> null", ClassUtils.primitivesToWrappers(null)); // generates warning
-        assertNull(ClassUtils.primitivesToWrappers((Class<?>[]) null), "null -> null"); // equivalent cast to avoid warning
-        // Other possible casts for null
-        assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY, ClassUtils.primitivesToWrappers(), "empty -> empty");
+        assertNull(ClassUtils.primitivesToWrappers((Class<?>[])null),"null -> null");// equivalent cast to avoid warning assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY,ClassUtils.primitivesToWrappers(),"empty -> empty");
         final Class<?>[] castNull = ClassUtils.primitivesToWrappers((Class<?>) null); // == new Class<?>[]{null}
         assertArrayEquals(new Class<?>[]{null}, castNull, "(Class<?>) null -> [null]");
         // test empty array is returned unchanged
-        assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY, ClassUtils.primitivesToWrappers(ArrayUtils.EMPTY_CLASS_ARRAY),
-                "empty -> empty");
+        assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY,ClassUtils.primitivesToWrappers(ArrayUtils.EMPTY_CLASS_ARRAY),"empty -> empty");
 
         // test an array of various classes
         final Class<?>[] primitives = new Class[] {
@@ -1397,8 +1384,7 @@ public class ClassUtilsTest  {
 
         // test a few other classes
         assertEquals(String.class, ClassUtils.primitiveToWrapper(String.class), "String.class -> String.class");
-        assertEquals(ClassUtils.class, ClassUtils.primitiveToWrapper(ClassUtils.class),
-                "ClassUtils.class -> ClassUtils.class");
+        assertEquals(ClassUtils.class,ClassUtils.primitiveToWrapper(ClassUtils.class),"ClassUtils.class -> ClassUtils.class");
         assertEquals(Void.TYPE, ClassUtils.primitiveToWrapper(Void.TYPE), "Void.TYPE -> Void.TYPE");
 
         // test null
@@ -1418,10 +1404,7 @@ public class ClassUtilsTest  {
     @Test
     public void testToClass_object() {
 //        assertNull(ClassUtils.toClass(null)); // generates warning
-        assertNull(ClassUtils.toClass((Object[]) null)); // equivalent explicit cast
-
-        // Additional varargs tests
-        assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY, ClassUtils.toClass(), "empty -> empty");
+        assertNull(ClassUtils.toClass((Object[])null));// equivalent explicit cast assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY,ClassUtils.toClass(),"empty -> empty");
         final Class<?>[] castNull = ClassUtils.toClass((Object) null); // == new Object[]{null}
         assertArrayEquals(new Object[]{null}, castNull, "(Object) null -> [null]");
 
@@ -1467,9 +1450,7 @@ public class ClassUtilsTest  {
     @Test
     public void testWrappersToPrimitivesNull() {
 //        assertNull("Wrong result for null input", ClassUtils.wrappersToPrimitives(null)); // generates warning
-        assertNull(ClassUtils.wrappersToPrimitives((Class<?>[]) null), "Wrong result for null input"); // equivalent cast
-        // Other possible casts for null
-        assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY, ClassUtils.wrappersToPrimitives(), "empty -> empty");
+        assertNull(ClassUtils.wrappersToPrimitives((Class<?>[])null),"Wrong result for null input");// equivalent cast assertArrayEquals(ArrayUtils.EMPTY_CLASS_ARRAY,ClassUtils.wrappersToPrimitives(),"empty -> empty");
         final Class<?>[] castNull = ClassUtils.wrappersToPrimitives((Class<?>) null); // == new Class<?>[]{null}
         assertArrayEquals(new Class<?>[]{null}, castNull, "(Class<?>) null -> [null]");
 }

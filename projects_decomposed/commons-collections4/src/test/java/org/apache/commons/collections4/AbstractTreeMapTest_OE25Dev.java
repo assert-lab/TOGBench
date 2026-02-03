@@ -56,7 +56,7 @@ public abstract class AbstractTreeMapTest_OE25Dev<K, V> extends AbstractMapTest<
         final TreeMap<K, V> map = makeObject();
         map.put((K) "first", (V) "First Item");
         map.put((K) "second", (V) "Second Item");
-        assertEquals("Top item is 'Second Item'", "First Item", map.get("first"));
+        assertEquals("Top item is 'Second Item'","First Item",map.get("first"));
     }
 
     public void testSearch_2_oe() {
@@ -64,7 +64,7 @@ public abstract class AbstractTreeMapTest_OE25Dev<K, V> extends AbstractMapTest<
         map.put((K) "first", (V) "First Item");
         map.put((K) "second", (V) "Second Item");
         // removed other assertion
-        assertEquals("Next Item is 'First Item'", "Second Item", map.get("second"));
+        assertEquals("Next Item is 'First Item'","Second Item",map.get("second"));
     }
 
 }

@@ -72,9 +72,8 @@ public class W3CDomTest {
         Map<String, String> properties = W3CDom.OutputXml();
         properties.put(OutputKeys.INDENT, "yes");
         String furtherOut = W3CDom.asString(wDoc, properties);
-        assertTrue(furtherOut.length() > out.length()); // wanted to assert formatting, but actual indentation is platform specific so breaks in CI
-        String furtherExpected =
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
+        assertTrue(furtherOut.length()> out.length());// wanted to assert formatting,but actual indentation is platform specific so breaks in CI 
+        String furtherExpected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
         assertEquals(furtherExpected, TextUtil.stripNewlines(furtherOut)); // on windows, DOM will write newlines as \r\n
     }
 
@@ -182,8 +181,7 @@ public class W3CDomTest {
         org.jsoup.nodes.Document jsoupDoc;
         jsoupDoc = Jsoup.parse(html);
         Element body = jsoupDoc.select("body").first();
-        assertTrue(body.hasAttr("\"")); // actually an attribute with key '"'. Correct per HTML5 spec, but w3c xml dom doesn't dig it
-        assertTrue(body.hasAttr("name\""));
+        assertTrue(body.hasAttr("\""));// actually an attribute with key '"'. Correct per HTML5 spec,but w3c xml dom doesn't dig it assertTrue(body.hasAttr("name\""));
 
         Document w3Doc = W3CDom.convert(jsoupDoc);
         String xml = W3CDom.asString(w3Doc, W3CDom.OutputXml());
@@ -254,9 +252,7 @@ public class W3CDomTest {
         html = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
         dom = w3c.fromJsoup(Jsoup.parse(html));
         nodeList = xpath(dom, "//body");
-        assertNull(nodeList); // no matches
-
-        dom = w3c.fromJsoup(Jsoup.parse(html));
+        assertNull(nodeList);// no matches dom = w3c.fromJsoup(Jsoup.parse(html));
         nodeList = xpath(dom, "//*[local-name()=\"body\"]");
         assertNotNull(nodeList);
         assertEquals(1, nodeList.getLength());

@@ -80,29 +80,29 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetHour() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
-        assertEquals("hourOfDay", test.hourOfDay().getName());
-        assertEquals("Property[hourOfDay]", test.hourOfDay().toString());
-        assertSame(test, test.hourOfDay().getReadablePartial());
-        assertSame(test, test.hourOfDay().getTimeOfDay());
-        assertEquals(10, test.hourOfDay().get());
-        assertEquals("10", test.hourOfDay().getAsString());
-        assertEquals("10", test.hourOfDay().getAsText());
-        assertEquals("10", test.hourOfDay().getAsText(Locale.FRENCH));
-        assertEquals("10", test.hourOfDay().getAsShortText());
-        assertEquals("10", test.hourOfDay().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().hours(), test.hourOfDay().getDurationField());
-        assertEquals(test.getChronology().days(), test.hourOfDay().getRangeDurationField());
-        assertEquals(2, test.hourOfDay().getMaximumTextLength(null));
-        assertEquals(2, test.hourOfDay().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().hourOfDay(),test.hourOfDay().getField());
+        assertEquals("hourOfDay",test.hourOfDay().getName());
+        assertEquals("Property[hourOfDay]",test.hourOfDay().toString());
+        assertSame(test,test.hourOfDay().getReadablePartial());
+        assertSame(test,test.hourOfDay().getTimeOfDay());
+        assertEquals(10,test.hourOfDay().get());
+        assertEquals("10",test.hourOfDay().getAsString());
+        assertEquals("10",test.hourOfDay().getAsText());
+        assertEquals("10",test.hourOfDay().getAsText(Locale.FRENCH));
+        assertEquals("10",test.hourOfDay().getAsShortText());
+        assertEquals("10",test.hourOfDay().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().hours(),test.hourOfDay().getDurationField());
+        assertEquals(test.getChronology().days(),test.hourOfDay().getRangeDurationField());
+        assertEquals(2,test.hourOfDay().getMaximumTextLength(null));
+        assertEquals(2,test.hourOfDay().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesHour() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(0, test.hourOfDay().getMinimumValue());
-        assertEquals(0, test.hourOfDay().getMinimumValueOverall());
-        assertEquals(23, test.hourOfDay().getMaximumValue());
-        assertEquals(23, test.hourOfDay().getMaximumValueOverall());
+        assertEquals(0,test.hourOfDay().getMinimumValue());
+        assertEquals(0,test.hourOfDay().getMinimumValueOverall());
+        assertEquals(23,test.hourOfDay().getMaximumValue());
+        assertEquals(23,test.hourOfDay().getMaximumValueOverall());
     }
 
     public void testPropertyAddHour() {
@@ -211,9 +211,9 @@ public class TestTimeOfDay_Properties extends TestCase {
     public void testPropertyCompareToHour() {
         TimeOfDay test1 = new TimeOfDay(TEST_TIME1);
         TimeOfDay test2 = new TimeOfDay(TEST_TIME2);
-        assertEquals(true, test1.hourOfDay().compareTo(test2) < 0);
-        assertEquals(true, test2.hourOfDay().compareTo(test1) > 0);
-        assertEquals(true, test1.hourOfDay().compareTo(test1) == 0);
+        assertEquals(true,test1.hourOfDay().compareTo(test2)< 0);
+        assertEquals(true,test2.hourOfDay().compareTo(test1)> 0);
+        assertEquals(true,test1.hourOfDay().compareTo(test1)== 0);
         try {
             test1.hourOfDay().compareTo((ReadablePartial) null);
             fail();
@@ -221,9 +221,9 @@ public class TestTimeOfDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.hourOfDay().compareTo(dt2) < 0);
-        assertEquals(true, test2.hourOfDay().compareTo(dt1) > 0);
-        assertEquals(true, test1.hourOfDay().compareTo(dt1) == 0);
+        assertEquals(true,test1.hourOfDay().compareTo(dt2)< 0);
+        assertEquals(true,test2.hourOfDay().compareTo(dt1)> 0);
+        assertEquals(true,test1.hourOfDay().compareTo(dt1)== 0);
         try {
             test1.hourOfDay().compareTo((ReadableInstant) null);
             fail();
@@ -233,29 +233,29 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinute() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
-        assertEquals("minuteOfHour", test.minuteOfHour().getName());
-        assertEquals("Property[minuteOfHour]", test.minuteOfHour().toString());
-        assertSame(test, test.minuteOfHour().getReadablePartial());
-        assertSame(test, test.minuteOfHour().getTimeOfDay());
-        assertEquals(20, test.minuteOfHour().get());
-        assertEquals("20", test.minuteOfHour().getAsString());
-        assertEquals("20", test.minuteOfHour().getAsText());
-        assertEquals("20", test.minuteOfHour().getAsText(Locale.FRENCH));
-        assertEquals("20", test.minuteOfHour().getAsShortText());
-        assertEquals("20", test.minuteOfHour().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().minutes(), test.minuteOfHour().getDurationField());
-        assertEquals(test.getChronology().hours(), test.minuteOfHour().getRangeDurationField());
-        assertEquals(2, test.minuteOfHour().getMaximumTextLength(null));
-        assertEquals(2, test.minuteOfHour().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().minuteOfHour(),test.minuteOfHour().getField());
+        assertEquals("minuteOfHour",test.minuteOfHour().getName());
+        assertEquals("Property[minuteOfHour]",test.minuteOfHour().toString());
+        assertSame(test,test.minuteOfHour().getReadablePartial());
+        assertSame(test,test.minuteOfHour().getTimeOfDay());
+        assertEquals(20,test.minuteOfHour().get());
+        assertEquals("20",test.minuteOfHour().getAsString());
+        assertEquals("20",test.minuteOfHour().getAsText());
+        assertEquals("20",test.minuteOfHour().getAsText(Locale.FRENCH));
+        assertEquals("20",test.minuteOfHour().getAsShortText());
+        assertEquals("20",test.minuteOfHour().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().minutes(),test.minuteOfHour().getDurationField());
+        assertEquals(test.getChronology().hours(),test.minuteOfHour().getRangeDurationField());
+        assertEquals(2,test.minuteOfHour().getMaximumTextLength(null));
+        assertEquals(2,test.minuteOfHour().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesMinute() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(0, test.minuteOfHour().getMinimumValue());
-        assertEquals(0, test.minuteOfHour().getMinimumValueOverall());
-        assertEquals(59, test.minuteOfHour().getMaximumValue());
-        assertEquals(59, test.minuteOfHour().getMaximumValueOverall());
+        assertEquals(0,test.minuteOfHour().getMinimumValue());
+        assertEquals(0,test.minuteOfHour().getMinimumValueOverall());
+        assertEquals(59,test.minuteOfHour().getMaximumValue());
+        assertEquals(59,test.minuteOfHour().getMaximumValueOverall());
     }
 
     public void testPropertyAddMinute() {
@@ -383,9 +383,9 @@ public class TestTimeOfDay_Properties extends TestCase {
     public void testPropertyCompareToMinute() {
         TimeOfDay test1 = new TimeOfDay(TEST_TIME1);
         TimeOfDay test2 = new TimeOfDay(TEST_TIME2);
-        assertEquals(true, test1.minuteOfHour().compareTo(test2) < 0);
-        assertEquals(true, test2.minuteOfHour().compareTo(test1) > 0);
-        assertEquals(true, test1.minuteOfHour().compareTo(test1) == 0);
+        assertEquals(true,test1.minuteOfHour().compareTo(test2)< 0);
+        assertEquals(true,test2.minuteOfHour().compareTo(test1)> 0);
+        assertEquals(true,test1.minuteOfHour().compareTo(test1)== 0);
         try {
             test1.minuteOfHour().compareTo((ReadablePartial) null);
             fail();
@@ -393,9 +393,9 @@ public class TestTimeOfDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.minuteOfHour().compareTo(dt2) < 0);
-        assertEquals(true, test2.minuteOfHour().compareTo(dt1) > 0);
-        assertEquals(true, test1.minuteOfHour().compareTo(dt1) == 0);
+        assertEquals(true,test1.minuteOfHour().compareTo(dt2)< 0);
+        assertEquals(true,test2.minuteOfHour().compareTo(dt1)> 0);
+        assertEquals(true,test1.minuteOfHour().compareTo(dt1)== 0);
         try {
             test1.minuteOfHour().compareTo((ReadableInstant) null);
             fail();
@@ -405,29 +405,29 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetSecond() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
-        assertEquals("secondOfMinute", test.secondOfMinute().getName());
-        assertEquals("Property[secondOfMinute]", test.secondOfMinute().toString());
-        assertSame(test, test.secondOfMinute().getReadablePartial());
-        assertSame(test, test.secondOfMinute().getTimeOfDay());
-        assertEquals(30, test.secondOfMinute().get());
-        assertEquals("30", test.secondOfMinute().getAsString());
-        assertEquals("30", test.secondOfMinute().getAsText());
-        assertEquals("30", test.secondOfMinute().getAsText(Locale.FRENCH));
-        assertEquals("30", test.secondOfMinute().getAsShortText());
-        assertEquals("30", test.secondOfMinute().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().seconds(), test.secondOfMinute().getDurationField());
-        assertEquals(test.getChronology().minutes(), test.secondOfMinute().getRangeDurationField());
-        assertEquals(2, test.secondOfMinute().getMaximumTextLength(null));
-        assertEquals(2, test.secondOfMinute().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().secondOfMinute(),test.secondOfMinute().getField());
+        assertEquals("secondOfMinute",test.secondOfMinute().getName());
+        assertEquals("Property[secondOfMinute]",test.secondOfMinute().toString());
+        assertSame(test,test.secondOfMinute().getReadablePartial());
+        assertSame(test,test.secondOfMinute().getTimeOfDay());
+        assertEquals(30,test.secondOfMinute().get());
+        assertEquals("30",test.secondOfMinute().getAsString());
+        assertEquals("30",test.secondOfMinute().getAsText());
+        assertEquals("30",test.secondOfMinute().getAsText(Locale.FRENCH));
+        assertEquals("30",test.secondOfMinute().getAsShortText());
+        assertEquals("30",test.secondOfMinute().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().seconds(),test.secondOfMinute().getDurationField());
+        assertEquals(test.getChronology().minutes(),test.secondOfMinute().getRangeDurationField());
+        assertEquals(2,test.secondOfMinute().getMaximumTextLength(null));
+        assertEquals(2,test.secondOfMinute().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesSecond() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(0, test.secondOfMinute().getMinimumValue());
-        assertEquals(0, test.secondOfMinute().getMinimumValueOverall());
-        assertEquals(59, test.secondOfMinute().getMaximumValue());
-        assertEquals(59, test.secondOfMinute().getMaximumValueOverall());
+        assertEquals(0,test.secondOfMinute().getMinimumValue());
+        assertEquals(0,test.secondOfMinute().getMinimumValueOverall());
+        assertEquals(59,test.secondOfMinute().getMaximumValue());
+        assertEquals(59,test.secondOfMinute().getMaximumValueOverall());
     }
 
     public void testPropertyAddSecond() {
@@ -549,9 +549,9 @@ public class TestTimeOfDay_Properties extends TestCase {
     public void testPropertyCompareToSecond() {
         TimeOfDay test1 = new TimeOfDay(TEST_TIME1);
         TimeOfDay test2 = new TimeOfDay(TEST_TIME2);
-        assertEquals(true, test1.secondOfMinute().compareTo(test2) < 0);
-        assertEquals(true, test2.secondOfMinute().compareTo(test1) > 0);
-        assertEquals(true, test1.secondOfMinute().compareTo(test1) == 0);
+        assertEquals(true,test1.secondOfMinute().compareTo(test2)< 0);
+        assertEquals(true,test2.secondOfMinute().compareTo(test1)> 0);
+        assertEquals(true,test1.secondOfMinute().compareTo(test1)== 0);
         try {
             test1.secondOfMinute().compareTo((ReadablePartial) null);
             fail();
@@ -559,9 +559,9 @@ public class TestTimeOfDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.secondOfMinute().compareTo(dt2) < 0);
-        assertEquals(true, test2.secondOfMinute().compareTo(dt1) > 0);
-        assertEquals(true, test1.secondOfMinute().compareTo(dt1) == 0);
+        assertEquals(true,test1.secondOfMinute().compareTo(dt2)< 0);
+        assertEquals(true,test2.secondOfMinute().compareTo(dt1)> 0);
+        assertEquals(true,test1.secondOfMinute().compareTo(dt1)== 0);
         try {
             test1.secondOfMinute().compareTo((ReadableInstant) null);
             fail();
@@ -571,29 +571,29 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMilli() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
-        assertEquals("millisOfSecond", test.millisOfSecond().getName());
-        assertEquals("Property[millisOfSecond]", test.millisOfSecond().toString());
-        assertSame(test, test.millisOfSecond().getReadablePartial());
-        assertSame(test, test.millisOfSecond().getTimeOfDay());
-        assertEquals(40, test.millisOfSecond().get());
-        assertEquals("40", test.millisOfSecond().getAsString());
-        assertEquals("40", test.millisOfSecond().getAsText());
-        assertEquals("40", test.millisOfSecond().getAsText(Locale.FRENCH));
-        assertEquals("40", test.millisOfSecond().getAsShortText());
-        assertEquals("40", test.millisOfSecond().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().millis(), test.millisOfSecond().getDurationField());
-        assertEquals(test.getChronology().seconds(), test.millisOfSecond().getRangeDurationField());
-        assertEquals(3, test.millisOfSecond().getMaximumTextLength(null));
-        assertEquals(3, test.millisOfSecond().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().millisOfSecond(),test.millisOfSecond().getField());
+        assertEquals("millisOfSecond",test.millisOfSecond().getName());
+        assertEquals("Property[millisOfSecond]",test.millisOfSecond().toString());
+        assertSame(test,test.millisOfSecond().getReadablePartial());
+        assertSame(test,test.millisOfSecond().getTimeOfDay());
+        assertEquals(40,test.millisOfSecond().get());
+        assertEquals("40",test.millisOfSecond().getAsString());
+        assertEquals("40",test.millisOfSecond().getAsText());
+        assertEquals("40",test.millisOfSecond().getAsText(Locale.FRENCH));
+        assertEquals("40",test.millisOfSecond().getAsShortText());
+        assertEquals("40",test.millisOfSecond().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().millis(),test.millisOfSecond().getDurationField());
+        assertEquals(test.getChronology().seconds(),test.millisOfSecond().getRangeDurationField());
+        assertEquals(3,test.millisOfSecond().getMaximumTextLength(null));
+        assertEquals(3,test.millisOfSecond().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesMilli() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(0, test.millisOfSecond().getMinimumValue());
-        assertEquals(0, test.millisOfSecond().getMinimumValueOverall());
-        assertEquals(999, test.millisOfSecond().getMaximumValue());
-        assertEquals(999, test.millisOfSecond().getMaximumValueOverall());
+        assertEquals(0,test.millisOfSecond().getMinimumValue());
+        assertEquals(0,test.millisOfSecond().getMinimumValueOverall());
+        assertEquals(999,test.millisOfSecond().getMaximumValue());
+        assertEquals(999,test.millisOfSecond().getMaximumValueOverall());
     }
 
     public void testPropertyAddMilli() {
@@ -709,9 +709,9 @@ public class TestTimeOfDay_Properties extends TestCase {
     public void testPropertyCompareToMilli() {
         TimeOfDay test1 = new TimeOfDay(TEST_TIME1);
         TimeOfDay test2 = new TimeOfDay(TEST_TIME2);
-        assertEquals(true, test1.millisOfSecond().compareTo(test2) < 0);
-        assertEquals(true, test2.millisOfSecond().compareTo(test1) > 0);
-        assertEquals(true, test1.millisOfSecond().compareTo(test1) == 0);
+        assertEquals(true,test1.millisOfSecond().compareTo(test2)< 0);
+        assertEquals(true,test2.millisOfSecond().compareTo(test1)> 0);
+        assertEquals(true,test1.millisOfSecond().compareTo(test1)== 0);
         try {
             test1.millisOfSecond().compareTo((ReadablePartial) null);
             fail();
@@ -719,9 +719,9 @@ public class TestTimeOfDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.millisOfSecond().compareTo(dt2) < 0);
-        assertEquals(true, test2.millisOfSecond().compareTo(dt1) > 0);
-        assertEquals(true, test1.millisOfSecond().compareTo(dt1) == 0);
+        assertEquals(true,test1.millisOfSecond().compareTo(dt2)< 0);
+        assertEquals(true,test2.millisOfSecond().compareTo(dt1)> 0);
+        assertEquals(true,test1.millisOfSecond().compareTo(dt1)== 0);
         try {
             test1.millisOfSecond().compareTo((ReadableInstant) null);
             fail();
@@ -730,9 +730,9 @@ public class TestTimeOfDay_Properties extends TestCase {
 
     //-----------------------------------------------------------------------
     private void check(TimeOfDay test, int hour, int min, int sec, int milli) {
-        assertEquals(hour, test.getHourOfDay());
-        assertEquals(min, test.getMinuteOfHour());
-        assertEquals(sec, test.getSecondOfMinute());
-        assertEquals(milli, test.getMillisOfSecond());
+        assertEquals(hour,test.getHourOfDay());
+        assertEquals(min,test.getMinuteOfHour());
+        assertEquals(sec,test.getSecondOfMinute());
+        assertEquals(milli,test.getMillisOfSecond());
     }
 }

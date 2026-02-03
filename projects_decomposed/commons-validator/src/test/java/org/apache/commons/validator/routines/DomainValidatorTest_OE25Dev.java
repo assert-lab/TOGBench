@@ -701,7 +701,7 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
 
         // corner cases
-        assertFalse("invalid TLD shouldn't validate", validator.isValid(".nope")); // TODO this is not guaranteed invalid forever;
+        assertFalse("invalid TLD shouldn't validate",validator.isValid(".nope"));// TODO this is not guaranteed invalid forever assertFalse("empty string shouldn't validate as TLD",validator.isValid(""));
     }
 
     public void testTopLevelDomains_10_oe() {
@@ -722,29 +722,6 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
 
         // corner cases
-        // removed other assertion
-        assertFalse("empty string shouldn't validate as TLD", validator.isValid(""));
-    }
-
-    public void testTopLevelDomains_11_oe() {
-        // infrastructure TLDs
-        // removed other assertion
-        // removed other assertion
-
-        // generic TLDs
-        // removed other assertion
-        // removed other assertion
-
-        // country code TLDs
-        // removed other assertion
-        // removed other assertion
-
-        // case-insensitive
-        // removed other assertion
-        // removed other assertion
-
-        // corner cases
-        // removed other assertion
         // removed other assertion
         assertFalse("null shouldn't validate as TLD", validator.isValid(null));
     }
@@ -1117,38 +1094,25 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
 
     public void testValidator306_1_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        assertEquals(63, longString.length()); // 26 * 2 + 11;
+        assertEquals(63,longString.length());// 26 * 2 + 11 assertTrue("63 chars label should validate",validator.isValidDomainSyntax(longString+".com"));
     }
 
     public void testValidator306_2_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
         // removed other assertion
-        
-        assertTrue("63 chars label should validate", validator.isValidDomainSyntax(longString+".com"));
+        assertFalse("64 chars label should fail", validator.isValidDomainSyntax(longString+"x.com"));
     }
 
     public void testValidator306_3_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        // removed other assertion
-        
-        // removed other assertion
-        assertFalse("64 chars label should fail", validator.isValidDomainSyntax(longString+"x.com"));
-    }
-
-    public void testValidator306_4_oe() {
-        final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        // removed other assertion
-        
         // removed other assertion
         // removed other assertion
 
         assertTrue("63 chars TLD should validate", validator.isValidDomainSyntax("test."+longString));
     }
 
-    public void testValidator306_5_oe() {
+    public void testValidator306_4_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        // removed other assertion
-        
         // removed other assertion
         // removed other assertion
 
@@ -1156,10 +1120,8 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertFalse("64 chars TLD should fail", validator.isValidDomainSyntax("test.x"+longString));
     }
 
-    public void testValidator306_6_oe() {
+    public void testValidator306_5_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        // removed other assertion
-        
         // removed other assertion
         // removed other assertion
 
@@ -1175,10 +1137,8 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertEquals(253, longDomain.length());
     }
 
-    public void testValidator306_7_oe() {
+    public void testValidator306_6_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        // removed other assertion
-        
         // removed other assertion
         // removed other assertion
 
@@ -1195,10 +1155,8 @@ public class DomainValidatorTest_OE25Dev extends TestCase {
         assertTrue("253 chars domain should validate", validator.isValidDomainSyntax(longDomain));
     }
 
-    public void testValidator306_8_oe() {
+    public void testValidator306_7_oe() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        // removed other assertion
-        
         // removed other assertion
         // removed other assertion
 

@@ -75,21 +75,11 @@ public class LoopingListIteratorTest {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a>
 
         assertTrue(loop.hasNext());
-        assertEquals("a", loop.next());     // <a>
-
-        assertTrue(loop.hasNext());
-        assertEquals("a", loop.next());     // <a>
-
-        assertTrue(loop.hasNext());
-        assertEquals("a", loop.next());     // <a>
-
-        assertTrue(loop.hasPrevious());
-        assertEquals("a", loop.previous()); // <a>
-
-        assertTrue(loop.hasPrevious());
-        assertEquals("a", loop.previous()); // <a>
-
-        assertTrue(loop.hasPrevious());
+        assertEquals("a",loop.next());// <a> assertTrue(loop.hasNext());
+        assertEquals("a",loop.next());// <a> assertTrue(loop.hasNext());
+        assertEquals("a",loop.next());// <a> assertTrue(loop.hasPrevious());
+        assertEquals("a",loop.previous());// <a> assertTrue(loop.hasPrevious());
+        assertEquals("a",loop.previous());// <a> assertTrue(loop.hasPrevious());
         assertEquals("a", loop.previous()); // <a>
     }
 
@@ -103,24 +93,11 @@ public class LoopingListIteratorTest {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b
 
         assertTrue(loop.hasNext());
-        assertEquals("a", loop.next());     // a <b>
-
-        assertTrue(loop.hasNext());
-        assertEquals("b", loop.next());     // <a> b
-
-        assertTrue(loop.hasNext());
-        assertEquals("a", loop.next());     // a <b>
-
-        // Reset the iterator and try using previous.
-        loop.reset();                       // <a> b
-
-        assertTrue(loop.hasPrevious());
-        assertEquals("b", loop.previous()); // a <b>
-
-        assertTrue(loop.hasPrevious());
-        assertEquals("a", loop.previous()); // <a> b
-
-        assertTrue(loop.hasPrevious());
+        assertEquals("a",loop.next());// a <b> assertTrue(loop.hasNext());
+        assertEquals("b",loop.next());// <a> b assertTrue(loop.hasNext());
+        assertEquals("a",loop.next());// a <b> loop.reset();// <a> b assertTrue(loop.hasPrevious());
+        assertEquals("b",loop.previous());// a <b> assertTrue(loop.hasPrevious());
+        assertEquals("a",loop.previous());// <a> b assertTrue(loop.hasPrevious());
         assertEquals("b", loop.previous()); // a <b>
     }
 
@@ -174,19 +151,13 @@ public class LoopingListIteratorTest {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         assertTrue(loop.hasNext());
-        assertEquals("a", loop.next()); // a <b> c
-        loop.remove();                  // <b> c
-        assertEquals(2, list.size());
+        assertEquals("a",loop.next());// a <b> c loop.remove();// <b> c assertEquals(2,list.size());
 
         assertTrue(loop.hasNext());
-        assertEquals("b", loop.next()); // b <c>
-        loop.remove();                  // <c>
-        assertEquals(1, list.size());
+        assertEquals("b",loop.next());// b <c> loop.remove();// <c> assertEquals(1,list.size());
 
         assertTrue(loop.hasNext());
-        assertEquals("c", loop.next()); // <c>
-        loop.remove();                  // ---
-        assertEquals(0, list.size());
+        assertEquals("c",loop.next());// <c> loop.remove();// --- assertEquals(0,list.size());
 
         assertFalse(loop.hasNext());
         try {
@@ -205,19 +176,13 @@ public class LoopingListIteratorTest {
         final LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <a> b c
 
         assertTrue(loop.hasPrevious());
-        assertEquals("c", loop.previous()); // a b <c>
-        loop.remove();                      // <a> b
-        assertEquals(2, list.size());
+        assertEquals("c",loop.previous());// a b <c> loop.remove();// <a> b assertEquals(2,list.size());
 
         assertTrue(loop.hasPrevious());
-        assertEquals("b", loop.previous()); // a <b>
-        loop.remove();                      // <a>
-        assertEquals(1, list.size());
+        assertEquals("b",loop.previous());// a <b> loop.remove();// <a> assertEquals(1,list.size());
 
         assertTrue(loop.hasPrevious());
-        assertEquals("a", loop.previous()); // <a>
-        loop.remove();                      // ---
-        assertEquals(0, list.size());
+        assertEquals("a",loop.previous());// <a> loop.remove();// --- assertEquals(0,list.size());
 
         assertFalse(loop.hasPrevious());
         try {
@@ -264,43 +229,11 @@ public class LoopingListIteratorTest {
         LoopingListIterator<String> loop = new LoopingListIterator<>(list); // <b> e f
 
         loop.add("a");                      // <a> b e f
-        assertEquals("b", loop.next());     // a <b> e f
-        loop.reset();                       // <a> b e f
-        assertEquals("a", loop.next());     // a <b> e f
-        assertEquals("b", loop.next());     // a b <e> f
-
-        loop.add("c");                      // a b c <e> f
-        assertEquals("e", loop.next());     // a b c e <f>
-        assertEquals("e", loop.previous()); // a b c <e> f
-        assertEquals("c", loop.previous()); // a b <c> e f
-        assertEquals("c", loop.next());     // a b c <e> f
-
-        loop.add("d");                      // a b c d <e> f
-        loop.reset();                       // <a> b c d e f
-        assertEquals("a", loop.next());     // a <b> c d e f
-        assertEquals("b", loop.next());     // a b <c> d e f
-        assertEquals("c", loop.next());     // a b c <d> e f
-        assertEquals("d", loop.next());     // a b c d <e> f
-        assertEquals("e", loop.next());     // a b c d e <f>
-        assertEquals("f", loop.next());     // <a> b c d e f
-        assertEquals("a", loop.next());     // a <b> c d e f
-
-        list = new ArrayList<>(Arrays.asList("b", "e", "f"));
+        assertEquals("b",loop.next());// a <b> e f loop.reset();// <a> b e f assertEquals("a",loop.next());// a <b> e f assertEquals("b",loop.next());// a b <e> f loop.add("c");// a b c <e> f assertEquals("e",loop.next());// a b c e <f> assertEquals("e",loop.previous());// a b c <e> f assertEquals("c",loop.previous());// a b <c> e f assertEquals("c",loop.next());// a b c <e> f loop.add("d");// a b c d <e> f loop.reset();// <a> b c d e f assertEquals("a",loop.next());// a <b> c d e f assertEquals("b",loop.next());// a b <c> d e f assertEquals("c",loop.next());// a b c <d> e f assertEquals("d",loop.next());// a b c d <e> f assertEquals("e",loop.next());// a b c d e <f> assertEquals("f",loop.next());// <a> b c d e f assertEquals("a",loop.next());// a <b> c d e f list = new ArrayList<>(Arrays.asList("b","e","f"));
         loop = new LoopingListIterator<>(list); // <b> e f
 
         loop.add("a");                      // a <b> e f
-        assertEquals("a", loop.previous()); // a b e <f>
-        loop.reset();                       // <a> b e f
-        assertEquals("f", loop.previous()); // a b e <f>
-        assertEquals("e", loop.previous()); // a b <e> f
-
-        loop.add("d");                      // a b d <e> f
-        assertEquals("d", loop.previous()); // a b <d> e f
-
-        loop.add("c");                      // a b c <d> e f
-        assertEquals("c", loop.previous()); // a b <c> d e f
-
-        loop.reset();
+        assertEquals("a",loop.previous());// a b e <f> loop.reset();// <a> b e f assertEquals("f",loop.previous());// a b e <f> assertEquals("e",loop.previous());// a b <e> f loop.add("d");// a b d <e> f assertEquals("d",loop.previous());// a b <d> e f loop.add("c");// a b c <d> e f assertEquals("c",loop.previous());// a b <c> d e f loop.reset();
         assertEquals("a", loop.next());     // a <b> c d e f
         assertEquals("b", loop.next());     // a b <c> d e f
         assertEquals("c", loop.next());     // a b c <d> e f
@@ -321,24 +254,19 @@ public class LoopingListIteratorTest {
         assertEquals(0, loop.nextIndex());
         assertEquals(2, loop.previousIndex());
 
-        assertEquals("a", loop.next());        // a <b> c
-        assertEquals(1, loop.nextIndex());
+        assertEquals("a",loop.next());// a <b> c assertEquals(1,loop.nextIndex());
         assertEquals(0, loop.previousIndex());
 
-        assertEquals("a", loop.previous());    // <a> b c
-        assertEquals(0, loop.nextIndex());
+        assertEquals("a",loop.previous());// <a> b c assertEquals(0,loop.nextIndex());
         assertEquals(2, loop.previousIndex());
 
-        assertEquals("c", loop.previous());    // a b <c>
-        assertEquals(2, loop.nextIndex());
+        assertEquals("c",loop.previous());// a b <c> assertEquals(2,loop.nextIndex());
         assertEquals(1, loop.previousIndex());
 
-        assertEquals("b", loop.previous());    // a <b> c
-        assertEquals(1, loop.nextIndex());
+        assertEquals("b",loop.previous());// a <b> c assertEquals(1,loop.nextIndex());
         assertEquals(0, loop.previousIndex());
 
-        assertEquals("a", loop.previous());    // <a> b c
-        assertEquals(0, loop.nextIndex());
+        assertEquals("a",loop.previous());// <a> b c assertEquals(0,loop.nextIndex());
         assertEquals(2, loop.previousIndex());
     }
 

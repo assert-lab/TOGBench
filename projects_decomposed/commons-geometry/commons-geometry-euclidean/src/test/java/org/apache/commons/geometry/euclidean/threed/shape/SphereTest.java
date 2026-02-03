@@ -352,8 +352,7 @@ class SphereTest {
 
             // check that we get closer and closer to the correct size as we add more segments
             sizeDiff = s.getSize() - tree.getSize();
-            Assertions.assertTrue(sizeDiff < prevSizeDiff, "Expected size difference to decrease: n= " +
-                    n + ", prevSizeDiff= " + prevSizeDiff + ", sizeDiff= " + sizeDiff);
+            Assertions.assertTrue(sizeDiff < prevSizeDiff,"Expected size difference to decrease: n= " + n + ",prevSizeDiff= " + prevSizeDiff + ",sizeDiff= " + sizeDiff);
 
             prevSizeDiff = sizeDiff;
         }
@@ -555,8 +554,7 @@ class SphereTest {
 
     private static void checkContains(final Sphere sphere, final boolean contains, final Vector3D... pts) {
         for (final Vector3D pt : pts) {
-            Assertions.assertEquals(contains, sphere.contains(pt),
-                    "Expected circle to " + (contains ? "" : "not") + "contain point " + pt);
+            Assertions.assertEquals(contains,sphere.contains(pt),"Expected circle to " +(contains ? "" : "not")+ "contain point " + pt);
         }
     }
 

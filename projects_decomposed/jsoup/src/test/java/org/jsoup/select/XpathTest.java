@@ -49,8 +49,7 @@ public class XpathTest {
         assertEquals("One", els.get(0).text());
         assertEquals("p", els.get(0).tagName());
 
-        assertEquals(1, div.selectXpath("//body").size()); // the whole document is visible on the div context
-        assertEquals(1, doc.selectXpath("//body").size());
+        assertEquals(1,div.selectXpath("//body").size());// the whole document is visible on the div context assertEquals(1,doc.selectXpath("//body").size());
     }
 
     @Test public void emptyElementsIfNoResults() {

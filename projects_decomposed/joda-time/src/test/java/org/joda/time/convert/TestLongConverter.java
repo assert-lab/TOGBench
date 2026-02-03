@@ -65,40 +65,40 @@ public class TestLongConverter extends TestCase {
     //-----------------------------------------------------------------------
     public void testSingleton() throws Exception {
         Class cls = LongConverter.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isProtected(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isProtected(con.getModifiers()));
         
         Field fld = cls.getDeclaredField("INSTANCE");
-        assertEquals(false, Modifier.isPublic(fld.getModifiers()));
-        assertEquals(false, Modifier.isProtected(fld.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(fld.getModifiers()));
+        assertEquals(false,Modifier.isPublic(fld.getModifiers()));
+        assertEquals(false,Modifier.isProtected(fld.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testSupportedType() throws Exception {
-        assertEquals(Long.class, LongConverter.INSTANCE.getSupportedType());
+        assertEquals(Long.class,LongConverter.INSTANCE.getSupportedType());
     }
 
     //-----------------------------------------------------------------------
     public void testGetInstantMillis_Object_Chronology() throws Exception {
-        assertEquals(123L, LongConverter.INSTANCE.getInstantMillis(new Long(123L), JULIAN));
-        assertEquals(123L, LongConverter.INSTANCE.getInstantMillis(new Long(123L), (Chronology) null));
+        assertEquals(123L,LongConverter.INSTANCE.getInstantMillis(new Long(123L),JULIAN));
+        assertEquals(123L,LongConverter.INSTANCE.getInstantMillis(new Long(123L),(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
     public void testGetChronology_Object_Zone() throws Exception {
-        assertEquals(ISO_PARIS, LongConverter.INSTANCE.getChronology(new Long(123L), PARIS));
-        assertEquals(ISO, LongConverter.INSTANCE.getChronology(new Long(123L), (DateTimeZone) null));
+        assertEquals(ISO_PARIS,LongConverter.INSTANCE.getChronology(new Long(123L),PARIS));
+        assertEquals(ISO,LongConverter.INSTANCE.getChronology(new Long(123L),(DateTimeZone)null));
     }
 
     public void testGetChronology_Object_Chronology() throws Exception {
-        assertEquals(JULIAN, LongConverter.INSTANCE.getChronology(new Long(123L), JULIAN));
-        assertEquals(ISO, LongConverter.INSTANCE.getChronology(new Long(123L), (Chronology) null));
+        assertEquals(JULIAN,LongConverter.INSTANCE.getChronology(new Long(123L),JULIAN));
+        assertEquals(ISO,LongConverter.INSTANCE.getChronology(new Long(123L),(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
@@ -106,17 +106,17 @@ public class TestLongConverter extends TestCase {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = ISOChronology.getInstance().get(tod, 12345678L);
         int[] actual = LongConverter.INSTANCE.getPartialValues(tod, new Long(12345678L), ISOChronology.getInstance());
-        assertEquals(true, Arrays.equals(expected, actual));
+        assertEquals(true,Arrays.equals(expected,actual));
     }
 
     //-----------------------------------------------------------------------
     public void testGetDurationMillis_Object() throws Exception {
-        assertEquals(123L, LongConverter.INSTANCE.getDurationMillis(new Long(123L)));
+        assertEquals(123L,LongConverter.INSTANCE.getDurationMillis(new Long(123L)));
     }
 
     //-----------------------------------------------------------------------
     public void testToString() {
-        assertEquals("Converter[java.lang.Long]", LongConverter.INSTANCE.toString());
+        assertEquals("Converter[java.lang.Long]",LongConverter.INSTANCE.toString());
     }
 
 }

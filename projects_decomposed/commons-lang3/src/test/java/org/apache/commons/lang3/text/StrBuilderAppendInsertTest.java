@@ -507,8 +507,7 @@ public class StrBuilderAppendInsertTest {
         };
         sb.appendln("Hello %s", "Alice");
         assertEquals("Hello Alice" + SEP, sb.toString());
-        assertEquals(2, count[0]);  // appendNewLine() calls append(String)
-        assertEquals(1, count[1]);
+        assertEquals(2,count[0]);// appendNewLine()calls append(String)assertEquals(1,count[1]);
     }
 
     //-----------------------------------------------------------------------
@@ -545,8 +544,7 @@ public class StrBuilderAppendInsertTest {
         };
         sb.appendln("foo");
         assertEquals("foo" + SEP, sb.toString());
-        assertEquals(2, count[0]);  // appendNewLine() calls append(String)
-        assertEquals(1, count[1]);
+        assertEquals(2,count[0]);// appendNewLine()calls append(String)assertEquals(1,count[1]);
     }
 
     //-----------------------------------------------------------------------

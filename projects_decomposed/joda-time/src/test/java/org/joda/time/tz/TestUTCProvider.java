@@ -48,28 +48,28 @@ public class TestUTCProvider extends TestCase {
     //-----------------------------------------------------------------------
     public void testClass() throws Exception {
         Class cls = UTCProvider.class;
-        assertEquals(true, Modifier.isPublic(cls.getModifiers()));
+        assertEquals(true,Modifier.isPublic(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isPublic(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isPublic(con.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testGetAvailableIDs() throws Exception {
         Provider p = new UTCProvider();
         Set set = p.getAvailableIDs();
-        assertEquals(1, set.size());
-        assertEquals("UTC", set.iterator().next());
+        assertEquals(1,set.size());
+        assertEquals("UTC",set.iterator().next());
     }
 
     //-----------------------------------------------------------------------
     public void testGetZone_String() throws Exception {
         Provider p = new UTCProvider();
-        assertSame(DateTimeZone.UTC, p.getZone("UTC"));
-        assertEquals(null, p.getZone(null));
-        assertEquals(null, p.getZone("Europe/London"));
-        assertEquals(null, p.getZone("Blah"));
+        assertSame(DateTimeZone.UTC,p.getZone("UTC"));
+        assertEquals(null,p.getZone(null));
+        assertEquals(null,p.getZone("Europe/London"));
+        assertEquals(null,p.getZone("Blah"));
     }
 
 }

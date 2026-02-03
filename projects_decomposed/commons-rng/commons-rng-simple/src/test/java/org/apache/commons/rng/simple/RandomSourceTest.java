@@ -28,8 +28,7 @@ class RandomSourceTest {
         final int n = 4;
         for (int i = 0; i < n; i++) {
             // Can fail, but unlikely given the range.
-            Assertions.assertNotEquals(RandomSource.createInt(),
-                                       RandomSource.createInt());
+            Assertions.assertNotEquals(RandomSource.createInt(),RandomSource.createInt());
         }
     }
 
@@ -38,8 +37,7 @@ class RandomSourceTest {
         final int n = 6;
         for (int i = 0; i < n; i++) {
             // Can fail, but unlikely given the range.
-            Assertions.assertNotEquals(RandomSource.createLong(),
-                                       RandomSource.createLong());
+            Assertions.assertNotEquals(RandomSource.createLong(),RandomSource.createLong());
         }
     }
 

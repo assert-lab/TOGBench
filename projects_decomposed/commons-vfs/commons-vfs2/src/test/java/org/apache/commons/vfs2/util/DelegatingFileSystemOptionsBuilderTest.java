@@ -76,8 +76,7 @@ public class DelegatingFileSystemOptionsBuilderTest {
             fail();
         } catch (final FileSystemException e) {
             assertSame(e.getCause().getClass(), InvocationTargetException.class);
-            assertSame(((InvocationTargetException) e.getCause()).getTargetException().getClass(),
-                    NumberFormatException.class);
+            assertSame(((InvocationTargetException)e.getCause()).getTargetException().getClass(),NumberFormatException.class);
         }
 
         try {
@@ -102,15 +101,13 @@ public class DelegatingFileSystemOptionsBuilderTest {
 
         assertEquals("http.proxyHost", HttpFileSystemConfigBuilder.getInstance().getProxyHost(opts), "proxy");
         assertEquals("http.proxyPort", HttpFileSystemConfigBuilder.getInstance().getProxyPort(opts), 8080);
-        assertSame("sftp.userInfo", SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),
-                TrustEveryoneUserInfo.class);
+        assertSame("sftp.userInfo",SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),TrustEveryoneUserInfo.class);
 
         final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
         assertNotNull("sftp.identities", identities);
         assertEquals("sftp.identities size", identities.length, identityPaths.length);
         for (int iterIdentities = 0; iterIdentities < identities.length; iterIdentities++) {
-            assertEquals("sftp.identities #" + iterIdentities, identities[iterIdentities].getAbsolutePath(),
-                    new File(identityPaths[iterIdentities]).getAbsolutePath());
+            assertEquals("sftp.identities #" + iterIdentities,identities[iterIdentities].getAbsolutePath(),new File(identityPaths[iterIdentities]).getAbsolutePath());
         }
     }
 }

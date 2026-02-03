@@ -437,7 +437,7 @@ public class TestSubnodeConfiguration_OE25Dev {
     @Test
     public void testInitSubNodeConfig_1_oe() {
         setUpSubnodeConfig();
-        assertSame("Wrong root node in subnode", NodeStructureHelper.nodeForKey(parent.getModel().getNodeHandler().getRootNode(), "tables/table(0)"), config.getModel().getNodeHandler().getRootNode());
+        assertSame("Wrong root node in subnode",NodeStructureHelper.nodeForKey(parent.getModel().getNodeHandler().getRootNode(),"tables/table(0)"),config.getModel().getNodeHandler().getRootNode());
     }
 
     @Test

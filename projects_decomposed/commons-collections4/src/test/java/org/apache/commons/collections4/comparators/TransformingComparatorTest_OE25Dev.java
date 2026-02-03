@@ -79,7 +79,7 @@ public class TransformingComparatorTest_OE25Dev extends AbstractComparatorTest<I
         final TransformingComparator<String, String> comp2 = new TransformingComparator<>(t1, comp1);
 
         // Checks the contract: equals-hashcode on comp1 and comp2
-        assertTrue("Contract failed: equals-hashcode", comp1.equals(comp2) ? comp1.hashCode() == comp2.hashCode() : true);
+        assertTrue("Contract failed: equals-hashcode",comp1.equals(comp2)? comp1.hashCode()== comp2.hashCode(): true);
     }
 
     public void testEquals_2_oe() {
@@ -91,7 +91,7 @@ public class TransformingComparatorTest_OE25Dev extends AbstractComparatorTest<I
         // removed other assertion
 
         // Checks the contract: equals-hashcode on comp1 and comp2
-        assertTrue("Contract failed: equals-hashcode", comp2.equals(comp1) ? comp2.hashCode() == comp1.hashCode() : true);
+        assertTrue("Contract failed: equals-hashcode",comp2.equals(comp1)? comp2.hashCode()== comp1.hashCode(): true);
     }
 
 }

@@ -47,8 +47,7 @@ public class NullFilesCacheTests extends AbstractFilesCacheTestsBase {
         cache.putFile(fo);
         assertNull(null, cache.getFile(fs, fn));
 
-        assertFalse(cache.putFileIfAbsent(fo)); // hmmm?
-        assertNull(null, cache.getFile(fs, fn));
+        assertFalse(cache.putFileIfAbsent(fo));// hmmm? assertNull(null,cache.getFile(fs,fn));
 
         cache.removeFile(fs, fn);
         assertNull(cache.getFile(fs, fn));

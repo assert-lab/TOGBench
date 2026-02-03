@@ -30,12 +30,8 @@ public class AnnotationAccessFlagTestCase extends AbstractTestCase
     public void testAnnotationClassSaysItIs() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleAnnotation");
-        assertTrue(
-                "Expected SimpleAnnotation class to say it was an annotation - but it didn't !",
-                clazz.isAnnotation());
+        assertTrue("Expected SimpleAnnotation class to say it was an annotation - but it didn't !",clazz.isAnnotation());
         clazz = getTestClass(PACKAGE_BASE_NAME+".data.SimpleClass");
-        assertTrue(
-                "Expected SimpleClass class to say it was not an annotation - but it didn't !",
-                !clazz.isAnnotation());
+        assertTrue("Expected SimpleClass class to say it was not an annotation - but it didn't !",!clazz.isAnnotation());
     }
 }

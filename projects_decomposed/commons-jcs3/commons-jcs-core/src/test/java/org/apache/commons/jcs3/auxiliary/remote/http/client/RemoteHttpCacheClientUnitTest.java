@@ -61,8 +61,7 @@ public class RemoteHttpCacheClientUnitTest
 
         // VERIFY
         assertNull( "Wrong result.", result );
-        assertEquals( "Wrong type.", RemoteRequestType.GET, mockDispatcher.lastRemoteCacheRequest
-            .getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.GET,mockDispatcher.lastRemoteCacheRequest .getRequestType());
     }
 
     /**
@@ -95,8 +94,7 @@ public class RemoteHttpCacheClientUnitTest
 
         // VERIFY
         assertEquals( "Wrong result.", expected, result );
-        assertEquals( "Wrong type.", RemoteRequestType.GET, mockDispatcher.lastRemoteCacheRequest
-            .getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.GET,mockDispatcher.lastRemoteCacheRequest .getRequestType());
     }
 
     /**
@@ -131,8 +129,7 @@ public class RemoteHttpCacheClientUnitTest
 
         // VERIFY
         assertEquals( "Wrong result.", expected, result.get( "key" ) );
-        assertEquals( "Wrong type.", RemoteRequestType.GET_MATCHING,
-                      mockDispatcher.lastRemoteCacheRequest.getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.GET_MATCHING,mockDispatcher.lastRemoteCacheRequest.getRequestType());
     }
 
     /**
@@ -167,8 +164,7 @@ public class RemoteHttpCacheClientUnitTest
 
         // VERIFY
         assertEquals( "Wrong result.", expected, result.get( "key" ) );
-        assertEquals( "Wrong type.", RemoteRequestType.GET_MULTIPLE,
-                      mockDispatcher.lastRemoteCacheRequest.getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.GET_MULTIPLE,mockDispatcher.lastRemoteCacheRequest.getRequestType());
     }
 
     /**
@@ -193,8 +189,7 @@ public class RemoteHttpCacheClientUnitTest
         client.remove( cacheName, key );
 
         // VERIFY
-        assertEquals( "Wrong type.", RemoteRequestType.REMOVE, mockDispatcher.lastRemoteCacheRequest
-            .getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.REMOVE,mockDispatcher.lastRemoteCacheRequest .getRequestType());
     }
 
     /**
@@ -218,8 +213,7 @@ public class RemoteHttpCacheClientUnitTest
         client.removeAll( cacheName );
 
         // VERIFY
-        assertEquals( "Wrong type.", RemoteRequestType.REMOVE_ALL, mockDispatcher.lastRemoteCacheRequest
-            .getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.REMOVE_ALL,mockDispatcher.lastRemoteCacheRequest .getRequestType());
     }
 
     /**
@@ -245,8 +239,7 @@ public class RemoteHttpCacheClientUnitTest
         client.update( element );
 
         // VERIFY
-        assertEquals( "Wrong type.", RemoteRequestType.UPDATE, mockDispatcher.lastRemoteCacheRequest
-            .getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.UPDATE,mockDispatcher.lastRemoteCacheRequest .getRequestType());
     }
 
     /**
@@ -270,7 +263,6 @@ public class RemoteHttpCacheClientUnitTest
         client.dispose( cacheName );
 
         // VERIFY
-        assertEquals( "Wrong type.", RemoteRequestType.DISPOSE, mockDispatcher.lastRemoteCacheRequest
-            .getRequestType() );
+        assertEquals("Wrong type.",RemoteRequestType.DISPOSE,mockDispatcher.lastRemoteCacheRequest .getRequestType());
     }
 }

@@ -171,8 +171,7 @@ public class IndexedDiskCacheConcurrentUnitTest
         // another thread may have inserted since
         for ( int i = 0; i <= items; i++ )
         {
-            assertNull( "Removed key should be null: " + i + ":key" + "\n stats " + jcs.getStats(), jcs
-                .get( i + ":key" ) );
+            assertNull("Removed key should be null: " + i + ":key" + "\n stats " + jcs.getStats(),jcs .get(i + ":key"));
         }
     }
 
@@ -234,8 +233,7 @@ public class IndexedDiskCacheConcurrentUnitTest
         // another thread may have inserted since
         for ( int i = start; i <= end; i++ )
         {
-            assertNull( "Removed key should be null: " + i + ":key " + "\n stats " + jcs.getStats(), jcs.get( i
-                + ":key" ) );
+            assertNull("Removed key should be null: " + i + ":key " + "\n stats " + jcs.getStats(),jcs.get(i + ":key"));
         }
     }
 }

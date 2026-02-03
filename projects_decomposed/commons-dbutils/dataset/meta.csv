@@ -1,7 +1,6 @@
 id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
 dbut_1_1,commons-dbutils,QueryLoaderTest,testLoad_1_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertTrue
-dbut_1_2,commons-dbutils,QueryLoaderTest,testLoad_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertEquals
-dbut_1_3,commons-dbutils,QueryLoaderTest,testLoad_3_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertTrue
+dbut_1_2,commons-dbutils,QueryLoaderTest,testLoad_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertTrue
 dbut_2_2,commons-dbutils,QueryLoaderTest,testLoadThrowsIllegalArgumentException_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertEquals
 dbut_2_3,commons-dbutils,QueryLoaderTest,testLoadThrowsIllegalArgumentException_3_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,assertEquals
 dbut_3_1,commons-dbutils,BeanProcessorTest,testProcessWithToBean_1_oe,src/test/java/org/apache/commons/dbutils/BeanProcessorTest.java,,,,assert,unknown,standard,assertTrue
@@ -141,8 +140,7 @@ dbut_37_6,commons-dbutils,BasicRowProcessorTest,testToMap_6_oe,src/test/java/org
 dbut_37_7,commons-dbutils,BasicRowProcessorTest,testToMap_7_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals
 dbut_37_8,commons-dbutils,BasicRowProcessorTest,testToMap_8_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals
 dbut_37_9,commons-dbutils,BasicRowProcessorTest,testToMap_9_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals
-dbut_37_10,commons-dbutils,BasicRowProcessorTest,testToMap_10_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals
-dbut_37_11,commons-dbutils,BasicRowProcessorTest,testToMap_11_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertFalse
+dbut_37_10,commons-dbutils,BasicRowProcessorTest,testToMap_10_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertFalse
 dbut_38_1,commons-dbutils,BasicRowProcessorTest,testToMapOrdering_1_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertTrue
 dbut_38_2,commons-dbutils,BasicRowProcessorTest,testToMapOrdering_2_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals
 dbut_38_3,commons-dbutils,BasicRowProcessorTest,testToMapOrdering_3_oe,src/test/java/org/apache/commons/dbutils/BasicRowProcessorTest.java,,,,assert,unknown,standard,assertEquals

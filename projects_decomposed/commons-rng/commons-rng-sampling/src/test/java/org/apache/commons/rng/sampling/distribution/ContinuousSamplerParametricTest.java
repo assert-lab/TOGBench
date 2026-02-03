@@ -114,9 +114,7 @@ class ContinuousSamplerParametricTest {
         // 3     0.0016
 
         if (numFailures > 3) { // Test will fail with 0.16% probability
-            Assertions.fail(sampler + ": Too many failures for sample size = " + sampleSize +
-                            " (" + numFailures + " out of " + numTests + " tests failed, " +
-                            "chi2=" + Arrays.toString(failedStat.toArray(new Double[0])) + ")");
+            Assertions.fail(sampler + ": Too many failures for sample size = " + sampleSize + "(" + numFailures + " out of " + numTests + " tests failed," + "chi2=" + Arrays.toString(failedStat.toArray(new Double[0]))+ ")");
         }
     }
 }

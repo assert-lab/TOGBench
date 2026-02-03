@@ -66,8 +66,7 @@ public class TestEvictionTimer {
             final Field evictorExecutorField = EvictionTimer.class.getDeclaredField("executor");
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            assertEquals(2, evictionExecutor.getQueue().size()); // Reaper plus one eviction task
-            assertEquals(1, EvictionTimer.getNumTasks());
+            assertEquals(2,evictionExecutor.getQueue().size());// Reaper plus one eviction task assertEquals(1,EvictionTimer.getNumTasks());
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -78,8 +77,7 @@ public class TestEvictionTimer {
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
             assertFalse(sf.isCancelled());
             // 2- and, the eviction action is added to executor thread pool
-            assertEquals(3, evictionExecutor.getQueue().size()); // Reaper plus 2 eviction tasks
-            assertEquals(2, EvictionTimer.getNumTasks());
+            assertEquals(3,evictionExecutor.getQueue().size());// Reaper plus 2 eviction tasks assertEquals(2,EvictionTimer.getNumTasks());
 
             // Stop evictor #1
             EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);

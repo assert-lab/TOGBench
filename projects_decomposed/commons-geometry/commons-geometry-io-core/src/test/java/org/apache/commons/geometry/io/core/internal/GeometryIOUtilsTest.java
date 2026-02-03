@@ -59,8 +59,7 @@ class GeometryIOUtilsTest {
         Assertions.assertNull(GeometryIOUtils.getFileName((URL) null));
         Assertions.assertNull(GeometryIOUtils.getFileName(new URL("http://test.com/")));
 
-        Assertions.assertEquals("myfile.txt",
-                GeometryIOUtils.getFileName(new URL("http://test.com/myfile.txt?a=otherfile.txt")));
+        Assertions.assertEquals("myfile.txt",GeometryIOUtils.getFileName(new URL("http://test.com/myfile.txt?a=otherfile.txt")));
     }
 
     @Test

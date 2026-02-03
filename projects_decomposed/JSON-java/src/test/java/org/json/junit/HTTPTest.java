@@ -37,8 +37,7 @@ public class HTTPTest {
             HTTP.toString(jsonObject);
             assertTrue("Expected to throw exception", false);
         } catch (JSONException e) {
-            assertTrue("Expecting an exception message",
-                    "Not enough material for an HTTP header.".equals(e.getMessage()));
+            assertTrue("Expecting an exception message","Not enough material for an HTTP header.".equals(e.getMessage()));
         }
     }
 

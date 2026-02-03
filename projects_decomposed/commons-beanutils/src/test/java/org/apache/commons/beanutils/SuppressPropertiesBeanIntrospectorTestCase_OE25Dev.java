@@ -120,7 +120,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
         final IntrospectionContextTestImpl context = new IntrospectionContextTestImpl();
 
         introspector.introspect(context);
-        assertEquals("Wrong number of removed properties", properties.length, context .getRemovedProperties().size());
+        assertEquals("Wrong number of removed properties",properties.length,context .getRemovedProperties().size());
     }
 
     public void testRemovePropertiesDuringIntrospection_2_oe() throws IntrospectionException {
@@ -132,7 +132,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
         introspector.introspect(context);
         // removed other assertion
         for (final String property : properties) {
-            assertTrue("Property not removed: " + property, context .getRemovedProperties().contains(property));
+            assertTrue("Property not removed: " + property,context .getRemovedProperties().contains(property));
     }
     }
 
@@ -145,7 +145,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
         final IntrospectionContextTestImpl context = new IntrospectionContextTestImpl();
 
         introspector.introspect(context);
-        assertEquals("Wrong number of removed properties", 1, context .getRemovedProperties().size());
+        assertEquals("Wrong number of removed properties",1,context .getRemovedProperties().size());
     }
 
     public void testPropertyNamesDefensiveCopy_2_oe() throws IntrospectionException {
@@ -158,7 +158,7 @@ public class SuppressPropertiesBeanIntrospectorTestCase_OE25Dev extends TestCase
 
         introspector.introspect(context);
         // removed other assertion
-        assertTrue("Wrong removed property", context.getRemovedProperties().contains("prop1"));
+        assertTrue("Wrong removed property",context.getRemovedProperties().contains("prop1"));
     }
 
 }

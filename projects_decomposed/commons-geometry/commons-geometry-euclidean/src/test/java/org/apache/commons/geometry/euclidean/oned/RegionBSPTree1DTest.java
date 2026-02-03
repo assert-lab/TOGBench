@@ -142,10 +142,7 @@ class RegionBSPTree1DTest {
         // act/assert
         Assertions.assertEquals(0.0, RegionBSPTree1D.full().getBoundarySize(), TEST_EPS);
         Assertions.assertEquals(0.0, RegionBSPTree1D.empty().getBoundarySize(), TEST_EPS);
-        Assertions.assertEquals(0.0, RegionBSPTree1D.from(
-                    Interval.of(1, 2, TEST_PRECISION),
-                    Interval.of(4, 5, TEST_PRECISION)
-                ).getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(0.0,RegionBSPTree1D.from(Interval.of(1,2,TEST_PRECISION),Interval.of(4,5,TEST_PRECISION)).getBoundarySize(),TEST_EPS);
     }
 
     @Test

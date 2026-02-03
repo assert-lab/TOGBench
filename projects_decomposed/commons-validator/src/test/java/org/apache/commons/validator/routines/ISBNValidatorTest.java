@@ -267,8 +267,7 @@ public class ISBNValidatorTest extends TestCase {
         assertFalse("ISBN10-2", validator.isValid(baseCode + "2"));
         assertFalse("ISBN10-3", validator.isValid(baseCode + "3"));
         assertFalse("ISBN10-4", validator.isValid(baseCode + "4"));
-        assertTrue("ISBN10-5",  validator.isValid(baseCode + "5")); // valid check digit
-        assertFalse("ISBN10-6", validator.isValid(baseCode + "6"));
+        assertTrue("ISBN10-5",validator.isValid(baseCode + "5"));// valid check digit assertFalse("ISBN10-6",validator.isValid(baseCode + "6"));
         assertFalse("ISBN10-7", validator.isValid(baseCode + "7"));
         assertFalse("ISBN10-8", validator.isValid(baseCode + "8"));
         assertFalse("ISBN10-9", validator.isValid(baseCode + "9"));
@@ -276,8 +275,7 @@ public class ISBNValidatorTest extends TestCase {
 
         baseCode = "978193011099";
         assertFalse("ISBN13-0", validator.isValid(baseCode + "0"));
-        assertTrue("ISBN13-1",  validator.isValid(baseCode + "1")); // valid check digit
-        assertFalse("ISBN13-2", validator.isValid(baseCode + "2"));
+        assertTrue("ISBN13-1",validator.isValid(baseCode + "1"));// valid check digit assertFalse("ISBN13-2",validator.isValid(baseCode + "2"));
         assertFalse("ISBN13-3", validator.isValid(baseCode + "3"));
         assertFalse("ISBN13-4", validator.isValid(baseCode + "4"));
         assertFalse("ISBN13-5", validator.isValid(baseCode + "5"));

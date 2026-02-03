@@ -215,7 +215,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.writeComment("second line \n third line \r\nfourth line");
 
         // assert
-        Assertions.assertEquals( "-- first line\r\n" + "-- second line \r\n" + "--  third line \r\n" + "-- fourth line\r\n", writer.toString());
+        Assertions.assertEquals("-- first line\r\n" + "-- second line \r\n" + "-- third line \r\n" + "-- fourth line\r\n",writer.toString());
     }
 
     @Test
@@ -242,7 +242,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.write(vertices2);
 
         // assert
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.5 0.0 0.0; 0.0 -0.5 0.0\n" + "0.5 0.7 1.2; 10.01 -4.0 2.0; -3.3333333333333335 0.0 0.0; 0.0 0.0 0.0\n", writer.toString());
+        Assertions.assertEquals("0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0\n" + "0.5 0.7 1.2;10.01 -4.0 2.0;-3.3333333333333335 0.0 0.0;0.0 0.0 0.0\n",writer.toString());
     }
 
     @Test
@@ -263,7 +263,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.write(f2);
 
         // assert
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.5 0.0 0.0; 0.0 -0.5 0.0\n" + "0.5 0.7 1.2; 10.01 -4.0 2.0; -3.333 0.0 0.0; 0.0 0.0 0.0\n", writer.toString());
+        Assertions.assertEquals("0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0\n" + "0.5 0.7 1.2;10.01 -4.0 2.0;-3.333 0.0 0.0;0.0 0.0 0.0\n",writer.toString());
     }
 
     @Test
@@ -281,7 +281,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.write(poly2);
 
         // assert
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.0 0.0 -0.5; 0.0 -0.5 0.0\n" + "0.0 0.0 0.0; 1.0 0.0 0.0; 1.0 1.0 0.0; 0.0 1.0 0.0\n", writer.toString());
+        Assertions.assertEquals("0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0\n" + "0.0 0.0 0.0;1.0 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",writer.toString());
     }
 
     @Test
@@ -297,7 +297,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.write(poly);
 
         // assert
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.0 1.0 0.0; 0.0 1.0 1.0\n" + "0.0 0.0 0.0; 0.0 1.0 1.0; 0.0 0.0 1.0\n", writer.toString());
+        Assertions.assertEquals("0.0 0.0 0.0;0.0 1.0 0.0;0.0 1.0 1.0\n" + "0.0 0.0 0.0;0.0 1.0 1.0;0.0 0.0 1.0\n",writer.toString());
     }
 
     @Test
@@ -314,7 +314,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.write(BoundarySource3D.of(poly1, poly2));
 
         // assert
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.0 0.0 -0.5; 0.0 -0.5 0.0\n" + "0.0 0.0 0.0; 1.0 0.0 0.0; 1.0 1.0 0.0; 0.0 1.0 0.0\n", writer.toString());
+        Assertions.assertEquals("0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0\n" + "0.0 0.0 0.0;1.0 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",writer.toString());
     }
 
     @Test
@@ -351,7 +351,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         fdWriter.write(BoundarySource3D.of(poly1, poly2));
 
         // assert
-        Assertions.assertEquals( "# Test boundary source\r\n" + "\r\n" + "0.0,0.0,0.0 | 0.0,0.0,-0.6 | 0.0,-0.5,0.0\r\n" + "0.0,0.0,0.0 | 1.0,0.0,0.0 | 1.0,1.0,0.0\r\n" + "0.0,0.0,0.0 | 1.0,1.0,0.0 | 0.0,1.0,0.0\r\n", writer.toString());
+        Assertions.assertEquals("# Test boundary source\r\n" + "\r\n" + "0.0,0.0,0.0 | 0.0,0.0,-0.6 | 0.0,-0.5,0.0\r\n" + "0.0,0.0,0.0 | 1.0,0.0,0.0 | 1.0,1.0,0.0\r\n" + "0.0,0.0,0.0 | 1.0,1.0,0.0 | 0.0,1.0,0.0\r\n",writer.toString());
     }
 
     @Test
@@ -370,7 +370,7 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         csvWriter.write(BoundarySource3D.of(poly1, poly2));
 
         // assert
-        Assertions.assertEquals( "0.0,0.0,0.0,0.0,0.0,-0.5901,0.0,-0.501,0.0\n" + "0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0\n" + "0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0\n", writer.toString());
+        Assertions.assertEquals("0.0,0.0,0.0,0.0,0.0,-0.5901,0.0,-0.501,0.0\n" + "0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0\n" + "0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0\n",writer.toString());
     }
 
     @Test

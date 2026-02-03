@@ -122,7 +122,7 @@ class BinomialCoefficientTest_OE25Dev {
 
         for (int n = 1; n < 10; n++) {
             for (int k = 0; k <= n; k++) {
-                Assertions.assertEquals( binomialCoefficient(n, k), BinomialCoefficient.value(n, k), n + " choose " + k );
+                Assertions.assertEquals(binomialCoefficient(n,k),BinomialCoefficient.value(n,k),n + " choose " + k);
     }
     }
     }
@@ -149,7 +149,7 @@ class BinomialCoefficientTest_OE25Dev {
         final int[] k = {17, 33, 10, 1500 - 4, 4};
         for (int i = 0; i < n.length; i++) {
             final long expected = binomialCoefficient(n[i], k[i]);
-            Assertions.assertEquals( expected, BinomialCoefficient.value(n[i], k[i]), n[i] + " choose " + k[i] );
+            Assertions.assertEquals(expected,BinomialCoefficient.value(n[i],k[i]),n[i] + " choose " + k[i]);
     }
     }
 

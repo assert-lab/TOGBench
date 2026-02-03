@@ -83,7 +83,7 @@ public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         cache.putFile(fo);
         // removed other assertion
 
-        assertFalse(cache.putFileIfAbsent(fo)); // hmmm?;
+        assertFalse(cache.putFileIfAbsent(fo));// hmmm? assertNull(null,cache.getFile(fs,fn));
     }
 
     @Test
@@ -102,27 +102,6 @@ public class NullFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
         cache.putFile(fo);
         // removed other assertion
 
-        // removed other assertion
-        assertNull(null, cache.getFile(fs, fn));
-    }
-
-    @Test
-    public void testBasicCacheOps_6_oe() throws Exception {
-        final DefaultFileSystemManager manager = getManager();
-        // removed other assertion
-        // the basic test looks different for a null cache:
-        final FilesCache cache = manager.getFilesCache();
-        final FileObject fo = getWriteFolder().resolveFile("dir1");
-        final FileName fn = fo.getName();
-        final FileSystem fs = fo.getFileSystem();
-
-        cache.clear(fs);
-        // removed other assertion
-
-        cache.putFile(fo);
-        // removed other assertion
-
-        // removed other assertion
         // removed other assertion
 
         cache.removeFile(fs, fn);

@@ -108,7 +108,7 @@ async_7_1,"    @Test
         Charset charset = Charset.forName(""US-ASCII"");
 
         try {
-            Assert.assertEquals( ByteBufUtils.byteBuf2String(charset, byteBuf), ""foo"");
+            Assert.assertEquals(ByteBufUtils.byteBuf2String(charset,byteBuf),""foo"");
     }
     }
 ",ByteBufUtilsTests::testByteBuf2String_1_oe
@@ -118,7 +118,7 @@ async_8_1,"    @Test
         ByteBuf byteBuf2 = Unpooled.wrappedBuffer(new byte[]{'o', 'o'});
 
         try {
-            Assert.assertEquals(ByteBufUtils.byteBuf2String( Charset.forName(""ISO-8859-1""), byteBuf1, byteBuf2), ""foo"");
+            Assert.assertEquals(ByteBufUtils.byteBuf2String(Charset.forName(""ISO-8859-1""),byteBuf1,byteBuf2),""foo"");
     }
     }
 ",ByteBufUtilsTests::testByteBuf2StringWithByteBufArray_1_oe

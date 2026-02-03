@@ -73,11 +73,9 @@ public class FTPClientTest extends TestCase {
         final FTPFileEntryParser entryParserSYST = client.getEntryParser();
         assertNotNull(entryParserSYST);
         client.createParser(FTPClientConfig.SYST_UNIX);
-        assertSame(entryParserSYST, client.getEntryParser()); // the previous entry was cached
-        client.createParser(FTPClientConfig.SYST_VMS);
+        assertSame(entryParserSYST,client.getEntryParser());// the previous entry was cached client.createParser(FTPClientConfig.SYST_VMS);
         final FTPFileEntryParser entryParserVMS = client.getEntryParser();
-        assertNotSame(entryParserSYST, entryParserVMS); // the previous entry was replaced
-        client.createParser(FTPClientConfig.SYST_VMS);
+        assertNotSame(entryParserSYST,entryParserVMS);// the previous entry was replaced client.createParser(FTPClientConfig.SYST_VMS);
         assertSame(entryParserVMS, client.getEntryParser()); // the previous entry was cached
         client.createParser(FTPClientConfig.SYST_UNIX); // revert
         assertNotSame(entryParserVMS, client.getEntryParser()); // the previous entry was replaced
@@ -104,8 +102,7 @@ public class FTPClientTest extends TestCase {
         final FTPFileEntryParser entryParser = client.getEntryParser();
         assertNotNull(entryParser);
         client.createParser(null);
-        assertSame(entryParser, client.getEntryParser()); // parser was cached
-        client.setSystemType(FTPClientConfig.SYST_NT);
+        assertSame(entryParser,client.getEntryParser());// parser was cached client.setSystemType(FTPClientConfig.SYST_NT);
         client.createParser(null);
         assertSame(entryParser, client.getEntryParser()); // parser was cached
     }

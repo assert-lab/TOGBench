@@ -11,7 +11,6 @@ vali_53_9,commons-validator,ValidatorTest,testManualObject_9_oe,src/test/java/or
 vali_60_3,commons-validator,UrlTest,testIsValid_3_oe,src/test/java/org/apache/commons/validator/UrlTest.java,,,,assert,unknown,standard,assertEquals
 vali_65_1,commons-validator,ValidatorResourcesTest,testNullInputStream_1_oe,src/test/java/org/apache/commons/validator/ValidatorResourcesTest.java,,,,assert,unknown,standard,fail
 vali_67_3,commons-validator,UrlValidatorTest,testIsValid_3_oe,src/test/java/org/apache/commons/validator/routines/UrlValidatorTest.java,,,,assert,unknown,standard,assertEquals
-vali_74_9,commons-validator,UrlValidatorTest,testValidator276_9_oe,src/test/java/org/apache/commons/validator/routines/UrlValidatorTest.java,,,,assert,unknown,standard,assertFalse
 vali_97_36,commons-validator,CalendarValidatorTest,testCompare_36_oe,src/test/java/org/apache/commons/validator/routines/CalendarValidatorTest.java,,,,assert,unknown,standard,fail
 vali_145_1,commons-validator,ISSNValidatorTest,testIsValidISSNConvertSuffix_1_oe,src/test/java/org/apache/commons/validator/routines/ISSNValidatorTest.java,,,,assert,unknown,standard,assertNull
 vali_145_2,commons-validator,ISSNValidatorTest,testIsValidISSNConvertSuffix_2_oe,src/test/java/org/apache/commons/validator/routines/ISSNValidatorTest.java,,,,assert,unknown,standard,fail

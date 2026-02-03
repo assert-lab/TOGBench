@@ -45,8 +45,7 @@ public class Http4FilesCacheTestCase extends TestCase {
         Assert.assertEquals(noQueryStringUrl, noQueryFile.getURL().toExternalForm());
 
         final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl);
-        Assert.assertEquals(queryStringUrl, queryFile.getURL().toExternalForm()); // failed for VFS-426
-
+        Assert.assertEquals(queryStringUrl,queryFile.getURL().toExternalForm());// failed for VFS-426 
         final FileObject queryFile2 = fileSystemManager.resolveFile(queryStringUrl2);
         Assert.assertEquals(queryStringUrl2, queryFile2.getURL().toExternalForm()); // failed for VFS-426
     }

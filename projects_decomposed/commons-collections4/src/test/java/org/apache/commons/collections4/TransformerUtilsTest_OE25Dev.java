@@ -1100,20 +1100,20 @@ public class TransformerUtilsTest_OE25Dev {
 
     @Test
     public void testStringValueTransformer_1_oe() {
-        assertNotNull( "StringValueTransformer should NEVER return a null value.", TransformerUtils.stringValueTransformer().transform(null));
+        assertNotNull("StringValueTransformer should NEVER return a null value.",TransformerUtils.stringValueTransformer().transform(null));
     }
 
     @Test
     public void testStringValueTransformer_2_oe() {
         // removed other assertion
-        assertEquals( "StringValueTransformer should return \"null\" when given a null argument.", "null", TransformerUtils.stringValueTransformer().transform(null));
+        assertEquals("StringValueTransformer should return \"null\" when given a null argument.","null",TransformerUtils.stringValueTransformer().transform(null));
     }
 
     @Test
     public void testStringValueTransformer_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals( "StringValueTransformer should return toString value", "6", TransformerUtils.stringValueTransformer().transform(Integer.valueOf(6)));
+        assertEquals("StringValueTransformer should return toString value","6",TransformerUtils.stringValueTransformer().transform(Integer.valueOf(6)));
     }
 
 }

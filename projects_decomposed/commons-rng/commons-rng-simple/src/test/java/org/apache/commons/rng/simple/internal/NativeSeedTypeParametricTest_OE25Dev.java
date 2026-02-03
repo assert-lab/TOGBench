@@ -88,7 +88,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
             .map(o -> (Class<?>) o)
             .collect(Collectors.toSet());
-        Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length, supported.size(), "Class type of supported seeds should be unique");
+        Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,supported.size(),"Class type of supported seeds should be unique");
     }
 
     @Test
@@ -99,7 +99,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         // removed other assertion
 
         final NativeSeedType[] values = NativeSeedType.values();
-        Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length, values.length, "Incorrect number of enum values for the supported native types");
+        Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,values.length,"Incorrect number of enum values for the supported native types");
     }
 
     @Test

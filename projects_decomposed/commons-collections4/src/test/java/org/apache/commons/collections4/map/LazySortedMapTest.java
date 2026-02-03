@@ -84,16 +84,12 @@ public class LazySortedMapTest<K, V> extends AbstractSortedMapTest<K, V> {
         map.put("C", 8);
         assertEquals("First key should be A", "A", map.firstKey());
         assertEquals("Last key should be C", "C", map.lastKey());
-        assertEquals("First key in tail map should be B",
-            "B", map.tailMap("B").firstKey());
-        assertEquals("Last key in head map should be B",
-            "B", map.headMap("C").lastKey());
-        assertEquals("Last key in submap should be B",
-            "B", map.subMap("A","C").lastKey());
+        assertEquals("First key in tail map should be B","B",map.tailMap("B").firstKey());
+        assertEquals("Last key in head map should be B","B",map.headMap("C").lastKey());
+        assertEquals("Last key in submap should be B","B",map.subMap("A","C").lastKey());
 
         final Comparator<?> c = map.comparator();
-        assertTrue("natural order, so comparator should be null",
-            c == null);
+        assertTrue("natural order,so comparator should be null",c == null);
     }
 
     public void testTransformerDecorate() {

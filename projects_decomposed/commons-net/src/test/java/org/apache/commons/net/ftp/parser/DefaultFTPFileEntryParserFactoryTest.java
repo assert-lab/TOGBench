@@ -54,8 +54,7 @@ public class DefaultFTPFileEntryParserFactoryTest extends TestCase
             fail("Exception should have been thrown. \"NT\" is not a recognized key");
         } catch (final ParserInitializationException pie) {
             assertNull(pie.getCause());
-            assertTrue(pie.getMessage()+ "should contain 'Unknown parser type:'",
-                    pie.getMessage().contains("Unknown parser type:"));
+            assertTrue(pie.getMessage()+ "should contain 'Unknown parser type:'",pie.getMessage().contains("Unknown parser type:"));
         }
 
         parser = factory.createFileEntryParser("WindowsNT");
@@ -120,8 +119,7 @@ public class DefaultFTPFileEntryParserFactoryTest extends TestCase
         final FTPClientConfig config = key == null ? new FTPClientConfig() : new FTPClientConfig(key);
         final FTPFileEntryParser parser = fact.createFileEntryParser(config);
         assertNotNull(parser);
-        assertTrue("Expected "+expected.getCanonicalName()+" got "+parser.getClass().getCanonicalName(),
-                expected.isInstance(parser));
+        assertTrue("Expected "+expected.getCanonicalName()+" got "+parser.getClass().getCanonicalName(),expected.isInstance(parser));
     }
     public void testDefaultParserFactoryConfig() throws Exception {
         final DefaultFTPFileEntryParserFactory factory =

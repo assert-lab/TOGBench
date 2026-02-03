@@ -144,8 +144,7 @@ class ContinuedFractionTest {
     }
 
     private static void assertExceptionMessageContains(Throwable t, String text) {
-        Assertions.assertTrue(t.getMessage().toLowerCase(Locale.ROOT).contains(text),
-            () -> "Missing '" + text + "' from exception message: " + t.getMessage());
+        Assertions.assertTrue(t.getMessage().toLowerCase(Locale.ROOT).contains(text),()-> "Missing '" + text + "' from exception message: " + t.getMessage());
     }
 
     // NUMBERS-46

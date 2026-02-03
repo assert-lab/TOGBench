@@ -2126,7 +2126,7 @@ json_140_20,"    @Test
          * JSONObject.numberToString() works correctly, nothing to change.
          */
         String str = JSONObject.numberToString(bigInteger);
-        assertTrue(""numberToString() handles bigInteger correctly"", str.equals(""123456789012345678901234567890""));
+        assertTrue(""numberToString()handles bigInteger correctly"",str.equals(""123456789012345678901234567890""));
     }
 
     }",JSONObjectTest::bigNumberOperations_20_oe
@@ -2197,7 +2197,7 @@ json_140_21,"    @Test
         String str = JSONObject.numberToString(bigInteger);
         // removed other assertion
         str = JSONObject.numberToString(bigDecimal);
-        assertTrue(""numberToString() handles bigDecimal correctly"", str.equals(""123456789012345678901234567890.12345678901234567890123456789""));
+        assertTrue(""numberToString()handles bigDecimal correctly"",str.equals(""123456789012345678901234567890.12345678901234567890123456789""));
     }
 
     }",JSONObjectTest::bigNumberOperations_21_oe
@@ -2277,7 +2277,7 @@ json_140_22,"    @Test
          * might inconvenience users.
          */
         obj = JSONObject.stringToValue(bigInteger.toString());
-        assertTrue(""stringToValue() turns bigInteger string into Number"", obj instanceof Number);
+        assertTrue(""stringToValue()turns bigInteger string into Number"",obj instanceof Number);
     }
 
     }",JSONObjectTest::bigNumberOperations_22_oe
@@ -2359,7 +2359,7 @@ json_140_23,"    @Test
         obj = JSONObject.stringToValue(bigInteger.toString());
         // removed other assertion
         obj = JSONObject.stringToValue(bigDecimal.toString());
-        assertTrue(""stringToValue() changes bigDecimal Number"", obj instanceof Number);
+        assertTrue(""stringToValue()changes bigDecimal Number"",obj instanceof Number);
     }
 
     }",JSONObjectTest::bigNumberOperations_23_oe
@@ -2873,7 +2873,7 @@ json_140_28,"    @Test
         jsonArray0.put(bigInteger);
         jsonArray0.put(bigDecimal);
         actualFromPutStr = jsonArray0.toString();
-        assertTrue(""bigInt, bigDec from put is a number"", actualFromPutStr.equals( ""[123456789012345678901234567890,123456789012345678901234567890.12345678901234567890123456789]""));
+        assertTrue(""bigInt,bigDec from put is a number"",actualFromPutStr.equals(""[123456789012345678901234567890,123456789012345678901234567890.12345678901234567890123456789]""));
     }
 
     }",JSONObjectTest::bigNumberOperations_28_oe
@@ -3983,7 +3983,7 @@ json_140_37,"    @Test
         list.add(bigDecimal);
         JSONArray jsonArray1 = new JSONArray(list);
         String actualFromListStr = jsonArray1.toString();
-        assertTrue(""bigInt, bigDec in list is a bigInt, bigDec"", actualFromListStr.equals( ""[123456789012345678901234567890,123456789012345678901234567890.12345678901234567890123456789]""));
+        assertTrue(""bigInt,bigDec in list is a bigInt,bigDec"",actualFromListStr.equals(""[123456789012345678901234567890,123456789012345678901234567890.12345678901234567890123456789]""));
     }
 
     }",JSONObjectTest::bigNumberOperations_37_oe
@@ -4127,7 +4127,7 @@ json_140_38,"    @Test
         JSONObject jsonObject8 = new JSONObject(myBigNumberBean);
         String actualFromBeanStr = jsonObject8.toString();
         // can't do a full string compare because mockery adds an extra key/value
-        assertTrue(""bigInt from bean ctor is a bigInt"", actualFromBeanStr.contains(""123456789012345678901234567890""));
+        assertTrue(""bigInt from bean ctor is a bigInt"",actualFromBeanStr.contains(""123456789012345678901234567890""));
     }
 
     }",JSONObjectTest::bigNumberOperations_38_oe
@@ -4278,7 +4278,7 @@ json_140_39,"    @Test
         jsonObject8 = new JSONObject(myBigNumberBean);
         actualFromBeanStr = jsonObject8.toString();
         // can't do a full string compare because mockery adds an extra key/value
-        assertTrue(""bigDec from bean ctor is a bigDec"", actualFromBeanStr.contains(""123456789012345678901234567890.12345678901234567890123456789""));
+        assertTrue(""bigDec from bean ctor is a bigDec"",actualFromBeanStr.contains(""123456789012345678901234567890.12345678901234567890123456789""));
     }
 
     }",JSONObjectTest::bigNumberOperations_39_oe
@@ -4689,7 +4689,7 @@ json_155_6,"    @Test
             String str = ""{\""myKey\"" = true}"";
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals(""Expecting an exception message"", ""Expected a ':' after a key at 10 [character 11 line 1]"", e.getMessage());
+            assertEquals(""Expecting an exception message"",""Expected a ':' after a key at 10 [character 11 line 1]"",e.getMessage());
     }
     }
 
@@ -4802,7 +4802,7 @@ json_155_10,"    @Test
             jsonObject.append(""myKey"", ""hello"");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals(""Expecting an exception message"", ""JSONObject[\""myKey\""] is not a JSONArray (null)."", e.getMessage());
+            assertEquals(""Expecting an exception message"",""JSONObject[\""myKey\""] is not a JSONArray(null)."",e.getMessage());
     }
     }
 
@@ -4902,7 +4902,7 @@ json_155_12,"    @Test
             jsonObject.increment(""myKey"");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals(""Expecting an exception message"", ""Unable to increment [\""myKey\""]."", e.getMessage());
+            assertEquals(""Expecting an exception message"",""Unable to increment [\""myKey\""]."",e.getMessage());
     }
     }
 
@@ -5020,7 +5020,7 @@ json_155_14,"    @Test
             jsonObject.get(null);
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals(""Expecting an exception message"", ""Null key."", e.getMessage());
+            assertEquals(""Expecting an exception message"",""Null key."",e.getMessage());
     }
     }
 
@@ -5152,7 +5152,7 @@ json_155_16,"    @Test
             JSONObject.numberToString((Number)null);
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals(""Expecting an exception message"", ""Null pointer"", e.getMessage());
+            assertEquals(""Expecting an exception message"",""Null pointer"",e.getMessage());
     }
     }
 
@@ -5856,7 +5856,7 @@ json_155_24,"    @Test
             new JSONObject(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr03\"" at 90 [character 13 line 5]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr03\"" at 90 [character 13 line 5]"",e.getMessage());
     }
     }
 
@@ -6096,7 +6096,7 @@ json_155_26,"    @Test
             new JSONObject(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr03\"" at 90 [character 13 line 5]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr03\"" at 90 [character 13 line 5]"",e.getMessage());
     }
     }
 
@@ -6374,7 +6374,7 @@ json_155_28,"    @Test
             new JSONObject(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr03\"" at 90 [character 13 line 5]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr03\"" at 90 [character 13 line 5]"",e.getMessage());
     }
     }
 
@@ -6688,7 +6688,7 @@ json_155_30,"    @Test
             new JSONObject(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr04-03\"" at 215 [character 20 line 9]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr04-03\"" at 215 [character 20 line 9]"",e.getMessage());
     }
     }
 
@@ -7046,7 +7046,7 @@ json_155_32,"    @Test
             new JSONObject(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr04-03\"" at 215 [character 20 line 9]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr04-03\"" at 215 [character 20 line 9]"",e.getMessage());
     }
     }
 
@@ -7452,7 +7452,7 @@ json_155_34,"    @Test
             new JSONObject(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr04-03\"" at 215 [character 20 line 9]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr04-03\"" at 215 [character 20 line 9]"",e.getMessage());
     }
     }
 
@@ -7892,7 +7892,7 @@ json_155_36,"    @Test
             new JSONArray(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr01\"" at 124 [character 17 line 8]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr01\"" at 124 [character 17 line 8]"",e.getMessage());
     }
     }
 
@@ -8378,7 +8378,7 @@ json_155_38,"    @Test
             new JSONArray(str);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals(""Expecting an expection message"", ""Duplicate key \""attr02-01\"" at 269 [character 24 line 13]"", e.getMessage());
+            assertEquals(""Expecting an expection message"",""Duplicate key \""attr02-01\"" at 269 [character 24 line 13]"",e.getMessage());
     }
     }
 
@@ -8758,7 +8758,7 @@ json_169_6,"    @Test
 
             // removed other assertion
             // removed other assertion
-            assertTrue(""key2"", actualStr.contains(""   \""key2\"": [\n"" + ""     1,\n"" + ""     false,\n"" + ""     3.14\n"" + ""   ]"") );
+            assertTrue(""key2"",actualStr.contains("" \""key2\"": [\n"" + "" 1,\n"" + "" false,\n"" + "" 3.14\n"" + "" ]""));
     }
     }
 ",JSONObjectTest::write3Param_6_oe

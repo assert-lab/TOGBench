@@ -154,7 +154,7 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
 
         final List<T> orderedList = getComparableObjectsOrdered();
 
-        assertTrue("Comparator did not reorder the List correctly", orderedList.equals(randomList));
+        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
     }
 
     @Test
@@ -174,13 +174,13 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
         }
         */
 
-        assertTrue("Comparator did not reorder the List correctly", orderedList.equals(randomList));
+        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
     }
 
     @Test
     public void testComparatorIsSerializable_1_oe() {
         final Comparator<T> comparator = makeObject();
-        assertTrue("This comparator should be Serializable.", comparator instanceof Serializable);
+        assertTrue("This comparator should be Serializable.",comparator instanceof Serializable);
     }
 
     @Test
@@ -199,7 +199,7 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
                     comparator = makeObject();
                     final String fileName = getCanonicalComparatorName(comparator);
                     writeExternalFormToDisk((Serializable) comparator, fileName);
-                    fail("Serialized form could not be found.  A serialized version " + "has now been written (and should be added to CVS): " + fileName);
+                    fail("Serialized form could not be found. A serialized version " + "has now been written(and should be added to CVS): " + fileName);
     }
     }
     }
@@ -260,7 +260,7 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
 
             final List<T> orderedList = getComparableObjectsOrdered();
 
-            assertTrue("Comparator did not reorder the List correctly", orderedList.equals(randomList));
+            assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
     }
     }
 

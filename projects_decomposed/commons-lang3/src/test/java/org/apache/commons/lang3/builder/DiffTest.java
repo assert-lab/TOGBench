@@ -65,7 +65,6 @@ public class DiffTest {
 
     @Test
     public void testToString() {
-        assertEquals(String.format("[%s: %s, %s]", FIELD_NAME, booleanDiff.getLeft(),
-                booleanDiff.getRight()), booleanDiff.toString());
+        assertEquals(String.format("[%s: %s,%s]",FIELD_NAME,booleanDiff.getLeft(),booleanDiff.getRight()),booleanDiff.toString());
     }
 }

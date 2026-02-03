@@ -77,8 +77,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final FileHandler handler = new FileHandler(config);
         handler.load(file);
-        assertEquals("Configuration was not saved", expValue,
-                config.getInt(PROP));
+        assertEquals("Configuration was not saved",expValue,config.getInt(PROP));
     }
 
     /** Helper object for managing temporary files. */
@@ -583,7 +582,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         final String encoding = "testEncoding";
         FileBasedConfigurationBuilder.setDefaultEncoding(Configuration.class,
                 encoding);
-        assertEquals("Wrong default encoding", encoding, FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
+        assertEquals("Wrong default encoding",encoding,FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
     }
 
     @Test
@@ -595,13 +594,13 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         // removed other assertion
         FileBasedConfigurationBuilder.setDefaultEncoding(Configuration.class,
                 null);
-        assertNull("Default encoding not removed", FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
+        assertNull("Default encoding not removed",FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
     }
 
     @Test
     public void testGetDefaultEncodingProperties_1_oe()
     {
-        assertEquals("Wrong default encoding", PropertiesConfiguration.DEFAULT_ENCODING, FileBasedConfigurationBuilder .getDefaultEncoding(PropertiesConfiguration.class));
+        assertEquals("Wrong default encoding",PropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder .getDefaultEncoding(PropertiesConfiguration.class));
     }
 
     @Test
@@ -610,13 +609,13 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         final PropertiesConfiguration conf = new PropertiesConfiguration()
         {
         };
-        assertEquals("Wrong default encodng", PropertiesConfiguration.DEFAULT_ENCODING, FileBasedConfigurationBuilder.getDefaultEncoding(conf .getClass()));
+        assertEquals("Wrong default encodng",PropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder.getDefaultEncoding(conf .getClass()));
     }
 
     @Test
     public void testGetDefaultEncodingXmlProperties_1_oe()
     {
-        assertEquals("Wrong default encoding", XMLPropertiesConfiguration.DEFAULT_ENCODING, FileBasedConfigurationBuilder .getDefaultEncoding(XMLPropertiesConfiguration.class));
+        assertEquals("Wrong default encoding",XMLPropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder .getDefaultEncoding(XMLPropertiesConfiguration.class));
     }
 
     @Test
@@ -651,7 +650,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
                         PropertiesConfiguration.class);
         final FileHandler handler = new FileHandler();
         builder.initFileHandler(handler);
-        assertEquals("Wrong encoding", PropertiesConfiguration.DEFAULT_ENCODING, handler.getEncoding());
+        assertEquals("Wrong encoding",PropertiesConfiguration.DEFAULT_ENCODING,handler.getEncoding());
     }
 
     @Test
@@ -665,7 +664,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
                                 .setFile(file));
         builder.getConfiguration();
         final FileLocator locator = builder.getFileHandler().getFileLocator();
-        assertTrue("Not fully defined: " + locator, FileLocatorUtils.isFullyInitialized(locator));
+        assertTrue("Not fully defined: " + locator,FileLocatorUtils.isFullyInitialized(locator));
     }
 
     @Test
@@ -727,7 +726,7 @@ public class TestFileBasedConfigurationBuilder_OE25Dev {
         builder.reset();
         final PropertiesConfiguration config = builder.getConfiguration();
         // removed other assertion
-        assertFalse("FileHandler has location", builder.getFileHandler() .isLocationDefined());
+        assertFalse("FileHandler has location",builder.getFileHandler().isLocationDefined());
     }
 
     @Test

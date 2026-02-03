@@ -378,7 +378,7 @@ public class CustomRamProviderTest_OE25Dev {
 
         final byte[] buffer = new byte[100];
         final int offset = 10;
-        assertEquals("Filling buffer failed when file is not empty", NON_EMPTY_FILE_CONTENT.length, input.read(buffer, offset, 100 - offset));
+        assertEquals("Filling buffer failed when file is not empty",NON_EMPTY_FILE_CONTENT.length,input.read(buffer,offset,100 - offset));
     }
 
     @Test

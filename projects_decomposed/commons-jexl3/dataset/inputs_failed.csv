@@ -1185,8 +1185,6 @@ jexl_143_7,"    @Test
         script = JEXL.createScript(""x?.y?.z"");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript(""x?.y?.z = 3"");
         try {
              result = script.execute(ctxt);
@@ -1223,8 +1221,6 @@ jexl_143_9,"    @Test
         script = JEXL.createScript(""x?.y?.z"");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript(""x?.y?.z = 3"");
         try {
              result = script.execute(ctxt);
@@ -1270,8 +1266,6 @@ jexl_143_11,"    @Test
         script = JEXL.createScript(""x?.y?.z"");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript(""x?.y?.z = 3"");
         try {
              result = script.execute(ctxt);
@@ -1326,8 +1320,6 @@ jexl_143_13,"    @Test
         script = JEXL.createScript(""x?.y?.z"");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript(""x?.y?.z = 3"");
         try {
              result = script.execute(ctxt);

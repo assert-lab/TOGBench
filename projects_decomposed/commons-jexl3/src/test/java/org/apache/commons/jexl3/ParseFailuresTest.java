@@ -46,8 +46,7 @@ public class ParseFailuresTest extends JexlTestCase {
         final String badExpression = "eq";
         try {
             JEXL.createExpression(badExpression);
-            Assert.fail("Parsing \"" + badExpression
-                    + "\" should result in a JexlException");
+            Assert.fail("Parsing \"" + badExpression + "\" should result in a JexlException");
         } catch (final JexlException pe) {
             // expected
             LOGGER.debug(pe);
@@ -60,8 +59,7 @@ public class ParseFailuresTest extends JexlTestCase {
         final String badExpression = "?";
         try {
             JEXL.createExpression(badExpression);
-            Assert.fail("Parsing \"" + badExpression
-                    + "\" should result in a JexlException");
+            Assert.fail("Parsing \"" + badExpression + "\" should result in a JexlException");
         } catch (final JexlException pe) {
             // expected
             LOGGER.debug(pe);
@@ -74,8 +72,7 @@ public class ParseFailuresTest extends JexlTestCase {
         final String badScript = "eq";
         try {
             JEXL.createScript(badScript);
-            Assert.fail("Parsing \"" + badScript
-                    + "\" should result in a JexlException");
+            Assert.fail("Parsing \"" + badScript + "\" should result in a JexlException");
         } catch (final JexlException pe) {
             // expected
             LOGGER.debug(pe);
@@ -88,8 +85,7 @@ public class ParseFailuresTest extends JexlTestCase {
         final String badScript = "?";
         try {
             JEXL.createScript(badScript);
-            Assert.fail("Parsing \"" + badScript
-                    + "\" should result in a JexlException");
+            Assert.fail("Parsing \"" + badScript + "\" should result in a JexlException");
         } catch (final JexlException pe) {
             // expected
             LOGGER.debug(pe);
@@ -102,8 +98,7 @@ public class ParseFailuresTest extends JexlTestCase {
         final String badScript = "foo=1;bar=2;a?b:c:d;";
         try {
             JEXL.createScript(badScript);
-            Assert.fail("Parsing \"" + badScript
-                    + "\" should result in a JexlException");
+            Assert.fail("Parsing \"" + badScript + "\" should result in a JexlException");
         } catch (final JexlException pe) {
             // expected
             LOGGER.debug(pe);

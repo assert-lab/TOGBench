@@ -357,83 +357,48 @@ public class MethodUtilsTest {
 
     @Test
     public void testInvokeJavaVarargsOverloadingResolution() throws Exception {
-        assertEquals("Byte...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", (byte) 1, (byte) 2));
-        assertEquals("Short...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", (short) 1, (short) 2));
-        assertEquals("Integer...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1, 2));
-        assertEquals("Long...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1L, 2L));
-        assertEquals("Float...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1f, 2f));
-        assertEquals("Double...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1d, 2d));
-        assertEquals("Character...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 'a', 'b'));
-        assertEquals("String...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", "a", "b"));
-        assertEquals("Boolean...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", true, false));
+        assertEquals("Byte...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(byte)1,(byte)2));
+        assertEquals("Short...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(short)1,(short)2));
+        assertEquals("Integer...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,2));
+        assertEquals("Long...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1L,2L));
+        assertEquals("Float...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1f,2f));
+        assertEquals("Double...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1d,2d));
+        assertEquals("Character...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",'a','b'));
+        assertEquals("String...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload","a","b"));
+        assertEquals("Boolean...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",true,false));
 
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1, "s"));
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1, true));
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1.1, true));
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 'c', true));
-        assertEquals("Number...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1, 1.1));
-        assertEquals("Number...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1, 1L));
-        assertEquals("Number...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1d, 1f));
-        assertEquals("Number...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", (short) 1, (byte) 1));
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 1, 'c'));
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class,
-                "varOverload", 'c', "s"));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,"s"));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,true));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1.1,true));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",'c',true));
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,1.1));
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,1L));
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1d,1f));
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(short)1,(byte)1));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,'c'));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",'c',"s"));
 
-        assertEquals("Object...", MethodUtils.invokeStaticMethod(TestBean.class, "varOverload",
-                (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY));
-        assertEquals("Number...", MethodUtils.invokeStaticMethod(TestBean.class, "numOverload",
-                (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"numOverload",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
     }
 
     @Test
     public void testInvokeMethod() throws Exception {
-        assertEquals("foo()", MethodUtils.invokeMethod(testBean, "foo",
-                (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertEquals("foo()",MethodUtils.invokeMethod(testBean,"foo",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
         assertEquals("foo()", MethodUtils.invokeMethod(testBean, "foo"));
-        assertEquals("foo()", MethodUtils.invokeMethod(testBean, "foo",
-                (Object[]) null));
-        assertEquals("foo()", MethodUtils.invokeMethod(testBean, "foo",
-                null, null));
-        assertEquals("foo(String)", MethodUtils.invokeMethod(testBean, "foo",
-                ""));
-        assertEquals("foo(Object)", MethodUtils.invokeMethod(testBean, "foo",
-                new Object()));
-        assertEquals("foo(Object)", MethodUtils.invokeMethod(testBean, "foo",
-                Boolean.TRUE));
-        assertEquals("foo(Integer)", MethodUtils.invokeMethod(testBean, "foo",
-                NumberUtils.INTEGER_ONE));
-        assertEquals("foo(int)", MethodUtils.invokeMethod(testBean, "foo",
-                NumberUtils.BYTE_ONE));
-        assertEquals("foo(long)", MethodUtils.invokeMethod(testBean, "foo",
-                NumberUtils.LONG_ONE));
-        assertEquals("foo(double)", MethodUtils.invokeMethod(testBean, "foo",
-                NumberUtils.DOUBLE_ONE));
-        assertEquals("foo(String...)", MethodUtils.invokeMethod(testBean, "foo",
-                "a", "b", "c"));
-        assertEquals("foo(String...)", MethodUtils.invokeMethod(testBean, "foo",
-                "a", "b", "c"));
-        assertEquals("foo(int, String...)", MethodUtils.invokeMethod(testBean, "foo",
-                5, "a", "b", "c"));
-        assertEquals("foo(long...)", MethodUtils.invokeMethod(testBean, "foo",
-                1L, 2L));
+        assertEquals("foo()",MethodUtils.invokeMethod(testBean,"foo",(Object[])null));
+        assertEquals("foo()",MethodUtils.invokeMethod(testBean,"foo",null,null));
+        assertEquals("foo(String)",MethodUtils.invokeMethod(testBean,"foo",""));
+        assertEquals("foo(Object)",MethodUtils.invokeMethod(testBean,"foo",new Object()));
+        assertEquals("foo(Object)",MethodUtils.invokeMethod(testBean,"foo",Boolean.TRUE));
+        assertEquals("foo(Integer)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.INTEGER_ONE));
+        assertEquals("foo(int)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.BYTE_ONE));
+        assertEquals("foo(long)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.LONG_ONE));
+        assertEquals("foo(double)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.DOUBLE_ONE));
+        assertEquals("foo(String...)",MethodUtils.invokeMethod(testBean,"foo","a","b","c"));
+        assertEquals("foo(String...)",MethodUtils.invokeMethod(testBean,"foo","a","b","c"));
+        assertEquals("foo(int,String...)",MethodUtils.invokeMethod(testBean,"foo",5,"a","b","c"));
+        assertEquals("foo(long...)",MethodUtils.invokeMethod(testBean,"foo",1L,2L));
 
         assertThrows(NoSuchMethodException.class, () -> MethodUtils.invokeMethod(testBean, "foo", 1, 2));
 
@@ -449,35 +414,26 @@ public class MethodUtilsTest {
 
     @Test
     public void testInvokeMethod_VarArgsWithNullValues() throws Exception {
-        assertEquals("String...", MethodUtils.invokeMethod(testBean, "varOverload",
-                "a", null, "c"));
-        assertEquals("String...", MethodUtils.invokeMethod(testBean, "varOverload",
-                                                                "a", "b", null));
+        assertEquals("String...",MethodUtils.invokeMethod(testBean,"varOverload","a",null,"c"));
+        assertEquals("String...",MethodUtils.invokeMethod(testBean,"varOverload","a","b",null));
     }
 
     @Test
     public void testInvokeMethod_VarArgsNotUniqueResolvable() throws Exception {
       assertEquals("Boolean...", MethodUtils.invokeMethod(testBean, "varOverload",
                                                          new Object[] {null}));
-      assertEquals("Object...", MethodUtils.invokeMethod(testBean, "varOverload",
-                                                         (Object[]) null));
+      assertEquals("Object...",MethodUtils.invokeMethod(testBean,"varOverload",(Object[])null));
     }
 
     @Test
     public void testInvokeExactMethod() throws Exception {
-        assertEquals("foo()", MethodUtils.invokeExactMethod(testBean, "foo",
-                (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertEquals("foo()",MethodUtils.invokeExactMethod(testBean,"foo",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
         assertEquals("foo()", MethodUtils.invokeExactMethod(testBean, "foo"));
-        assertEquals("foo()", MethodUtils.invokeExactMethod(testBean, "foo",
-                (Object[]) null));
-        assertEquals("foo()", MethodUtils.invokeExactMethod(testBean, "foo",
-                null, null));
-        assertEquals("foo(String)", MethodUtils.invokeExactMethod(testBean,
-                "foo", ""));
-        assertEquals("foo(Object)", MethodUtils.invokeExactMethod(testBean,
-                "foo", new Object()));
-        assertEquals("foo(Integer)", MethodUtils.invokeExactMethod(testBean,
-                "foo", NumberUtils.INTEGER_ONE));
+        assertEquals("foo()",MethodUtils.invokeExactMethod(testBean,"foo",(Object[])null));
+        assertEquals("foo()",MethodUtils.invokeExactMethod(testBean,"foo",null,null));
+        assertEquals("foo(String)",MethodUtils.invokeExactMethod(testBean,"foo",""));
+        assertEquals("foo(Object)",MethodUtils.invokeExactMethod(testBean,"foo",new Object()));
+        assertEquals("foo(Integer)",MethodUtils.invokeExactMethod(testBean,"foo",NumberUtils.INTEGER_ONE));
         assertEquals("foo(double)", MethodUtils.invokeExactMethod(testBean,
                 "foo", new Object[]{NumberUtils.DOUBLE_ONE},
                 new Class[]{Double.TYPE}));
@@ -494,30 +450,18 @@ public class MethodUtilsTest {
 
     @Test
     public void testInvokeStaticMethod() throws Exception {
-        assertEquals("bar()", MethodUtils.invokeStaticMethod(TestBean.class,
-                "bar", (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY));
-        assertEquals("bar()", MethodUtils.invokeStaticMethod(TestBean.class,
-                "bar", (Object[]) null));
-        assertEquals("bar()", MethodUtils.invokeStaticMethod(TestBean.class,
-                "bar", null, null));
-        assertEquals("bar(String)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", ""));
-        assertEquals("bar(Object)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", new Object()));
-        assertEquals("bar(Object)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", Boolean.TRUE));
-        assertEquals("bar(Integer)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", NumberUtils.INTEGER_ONE));
-        assertEquals("bar(int)", MethodUtils.invokeStaticMethod(TestBean.class,
-                "bar", NumberUtils.BYTE_ONE));
-        assertEquals("bar(double)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", NumberUtils.DOUBLE_ONE));
-        assertEquals("bar(String...)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", "a", "b"));
-        assertEquals("bar(long...)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", 1L, 2L));
-        assertEquals("bar(int, String...)", MethodUtils.invokeStaticMethod(
-                TestBean.class, "bar", NumberUtils.INTEGER_ONE, "a", "b"));
+        assertEquals("bar()",MethodUtils.invokeStaticMethod(TestBean.class,"bar",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertEquals("bar()",MethodUtils.invokeStaticMethod(TestBean.class,"bar",(Object[])null));
+        assertEquals("bar()",MethodUtils.invokeStaticMethod(TestBean.class,"bar",null,null));
+        assertEquals("bar(String)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",""));
+        assertEquals("bar(Object)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",new Object()));
+        assertEquals("bar(Object)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",Boolean.TRUE));
+        assertEquals("bar(Integer)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.INTEGER_ONE));
+        assertEquals("bar(int)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.BYTE_ONE));
+        assertEquals("bar(double)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.DOUBLE_ONE));
+        assertEquals("bar(String...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar","a","b"));
+        assertEquals("bar(long...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",1L,2L));
+        assertEquals("bar(int,String...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.INTEGER_ONE,"a","b"));
 
         TestBean.verify(new ImmutablePair<>("String...", new String[]{"x", "y"}),
                 MethodUtils.invokeStaticMethod(TestBean.class, "varOverloadEchoStatic", "x", "y"));
@@ -534,18 +478,12 @@ public class MethodUtilsTest {
 
     @Test
     public void testInvokeExactStaticMethod() throws Exception {
-        assertEquals("bar()", MethodUtils.invokeExactStaticMethod(TestBean.class,
-                "bar", (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY));
-        assertEquals("bar()", MethodUtils.invokeExactStaticMethod(TestBean.class,
-                "bar", (Object[]) null));
-        assertEquals("bar()", MethodUtils.invokeExactStaticMethod(TestBean.class,
-                "bar", null, null));
-        assertEquals("bar(String)", MethodUtils.invokeExactStaticMethod(
-                TestBean.class, "bar", ""));
-        assertEquals("bar(Object)", MethodUtils.invokeExactStaticMethod(
-                TestBean.class, "bar", new Object()));
-        assertEquals("bar(Integer)", MethodUtils.invokeExactStaticMethod(
-                TestBean.class, "bar", NumberUtils.INTEGER_ONE));
+        assertEquals("bar()",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertEquals("bar()",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",(Object[])null));
+        assertEquals("bar()",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",null,null));
+        assertEquals("bar(String)",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",""));
+        assertEquals("bar(Object)",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",new Object()));
+        assertEquals("bar(Integer)",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",NumberUtils.INTEGER_ONE));
         assertEquals("bar(double)", MethodUtils.invokeExactStaticMethod(
                 TestBean.class, "bar", new Object[]{NumberUtils.DOUBLE_ONE},
                 new Class[]{Double.TYPE}));
@@ -592,16 +530,12 @@ public class MethodUtilsTest {
 
     @Test
     public void testGetAccessiblePublicMethod() throws Exception {
-        assertSame(MutableObject.class, MethodUtils.getAccessibleMethod(
-                MutableObject.class.getMethod("getValue",
-                        ArrayUtils.EMPTY_CLASS_ARRAY)).getDeclaringClass());
+        assertSame(MutableObject.class,MethodUtils.getAccessibleMethod(MutableObject.class.getMethod("getValue",ArrayUtils.EMPTY_CLASS_ARRAY)).getDeclaringClass());
     }
 
     @Test
     public void testGetAccessiblePublicMethodFromDescription() {
-        assertSame(MutableObject.class, MethodUtils.getAccessibleMethod(
-                MutableObject.class, "getValue", ArrayUtils.EMPTY_CLASS_ARRAY)
-                .getDeclaringClass());
+        assertSame(MutableObject.class,MethodUtils.getAccessibleMethod(MutableObject.class,"getValue",ArrayUtils.EMPTY_CLASS_ARRAY).getDeclaringClass());
     }
 
     @Test
@@ -727,8 +661,7 @@ public class MethodUtilsTest {
 
     @Test
     public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess() {
-        assertArrayEquals(new Method[0], MethodUtils.getMethodsWithAnnotation(Object.class, Annotated.class,
-                true, true));
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,true,true));
 
         final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
                 true, true);
@@ -737,18 +670,13 @@ public class MethodUtilsTest {
         assertEquals("PublicChild", methodsWithAnnotation[1].getDeclaringClass().getSimpleName());
         assertTrue(methodsWithAnnotation[0].getName().endsWith("AnnotatedMethod"));
         assertTrue(methodsWithAnnotation[1].getName().endsWith("AnnotatedMethod"));
-        assertEquals("Foo.doIt",
-                methodsWithAnnotation[2].getDeclaringClass().getSimpleName() + '.' +
-                        methodsWithAnnotation[2].getName());
-        assertEquals("Parent.parentProtectedAnnotatedMethod",
-                methodsWithAnnotation[3].getDeclaringClass().getSimpleName() + '.' +
-                        methodsWithAnnotation[3].getName());
+        assertEquals("Foo.doIt",methodsWithAnnotation[2].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[2].getName());
+        assertEquals("Parent.parentProtectedAnnotatedMethod",methodsWithAnnotation[3].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[3].getName());
     }
 
     @Test
     public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess() {
-        assertArrayEquals(new Method[0], MethodUtils.getMethodsWithAnnotation(Object.class, Annotated.class,
-                false, true));
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,false,true));
 
         final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
                 false, true);
@@ -761,105 +689,69 @@ public class MethodUtilsTest {
 
     @Test
     public void testGetMethodsWithAnnotationSearchSupersButNotIgnoreAccess() {
-        assertArrayEquals(new Method[0], MethodUtils.getMethodsWithAnnotation(Object.class, Annotated.class,
-                true, false));
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,true,false));
 
         final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
                 true, false);
         assertEquals(2, methodsWithAnnotation.length);
-        assertEquals("PublicChild.publicAnnotatedMethod",
-                methodsWithAnnotation[0].getDeclaringClass().getSimpleName() + '.' +
-                        methodsWithAnnotation[0].getName());
-        assertEquals("Foo.doIt",
-                methodsWithAnnotation[1].getDeclaringClass().getSimpleName() + '.' +
-                        methodsWithAnnotation[1].getName());
+        assertEquals("PublicChild.publicAnnotatedMethod",methodsWithAnnotation[0].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[0].getName());
+        assertEquals("Foo.doIt",methodsWithAnnotation[1].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[1].getName());
     }
 
     @Test
     public void testGetMethodsWithAnnotationNotSearchSupersAndNotIgnoreAccess() {
-        assertArrayEquals(new Method[0], MethodUtils.getMethodsWithAnnotation(Object.class, Annotated.class,
-                false, false));
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,false,false));
 
         final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
                 false, false);
         assertEquals(1, methodsWithAnnotation.length);
-        assertEquals("PublicChild.publicAnnotatedMethod",
-                methodsWithAnnotation[0].getDeclaringClass().getSimpleName() + '.' +
-                        methodsWithAnnotation[0].getName());
+        assertEquals("PublicChild.publicAnnotatedMethod",methodsWithAnnotation[0].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[0].getName());
     }
 
     @Test
     public void testGetAnnotationSearchSupersAndIgnoreAccess() throws NoSuchMethodException {
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),
-                Annotated.class, true, true));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"), Annotated.class,
-                true, true));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),
-                Annotated.class, true, true));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),
-                Annotated.class, true, true));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),
-                Annotated.class, true, true));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,true,true));
 
-        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentNotAnnotatedMethod", String.class),
-                Annotated.class, true, true));
-        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentProtectedAnnotatedMethod", String.class),
-                Annotated.class, true, true));
-        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getDeclaredMethod("privateAnnotatedMethod", String.class),
-                Annotated.class, true, true));
-        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("publicAnnotatedMethod", String.class),
-                Annotated.class, true, true));
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentNotAnnotatedMethod",String.class),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentProtectedAnnotatedMethod",String.class),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getDeclaredMethod("privateAnnotatedMethod",String.class),Annotated.class,true,true));
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("publicAnnotatedMethod",String.class),Annotated.class,true,true));
     }
 
     @Test
     public void testGetAnnotationNotSearchSupersButIgnoreAccess() throws NoSuchMethodException {
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),
-                Annotated.class, false, true));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"), Annotated.class,
-                false, true));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),
-                Annotated.class, false, true));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),
-                Annotated.class, false, true));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),
-                Annotated.class, false, true));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,false,true));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,false,true));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,false,true));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,false,true));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,false,true));
     }
 
     @Test
     public void testGetAnnotationSearchSupersButNotIgnoreAccess() throws NoSuchMethodException {
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),
-                Annotated.class, true, false));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"), Annotated.class,
-                true, false));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),
-                Annotated.class, true, false));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),
-                Annotated.class, true, false));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),
-                Annotated.class, true, false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,true,false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,true,false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,true,false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,true,false));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,true,false));
 
-        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentNotAnnotatedMethod", String.class),
-                Annotated.class, true, false));
-        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentProtectedAnnotatedMethod", String.class),
-                Annotated.class, true, false));
-        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getDeclaredMethod("privateAnnotatedMethod", String.class),
-                Annotated.class, true, false));
-        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("publicAnnotatedMethod", String.class),
-                Annotated.class, true, false));
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentNotAnnotatedMethod",String.class),Annotated.class,true,false));
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentProtectedAnnotatedMethod",String.class),Annotated.class,true,false));
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getDeclaredMethod("privateAnnotatedMethod",String.class),Annotated.class,true,false));
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("publicAnnotatedMethod",String.class),Annotated.class,true,false));
     }
 
     @Test
     public void testGetAnnotationNotSearchSupersAndNotIgnoreAccess() throws NoSuchMethodException {
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),
-                Annotated.class, false, false));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"), Annotated.class,
-                false, false));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),
-                Annotated.class, false, false));
-        assertNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),
-                Annotated.class, false, false));
-        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),
-                Annotated.class, false, false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,false,false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,false,false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,false,false));
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,false,false));
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,false,false));
     }
 
     @Test
@@ -884,10 +776,7 @@ public class MethodUtilsTest {
 
         final List<Method> methodWithAnnotation = MethodUtils.getMethodsListWithAnnotation(MethodUtilsTest.class, Annotated.class);
         assertEquals(2, methodWithAnnotation.size());
-        assertThat(methodWithAnnotation, hasItems(
-                MethodUtilsTest.class.getMethod("testGetMethodsWithAnnotation"),
-                MethodUtilsTest.class.getMethod("testGetMethodsListWithAnnotation")
-        ));
+        assertThat(methodWithAnnotation,hasItems(MethodUtilsTest.class.getMethod("testGetMethodsWithAnnotation"),MethodUtilsTest.class.getMethod("testGetMethodsListWithAnnotation")));
     }
 
     @Test
@@ -925,8 +814,7 @@ public class MethodUtilsTest {
                                                               final String methodName, final Class<?>[] requestTypes, final Class<?>[] actualTypes) {
         final Method m = MethodUtils.getMatchingAccessibleMethod(cls, methodName,
                 requestTypes);
-        assertNotNull(m, "could not find any matches for " + methodName
-                + " (" + (requestTypes == null ? null : toString(requestTypes)) + ")");
+        assertNotNull(m,"could not find any matches for " + methodName + "(" +(requestTypes == null ? null : toString(requestTypes))+ ")");
         assertArrayEquals(actualTypes, m.getParameterTypes(), toString(m.getParameterTypes()) + " not equals " + toString(actualTypes));
     }
 
@@ -1022,32 +910,24 @@ public class MethodUtilsTest {
 
     @Test
     public void testGetMatchingMethod() throws NoSuchMethodException {
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod"),
-                GetMatchingMethodClass.class.getMethod("testMethod"));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod"),GetMatchingMethodClass.class.getMethod("testMethod"));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod", Long.TYPE),
-                GetMatchingMethodClass.class.getMethod("testMethod", Long.TYPE));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod",Long.TYPE),GetMatchingMethodClass.class.getMethod("testMethod",Long.TYPE));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod", Long.class),
-                GetMatchingMethodClass.class.getMethod("testMethod", Long.class));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod",Long.class),GetMatchingMethodClass.class.getMethod("testMethod",Long.class));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod", (Class<?>) null),
-                GetMatchingMethodClass.class.getMethod("testMethod", Long.class));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod",(Class<?>)null),GetMatchingMethodClass.class.getMethod("testMethod",Long.class));
 
         assertThrows(IllegalStateException.class,
                 () -> MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod2", (Class<?>) null));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod3", Long.TYPE, Long.class),
-                GetMatchingMethodClass.class.getMethod("testMethod3", Long.TYPE, Long.class));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",Long.TYPE,Long.class),GetMatchingMethodClass.class.getMethod("testMethod3",Long.TYPE,Long.class));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod3", Long.class, Long.TYPE),
-                GetMatchingMethodClass.class.getMethod("testMethod3", Long.class, Long.TYPE));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",Long.class,Long.TYPE),GetMatchingMethodClass.class.getMethod("testMethod3",Long.class,Long.TYPE));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod3", null, Long.TYPE),
-                GetMatchingMethodClass.class.getMethod("testMethod3", Long.class, Long.TYPE));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",null,Long.TYPE),GetMatchingMethodClass.class.getMethod("testMethod3",Long.class,Long.TYPE));
 
-        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod3", Long.TYPE, null),
-                GetMatchingMethodClass.class.getMethod("testMethod3", Long.TYPE, Long.class));
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",Long.TYPE,null),GetMatchingMethodClass.class.getMethod("testMethod3",Long.TYPE,Long.class));
 
         assertThrows(IllegalStateException.class,
                 () -> MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod4", null, null));

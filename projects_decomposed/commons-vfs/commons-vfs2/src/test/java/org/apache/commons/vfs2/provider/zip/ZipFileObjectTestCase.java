@@ -59,10 +59,7 @@ public class ZipFileObjectTestCase {
         final String streamData = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
         final String fileObjectString = fileObject.toString();
         Assert.assertNotNull(fileObjectString, streamData);
-        Assert.assertEquals(
-                fileObjectString, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Root"
-                        + expectedId + ">foo" + expectedId + "</Root" + expectedId + ">\r\n",
-                streamData);
+        Assert.assertEquals(fileObjectString,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Root" + expectedId + ">foo" + expectedId + "</Root" + expectedId + ">\r\n",streamData);
     }
 
     private void resolveReadAssert(final FileObject zipFileObject, final String path)

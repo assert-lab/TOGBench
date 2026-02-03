@@ -1093,33 +1093,13 @@ public class IteratorUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(iterator.nextIndex() == 4); // size of list;
+        assertTrue(iterator.nextIndex()== 4);// size of list assertTrue(iterator.previousIndex()== 3);
     }
 
     @Test
-    public void testArrayListIterator_13_oe() {
+    public void testArrayListIterator_15_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(iterator.previousIndex() == 3);
-    }
-
-    @Test
-    public void testArrayListIterator_16_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1152,10 +1132,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_17_oe() {
+    public void testArrayListIterator_16_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1189,10 +1168,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_18_oe() {
+    public void testArrayListIterator_17_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1227,10 +1205,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_19_oe() {
+    public void testArrayListIterator_18_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1266,10 +1243,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_20_oe() {
+    public void testArrayListIterator_19_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1306,10 +1282,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_22_oe() {
+    public void testArrayListIterator_21_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1356,10 +1331,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_25_oe() {
+    public void testArrayListIterator_24_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1422,10 +1396,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_29_oe() {
+    public void testArrayListIterator_28_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1513,10 +1486,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_30_oe() {
+    public void testArrayListIterator_29_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1605,10 +1577,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_31_oe() {
+    public void testArrayListIterator_30_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1698,10 +1669,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_32_oe() {
+    public void testArrayListIterator_31_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1792,10 +1762,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_33_oe() {
+    public void testArrayListIterator_32_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1887,10 +1856,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_34_oe() {
+    public void testArrayListIterator_33_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1983,10 +1951,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_35_oe() {
+    public void testArrayListIterator_34_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2080,10 +2047,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_36_oe() {
+    public void testArrayListIterator_35_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2178,10 +2144,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_37_oe() {
+    public void testArrayListIterator_36_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2277,10 +2242,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_38_oe() {
+    public void testArrayListIterator_37_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2377,10 +2341,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_39_oe() {
+    public void testArrayListIterator_38_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2478,10 +2441,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_40_oe() {
+    public void testArrayListIterator_39_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2582,10 +2544,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_41_oe() {
+    public void testArrayListIterator_40_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2687,10 +2648,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_42_oe() {
+    public void testArrayListIterator_41_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2793,10 +2753,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_43_oe() {
+    public void testArrayListIterator_42_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2900,10 +2859,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_44_oe() {
+    public void testArrayListIterator_43_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3008,10 +2966,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_45_oe() {
+    public void testArrayListIterator_44_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3117,10 +3074,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_46_oe() {
+    public void testArrayListIterator_45_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3227,10 +3183,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_47_oe() {
+    public void testArrayListIterator_46_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3338,10 +3293,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_48_oe() {
+    public void testArrayListIterator_47_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3450,10 +3404,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_49_oe() {
+    public void testArrayListIterator_48_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3563,10 +3516,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_50_oe() {
+    public void testArrayListIterator_49_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3677,10 +3629,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_51_oe() {
+    public void testArrayListIterator_50_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3792,10 +3743,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_52_oe() {
+    public void testArrayListIterator_51_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3908,10 +3858,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_53_oe() {
+    public void testArrayListIterator_52_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4025,10 +3974,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_55_oe() {
+    public void testArrayListIterator_54_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4152,10 +4100,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_57_oe() {
+    public void testArrayListIterator_56_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4289,10 +4236,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_58_oe() {
+    public void testArrayListIterator_57_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4427,10 +4373,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_59_oe() {
+    public void testArrayListIterator_58_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4566,10 +4511,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_60_oe() {
+    public void testArrayListIterator_59_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4706,10 +4650,9 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testArrayListIterator_61_oe() {
+    public void testArrayListIterator_60_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion

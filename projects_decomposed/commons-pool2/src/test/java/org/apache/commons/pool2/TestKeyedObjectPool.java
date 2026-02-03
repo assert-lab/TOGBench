@@ -738,10 +738,7 @@ public abstract class TestKeyedObjectPool {
         expectedMethods.add(new MethodCall("passivateObject", KEY, obj));
         TestObjectPool.removeDestroyObjectCall(factory.getMethodCalls()); // The exact timing of destroyObject is flexible here.
         assertEquals(expectedMethods, factory.getMethodCalls());
-        assertEquals(1, pool.getNumIdle(KEY));   // Not added
-        assertEquals(1, pool.getNumActive(KEY)); // But not active
-
-        reset(pool, factory, expectedMethods);
+        assertEquals(1,pool.getNumIdle(KEY));// Not added assertEquals(1,pool.getNumActive(KEY));// But not active reset(pool,factory,expectedMethods);
         obj = pool.borrowObject(KEY);
         clear(factory, expectedMethods);
         factory.setPassivateObjectFail(true);

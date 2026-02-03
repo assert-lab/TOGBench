@@ -85,29 +85,29 @@ public class TestYearMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertSame(test.getChronology().year(), test.year().getField());
-        assertEquals("year", test.year().getName());
-        assertEquals("Property[year]", test.year().toString());
-        assertSame(test, test.year().getReadablePartial());
-        assertSame(test, test.year().getYearMonthDay());
-        assertEquals(1972, test.year().get());
-        assertEquals("1972", test.year().getAsString());
-        assertEquals("1972", test.year().getAsText());
-        assertEquals("1972", test.year().getAsText(Locale.FRENCH));
-        assertEquals("1972", test.year().getAsShortText());
-        assertEquals("1972", test.year().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().years(), test.year().getDurationField());
-        assertEquals(null, test.year().getRangeDurationField());
-        assertEquals(9, test.year().getMaximumTextLength(null));
-        assertEquals(9, test.year().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().year(),test.year().getField());
+        assertEquals("year",test.year().getName());
+        assertEquals("Property[year]",test.year().toString());
+        assertSame(test,test.year().getReadablePartial());
+        assertSame(test,test.year().getYearMonthDay());
+        assertEquals(1972,test.year().get());
+        assertEquals("1972",test.year().getAsString());
+        assertEquals("1972",test.year().getAsText());
+        assertEquals("1972",test.year().getAsText(Locale.FRENCH));
+        assertEquals("1972",test.year().getAsShortText());
+        assertEquals("1972",test.year().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().years(),test.year().getDurationField());
+        assertEquals(null,test.year().getRangeDurationField());
+        assertEquals(9,test.year().getMaximumTextLength(null));
+        assertEquals(9,test.year().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesYear() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertEquals(-292275054, test.year().getMinimumValue());
-        assertEquals(-292275054, test.year().getMinimumValueOverall());
-        assertEquals(292278993, test.year().getMaximumValue());
-        assertEquals(292278993, test.year().getMaximumValueOverall());
+        assertEquals(-292275054,test.year().getMinimumValue());
+        assertEquals(-292275054,test.year().getMinimumValueOverall());
+        assertEquals(292278993,test.year().getMaximumValue());
+        assertEquals(292278993,test.year().getMaximumValueOverall());
     }
 
     public void testPropertyAddYear() {
@@ -174,9 +174,9 @@ public class TestYearMonthDay_Properties extends TestCase {
     public void testPropertyCompareToYear() {
         YearMonthDay test1 = new YearMonthDay(TEST_TIME1);
         YearMonthDay test2 = new YearMonthDay(TEST_TIME2);
-        assertEquals(true, test1.year().compareTo(test2) < 0);
-        assertEquals(true, test2.year().compareTo(test1) > 0);
-        assertEquals(true, test1.year().compareTo(test1) == 0);
+        assertEquals(true,test1.year().compareTo(test2)< 0);
+        assertEquals(true,test2.year().compareTo(test1)> 0);
+        assertEquals(true,test1.year().compareTo(test1)== 0);
         try {
             test1.year().compareTo((ReadablePartial) null);
             fail();
@@ -184,9 +184,9 @@ public class TestYearMonthDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.year().compareTo(dt2) < 0);
-        assertEquals(true, test2.year().compareTo(dt1) > 0);
-        assertEquals(true, test1.year().compareTo(dt1) == 0);
+        assertEquals(true,test1.year().compareTo(dt2)< 0);
+        assertEquals(true,test2.year().compareTo(dt1)> 0);
+        assertEquals(true,test1.year().compareTo(dt1)== 0);
         try {
             test1.year().compareTo((ReadableInstant) null);
             fail();
@@ -196,32 +196,32 @@ public class TestYearMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMonth() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
-        assertEquals("monthOfYear", test.monthOfYear().getName());
-        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertSame(test, test.monthOfYear().getReadablePartial());
-        assertSame(test, test.monthOfYear().getYearMonthDay());
-        assertEquals(6, test.monthOfYear().get());
-        assertEquals("6", test.monthOfYear().getAsString());
-        assertEquals("June", test.monthOfYear().getAsText());
-        assertEquals("juin", test.monthOfYear().getAsText(Locale.FRENCH));
-        assertEquals("Jun", test.monthOfYear().getAsShortText());
-        assertEquals("juin", test.monthOfYear().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
-        assertEquals(test.getChronology().years(), test.monthOfYear().getRangeDurationField());
-        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
-        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().monthOfYear(),test.monthOfYear().getField());
+        assertEquals("monthOfYear",test.monthOfYear().getName());
+        assertEquals("Property[monthOfYear]",test.monthOfYear().toString());
+        assertSame(test,test.monthOfYear().getReadablePartial());
+        assertSame(test,test.monthOfYear().getYearMonthDay());
+        assertEquals(6,test.monthOfYear().get());
+        assertEquals("6",test.monthOfYear().getAsString());
+        assertEquals("June",test.monthOfYear().getAsText());
+        assertEquals("juin",test.monthOfYear().getAsText(Locale.FRENCH));
+        assertEquals("Jun",test.monthOfYear().getAsShortText());
+        assertEquals("juin",test.monthOfYear().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().months(),test.monthOfYear().getDurationField());
+        assertEquals(test.getChronology().years(),test.monthOfYear().getRangeDurationField());
+        assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
+        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
         test = new YearMonthDay(1972, 7, 9);
-        assertEquals("juillet", test.monthOfYear().getAsText(Locale.FRENCH));
-        assertEquals("juil.", test.monthOfYear().getAsShortText(Locale.FRENCH));
+        assertEquals("juillet",test.monthOfYear().getAsText(Locale.FRENCH));
+        assertEquals("juil.",test.monthOfYear().getAsShortText(Locale.FRENCH));
     }
 
     public void testPropertyGetMaxMinValuesMonth() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertEquals(1, test.monthOfYear().getMinimumValue());
-        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
-        assertEquals(12, test.monthOfYear().getMaximumValue());
-        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
+        assertEquals(1,test.monthOfYear().getMinimumValue());
+        assertEquals(1,test.monthOfYear().getMinimumValueOverall());
+        assertEquals(12,test.monthOfYear().getMaximumValue());
+        assertEquals(12,test.monthOfYear().getMaximumValueOverall());
     }
 
     public void testPropertyAddMonth() {
@@ -319,9 +319,9 @@ public class TestYearMonthDay_Properties extends TestCase {
     public void testPropertyCompareToMonth() {
         YearMonthDay test1 = new YearMonthDay(TEST_TIME1);
         YearMonthDay test2 = new YearMonthDay(TEST_TIME2);
-        assertEquals(true, test1.monthOfYear().compareTo(test2) < 0);
-        assertEquals(true, test2.monthOfYear().compareTo(test1) > 0);
-        assertEquals(true, test1.monthOfYear().compareTo(test1) == 0);
+        assertEquals(true,test1.monthOfYear().compareTo(test2)< 0);
+        assertEquals(true,test2.monthOfYear().compareTo(test1)> 0);
+        assertEquals(true,test1.monthOfYear().compareTo(test1)== 0);
         try {
             test1.monthOfYear().compareTo((ReadablePartial) null);
             fail();
@@ -329,9 +329,9 @@ public class TestYearMonthDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.monthOfYear().compareTo(dt2) < 0);
-        assertEquals(true, test2.monthOfYear().compareTo(dt1) > 0);
-        assertEquals(true, test1.monthOfYear().compareTo(dt1) == 0);
+        assertEquals(true,test1.monthOfYear().compareTo(dt2)< 0);
+        assertEquals(true,test2.monthOfYear().compareTo(dt1)> 0);
+        assertEquals(true,test1.monthOfYear().compareTo(dt1)== 0);
         try {
             test1.monthOfYear().compareTo((ReadableInstant) null);
             fail();
@@ -341,35 +341,35 @@ public class TestYearMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDay() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
-        assertEquals("dayOfMonth", test.dayOfMonth().getName());
-        assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertSame(test, test.dayOfMonth().getReadablePartial());
-        assertSame(test, test.dayOfMonth().getYearMonthDay());
-        assertEquals(9, test.dayOfMonth().get());
-        assertEquals("9", test.dayOfMonth().getAsString());
-        assertEquals("9", test.dayOfMonth().getAsText());
-        assertEquals("9", test.dayOfMonth().getAsText(Locale.FRENCH));
-        assertEquals("9", test.dayOfMonth().getAsShortText());
-        assertEquals("9", test.dayOfMonth().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().days(), test.dayOfMonth().getDurationField());
-        assertEquals(test.getChronology().months(), test.dayOfMonth().getRangeDurationField());
-        assertEquals(2, test.dayOfMonth().getMaximumTextLength(null));
-        assertEquals(2, test.dayOfMonth().getMaximumShortTextLength(null));
+        assertSame(test.getChronology().dayOfMonth(),test.dayOfMonth().getField());
+        assertEquals("dayOfMonth",test.dayOfMonth().getName());
+        assertEquals("Property[dayOfMonth]",test.dayOfMonth().toString());
+        assertSame(test,test.dayOfMonth().getReadablePartial());
+        assertSame(test,test.dayOfMonth().getYearMonthDay());
+        assertEquals(9,test.dayOfMonth().get());
+        assertEquals("9",test.dayOfMonth().getAsString());
+        assertEquals("9",test.dayOfMonth().getAsText());
+        assertEquals("9",test.dayOfMonth().getAsText(Locale.FRENCH));
+        assertEquals("9",test.dayOfMonth().getAsShortText());
+        assertEquals("9",test.dayOfMonth().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().days(),test.dayOfMonth().getDurationField());
+        assertEquals(test.getChronology().months(),test.dayOfMonth().getRangeDurationField());
+        assertEquals(2,test.dayOfMonth().getMaximumTextLength(null));
+        assertEquals(2,test.dayOfMonth().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesDay() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertEquals(1, test.dayOfMonth().getMinimumValue());
-        assertEquals(1, test.dayOfMonth().getMinimumValueOverall());
-        assertEquals(30, test.dayOfMonth().getMaximumValue());
-        assertEquals(31, test.dayOfMonth().getMaximumValueOverall());
+        assertEquals(1,test.dayOfMonth().getMinimumValue());
+        assertEquals(1,test.dayOfMonth().getMinimumValueOverall());
+        assertEquals(30,test.dayOfMonth().getMaximumValue());
+        assertEquals(31,test.dayOfMonth().getMaximumValueOverall());
         test = new YearMonthDay(1972, 7, 9);
-        assertEquals(31, test.dayOfMonth().getMaximumValue());
+        assertEquals(31,test.dayOfMonth().getMaximumValue());
         test = new YearMonthDay(1972, 2, 9);
-        assertEquals(29, test.dayOfMonth().getMaximumValue());
+        assertEquals(29,test.dayOfMonth().getMaximumValue());
         test = new YearMonthDay(1971, 2, 9);
-        assertEquals(28, test.dayOfMonth().getMaximumValue());
+        assertEquals(28,test.dayOfMonth().getMaximumValue());
     }
 
     public void testPropertyAddDay() {
@@ -475,9 +475,9 @@ public class TestYearMonthDay_Properties extends TestCase {
     public void testPropertyCompareToDay() {
         YearMonthDay test1 = new YearMonthDay(TEST_TIME1);
         YearMonthDay test2 = new YearMonthDay(TEST_TIME2);
-        assertEquals(true, test1.dayOfMonth().compareTo(test2) < 0);
-        assertEquals(true, test2.dayOfMonth().compareTo(test1) > 0);
-        assertEquals(true, test1.dayOfMonth().compareTo(test1) == 0);
+        assertEquals(true,test1.dayOfMonth().compareTo(test2)< 0);
+        assertEquals(true,test2.dayOfMonth().compareTo(test1)> 0);
+        assertEquals(true,test1.dayOfMonth().compareTo(test1)== 0);
         try {
             test1.dayOfMonth().compareTo((ReadablePartial) null);
             fail();
@@ -485,9 +485,9 @@ public class TestYearMonthDay_Properties extends TestCase {
         
         DateTime dt1 = new DateTime(TEST_TIME1);
         DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true, test1.dayOfMonth().compareTo(dt2) < 0);
-        assertEquals(true, test2.dayOfMonth().compareTo(dt1) > 0);
-        assertEquals(true, test1.dayOfMonth().compareTo(dt1) == 0);
+        assertEquals(true,test1.dayOfMonth().compareTo(dt2)< 0);
+        assertEquals(true,test2.dayOfMonth().compareTo(dt1)> 0);
+        assertEquals(true,test1.dayOfMonth().compareTo(dt1)== 0);
         try {
             test1.dayOfMonth().compareTo((ReadableInstant) null);
             fail();
@@ -498,64 +498,64 @@ public class TestYearMonthDay_Properties extends TestCase {
         YearMonthDay test1 = new YearMonthDay(2005, 11, 8);
         YearMonthDay test2 = new YearMonthDay(2005, 11, 9);
         YearMonthDay test3 = new YearMonthDay(2005, 11, 8, CopticChronology.getInstanceUTC());
-        assertEquals(false, test1.dayOfMonth().equals(test1.year()));
-        assertEquals(false, test1.dayOfMonth().equals(test1.monthOfYear()));
-        assertEquals(true, test1.dayOfMonth().equals(test1.dayOfMonth()));
-        assertEquals(false, test1.dayOfMonth().equals(test2.year()));
-        assertEquals(false, test1.dayOfMonth().equals(test2.monthOfYear()));
-        assertEquals(false, test1.dayOfMonth().equals(test2.dayOfMonth()));
+        assertEquals(false,test1.dayOfMonth().equals(test1.year()));
+        assertEquals(false,test1.dayOfMonth().equals(test1.monthOfYear()));
+        assertEquals(true,test1.dayOfMonth().equals(test1.dayOfMonth()));
+        assertEquals(false,test1.dayOfMonth().equals(test2.year()));
+        assertEquals(false,test1.dayOfMonth().equals(test2.monthOfYear()));
+        assertEquals(false,test1.dayOfMonth().equals(test2.dayOfMonth()));
         
-        assertEquals(false, test1.monthOfYear().equals(test1.year()));
-        assertEquals(true, test1.monthOfYear().equals(test1.monthOfYear()));
-        assertEquals(false, test1.monthOfYear().equals(test1.dayOfMonth()));
-        assertEquals(false, test1.monthOfYear().equals(test2.year()));
-        assertEquals(true, test1.monthOfYear().equals(test2.monthOfYear()));
-        assertEquals(false, test1.monthOfYear().equals(test2.dayOfMonth()));
+        assertEquals(false,test1.monthOfYear().equals(test1.year()));
+        assertEquals(true,test1.monthOfYear().equals(test1.monthOfYear()));
+        assertEquals(false,test1.monthOfYear().equals(test1.dayOfMonth()));
+        assertEquals(false,test1.monthOfYear().equals(test2.year()));
+        assertEquals(true,test1.monthOfYear().equals(test2.monthOfYear()));
+        assertEquals(false,test1.monthOfYear().equals(test2.dayOfMonth()));
         
-        assertEquals(false, test1.dayOfMonth().equals(null));
-        assertEquals(false, test1.dayOfMonth().equals("any"));
+        assertEquals(false,test1.dayOfMonth().equals(null));
+        assertEquals(false,test1.dayOfMonth().equals("any"));
         
         // chrono
-        assertEquals(false, test1.dayOfMonth().equals(test3.dayOfMonth()));
+        assertEquals(false,test1.dayOfMonth().equals(test3.dayOfMonth()));
     }
 
     public void testPropertyHashCode() {
         YearMonthDay test1 = new YearMonthDay(2005, 11, 8);
         YearMonthDay test2 = new YearMonthDay(2005, 11, 9);
-        assertEquals(true, test1.dayOfMonth().hashCode() == test1.dayOfMonth().hashCode());
-        assertEquals(false, test1.dayOfMonth().hashCode() == test2.dayOfMonth().hashCode());
-        assertEquals(true, test1.monthOfYear().hashCode() == test1.monthOfYear().hashCode());
-        assertEquals(true, test1.monthOfYear().hashCode() == test2.monthOfYear().hashCode());
+        assertEquals(true,test1.dayOfMonth().hashCode()== test1.dayOfMonth().hashCode());
+        assertEquals(false,test1.dayOfMonth().hashCode()== test2.dayOfMonth().hashCode());
+        assertEquals(true,test1.monthOfYear().hashCode()== test1.monthOfYear().hashCode());
+        assertEquals(true,test1.monthOfYear().hashCode()== test2.monthOfYear().hashCode());
     }
 
     public void testPropertyEqualsHashCodeLenient() {
         YearMonthDay test1 = new YearMonthDay(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
         YearMonthDay test2 = new YearMonthDay(1970, 6, 9, LenientChronology.getInstance(COPTIC_PARIS));
-        assertEquals(true, test1.dayOfMonth().equals(test2.dayOfMonth()));
-        assertEquals(true, test2.dayOfMonth().equals(test1.dayOfMonth()));
-        assertEquals(true, test1.dayOfMonth().equals(test1.dayOfMonth()));
-        assertEquals(true, test2.dayOfMonth().equals(test2.dayOfMonth()));
-        assertEquals(true, test1.dayOfMonth().hashCode() == test2.dayOfMonth().hashCode());
-        assertEquals(true, test1.dayOfMonth().hashCode() == test1.dayOfMonth().hashCode());
-        assertEquals(true, test2.dayOfMonth().hashCode() == test2.dayOfMonth().hashCode());
+        assertEquals(true,test1.dayOfMonth().equals(test2.dayOfMonth()));
+        assertEquals(true,test2.dayOfMonth().equals(test1.dayOfMonth()));
+        assertEquals(true,test1.dayOfMonth().equals(test1.dayOfMonth()));
+        assertEquals(true,test2.dayOfMonth().equals(test2.dayOfMonth()));
+        assertEquals(true,test1.dayOfMonth().hashCode()== test2.dayOfMonth().hashCode());
+        assertEquals(true,test1.dayOfMonth().hashCode()== test1.dayOfMonth().hashCode());
+        assertEquals(true,test2.dayOfMonth().hashCode()== test2.dayOfMonth().hashCode());
     }
 
     public void testPropertyEqualsHashCodeStrict() {
         YearMonthDay test1 = new YearMonthDay(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
         YearMonthDay test2 = new YearMonthDay(1970, 6, 9, StrictChronology.getInstance(COPTIC_PARIS));
-        assertEquals(true, test1.dayOfMonth().equals(test2.dayOfMonth()));
-        assertEquals(true, test2.dayOfMonth().equals(test1.dayOfMonth()));
-        assertEquals(true, test1.dayOfMonth().equals(test1.dayOfMonth()));
-        assertEquals(true, test2.dayOfMonth().equals(test2.dayOfMonth()));
-        assertEquals(true, test1.dayOfMonth().hashCode() == test2.dayOfMonth().hashCode());
-        assertEquals(true, test1.dayOfMonth().hashCode() == test1.dayOfMonth().hashCode());
-        assertEquals(true, test2.dayOfMonth().hashCode() == test2.dayOfMonth().hashCode());
+        assertEquals(true,test1.dayOfMonth().equals(test2.dayOfMonth()));
+        assertEquals(true,test2.dayOfMonth().equals(test1.dayOfMonth()));
+        assertEquals(true,test1.dayOfMonth().equals(test1.dayOfMonth()));
+        assertEquals(true,test2.dayOfMonth().equals(test2.dayOfMonth()));
+        assertEquals(true,test1.dayOfMonth().hashCode()== test2.dayOfMonth().hashCode());
+        assertEquals(true,test1.dayOfMonth().hashCode()== test1.dayOfMonth().hashCode());
+        assertEquals(true,test2.dayOfMonth().hashCode()== test2.dayOfMonth().hashCode());
     }
 
     //-----------------------------------------------------------------------
     private void check(YearMonthDay test, int year, int month, int day) {
-        assertEquals(year, test.getYear());
-        assertEquals(month, test.getMonthOfYear());
-        assertEquals(day, test.getDayOfMonth());
+        assertEquals(year,test.getYear());
+        assertEquals(month,test.getMonthOfYear());
+        assertEquals(day,test.getDayOfMonth());
     }
 }

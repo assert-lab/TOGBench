@@ -476,9 +476,7 @@ public class JSONObjectTest_OE25Dev {
         StringBuilder stringBuilder = new StringBuilder();
         Appendable appendable = jsonObject.write(stringBuilder);
         String actualStr = appendable.toString();
-        assertTrue("write() expected " +expectedStr+
-                        " but found " +actualStr,
-                expectedStr.equals(actualStr));
+        assertTrue("write()expected " +expectedStr+ " but found " +actualStr,expectedStr.equals(actualStr));
     }
 */
 
@@ -517,12 +515,7 @@ public class JSONObjectTest_OE25Dev {
 
             assertEquals("length", str2.length(), actualStr.length());
             assertTrue("key1", actualStr.contains("   \"key1\": \"value1\""));
-            assertTrue("key2", actualStr.contains("   \"key2\": [\n" +
-                            "     1,\n" +
-                            "     false,\n" +
-                            "     3.14\n" +
-                            "   ]")
-            );
+            assertTrue("key2",actualStr.contains(" \"key2\": [\n" + " 1,\n" + " false,\n" + " 3.14\n" + " ]"));
         } finally {
             try {
                 stringWriter.close();
@@ -682,9 +675,7 @@ public class JSONObjectTest_OE25Dev {
         jsonObject.put("key2", "456");
         jsonObject.put("key3", new JSONObject());
         jsonObject.clear(); //Clears the JSONObject
-        assertTrue("expected jsonObject.length() == 0", jsonObject.length() == 0); //Check if its length is 0
-        jsonObject.getInt("key1"); //Should throws org.json.JSONException: JSONObject["asd"] not found
-        Util.checkJSONObjectMaps(jsonObject);
+        assertTrue("expected jsonObject.length()== 0",jsonObject.length()== 0);//Check if its length is 0 jsonObject.getInt("key1");//Should throws org.json.JSONException: JSONObject["asd"] not found Util.checkJSONObjectMaps(jsonObject);
     }
 
     /**
@@ -1293,7 +1284,7 @@ public class JSONObjectTest_OE25Dev {
                 (Object) Integer.valueOf(10));
         JSONObject jaObjObj = new JSONObject(myCObjObj);
 
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaRaw));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaRaw));
     }
 
     @Test
@@ -1318,7 +1309,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jaObjObj = new JSONObject(myCObjObj);
 
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaStrObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaStrObj));
     }
 
     @Test
@@ -1344,7 +1335,7 @@ public class JSONObjectTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaStrInt));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaStrInt));
     }
 
     @Test
@@ -1371,7 +1362,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaObjObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaObjObj));
     }
 
     @Test
@@ -1904,7 +1895,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jaInt = new JSONObject();
         jaInt.put("myCollection", myCInt);
 
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaRaw));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaRaw));
     }
 
     @Test
@@ -1928,7 +1919,7 @@ public class JSONObjectTest_OE25Dev {
         jaInt.put("myCollection", myCInt);
 
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaObj));
     }
 
     @Test
@@ -1953,7 +1944,7 @@ public class JSONObjectTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaInt));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaInt));
     }
 
     @Test
@@ -1981,7 +1972,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jaObjObj = new JSONObject();
         jaObjObj.put("myMap", myCObjObj);
 
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaRaw));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaRaw));
     }
 
     @Test
@@ -2010,7 +2001,7 @@ public class JSONObjectTest_OE25Dev {
         jaObjObj.put("myMap", myCObjObj);
 
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaStrObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaStrObj));
     }
 
     @Test
@@ -2040,7 +2031,7 @@ public class JSONObjectTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaStrInt));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaStrInt));
     }
 
     @Test
@@ -2071,7 +2062,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaObjObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaObjObj));
     }
 
     @Test
@@ -2269,7 +2260,7 @@ public class JSONObjectTest_OE25Dev {
     public void jsonObjectByBean2_2_oe() {
         JSONObject jsonObject = new JSONObject(new MyBeanCustomName());
         // removed other assertion
-        assertEquals("Wrong number of keys found:", 5, jsonObject.keySet().size());
+        assertEquals("Wrong number of keys found:",5,jsonObject.keySet().size());
     }
 
     @Test
@@ -2277,7 +2268,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject = new JSONObject(new MyBeanCustomName());
         // removed other assertion
         // removed other assertion
-        assertFalse("Normal field name (someString) processing did not work", jsonObject.has("someString"));
+        assertFalse("Normal field name(someString)processing did not work",jsonObject.has("someString"));
     }
 
     @Test
@@ -2286,7 +2277,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Normal field name (myDouble) processing did not work", jsonObject.has("myDouble"));
+        assertFalse("Normal field name(myDouble)processing did not work",jsonObject.has("myDouble"));
     }
 
     @Test
@@ -2296,7 +2287,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Normal field name (someFloat) processing did not work", jsonObject.has("someFloat"));
+        assertFalse("Normal field name(someFloat)processing did not work",jsonObject.has("someFloat"));
     }
 
     @Test
@@ -2307,7 +2298,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Ignored field not found!", jsonObject.has("ignoredInt"));
+        assertFalse("Ignored field not found!",jsonObject.has("ignoredInt"));
     }
 
     @Test
@@ -2320,7 +2311,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // getSomeInt() has no user-defined annotation
-        assertTrue("Normal field name (someInt) should have been found", jsonObject.has("someInt"));
+        assertTrue("Normal field name(someInt)should have been found",jsonObject.has("someInt"));
     }
 
     @Test
@@ -2335,7 +2326,7 @@ public class JSONObjectTest_OE25Dev {
         // getSomeInt() has no user-defined annotation
         // removed other assertion
         // the user-defined annotation does not replace any value, so someLong should be found
-        assertTrue("Normal field name (someLong) should have been found", jsonObject.has("someLong"));
+        assertTrue("Normal field name(someLong)should have been found",jsonObject.has("someLong"));
     }
 
     @Test
@@ -2352,7 +2343,7 @@ public class JSONObjectTest_OE25Dev {
         // the user-defined annotation does not replace any value, so someLong should be found
         // removed other assertion
         // myStringField replaces someString property name via user-defined annotation
-        assertTrue("Overridden String field name (myStringField) should have been found", jsonObject.has("myStringField"));
+        assertTrue("Overridden String field name(myStringField)should have been found",jsonObject.has("myStringField"));
     }
 
     @Test
@@ -2371,7 +2362,7 @@ public class JSONObjectTest_OE25Dev {
         // myStringField replaces someString property name via user-defined annotation
         // removed other assertion
         // weird name replaces myDouble property name via user-defined annotation
-        assertTrue("Overridden String field name (Some Weird NAme that Normally Wouldn't be possible!) should have been found", jsonObject.has("Some Weird NAme that Normally Wouldn't be possible!"));
+        assertTrue("Overridden String field name(Some Weird NAme that Normally Wouldn't be possible!)should have been found",jsonObject.has("Some Weird NAme that Normally Wouldn't be possible!"));
     }
 
     @Test
@@ -2392,7 +2383,7 @@ public class JSONObjectTest_OE25Dev {
         // weird name replaces myDouble property name via user-defined annotation
         // removed other assertion
         // InterfaceField replaces someFloat property name via user-defined annotation
-        assertTrue("Overridden String field name (InterfaceField) should have been found", jsonObject.has("InterfaceField"));
+        assertTrue("Overridden String field name(InterfaceField)should have been found",jsonObject.has("InterfaceField"));
     }
 
     @Test
@@ -2405,7 +2396,7 @@ public class JSONObjectTest_OE25Dev {
     public void jsonObjectByBean3_2_oe() {
         JSONObject jsonObject = new JSONObject(new MyBeanCustomNameSubClass());
         // removed other assertion
-        assertEquals("Wrong number of keys found:", 7, jsonObject.keySet().size());
+        assertEquals("Wrong number of keys found:",7,jsonObject.keySet().size());
     }
 
     @Test
@@ -2413,7 +2404,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject = new JSONObject(new MyBeanCustomNameSubClass());
         // removed other assertion
         // removed other assertion
-        assertFalse("Normal int field name (someInt) found, but was overridden", jsonObject.has("someInt"));
+        assertFalse("Normal int field name(someInt)found,but was overridden",jsonObject.has("someInt"));
     }
 
     @Test
@@ -2422,7 +2413,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Normal field name (myDouble) processing did not work", jsonObject.has("myDouble"));
+        assertFalse("Normal field name(myDouble)processing did not work",jsonObject.has("myDouble"));
     }
 
     @Test
@@ -2433,7 +2424,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // myDouble was replaced by weird name, and then replaced again by AMoreNormalName via user-defined annotation
-        assertFalse("Overridden String field name (Some Weird NAme that Normally Wouldn't be possible!) should not be FOUND!", jsonObject.has("Some Weird NAme that Normally Wouldn't be possible!"));
+        assertFalse("Overridden String field name(Some Weird NAme that Normally Wouldn't be possible!)should not be FOUND!",jsonObject.has("Some Weird NAme that Normally Wouldn't be possible!"));
     }
 
     @Test
@@ -2445,7 +2436,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // myDouble was replaced by weird name, and then replaced again by AMoreNormalName via user-defined annotation
         // removed other assertion
-        assertFalse("Normal field name (someFloat) found, but was overridden", jsonObject.has("someFloat"));
+        assertFalse("Normal field name(someFloat)found,but was overridden",jsonObject.has("someFloat"));
     }
 
     @Test
@@ -2458,7 +2449,7 @@ public class JSONObjectTest_OE25Dev {
         // myDouble was replaced by weird name, and then replaced again by AMoreNormalName via user-defined annotation
         // removed other assertion
         // removed other assertion
-        assertFalse("Ignored field found! but was overridden", jsonObject.has("ignoredInt"));
+        assertFalse("Ignored field found! but was overridden",jsonObject.has("ignoredInt"));
     }
 
     @Test
@@ -2473,7 +2464,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // shouldNotBeJSON property name was first ignored, then replaced by ShouldBeIgnored via user-defined annotations
-        assertFalse("Ignored field at the same level as forced name should not have been found", jsonObject.has("ShouldBeIgnored"));
+        assertFalse("Ignored field at the same level as forced name should not have been found",jsonObject.has("ShouldBeIgnored"));
     }
 
     @Test
@@ -2490,7 +2481,7 @@ public class JSONObjectTest_OE25Dev {
         // shouldNotBeJSON property name was first ignored, then replaced by ShouldBeIgnored via user-defined annotations
         // removed other assertion
         // able property name was replaced by Getable via user-defined annotation
-        assertFalse("Normally ignored field (able) with explicit property name should not have been found", jsonObject.has("able"));
+        assertFalse("Normally ignored field(able)with explicit property name should not have been found",jsonObject.has("able"));
     }
 
     @Test
@@ -2509,7 +2500,7 @@ public class JSONObjectTest_OE25Dev {
         // able property name was replaced by Getable via user-defined annotation
         // removed other assertion
         // property name someInt was replaced by newIntFieldName via user-defined annotation
-        assertTrue("Overridden int field name (newIntFieldName) should have been found", jsonObject.has("newIntFieldName"));
+        assertTrue("Overridden int field name(newIntFieldName)should have been found",jsonObject.has("newIntFieldName"));
     }
 
     @Test
@@ -2530,7 +2521,7 @@ public class JSONObjectTest_OE25Dev {
         // property name someInt was replaced by newIntFieldName via user-defined annotation
         // removed other assertion
         // property name someLong was not replaced via user-defined annotation
-        assertTrue("Normal field name (someLong) should have been found", jsonObject.has("someLong"));
+        assertTrue("Normal field name(someLong)should have been found",jsonObject.has("someLong"));
     }
 
     @Test
@@ -2553,7 +2544,7 @@ public class JSONObjectTest_OE25Dev {
         // property name someLong was not replaced via user-defined annotation
         // removed other assertion
         // property name someString was replaced by myStringField via user-defined annotation
-        assertTrue("Overridden String field name (myStringField) should have been found", jsonObject.has("myStringField"));
+        assertTrue("Overridden String field name(myStringField)should have been found",jsonObject.has("myStringField"));
     }
 
     @Test
@@ -2578,7 +2569,7 @@ public class JSONObjectTest_OE25Dev {
         // property name someString was replaced by myStringField via user-defined annotation
         // removed other assertion
         // property name myDouble was replaced by a weird name, followed by AMoreNormalName via user-defined annotations
-        assertTrue("Overridden double field name (AMoreNormalName) should have been found", jsonObject.has("AMoreNormalName"));
+        assertTrue("Overridden double field name(AMoreNormalName)should have been found",jsonObject.has("AMoreNormalName"));
     }
 
     @Test
@@ -2605,7 +2596,7 @@ public class JSONObjectTest_OE25Dev {
         // property name myDouble was replaced by a weird name, followed by AMoreNormalName via user-defined annotations
         // removed other assertion
         // property name someFloat was replaced by InterfaceField via user-defined annotation
-        assertTrue("Overridden String field name (InterfaceField) should have been found", jsonObject.has("InterfaceField"));
+        assertTrue("Overridden String field name(InterfaceField)should have been found",jsonObject.has("InterfaceField"));
     }
 
     @Test
@@ -2634,7 +2625,7 @@ public class JSONObjectTest_OE25Dev {
         // property name someFloat was replaced by InterfaceField via user-defined annotation
         // removed other assertion
         // property name ignoredInt was replaced by none, followed by forcedInt via user-defined annotations
-        assertTrue("Forced field should have been found!", jsonObject.has("forcedInt"));
+        assertTrue("Forced field should have been found!",jsonObject.has("forcedInt"));
     }
 
     @Test
@@ -2665,7 +2656,7 @@ public class JSONObjectTest_OE25Dev {
         // property name ignoredInt was replaced by none, followed by forcedInt via user-defined annotations
         // removed other assertion
         // property name able was replaced by Getable via user-defined annotation
-        assertTrue("Overridden boolean field name (Getable) should have been found", jsonObject.has("Getable"));
+        assertTrue("Overridden boolean field name(Getable)should have been found",jsonObject.has("Getable"));
     }
 
     @Test
@@ -3196,7 +3187,7 @@ public class JSONObjectTest_OE25Dev {
                 Double.NaN, Double.NEGATIVE_INFINITY }; 
         for (int i = 0; i < expectedStrs.length; ++i) {
             String actualStr = JSONObject.doubleToString(doubles[i]);
-            assertTrue("value expected ["+expectedStrs[i]+ "] found ["+actualStr+ "]", expectedStrs[i].equals(actualStr));
+            assertTrue("value expected ["+expectedStrs[i]+ "] found ["+actualStr+ "]",expectedStrs[i].equals(actualStr));
     }
     }
 
@@ -3393,7 +3384,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("stringKey should be string", jsonObject.getString("stringKey").equals("hello world!"));
+        assertTrue("stringKey should be string",jsonObject.getString("stringKey").equals("hello world!"));
     }
 
     @Test
@@ -3425,7 +3416,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("doubleKey should be double", jsonObject.getDouble("doubleKey") == -23.45e7);
+        assertTrue("doubleKey should be double",jsonObject.getDouble("doubleKey")== -23.45e7);
     }
 
     @Test
@@ -3458,7 +3449,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("doubleStrKey should be double", jsonObject.getDouble("doubleStrKey") == 1);
+        assertTrue("doubleStrKey should be double",jsonObject.getDouble("doubleStrKey")== 1);
     }
 
     @Test
@@ -3492,7 +3483,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("doubleKey can be float", jsonObject.getFloat("doubleKey") == -23.45e7f);
+        assertTrue("doubleKey can be float",jsonObject.getFloat("doubleKey")== -23.45e7f);
     }
 
     @Test
@@ -3527,7 +3518,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("doubleStrKey can be float", jsonObject.getFloat("doubleStrKey") == 1f);
+        assertTrue("doubleStrKey can be float",jsonObject.getFloat("doubleStrKey")== 1f);
     }
 
     @Test
@@ -3563,7 +3554,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt doubleKey should be double", jsonObject.optDouble("doubleKey") == -23.45e7);
+        assertTrue("opt doubleKey should be double",jsonObject.optDouble("doubleKey")== -23.45e7);
     }
 
     @Test
@@ -3600,7 +3591,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt doubleKey with Default should be double", jsonObject.optDouble("doubleStrKey", Double.NaN) == 1);
+        assertTrue("opt doubleKey with Default should be double",jsonObject.optDouble("doubleStrKey",Double.NaN)== 1);
     }
 
     @Test
@@ -3638,7 +3629,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt negZeroKey should be a Double", jsonObject.opt("negZeroKey") instanceof Double);
+        assertTrue("opt negZeroKey should be a Double",jsonObject.opt("negZeroKey")instanceof Double);
     }
 
     @Test
@@ -3677,7 +3668,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("get negZeroKey should be a Double", jsonObject.get("negZeroKey") instanceof Double);
+        assertTrue("get negZeroKey should be a Double",jsonObject.get("negZeroKey")instanceof Double);
     }
 
     @Test
@@ -3717,7 +3708,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber negZeroKey should return Double", jsonObject.optNumber("negZeroKey") instanceof Double);
+        assertTrue("optNumber negZeroKey should return Double",jsonObject.optNumber("negZeroKey")instanceof Double);
     }
 
     @Test
@@ -3758,7 +3749,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber negZeroStrKey should return Double", jsonObject.optNumber("negZeroStrKey") instanceof Double);
+        assertTrue("optNumber negZeroStrKey should return Double",jsonObject.optNumber("negZeroStrKey")instanceof Double);
     }
 
     @Test
@@ -3800,7 +3791,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt negZeroKey should be double", Double.compare(jsonObject.optDouble("negZeroKey"), -0.0d) == 0);
+        assertTrue("opt negZeroKey should be double",Double.compare(jsonObject.optDouble("negZeroKey"),-0.0d)== 0);
     }
 
     @Test
@@ -3843,7 +3834,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt negZeroStrKey with Default should be double", Double.compare(jsonObject.optDouble("negZeroStrKey"), -0.0d) == 0);
+        assertTrue("opt negZeroStrKey with Default should be double",Double.compare(jsonObject.optDouble("negZeroStrKey"),-0.0d)== 0);
     }
 
     @Test
@@ -3887,7 +3878,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber negZeroKey should be -0.0", Double.compare(jsonObject.optNumber("negZeroKey").doubleValue(), -0.0d) == 0);
+        assertTrue("optNumber negZeroKey should be -0.0",Double.compare(jsonObject.optNumber("negZeroKey").doubleValue(),-0.0d)== 0);
     }
 
     @Test
@@ -3932,7 +3923,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber negZeroStrKey should be -0.0", Double.compare(jsonObject.optNumber("negZeroStrKey").doubleValue(), -0.0d) == 0);
+        assertTrue("optNumber negZeroStrKey should be -0.0",Double.compare(jsonObject.optNumber("negZeroStrKey").doubleValue(),-0.0d)== 0);
     }
 
     @Test
@@ -3978,7 +3969,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optFloat doubleKey should be float", jsonObject.optFloat("doubleKey") == -23.45e7f);
+        assertTrue("optFloat doubleKey should be float",jsonObject.optFloat("doubleKey")== -23.45e7f);
     }
 
     @Test
@@ -4025,7 +4016,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optFloat doubleKey with Default should be float", jsonObject.optFloat("doubleStrKey", Float.NaN) == 1f);
+        assertTrue("optFloat doubleKey with Default should be float",jsonObject.optFloat("doubleStrKey",Float.NaN)== 1f);
     }
 
     @Test
@@ -4073,7 +4064,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("intKey should be int", jsonObject.optInt("intKey") == 42);
+        assertTrue("intKey should be int",jsonObject.optInt("intKey")== 42);
     }
 
     @Test
@@ -4122,7 +4113,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt intKey should be int", jsonObject.optInt("intKey", 0) == 42);
+        assertTrue("opt intKey should be int",jsonObject.optInt("intKey",0)== 42);
     }
 
     @Test
@@ -4172,7 +4163,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt intKey with default should be int", jsonObject.getInt("intKey") == 42);
+        assertTrue("opt intKey with default should be int",jsonObject.getInt("intKey")== 42);
     }
 
     @Test
@@ -4223,7 +4214,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("intStrKey should be int", jsonObject.getInt("intStrKey") == 43);
+        assertTrue("intStrKey should be int",jsonObject.getInt("intStrKey")== 43);
     }
 
     @Test
@@ -4275,7 +4266,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("longKey should be long", jsonObject.getLong("longKey") == 1234567890123456789L);
+        assertTrue("longKey should be long",jsonObject.getLong("longKey")== 1234567890123456789L);
     }
 
     @Test
@@ -4328,7 +4319,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt longKey should be long", jsonObject.optLong("longKey") == 1234567890123456789L);
+        assertTrue("opt longKey should be long",jsonObject.optLong("longKey")== 1234567890123456789L);
     }
 
     @Test
@@ -4382,7 +4373,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt longKey with default should be long", jsonObject.optLong("longKey", 0) == 1234567890123456789L);
+        assertTrue("opt longKey with default should be long",jsonObject.optLong("longKey",0)== 1234567890123456789L);
     }
 
     @Test
@@ -4437,7 +4428,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("longStrKey should be long", jsonObject.getLong("longStrKey") == 987654321098765432L);
+        assertTrue("longStrKey should be long",jsonObject.getLong("longStrKey")== 987654321098765432L);
     }
 
     @Test
@@ -4493,7 +4484,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber int should return Integer", jsonObject.optNumber("intKey") instanceof Integer);
+        assertTrue("optNumber int should return Integer",jsonObject.optNumber("intKey")instanceof Integer);
     }
 
     @Test
@@ -4550,7 +4541,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber long should return Long", jsonObject.optNumber("longKey") instanceof Long);
+        assertTrue("optNumber long should return Long",jsonObject.optNumber("longKey")instanceof Long);
     }
 
     @Test
@@ -4608,7 +4599,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber double should return BigDecimal", jsonObject.optNumber("doubleKey") instanceof BigDecimal);
+        assertTrue("optNumber double should return BigDecimal",jsonObject.optNumber("doubleKey")instanceof BigDecimal);
     }
 
     @Test
@@ -4667,7 +4658,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber Str int should return Integer", jsonObject.optNumber("intStrKey") instanceof Integer);
+        assertTrue("optNumber Str int should return Integer",jsonObject.optNumber("intStrKey")instanceof Integer);
     }
 
     @Test
@@ -4727,7 +4718,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber Str long should return Long", jsonObject.optNumber("longStrKey") instanceof Long);
+        assertTrue("optNumber Str long should return Long",jsonObject.optNumber("longStrKey")instanceof Long);
     }
 
     @Test
@@ -4788,7 +4779,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber Str double should return BigDecimal", jsonObject.optNumber("doubleStrKey") instanceof BigDecimal);
+        assertTrue("optNumber Str double should return BigDecimal",jsonObject.optNumber("doubleStrKey")instanceof BigDecimal);
     }
 
     @Test
@@ -4850,7 +4841,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber BigDecimalStrKey should return BigDecimal", jsonObject.optNumber("BigDecimalStrKey") instanceof BigDecimal);
+        assertTrue("optNumber BigDecimalStrKey should return BigDecimal",jsonObject.optNumber("BigDecimalStrKey")instanceof BigDecimal);
     }
 
     @Test
@@ -4913,7 +4904,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("xKey should not exist", jsonObject.isNull("xKey"));
+        assertTrue("xKey should not exist",jsonObject.isNull("xKey"));
     }
 
     @Test
@@ -4977,7 +4968,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("stringKey should exist", jsonObject.has("stringKey"));
+        assertTrue("stringKey should exist",jsonObject.has("stringKey"));
     }
 
     @Test
@@ -5042,7 +5033,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt stringKey should string", jsonObject.optString("stringKey").equals("hello world!"));
+        assertTrue("opt stringKey should string",jsonObject.optString("stringKey").equals("hello world!"));
     }
 
     @Test
@@ -5108,7 +5099,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("opt stringKey with default should string", jsonObject.optString("stringKey", "not found").equals("hello world!"));
+        assertTrue("opt stringKey with default should string",jsonObject.optString("stringKey","not found").equals("hello world!"));
     }
 
     @Test
@@ -5176,7 +5167,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         JSONArray jsonArray = jsonObject.getJSONArray("arrayKey");
-        assertTrue("arrayKey should be JSONArray", jsonArray.getInt(0) == 0 && jsonArray.getInt(1) == 1 && jsonArray.getInt(2) == 2);
+        assertTrue("arrayKey should be JSONArray",jsonArray.getInt(0)== 0 && jsonArray.getInt(1)== 1 && jsonArray.getInt(2)== 2);
     }
 
     @Test
@@ -5246,7 +5237,7 @@ public class JSONObjectTest_OE25Dev {
         JSONArray jsonArray = jsonObject.getJSONArray("arrayKey");
         // removed other assertion
         jsonArray = jsonObject.optJSONArray("arrayKey");
-        assertTrue("opt arrayKey should be JSONArray", jsonArray.getInt(0) == 0 && jsonArray.getInt(1) == 1 && jsonArray.getInt(2) == 2);
+        assertTrue("opt arrayKey should be JSONArray",jsonArray.getInt(0)== 0 && jsonArray.getInt(1)== 1 && jsonArray.getInt(2)== 2);
     }
 
     @Test
@@ -5318,7 +5309,7 @@ public class JSONObjectTest_OE25Dev {
         jsonArray = jsonObject.optJSONArray("arrayKey");
         // removed other assertion
         JSONObject jsonObjectInner = jsonObject.getJSONObject("objectKey");
-        assertTrue("objectKey should be JSONObject", jsonObjectInner.get("myKey").equals("myVal"));
+        assertTrue("objectKey should be JSONObject",jsonObjectInner.get("myKey").equals("myVal"));
     }
 
     @Test
@@ -5344,7 +5335,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "0.2 should be a BigDecimal!", JSONObject.stringToValue( "0.2" ) instanceof BigDecimal );
+        assertTrue("0.2 should be a BigDecimal!",JSONObject.stringToValue("0.2")instanceof BigDecimal);
     }
 
     @Test
@@ -5353,7 +5344,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "Doubles should be BigDecimal, even when incorrectly converting floats!", JSONObject.stringToValue( new Double( "0.2f" ).toString() ) instanceof BigDecimal );
+        assertTrue("Doubles should be BigDecimal,even when incorrectly converting floats!",JSONObject.stringToValue(new Double("0.2f").toString())instanceof BigDecimal);
     }
 
     @Test
@@ -5367,7 +5358,7 @@ public class JSONObjectTest_OE25Dev {
          * This test documents a need for BigDecimal conversion.
          */
         Object obj = JSONObject.stringToValue( "299792.457999999984" );
-        assertTrue( "does not evaluate to 299792.457999999984 BigDecimal!", obj.equals(new BigDecimal("299792.457999999984")) );
+        assertTrue("does not evaluate to 299792.457999999984 BigDecimal!",obj.equals(new BigDecimal("299792.457999999984")));
     }
 
     @Test
@@ -5382,7 +5373,7 @@ public class JSONObjectTest_OE25Dev {
          */
         Object obj = JSONObject.stringToValue( "299792.457999999984" );
         // removed other assertion
-        assertTrue( "1 should be an Integer!", JSONObject.stringToValue( "1" ) instanceof Integer );
+        assertTrue("1 should be an Integer!",JSONObject.stringToValue("1")instanceof Integer);
     }
 
     @Test
@@ -5398,7 +5389,7 @@ public class JSONObjectTest_OE25Dev {
         Object obj = JSONObject.stringToValue( "299792.457999999984" );
         // removed other assertion
         // removed other assertion
-        assertTrue( "Integer.MAX_VALUE should still be an Integer!", JSONObject.stringToValue( new Integer( Integer.MAX_VALUE ).toString() ) instanceof Integer );
+        assertTrue("Integer.MAX_VALUE should still be an Integer!",JSONObject.stringToValue(new Integer(Integer.MAX_VALUE).toString())instanceof Integer);
     }
 
     @Test
@@ -5415,7 +5406,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "Large integers should be a Long!", JSONObject.stringToValue( Long.valueOf(((long)Integer.MAX_VALUE) + 1 ) .toString() ) instanceof Long );
+        assertTrue("Large integers should be a Long!",JSONObject.stringToValue(Long.valueOf(((long)Integer.MAX_VALUE)+ 1).toString())instanceof Long);
     }
 
     @Test
@@ -5433,7 +5424,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "Long.MAX_VALUE should still be an Integer!", JSONObject.stringToValue( new Long( Long.MAX_VALUE ).toString() ) instanceof Long );
+        assertTrue("Long.MAX_VALUE should still be an Integer!",JSONObject.stringToValue(new Long(Long.MAX_VALUE).toString())instanceof Long);
     }
 
     @Test
@@ -5454,7 +5445,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
 
         String str = new BigInteger( new Long( Long.MAX_VALUE ).toString() ).add( BigInteger.ONE ).toString();
-        assertTrue( "Really large integers currently evaluate to BigInteger", JSONObject.stringToValue(str).equals(new BigInteger("9223372036854775808")));
+        assertTrue("Really large integers currently evaluate to BigInteger",JSONObject.stringToValue(str).equals(new BigInteger("9223372036854775808")));
     }
 
     @Test
@@ -5469,7 +5460,7 @@ public class JSONObjectTest_OE25Dev {
             "}";
         JSONObject jsonObject = new JSONObject(str);
         // Comes back as a double, but loses precision
-        assertTrue( "numberWithDecimals currently evaluates to double 299792.458", jsonObject.get( "numberWithDecimals" ).equals( new BigDecimal( "299792.457999999984" ) ) );
+        assertTrue("numberWithDecimals currently evaluates to double 299792.458",jsonObject.get("numberWithDecimals").equals(new BigDecimal("299792.457999999984")));
     }
 
     @Test
@@ -5486,7 +5477,7 @@ public class JSONObjectTest_OE25Dev {
         // Comes back as a double, but loses precision
         // removed other assertion
         Object obj = jsonObject.get( "largeNumber" );
-        assertTrue("largeNumber currently evaluates to BigInteger", new BigInteger("12345678901234567890").equals(obj));
+        assertTrue("largeNumber currently evaluates to BigInteger",new BigInteger("12345678901234567890").equals(obj));
     }
 
     @Test
@@ -5505,7 +5496,7 @@ public class JSONObjectTest_OE25Dev {
         Object obj = jsonObject.get( "largeNumber" );
         // removed other assertion
         // comes back as a double but loses precision
-        assertEquals( "preciseNumber currently evaluates to double 0.2", 0.2, jsonObject.getDouble( "preciseNumber" ), 0.0);
+        assertEquals("preciseNumber currently evaluates to double 0.2",0.2,jsonObject.getDouble("preciseNumber"),0.0);
     }
 
     @Test
@@ -5526,7 +5517,7 @@ public class JSONObjectTest_OE25Dev {
         // comes back as a double but loses precision
         // removed other assertion
         obj = jsonObject.get( "largeExponent" );
-        assertTrue("largeExponent should evaluate as a BigDecimal", new BigDecimal("-23.45e2327").equals(obj));
+        assertTrue("largeExponent should evaluate as a BigDecimal",new BigDecimal("-23.45e2327").equals(obj));
     }
 
     @Test
@@ -5548,7 +5539,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject = new JSONObject(str);
         Object obj;
         obj = jsonObject.get( "hexNumber" );
-        assertFalse( "hexNumber must not be a number (should throw exception!?)", obj instanceof Number );
+        assertFalse("hexNumber must not be a number(should throw exception!?)",obj instanceof Number);
     }
 
     @Test
@@ -5571,7 +5562,7 @@ public class JSONObjectTest_OE25Dev {
         Object obj;
         obj = jsonObject.get( "hexNumber" );
         // removed other assertion
-        assertTrue("hexNumber currently evaluates to string", obj.equals("-0x123"));
+        assertTrue("hexNumber currently evaluates to string",obj.equals("-0x123"));
     }
 
     @Test
@@ -5595,7 +5586,7 @@ public class JSONObjectTest_OE25Dev {
         obj = jsonObject.get( "hexNumber" );
         // removed other assertion
         // removed other assertion
-        assertTrue( "tooManyZeros currently evaluates to string", jsonObject.get( "tooManyZeros" ).equals("00"));
+        assertTrue("tooManyZeros currently evaluates to string",jsonObject.get("tooManyZeros").equals("00"));
     }
 
     @Test
@@ -5621,7 +5612,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         obj = jsonObject.get("negativeInfinite");
-        assertTrue( "negativeInfinite currently evaluates to string", obj.equals("-Infinity"));
+        assertTrue("negativeInfinite currently evaluates to string",obj.equals("-Infinity"));
     }
 
     @Test
@@ -5649,7 +5640,7 @@ public class JSONObjectTest_OE25Dev {
         obj = jsonObject.get("negativeInfinite");
         // removed other assertion
         obj = jsonObject.get("negativeNaN");
-        assertTrue( "negativeNaN currently evaluates to string", obj.equals("-NaN"));
+        assertTrue("negativeNaN currently evaluates to string",obj.equals("-NaN"));
     }
 
     @Test
@@ -5678,7 +5669,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         obj = jsonObject.get("negativeNaN");
         // removed other assertion
-        assertTrue( "negativeFraction currently evaluates to double -0.01", jsonObject.get( "negativeFraction" ).equals(BigDecimal.valueOf(-0.01)));
+        assertTrue("negativeFraction currently evaluates to double -0.01",jsonObject.get("negativeFraction").equals(BigDecimal.valueOf(-0.01)));
     }
 
     @Test
@@ -5708,7 +5699,7 @@ public class JSONObjectTest_OE25Dev {
         obj = jsonObject.get("negativeNaN");
         // removed other assertion
         // removed other assertion
-        assertTrue( "tooManyZerosFraction currently evaluates to double 0.001", jsonObject.get( "tooManyZerosFraction" ).equals(BigDecimal.valueOf(0.001)));
+        assertTrue("tooManyZerosFraction currently evaluates to double 0.001",jsonObject.get("tooManyZerosFraction").equals(BigDecimal.valueOf(0.001)));
     }
 
     @Test
@@ -5739,7 +5730,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "negativeHexFloat currently evaluates to double -3.99951171875", jsonObject.get( "negativeHexFloat" ).equals(Double.valueOf(-3.99951171875)));
+        assertTrue("negativeHexFloat currently evaluates to double -3.99951171875",jsonObject.get("negativeHexFloat").equals(Double.valueOf(-3.99951171875)));
     }
 
     @Test
@@ -5771,7 +5762,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("hexFloat currently evaluates to double 4.9E-324", jsonObject.get("hexFloat").equals(Double.valueOf(4.9E-324)));
+        assertTrue("hexFloat currently evaluates to double 4.9E-324",jsonObject.get("hexFloat").equals(Double.valueOf(4.9E-324)));
     }
 
     @Test
@@ -5804,7 +5795,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("floatIdentifier currently evaluates to double 0.1", jsonObject.get("floatIdentifier").equals(Double.valueOf(0.1)));
+        assertTrue("floatIdentifier currently evaluates to double 0.1",jsonObject.get("floatIdentifier").equals(Double.valueOf(0.1)));
     }
 
     @Test
@@ -5838,7 +5829,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("doubleIdentifier currently evaluates to double 0.1", jsonObject.get("doubleIdentifier").equals(Double.valueOf(0.1)));
+        assertTrue("doubleIdentifier currently evaluates to double 0.1",jsonObject.get("doubleIdentifier").equals(Double.valueOf(0.1)));
     }
 
     @Test
@@ -5864,7 +5855,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getBoolean("nonKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -5897,7 +5888,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getBoolean("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a Boolean (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a Boolean(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -5936,7 +5927,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getString("nonKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -5981,7 +5972,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getString("trueKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"trueKey\"] is not a string (class java.lang.Boolean : true).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"trueKey\"] is not a string(class java.lang.Boolean : true).",e.getMessage());
     }
     }
 
@@ -6032,7 +6023,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getDouble("nonKey");
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -6089,7 +6080,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getDouble("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a double (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a double(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -6152,7 +6143,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getFloat("nonKey");
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -6221,7 +6212,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getFloat("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a float (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a float(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -6296,7 +6287,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getInt("nonKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -6377,7 +6368,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getInt("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a int (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a int(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -6464,7 +6455,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getLong("nonKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -6557,7 +6548,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getLong("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a long (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a long(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -6656,7 +6647,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getJSONArray("nonKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -6761,7 +6752,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getJSONArray("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a JSONArray (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a JSONArray(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -6872,7 +6863,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getJSONObject("nonKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"nonKey\"] not found.", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"nonKey\"] not found.",e.getMessage());
     }
     }
 
@@ -6989,7 +6980,7 @@ public class JSONObjectTest_OE25Dev {
             jsonObject.getJSONObject("stringKey");
             // removed other assertion
         } catch (JSONException e) { 
-            assertEquals("Expecting an exception message", "JSONObject[\"stringKey\"] is not a JSONObject (class java.lang.String : hello world!).", e.getMessage());
+            assertEquals("Expecting an exception message","JSONObject[\"stringKey\"] is not a JSONObject(class java.lang.String : hello world!).",e.getMessage());
     }
     }
 
@@ -7001,7 +6992,7 @@ public class JSONObjectTest_OE25Dev {
         jsonObject.put(key30, new Double(3.0));
         jsonObject.put(key31, new Double(3.1));
 
-        assertTrue("3.0 should remain a double", jsonObject.getDouble(key30) == 3);
+        assertTrue("3.0 should remain a double",jsonObject.getDouble(key30)== 3);
     }
 
     @Test
@@ -7013,7 +7004,7 @@ public class JSONObjectTest_OE25Dev {
         jsonObject.put(key31, new Double(3.1));
 
         // removed other assertion
-        assertTrue("3.1 should remain a double", jsonObject.getDouble(key31) == 3.1);
+        assertTrue("3.1 should remain a double",jsonObject.getDouble(key31)== 3.1);
     }
 
     @Test
@@ -7048,7 +7039,7 @@ public class JSONObjectTest_OE25Dev {
         String serializedString = jsonObject.toString();
         JSONObject deserialized = new JSONObject(serializedString);
         // removed other assertion
-        assertTrue("3.0 can still be interpreted as a double", deserialized.getDouble(key30) == 3.0);
+        assertTrue("3.0 can still be interpreted as a double",deserialized.getDouble(key30)== 3.0);
     }
 
     @Test
@@ -7094,7 +7085,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject0 = new JSONObject(bigInteger);
         Object obj = jsonObject0.get("lowestSetBit");
         // removed other assertion
-        assertTrue("JSONObject parses BigInteger as the Integer lowestBitSet", obj instanceof Integer);
+        assertTrue("JSONObject parses BigInteger as the Integer lowestBitSet",obj instanceof Integer);
     }
 
     @Test
@@ -7109,7 +7100,7 @@ public class JSONObjectTest_OE25Dev {
         Object obj = jsonObject0.get("lowestSetBit");
         // removed other assertion
         // removed other assertion
-        assertTrue("this bigInteger lowestBitSet happens to be 1", obj.equals(1));
+        assertTrue("this bigInteger lowestBitSet happens to be 1",obj.equals(1));
     }
 
     @Test
@@ -7167,7 +7158,7 @@ public class JSONObjectTest_OE25Dev {
          */
         JSONObject jsonObject2 = new JSONObject();
         jsonObject2.put("bigInt", bigInteger);
-        assertTrue("jsonObject.put() handles bigInt correctly", jsonObject2.get("bigInt").equals(bigInteger));
+        assertTrue("jsonObject.put()handles bigInt correctly",jsonObject2.get("bigInt").equals(bigInteger));
     }
 
     @Test
@@ -7201,7 +7192,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject2 = new JSONObject();
         jsonObject2.put("bigInt", bigInteger);
         // removed other assertion
-        assertTrue("jsonObject.getBigInteger() handles bigInt correctly", jsonObject2.getBigInteger("bigInt").equals(bigInteger));
+        assertTrue("jsonObject.getBigInteger()handles bigInt correctly",jsonObject2.getBigInteger("bigInt").equals(bigInteger));
     }
 
     @Test
@@ -7236,7 +7227,7 @@ public class JSONObjectTest_OE25Dev {
         jsonObject2.put("bigInt", bigInteger);
         // removed other assertion
         // removed other assertion
-        assertTrue("jsonObject.optBigInteger() handles bigInt correctly", jsonObject2.optBigInteger("bigInt", BigInteger.ONE).equals(bigInteger));
+        assertTrue("jsonObject.optBigInteger()handles bigInt correctly",jsonObject2.optBigInteger("bigInt",BigInteger.ONE).equals(bigInteger));
     }
 
     @Test
@@ -7309,7 +7300,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("BigInteger as BigDecimal", jsonObject2.getBigDecimal("bigInt").equals(new BigDecimal(bigInteger)));
+        assertTrue("BigInteger as BigDecimal",jsonObject2.getBigDecimal("bigInt").equals(new BigDecimal(bigInteger)));
     }
 
     @Test
@@ -7351,7 +7342,7 @@ public class JSONObjectTest_OE25Dev {
         
         JSONObject jsonObject3 = new JSONObject();
         jsonObject3.put("bigDec", bigDecimal);
-        assertTrue("jsonObject.put() handles bigDec correctly", jsonObject3.get("bigDec").equals(bigDecimal));
+        assertTrue("jsonObject.put()handles bigDec correctly",jsonObject3.get("bigDec").equals(bigDecimal));
     }
 
     @Test
@@ -7394,7 +7385,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject3 = new JSONObject();
         jsonObject3.put("bigDec", bigDecimal);
         // removed other assertion
-        assertTrue("jsonObject.getBigDecimal() handles bigDec correctly", jsonObject3.getBigDecimal("bigDec").equals(bigDecimal));
+        assertTrue("jsonObject.getBigDecimal()handles bigDec correctly",jsonObject3.getBigDecimal("bigDec").equals(bigDecimal));
     }
 
     @Test
@@ -7438,7 +7429,7 @@ public class JSONObjectTest_OE25Dev {
         jsonObject3.put("bigDec", bigDecimal);
         // removed other assertion
         // removed other assertion
-        assertTrue("jsonObject.optBigDecimal() handles bigDec correctly", jsonObject3.optBigDecimal("bigDec", BigDecimal.ONE).equals(bigDecimal));
+        assertTrue("jsonObject.optBigDecimal()handles bigDec correctly",jsonObject3.optBigDecimal("bigDec",BigDecimal.ONE).equals(bigDecimal));
     }
 
     @Test
@@ -7530,14 +7521,14 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("BigDecimal as BigInteger", jsonObject3.getBigInteger("bigDec").equals(bigDecimal.toBigInteger()));
+        assertTrue("BigDecimal as BigInteger",jsonObject3.getBigInteger("bigDec").equals(bigDecimal.toBigInteger()));
     }
 
     @Test
     public void jsonObjectNames_1_oe() {
 
         // getNames() from null JSONObject
-        assertTrue("null names from null Object", null == JSONObject.getNames((Object)null));
+        assertTrue("null names from null Object",null == JSONObject.getNames((Object)null));
     }
 
     @Test
@@ -7547,7 +7538,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
 
         // getNames() from object with no fields
-        assertTrue("null names from Object with no fields", null == JSONObject.getNames(new MyJsonString()));
+        assertTrue("null names from Object with no fields",null == JSONObject.getNames(new MyJsonString()));
     }
 
     @Test
@@ -7583,7 +7574,7 @@ public class JSONObjectTest_OE25Dev {
         // getNames() from empty JSONObject
         String emptyStr = "{}";
         JSONObject jsonObject1 = new JSONObject(emptyStr);
-        assertTrue("empty JSONObject should have null names", null == JSONObject.getNames(jsonObject1));
+        assertTrue("empty JSONObject should have null names",null == JSONObject.getNames(jsonObject1));
     }
 
     @Test
@@ -7660,7 +7651,7 @@ public class JSONObjectTest_OE25Dev {
                 .parse(jsonArray0.toString());
         List<?> docList = JsonPath.read(doc, "$");
         // removed other assertion
-        assertTrue( "expected to find trueKey", ((List<?>) JsonPath.read(doc, "$[?(@=='trueKey')]")).size() == 1);
+        assertTrue("expected to find trueKey",((List<?>)JsonPath.read(doc,"$[?(@=='trueKey')]")).size()== 1);
     }
 
     @Test
@@ -7700,7 +7691,7 @@ public class JSONObjectTest_OE25Dev {
         List<?> docList = JsonPath.read(doc, "$");
         // removed other assertion
         // removed other assertion
-        assertTrue( "expected to find falseKey", ((List<?>) JsonPath.read(doc, "$[?(@=='falseKey')]")).size() == 1);
+        assertTrue("expected to find falseKey",((List<?>)JsonPath.read(doc,"$[?(@=='falseKey')]")).size()== 1);
     }
 
     @Test
@@ -7741,7 +7732,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "expected to find stringKey", ((List<?>) JsonPath.read(doc, "$[?(@=='stringKey')]")).size() == 1);
+        assertTrue("expected to find stringKey",((List<?>)JsonPath.read(doc,"$[?(@=='stringKey')]")).size()== 1);
     }
 
     @Test
@@ -7852,7 +7843,7 @@ public class JSONObjectTest_OE25Dev {
                 .parse(jsonArray1.toString());
         docList = JsonPath.read(doc, "$");
         // removed other assertion
-        assertTrue( "expected to find VAL1", ((List<?>) JsonPath.read(doc, "$[?(@=='VAL1')]")).size() == 1);
+        assertTrue("expected to find VAL1",((List<?>)JsonPath.read(doc,"$[?(@=='VAL1')]")).size()== 1);
     }
 
     @Test
@@ -7909,7 +7900,7 @@ public class JSONObjectTest_OE25Dev {
         docList = JsonPath.read(doc, "$");
         // removed other assertion
         // removed other assertion
-        assertTrue( "expected to find VAL2", ((List<?>) JsonPath.read(doc, "$[?(@=='VAL2')]")).size() == 1);
+        assertTrue("expected to find VAL2",((List<?>)JsonPath.read(doc,"$[?(@=='VAL2')]")).size()== 1);
     }
 
     @Test
@@ -7967,7 +7958,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "expected to find VAL3", ((List<?>) JsonPath.read(doc, "$[?(@=='VAL3')]")).size() == 1);
+        assertTrue("expected to find VAL3",((List<?>)JsonPath.read(doc,"$[?(@=='VAL3')]")).size()== 1);
     }
 
     @Test
@@ -8114,7 +8105,7 @@ public class JSONObjectTest_OE25Dev {
                 .parse(jsonArray2.toString());
         docList = JsonPath.read(doc, "$");
         // removed other assertion
-        assertTrue( "expected to find publicString", ((List<?>) JsonPath.read(doc, "$[?(@=='publicString')]")).size() == 1);
+        assertTrue("expected to find publicString",((List<?>)JsonPath.read(doc,"$[?(@=='publicString')]")).size()== 1);
     }
 
     @Test
@@ -8189,7 +8180,7 @@ public class JSONObjectTest_OE25Dev {
         docList = JsonPath.read(doc, "$");
         // removed other assertion
         // removed other assertion
-        assertTrue( "expected to find publicInt", ((List<?>) JsonPath.read(doc, "$[?(@=='publicInt')]")).size() == 1);
+        assertTrue("expected to find publicInt",((List<?>)JsonPath.read(doc,"$[?(@=='publicInt')]")).size()== 1);
     }
 
     @Test
@@ -9747,7 +9738,7 @@ public class JSONObjectTest_OE25Dev {
 
         jsonObject.remove("trueKey");
         JSONObject expectedJsonObject = new JSONObject(expectedStr);
-        assertTrue("unequal jsonObjects should not be similar", !jsonObject.similar(expectedJsonObject));
+        assertTrue("unequal jsonObjects should not be similar",!jsonObject.similar(expectedJsonObject));
     }
 
     @Test
@@ -9794,7 +9785,7 @@ public class JSONObjectTest_OE25Dev {
         jsonObject.remove("trueKey");
         JSONObject expectedJsonObject = new JSONObject(expectedStr);
         // removed other assertion
-        assertTrue("jsonObject should not be similar to jsonArray", !jsonObject.similar(new JSONArray()));
+        assertTrue("jsonObject should not be similar to jsonArray",!jsonObject.similar(new JSONArray()));
     }
 
     @Test
@@ -9847,7 +9838,7 @@ public class JSONObjectTest_OE25Dev {
         String bCompareValueStr = "{\"a\":\"notAval\",\"b\":true}";
         JSONObject aCompareValueJsonObject = new JSONObject(aCompareValueStr);
         JSONObject bCompareValueJsonObject = new JSONObject(bCompareValueStr);
-        assertTrue("different values should not be similar", !aCompareValueJsonObject.similar(bCompareValueJsonObject));
+        assertTrue("different values should not be similar",!aCompareValueJsonObject.similar(bCompareValueJsonObject));
     }
 
     @Test
@@ -9906,7 +9897,7 @@ public class JSONObjectTest_OE25Dev {
         String bCompareObjectStr = "{\"a\":\"aval\",\"b\":true}";
         JSONObject aCompareObjectJsonObject = new JSONObject(aCompareObjectStr);
         JSONObject bCompareObjectJsonObject = new JSONObject(bCompareObjectStr);
-        assertTrue("different nested JSONObjects should not be similar", !aCompareObjectJsonObject.similar(bCompareObjectJsonObject));
+        assertTrue("different nested JSONObjects should not be similar",!aCompareObjectJsonObject.similar(bCompareObjectJsonObject));
     }
 
     @Test
@@ -9971,7 +9962,7 @@ public class JSONObjectTest_OE25Dev {
         String bCompareArrayStr = "{\"a\":\"aval\",\"b\":true}";
         JSONObject aCompareArrayJsonObject = new JSONObject(aCompareArrayStr);
         JSONObject bCompareArrayJsonObject = new JSONObject(bCompareArrayStr);
-        assertTrue("different nested JSONArrays should not be similar", !aCompareArrayJsonObject.similar(bCompareArrayJsonObject));
+        assertTrue("different nested JSONArrays should not be similar",!aCompareArrayJsonObject.similar(bCompareArrayJsonObject));
     }
 
     @Test
@@ -10708,7 +10699,7 @@ public class JSONObjectTest_OE25Dev {
     @Test
     public void valueToString_1_oe() {
         
-        assertTrue("null valueToString() incorrect", "null".equals(JSONObject.valueToString(null)));
+        assertTrue("null valueToString()incorrect","null".equals(JSONObject.valueToString(null)));
     }
 
     @Test
@@ -10716,7 +10707,7 @@ public class JSONObjectTest_OE25Dev {
         
         // removed other assertion
         MyJsonString jsonString = new MyJsonString();
-        assertTrue("jsonstring valueToString() incorrect", "my string".equals(JSONObject.valueToString(jsonString)));
+        assertTrue("jsonstring valueToString()incorrect","my string".equals(JSONObject.valueToString(jsonString)));
     }
 
     @Test
@@ -10725,7 +10716,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         MyJsonString jsonString = new MyJsonString();
         // removed other assertion
-        assertTrue("boolean valueToString() incorrect", "true".equals(JSONObject.valueToString(Boolean.TRUE)));
+        assertTrue("boolean valueToString()incorrect","true".equals(JSONObject.valueToString(Boolean.TRUE)));
     }
 
     @Test
@@ -10735,7 +10726,7 @@ public class JSONObjectTest_OE25Dev {
         MyJsonString jsonString = new MyJsonString();
         // removed other assertion
         // removed other assertion
-        assertTrue("non-numeric double", "null".equals(JSONObject.doubleToString(Double.POSITIVE_INFINITY)));
+        assertTrue("non-numeric double","null".equals(JSONObject.doubleToString(Double.POSITIVE_INFINITY)));
     }
 
     @Test
@@ -10753,7 +10744,7 @@ public class JSONObjectTest_OE25Dev {
                 "\"key3\":\"val3\""+
              "}";
         JSONObject jsonObject = new JSONObject(jsonObjectStr);
-        assertTrue("jsonObject valueToString() incorrect", JSONObject.valueToString(jsonObject).equals(jsonObject.toString()));
+        assertTrue("jsonObject valueToString()incorrect",JSONObject.valueToString(jsonObject).equals(jsonObject.toString()));
     }
 
     @Test
@@ -10775,7 +10766,7 @@ public class JSONObjectTest_OE25Dev {
         String jsonArrayStr = 
             "[1,2,3]";
         JSONArray jsonArray = new JSONArray(jsonArrayStr);
-        assertTrue("jsonArray valueToString() incorrect", JSONObject.valueToString(jsonArray).equals(jsonArray.toString()));
+        assertTrue("jsonArray valueToString()incorrect",JSONObject.valueToString(jsonArray).equals(jsonArray.toString()));
     }
 
     @Test
@@ -10802,7 +10793,7 @@ public class JSONObjectTest_OE25Dev {
         map.put("key1", "val1");
         map.put("key2", "val2");
         map.put("key3", "val3");
-        assertTrue("map valueToString() incorrect", jsonObject.toString().equals(JSONObject.valueToString(map)));
+        assertTrue("map valueToString()incorrect",jsonObject.toString().equals(JSONObject.valueToString(map)));
     }
 
     @Test
@@ -10834,7 +10825,7 @@ public class JSONObjectTest_OE25Dev {
         collection.add(new Integer(1));
         collection.add(new Integer(2));
         collection.add(new Integer(3));
-        assertTrue("collection valueToString() expected: "+ jsonArray.toString()+ " actual: "+ JSONObject.valueToString(collection), jsonArray.toString().equals(JSONObject.valueToString(collection)));
+        assertTrue("collection valueToString()expected: "+ jsonArray.toString()+ " actual: "+ JSONObject.valueToString(collection),jsonArray.toString().equals(JSONObject.valueToString(collection)));
     }
 
     @Test
@@ -10868,7 +10859,7 @@ public class JSONObjectTest_OE25Dev {
         collection.add(new Integer(3));
         // removed other assertion
         Integer[] array = { new Integer(1), new Integer(2), new Integer(3) };
-        assertTrue("array valueToString() incorrect", jsonArray.toString().equals(JSONObject.valueToString(array)));
+        assertTrue("array valueToString()incorrect",jsonArray.toString().equals(JSONObject.valueToString(array)));
     }
 
     @Test
@@ -10897,7 +10888,7 @@ public class JSONObjectTest_OE25Dev {
     @Test
     public void wrapObject_1_oe() {
         // wrap(null) returns NULL
-        assertTrue("null wrap() incorrect", JSONObject.NULL == JSONObject.wrap(null));
+        assertTrue("null wrap()incorrect",JSONObject.NULL == JSONObject.wrap(null));
     }
 
     @Test
@@ -10907,7 +10898,7 @@ public class JSONObjectTest_OE25Dev {
 
         // wrap(Integer) returns Integer
         Integer in = new Integer(1);
-        assertTrue("Integer wrap() incorrect", in == JSONObject.wrap(in));
+        assertTrue("Integer wrap()incorrect",in == JSONObject.wrap(in));
     }
 
     @Test
@@ -10926,7 +10917,7 @@ public class JSONObjectTest_OE25Dev {
          * support for big numbers, it remains a BigDecimal 
          */
         Object bdWrap = JSONObject.wrap(BigDecimal.ONE);
-        assertTrue("BigDecimal.ONE evaluates to ONE", bdWrap.equals(BigDecimal.ONE));
+        assertTrue("BigDecimal.ONE evaluates to ONE",bdWrap.equals(BigDecimal.ONE));
     }
 
     @Test
@@ -10955,7 +10946,7 @@ public class JSONObjectTest_OE25Dev {
                     "\"key3\":\"val3\""+
                  "}";
         JSONObject jsonObject = new JSONObject(jsonObjectStr);
-        assertTrue("JSONObject wrap() incorrect", jsonObject == JSONObject.wrap(jsonObject));
+        assertTrue("JSONObject wrap()incorrect",jsonObject == JSONObject.wrap(jsonObject));
     }
 
     @Test
@@ -11876,7 +11867,7 @@ public class JSONObjectTest_OE25Dev {
                 // removed other assertion
                 Util.checkJSONObjectMaps(jo);
             } catch (JSONException ex) {
-                assertTrue("Only \\0 (U+0000), \\n (U+000A), and \\r (U+000D) should cause an error. Instead "+charString+"("+i+") caused an error", i=='\0' || i=='\n' || i=='\r' );
+                assertTrue("Only \\0(U+0000),\\n(U+000A),and \\r(U+000D)should cause an error. Instead "+charString+"("+i+")caused an error",i=='\0' || i=='\n' || i=='\r');
     }
     }
     }
@@ -11964,7 +11955,7 @@ public class JSONObjectTest_OE25Dev {
         String str = "{\"myKey\": \"myval\", \"hiKey\": null}";
         JSONObject jsonObject = new JSONObject(str);
 
-        assertTrue("optBigDecimal() should return default BigDecimal", BigDecimal.TEN.compareTo(jsonObject.optBigDecimal("myKey", BigDecimal.TEN))==0);
+        assertTrue("optBigDecimal()should return default BigDecimal",BigDecimal.TEN.compareTo(jsonObject.optBigDecimal("myKey",BigDecimal.TEN))==0);
     }
 
     @Test
@@ -11974,7 +11965,7 @@ public class JSONObjectTest_OE25Dev {
         JSONObject jsonObject = new JSONObject(str);
 
         // removed other assertion
-        assertTrue("optBigInteger() should return default BigInteger", BigInteger.TEN.compareTo(jsonObject.optBigInteger("myKey",BigInteger.TEN ))==0);
+        assertTrue("optBigInteger()should return default BigInteger",BigInteger.TEN.compareTo(jsonObject.optBigInteger("myKey",BigInteger.TEN))==0);
     }
 
     @Test
@@ -11985,7 +11976,7 @@ public class JSONObjectTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("optBoolean() should return default boolean", jsonObject.optBoolean("myKey", true));
+        assertTrue("optBoolean()should return default boolean",jsonObject.optBoolean("myKey",true));
     }
 
     @Test
@@ -11997,7 +11988,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optInt() should return default int", 42 == jsonObject.optInt("myKey", 42));
+        assertTrue("optInt()should return default int",42 == jsonObject.optInt("myKey",42));
     }
 
     @Test
@@ -12010,7 +12001,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optEnum() should return default Enum", MyEnum.VAL1.equals(jsonObject.optEnum(MyEnum.class, "myKey", MyEnum.VAL1)));
+        assertTrue("optEnum()should return default Enum",MyEnum.VAL1.equals(jsonObject.optEnum(MyEnum.class,"myKey",MyEnum.VAL1)));
     }
 
     @Test
@@ -12024,7 +12015,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optJSONArray() should return null ", null==jsonObject.optJSONArray("myKey"));
+        assertTrue("optJSONArray()should return null ",null==jsonObject.optJSONArray("myKey"));
     }
 
     @Test
@@ -12055,7 +12046,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optLong() should return default long", 42l == jsonObject.optLong("myKey", 42l));
+        assertTrue("optLong()should return default long",42l == jsonObject.optLong("myKey",42l));
     }
 
     @Test
@@ -12072,7 +12063,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optDouble() should return default double", 42.3d == jsonObject.optDouble("myKey", 42.3d));
+        assertTrue("optDouble()should return default double",42.3d == jsonObject.optDouble("myKey",42.3d));
     }
 
     @Test
@@ -12090,7 +12081,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optFloat() should return default float", 42.3f == jsonObject.optFloat("myKey", 42.3f));
+        assertTrue("optFloat()should return default float",42.3f == jsonObject.optFloat("myKey",42.3f));
     }
 
     @Test
@@ -12109,7 +12100,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optNumber() should return default Number", 42l == jsonObject.optNumber("myKey", Long.valueOf(42)).longValue());
+        assertTrue("optNumber()should return default Number",42l == jsonObject.optNumber("myKey",Long.valueOf(42)).longValue());
     }
 
     @Test
@@ -12129,7 +12120,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("optString() should return default string", "hi".equals(jsonObject.optString("hiKey", "hi")));
+        assertTrue("optString()should return default string","hi".equals(jsonObject.optString("hiKey","hi")));
     }
 
     @Test
@@ -12147,7 +12138,7 @@ public class JSONObjectTest_OE25Dev {
          
          // removed other assertion
 
-         assertTrue("optBigDecimal() should return default BigDecimal", BigDecimal.TEN.compareTo(jsonObject.optBigDecimal("myKey", BigDecimal.TEN))==0);
+         assertTrue("optBigDecimal()should return default BigDecimal",BigDecimal.TEN.compareTo(jsonObject.optBigDecimal("myKey",BigDecimal.TEN))==0);
     }
 
     @Test
@@ -12158,7 +12149,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
 
          // removed other assertion
-         assertTrue("optBigInteger() should return default BigInteger", BigInteger.TEN.compareTo(jsonObject.optBigInteger("myKey",BigInteger.TEN ))==0);
+         assertTrue("optBigInteger()should return default BigInteger",BigInteger.TEN.compareTo(jsonObject.optBigInteger("myKey",BigInteger.TEN))==0);
     }
 
     @Test
@@ -12170,7 +12161,7 @@ public class JSONObjectTest_OE25Dev {
 
          // removed other assertion
          // removed other assertion
-         assertTrue("optBoolean() should return default boolean", jsonObject.optBoolean("myKey", true));
+         assertTrue("optBoolean()should return default boolean",jsonObject.optBoolean("myKey",true));
     }
 
     @Test
@@ -12183,7 +12174,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optInt() should return default int", 42 == jsonObject.optInt("myKey", 42));
+         assertTrue("optInt()should return default int",42 == jsonObject.optInt("myKey",42));
     }
 
     @Test
@@ -12197,7 +12188,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optEnum() should return default Enum", MyEnum.VAL1.equals(jsonObject.optEnum(MyEnum.class, "myKey", MyEnum.VAL1)));
+         assertTrue("optEnum()should return default Enum",MyEnum.VAL1.equals(jsonObject.optEnum(MyEnum.class,"myKey",MyEnum.VAL1)));
     }
 
     @Test
@@ -12212,7 +12203,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optJSONArray() should return null ", null==jsonObject.optJSONArray("myKey"));
+         assertTrue("optJSONArray()should return null ",null==jsonObject.optJSONArray("myKey"));
     }
 
     @Test
@@ -12245,7 +12236,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optLong() should return default long", 42l == jsonObject.optLong("myKey", 42l));
+         assertTrue("optLong()should return default long",42l == jsonObject.optLong("myKey",42l));
     }
 
     @Test
@@ -12263,7 +12254,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optDouble() should return default double", 42.3d == jsonObject.optDouble("myKey", 42.3d));
+         assertTrue("optDouble()should return default double",42.3d == jsonObject.optDouble("myKey",42.3d));
     }
 
     @Test
@@ -12282,7 +12273,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optFloat() should return default float", 42.3f == jsonObject.optFloat("myKey", 42.3f));
+         assertTrue("optFloat()should return default float",42.3f == jsonObject.optFloat("myKey",42.3f));
     }
 
     @Test
@@ -12302,7 +12293,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optNumber() should return default Number", 42l == jsonObject.optNumber("myKey", Long.valueOf(42)).longValue());
+         assertTrue("optNumber()should return default Number",42l == jsonObject.optNumber("myKey",Long.valueOf(42)).longValue());
     }
 
     @Test
@@ -12323,7 +12314,7 @@ public class JSONObjectTest_OE25Dev {
          // removed other assertion
          // removed other assertion
          // removed other assertion
-         assertTrue("optString() should return default string", "hi".equals(jsonObject.optString("hiKey", "hi")));
+         assertTrue("optString()should return default string","hi".equals(jsonObject.optString("hiKey","hi")));
     }
 
     @Test
@@ -13063,7 +13054,7 @@ public class JSONObjectTest_OE25Dev {
         str = "";
         String quotedStr;
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped quotes, found "+quotedStr, "\"\"".equals(quotedStr));
+        assertTrue("quote()expected escaped quotes,found "+quotedStr,"\"\"".equals(quotedStr));
     }
 
     @Test
@@ -13075,7 +13066,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "\"\"";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped quotes, found "+quotedStr, "\"\\\"\\\"\"".equals(quotedStr));
+        assertTrue("quote()expected escaped quotes,found "+quotedStr,"\"\\\"\\\"\"".equals(quotedStr));
     }
 
     @Test
@@ -13090,7 +13081,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "</";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped frontslash, found "+quotedStr, "\"<\\/\"".equals(quotedStr));
+        assertTrue("quote()expected escaped frontslash,found "+quotedStr,"\"<\\/\"".equals(quotedStr));
     }
 
     @Test
@@ -13108,7 +13099,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "AB\bC";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped backspace, found "+quotedStr, "\"AB\\bC\"".equals(quotedStr));
+        assertTrue("quote()expected escaped backspace,found "+quotedStr,"\"AB\\bC\"".equals(quotedStr));
     }
 
     @Test
@@ -13129,7 +13120,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "ABC\n";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped newline, found "+quotedStr, "\"ABC\\n\"".equals(quotedStr));
+        assertTrue("quote()expected escaped newline,found "+quotedStr,"\"ABC\\n\"".equals(quotedStr));
     }
 
     @Test
@@ -13153,7 +13144,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "AB\fC";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped formfeed, found "+quotedStr, "\"AB\\fC\"".equals(quotedStr));
+        assertTrue("quote()expected escaped formfeed,found "+quotedStr,"\"AB\\fC\"".equals(quotedStr));
     }
 
     @Test
@@ -13180,7 +13171,7 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "\r";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped return, found "+quotedStr, "\"\\r\"".equals(quotedStr));
+        assertTrue("quote()expected escaped return,found "+quotedStr,"\"\\r\"".equals(quotedStr));
     }
 
     @Test
@@ -13210,19 +13201,19 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         str = "\u1234\u0088";
         quotedStr = JSONObject.quote(str);
-        assertTrue("quote() expected escaped unicode, found "+quotedStr, "\"\u1234\\u0088\"".equals(quotedStr));
+        assertTrue("quote()expected escaped unicode,found "+quotedStr,"\"\u1234\\u0088\"".equals(quotedStr));
     }
 
     @Test
     public void stringToValue_1_oe() {
         String str = "";
         String valueStr = (String)(JSONObject.stringToValue(str));
-        assertTrue("stringToValue() expected empty String, found "+valueStr, "".equals(valueStr));
+        assertTrue("stringToValue()expected empty String,found "+valueStr,"".equals(valueStr));
     }
 
     @Test
     public void toJSONArray_1_oe() {
-        assertTrue("toJSONArray() with null names should be null", null == new JSONObject().toJSONArray(null));
+        assertTrue("toJSONArray()with null names should be null",null == new JSONObject().toJSONArray(null));
     }
 
     @Test
@@ -13585,7 +13576,7 @@ public class JSONObjectTest_OE25Dev {
     public void equals_1_oe() {
         String str = "{\"key\":\"value\"}";
         JSONObject aJsonObject = new JSONObject(str);
-        assertTrue("Same JSONObject should be equal to itself", aJsonObject.equals(aJsonObject));
+        assertTrue("Same JSONObject should be equal to itself",aJsonObject.equals(aJsonObject));
     }
 
     @Test
@@ -13625,7 +13616,7 @@ public class JSONObjectTest_OE25Dev {
         Object obj = JSONObject.NULL;
         jsonObjectJONull.put("key", obj);
         Object value = jsonObjectJONull.opt("key");
-        assertTrue("opt() JSONObject.NULL should find JSONObject.NULL", obj.equals(value));
+        assertTrue("opt()JSONObject.NULL should find JSONObject.NULL",obj.equals(value));
     }
 
     @Test
@@ -13667,7 +13658,7 @@ public class JSONObjectTest_OE25Dev {
         Object value = jsonObjectJONull.opt("key");
         // removed other assertion
         value = jsonObjectJONull.get("key");
-        assertTrue("get() JSONObject.NULL should find JSONObject.NULL", obj.equals(value));
+        assertTrue("get()JSONObject.NULL should find JSONObject.NULL",obj.equals(value));
     }
 
     @Test
@@ -13714,7 +13705,7 @@ public class JSONObjectTest_OE25Dev {
             value = "";
         }
         String string = value instanceof String ? (String)value : null;
-        assertTrue("XML toString() should convert JSONObject.NULL to null", string == null);
+        assertTrue("XML toString()should convert JSONObject.NULL to null",string == null);
     }
 
     @Test
@@ -13843,7 +13834,7 @@ public class JSONObjectTest_OE25Dev {
          * as <key>null</key> and null will be emitted as ""
          */
         String sJONull = XML.toString(jsonObjectJONull);
-        assertTrue("JSONObject.NULL should emit a null value", "<key>null</key>".equals(sJONull));
+        assertTrue("JSONObject.NULL should emit a null value","<key>null</key>".equals(sJONull));
     }
 
     @Test
@@ -15381,7 +15372,7 @@ public class JSONObjectTest_OE25Dev {
         final JSONObject jo = new JSONObject(bean);
         // removed other assertion
         // removed other assertion
-        assertEquals("Expected the getter to only be called once", 1, bean.genericGetCounter);
+        assertEquals("Expected the getter to only be called once",1,bean.genericGetCounter);
     }
 
     @Test
@@ -15415,7 +15406,7 @@ public class JSONObjectTest_OE25Dev {
         final JSONObject jo = new JSONObject(bean);
         // removed other assertion
         // removed other assertion
-        assertEquals("Expected the getter to only be called once", 1, bean.genericGetCounter);
+        assertEquals("Expected the getter to only be called once",1,bean.genericGetCounter);
     }
 
     @Test
@@ -15438,7 +15429,7 @@ public class JSONObjectTest_OE25Dev {
         // getInt(int) should also be ignored based on parameter count
         // add(Integer) should be ignore as it doesn't start with get/is and also has a parameter
         // getALL should be mapped
-        assertEquals("Expected 1 key to be mapped. Instead found: "+jo.keySet().toString(), 1, jo.length());
+        assertEquals("Expected 1 key to be mapped. Instead found: "+jo.keySet().toString(),1,jo.length());
     }
 
     @Test
@@ -15472,7 +15463,7 @@ public class JSONObjectTest_OE25Dev {
     public void testExceptionalBean_1_oe() {
         ExceptionalBean bean = new ExceptionalBean();
         final JSONObject jo = new JSONObject(bean);
-        assertEquals("Expected 1 key to be mapped. Instead found: "+jo.keySet().toString(), 1, jo.length());
+        assertEquals("Expected 1 key to be mapped. Instead found: "+jo.keySet().toString(),1,jo.length());
     }
 
     @Test

@@ -193,7 +193,7 @@ public class W3CDomTest_OE25Dev {
         Map<String, String> properties = W3CDom.OutputXml();
         properties.put(OutputKeys.INDENT, "yes");
         String furtherOut = W3CDom.asString(wDoc, properties);
-        assertTrue(furtherOut.length() > out.length()); // wanted to assert formatting, but actual indentation is platform specific so breaks in CI;
+        assertTrue(furtherOut.length()> out.length());// wanted to assert formatting,but actual indentation is platform specific so breaks in CI;
     }
 
     @Test
@@ -218,8 +218,7 @@ public class W3CDomTest_OE25Dev {
         properties.put(OutputKeys.INDENT, "yes");
         String furtherOut = W3CDom.asString(wDoc, properties);
         // removed other assertion
-        String furtherExpected =
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
+        String furtherExpected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head><title>W3c</title></head><body><p class=\"one\" id=\"12\">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>";
         assertEquals(furtherExpected, TextUtil.stripNewlines(furtherOut)); // on windows, DOM will write newlines as \r\n;
     }
 
@@ -1459,7 +1458,7 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jsoupDoc;
         jsoupDoc = Jsoup.parse(html);
         Element body = jsoupDoc.select("body").first();
-        assertTrue(body.hasAttr("\"")); // actually an attribute with key '"'. Correct per HTML5 spec, but w3c xml dom doesn't dig it;
+        assertTrue(body.hasAttr("\""));// actually an attribute with key '"'. Correct per HTML5 spec,but w3c xml dom doesn't dig it assertTrue(body.hasAttr("name\""));
     }
 
     @Test
@@ -1468,17 +1467,6 @@ public class W3CDomTest_OE25Dev {
         org.jsoup.nodes.Document jsoupDoc;
         jsoupDoc = Jsoup.parse(html);
         Element body = jsoupDoc.select("body").first();
-        // removed other assertion
-        assertTrue(body.hasAttr("name\""));
-    }
-
-    @Test
-    public void handlesInvalidAttributeNames_3_oe() {
-        String html = "<html><head></head><body style=\"color: red\" \" name\"></body></html>";
-        org.jsoup.nodes.Document jsoupDoc;
-        jsoupDoc = Jsoup.parse(html);
-        Element body = jsoupDoc.select("body").first();
-        // removed other assertion
         // removed other assertion
 
         Document w3Doc = W3CDom.convert(jsoupDoc);
@@ -1628,7 +1616,7 @@ public class W3CDomTest_OE25Dev {
         html = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
         dom = w3c.fromJsoup(Jsoup.parse(html));
         nodeList = xpath(dom, "//body");
-        assertNull(nodeList); // no matches;
+        assertNull(nodeList);// no matches dom = w3c.fromJsoup(Jsoup.parse(html));
     }
 
 }

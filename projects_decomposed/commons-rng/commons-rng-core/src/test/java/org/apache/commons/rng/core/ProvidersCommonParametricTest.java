@@ -352,9 +352,7 @@ class ProvidersCommonParametricTest {
 
         final double actual = Math.abs(walk);
         final double max = Math.sqrt(sampleSize) * 2.576;
-        Assertions.assertTrue(actual < max,
-            () -> generator + ": Walked too far astray: " + actual + " > " + max +
-            " (test will fail randomly about 1 in 100 times)");
+        Assertions.assertTrue(actual < max,()-> generator + ": Walked too far astray: " + actual + " > " + max + "(test will fail randomly about 1 in 100 times)");
     }
 
     /**
@@ -524,8 +522,7 @@ class ProvidersCommonParametricTest {
         // 12    0.00190
 
         if (numFailures > 11) { // Test will fail with 0.5% probability
-            Assertions.fail(generator + ": Too many failures for n = " + n +
-                            " (" + numFailures + " out of " + numTests + " tests failed)");
+            Assertions.fail(generator + ": Too many failures for n = " + n + "(" + numFailures + " out of " + numTests + " tests failed)");
         }
     }
 
@@ -558,8 +555,7 @@ class ProvidersCommonParametricTest {
         System.arraycopy(b1, b1.length - b3.length, b3, 0, b3.length);
 
         // Sequence of calls must be the same.
-        Assertions.assertArrayEquals(b2, b3,
-            () -> "chunkSize=" + chunkSize + " numChunks=" + numChunks);
+        Assertions.assertArrayEquals(b2,b3,()-> "chunkSize=" + chunkSize + " numChunks=" + numChunks);
     }
 
     /**

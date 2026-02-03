@@ -164,7 +164,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.3333333333333333 0.0 0.0; 1.0 1.0 0.0\n", new String(out.toByteArray(), StandardCharsets.UTF_8));
+        Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
     @Test
@@ -191,7 +191,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.3333333333333333 0.0 0.0; 1.0 1.0 0.0\n", new String(out.toByteArray(), StandardCharsets.UTF_16));
+        Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
     @Test
@@ -238,7 +238,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n", new String(out.toByteArray(), StandardCharsets.UTF_16));
+        Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
     @Test
@@ -265,7 +265,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "0.0 0.0 0.0; 0.3333333333333333 0.0 0.0; 1.0 1.0 0.0; 0.0 1.0 0.0\n", new String(out.toByteArray(), StandardCharsets.UTF_8));
+        Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
     @Test
@@ -314,7 +314,7 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n", new String(out.toByteArray(), StandardCharsets.UTF_16));
+        Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
 }

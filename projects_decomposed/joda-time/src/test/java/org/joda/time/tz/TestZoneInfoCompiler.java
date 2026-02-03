@@ -51,30 +51,30 @@ public class TestZoneInfoCompiler extends TestCase {
   public void testTestOne() {
     DateTimeZone dateTimeZone = DateTimeZone.forOffsetMillis(8);
 
-    assertTrue(ZoneInfoCompiler.test("+02:15", dateTimeZone));
+    assertTrue(ZoneInfoCompiler.test("+02:15",dateTimeZone));
   }
 
   public void testTestTwo() {
     DateTimeZoneBuilder dateTimeZoneBuilder = new DateTimeZoneBuilder();
     DateTimeZone dateTimeZone = dateTimeZoneBuilder.toDateTimeZone("7M6 _n'63", true);
 
-    assertTrue(ZoneInfoCompiler.test("7M6 _n'63", dateTimeZone));
+    assertTrue(ZoneInfoCompiler.test("7M6 _n'63",dateTimeZone));
   }
 
   public void testParseZoneCharFive() {
-    assertEquals('s', ZoneInfoCompiler.parseZoneChar('s'));
+    assertEquals('s',ZoneInfoCompiler.parseZoneChar('s'));
   }
 
   public void testParseYearAndParseYearReturningPositiveAndParseYearWithNegative() {
-    assertEquals(Integer.MAX_VALUE, ZoneInfoCompiler.parseYear("maximum", (-2512)));
+    assertEquals(Integer.MAX_VALUE,ZoneInfoCompiler.parseYear("maximum",(-2512)));
   }
 
   public void testParseYearAndParseYearReturningNegativeOne() {
-    assertEquals(Integer.MIN_VALUE, ZoneInfoCompiler.parseYear("min", (-1881443201)));
+    assertEquals(Integer.MIN_VALUE,ZoneInfoCompiler.parseYear("min",(-1881443201)));
   }
 
   public void testParseYearAndParseYearReturningNegativeTwo() {
-    assertEquals(Integer.MIN_VALUE, ZoneInfoCompiler.parseYear("minimum", (-1971487955)));
+    assertEquals(Integer.MIN_VALUE,ZoneInfoCompiler.parseYear("minimum",(-1971487955)));
   }
 
   public void testWriteZoneInfoMapThrowsIllegalArgumentException() throws IOException {
@@ -88,7 +88,7 @@ public class TestZoneInfoCompiler extends TestCase {
       ZoneInfoCompiler.writeZoneInfoMap(null, hashMapTwo);
       fail("Expecting exception: IllegalArgumentException");
     } catch (IllegalArgumentException e) {
-      assertEquals(ZoneInfoCompiler.class.getName(), e.getStackTrace()[0].getClassName());
+      assertEquals(ZoneInfoCompiler.class.getName(),e.getStackTrace()[0].getClassName());
     }
   }
 

@@ -53,11 +53,9 @@ public class SuppressPropertiesBeanIntrospectorTestCase extends TestCase {
         final IntrospectionContextTestImpl context = new IntrospectionContextTestImpl();
 
         introspector.introspect(context);
-        assertEquals("Wrong number of removed properties", properties.length, context
-                .getRemovedProperties().size());
+        assertEquals("Wrong number of removed properties",properties.length,context .getRemovedProperties().size());
         for (final String property : properties) {
-            assertTrue("Property not removed: " + property, context
-                    .getRemovedProperties().contains(property));
+            assertTrue("Property not removed: " + property,context .getRemovedProperties().contains(property));
         }
     }
 
@@ -74,10 +72,8 @@ public class SuppressPropertiesBeanIntrospectorTestCase extends TestCase {
         final IntrospectionContextTestImpl context = new IntrospectionContextTestImpl();
 
         introspector.introspect(context);
-        assertEquals("Wrong number of removed properties", 1, context
-                .getRemovedProperties().size());
-        assertTrue("Wrong removed property",
-                context.getRemovedProperties().contains("prop1"));
+        assertEquals("Wrong number of removed properties",1,context .getRemovedProperties().size());
+        assertTrue("Wrong removed property",context.getRemovedProperties().contains("prop1"));
     }
 
     /**

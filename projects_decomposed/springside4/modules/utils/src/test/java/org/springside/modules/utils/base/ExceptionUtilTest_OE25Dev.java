@@ -237,7 +237,7 @@ public class ExceptionUtilTest_OE25Dev {
 		// removed other assertion
 
 		RuntimeException runtimeExcetpion = new RuntimeException("my runtimeException", ioexception);
-		assertThat(ExceptionUtil.toStringWithRootCause(runtimeExcetpion)) .isEqualTo("RuntimeException: my runtimeException; <---IOException: my exception");
+		assertThat(ExceptionUtil.toStringWithRootCause(runtimeExcetpion)).isEqualTo("RuntimeException: my runtimeException;<---IOException: my exception");
 	}
 
 	@Test
@@ -268,14 +268,14 @@ public class ExceptionUtilTest_OE25Dev {
 
 	@Test
 	public void staticException_1_oe() {
-		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION)).hasLineCount(2) .contains("java.lang.RuntimeException: Timeout") .contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
+		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION)).hasLineCount(2).contains("java.lang.RuntimeException: Timeout").contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
 	}
 
 	@Test
 	public void staticException_2_oe() {
 		// removed other assertion
 
-		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION2)).hasLineCount(2) .contains("org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout") .contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
+		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION2)).hasLineCount(2).contains("org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout").contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
 	}
 
 	@Test
@@ -285,7 +285,7 @@ public class ExceptionUtilTest_OE25Dev {
 		// removed other assertion
 
 		CloneableException timeoutException = TIMEOUT_EXCEPTION2.clone("Timeout for 30ms");
-		assertThat(ExceptionUtil.stackTraceText(timeoutException)).hasLineCount(2) .contains("org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout for 30ms") .contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
+		assertThat(ExceptionUtil.stackTraceText(timeoutException)).hasLineCount(2).contains("org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout for 30ms").contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
 	}
 
 	@Test
@@ -297,7 +297,7 @@ public class ExceptionUtilTest_OE25Dev {
 		CloneableException timeoutException = TIMEOUT_EXCEPTION2.clone("Timeout for 30ms");
 		// removed other assertion
 
-		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION3)).hasLineCount(2) .contains("org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout") .contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
+		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION3)).hasLineCount(2).contains("org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout").contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
 	}
 
 	@Test
@@ -312,7 +312,7 @@ public class ExceptionUtilTest_OE25Dev {
 		// removed other assertion
 
 		CloneableRuntimeException timeoutRuntimeException = TIMEOUT_EXCEPTION3.clone("Timeout for 40ms");
-		assertThat(ExceptionUtil.stackTraceText(timeoutRuntimeException)).hasLineCount(2) .contains("org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout for 40ms") .contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
+		assertThat(ExceptionUtil.stackTraceText(timeoutRuntimeException)).hasLineCount(2).contains("org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout for 40ms").contains("at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)");
 	}
 
 }

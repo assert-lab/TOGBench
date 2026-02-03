@@ -89,10 +89,8 @@ public class FluentPropertyBeanIntrospectorTestCase extends TestCase {
         assertNull("Read method for fluentProperty", pd.getReadMethod());
         assertNotNull("No write method for fluentProperty", pd.getWriteMethod());
         pd = fetchDescriptor(props, "fluentGetProperty");
-        assertNotNull("No read method for fluentGetProperty",
-                pd.getReadMethod());
-        assertNotNull("No write method for fluentGetProperty",
-                pd.getWriteMethod());
+        assertNotNull("No read method for fluentGetProperty",pd.getReadMethod());
+        assertNotNull("No write method for fluentGetProperty",pd.getWriteMethod());
     }
 
     public void testIntrospectionCaps() throws Exception {

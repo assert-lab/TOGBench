@@ -277,9 +277,7 @@ class MarsagliaTsangWangDiscreteSamplerTest {
             bytes = 4;
         }
         final double storageMB = bytes * 1e-6 * (d1 + d2 + d3 + d4 + d5) * maxSamples;
-        Assertions.assertTrue(storageMB < expectedLimitMB,
-            () -> "Worst case uniform distribution storage " + storageMB +
-                  "MB is above expected limit: " + expectedLimitMB);
+        Assertions.assertTrue(storageMB < expectedLimitMB,()-> "Worst case uniform distribution storage " + storageMB + "MB is above expected limit: " + expectedLimitMB);
     }
 
     /**

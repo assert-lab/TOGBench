@@ -80,7 +80,7 @@ public class TestDefaultPooledObject_OE25Dev {
         // removed other assertion
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        assertThat(1L, lessThanOrEqualTo(2L)); // sanity check;
+        assertThat(1L,lessThanOrEqualTo(2L));// sanity check assertThat(Duration.ZERO,lessThanOrEqualTo(Duration.ZERO.plusNanos(1)));// sanity check assertThat(dpo.getActiveDuration(),lessThanOrEqualTo(dpo.getIdleDuration()));
     }
 
     @Test
@@ -96,7 +96,8 @@ public class TestDefaultPooledObject_OE25Dev {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        assertThat(Duration.ZERO, lessThanOrEqualTo(Duration.ZERO.plusNanos(1))); // sanity check;
+        // Deprecated
+        assertThat(dpo.getActiveDuration().toMillis(), lessThanOrEqualTo(dpo.getActiveTimeMillis()));
     }
 
     @Test
@@ -112,8 +113,9 @@ public class TestDefaultPooledObject_OE25Dev {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
+        // Deprecated
         // removed other assertion
-        assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getIdleDuration()));
+        assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getActiveTime()));
     }
 
     @Test
@@ -129,10 +131,10 @@ public class TestDefaultPooledObject_OE25Dev {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
-        assertThat(dpo.getActiveDuration().toMillis(), lessThanOrEqualTo(dpo.getActiveTimeMillis()));
+        // removed other assertion
+        // removed other assertion
+        assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getIdleTime()));
     }
 
     @Test
@@ -147,49 +149,6 @@ public class TestDefaultPooledObject_OE25Dev {
         // removed other assertion
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getActiveTime()));
-    }
-
-    @Test
-    public void testInitialStateActiveDuration_8_oe() throws InterruptedException {
-        final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
-        // Sleep MUST be "long enough" to test that we are not returning a negative time.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        assertThat(dpo.getActiveDuration(), lessThanOrEqualTo(dpo.getIdleTime()));
-    }
-
-    @Test
-    public void testInitialStateActiveDuration_9_oe() throws InterruptedException {
-        final PooledObject<Object> dpo = new DefaultPooledObject<>(new Object());
-        // Sleep MUST be "long enough" to test that we are not returning a negative time.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // Deprecated
         // removed other assertion

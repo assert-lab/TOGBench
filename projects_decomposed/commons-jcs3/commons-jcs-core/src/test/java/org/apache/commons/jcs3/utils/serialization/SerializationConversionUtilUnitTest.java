@@ -113,8 +113,7 @@ public class SerializationConversionUtilUnitTest
         // VERIFY
         assertNotNull( "Should have a deserialized object.", after );
         assertEquals( "Values should be the same.", before.getVal(), after.getVal() );
-        assertEquals( "Attributes should be the same.", before.getElementAttributes().getMaxLife(), after
-            .getElementAttributes().getMaxLife() );
+        assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
         assertEquals( "Keys should be the same.", before.getKey(), after.getKey() );
         assertEquals( "Cache name should be the same.", before.getCacheName(), after.getCacheName() );
     }
@@ -156,8 +155,7 @@ public class SerializationConversionUtilUnitTest
         // VERIFY
         assertNotNull( "Should have a deserialized object.", after );
         assertEquals( "Values should be the same.", before.getVal(), after.getVal() );
-        assertEquals( "Attributes should be the same.", before.getElementAttributes().getMaxLife(), after
-            .getElementAttributes().getMaxLife() );
+        assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
         assertEquals( "Keys should be the same.", before.getKey(), after.getKey() );
         assertEquals( "Cache name should be the same.", before.getCacheName(), after.getCacheName() );
     }

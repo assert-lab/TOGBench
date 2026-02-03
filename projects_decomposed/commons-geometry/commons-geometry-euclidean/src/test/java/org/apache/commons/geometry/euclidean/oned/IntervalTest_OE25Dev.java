@@ -701,7 +701,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).getSize(), TEST_EPS);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(1,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
     }
 
     @Test
@@ -713,7 +713,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).getSize(), TEST_EPS);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,1,TEST_PRECISION).getSize(),TEST_EPS);
     }
 
     @Test
@@ -727,7 +727,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).getSize(), TEST_EPS);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
     }
 
     @Test

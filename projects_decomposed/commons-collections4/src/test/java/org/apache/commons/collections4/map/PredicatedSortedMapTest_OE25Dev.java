@@ -96,7 +96,7 @@ public class PredicatedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest
 
     public void testEntrySet_1_oe() {
         SortedMap<K, V> map = makeTestMap();
-        assertTrue("returned entryset should not be null", map.entrySet() != null);
+        assertTrue("returned entryset should not be null",map.entrySet()!= null);
     }
 
     public void testEntrySet_2_oe() {
@@ -104,7 +104,7 @@ public class PredicatedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest
         // removed other assertion
         map = decorateMap(new TreeMap<K, V>(), null, null);
         map.put((K) "oneKey", (V) "oneValue");
-        assertTrue("returned entryset should contain one entry", map.entrySet().size() == 1);
+        assertTrue("returned entryset should contain one entry",map.entrySet().size()== 1);
     }
 
     public void testPut_3_oe() {
@@ -206,7 +206,7 @@ public class PredicatedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest
         }
         // removed other assertion
         // removed other assertion
-        assertEquals("First key in tail map should be B", "B", map.tailMap((K) "B").firstKey());
+        assertEquals("First key in tail map should be B","B",map.tailMap((K)"B").firstKey());
     }
 
     public void testSortOrder_6_oe() {
@@ -229,7 +229,7 @@ public class PredicatedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Last key in head map should be B", "B", map.headMap((K) "C").lastKey());
+        assertEquals("Last key in head map should be B","B",map.headMap((K)"C").lastKey());
     }
 
     public void testSortOrder_7_oe() {
@@ -253,7 +253,7 @@ public class PredicatedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Last key in submap should be B", "B", map.subMap((K) "A",(K) "C").lastKey());
+        assertEquals("Last key in submap should be B","B",map.subMap((K)"A",(K)"C").lastKey());
     }
 
     public void testSortOrder_8_oe() {
@@ -280,7 +280,7 @@ public class PredicatedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest
         // removed other assertion
 
         final Comparator<? super K> c = map.comparator();
-        assertTrue("natural order, so comparator should be null", c == null);
+        assertTrue("natural order,so comparator should be null",c == null);
     }
 
 }

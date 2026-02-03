@@ -93,7 +93,7 @@ public class FixedSizeListTest_OE25Dev<E> extends AbstractListTest<E> {
         boolean changed = decoratedList.add("New Value");
         // removed other assertion
         //
-        Assert.assertEquals("Modifying an the underlying list is allowed", sizeBefore + 1, fixedSizeList.size());
+        Assert.assertEquals("Modifying an the underlying list is allowed",sizeBefore + 1,fixedSizeList.size());
     }
 
 }

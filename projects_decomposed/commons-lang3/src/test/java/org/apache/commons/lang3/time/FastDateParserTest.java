@@ -108,10 +108,7 @@ public class FastDateParserTest {
         try {
             final Date expectedTime = simpleDateFormat.parse(formattedDate);
             final Date actualTime = dateParser.parse(formattedDate);
-            assertEquals(expectedTime, actualTime,
-                "locale: " + locale + ", formattedDate: '" + formattedDate + "', originalFormattedDate: '"
-                    + originalFormattedDate + ", simpleDateFormat.pattern: '" + simpleDateFormat + "', Java: "
-                    + SystemUtils.JAVA_RUNTIME_VERSION + "\n");
+            assertEquals(expectedTime,actualTime,"locale: " + locale + ",formattedDate: '" + formattedDate + "',originalFormattedDate: '" + originalFormattedDate + ",simpleDateFormat.pattern: '" + simpleDateFormat + "',Java: " + SystemUtils.JAVA_RUNTIME_VERSION + "\n");
         } catch (final Exception e) {
             fail("locale: " + locale + ", formattedDate: '" + formattedDate + "', error : " + e + "\n", e);
         }
@@ -228,8 +225,7 @@ public class FastDateParserTest {
             final String message = trial.zone.getDisplayName() + ";";
 
             DateParser parser = getInstance(formatStub + "X", trial.zone);
-            assertEquals(cal.getTime().getTime(), parser.parse(dateStub + trial.one).getTime() - trial.offset,
-                message + trial.one);
+            assertEquals(cal.getTime().getTime(),parser.parse(dateStub + trial.one).getTime()- trial.offset,message + trial.one);
 
             parser = getInstance(formatStub + "XX", trial.zone);
             assertEquals(cal.getTime(), parser.parse(dateStub + trial.two), message + trial.two);
@@ -720,8 +716,7 @@ public class FastDateParserTest {
 //            formatStr, fmt);
         try {
             final Date out = dateParser.parse(fmt);
-            assertEquals(inDate, out, "format: '" + formatStr + "', locale: '" + locale + "', time zone: '"
-                + timeZone.getID() + "', year: " + year + ", parse: '" + fmt);
+            assertEquals(inDate,out,"format: '" + formatStr + "',locale: '" + locale + "',time zone: '" + timeZone.getID()+ "',year: " + year + ",parse: '" + fmt);
         } catch (final ParseException pe) {
             if (year >= 1868 || !locale.getCountry().equals("JP")) {
                 // LANG-978

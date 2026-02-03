@@ -504,8 +504,7 @@ public class ConcurrentUtilsTest {
         final String key = "testKey";
         final Integer value = 42;
         final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
-        assertEquals(value, ConcurrentUtils.createIfAbsentUnchecked(map, key, new ConstantInitializer<>(value)),
-                "Wrong result");
+        assertEquals(value,ConcurrentUtils.createIfAbsentUnchecked(map,key,new ConstantInitializer<>(value)),"Wrong result");
         assertEquals(value, map.get(key), "Wrong value in map");
     }
 

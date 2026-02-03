@@ -82,8 +82,7 @@ public class TiffFloatingPointReadTest_OE25Dev {
         final ByteOrder byteOrder = tiffReader.getByteOrder();
         final TiffDirectory directory = contents.directories.get(0);
         if (!directory.hasTiffFloatingPointRasterData()) {
-            fail("Internal error, sample file does not have floating-point data "
-                + target.getName());
+            fail("Internal error,sample file does not have floating-point data " + target.getName());
         }
         final List<PaletteEntry> pList = new ArrayList<>();
         pList.add(new PaletteEntryForValue(fNot, Color.red));

@@ -42,8 +42,7 @@ public class PamReadTest extends PamBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            Assertions.assertFalse(metadata instanceof File); // Dummy check to avoid unused warning (it may be null)
-
+            Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null)
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
 

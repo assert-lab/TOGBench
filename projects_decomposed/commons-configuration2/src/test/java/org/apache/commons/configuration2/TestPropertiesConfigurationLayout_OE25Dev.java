@@ -1085,7 +1085,7 @@ public class TestPropertiesConfigurationLayout_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals("Wrong comment for property", TEST_COMMENT + CRNORM + "A nested header comment." + CRNORM + "With multiple lines" + CRNORM + CRNORM + "Second comment", layout.getCanonicalComment(TEST_KEY, false));
+        assertEquals("Wrong comment for property",TEST_COMMENT + CRNORM + "A nested header comment." + CRNORM + "With multiple lines" + CRNORM + CRNORM + "Second comment",layout.getCanonicalComment(TEST_KEY,false));
     }
 
     @Test
@@ -1114,17 +1114,17 @@ public class TestPropertiesConfigurationLayout_OE25Dev {
 
     @Test
     public void testTrimComment_1_oe() {
-        assertEquals("Wrong trimmed comment", "This is a comment" + CR + "that spans multiple" + CR + "lines in a" + CR + " complex way.", PropertiesConfigurationLayout.trimComment("   # This is a comment" + CR + "that spans multiple" + CR + "!lines in a" + CR + " complex way.", false));
+        assertEquals("Wrong trimmed comment","This is a comment" + CR + "that spans multiple" + CR + "lines in a" + CR + " complex way.",PropertiesConfigurationLayout.trimComment(" # This is a comment" + CR + "that spans multiple" + CR + "!lines in a" + CR + " complex way.",false));
     }
 
     @Test
     public void testTrimCommentFalse_1_oe() {
-        assertEquals("Wrong trimmed comment", "# Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "# lines", PropertiesConfigurationLayout.trimComment("Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "lines", true));
+        assertEquals("Wrong trimmed comment","# Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "# lines",PropertiesConfigurationLayout.trimComment("Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "lines",true));
     }
 
     @Test
     public void testTrimCommentTrainlingCR_1_oe() {
-        assertEquals("Wrong trimmed comment", "Comment with" + CR + "trailing CR" + CR, PropertiesConfigurationLayout.trimComment("Comment with" + CR + "! trailing CR" + CR, false));
+        assertEquals("Wrong trimmed comment","Comment with" + CR + "trailing CR" + CR,PropertiesConfigurationLayout.trimComment("Comment with" + CR + "! trailing CR" + CR,false));
     }
 
 }

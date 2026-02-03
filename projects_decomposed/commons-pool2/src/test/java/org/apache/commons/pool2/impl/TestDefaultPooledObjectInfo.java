@@ -117,13 +117,11 @@ public class TestDefaultPooledObjectInfo {
             assertTrue(s1Info.getCreateTime() < t2Millis);
 
             assertTrue(s1Info.getLastReturnTime() > t2Millis);
-            assertEquals(sdf.format(Long.valueOf(s1Info.getLastReturnTime())),
-                    s1Info.getLastReturnTimeFormatted());
+            assertEquals(sdf.format(Long.valueOf(s1Info.getLastReturnTime())),s1Info.getLastReturnTimeFormatted());
             assertTrue(s1Info.getLastReturnTime() < t3Millis);
 
             assertTrue(s1Info.getLastBorrowTime() > t3Millis);
-            assertEquals(sdf.format(Long.valueOf(s1Info.getLastBorrowTime())),
-                    s1Info.getLastBorrowTimeFormatted());
+            assertEquals(sdf.format(Long.valueOf(s1Info.getLastBorrowTime())),s1Info.getLastBorrowTimeFormatted());
             assertTrue(s1Info.getLastBorrowTime() < t4Millis);
         }
     }

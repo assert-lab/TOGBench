@@ -92,13 +92,13 @@ public class SessionTest_OE25Dev {
     public void testSession_1_oe() {
 
         HttpSession internalSession = Whitebox.getInternalState(session, "session");
-        assertEquals("Internal session should be set to the http session provided during instantiation", httpSession, internalSession);
+        assertEquals("Internal session should be set to the http session provided during instantiation",httpSession,internalSession);
     }
 
     @Test
     public void testRaw_1_oe() {
 
-        assertEquals("Should return the HttpSession provided during instantiation", httpSession, session.raw());
+        assertEquals("Should return the HttpSession provided during instantiation",httpSession,session.raw());
     }
 
     @Test

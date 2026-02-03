@@ -59,20 +59,7 @@ public class OAuthSignatureCalculatorTest {
                     137131201,
                     "7d8f3e4a").toString();
 
-    assertEquals(signatureBaseString, "POST&"
-            + "http%3A%2F%2Fexample.com%2Frequest"
-            + "&a2%3Dr%2520b%26"
-            + "a3%3D2%2520q%26"
-            + "a3%3Da%26"
-            + "b5%3D%253D%25253D%26"
-            + "c%2540%3D%26"
-            + "c2%3D%26"
-            + "oauth_consumer_key%3D9djdj82h48djs9d2%26"
-            + "oauth_nonce%3D7d8f3e4a%26"
-            + "oauth_signature_method%3DHMAC-SHA1%26"
-            + "oauth_timestamp%3D137131201%26"
-            + "oauth_token%3Dkkk9d7dh3k39sjv7%26"
-            + "oauth_version%3D1.0");
+    assertEquals(signatureBaseString,"POST&" + "http%3A%2F%2Fexample.com%2Frequest" + "&a2%3Dr%2520b%26" + "a3%3D2%2520q%26" + "a3%3Da%26" + "b5%3D%253D%25253D%26" + "c%2540%3D%26" + "c2%3D%26" + "oauth_consumer_key%3D9djdj82h48djs9d2%26" + "oauth_nonce%3D7d8f3e4a%26" + "oauth_signature_method%3DHMAC-SHA1%26" + "oauth_timestamp%3D137131201%26" + "oauth_token%3Dkkk9d7dh3k39sjv7%26" + "oauth_version%3D1.0");
   }
 
   // fork above test with an OAuth token that requires encoding
@@ -88,20 +75,7 @@ public class OAuthSignatureCalculatorTest {
                     137131201,
                     Utf8UrlEncoder.percentEncodeQueryElement("ZLc92RAkooZcIO/0cctl0Q==")).toString();
 
-    assertEquals(signatureBaseString, "POST&"
-            + "http%3A%2F%2Fexample.com%2Frequest"
-            + "&a2%3Dr%2520b%26"
-            + "a3%3D2%2520q%26"
-            + "a3%3Da%26"
-            + "b5%3D%253D%25253D%26"
-            + "c%2540%3D%26"
-            + "c2%3D%26"
-            + "oauth_consumer_key%3D9djdj82h48djs9d2%26"
-            + "oauth_nonce%3DZLc92RAkooZcIO%252F0cctl0Q%253D%253D%26"
-            + "oauth_signature_method%3DHMAC-SHA1%26"
-            + "oauth_timestamp%3D137131201%26"
-            + "oauth_token%3Dkkk9d7dh3k39sjv7%26"
-            + "oauth_version%3D1.0");
+    assertEquals(signatureBaseString,"POST&" + "http%3A%2F%2Fexample.com%2Frequest" + "&a2%3Dr%2520b%26" + "a3%3D2%2520q%26" + "a3%3Da%26" + "b5%3D%253D%25253D%26" + "c%2540%3D%26" + "c2%3D%26" + "oauth_consumer_key%3D9djdj82h48djs9d2%26" + "oauth_nonce%3DZLc92RAkooZcIO%252F0cctl0Q%253D%253D%26" + "oauth_signature_method%3DHMAC-SHA1%26" + "oauth_timestamp%3D137131201%26" + "oauth_token%3Dkkk9d7dh3k39sjv7%26" + "oauth_version%3D1.0");
   }
 
   @Test
@@ -256,9 +230,7 @@ public class OAuthSignatureCalculatorTest {
 
     assertEquals(sig, "tR3+Ty81lMeYAr/Fid0kMTYa/WM=");
     assertEquals(req.getUrl(), "http://photos.example.net/photos?file=vacation.jpg&size=original");
-    assertEquals(
-            authHeader,
-            "OAuth oauth_consumer_key=\"dpf43f3p2l4k3l03\", oauth_token=\"nnch734d00sl2jdk\", oauth_signature_method=\"HMAC-SHA1\", oauth_signature=\"tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D\", oauth_timestamp=\"1191242096\", oauth_nonce=\"kllo9940pd9333jh\", oauth_version=\"1.0\"");
+    assertEquals(authHeader,"OAuth oauth_consumer_key=\"dpf43f3p2l4k3l03\",oauth_token=\"nnch734d00sl2jdk\",oauth_signature_method=\"HMAC-SHA1\",oauth_signature=\"tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D\",oauth_timestamp=\"1191242096\",oauth_nonce=\"kllo9940pd9333jh\",oauth_version=\"1.0\"");
   }
 
   @Test
@@ -277,13 +249,7 @@ public class OAuthSignatureCalculatorTest {
                     137131201,
                     Utf8UrlEncoder.percentEncodeQueryElement("ZLc92RAkooZcIO/0cctl0Q==")).toString();
 
-    assertEquals(signatureBaseString, "GET&" +
-            "http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26" +
-            "oauth_consumer_key%3D9djdj82h48djs9d2%26" +
-            "oauth_nonce%3DZLc92RAkooZcIO%252F0cctl0Q%253D%253D%26" +
-            "oauth_signature_method%3DHMAC-SHA1%26" +
-            "oauth_timestamp%3D137131201%26" +
-            "oauth_version%3D1.0%26size%3Doriginal");
+    assertEquals(signatureBaseString,"GET&" + "http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26" + "oauth_consumer_key%3D9djdj82h48djs9d2%26" + "oauth_nonce%3DZLc92RAkooZcIO%252F0cctl0Q%253D%253D%26" + "oauth_signature_method%3DHMAC-SHA1%26" + "oauth_timestamp%3D137131201%26" + "oauth_version%3D1.0%26size%3Doriginal");
   }
 
   @Test
@@ -301,14 +267,7 @@ public class OAuthSignatureCalculatorTest {
                     1469019732,
                     "6ad17f97334700f3ec2df0631d5b7511").toString();
 
-    assertEquals(signatureBaseString, "GET&" +
-            "http%3A%2F%2Fterm.ie%2Foauth%2Fexample%2Frequest_token.php&"
-            + "oauth_consumer_key%3Dkey%26"
-            + "oauth_nonce%3D6ad17f97334700f3ec2df0631d5b7511%26"
-            + "oauth_signature_method%3DHMAC-SHA1%26"
-            + "oauth_timestamp%3D1469019732%26"
-            + "oauth_version%3D1.0%26"
-            + "testvalue%3D%252A");
+    assertEquals(signatureBaseString,"GET&" + "http%3A%2F%2Fterm.ie%2Foauth%2Fexample%2Frequest_token.php&" + "oauth_consumer_key%3Dkey%26" + "oauth_nonce%3D6ad17f97334700f3ec2df0631d5b7511%26" + "oauth_signature_method%3DHMAC-SHA1%26" + "oauth_timestamp%3D1469019732%26" + "oauth_version%3D1.0%26" + "testvalue%3D%252A");
   }
 
   @Test

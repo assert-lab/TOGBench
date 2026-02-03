@@ -236,9 +236,7 @@ public class JSONArrayTest_OE25Dev {
         StringBuilder stringBuilder = new StringBuilder();
         Appendable appendable = jsonArray.write(stringBuilder);
         String actualStr = appendable.toString();
-        assertTrue("write() expected " + expectedStr +
-                        " but found " + actualStr,
-                expectedStr.equals(actualStr));
+        assertTrue("write()expected " + expectedStr + " but found " + actualStr,expectedStr.equals(actualStr));
     }
 */
 
@@ -352,9 +350,7 @@ public class JSONArrayTest_OE25Dev {
 		jsonArray.put("456");
 		jsonArray.put(new JSONArray());
 		jsonArray.clear(); //Clears the JSONArray
-		assertTrue("expected jsonArray.length() == 0", jsonArray.length() == 0); //Check if its length is 0
-		jsonArray.getInt(0); //Should throws org.json.JSONException: JSONArray[0] not found
-        Util.checkJSONArrayMaps(jsonArray);
+		assertTrue("expected jsonArray.length()== 0",jsonArray.length()== 0);//Check if its length is 0 jsonArray.getInt(0);//Should throws org.json.JSONException: JSONArray[0] not found Util.checkJSONArrayMaps(jsonArray);
 	}
 
     /**
@@ -472,7 +468,7 @@ public class JSONArrayTest_OE25Dev {
         try {
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "A JSONArray text must start with '[' at 0 [character 1 line 1]", e.getMessage());
+            assertEquals("Expected an exception message","A JSONArray text must start with '[' at 0 [character 1 line 1]",e.getMessage());
     }
     }
 
@@ -481,7 +477,7 @@ public class JSONArrayTest_OE25Dev {
         try {
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "Expected a ',' or ']' at 1 [character 2 line 1]", e.getMessage());
+            assertEquals("Expected an exception message","Expected a ',' or ']' at 1 [character 2 line 1]",e.getMessage());
     }
     }
 
@@ -490,7 +486,7 @@ public class JSONArrayTest_OE25Dev {
         try {
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "Expected a ',' or ']' at 7 [character 8 line 1]", e.getMessage());
+            assertEquals("Expected an exception message","Expected a ',' or ']' at 7 [character 8 line 1]",e.getMessage());
     }
     }
 
@@ -499,7 +495,7 @@ public class JSONArrayTest_OE25Dev {
         try {
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "Expected a ',' or ']' at 8 [character 9 line 1]", e.getMessage());
+            assertEquals("Expected an exception message","Expected a ',' or ']' at 8 [character 9 line 1]",e.getMessage());
     }
     }
 
@@ -509,7 +505,7 @@ public class JSONArrayTest_OE25Dev {
         try {
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "JSONArray initial value should be a string or collection or array.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","JSONArray initial value should be a string or collection or array.". equals(e.getMessage()));
     }
     }
 
@@ -529,7 +525,7 @@ public class JSONArrayTest_OE25Dev {
                 .valueOf(10));
         JSONArray jaObj = new JSONArray(myCObj);
 
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaRaw));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaRaw));
     }
 
     @Test
@@ -549,7 +545,7 @@ public class JSONArrayTest_OE25Dev {
         JSONArray jaObj = new JSONArray(myCObj);
 
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaInt));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaInt));
     }
 
     @Test
@@ -570,7 +566,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaObj));
     }
 
     @Test
@@ -581,7 +577,7 @@ public class JSONArrayTest_OE25Dev {
         int[] myInts = { 1, 2, 3, 4, 5 };
         jsonArray.putAll(myInts);
 
-        assertEquals("int arrays lengths should be equal", jsonArray.length(), myInts.length);
+        assertEquals("int arrays lengths should be equal",jsonArray.length(),myInts.length);
     }
 
     @Test
@@ -595,7 +591,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         for (int i = 0; i < myInts.length; i++) {
-            assertEquals("int arrays elements should be equal", myInts[i], jsonArray.getInt(i));
+            assertEquals("int arrays elements should be equal",myInts[i],jsonArray.getInt(i));
     }
     }
 
@@ -619,7 +615,7 @@ public class JSONArrayTest_OE25Dev {
 
         int len = myInts.length + myList.size();
 
-        assertEquals("arrays lengths should be equal", jsonArray.length(), len);
+        assertEquals("arrays lengths should be equal",jsonArray.length(),len);
     }
 
     @Test
@@ -645,7 +641,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         for (int i = 0; i < myList.size(); i++) {
-            assertEquals("collection elements should be equal", myList.get(i), jsonArray.getString(myInts.length + i));
+            assertEquals("collection elements should be equal",myList.get(i),jsonArray.getString(myInts.length + i));
     }
     }
 
@@ -668,7 +664,7 @@ public class JSONArrayTest_OE25Dev {
         JSONArray jaInt = new JSONArray();
         jaInt.put(myCInt);
 
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaRaw));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaRaw));
     }
 
     @Test
@@ -691,7 +687,7 @@ public class JSONArrayTest_OE25Dev {
         jaInt.put(myCInt);
 
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaObj));
     }
 
     @Test
@@ -715,7 +711,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaInt));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaInt));
     }
 
     @Test
@@ -743,7 +739,7 @@ public class JSONArrayTest_OE25Dev {
         JSONArray jaObjObj = new JSONArray();
         jaObjObj.put(myCObjObj);
 
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaRaw));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaRaw));
     }
 
     @Test
@@ -772,7 +768,7 @@ public class JSONArrayTest_OE25Dev {
         jaObjObj.put(myCObjObj);
 
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaStrObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaStrObj));
     }
 
     @Test
@@ -802,7 +798,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaStrInt));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaStrInt));
     }
 
     @Test
@@ -833,14 +829,14 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue( "The RAW Collection should give me the same as the Typed Collection", expected.similar(jaObjObj));
+        assertTrue("The RAW Collection should give me the same as the Typed Collection",expected.similar(jaObjObj));
     }
 
     @Test
     public void getArrayValues_1_oe() {
         JSONArray jsonArray = new JSONArray(this.arrayStr);
         // booleans
-        assertTrue("Array true", true == jsonArray.getBoolean(0));
+        assertTrue("Array true",true == jsonArray.getBoolean(0));
     }
 
     @Test
@@ -848,7 +844,7 @@ public class JSONArrayTest_OE25Dev {
         JSONArray jsonArray = new JSONArray(this.arrayStr);
         // booleans
         // removed other assertion
-        assertTrue("Array false", false == jsonArray.getBoolean(1));
+        assertTrue("Array false",false == jsonArray.getBoolean(1));
     }
 
     @Test
@@ -857,7 +853,7 @@ public class JSONArrayTest_OE25Dev {
         // booleans
         // removed other assertion
         // removed other assertion
-        assertTrue("Array string true", true == jsonArray.getBoolean(2));
+        assertTrue("Array string true",true == jsonArray.getBoolean(2));
     }
 
     @Test
@@ -867,7 +863,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Array string false", false == jsonArray.getBoolean(3));
+        assertTrue("Array string false",false == jsonArray.getBoolean(3));
     }
 
     @Test
@@ -879,7 +875,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // strings
-        assertTrue("Array value string", "hello".equals(jsonArray.getString(4)));
+        assertTrue("Array value string","hello".equals(jsonArray.getString(4)));
     }
 
     @Test
@@ -893,7 +889,7 @@ public class JSONArrayTest_OE25Dev {
         // strings
         // removed other assertion
         // doubles
-        assertTrue("Array double", new Double(23.45e-4).equals(jsonArray.getDouble(5)));
+        assertTrue("Array double",new Double(23.45e-4).equals(jsonArray.getDouble(5)));
     }
 
     @Test
@@ -908,7 +904,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // doubles
         // removed other assertion
-        assertTrue("Array string double", new Double(23.45).equals(jsonArray.getDouble(6)));
+        assertTrue("Array string double",new Double(23.45).equals(jsonArray.getDouble(6)));
     }
 
     @Test
@@ -924,7 +920,7 @@ public class JSONArrayTest_OE25Dev {
         // doubles
         // removed other assertion
         // removed other assertion
-        assertTrue("Array double can be float", new Float(23.45e-4f).equals(jsonArray.getFloat(5)));
+        assertTrue("Array double can be float",new Float(23.45e-4f).equals(jsonArray.getFloat(5)));
     }
 
     @Test
@@ -942,7 +938,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // ints
-        assertTrue("Array value int", new Integer(42).equals(jsonArray.getInt(7)));
+        assertTrue("Array value int",new Integer(42).equals(jsonArray.getInt(7)));
     }
 
     @Test
@@ -961,7 +957,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // ints
         // removed other assertion
-        assertTrue("Array value string int", new Integer(43).equals(jsonArray.getInt(8)));
+        assertTrue("Array value string int",new Integer(43).equals(jsonArray.getInt(8)));
     }
 
     @Test
@@ -1033,7 +1029,7 @@ public class JSONArrayTest_OE25Dev {
         JSONObject nestedJsonObject = jsonArray.getJSONObject(10);
         // removed other assertion
         // longs
-        assertTrue("Array value long", new Long(0).equals(jsonArray.getLong(11)));
+        assertTrue("Array value long",new Long(0).equals(jsonArray.getLong(11)));
     }
 
     @Test
@@ -1060,7 +1056,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // longs
         // removed other assertion
-        assertTrue("Array value string long", new Long(-1).equals(jsonArray.getLong(12)));
+        assertTrue("Array value string long",new Long(-1).equals(jsonArray.getLong(12)));
     }
 
     @Test
@@ -1099,7 +1095,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getBoolean(4);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[4] is not a boolean (class java.lang.String : hello).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[4] is not a boolean(class java.lang.String : hello).",e.getMessage());
     }
     }
 
@@ -1116,7 +1112,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.get(-1);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[-1] not found.",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[-1] not found.",e.getMessage());
     }
     }
 
@@ -1139,7 +1135,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getDouble(4);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[4] is not a double (class java.lang.String : hello).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[4] is not a double(class java.lang.String : hello).",e.getMessage());
     }
     }
 
@@ -1168,7 +1164,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getInt(4);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[4] is not a int (class java.lang.String : hello).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[4] is not a int(class java.lang.String : hello).",e.getMessage());
     }
     }
 
@@ -1203,7 +1199,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getJSONArray(4);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[4] is not a JSONArray (class java.lang.String : hello).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[4] is not a JSONArray(class java.lang.String : hello).",e.getMessage());
     }
     }
 
@@ -1244,7 +1240,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getJSONObject(4);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[4] is not a JSONObject (class java.lang.String : hello).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[4] is not a JSONObject(class java.lang.String : hello).",e.getMessage());
     }
     }
 
@@ -1291,7 +1287,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getLong(4);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[4] is not a long (class java.lang.String : hello).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[4] is not a long(class java.lang.String : hello).",e.getMessage());
     }
     }
 
@@ -1344,7 +1340,7 @@ public class JSONArrayTest_OE25Dev {
             jsonArray.getString(5);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray[5] is not a String (class java.math.BigDecimal : 0.002345).",e.getMessage());
+            assertEquals("Expected an exception message","JSONArray[5] is not a String(class java.math.BigDecimal : 0.002345).",e.getMessage());
     }
     }
 
@@ -1768,7 +1764,7 @@ public class JSONArrayTest_OE25Dev {
 
     @Test 
     public void length_1_oe() {
-        assertTrue("expected empty JSONArray length 0", new JSONArray().length() == 0);
+        assertTrue("expected empty JSONArray length 0",new JSONArray().length()== 0);
     }
 
     @Test 
@@ -1790,14 +1786,14 @@ public class JSONArrayTest_OE25Dev {
     @Test 
     public void opt_1_oe() {
         JSONArray jsonArray = new JSONArray(this.arrayStr);
-        assertTrue("Array opt value true", Boolean.TRUE == jsonArray.opt(0));
+        assertTrue("Array opt value true",Boolean.TRUE == jsonArray.opt(0));
     }
 
     @Test 
     public void opt_2_oe() {
         JSONArray jsonArray = new JSONArray(this.arrayStr);
         // removed other assertion
-        assertTrue("Array opt value out of range", null == jsonArray.opt(-1));
+        assertTrue("Array opt value out of range",null == jsonArray.opt(-1));
     }
 
     @Test 
@@ -1806,7 +1802,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt value out of range", null == jsonArray.opt(jsonArray.length()));
+        assertTrue("Array opt value out of range",null == jsonArray.opt(jsonArray.length()));
     }
 
     @Test 
@@ -1817,7 +1813,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
 
-         assertTrue("Array opt boolean", Boolean.TRUE == jsonArray.optBoolean(0));
+         assertTrue("Array opt boolean",Boolean.TRUE == jsonArray.optBoolean(0));
     }
 
     @Test 
@@ -1829,7 +1825,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
          // removed other assertion
-        assertTrue("Array opt boolean default", Boolean.FALSE == jsonArray.optBoolean(-1, Boolean.FALSE));
+        assertTrue("Array opt boolean default",Boolean.FALSE == jsonArray.optBoolean(-1,Boolean.FALSE));
     }
 
     @Test 
@@ -1842,7 +1838,7 @@ public class JSONArrayTest_OE25Dev {
 
          // removed other assertion
         // removed other assertion
-        assertTrue("Array opt boolean implicit default", Boolean.FALSE == jsonArray.optBoolean(-1));
+        assertTrue("Array opt boolean implicit default",Boolean.FALSE == jsonArray.optBoolean(-1));
     }
 
     @Test 
@@ -1857,7 +1853,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt double", new Double(23.45e-4).equals(jsonArray.optDouble(5)));
+        assertTrue("Array opt double",new Double(23.45e-4).equals(jsonArray.optDouble(5)));
     }
 
     @Test 
@@ -1873,7 +1869,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Array opt double default", new Double(1).equals(jsonArray.optDouble(0, 1)));
+        assertTrue("Array opt double default",new Double(1).equals(jsonArray.optDouble(0,1)));
     }
 
     @Test 
@@ -1890,7 +1886,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("Array opt double default implicit", new Double(jsonArray.optDouble(99)).isNaN());
+        assertTrue("Array opt double default implicit",new Double(jsonArray.optDouble(99)).isNaN());
     }
 
     @Test 
@@ -1909,7 +1905,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt float", new Float(23.45e-4).equals(jsonArray.optFloat(5)));
+        assertTrue("Array opt float",new Float(23.45e-4).equals(jsonArray.optFloat(5)));
     }
 
     @Test 
@@ -1929,7 +1925,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Array opt float default", new Float(1).equals(jsonArray.optFloat(0, 1)));
+        assertTrue("Array opt float default",new Float(1).equals(jsonArray.optFloat(0,1)));
     }
 
     @Test 
@@ -1950,7 +1946,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("Array opt float default implicit", new Float(jsonArray.optFloat(99)).isNaN());
+        assertTrue("Array opt float default implicit",new Float(jsonArray.optFloat(99)).isNaN());
     }
 
     @Test 
@@ -1973,7 +1969,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt Number", BigDecimal.valueOf(23.45e-4).equals(jsonArray.optNumber(5)));
+        assertTrue("Array opt Number",BigDecimal.valueOf(23.45e-4).equals(jsonArray.optNumber(5)));
     }
 
     @Test 
@@ -1997,7 +1993,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Array opt Number default", new Double(1).equals(jsonArray.optNumber(0, 1d)));
+        assertTrue("Array opt Number default",new Double(1).equals(jsonArray.optNumber(0,1d)));
     }
 
     @Test 
@@ -2022,7 +2018,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("Array opt Number default implicit", new Double(jsonArray.optNumber(99,Double.NaN).doubleValue()).isNaN());
+        assertTrue("Array opt Number default implicit",new Double(jsonArray.optNumber(99,Double.NaN).doubleValue()).isNaN());
     }
 
     @Test 
@@ -2049,7 +2045,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt int", new Integer(42).equals(jsonArray.optInt(7)));
+        assertTrue("Array opt int",new Integer(42).equals(jsonArray.optInt(7)));
     }
 
     @Test 
@@ -2077,7 +2073,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Array opt int default", new Integer(-1).equals(jsonArray.optInt(0, -1)));
+        assertTrue("Array opt int default",new Integer(-1).equals(jsonArray.optInt(0,-1)));
     }
 
     @Test 
@@ -2106,7 +2102,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("Array opt int default implicit", 0 == jsonArray.optInt(0));
+        assertTrue("Array opt int default implicit",0 == jsonArray.optInt(0));
     }
 
     @Test 
@@ -2171,7 +2167,7 @@ public class JSONArrayTest_OE25Dev {
 
         JSONArray nestedJsonArray = jsonArray.optJSONArray(9);
         // removed other assertion
-        assertTrue("Array opt JSONArray default", null == jsonArray.optJSONArray(99));
+        assertTrue("Array opt JSONArray default",null == jsonArray.optJSONArray(99));
     }
 
     @Test 
@@ -2244,7 +2240,7 @@ public class JSONArrayTest_OE25Dev {
 
         JSONObject nestedJsonObject = jsonArray.optJSONObject(10);
         // removed other assertion
-        assertTrue("Array opt JSONObject default", null == jsonArray.optJSONObject(99));
+        assertTrue("Array opt JSONObject default",null == jsonArray.optJSONObject(99));
     }
 
     @Test 
@@ -2283,7 +2279,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt long", 0 == jsonArray.optLong(11));
+        assertTrue("Array opt long",0 == jsonArray.optLong(11));
     }
 
     @Test 
@@ -2323,7 +2319,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Array opt long default", -2 == jsonArray.optLong(-1, -2));
+        assertTrue("Array opt long default",-2 == jsonArray.optLong(-1,-2));
     }
 
     @Test 
@@ -2364,7 +2360,7 @@ public class JSONArrayTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("Array opt long default implicit", 0 == jsonArray.optLong(-1));
+        assertTrue("Array opt long default implicit",0 == jsonArray.optLong(-1));
     }
 
     @Test 
@@ -2407,7 +2403,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Array opt string", "hello".equals(jsonArray.optString(4)));
+        assertTrue("Array opt string","hello".equals(jsonArray.optString(4)));
     }
 
     @Test 
@@ -2451,7 +2447,7 @@ public class JSONArrayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Array opt string default implicit", "".equals(jsonArray.optString(-1)));
+        assertTrue("Array opt string default implicit","".equals(jsonArray.optString(-1)));
     }
 
     @Test
@@ -5062,7 +5058,7 @@ public class JSONArrayTest_OE25Dev {
         jsonArray.put(nestedJsonArray);
         otherJsonArray = new JSONArray();
         otherJsonArray.put(otherNestedJsonArray);
-        assertTrue("arrays nested JSONArrays differ", !jsonArray.similar(otherJsonArray));
+        assertTrue("arrays nested JSONArrays differ",!jsonArray.similar(otherJsonArray));
     }
 
     @Test
@@ -5095,7 +5091,7 @@ public class JSONArrayTest_OE25Dev {
         jsonArray.put("hello");
         otherJsonArray = new JSONArray();
         otherJsonArray.put("world");
-        assertTrue("arrays values differ", !jsonArray.similar(otherJsonArray));
+        assertTrue("arrays values differ",!jsonArray.similar(otherJsonArray));
     }
 
     @Test
@@ -5377,7 +5373,7 @@ public class JSONArrayTest_OE25Dev {
     public void toJSONObject_1_oe() {
         JSONArray names = new JSONArray();
         JSONArray jsonArray = new JSONArray();
-        assertTrue("toJSONObject should return null", null == jsonArray.toJSONObject(names));
+        assertTrue("toJSONObject should return null",null == jsonArray.toJSONObject(names));
     }
 
     @Test
@@ -5500,7 +5496,7 @@ public class JSONArrayTest_OE25Dev {
     public void iteratorTest_1_oe() {
         JSONArray jsonArray = new JSONArray(this.arrayStr);
         Iterator<Object> it = jsonArray.iterator();
-        assertTrue("Array true", Boolean.TRUE.equals(it.next()));
+        assertTrue("Array true",Boolean.TRUE.equals(it.next()));
     }
 
     @Test
@@ -6912,7 +6908,7 @@ public class JSONArrayTest_OE25Dev {
         try {
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expected an exception message", "JSONArray initial capacity cannot be negative.", e.getMessage());
+            assertEquals("Expected an exception message","JSONArray initial capacity cannot be negative.",e.getMessage());
     }
     }
 

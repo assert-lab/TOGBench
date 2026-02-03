@@ -539,7 +539,7 @@ public class XMLTest_OE25Dev {
             XML.toJSONObject(xmlStr);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misshaped tag at 176 [character 14 line 4]", e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped tag at 176 [character 14 line 4]",e.getMessage());
     }
     }
 
@@ -558,7 +558,7 @@ public class XMLTest_OE25Dev {
             XML.toJSONObject(xmlStr);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misshaped meta tag at 214 [character 12 line 7]", e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped meta tag at 214 [character 12 line 7]",e.getMessage());
     }
     }
 
@@ -577,7 +577,7 @@ public class XMLTest_OE25Dev {
             XML.toJSONObject(xmlStr);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misshaped meta tag at 213 [character 12 line 7]", e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped meta tag at 213 [character 12 line 7]",e.getMessage());
     }
     }
 
@@ -596,7 +596,7 @@ public class XMLTest_OE25Dev {
             XML.toJSONObject(xmlStr);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Misplaced '<' at 193 [character 4 line 6]", e.getMessage());
+            assertEquals("Expecting an exception message","Misplaced '<' at 193 [character 4 line 6]",e.getMessage());
     }
     }
 
@@ -615,7 +615,7 @@ public class XMLTest_OE25Dev {
             XML.toJSONObject(xmlStr);
             // removed other assertion
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message", "Expected 'CDATA[' at 204 [character 11 line 5]", e.getMessage());
+            assertEquals("Expecting an exception message","Expected 'CDATA[' at 204 [character 11 line 5]",e.getMessage());
     }
     }
 
@@ -840,7 +840,7 @@ public class XMLTest_OE25Dev {
         JSONObject expectedJsonObject = new JSONObject(expectedStr);
         String finalStr = XML.toString(expectedJsonObject);
         String expectedFinalStr = "<addresses>&gt;</addresses>";
-        assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]", expectedFinalStr, finalStr);
+        assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr,finalStr);
     }
 
     @Test
@@ -852,7 +852,7 @@ public class XMLTest_OE25Dev {
         String finalStr = XML.toString(expectedJsonObject);
         String expectedFinalStr = "<addresses>"+
                 "1\n2\n3</addresses>";
-        assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]", expectedFinalStr, finalStr);
+        assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr,finalStr);
     }
 
     @Test
@@ -865,7 +865,7 @@ public class XMLTest_OE25Dev {
         String expectedFinalStr = "<addresses>"+
                 "<something>1</something><something>2</something><something>3</something>"+
                 "</addresses>";
-        assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]", expectedFinalStr, finalStr);
+        assertEquals("Should handle expectedFinal: ["+expectedStr+"] final: ["+ finalStr+"]",expectedFinalStr,finalStr);
     }
 
     @Test

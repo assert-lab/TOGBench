@@ -295,12 +295,8 @@ public class LocaleBeanificationTestCase extends TestCase {
         thread.join();
 
         assertEquals("Signal not set by test thread", 2, signal.getSignal());
-        assertTrue(
-                    "Different LocaleBeanUtilsBean instances per context classloader",
-                    LocaleBeanUtilsBean.getInstance() != signal.getBean());
-        assertTrue(
-                    "Different LocaleConvertUtilsBean instances per context classloader",
-                    LocaleConvertUtilsBean.getInstance() != signal.getConvertUtils());
+        assertTrue("Different LocaleBeanUtilsBean instances per context classloader",LocaleBeanUtilsBean.getInstance()!= signal.getBean());
+        assertTrue("Different LocaleConvertUtilsBean instances per context classloader",LocaleConvertUtilsBean.getInstance()!= signal.getConvertUtils());
     }
 
 

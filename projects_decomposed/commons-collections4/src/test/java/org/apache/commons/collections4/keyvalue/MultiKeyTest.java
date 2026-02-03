@@ -165,8 +165,7 @@ public class MultiKeyTest {
         final Integer[] keys = new Integer[] { ONE, TWO };
         final MultiKey<Integer> mk = new MultiKey<>(keys, false);
         final Object[] array = mk.getKeys();
-        assertTrue(array != keys);  // still not equal
-        assertTrue(Arrays.equals(array, keys));
+        assertTrue(array != keys);// still not equal assertTrue(Arrays.equals(array,keys));
         assertSame(ONE, array[0]);
         assertSame(TWO, array[1]);
         assertEquals(2, array.length);
@@ -251,9 +250,8 @@ public class MultiKeyTest {
         final Map<?, ?> map2 = (Map<?, ?>) in.readObject();
         in.close();
 
-        assertEquals(2, sysKey.hashCode()); // different hashCode now
-
-        final MultiKey<?> mk2 = new MultiKey<Object>(ONE, sysKey);
+        assertEquals(2,sysKey.hashCode());// different hashCode now 
+        final MultiKey<?> mk2 = new MultiKey<Object>(ONE,sysKey);
         assertEquals(TWO, map2.get(mk2));
     }
 

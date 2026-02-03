@@ -121,8 +121,7 @@ public class SetUniqueListTest<E> extends AbstractListTest<E> {
         verify();
         assertTrue("Empty collection should change after addAll", r);
         for (final E element : elements) {
-            assertTrue("Collection should contain added element",
-                    getCollection().contains(element));
+            assertTrue("Collection should contain added element",getCollection().contains(element));
         }
 
         resetFull();
@@ -133,11 +132,9 @@ public class SetUniqueListTest<E> extends AbstractListTest<E> {
         verify();
         assertTrue("Full collection should change after addAll", r);
         for (int i = 0; i < elements.length; i++) {
-            assertTrue("Full collection should contain added element " + i,
-                    getCollection().contains(elements[i]));
+            assertTrue("Full collection should contain added element " + i,getCollection().contains(elements[i]));
         }
-        assertEquals("Size should increase after addAll",
-                size + elements.length, getCollection().size());
+        assertEquals("Size should increase after addAll",size + elements.length,getCollection().size());
     }
 
     @Override
@@ -185,16 +182,12 @@ public class SetUniqueListTest<E> extends AbstractListTest<E> {
         List<E> subList = list.subList(0, 0);
         List<E> subUniqueList = uniqueList.subList(0, 0);
 
-        assertFalse(subList.contains(world)); // passes
-        assertFalse(subUniqueList.contains(world)); // fails
-
+        assertFalse(subList.contains(world));// passes 
+        assertFalse(subUniqueList.contains(world));// fails 
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
-        assertFalse(subList.contains("World")); // passes
-        assertFalse(subUniqueList.contains("World")); // fails
-
-        // repeat the test with a different class than HashSet;
-        // which means subclassing SetUniqueList below
+        assertFalse(subList.contains("World"));// passes 
+        assertFalse(subUniqueList.contains("World"));// fails 
         list = new ArrayList<>();
         uniqueList = new SetUniqueList307(list, new java.util.TreeSet<E>());
 
@@ -204,9 +197,8 @@ public class SetUniqueListTest<E> extends AbstractListTest<E> {
         subList = list.subList(0, 0);
         subUniqueList = uniqueList.subList(0, 0);
 
-        assertFalse(subList.contains(world)); // passes
-        assertFalse(subUniqueList.contains(world)); // fails
-
+        assertFalse(subList.contains(world));// passes 
+        assertFalse(subUniqueList.contains(world));// fails 
         worldList = new ArrayList<>();
         worldList.add((E) world);
         assertFalse(subList.contains("World")); // passes
@@ -271,8 +263,7 @@ public class SetUniqueListTest<E> extends AbstractListTest<E> {
       final Integer thirdNewElement = Integer.valueOf(4);
       collection = Arrays.asList(existingElement, thirdNewElement);
       list.addAll(0, collection);
-      assertEquals("Duplicate element should not be added, unique element should be added.",
-        4, list.size());
+      assertEquals("Duplicate element should not be added,unique element should be added.",4,list.size());
       assertEquals("Third new element should be at index 0", thirdNewElement, list.get(0));
     }
 

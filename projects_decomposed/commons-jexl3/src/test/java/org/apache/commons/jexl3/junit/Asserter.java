@@ -97,8 +97,7 @@ public class Asserter extends Assert {
         final Object value = exp.execute(context);
         if (expected instanceof BigDecimal) {
             final JexlArithmetic jexla = engine.getArithmetic();
-            Assert.assertEquals("expression: " + expression, 0,
-                    ((BigDecimal) expected).compareTo(jexla.toBigDecimal(value)));
+            Assert.assertEquals("expression: " + expression,0,((BigDecimal)expected).compareTo(jexla.toBigDecimal(value)));
         }
         if (expected != null && value != null) {
             if (expected.getClass().isArray() && value.getClass().isArray()) {
@@ -110,11 +109,7 @@ public class Asserter extends Assert {
                     Assert.assertEquals(report + ", value@[]" + i, Array.get(expected, i), Array.get(value, i));
                 }
             } else {
-                Assert.assertEquals("expression: " + expression + ", "
-                        + expected.getClass().getSimpleName()
-                        + " ?= "
-                        + value.getClass().getSimpleName(),
-                        expected, value);
+                Assert.assertEquals("expression: " + expression + "," + expected.getClass().getSimpleName()+ " ?= " + value.getClass().getSimpleName(),expected,value);
             }
         } else {
             Assert.assertEquals("expression: " + expression, expected, value);

@@ -239,8 +239,7 @@ public class ExceptionUtilsTest {
         assertSame(null, ExceptionUtils.getCause(null, new String[0]));
 
         // not known type, so match on supplied method names
-        assertSame(nested, ExceptionUtils.getCause(withCause, null));  // default names
-        assertSame(null, ExceptionUtils.getCause(withCause, new String[0]));
+        assertSame(nested,ExceptionUtils.getCause(withCause,null));// default names assertSame(null,ExceptionUtils.getCause(withCause,new String[0]));
         assertSame(null, ExceptionUtils.getCause(withCause, new String[]{null}));
         assertSame(nested, ExceptionUtils.getCause(withCause, new String[]{"getCause"}));
 

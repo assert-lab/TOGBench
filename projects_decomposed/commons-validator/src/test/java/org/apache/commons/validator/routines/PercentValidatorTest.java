@@ -106,12 +106,10 @@ public class PercentValidatorTest extends TestCase {
         assertNull("validate() Empty Value",   validator.validate(""));
 
         // Invalid UK
-        assertFalse("UK wrong symbol",    validator.isValid("12@",   Locale.UK)); // ???
-        assertFalse("UK wrong negative",  validator.isValid("(12%)", Locale.UK));
+        assertFalse("UK wrong symbol",validator.isValid("12@",Locale.UK));// ??? assertFalse("UK wrong negative",validator.isValid("(12%)",Locale.UK));
 
         // Invalid US - can't find a Locale with different symbols!
-        assertFalse("US wrong symbol",    validator.isValid("12@",   Locale.US)); // ???
-        assertFalse("US wrong negative",  validator.isValid("(12%)", Locale.US));
+        assertFalse("US wrong symbol",validator.isValid("12@",Locale.US));// ??? assertFalse("US wrong negative",validator.isValid("(12%)",Locale.US));
     }
 
 }

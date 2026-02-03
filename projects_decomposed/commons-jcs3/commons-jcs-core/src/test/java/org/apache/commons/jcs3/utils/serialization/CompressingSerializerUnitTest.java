@@ -109,7 +109,6 @@ public class CompressingSerializerUnitTest
         final byte[] nonCompressed = new StandardSerializer().serialize( before );
 
         // VERIFY
-        assertTrue( "Compressed should be smaller. compressed size = " + compressed.length + "nonCompressed size = "
-            + nonCompressed.length, compressed.length < nonCompressed.length );
+        assertTrue("Compressed should be smaller. compressed size = " + compressed.length + "nonCompressed size = " + nonCompressed.length,compressed.length < nonCompressed.length);
     }
 }

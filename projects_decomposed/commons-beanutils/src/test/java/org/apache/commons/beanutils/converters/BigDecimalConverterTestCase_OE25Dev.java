@@ -138,7 +138,7 @@ public class BigDecimalConverterTestCase_OE25Dev extends NumberConverterTestBase
         };
 
         for(int i=0;i<expected.length;i++) {
-            assertEquals( message[i] + " to BigDecimal", expected[i], converter.convert(BigDecimal.class,input[i]));
+            assertEquals(message[i] + " to BigDecimal",expected[i],converter.convert(BigDecimal.class,input[i]));
     }
     }
 
@@ -193,7 +193,7 @@ public class BigDecimalConverterTestCase_OE25Dev extends NumberConverterTestBase
 
         for(int i=0;i<expected.length;i++) {
             // removed other assertion
-            assertEquals( message[i] + " to null type", expected[i], converter.convert(null,input[i]));
+            assertEquals(message[i] + " to null type",expected[i],converter.convert(null,input[i]));
     }
     }
 

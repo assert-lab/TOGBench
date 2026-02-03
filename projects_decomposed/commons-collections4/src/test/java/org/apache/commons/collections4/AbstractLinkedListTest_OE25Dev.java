@@ -152,7 +152,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object first = getCollection().getFirst();
         final Object confirmedFirst = getConfirmedLinkedList().getFirst();
-        assertEquals("Result returned by getFirst() was wrong.", confirmedFirst, first);
+        assertEquals("Result returned by getFirst()was wrong.",confirmedFirst,first);
     }
 
     public void testLinkedListGetLast_2_oe() {
@@ -168,7 +168,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object last = getCollection().getLast();
         final Object confirmedLast = getConfirmedLinkedList().getLast();
-        assertEquals("Result returned by getLast() was wrong.", confirmedLast, last);
+        assertEquals("Result returned by getLast()was wrong.",confirmedLast,last);
     }
 
     public void testLinkedListRemoveFirst_2_oe() {
@@ -188,7 +188,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object first = getCollection().removeFirst();
         final Object confirmedFirst = getConfirmedLinkedList().removeFirst();
-        assertEquals("Result returned by removeFirst() was wrong.", confirmedFirst, first);
+        assertEquals("Result returned by removeFirst()was wrong.",confirmedFirst,first);
     }
 
     public void testLinkedListRemoveLast_2_oe() {
@@ -208,7 +208,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object last = getCollection().removeLast();
         final Object confirmedLast = getConfirmedLinkedList().removeLast();
-        assertEquals("Result returned by removeLast() was wrong.", confirmedLast, last);
+        assertEquals("Result returned by removeLast()was wrong.",confirmedLast,last);
     }
 
 }

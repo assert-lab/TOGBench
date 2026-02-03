@@ -345,7 +345,7 @@ public class JSONPointerTest_OE25Dev {
             obj = jsonObject.query("/a/b/c");
             // removed other assertion
         } catch (JSONPointerException e) {
-            assertTrue("Expected bad key/value exception", "value [null] is not an array or object therefore its key b cannot be resolved". equals(e.getMessage()));
+            assertTrue("Expected bad key/value exception","value [null] is not an array or object therefore its key b cannot be resolved". equals(e.getMessage()));
     }
     }
 
@@ -421,7 +421,7 @@ public class JSONPointerTest_OE25Dev {
             obj = jsonObject.query(new JSONPointer("/a/b/c"));
             // removed other assertion
         } catch (JSONPointerException e) {
-            assertTrue("Expected bad key/value exception", "value [null] is not an array or object therefore its key b cannot be resolved". equals(e.getMessage()));
+            assertTrue("Expected bad key/value exception","value [null] is not an array or object therefore its key b cannot be resolved". equals(e.getMessage()));
     }
     }
 
@@ -569,7 +569,7 @@ public class JSONPointerTest_OE25Dev {
             obj = jsonArray.query("/a/b/c");
             // removed other assertion
         } catch (JSONPointerException e) {
-            assertTrue("Expected bad index exception", "a is not an array index".equals(e.getMessage()));
+            assertTrue("Expected bad index exception","a is not an array index".equals(e.getMessage()));
     }
     }
 
@@ -645,7 +645,7 @@ public class JSONPointerTest_OE25Dev {
             obj = jsonArray.query(new JSONPointer("/a/b/c"));
             // removed other assertion
         } catch (JSONPointerException e) {
-            assertTrue("Expected bad index exception", "a is not an array index".equals(e.getMessage()));
+            assertTrue("Expected bad index exception","a is not an array index".equals(e.getMessage()));
     }
     }
 

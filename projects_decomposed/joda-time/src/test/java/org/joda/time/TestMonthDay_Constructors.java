@@ -81,15 +81,15 @@ public class TestMonthDay_Constructors extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testParse_noFormatter() throws Throwable {
-        assertEquals(new MonthDay(6, 30), MonthDay.parse("--06-30"));
-        assertEquals(new MonthDay(2, 29), MonthDay.parse("--02-29"));
-        assertEquals(new MonthDay(6, 30), MonthDay.parse("2010-06-30"));
-        assertEquals(new MonthDay(1, 2), MonthDay.parse("2010-002"));
+        assertEquals(new MonthDay(6,30),MonthDay.parse("--06-30"));
+        assertEquals(new MonthDay(2,29),MonthDay.parse("--02-29"));
+        assertEquals(new MonthDay(6,30),MonthDay.parse("2010-06-30"));
+        assertEquals(new MonthDay(1,2),MonthDay.parse("2010-002"));
     }
 
     public void testParse_formatter() throws Throwable {
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy--dd MM").withChronology(ISOChronology.getInstance(PARIS));
-        assertEquals(new MonthDay(6, 30), MonthDay.parse("2010--30 06", f));
+        assertEquals(new MonthDay(6,30),MonthDay.parse("2010--30 06",f));
     }
 
     //-----------------------------------------------------------------------
@@ -97,7 +97,7 @@ public class TestMonthDay_Constructors extends TestCase {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         MonthDay expected = new MonthDay(2, 3);
-        assertEquals(expected, MonthDay.fromCalendarFields(cal));
+        assertEquals(expected,MonthDay.fromCalendarFields(cal));
         try {
             MonthDay.fromCalendarFields(null);
             fail();
@@ -109,7 +109,7 @@ public class TestMonthDay_Constructors extends TestCase {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         MonthDay expected = new MonthDay(2, 3);
-        assertEquals(expected, MonthDay.fromDateFields(cal.getTime()));
+        assertEquals(expected,MonthDay.fromDateFields(cal.getTime()));
         try {
             MonthDay.fromDateFields(null);
             fail();
@@ -122,10 +122,10 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor() throws Throwable {
         MonthDay test = new MonthDay();
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(9, test.getDayOfMonth());
-        assertEquals(test, MonthDay.now());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(9,test.getDayOfMonth());
+        assertEquals(test,MonthDay.now());
     }
 
     /**
@@ -137,16 +137,16 @@ public class TestMonthDay_Constructors extends TestCase {
         // 23:59 in London is 00:59 the following day in Paris
         
         MonthDay test = new MonthDay(LONDON);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(30, test.getDayOfMonth());
-        assertEquals(test, MonthDay.now(LONDON));
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(30,test.getDayOfMonth());
+        assertEquals(test,MonthDay.now(LONDON));
         
         test = new MonthDay(PARIS);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(7, test.getMonthOfYear());
-        assertEquals(1, test.getDayOfMonth());
-        assertEquals(test, MonthDay.now(PARIS));
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(7,test.getMonthOfYear());
+        assertEquals(1,test.getDayOfMonth());
+        assertEquals(test,MonthDay.now(PARIS));
     }
 
     /**
@@ -158,9 +158,9 @@ public class TestMonthDay_Constructors extends TestCase {
         // 23:59 in London is 00:59 the following day in Paris
         
         MonthDay test = new MonthDay((DateTimeZone) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(30, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(30,test.getDayOfMonth());
     }
 
     /**
@@ -168,10 +168,10 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_Chronology() throws Throwable {
         MonthDay test = new MonthDay(GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(9, test.getDayOfMonth());
-        assertEquals(test, MonthDay.now(GREGORIAN_PARIS));
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(9,test.getDayOfMonth());
+        assertEquals(test,MonthDay.now(GREGORIAN_PARIS));
     }
 
     /**
@@ -179,9 +179,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_nullChronology() throws Throwable {
         MonthDay test = new MonthDay((Chronology) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(9, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(9,test.getDayOfMonth());
     }
 
     //-----------------------------------------------------------------------
@@ -190,9 +190,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_long1() throws Throwable {
         MonthDay test = new MonthDay(TEST_TIME1);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(4, test.getMonthOfYear());
-        assertEquals(6, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(4,test.getMonthOfYear());
+        assertEquals(6,test.getDayOfMonth());
     }
 
     /**
@@ -200,9 +200,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_long2() throws Throwable {
         MonthDay test = new MonthDay(TEST_TIME2);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(5, test.getMonthOfYear());
-        assertEquals(7, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(5,test.getMonthOfYear());
+        assertEquals(7,test.getDayOfMonth());
     }
 
     /**
@@ -210,9 +210,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_long1_Chronology() throws Throwable {
         MonthDay test = new MonthDay(TEST_TIME1, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(4, test.getMonthOfYear());
-        assertEquals(6, test.getDayOfMonth());
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(4,test.getMonthOfYear());
+        assertEquals(6,test.getDayOfMonth());
     }
 
     /**
@@ -220,9 +220,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_long2_Chronology() throws Throwable {
         MonthDay test = new MonthDay(TEST_TIME2, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(5, test.getMonthOfYear());
-        assertEquals(7, test.getDayOfMonth());
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(5,test.getMonthOfYear());
+        assertEquals(7,test.getDayOfMonth());
     }
 
     /**
@@ -230,39 +230,39 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_long_nullChronology() throws Throwable {
         MonthDay test = new MonthDay(TEST_TIME1, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(4, test.getMonthOfYear());
-        assertEquals(6, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(4,test.getMonthOfYear());
+        assertEquals(6,test.getDayOfMonth());
     }
 
     //-----------------------------------------------------------------------
     public void testConstructor_Object() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MonthDay test = new MonthDay(date);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(4, test.getMonthOfYear());
-        assertEquals(6, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(4,test.getMonthOfYear());
+        assertEquals(6,test.getDayOfMonth());
     }
 
     public void testConstructor_nullObject() throws Throwable {
         MonthDay test = new MonthDay((Object) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(9, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(9,test.getDayOfMonth());
     }
 
     public void testConstructor_ObjectString1() throws Throwable {
         MonthDay test = new MonthDay("1972-12");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(12, test.getMonthOfYear());
-        assertEquals(1, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(12,test.getMonthOfYear());
+        assertEquals(1,test.getDayOfMonth());
     }
 
     public void testConstructor_ObjectString5() throws Throwable {
         MonthDay test = new MonthDay("10");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1, test.getMonthOfYear());
-        assertEquals(1, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1,test.getMonthOfYear());
+        assertEquals(1,test.getDayOfMonth());
     }
 
     public void testConstructor_ObjectStringEx1() throws Throwable {
@@ -308,9 +308,9 @@ public class TestMonthDay_Constructors extends TestCase {
     public void testConstructor_Object_Chronology() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MonthDay test = new MonthDay(date, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(4, test.getMonthOfYear());
-        assertEquals(6, test.getDayOfMonth());
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(4,test.getMonthOfYear());
+        assertEquals(6,test.getDayOfMonth());
     }
 
     /**
@@ -318,9 +318,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_Chronology() throws Throwable {
         MonthDay test = new MonthDay((Object) null, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(9, test.getDayOfMonth());
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(9,test.getDayOfMonth());
     }
 
     /**
@@ -329,9 +329,9 @@ public class TestMonthDay_Constructors extends TestCase {
     public void testConstructor_Object_nullChronology() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MonthDay test = new MonthDay(date, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(4, test.getMonthOfYear());
-        assertEquals(6, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(4,test.getMonthOfYear());
+        assertEquals(6,test.getDayOfMonth());
     }
 
     /**
@@ -339,9 +339,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_nullChronology() throws Throwable {
         MonthDay test = new MonthDay((Object) null, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(9, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(9,test.getDayOfMonth());
     }
 
     //-----------------------------------------------------------------------
@@ -350,9 +350,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int() throws Throwable {
         MonthDay test = new MonthDay(6, 30);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(30, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(30,test.getDayOfMonth());
         try {
             new MonthDay(Integer.MIN_VALUE, 6);
             fail();
@@ -376,9 +376,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_Chronology() throws Throwable {
         MonthDay test = new MonthDay(6, 30, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(30, test.getDayOfMonth());
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(30,test.getDayOfMonth());
         try {
             new MonthDay(Integer.MIN_VALUE, 6, GREGORIAN_PARIS);
             fail();
@@ -402,9 +402,9 @@ public class TestMonthDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_nullChronology() throws Throwable {
         MonthDay test = new MonthDay(6, 30, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(6, test.getMonthOfYear());
-        assertEquals(30, test.getDayOfMonth());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(6,test.getMonthOfYear());
+        assertEquals(30,test.getDayOfMonth());
     }
 
 }

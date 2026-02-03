@@ -77,8 +77,7 @@ public class TestFileBasedConfigurationBuilder {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final FileHandler handler = new FileHandler(config);
         handler.load(file);
-        assertEquals("Configuration was not saved", expValue,
-                config.getInt(PROP));
+        assertEquals("Configuration was not saved",expValue,config.getInt(PROP));
     }
 
     /** Helper object for managing temporary files. */
@@ -387,14 +386,10 @@ public class TestFileBasedConfigurationBuilder {
         final String encoding = "testEncoding";
         FileBasedConfigurationBuilder.setDefaultEncoding(Configuration.class,
                 encoding);
-        assertEquals("Wrong default encoding", encoding,
-                FileBasedConfigurationBuilder
-                        .getDefaultEncoding(XMLConfiguration.class));
+        assertEquals("Wrong default encoding",encoding,FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
         FileBasedConfigurationBuilder.setDefaultEncoding(Configuration.class,
                 null);
-        assertNull("Default encoding not removed",
-                FileBasedConfigurationBuilder
-                        .getDefaultEncoding(XMLConfiguration.class));
+        assertNull("Default encoding not removed",FileBasedConfigurationBuilder .getDefaultEncoding(XMLConfiguration.class));
     }
 
     /**
@@ -404,10 +399,7 @@ public class TestFileBasedConfigurationBuilder {
     @Test
     public void testGetDefaultEncodingProperties()
     {
-        assertEquals("Wrong default encoding",
-                PropertiesConfiguration.DEFAULT_ENCODING,
-                FileBasedConfigurationBuilder
-                        .getDefaultEncoding(PropertiesConfiguration.class));
+        assertEquals("Wrong default encoding",PropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder .getDefaultEncoding(PropertiesConfiguration.class));
     }
 
     /**
@@ -419,10 +411,7 @@ public class TestFileBasedConfigurationBuilder {
         final PropertiesConfiguration conf = new PropertiesConfiguration()
         {
         };
-        assertEquals("Wrong default encodng",
-                PropertiesConfiguration.DEFAULT_ENCODING,
-                FileBasedConfigurationBuilder.getDefaultEncoding(conf
-                        .getClass()));
+        assertEquals("Wrong default encodng",PropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder.getDefaultEncoding(conf .getClass()));
     }
 
     /**
@@ -432,10 +421,7 @@ public class TestFileBasedConfigurationBuilder {
     @Test
     public void testGetDefaultEncodingXmlProperties()
     {
-        assertEquals("Wrong default encoding",
-                XMLPropertiesConfiguration.DEFAULT_ENCODING,
-                FileBasedConfigurationBuilder
-                        .getDefaultEncoding(XMLPropertiesConfiguration.class));
+        assertEquals("Wrong default encoding",XMLPropertiesConfiguration.DEFAULT_ENCODING,FileBasedConfigurationBuilder .getDefaultEncoding(XMLPropertiesConfiguration.class));
     }
 
     /**
@@ -481,8 +467,7 @@ public class TestFileBasedConfigurationBuilder {
                         PropertiesConfiguration.class);
         final FileHandler handler = new FileHandler();
         builder.initFileHandler(handler);
-        assertEquals("Wrong encoding",
-                PropertiesConfiguration.DEFAULT_ENCODING, handler.getEncoding());
+        assertEquals("Wrong encoding",PropertiesConfiguration.DEFAULT_ENCODING,handler.getEncoding());
     }
 
     /**
@@ -500,8 +485,7 @@ public class TestFileBasedConfigurationBuilder {
                                 .setFile(file));
         builder.getConfiguration();
         final FileLocator locator = builder.getFileHandler().getFileLocator();
-        assertTrue("Not fully defined: " + locator,
-                FileLocatorUtils.isFullyInitialized(locator));
+        assertTrue("Not fully defined: " + locator,FileLocatorUtils.isFullyInitialized(locator));
     }
 
     /**
@@ -541,8 +525,7 @@ public class TestFileBasedConfigurationBuilder {
         builder.reset();
         final PropertiesConfiguration config = builder.getConfiguration();
         assertTrue("Configuration was read from file", config.isEmpty());
-        assertFalse("FileHandler has location", builder.getFileHandler()
-                .isLocationDefined());
+        assertFalse("FileHandler has location",builder.getFileHandler().isLocationDefined());
     }
 
     /**

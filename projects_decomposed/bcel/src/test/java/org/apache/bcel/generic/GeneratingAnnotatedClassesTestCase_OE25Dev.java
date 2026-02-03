@@ -457,7 +457,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         dumpClass(cg, "HelloWorld.class");
         final JavaClass jc = getClassFrom(".", "HelloWorld");
         final AnnotationEntry[] as = jc.getAnnotationEntries();
-        assertTrue("Should be two AnnotationEntries but found " + as.length, as.length == 2);
+        assertTrue("Should be two AnnotationEntries but found " + as.length,as.length == 2);
     }
 
     public void testGenerateClassLevelAnnotations_2_oe()
@@ -478,7 +478,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         final AnnotationEntry[] as = jc.getAnnotationEntries();
         // removed other assertion
         // TODO L??;
-        assertTrue( "Name of annotation 1 should be LSimpleAnnotation; but it is " + as[0].getAnnotationType(), as[0].getAnnotationType() .equals("LSimpleAnnotation;"));
+        assertTrue("Name of annotation 1 should be LSimpleAnnotation;but it is " + as[0].getAnnotationType(),as[0].getAnnotationType().equals("LSimpleAnnotation;"));
     }
 
     public void testGenerateClassLevelAnnotations_3_oe()
@@ -500,7 +500,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         // removed other assertion
         // TODO L??;
         // removed other assertion
-        assertTrue( "Name of annotation 2 should be LSimpleAnnotation; but it is " + as[1].getAnnotationType(), as[1].getAnnotationType() .equals("LSimpleAnnotation;"));
+        assertTrue("Name of annotation 2 should be LSimpleAnnotation;but it is " + as[1].getAnnotationType(),as[1].getAnnotationType().equals("LSimpleAnnotation;"));
     }
 
     public void testGenerateClassLevelAnnotations_4_oe()
@@ -525,7 +525,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         // removed other assertion
         final ElementValuePair[] vals = as[0].getElementValuePairs();
         final ElementValuePair nvp = vals[0];
-        assertTrue( "Name of element in SimpleAnnotation should be 'id' but it is " + nvp.getNameString(), nvp.getNameString().equals("id"));
+        assertTrue("Name of element in SimpleAnnotation should be 'id' but it is " + nvp.getNameString(),nvp.getNameString().equals("id"));
     }
 
     public void testGenerateClassLevelAnnotations_5_oe()
@@ -552,7 +552,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         final ElementValuePair nvp = vals[0];
         // removed other assertion
         final ElementValue ev = nvp.getValue();
-        assertTrue("Type of element value should be int but it is " + ev.getElementValueType(), ev.getElementValueType() == ElementValue.PRIMITIVE_INT);
+        assertTrue("Type of element value should be int but it is " + ev.getElementValueType(),ev.getElementValueType()== ElementValue.PRIMITIVE_INT);
     }
 
     public void testGenerateClassLevelAnnotations_6_oe()
@@ -580,7 +580,7 @@ public class GeneratingAnnotatedClassesTestCase_OE25Dev extends AbstractTestCase
         // removed other assertion
         final ElementValue ev = nvp.getValue();
         // removed other assertion
-        assertTrue("Value of element should be 4 but it is " + ev.stringifyValue(), ev.stringifyValue().equals("4"));
+        assertTrue("Value of element should be 4 but it is " + ev.stringifyValue(),ev.stringifyValue().equals("4"));
     }
 
     public void testGenerateClassLevelAnnotations_7_oe()
@@ -620,7 +620,7 @@ public void test_standard_1_oe()
 
     // Check annotations are correctly preserved
     final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
-    assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
+    assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
 }
 
 public void test_standard_2_oe()
@@ -633,7 +633,7 @@ public void test_standard_2_oe()
     final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
     // removed other assertion
     final AnnotationEntryGen a = annotations[0];
-    assertTrue("That annotation should only have one value but has " + a.getValues().size(), a.getValues().size() == 1);
+    assertTrue("That annotation should only have one value but has " + a.getValues().size(),a.getValues().size()== 1);
 }
 
 public void test_standard_3_oe()
@@ -649,7 +649,7 @@ public void test_standard_3_oe()
     // removed other assertion
     final ElementValuePairGen nvp = a.getValues().get(0);
     final ElementValueGen value = nvp.getValue();
-    assertTrue("Value should be ArrayElementValueGen but is " + value, value instanceof ArrayElementValueGen);
+    assertTrue("Value should be ArrayElementValueGen but is " + value,value instanceof ArrayElementValueGen);
 }
 
 public void test_standard_4_oe()
@@ -667,7 +667,7 @@ public void test_standard_4_oe()
     final ElementValueGen value = nvp.getValue();
     // removed other assertion
     final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
-    assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(), arrayValue .getElementValuesSize() == 1);
+    assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(),arrayValue .getElementValuesSize()== 1);
 }
 
 public void test_standard_5_oe()
@@ -687,7 +687,7 @@ public void test_standard_5_oe()
     final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
     // removed other assertion
     final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
-    assertTrue( "Value in the array should be AnnotationElementValueGen but is " + innerValue, innerValue instanceof AnnotationElementValueGen);
+    assertTrue("Value in the array should be AnnotationElementValueGen but is " + innerValue,innerValue instanceof AnnotationElementValueGen);
 }
 
 public void test_standard_6_oe()
@@ -709,7 +709,7 @@ public void test_standard_6_oe()
     final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
     // removed other assertion
     final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
-    assertTrue("Should be called L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation; but is called: " + innerAnnotationValue.getAnnotation().getTypeName(), innerAnnotationValue.getAnnotation().getTypeSignature().equals( "L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation;"));
+    assertTrue("Should be called L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation;but is called: " + innerAnnotationValue.getAnnotation().getTypeName(),innerAnnotationValue.getAnnotation().getTypeSignature().equals("L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation;"));
 }
 
 public void test_standard_7_oe()
@@ -942,7 +942,7 @@ public void test_standard_1_oe_1_oe() throws ClassNotFoundException {
     final ClassGen cgen = new ClassGen(jc);
 
     final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
-    assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
+    assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
 }
 
 public void test_standard_2_oe_1_oe() throws ClassNotFoundException {
@@ -952,7 +952,7 @@ public void test_standard_2_oe_1_oe() throws ClassNotFoundException {
     final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
     final AnnotationEntryGen a = annotations[0];
 
-    assertTrue("That annotation should only have one value but has " + a.getValues().size(), a.getValues().size() == 1);
+    assertTrue("That annotation should only have one value but has " + a.getValues().size(),a.getValues().size()== 1);
 }
 
 public void test_standard_3_oe_1_oe() throws ClassNotFoundException {
@@ -964,7 +964,7 @@ public void test_standard_3_oe_1_oe() throws ClassNotFoundException {
     final ElementValuePairGen nvp = a.getValues().get(0);
     final ElementValueGen value = nvp.getValue();
 
-    assertTrue("Value should be ArrayElementValueGen but is " + value, value instanceof ArrayElementValueGen);
+    assertTrue("Value should be ArrayElementValueGen but is " + value,value instanceof ArrayElementValueGen);
 }
 
 public void test_standard_4_oe_1_oe() throws ClassNotFoundException {
@@ -977,7 +977,7 @@ public void test_standard_4_oe_1_oe() throws ClassNotFoundException {
     final ElementValueGen value = nvp.getValue();
     final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
 
-    assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(), arrayValue.getElementValuesSize() == 1);
+    assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(),arrayValue.getElementValuesSize()== 1);
 }
 
 public void test_standard_5_oe_1_oe() throws ClassNotFoundException {
@@ -991,7 +991,7 @@ public void test_standard_5_oe_1_oe() throws ClassNotFoundException {
     final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
     final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
 
-    assertTrue( "Value in the array should be AnnotationElementValueGen but is " + innerValue, innerValue instanceof AnnotationElementValueGen);
+    assertTrue("Value in the array should be AnnotationElementValueGen but is " + innerValue,innerValue instanceof AnnotationElementValueGen);
 }
 
 public void test_standard_6_oe_1_oe() throws ClassNotFoundException {
@@ -1006,7 +1006,7 @@ public void test_standard_6_oe_1_oe() throws ClassNotFoundException {
     final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
     final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
 
-    assertTrue("Should be called L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation; but is called: " + innerAnnotationValue.getAnnotation().getTypeName(), innerAnnotationValue.getAnnotation().getTypeSignature().equals( "L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation;"));
+    assertTrue("Should be called L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation;but is called: " + innerAnnotationValue.getAnnotation().getTypeName(),innerAnnotationValue.getAnnotation().getTypeSignature().equals("L" + PACKAGE_BASE_SIG + "/data/SimpleAnnotation;"));
 }
 
 public void test_standard_7_oe_1_oe() throws ClassNotFoundException {
@@ -1123,7 +1123,7 @@ public void test_standard_new_oe_1_oe()
         buildClassContentsWithAnnotatedMethods(cg, cp, il);
         // Check annotation is OK
         int i = cg.getMethods()[0].getAnnotationEntries().length;
-        assertTrue( "Prior to dumping, main method should have 1 annotation but has " + i, i == 1);
+        assertTrue("Prior to dumping,main method should have 1 annotation but has " + i,i == 1);
     }
 
     public void testGenerateMethodLevelAnnotations1_2_oe()
@@ -1141,7 +1141,7 @@ public void test_standard_new_oe_1_oe()
         final JavaClass jc2 = getClassFrom("temp1", "HelloWorld");
         // Check annotation is OK
         i = jc2.getMethods()[0].getAnnotationEntries().length;
-        assertTrue("JavaClass should say 1 annotation on main method but says " + i, i == 1);
+        assertTrue("JavaClass should say 1 annotation on main method but says " + i,i == 1);
     }
 
     public void testGenerateMethodLevelAnnotations1_3_oe()
@@ -1164,7 +1164,7 @@ public void test_standard_new_oe_1_oe()
         // Check it now it is a ClassGen
         final Method[] m = cg2.getMethods();
         i = m[0].getAnnotationEntries().length;
-        assertTrue("The main 'Method' should have one annotation but has " + i, i == 1);
+        assertTrue("The main 'Method' should have one annotation but has " + i,i == 1);
     }
 
     public void testGenerateMethodLevelAnnotations1_4_oe()
@@ -1192,7 +1192,7 @@ public void test_standard_new_oe_1_oe()
                 .getConstantPool());
         // Check it finally when the Method is changed to a MethodGen
         i = mg.getAnnotationEntries().length;
-        assertTrue("The main 'MethodGen' should have one annotation but has " + i, i == 1);
+        assertTrue("The main 'MethodGen' should have one annotation but has " + i,i == 1);
     }
 
     public void testGenerateMethodLevelAnnotations1_5_oe()
@@ -1238,7 +1238,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cg2 = new ClassGen(jc2);
         // Main method after reading the class back in
         final Method mainMethod1 = jc2.getMethods()[0];
-        assertTrue("The 'Method' should have one annotations but has " + mainMethod1.getAnnotationEntries().length, mainMethod1 .getAnnotationEntries().length == 1);
+        assertTrue("The 'Method' should have one annotations but has " + mainMethod1.getAnnotationEntries().length,mainMethod1 .getAnnotationEntries().length == 1);
     }
 
     public void testGenerateMethodLevelAnnotations2_2_oe()
@@ -1257,7 +1257,7 @@ public void test_standard_new_oe_1_oe()
         // removed other assertion
         final MethodGen mainMethod2 = new MethodGen(mainMethod1, cg2.getClassName(),
                 cg2.getConstantPool());
-        assertTrue("The 'MethodGen' should have one annotations but has " + mainMethod2.getAnnotationEntries().length, mainMethod2 .getAnnotationEntries().length == 1);
+        assertTrue("The 'MethodGen' should have one annotations but has " + mainMethod2.getAnnotationEntries().length,mainMethod2 .getAnnotationEntries().length == 1);
     }
 
     public void testGenerateMethodLevelAnnotations2_3_oe()
@@ -1286,7 +1286,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cg3 = new ClassGen(jc3);
         final Method mainMethod3 = cg3.getMethods()[1];
         final int i = mainMethod3.getAnnotationEntries().length;
-        assertTrue("The 'Method' should now have two annotations but has " + i, i == 2);
+        assertTrue("The 'Method' should now have two annotations but has " + i,i == 2);
     }
 
     public void testGenerateMethodLevelAnnotations2_4_oe()
@@ -1357,7 +1357,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cgen = new ClassGen(jc);
         // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
-        assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
+        assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
     public void testTransformClassToClassGen_EnumType_1_oe()
@@ -1367,7 +1367,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cgen = new ClassGen(jc);
         // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
-        assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
+        assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_1_oe()
@@ -1377,7 +1377,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cgen = new ClassGen(jc);
         // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
-        assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
+        assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_2_oe()
@@ -1389,7 +1389,7 @@ public void test_standard_new_oe_1_oe()
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
         // removed other assertion
         final AnnotationEntryGen a = annotations[0];
-        assertTrue("That annotation should only have one value but has " + a.getValues().size(), a.getValues().size() == 1);
+        assertTrue("That annotation should only have one value but has " + a.getValues().size(),a.getValues().size()== 1);
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_3_oe()
@@ -1404,7 +1404,7 @@ public void test_standard_new_oe_1_oe()
         // removed other assertion
         final ElementValuePairGen nvp = a.getValues().get(0);
         final ElementValueGen value = nvp.getValue();
-        assertTrue("Value should be ArrayElementValueGen but is " + value, value instanceof ArrayElementValueGen);
+        assertTrue("Value should be ArrayElementValueGen but is " + value,value instanceof ArrayElementValueGen);
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_4_oe()
@@ -1421,7 +1421,7 @@ public void test_standard_new_oe_1_oe()
         final ElementValueGen value = nvp.getValue();
         // removed other assertion
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
-        assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(), arrayValue .getElementValuesSize() == 1);
+        assertTrue("Array value should be size one but is " + arrayValue.getElementValuesSize(),arrayValue .getElementValuesSize()== 1);
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_5_oe()
@@ -1440,7 +1440,7 @@ public void test_standard_new_oe_1_oe()
         final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
         // removed other assertion
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
-        assertTrue( "Value in the array should be AnnotationElementValueGen but is " + innerValue, innerValue instanceof AnnotationElementValueGen);
+        assertTrue("Value in the array should be AnnotationElementValueGen but is " + innerValue,innerValue instanceof AnnotationElementValueGen);
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_6_oe()
@@ -1461,7 +1461,7 @@ public void test_standard_new_oe_1_oe()
         final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
         // removed other assertion
         final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
-        assertTrue("Should be called L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation; but is called: " + innerAnnotationValue.getAnnotation().getTypeName(), innerAnnotationValue.getAnnotation().getTypeSignature().equals( "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;"));
+        assertTrue("Should be called L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;but is called: " + innerAnnotationValue.getAnnotation().getTypeName(),innerAnnotationValue.getAnnotation().getTypeSignature().equals("L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;"));
     }
 
     public void testTransformClassToClassGen_ArrayAndAnnotationTypes_7_oe()
@@ -1542,7 +1542,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cgen = new ClassGen(jc);
         // Check annotations are correctly preserved
         final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
-        assertTrue("Expected one annotation but found " + annotations.length, annotations.length == 1);
+        assertTrue("Expected one annotation but found " + annotations.length,annotations.length == 1);
     }
 
     public void testTransformComplexClassToClassGen_2_oe()
@@ -1565,7 +1565,7 @@ public void test_standard_new_oe_1_oe()
                 }
             }
         }
-        assertTrue("Did not find double annotation value with value 33.4", found);
+        assertTrue("Did not find double annotation value with value 33.4",found);
     }
 
     public void testModifyingClasses1_1_oe() throws ClassNotFoundException
@@ -1574,7 +1574,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cgen = new ClassGen(jc);
         final ConstantPoolGen cp = cgen.getConstantPool();
         cgen.addAnnotationEntry(createFruitAnnotation(cp, "Pineapple"));
-        assertTrue("Should now have two annotations but has " + cgen.getAnnotationEntries().length, cgen .getAnnotationEntries().length == 2);
+        assertTrue("Should now have two annotations but has " + cgen.getAnnotationEntries().length,cgen .getAnnotationEntries().length == 2);
     }
 
     public void testModifyingClasses1_2_oe() throws ClassNotFoundException
@@ -1594,7 +1594,7 @@ public void test_standard_new_oe_1_oe()
         final ClassGen cgen = new ClassGen(jc);
         final ConstantPoolGen cp = cgen.getConstantPool();
         cgen.addAnnotationEntry(createCombinedAnnotation(cp));
-        assertTrue("Should now have two annotations but has " + cgen.getAnnotationEntries().length, cgen .getAnnotationEntries().length == 2);
+        assertTrue("Should now have two annotations but has " + cgen.getAnnotationEntries().length,cgen .getAnnotationEntries().length == 2);
     }
 
     public void testModifyingClasses2_2_oe() throws ClassNotFoundException

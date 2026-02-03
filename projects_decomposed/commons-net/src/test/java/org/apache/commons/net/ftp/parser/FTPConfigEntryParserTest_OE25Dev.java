@@ -85,7 +85,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Should have user read permission.", f.hasPermission( FTPFile.USER_ACCESS, FTPFile.READ_PERMISSION));
+        assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_4_oe() {
@@ -103,7 +103,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Should have user write permission.", f.hasPermission( FTPFile.USER_ACCESS, FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_5_oe() {
@@ -122,7 +122,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         // removed other assertion
         // removed other assertion
-        assertFalse("Should NOT have user execute permission.", f .hasPermission(FTPFile.USER_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertFalse("Should NOT have user execute permission.",f .hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_6_oe() {
@@ -142,7 +142,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have group read permission.", f.hasPermission( FTPFile.GROUP_ACCESS, FTPFile.READ_PERMISSION));
+        assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_7_oe() {
@@ -163,7 +163,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Should NOT have group write permission.", f .hasPermission(FTPFile.GROUP_ACCESS, FTPFile.WRITE_PERMISSION));
+        assertFalse("Should NOT have group write permission.",f .hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_8_oe() {
@@ -185,7 +185,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Should NOT have group execute permission.", f.hasPermission(FTPFile.GROUP_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertFalse("Should NOT have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_9_oe() {
@@ -208,7 +208,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Should NOT have world read permission.", f.hasPermission( FTPFile.WORLD_ACCESS, FTPFile.READ_PERMISSION));
+        assertFalse("Should NOT have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_10_oe() {
@@ -232,7 +232,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Should NOT have world write permission.", f .hasPermission(FTPFile.WORLD_ACCESS, FTPFile.WRITE_PERMISSION));
+        assertFalse("Should NOT have world write permission.",f .hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_11_oe() {
@@ -257,7 +257,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("Should NOT have world execute permission.", f.hasPermission(FTPFile.WORLD_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertFalse("Should NOT have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseFieldsOnAIX_12_oe() {
@@ -455,7 +455,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // TODO this is probably a bug - it should default to the current year
         cal.set(Calendar.YEAR, 1970);
 
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp() .getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
     }
 
     public void testParseEntryWithSymlink_1_oe() {
@@ -514,7 +514,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
 
-        assertTrue("Should have user read permission.", f.hasPermission( FTPFile.USER_ACCESS, FTPFile.READ_PERMISSION));
+        assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_5_oe() {
@@ -532,7 +532,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
 
         // removed other assertion
-        assertTrue("Should have user write permission.", f.hasPermission( FTPFile.USER_ACCESS, FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_6_oe() {
@@ -551,7 +551,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
 
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have user execute permission.", f .hasPermission(FTPFile.USER_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have user execute permission.",f .hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_7_oe() {
@@ -571,7 +571,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have group read permission.", f.hasPermission( FTPFile.GROUP_ACCESS, FTPFile.READ_PERMISSION));
+        assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_8_oe() {
@@ -592,7 +592,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have group write permission.", f .hasPermission(FTPFile.GROUP_ACCESS, FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have group write permission.",f .hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_9_oe() {
@@ -614,7 +614,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have group execute permission.", f.hasPermission(FTPFile.GROUP_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_10_oe() {
@@ -637,7 +637,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have world read permission.", f.hasPermission( FTPFile.WORLD_ACCESS, FTPFile.READ_PERMISSION));
+        assertTrue("Should have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_11_oe() {
@@ -661,7 +661,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have world write permission.", f .hasPermission(FTPFile.WORLD_ACCESS, FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have world write permission.",f .hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_12_oe() {
@@ -686,7 +686,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Should have world execute permission.", f.hasPermission(FTPFile.WORLD_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     public void testParseEntryWithSymlink_13_oe() {
@@ -881,7 +881,7 @@ public class FTPConfigEntryParserTest_OE25Dev extends TestCase {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.YEAR, 2005);
 
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp() .getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
     }
 
 }

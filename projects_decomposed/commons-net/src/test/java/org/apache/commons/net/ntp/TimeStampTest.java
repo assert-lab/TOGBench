@@ -55,9 +55,7 @@ public class TimeStampTest extends TestCase {
         assertTrue("hashCode(1,3)", ts1.hashCode() != ts3.hashCode());
         final long time1 = ts1.getTime();
         final long time3 = ts3.getTime();
-        assertEquals("equals(time1,3)", time1, time3); // ntpTime1 != ntpTime3 but JavaTime(t1) == JavaTime(t3)...
-
-        assertTrue("ts3 != ts4", !ts3.equals(ts4));
+        assertEquals("equals(time1,3)",time1,time3);// ntpTime1 != ntpTime3 but JavaTime(t1)== JavaTime(t3)... assertTrue("ts3 != ts4",!ts3.equals(ts4));
         assertTrue("time3 != ts4.time", time3 != ts4.getTime());
     }
 

@@ -118,7 +118,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
      */
 
     public void testInit_1_oe() {
-        assertEquals("Wrong current class", getClass(), context.getTargetClass());
+        assertEquals("Wrong current class",getClass(),context.getTargetClass());
     }
 
     public void testInit_2_oe() {
@@ -136,7 +136,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
         final PropertyDescriptor desc = createDescriptor(PROP);
         context.addPropertyDescriptor(desc);
         // removed other assertion
-        assertSame("Wrong descriptor", desc, context.getPropertyDescriptor(PROP));
+        assertSame("Wrong descriptor",desc,context.getPropertyDescriptor(PROP));
     }
 
     public void testAddPropertyDescriptors_1_oe() {
@@ -188,7 +188,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         for (int i = 0; i < count; i++) {
-            assertTrue("Property not found: " + (PROP + i), names.contains(PROP + i));
+            assertTrue("Property not found: " +(PROP + i),names.contains(PROP + i));
     }
     }
 
@@ -211,7 +211,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
             // removed other assertion
         }
         final PropertyDescriptor[] addedDescs = context.getPropertyDescriptors();
-        assertEquals("Wrong number of added descriptors", count + 1, addedDescs.length);
+        assertEquals("Wrong number of added descriptors",count + 1,addedDescs.length);
     }
 
     public void testAddPropertyDescriptors_5_oe() {
@@ -269,7 +269,7 @@ public class DefaultIntrospectionContextTestCase_OE25Dev extends TestCase {
         context.addPropertyDescriptor(createDescriptor(PROP));
         context.removePropertyDescriptor(PROP);
         // removed other assertion
-        assertEquals("Got descriptors", 0, context.getPropertyDescriptors().length);
+        assertEquals("Got descriptors",0,context.getPropertyDescriptors().length);
     }
 
 }

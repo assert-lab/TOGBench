@@ -454,7 +454,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
         try {
             iter.next();
         } catch (final Exception e) {
-          assertTrue("NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 
@@ -498,7 +498,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
         try {
             iter.previous();
         } catch (final Exception e) {
-          assertTrue("NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 

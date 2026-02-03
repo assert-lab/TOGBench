@@ -11,12 +11,10 @@ jsoup_840_5,"    @Test
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
         // removed other assertion
         // removed other assertion
 
@@ -40,12 +38,10 @@ jsoup_840_6,"    @Test
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,""1"");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named ""One"",so should be first sent 
         // removed other assertion
         // removed other assertion
 

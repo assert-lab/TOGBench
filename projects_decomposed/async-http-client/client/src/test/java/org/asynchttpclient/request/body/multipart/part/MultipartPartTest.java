@@ -62,8 +62,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitDispositionHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 45, "CounterPartVisitor count for visitDispositionHeader should be equal to "
-              + "CRLF_BYTES length + CONTENT_DISPOSITION_BYTES length + part name length when file name is not specified");
+      assertEquals(counterVisitor.getCount(),45,"CounterPartVisitor count for visitDispositionHeader should be equal to " + "CRLF_BYTES length + CONTENT_DISPOSITION_BYTES length + part name length when file name is not specified");
     }
   }
 
@@ -73,8 +72,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitDispositionHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 68, "CounterPartVisitor count for visitDispositionHeader should be equal to "
-              + "CRLF_BYTES length + CONTENT_DISPOSITION_BYTES length + part name length + file name length when" + " both part name and file name are present");
+      assertEquals(counterVisitor.getCount(),68,"CounterPartVisitor count for visitDispositionHeader should be equal to " + "CRLF_BYTES length + CONTENT_DISPOSITION_BYTES length + part name length + file name length when" + " both part name and file name are present");
     }
   }
 
@@ -85,8 +83,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitDispositionHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 53, "CounterPartVisitor count for visitDispositionHeader should be equal to "
-              + "CRLF_BYTES length + CONTENT_DISPOSITION_BYTES length + file name length when part name is not specified");
+      assertEquals(counterVisitor.getCount(),53,"CounterPartVisitor count for visitDispositionHeader should be equal to " + "CRLF_BYTES length + CONTENT_DISPOSITION_BYTES length + file name length when part name is not specified");
     }
   }
 
@@ -96,8 +93,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitContentTypeHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 47, "CounterPartVisitor count for visitContentTypeHeader should be equal to "
-              + "CRLF_BYTES length + CONTENT_TYPE_BYTES length + contentType length + charset length");
+      assertEquals(counterVisitor.getCount(),47,"CounterPartVisitor count for visitContentTypeHeader should be equal to " + "CRLF_BYTES length + CONTENT_TYPE_BYTES length + contentType length + charset length");
     }
   }
 
@@ -107,8 +103,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitContentTypeHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 32, "CounterPartVisitor count for visitContentTypeHeader should be equal to "
-              + "CRLF_BYTES length + CONTENT_TYPE_BYTES length + contentType length when charset is not specified");
+      assertEquals(counterVisitor.getCount(),32,"CounterPartVisitor count for visitContentTypeHeader should be equal to " + "CRLF_BYTES length + CONTENT_TYPE_BYTES length + contentType length when charset is not specified");
     }
   }
 
@@ -118,8 +113,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitTransferEncodingHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 45, "CounterPartVisitor count for visitTransferEncodingHeader should be equal to "
-              + "CRLF_BYTES length + CONTENT_TRANSFER_ENCODING_BYTES length + transferEncoding length");
+      assertEquals(counterVisitor.getCount(),45,"CounterPartVisitor count for visitTransferEncodingHeader should be equal to " + "CRLF_BYTES length + CONTENT_TRANSFER_ENCODING_BYTES length + transferEncoding length");
     }
   }
 
@@ -129,8 +123,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitContentIdHeader(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 23, "CounterPartVisitor count for visitContentIdHeader should be equal to"
-              + "CRLF_BYTES length + CONTENT_ID_BYTES length + contentId length");
+      assertEquals(counterVisitor.getCount(),23,"CounterPartVisitor count for visitContentIdHeader should be equal to" + "CRLF_BYTES length + CONTENT_ID_BYTES length + contentId length");
     }
   }
 
@@ -140,8 +133,7 @@ public class MultipartPartTest {
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
       CounterPartVisitor counterVisitor = new CounterPartVisitor();
       multipartPart.visitCustomHeaders(counterVisitor);
-      assertEquals(counterVisitor.getCount(), 0, "CounterPartVisitor count for visitCustomHeaders should be zero for visitCustomHeaders "
-              + "when there are no custom headers");
+      assertEquals(counterVisitor.getCount(),0,"CounterPartVisitor count for visitCustomHeaders should be zero for visitCustomHeaders " + "when there are no custom headers");
     }
   }
 

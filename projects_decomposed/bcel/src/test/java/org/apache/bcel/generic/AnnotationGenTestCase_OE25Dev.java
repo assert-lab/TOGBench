@@ -63,14 +63,11 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
             final String afterName = annAfter.getTypeName();
             if (!beforeName.equals(afterName))
             {
-                fail("Deserialization failed: before type='" + beforeName
-                        + "' after type='" + afterName + "'");
+                fail("Deserialization failed: before type='" + beforeName + "' after type='" + afterName + "'");
             }
             if (a.getValues().size() != annAfter.getValues().size())
             {
-                fail("Different numbers of element name value pairs?? "
-                        + a.getValues().size() + "!="
-                        + annAfter.getValues().size());
+                fail("Different numbers of element name value pairs?? " + a.getValues().size()+ "!=" + annAfter.getValues().size());
             }
             for (int i = 0; i < a.getValues().size(); i++)
             {
@@ -79,8 +76,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
                 if (!beforeElement.getNameString().equals(
                         afterElement.getNameString()))
                 {
-                    fail("Different names?? " + beforeElement.getNameString()
-                            + "!=" + afterElement.getNameString());
+                    fail("Different names?? " + beforeElement.getNameString()+ "!=" + afterElement.getNameString());
                 }
             }
         }
@@ -102,7 +98,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
         // Check it looks right
-        assertTrue( "Should include string 'id=4' but says: " + nvGen.toString(), nvGen.toString().contains("id=4"));
+        assertTrue("Should include string 'id=4' but says: " + nvGen.toString(),nvGen.toString().contains("id=4"));
     }
 
     public void testVisibleInvisibleAnnotationGen_1_oe()
@@ -117,7 +113,7 @@ public class AnnotationGenTestCase_OE25Dev extends AbstractTestCase
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
         // Check it looks right
-        assertTrue( "Should include string 'id=4' but says: " + nvGen.toString(), nvGen.toString().contains("id=4"));
+        assertTrue("Should include string 'id=4' but says: " + nvGen.toString(),nvGen.toString().contains("id=4"));
     }
 
     public void testVisibleInvisibleAnnotationGen_2_oe()

@@ -297,8 +297,7 @@ public class FinderTest extends WeaverTestBase {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
 
         List<Annotated<Class<?>>> allClasses = finder().withAnnotations().getAllClasses();
-        assertThat(extract(allClasses), Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,
-            AbstractTestBean.class, TestBeanWithClassAnnotation.class, TestBeanWithMethodAnnotation.class));
+        assertThat(extract(allClasses),Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,AbstractTestBean.class,TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class));
     }
 
     private List<Class<?>> extract(List<Annotated<Class<?>>> input) {

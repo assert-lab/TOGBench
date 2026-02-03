@@ -228,7 +228,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         verify();
         // removed other assertion
         for (final E element : elements) {
-            assertTrue("Collection should contain added element", getCollection().contains(element));
+            assertTrue("Collection should contain added element",getCollection().contains(element));
     }
     }
 
@@ -273,7 +273,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         verify();
         // removed other assertion
         for (int i = 0; i < elements.length; i++) {
-            assertTrue("Full collection should contain added element " + i, getCollection().contains(elements[i]));
+            assertTrue("Full collection should contain added element " + i,getCollection().contains(elements[i]));
     }
     }
 
@@ -299,7 +299,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         for (int i = 0; i < elements.length; i++) {
             // removed other assertion
         }
-        assertEquals("Size should increase after addAll", size + elements.length, getCollection().size());
+        assertEquals("Size should increase after addAll",size + elements.length,getCollection().size());
     }
 
     public void testCollections304_1_oe() {
@@ -388,7 +388,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         List<E> subList = list.subList(0, 0);
         List<E> subUniqueList = uniqueList.subList(0, 0);
 
-        assertFalse(subList.contains(world)); // passes;
+        assertFalse(subList.contains(world));// passes;
     }
 
     public void testCollections307_2_oe() {
@@ -404,7 +404,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         List<E> subUniqueList = uniqueList.subList(0, 0);
 
         // removed other assertion
-        assertFalse(subUniqueList.contains(world)); // fails;
+        assertFalse(subUniqueList.contains(world));// fails;
     }
 
     public void testCollections307_3_oe() {
@@ -421,10 +421,9 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
-        assertFalse(subList.contains("World")); // passes;
+        assertFalse(subList.contains("World"));// passes;
     }
 
     public void testCollections307_4_oe() {
@@ -441,11 +440,10 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
         // removed other assertion
-        assertFalse(subUniqueList.contains("World")); // fails;
+        assertFalse(subUniqueList.contains("World"));// fails;
     }
 
     public void testCollections307_5_oe() {
@@ -462,14 +460,10 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
         // removed other assertion
         // removed other assertion
-
-        // repeat the test with a different class than HashSet;
-        // which means subclassing SetUniqueList below
         list = new ArrayList<>();
         uniqueList = new SetUniqueList307(list, new java.util.TreeSet<E>());
 
@@ -479,7 +473,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         subList = list.subList(0, 0);
         subUniqueList = uniqueList.subList(0, 0);
 
-        assertFalse(subList.contains(world)); // passes;
+        assertFalse(subList.contains(world));// passes;
     }
 
     public void testCollections307_6_oe() {
@@ -496,14 +490,10 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
         // removed other assertion
         // removed other assertion
-
-        // repeat the test with a different class than HashSet;
-        // which means subclassing SetUniqueList below
         list = new ArrayList<>();
         uniqueList = new SetUniqueList307(list, new java.util.TreeSet<E>());
 
@@ -514,7 +504,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         subUniqueList = uniqueList.subList(0, 0);
 
         // removed other assertion
-        assertFalse(subUniqueList.contains(world)); // fails;
+        assertFalse(subUniqueList.contains(world));// fails;
     }
 
     public void testCollections307_7_oe() {
@@ -531,14 +521,10 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
         // removed other assertion
         // removed other assertion
-
-        // repeat the test with a different class than HashSet;
-        // which means subclassing SetUniqueList below
         list = new ArrayList<>();
         uniqueList = new SetUniqueList307(list, new java.util.TreeSet<E>());
 
@@ -550,7 +536,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         worldList = new ArrayList<>();
         worldList.add((E) world);
         assertFalse(subList.contains("World")); // passes;
@@ -570,14 +555,10 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         List<E> worldList = new ArrayList<>();
         worldList.add((E) world);
         // removed other assertion
         // removed other assertion
-
-        // repeat the test with a different class than HashSet;
-        // which means subclassing SetUniqueList below
         list = new ArrayList<>();
         uniqueList = new SetUniqueList307(list, new java.util.TreeSet<E>());
 
@@ -589,7 +570,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         // removed other assertion
         // removed other assertion
-
         worldList = new ArrayList<>();
         worldList.add((E) world);
         // removed other assertion
@@ -817,7 +797,7 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
       final Integer thirdNewElement = Integer.valueOf(4);
       collection = Arrays.asList(existingElement, thirdNewElement);
       list.addAll(0, collection);
-      assertEquals("Duplicate element should not be added, unique element should be added.", 4, list.size());
+      assertEquals("Duplicate element should not be added,unique element should be added.",4,list.size());
     }
 
     public void testIntCollectionAddAll_6_oe() {
@@ -909,22 +889,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         }
 
         assertTrue(uniqueList.retainAll(retained));
-    }
-
-    public void testRetainAll_2_oe() {
-        final List<E> list = new ArrayList<>(10);
-        final SetUniqueList<E> uniqueList = SetUniqueList.setUniqueList(list);
-        for (int i = 0; i < 10; ++i) {
-            uniqueList.add((E)Integer.valueOf(i));
-        }
-
-        final Collection<E> retained = new ArrayList<>(5);
-        for (int i = 0; i < 5; ++i) {
-            retained.add((E)Integer.valueOf(i * 2));
-        }
-
-        // removed other assertion
-        assertEquals(5, uniqueList.size());
     }
 
     public void testRetainAll_3_oe() {
@@ -1039,26 +1003,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         }
 
         assertTrue(uniqueList.retainAll(retained));
-    }
-
-    public void testRetainAllWithInitialList_2_oe() {
-        // initialized with empty list
-        final List<E> list = new ArrayList<>(10);
-        for (int i = 0; i < 5; ++i) {
-            list.add((E)Integer.valueOf(i));
-        }
-        final SetUniqueList<E> uniqueList = SetUniqueList.setUniqueList(list);
-        for (int i = 5; i < 10; ++i) {
-            uniqueList.add((E)Integer.valueOf(i));
-        }
-
-        final Collection<E> retained = new ArrayList<>(5);
-        for (int i = 0; i < 5; ++i) {
-            retained.add((E)Integer.valueOf(i * 2));
-        }
-
-        // removed other assertion
-        assertEquals(5, uniqueList.size());
     }
 
     public void testRetainAllWithInitialList_3_oe() {
@@ -1609,81 +1553,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(a, ul.set(0, b));
     }
 
-    public void testSetDownwardsInList_6_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b]
-         * set(0,b): [b]->a
-         * So UniqList contains [b] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        ul.add(a);
-        ul.add(b);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(1, s.size());
-    }
-
-    public void testSetDownwardsInList_7_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b]
-         * set(0,b): [b]->a
-         * So UniqList contains [b] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        ul.add(a);
-        ul.add(b);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1, l.size());
-    }
-
-    public void testSetDownwardsInList_8_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b]
-         * set(0,b): [b]->a
-         * So UniqList contains [b] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        ul.add(a);
-        ul.add(b);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(b, l.get(0));
-    }
-
     public void testSetDownwardsInList_9_oe() {
         /*
          * Checks the following semantics
@@ -1709,34 +1578,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(s.contains(b));
-    }
-
-    public void testSetDownwardsInList_10_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b]
-         * set(0,b): [b]->a
-         * So UniqList contains [b] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        ul.add(a);
-        ul.add(b);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(s.contains(a));
     }
 
     public void testSetInBiggerList_1_oe() {
@@ -1906,161 +1747,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         // removed other assertion
 
         assertEquals(a, ul.set(0, b));
-    }
-
-    public void testSetInBiggerList_8_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(0,b): [b,c]->a
-         * So UniqList contains [b,c] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        final E c = (E) new Object();
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(2, s.size());
-    }
-
-    public void testSetInBiggerList_9_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(0,b): [b,c]->a
-         * So UniqList contains [b,c] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        final E c = (E) new Object();
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2, l.size());
-    }
-
-    public void testSetInBiggerList_10_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(0,b): [b,c]->a
-         * So UniqList contains [b,c] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        final E c = (E) new Object();
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(b, l.get(0));
-    }
-
-    public void testSetInBiggerList_11_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(0,b): [b,c]->a
-         * So UniqList contains [b,c] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        final E c = (E) new Object();
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(c, l.get(1));
-    }
-
-    public void testSetInBiggerList_12_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(0,b): [b,c]->a
-         * So UniqList contains [b,c] and a is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new Object();
-        final E b = (E) new Object();
-        final E c = (E) new Object();
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(s.contains(a));
     }
 
     public void testSetInBiggerList_13_oe() {
@@ -2301,65 +1987,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(b, ul.set(1, a));
     }
 
-    public void testSetUpwardsInList_8_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(1,a): [a,c]->b
-         * So UniqList contains [a,c] and b is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new String("A");
-        final E b = (E) new String("B");
-        final E c = (E) new String("C");
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(2, s.size());
-    }
-
-    public void testSetUpwardsInList_9_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(1,a): [a,c]->b
-         * So UniqList contains [a,c] and b is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new String("A");
-        final E b = (E) new String("B");
-        final E c = (E) new String("C");
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2, l.size());
-    }
-
     public void testSetUpwardsInList_10_oe() {
         /*
          * Checks the following semantics
@@ -2389,38 +2016,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         // removed other assertion
         // removed other assertion
         assertEquals(a, l.get(0));
-    }
-
-    public void testSetUpwardsInList_11_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(1,a): [a,c]->b
-         * So UniqList contains [a,c] and b is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new String("A");
-        final E b = (E) new String("B");
-        final E c = (E) new String("C");
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(c, l.get(1));
     }
 
     public void testSetUpwardsInList_12_oe() {
@@ -2454,40 +2049,6 @@ public class SetUniqueListTest_OE25Dev<E> extends AbstractListTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(s.contains(a));
-    }
-
-    public void testSetUpwardsInList_13_oe() {
-        /*
-         * Checks the following semantics
-         * [a,b,c]
-         * set(1,a): [a,c]->b
-         * So UniqList contains [a,c] and b is returned
-         */
-        final ArrayList<E> l = new ArrayList<>();
-        final HashSet<E> s = new HashSet<>();
-        final SetUniqueList<E> ul = new SetUniqueList<>(l, s);
-
-        final E a = (E) new String("A");
-        final E b = (E) new String("B");
-        final E c = (E) new String("C");
-
-        ul.add(a);
-        ul.add(b);
-        ul.add(c);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(s.contains(b));
     }
 
     public void testSetUpwardsInList_14_oe() {

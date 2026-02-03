@@ -72,15 +72,15 @@ public class TestConverterSet extends TestCase {
     //-----------------------------------------------------------------------
     public void testClass() throws Exception {
         Class cls = ConverterSet.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
-        assertEquals(1, cls.getDeclaredConstructors().length);
+        assertEquals(1,cls.getDeclaredConstructors().length);
         Constructor con = cls.getDeclaredConstructors()[0];
-        assertEquals(false, Modifier.isPublic(con.getModifiers()));
-        assertEquals(false, Modifier.isProtected(con.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(con.getModifiers()));
+        assertEquals(false,Modifier.isPublic(con.getModifiers()));
+        assertEquals(false,Modifier.isProtected(con.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(con.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
@@ -107,7 +107,7 @@ public class TestConverterSet extends TestCase {
         set.select(ReadWritableInstant.class);  // 16
         set.select(ReadWritableDateTime.class);
         set.select(DateTime.class);
-        assertEquals(4, set.size());
+        assertEquals(4,set.size());
     }
 
     //-----------------------------------------------------------------------
@@ -117,8 +117,8 @@ public class TestConverterSet extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.add(c5, null);
-        assertEquals(4, set.size());
-        assertEquals(5, result.size());
+        assertEquals(4,set.size());
+        assertEquals(5,result.size());
     }
 
     public void testAddNullRemoved2() {
@@ -127,7 +127,7 @@ public class TestConverterSet extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.add(c4, null);
-        assertSame(set, result);
+        assertSame(set,result);
     }
 
     public void testAddNullRemoved3() {
@@ -137,8 +137,8 @@ public class TestConverterSet extends TestCase {
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.add(c4a, null);
         assertTrue(set != result);
-        assertEquals(4, set.size());
-        assertEquals(4, result.size());
+        assertEquals(4,set.size());
+        assertEquals(4,result.size());
     }
 
     //-----------------------------------------------------------------------
@@ -148,8 +148,8 @@ public class TestConverterSet extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.remove(c3, null);
-        assertEquals(4, set.size());
-        assertEquals(3, result.size());
+        assertEquals(4,set.size());
+        assertEquals(3,result.size());
     }
 
     public void testRemoveNullRemoved2() {
@@ -158,7 +158,7 @@ public class TestConverterSet extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.remove(c5, null);
-        assertSame(set, result);
+        assertSame(set,result);
     }
 
     //-----------------------------------------------------------------------
@@ -171,7 +171,7 @@ public class TestConverterSet extends TestCase {
             set.remove(200, null);
             fail();
         } catch (IndexOutOfBoundsException ex) {}
-        assertEquals(4, set.size());
+        assertEquals(4,set.size());
     }
 
     public void testRemoveBadIndex2() {
@@ -183,7 +183,7 @@ public class TestConverterSet extends TestCase {
             set.remove(-1, null);
             fail();
         } catch (IndexOutOfBoundsException ex) {}
-        assertEquals(4, set.size());
+        assertEquals(4,set.size());
     }
 
 }

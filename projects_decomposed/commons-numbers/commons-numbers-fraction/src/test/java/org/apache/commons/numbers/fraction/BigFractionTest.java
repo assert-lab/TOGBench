@@ -38,25 +38,19 @@ class BigFractionTest {
     private static void assertFraction(int expectedNumerator, int expectedDenominator, BigFraction actual) {
         Assertions.assertEquals(expectedNumerator, actual.getNumeratorAsInt());
         Assertions.assertEquals(expectedDenominator, actual.getDenominatorAsInt());
-        Assertions.assertEquals(
-            Integer.signum(expectedNumerator) * Integer.signum(expectedDenominator),
-            actual.signum());
+        Assertions.assertEquals(Integer.signum(expectedNumerator)* Integer.signum(expectedDenominator),actual.signum());
     }
 
     private static void assertFraction(long expectedNumerator, long expectedDenominator, BigFraction actual) {
         Assertions.assertEquals(expectedNumerator, actual.getNumeratorAsLong());
         Assertions.assertEquals(expectedDenominator, actual.getDenominatorAsLong());
-        Assertions.assertEquals(
-            Long.signum(expectedNumerator) * Long.signum(expectedDenominator),
-            actual.signum());
+        Assertions.assertEquals(Long.signum(expectedNumerator)* Long.signum(expectedDenominator),actual.signum());
     }
 
     private static void assertFraction(BigInteger expectedNumerator, BigInteger expectedDenominator, BigFraction actual) {
         Assertions.assertEquals(expectedNumerator, actual.getNumerator());
         Assertions.assertEquals(expectedDenominator, actual.getDenominator());
-        Assertions.assertEquals(
-            expectedNumerator.signum() * expectedDenominator.signum(),
-            actual.signum());
+        Assertions.assertEquals(expectedNumerator.signum()* expectedDenominator.signum(),actual.signum());
     }
 
     private static void assertDoubleValue(double expected, BigInteger numerator, BigInteger denominator) {
@@ -702,8 +696,7 @@ class BigFractionTest {
             BigFraction.of(-5, 2)
         };
         for (final BigFraction fraction : fractions) {
-            Assertions.assertEquals(fraction,
-                                    TestUtils.serializeAndRecover(fraction));
+            Assertions.assertEquals(fraction,TestUtils.serializeAndRecover(fraction));
         }
     }
 
@@ -758,8 +751,7 @@ class BigFractionTest {
         };
         int inc = 0;
         for (final BigFraction fraction: fractions) {
-            Assertions.assertEquals(fraction,
-                                    BigFraction.parse(validExpressions[inc]));
+            Assertions.assertEquals(fraction,BigFraction.parse(validExpressions[inc]));
             inc++;
         }
 

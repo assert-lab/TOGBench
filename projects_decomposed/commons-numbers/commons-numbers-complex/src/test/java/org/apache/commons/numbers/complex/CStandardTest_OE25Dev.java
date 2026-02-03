@@ -214,8 +214,7 @@ class CStandardTest_OE25Dev {
             BiFunction<Complex, Complex, Complex> operation, String operationName,
             Predicate<Complex> expected, String expectedName) {
         final Complex z = operation.apply(c1, c2);
-        Assertions.assertTrue(expected.test(z),
-            () -> String.format("%s expected: %s %s %s = %s", expectedName, c1, operationName, c2, z));
+        Assertions.assertTrue(expected.test(z),()-> String.format("%s expected: %s %s %s = %s",expectedName,c1,operationName,c2,z));
     }
 
     /**
@@ -294,9 +293,7 @@ class CStandardTest_OE25Dev {
         // Test for binary equality
         if (!equals(t1.getReal(), t2.getReal()) ||
             !equals(t1.getImaginary(), t2.getImaginary())) {
-            Assertions.fail(
-                String.format("Conjugate equality failed (z=%s). Expected: %s but was: %s (Unspecified sign = %s)",
-                              z, c1, c2, sign));
+            Assertions.fail(String.format("Conjugate equality failed(z=%s). Expected: %s but was: %s(Unspecified sign = %s)",z,c1,c2,sign));
         }
     }
 
@@ -368,9 +365,7 @@ class CStandardTest_OE25Dev {
         // Test for binary equality
         if (!equals(t1.getReal(), t2.getReal()) ||
             !equals(t1.getImaginary(), t2.getImaginary())) {
-            Assertions.fail(
-                String.format("%s equality failed (z=%s, -z=%s). Expected: %s but was: %s (Unspecified sign = %s)",
-                              type, z, z.negate(), c1, c2, sign));
+            Assertions.fail(String.format("%s equality failed(z=%s,-z=%s). Expected: %s but was: %s(Unspecified sign = %s)",type,z,z.negate(),c1,c2,sign));
             new Exception().printStackTrace();
         }
     }
@@ -483,9 +478,7 @@ class CStandardTest_OE25Dev {
         final Complex t2 = sign.removeSign(expected);
         if (!equals(t1.getReal(), t2.getReal()) ||
             !equals(t1.getImaginary(), t2.getImaginary())) {
-            Assertions.fail(
-                String.format("Operation failed (z=%s). Expected: %s but was: %s (Unspecified sign = %s)",
-                              z, expected, c, sign));
+            Assertions.fail(String.format("Operation failed(z=%s). Expected: %s but was: %s(Unspecified sign = %s)",z,expected,c,sign));
         }
 
         if (!Double.isNaN(z.getImaginary())) {

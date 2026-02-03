@@ -186,7 +186,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
         final FileObject f2 = getManager().resolveFile(uri, options);
 
         // removed other assertion
-        assertSame("Resolving two times should not produce new filesystem on " + uri, f1.getFileSystem(), f2.getFileSystem());
+        assertSame("Resolving two times should not produce new filesystem on " + uri,f1.getFileSystem(),f2.getFileSystem());
     }
 
 }

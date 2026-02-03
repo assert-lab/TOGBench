@@ -78,8 +78,7 @@ public class RemoteCacheUnitTest
         remoteCache.update( element );
 
         // VERIFY
-        assertTrue( "The element should be in the serialized wrapper.",
-                    service.lastUpdate instanceof ICacheElementSerialized );
+        assertTrue("The element should be in the serialized wrapper.",service.lastUpdate instanceof ICacheElementSerialized);
         final ICacheElement<String, String> result = SerializationConversionUtil
             .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
                 .getElementSerializer() );
@@ -110,8 +109,7 @@ public class RemoteCacheUnitTest
         remoteCache.fixCache( service );
 
         // VERIFY
-        assertTrue( "The element should be in the serialized warapper.",
-                    service.lastUpdate instanceof ICacheElementSerialized );
+        assertTrue("The element should be in the serialized warapper.",service.lastUpdate instanceof ICacheElementSerialized);
         final ICacheElement<String, String> result = SerializationConversionUtil
             .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
                 .getElementSerializer() );

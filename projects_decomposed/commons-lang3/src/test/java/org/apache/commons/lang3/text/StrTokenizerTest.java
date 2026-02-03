@@ -63,8 +63,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }
@@ -84,8 +83,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }
@@ -105,8 +103,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }
@@ -126,8 +123,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }
@@ -148,8 +144,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }
@@ -203,8 +198,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }
@@ -224,8 +218,7 @@ public class StrTokenizerTest {
 
         assertEquals(expected.length, tokens.length, ArrayUtils.toString(tokens));
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], tokens[i],
-                    "token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
+            assertEquals(expected[i],tokens[i],"token[" + i + "] was '" + tokens[i] + "' but was expected to be '" + expected[i] + "'");
         }
 
     }

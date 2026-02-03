@@ -126,7 +126,7 @@ public class HeaderExtractorTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // Assert that header only contains the checked elements above and nothing else
-        assertEquals(", , , ", header.replaceFirst(oauth, "") .replaceFirst(callback, "") .replaceFirst(signature, "") .replaceFirst(key, "") .replaceFirst(timestamp, ""));
+        assertEquals(",,,",header.replaceFirst(oauth,"").replaceFirst(callback,"").replaceFirst(signature,"").replaceFirst(key,"").replaceFirst(timestamp,""));
     }
 
 }

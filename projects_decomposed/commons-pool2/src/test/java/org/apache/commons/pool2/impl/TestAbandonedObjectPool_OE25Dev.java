@@ -151,16 +151,9 @@ public class TestAbandonedObjectPool_OE25Dev {
         // One second Duration.
         abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
         assertEquals(TestConstants.ONE_SECOND_DURATION, abandonedConfig.getRemoveAbandonedTimeoutDuration());
-        assertEquals(1, abandonedConfig.getRemoveAbandonedTimeout()); // in seconds.
-        // One second int (not millis).
-        abandonedConfig.setRemoveAbandonedTimeout(1);
+        assertEquals(1,abandonedConfig.getRemoveAbandonedTimeout());// in seconds. abandonedConfig.setRemoveAbandonedTimeout(1);
         assertEquals(TestConstants.ONE_SECOND_DURATION, abandonedConfig.getRemoveAbandonedTimeoutDuration());
-        assertEquals(1, abandonedConfig.getRemoveAbandonedTimeout()); // in seconds.
-
-        pool = new GenericObjectPool<>(
-               new SimpleFactory(),
-               new GenericObjectPoolConfig<>(),
-               abandonedConfig);
+        assertEquals(1,abandonedConfig.getRemoveAbandonedTimeout());// in seconds. pool = new GenericObjectPool<>(new SimpleFactory(),new GenericObjectPoolConfig<>(),abandonedConfig);
     }
 
     @AfterEach

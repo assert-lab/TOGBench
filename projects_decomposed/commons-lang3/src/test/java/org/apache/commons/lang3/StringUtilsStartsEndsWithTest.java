@@ -125,11 +125,9 @@ public class StringUtilsStartsEndsWithTest {
         assertFalse(StringUtils.endsWith(FOOBAR, bar), "endsWith(FOOBAR, bar)");
 
         // "alpha, beta, gamma, delta".endsWith("delta")
-        assertTrue(StringUtils.endsWith("\u03B1\u03B2\u03B3\u03B4", "\u03B4"),
-                "endsWith(\u03B1\u03B2\u03B3\u03B4, \u03B4)");
+        assertTrue(StringUtils.endsWith("\u03B1\u03B2\u03B3\u03B4","\u03B4"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u03B4)");
         // "alpha, beta, gamma, delta".endsWith("gamma, DELTA")
-        assertFalse(StringUtils.endsWith("\u03B1\u03B2\u03B3\u03B4", "\u03B3\u0394"),
-                "endsWith(\u03B1\u03B2\u03B3\u03B4, \u03B3\u0394)");
+        assertFalse(StringUtils.endsWith("\u03B1\u03B2\u03B3\u03B4","\u03B3\u0394"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u03B3\u0394)");
     }
 
     /**
@@ -161,11 +159,9 @@ public class StringUtilsStartsEndsWithTest {
         assertFalse(StringUtils.endsWithIgnoreCase("ABCDEF", "cde"));
 
         // "alpha, beta, gamma, delta".endsWith("DELTA")
-        assertTrue(StringUtils.endsWithIgnoreCase("\u03B1\u03B2\u03B3\u03B4", "\u0394"),
-                "endsWith(\u03B1\u03B2\u03B3\u03B4, \u0394)");
+        assertTrue(StringUtils.endsWithIgnoreCase("\u03B1\u03B2\u03B3\u03B4","\u0394"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u0394)");
         // "alpha, beta, gamma, delta".endsWith("GAMMA")
-        assertFalse(StringUtils.endsWithIgnoreCase("\u03B1\u03B2\u03B3\u03B4", "\u0393"),
-                "endsWith(\u03B1\u03B2\u03B3\u03B4, \u0393)");
+        assertFalse(StringUtils.endsWithIgnoreCase("\u03B1\u03B2\u03B3\u03B4","\u0393"),"endsWith(\u03B1\u03B2\u03B3\u03B4,\u0393)");
     }
 
     @Test

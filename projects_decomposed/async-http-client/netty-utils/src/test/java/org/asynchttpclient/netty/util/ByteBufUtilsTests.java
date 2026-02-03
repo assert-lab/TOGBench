@@ -52,8 +52,7 @@ public class ByteBufUtilsTests {
         Charset charset = Charset.forName("US-ASCII");
 
         try {
-            Assert.assertEquals(
-                    ByteBufUtils.byteBuf2String(charset, byteBuf), "foo");
+            Assert.assertEquals(ByteBufUtils.byteBuf2String(charset,byteBuf),"foo");
         } finally {
             byteBuf.release();
         }
@@ -65,8 +64,7 @@ public class ByteBufUtilsTests {
         ByteBuf byteBuf2 = Unpooled.wrappedBuffer(new byte[]{'o', 'o'});
 
         try {
-            Assert.assertEquals(ByteBufUtils.byteBuf2String(
-                    Charset.forName("ISO-8859-1"), byteBuf1, byteBuf2), "foo");
+            Assert.assertEquals(ByteBufUtils.byteBuf2String(Charset.forName("ISO-8859-1"),byteBuf1,byteBuf2),"foo");
         } finally {
             byteBuf1.release();
             byteBuf2.release();

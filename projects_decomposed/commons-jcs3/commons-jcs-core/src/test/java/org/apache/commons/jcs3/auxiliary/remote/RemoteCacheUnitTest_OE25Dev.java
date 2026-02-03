@@ -133,7 +133,7 @@ public class RemoteCacheUnitTest_OE25Dev
         remoteCache.update( element );
 
         // VERIFY
-        assertTrue( "The element should be in the serialized wrapper.", service.lastUpdate instanceof ICacheElementSerialized );
+        assertTrue("The element should be in the serialized wrapper.",service.lastUpdate instanceof ICacheElementSerialized);
     }
 
     public void testUpdate_2_oe()
@@ -201,7 +201,7 @@ public class RemoteCacheUnitTest_OE25Dev
         remoteCache.fixCache( service );
 
         // VERIFY
-        assertTrue( "The element should be in the serialized warapper.", service.lastUpdate instanceof ICacheElementSerialized );
+        assertTrue("The element should be in the serialized warapper.",service.lastUpdate instanceof ICacheElementSerialized);
     }
 
     public void testUpdateZombieThenFix_2_oe()

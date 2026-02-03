@@ -63,7 +63,7 @@ class MatricesTest_OE25Dev {
     @Test
     void testDeterminant_2x2_1_oe() {
         // act/assert
-        Assertions.assertEquals(1, Matrices.determinant( 1, 0, 0, 1), EPS);
+        Assertions.assertEquals(1,Matrices.determinant(1,0,0,1),EPS);
     }
 
     @Test
@@ -71,7 +71,7 @@ class MatricesTest_OE25Dev {
         // act/assert
         // removed other assertion
 
-        Assertions.assertEquals(-1, Matrices.determinant( -1, 0, 0, 1), EPS);
+        Assertions.assertEquals(-1,Matrices.determinant(-1,0,0,1),EPS);
     }
 
     @Test
@@ -81,7 +81,7 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(0, Matrices.determinant( 1, 1, 1, 1), EPS);
+        Assertions.assertEquals(0,Matrices.determinant(1,1,1,1),EPS);
     }
 
     @Test
@@ -93,7 +93,7 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(-2, Matrices.determinant( 1, 2, 3, 4), EPS);
+        Assertions.assertEquals(-2,Matrices.determinant(1,2,3,4),EPS);
     }
 
     @Test
@@ -107,7 +107,7 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(7, Matrices.determinant( -5, -4, -2, -3), EPS);
+        Assertions.assertEquals(7,Matrices.determinant(-5,-4,-2,-3),EPS);
     }
 
     @Test
@@ -123,13 +123,13 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(9, Matrices.determinant( -1, -2, 6, 3), EPS);
+        Assertions.assertEquals(9,Matrices.determinant(-1,-2,6,3),EPS);
     }
 
     @Test
     void testDeterminant_3x3_1_oe() {
         // act/assert
-        Assertions.assertEquals(1, Matrices.determinant( 1, 0, 0, 0, 1, 0, 0, 0, 1), EPS);
+        Assertions.assertEquals(1,Matrices.determinant(1,0,0,0,1,0,0,0,1),EPS);
     }
 
     @Test
@@ -137,7 +137,7 @@ class MatricesTest_OE25Dev {
         // act/assert
         // removed other assertion
 
-        Assertions.assertEquals(-1, Matrices.determinant( -1, 0, 0, 0, -1, 0, 0, 0, -1), EPS);
+        Assertions.assertEquals(-1,Matrices.determinant(-1,0,0,0,-1,0,0,0,-1),EPS);
     }
 
     @Test
@@ -147,7 +147,7 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(0, Matrices.determinant( 1, 2, 3, 4, 5, 6, 7, 8, 9), EPS);
+        Assertions.assertEquals(0,Matrices.determinant(1,2,3,4,5,6,7,8,9),EPS);
     }
 
     @Test
@@ -159,7 +159,7 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(49, Matrices.determinant( 2, -3, 1, 2, 0, -1, 1, 4, 5), EPS);
+        Assertions.assertEquals(49,Matrices.determinant(2,-3,1,2,0,-1,1,4,5),EPS);
     }
 
     @Test
@@ -173,7 +173,7 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertEquals(-40, Matrices.determinant( -5, 0, -1, 1, 2, -1, -3, 4, 1 ), EPS);
+        Assertions.assertEquals(-40,Matrices.determinant(-5,0,-1,1,2,-1,-3,4,1),EPS);
     }
 
     @Test

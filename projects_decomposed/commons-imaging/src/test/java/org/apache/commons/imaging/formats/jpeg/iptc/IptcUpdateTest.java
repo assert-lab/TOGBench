@@ -66,8 +66,7 @@ public class IptcUpdateTest extends IptcBaseTest {
                 new ByteSourceFile(noIptcFile), params);
 
         // FIXME should either be null or empty
-        assertTrue(outMetadata == null
-                || outMetadata.getItems().isEmpty());
+        assertTrue(outMetadata == null || outMetadata.getItems().isEmpty());
     }
 
     public File removeIptc(final ByteSource byteSource, final File imageFile) throws Exception {

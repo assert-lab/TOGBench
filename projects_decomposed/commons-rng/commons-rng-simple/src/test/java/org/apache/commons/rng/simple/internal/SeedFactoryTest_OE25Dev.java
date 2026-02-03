@@ -181,10 +181,7 @@ class SeedFactoryTest_OE25Dev {
         // (Re-runs are not configured for this test.)
         final double absSum = Math.abs(sum);
         final double max = Math.sqrt(numberOfBits) * 3.891;
-        Assertions.assertTrue(absSum <= max,
-            () -> "Walked too far astray: " + absSum +
-                  " > " + max +
-                  " (test will fail randomly about 1 in 10,000 times)");
+        Assertions.assertTrue(absSum <= max,()-> "Walked too far astray: " + absSum + " > " + max + "(test will fail randomly about 1 in 10,000 times)");
     }
 
     @Test
@@ -376,7 +373,7 @@ class SeedFactoryTest_OE25Dev {
                 return expected;
             }
         };
-        Assertions.assertEquals(expected, SeedFactory.ensureNonZero(source, 0), "Zero should be replaced using the random source");
+        Assertions.assertEquals(expected,SeedFactory.ensureNonZero(source,0),"Zero should be replaced using the random source");
     }
 
     @Test
@@ -390,7 +387,7 @@ class SeedFactoryTest_OE25Dev {
         };
         // removed other assertion
         for (final long nonZero : new long[] {Long.MIN_VALUE, -1, 1, 9876654321L, Long.MAX_VALUE}) {
-            Assertions.assertEquals(nonZero, SeedFactory.ensureNonZero(source, nonZero), "Non-zero should be unmodified");
+            Assertions.assertEquals(nonZero,SeedFactory.ensureNonZero(source,nonZero),"Non-zero should be unmodified");
     }
     }
 

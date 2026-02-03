@@ -115,7 +115,7 @@ class GeometricSamplerTest_OE25Dev {
     void testProbabilityOfSuccessIsOneSamplerToString_1_oe() {
         final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
         final SharedStateDiscreteSampler sampler = GeometricSampler.of(unusedRng, 1);
-        Assertions.assertTrue(sampler.toString().contains("Geometric"), "Missing 'Geometric' from toString");
+        Assertions.assertTrue(sampler.toString().contains("Geometric"),"Missing 'Geometric' from toString");
     }
 
     @Test
@@ -124,7 +124,7 @@ class GeometricSamplerTest_OE25Dev {
         final SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, Double.MIN_VALUE);
         // All samples should be max value
         for (int i = 0; i < 10; i++) {
-            Assertions.assertEquals(Integer.MAX_VALUE, sampler.sample(), "p=(almost 0) should have Integer.MAX_VALUE for all samples");
+            Assertions.assertEquals(Integer.MAX_VALUE,sampler.sample(),"p=(almost 0)should have Integer.MAX_VALUE for all samples");
     }
     }
 

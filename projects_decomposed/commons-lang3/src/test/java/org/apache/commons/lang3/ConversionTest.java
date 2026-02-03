@@ -485,10 +485,8 @@ public class ConversionTest {
         assertEquals(0x00000000CDF1F0C1L, Conversion.intArrayToLong(src, 0, 0L, 0, 1));
         assertEquals(0x0F123456CDF1F0C1L, Conversion.intArrayToLong(src, 0, 0L, 0, 2));
         assertEquals(0x000000000F123456L, Conversion.intArrayToLong(src, 1, 0L, 0, 1));
-        assertEquals(
-            0x123456789ABCDEF0L, Conversion.intArrayToLong(src, 0, 0x123456789ABCDEF0L, 0, 0));
-        assertEquals(
-            0x1234567878000000L, Conversion.intArrayToLong(src, 2, 0x123456789ABCDEF0L, 0, 1));
+        assertEquals(0x123456789ABCDEF0L,Conversion.intArrayToLong(src,0,0x123456789ABCDEF0L,0,0));
+        assertEquals(0x1234567878000000L,Conversion.intArrayToLong(src,2,0x123456789ABCDEF0L,0,1));
         // assertEquals(0x0F12345678000000L, Conversion.intsToLong(src, 1, 0x123456789ABCDEF0L, 32, 2));
     }
 
@@ -503,14 +501,9 @@ public class ConversionTest {
         assertEquals(0x000000000000CDF1L, Conversion.shortArrayToLong(src, 0, 0L, 0, 1));
         assertEquals(0x00000000F0C1CDF1L, Conversion.shortArrayToLong(src, 0, 0L, 0, 2));
         assertEquals(0x780034560F12F0C1L, Conversion.shortArrayToLong(src, 1, 0L, 0, 4));
-        assertEquals(
-            0x123456789ABCDEF0L, Conversion.shortArrayToLong(src, 0, 0x123456789ABCDEF0L, 0, 0));
-        assertEquals(
-            0x123456CDF1BCDEF0L,
-            Conversion.shortArrayToLong(src, 0, 0x123456789ABCDEF0L, 24, 1));
-        assertEquals(
-            0x123478003456DEF0L,
-            Conversion.shortArrayToLong(src, 3, 0x123456789ABCDEF0L, 16, 2));
+        assertEquals(0x123456789ABCDEF0L,Conversion.shortArrayToLong(src,0,0x123456789ABCDEF0L,0,0));
+        assertEquals(0x123456CDF1BCDEF0L,Conversion.shortArrayToLong(src,0,0x123456789ABCDEF0L,24,1));
+        assertEquals(0x123478003456DEF0L,Conversion.shortArrayToLong(src,3,0x123456789ABCDEF0L,16,2));
     }
 
     /**
@@ -525,12 +518,9 @@ public class ConversionTest {
         assertEquals(0x00000000000000CDL, Conversion.byteArrayToLong(src, 0, 0L, 0, 1));
         assertEquals(0x00000000C1F0F1CDL, Conversion.byteArrayToLong(src, 0, 0L, 0, 4));
         assertEquals(0x000000000FC1F0F1L, Conversion.byteArrayToLong(src, 1, 0L, 0, 4));
-        assertEquals(
-            0x123456789ABCDEF0L, Conversion.byteArrayToLong(src, 0, 0x123456789ABCDEF0L, 0, 0));
-        assertEquals(
-            0x12345678CDBCDEF0L, Conversion.byteArrayToLong(src, 0, 0x123456789ABCDEF0L, 24, 1));
-        assertEquals(
-            0x123456789A7856F0L, Conversion.byteArrayToLong(src, 7, 0x123456789ABCDEF0L, 8, 2));
+        assertEquals(0x123456789ABCDEF0L,Conversion.byteArrayToLong(src,0,0x123456789ABCDEF0L,0,0));
+        assertEquals(0x12345678CDBCDEF0L,Conversion.byteArrayToLong(src,0,0x123456789ABCDEF0L,24,1));
+        assertEquals(0x123456789A7856F0L,Conversion.byteArrayToLong(src,7,0x123456789ABCDEF0L,8,2));
     }
 
     /**
@@ -594,10 +584,8 @@ public class ConversionTest {
         assertEquals(0x000000000000000CL, Conversion.hexToLong(src, 0, 0L, 0, 1));
         assertEquals(0x000000001C0F1FDCL, Conversion.hexToLong(src, 0, 0L, 0, 8));
         assertEquals(0x0000000001C0F1FDL, Conversion.hexToLong(src, 1, 0L, 0, 8));
-        assertEquals(
-            0x123456798ABCDEF0L, Conversion.hexToLong(src, 0, 0x123456798ABCDEF0L, 0, 0));
-        assertEquals(
-            0x1234567876BCDEF0L, Conversion.hexToLong(src, 15, 0x123456798ABCDEF0L, 24, 3));
+        assertEquals(0x123456798ABCDEF0L,Conversion.hexToLong(src,0,0x123456798ABCDEF0L,0,0));
+        assertEquals(0x1234567876BCDEF0L,Conversion.hexToLong(src,15,0x123456798ABCDEF0L,24,3));
     }
 
     /**
@@ -659,11 +647,8 @@ public class ConversionTest {
         assertEquals(0x000000000000000CL, Conversion.binaryToLong(src, 0, 0L, 0, 1 * 4));
         assertEquals(0x000000001C0F1FDCL, Conversion.binaryToLong(src, 0, 0L, 0, 8 * 4));
         assertEquals(0x0000000001C0F1FDL, Conversion.binaryToLong(src, 1 * 4, 0L, 0, 8 * 4));
-        assertEquals(
-            0x123456798ABCDEF0L, Conversion.binaryToLong(src, 0, 0x123456798ABCDEF0L, 0, 0));
-        assertEquals(
-            0x1234567876BCDEF0L,
-            Conversion.binaryToLong(src, 15 * 4, 0x123456798ABCDEF0L, 24, 3 * 4));
+        assertEquals(0x123456798ABCDEF0L,Conversion.binaryToLong(src,0,0x123456798ABCDEF0L,0,0));
+        assertEquals(0x1234567876BCDEF0L,Conversion.binaryToLong(src,15 * 4,0x123456798ABCDEF0L,24,3 * 4));
     }
 
     /**
@@ -704,10 +689,8 @@ public class ConversionTest {
         assertEquals((short) 0x000C, Conversion.binaryToShort(src, 0 * 4, (short) 0, 0, 1 * 4));
         assertEquals((short) 0x1FDC, Conversion.binaryToShort(src, 0 * 4, (short) 0, 0, 4 * 4));
         assertEquals((short) 0xF1FD, Conversion.binaryToShort(src, 1 * 4, (short) 0, 0, 4 * 4));
-        assertEquals(
-            (short) 0x1234, Conversion.binaryToShort(src, 0 * 4, (short) 0x1234, 0, 0 * 4));
-        assertEquals(
-            (short) 0x8764, Conversion.binaryToShort(src, 15 * 4, (short) 0x1234, 4, 3 * 4));
+        assertEquals((short)0x1234,Conversion.binaryToShort(src,0 * 4,(short)0x1234,0,0 * 4));
+        assertEquals((short)0x8764,Conversion.binaryToShort(src,15 * 4,(short)0x1234,4,3 * 4));
     }
 
     /**
@@ -1182,55 +1165,24 @@ public class ConversionTest {
         assertEquals("", Conversion.longToHex(0x0000000000000000L, 0, "", 0, 0));
         assertEquals("", Conversion.longToHex(0x0000000000000000L, 100, "", 0, 0));
         assertEquals("", Conversion.longToHex(0x0000000000000000L, 0, "", 100, 0));
-        assertEquals(
-            "ffffffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 0, 0));
-        assertEquals(
-            "3fffffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDE3L, 0, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "feffffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 0, 2));
-        assertEquals(
-            "fedcffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 0, 4));
-        assertEquals(
-            "fedcba098765432fffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 0, 15));
-        assertEquals(
-            "fedcba0987654321ffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 0, 16));
-        assertEquals(
-            "fff3ffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDE3L, 0, "ffffffffffffffffffffffff", 3, 1));
-        assertEquals(
-            "ffffefffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 3, 2));
-        assertEquals(
-            "ffffedcfffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 3, 4));
-        assertEquals(
-            "ffffedcba098765432ffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 3, 15));
-        assertEquals(
-            "ffffedcba0987654321fffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 0, "ffffffffffffffffffffffff", 3, 16));
-        assertEquals(
-            "7fffffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 1, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "bfffffffffffffffffffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 2, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "fffdb975121fca86420fffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 3, "ffffffffffffffffffffffff", 3, 16));
+        assertEquals("ffffffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",0,0));
+        assertEquals("3fffffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDE3L,0,"ffffffffffffffffffffffff",0,1));
+        assertEquals("feffffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",0,2));
+        assertEquals("fedcffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",0,4));
+        assertEquals("fedcba098765432fffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",0,15));
+        assertEquals("fedcba0987654321ffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",0,16));
+        assertEquals("fff3ffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDE3L,0,"ffffffffffffffffffffffff",3,1));
+        assertEquals("ffffefffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",3,2));
+        assertEquals("ffffedcfffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",3,4));
+        assertEquals("ffffedcba098765432ffffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",3,15));
+        assertEquals("ffffedcba0987654321fffff",Conversion.longToHex(0x1234567890ABCDEFL,0,"ffffffffffffffffffffffff",3,16));
+        assertEquals("7fffffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,1,"ffffffffffffffffffffffff",0,1));
+        assertEquals("bfffffffffffffffffffffff",Conversion.longToHex(0x1234567890ABCDEFL,2,"ffffffffffffffffffffffff",0,1));
+        assertEquals("fffdb975121fca86420fffff",Conversion.longToHex(0x1234567890ABCDEFL,3,"ffffffffffffffffffffffff",3,16));
         // assertEquals("ffffffffffffffffffffffff", Conversion.longToHex(0x1234567890ABCDEFL, 4, "ffffffffffffffffffffffff", 3, 16));//rejected
         // by assertion
-        assertEquals(
-            "fffedcba0987654321ffffff",
-            Conversion.longToHex(0x1234567890ABCDEFL, 4, "ffffffffffffffffffffffff", 3, 15));
-        assertEquals(
-            "fedcba0987654321", Conversion.longToHex(0x1234567890ABCDEFL, 0, "", 0, 16));
+        assertEquals("fffedcba0987654321ffffff",Conversion.longToHex(0x1234567890ABCDEFL,4,"ffffffffffffffffffffffff",3,15));
+        assertEquals("fedcba0987654321",Conversion.longToHex(0x1234567890ABCDEFL,0,"",0,16));
         assertThrows(StringIndexOutOfBoundsException.class, () -> Conversion.longToHex(0x1234567890ABCDEFL, 0, "", 1, 8));
     }
 
@@ -1242,53 +1194,23 @@ public class ConversionTest {
         assertEquals("", Conversion.intToHex(0x00000000, 0, "", 0, 0));
         assertEquals("", Conversion.intToHex(0x00000000, 100, "", 0, 0));
         assertEquals("", Conversion.intToHex(0x00000000, 0, "", 100, 0));
-        assertEquals(
-            "ffffffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 0, 0));
-        assertEquals(
-            "3fffffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDE3, 0, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "feffffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 0, 2));
-        assertEquals(
-            "fedcffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 0, 4));
-        assertEquals(
-            "fedcba0fffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 0, 7));
-        assertEquals(
-            "fedcba09ffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 0, 8));
-        assertEquals(
-            "fff3ffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDE3, 0, "ffffffffffffffffffffffff", 3, 1));
-        assertEquals(
-            "ffffefffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 3, 2));
-        assertEquals(
-            "ffffedcfffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 3, 4));
-        assertEquals(
-            "ffffedcba0ffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 3, 7));
-        assertEquals(
-            "ffffedcba09fffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 0, "ffffffffffffffffffffffff", 3, 8));
-        assertEquals(
-            "7fffffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 1, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "bfffffffffffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 2, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "fffdb97512ffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 3, "ffffffffffffffffffffffff", 3, 8));
+        assertEquals("ffffffffffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",0,0));
+        assertEquals("3fffffffffffffffffffffff",Conversion.intToHex(0x90ABCDE3,0,"ffffffffffffffffffffffff",0,1));
+        assertEquals("feffffffffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",0,2));
+        assertEquals("fedcffffffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",0,4));
+        assertEquals("fedcba0fffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",0,7));
+        assertEquals("fedcba09ffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",0,8));
+        assertEquals("fff3ffffffffffffffffffff",Conversion.intToHex(0x90ABCDE3,0,"ffffffffffffffffffffffff",3,1));
+        assertEquals("ffffefffffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",3,2));
+        assertEquals("ffffedcfffffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",3,4));
+        assertEquals("ffffedcba0ffffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",3,7));
+        assertEquals("ffffedcba09fffffffffffff",Conversion.intToHex(0x90ABCDEF,0,"ffffffffffffffffffffffff",3,8));
+        assertEquals("7fffffffffffffffffffffff",Conversion.intToHex(0x90ABCDEF,1,"ffffffffffffffffffffffff",0,1));
+        assertEquals("bfffffffffffffffffffffff",Conversion.intToHex(0x90ABCDEF,2,"ffffffffffffffffffffffff",0,1));
+        assertEquals("fffdb97512ffffffffffffff",Conversion.intToHex(0x90ABCDEF,3,"ffffffffffffffffffffffff",3,8));
         // assertEquals("ffffffffffffffffffffffff", Conversion.intToHex(0x90ABCDEF,
         // 4, "ffffffffffffffffffffffff", 3, 8));//rejected by assertion
-        assertEquals(
-            "fffedcba09ffffffffffffff",
-            Conversion.intToHex(0x90ABCDEF, 4, "ffffffffffffffffffffffff", 3, 7));
+        assertEquals("fffedcba09ffffffffffffff",Conversion.intToHex(0x90ABCDEF,4,"ffffffffffffffffffffffff",3,7));
         assertEquals("fedcba09", Conversion.intToHex(0x90ABCDEF, 0, "", 0, 8));
         assertThrows(StringIndexOutOfBoundsException.class, () -> Conversion.intToHex(0x90ABCDEF, 0, "", 1, 8));
     }
@@ -1301,41 +1223,19 @@ public class ConversionTest {
         assertEquals("", Conversion.shortToHex((short) 0x0000, 0, "", 0, 0));
         assertEquals("", Conversion.shortToHex((short) 0x0000, 100, "", 0, 0));
         assertEquals("", Conversion.shortToHex((short) 0x0000, 0, "", 100, 0));
-        assertEquals(
-            "ffffffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 0, "ffffffffffffffffffffffff", 0, 0));
-        assertEquals(
-            "3fffffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDE3, 0, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "feffffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 0, "ffffffffffffffffffffffff", 0, 2));
-        assertEquals(
-            "fedfffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 0, "ffffffffffffffffffffffff", 0, 3));
-        assertEquals(
-            "fedcffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 0, "ffffffffffffffffffffffff", 0, 4));
-        assertEquals(
-            "fff3ffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDE3, 0, "ffffffffffffffffffffffff", 3, 1));
-        assertEquals(
-            "ffffefffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 0, "ffffffffffffffffffffffff", 3, 2));
-        assertEquals(
-            "7fffffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 1, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "bfffffffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 2, "ffffffffffffffffffffffff", 0, 1));
-        assertEquals(
-            "fffdb9ffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 3, "ffffffffffffffffffffffff", 3, 4));
+        assertEquals("ffffffffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,0,"ffffffffffffffffffffffff",0,0));
+        assertEquals("3fffffffffffffffffffffff",Conversion.shortToHex((short)0xCDE3,0,"ffffffffffffffffffffffff",0,1));
+        assertEquals("feffffffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,0,"ffffffffffffffffffffffff",0,2));
+        assertEquals("fedfffffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,0,"ffffffffffffffffffffffff",0,3));
+        assertEquals("fedcffffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,0,"ffffffffffffffffffffffff",0,4));
+        assertEquals("fff3ffffffffffffffffffff",Conversion.shortToHex((short)0xCDE3,0,"ffffffffffffffffffffffff",3,1));
+        assertEquals("ffffefffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,0,"ffffffffffffffffffffffff",3,2));
+        assertEquals("7fffffffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,1,"ffffffffffffffffffffffff",0,1));
+        assertEquals("bfffffffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,2,"ffffffffffffffffffffffff",0,1));
+        assertEquals("fffdb9ffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,3,"ffffffffffffffffffffffff",3,4));
         // assertEquals("ffffffffffffffffffffffff", Conversion.shortToHex((short) 0xCDEF,
         // 4, "ffffffffffffffffffffffff", 3, 4));//rejected by assertion
-        assertEquals(
-            "fffedcffffffffffffffffff",
-            Conversion.shortToHex((short) 0xCDEF, 4, "ffffffffffffffffffffffff", 3, 3));
+        assertEquals("fffedcffffffffffffffffff",Conversion.shortToHex((short)0xCDEF,4,"ffffffffffffffffffffffff",3,3));
         assertEquals("fedc", Conversion.shortToHex((short) 0xCDEF, 0, "", 0, 4));
         assertThrows(StringIndexOutOfBoundsException.class, () -> Conversion.shortToHex((short) 0xCDEF, 0, "", 1, 4));
     }
@@ -1377,9 +1277,7 @@ public class ConversionTest {
         assertArrayEquals(
             new boolean[]{},
             Conversion.longToBinary(0x0000000000000000L, 0, new boolean[]{}, 100, 0));
-        assertArrayEquals(
-            new boolean[69],
-            Conversion.longToBinary(0x1234567890ABCDEFL, 0, new boolean[69], 0, 0));
+        assertArrayEquals(new boolean[69],Conversion.longToBinary(0x1234567890ABCDEFL,0,new boolean[69],0,0));
 
         assertArrayEquals(
             new boolean[]{
@@ -1497,8 +1395,7 @@ public class ConversionTest {
             new boolean[]{}, Conversion.intToBinary(0x00000000, 100, new boolean[]{}, 0, 0));
         assertArrayEquals(
             new boolean[]{}, Conversion.intToBinary(0x00000000, 0, new boolean[]{}, 100, 0));
-        assertArrayEquals(
-            new boolean[69], Conversion.intToBinary(0x90ABCDEF, 0, new boolean[69], 0, 0));
+        assertArrayEquals(new boolean[69],Conversion.intToBinary(0x90ABCDEF,0,new boolean[69],0,0));
         assertArrayEquals(new boolean[]{
             true, false, false, false, false, false, false, false, false, false, false, false,
             false, false, false, false, false, false, false, false, false, false, false, false,
@@ -1576,8 +1473,7 @@ public class ConversionTest {
         assertArrayEquals(
             new boolean[]{},
             Conversion.shortToBinary((short) 0x0000, 0, new boolean[]{}, 100, 0));
-        assertArrayEquals(
-            new boolean[69], Conversion.shortToBinary((short) 0xCDEF, 0, new boolean[69], 0, 0));
+        assertArrayEquals(new boolean[69],Conversion.shortToBinary((short)0xCDEF,0,new boolean[69],0,0));
         assertArrayEquals(
             new boolean[]{
                 true, false, false, false, false, false, false, false, false, false, false,
@@ -1646,8 +1542,7 @@ public class ConversionTest {
             new boolean[]{}, Conversion.byteToBinary((byte) 0x00, 100, new boolean[]{}, 0, 0));
         assertArrayEquals(
             new boolean[]{}, Conversion.byteToBinary((byte) 0x00, 0, new boolean[]{}, 100, 0));
-        assertArrayEquals(
-            new boolean[69], Conversion.byteToBinary((byte) 0xEF, 0, new boolean[69], 0, 0));
+        assertArrayEquals(new boolean[69],Conversion.byteToBinary((byte)0xEF,0,new boolean[69],0,0));
         assertArrayEquals(new boolean[]{
             true, false, false, false, false, false, false, false, false, false, false, false,
             false}, Conversion.byteToBinary((byte) 0x95, 0, new boolean[13], 0, 1));

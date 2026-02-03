@@ -219,8 +219,7 @@ class Point2STest {
 
                 // check that the azimuth and polar components of the point are correct by creating a
                 // new point and checking the distance
-                Assertions.assertEquals(Math.PI,
-                        Point2S.of(result.getAzimuth(), result.getPolar()).distance(pt), TEST_EPS);
+                Assertions.assertEquals(Math.PI,Point2S.of(result.getAzimuth(),result.getPolar()).distance(pt),TEST_EPS);
 
                 // check that the vectors point in opposite directions
                 Assertions.assertEquals(-1, pt.getVector().dot(result.getVector()), TEST_EPS);

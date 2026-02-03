@@ -220,7 +220,7 @@ class TextStlWriterTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "solid \n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -269,7 +269,7 @@ class TextStlWriterTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "solid Name of the solid\n" + "endsolid Name of the solid\n", out.toString());
+        Assertions.assertEquals("solid Name of the solid\n" + "endsolid Name of the solid\n",out.toString());
     }
 
     @Test
@@ -315,7 +315,7 @@ class TextStlWriterTest_OE25Dev {
 
         // assert
         // removed other assertion
-        Assertions.assertEquals( "solid name\n" + "endsolid name\n", out.toString());
+        Assertions.assertEquals("solid name\n" + "endsolid name\n",out.toString());
     }
 
     @Test
@@ -332,7 +332,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet -0.9961250701090868 -0.08301042250909056 -0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet -0.9961250701090868 -0.08301042250909056 -0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -349,7 +349,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet -0.9961250701090868 -0.08301042250909056 -0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet -0.9961250701090868 -0.08301042250909056 -0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -366,7 +366,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -385,7 +385,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet -0.9961250701090868 -0.08301042250909056 -0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet -0.9961250701090868 -0.08301042250909056 -0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -404,7 +404,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.9961250701090868 0.08301042250909056 0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.9961250701090868 0.08301042250909056 0.029053647878181696\n" + "outer loop\n" + "vertex 0.0 4.0 0.0\n" + "vertex 0.0 0.5 10.0\n" + "vertex 0.3333333333333333 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -425,7 +425,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 -1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 -1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -443,7 +443,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -509,7 +509,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 -1.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 0.0 1.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 -1.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 1.0\n" + "vertex 0.0 0.0 1.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 -1.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 0.0 1.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 -1.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 1.0\n" + "vertex 0.0 0.0 1.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -526,7 +526,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -545,7 +545,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 1.0 1.0 0.0\n" + "vertex 0.0 1.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -569,7 +569,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \r\n" + "facet 0.0 0.0 1.0\r\n" + "outer loop\r\n" + "vertex 0.0 0.0 0.0\r\n" + "vertex 0.333 0.0 0.0\r\n" + "vertex 0.0 0.333 0.0\r\n" + "endloop\r\n" + "endfacet\r\n" + "endsolid \r\n", out.toString());
+        Assertions.assertEquals("solid \r\n" + "facet 0.0 0.0 1.0\r\n" + "outer loop\r\n" + "vertex 0.0 0.0 0.0\r\n" + "vertex 0.333 0.0 0.0\r\n" + "vertex 0.0 0.333 0.0\r\n" + "endloop\r\n" + "endfacet\r\n" + "endsolid \r\n",out.toString());
     }
 
     @Test
@@ -586,7 +586,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 1.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
     @Test
@@ -602,7 +602,7 @@ class TextStlWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "solid \n" + "facet 0.0 0.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n", out.toString());
+        Assertions.assertEquals("solid \n" + "facet 0.0 0.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
     }
 
 }

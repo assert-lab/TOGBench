@@ -100,13 +100,11 @@ class MultidimensionalCounterTest {
 
         final int nDim = c.getDimension();
         for (int i = 0; i < totalSize; i++) {
-            Assertions.assertEquals(i, c.toUni(expected[i]),
-                                    "Wrong unidimensional index for [" + i + "]");
+            Assertions.assertEquals(i,c.toUni(expected[i]),"Wrong unidimensional index for [" + i + "]");
 
             final int[] indices = c.toMulti(i);
             for (int dimIndex = 0; dimIndex < nDim; dimIndex++) {
-                Assertions.assertEquals(expected[i][dimIndex], indices[dimIndex],
-                                        "Wrong multidimensional index for [" + i + "][" + dimIndex + "]");
+                Assertions.assertEquals(expected[i][dimIndex],indices[dimIndex],"Wrong multidimensional index for [" + i + "][" + dimIndex + "]");
             }
         }
     }

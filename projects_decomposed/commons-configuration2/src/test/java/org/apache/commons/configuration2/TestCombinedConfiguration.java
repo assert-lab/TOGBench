@@ -499,8 +499,7 @@ public class TestCombinedConfiguration {
         assertEquals("Wrong number of contained configurations", config.getNumberOfConfigurations(), cc2.getNumberOfConfigurations());
         assertSame("Wrong node combiner", config.getNodeCombiner(), cc2.getNodeCombiner());
         assertEquals("Wrong number of names", config.getConfigurationNames().size(), cc2.getConfigurationNames().size());
-        assertTrue("Found duplicate event listeners",
-            Collections.disjoint(cc2.getEventListeners(ConfigurationEvent.ANY), config.getEventListeners(ConfigurationEvent.ANY)));
+        assertTrue("Found duplicate event listeners",Collections.disjoint(cc2.getEventListeners(ConfigurationEvent.ANY),config.getEventListeners(ConfigurationEvent.ANY)));
 
         final StrictConfigurationComparator comp = new StrictConfigurationComparator();
         for (int i = 0; i < config.getNumberOfConfigurations(); i++) {

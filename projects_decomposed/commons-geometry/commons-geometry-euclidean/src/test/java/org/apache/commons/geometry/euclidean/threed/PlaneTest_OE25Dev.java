@@ -698,7 +698,7 @@ class PlaneTest_OE25Dev {
         final Plane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        Assertions.assertTrue(plane.contains( Lines3D.fromPoints(Vector3D.of(1, 0, 0), Vector3D.of(2, 0, 0), TEST_PRECISION)));
+        Assertions.assertTrue(plane.contains(Lines3D.fromPoints(Vector3D.of(1,0,0),Vector3D.of(2,0,0),TEST_PRECISION)));
     }
 
     @Test
@@ -708,7 +708,7 @@ class PlaneTest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertTrue(plane.contains( Lines3D.fromPoints(Vector3D.of(-1, 0, 0), Vector3D.of(-2, 0, 0), TEST_PRECISION)));
+        Assertions.assertTrue(plane.contains(Lines3D.fromPoints(Vector3D.of(-1,0,0),Vector3D.of(-2,0,0),TEST_PRECISION)));
     }
 
     @Test
@@ -720,7 +720,7 @@ class PlaneTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertFalse(plane.contains( Lines3D.fromPoints(Vector3D.of(1, 0, 2), Vector3D.of(2, 0, 2), TEST_PRECISION)));
+        Assertions.assertFalse(plane.contains(Lines3D.fromPoints(Vector3D.of(1,0,2),Vector3D.of(2,0,2),TEST_PRECISION)));
     }
 
     @Test
@@ -733,7 +733,7 @@ class PlaneTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertFalse(plane.contains( Lines3D.fromPoints(Vector3D.ZERO, Vector3D.of(2, 0, 2), TEST_PRECISION)));
+        Assertions.assertFalse(plane.contains(Lines3D.fromPoints(Vector3D.ZERO,Vector3D.of(2,0,2),TEST_PRECISION)));
     }
 
     @Test
@@ -891,7 +891,7 @@ class PlaneTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertFalse(planeA.contains(Planes.fromPoints(p1.add(offset), p2.add(offset), p3.add(offset), TEST_PRECISION)));
+        Assertions.assertFalse(planeA.contains(Planes.fromPoints(p1.add(offset),p2.add(offset),p3.add(offset),TEST_PRECISION)));
     }
 
     @Test
@@ -1305,7 +1305,7 @@ class PlaneTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(0.3, plane.offset(Vector3D.Sum.of(p1).addScaled(0.3, plane.getNormal()).get()), TEST_EPS);
+        Assertions.assertEquals(0.3,plane.offset(Vector3D.Sum.of(p1).addScaled(0.3,plane.getNormal()).get()),TEST_EPS);
     }
 
     @Test
@@ -1318,7 +1318,7 @@ class PlaneTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(-0.3, plane.offset(Vector3D.Sum.of(p1).addScaled(-0.3, plane.getNormal()).get()), TEST_EPS);
+        Assertions.assertEquals(-0.3,plane.offset(Vector3D.Sum.of(p1).addScaled(-0.3,plane.getNormal()).get()),TEST_EPS);
     }
 
     @Test
@@ -1838,7 +1838,7 @@ class PlaneTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertNull(plane.intersection(Lines3D.fromPoints(Vector3D.of(10, 10, 10), Vector3D.of(10, 10, 10).add(plane.getNormal().orthogonal()), TEST_PRECISION)));
+        Assertions.assertNull(plane.intersection(Lines3D.fromPoints(Vector3D.of(10,10,10),Vector3D.of(10,10,10).add(plane.getNormal().orthogonal()),TEST_PRECISION)));
     }
 
     @Test

@@ -268,19 +268,13 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         final String stringArray1[] = {"abc"};
         final String stringArray2[] = {"abc", "def"};
 
-        assertEquals("intArray0", null,
-                LocaleConvertUtils.convert(intArray0));
-        assertEquals("intArray1", "123",
-                LocaleConvertUtils.convert(intArray1));
-        assertEquals("intArray2", "123",
-                LocaleConvertUtils.convert(intArray2));
+        assertEquals("intArray0",null,LocaleConvertUtils.convert(intArray0));
+        assertEquals("intArray1","123",LocaleConvertUtils.convert(intArray1));
+        assertEquals("intArray2","123",LocaleConvertUtils.convert(intArray2));
 
-        assertEquals("stringArray0", null,
-                LocaleConvertUtils.convert(stringArray0));
-        assertEquals("stringArray1", "abc",
-                LocaleConvertUtils.convert(stringArray1));
-        assertEquals("stringArray2", "abc",
-                LocaleConvertUtils.convert(stringArray2));
+        assertEquals("stringArray0",null,LocaleConvertUtils.convert(stringArray0));
+        assertEquals("stringArray1","abc",LocaleConvertUtils.convert(stringArray1));
+        assertEquals("stringArray2","abc",LocaleConvertUtils.convert(stringArray2));
 
     }
 
@@ -436,13 +430,11 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
     private void checkIntegerArray(final Object value, final int intArray[]) {
 
         assertNotNull("Returned value is not null", value);
-        assertEquals("Returned value is int[]",
-                intArray.getClass(), value.getClass());
+        assertEquals("Returned value is int[]",intArray.getClass(),value.getClass());
         final int results[] = (int[]) value;
         assertEquals("Returned array length", intArray.length, results.length);
         for (int i = 0; i < intArray.length; i++) {
-            assertEquals("Returned array value " + i,
-                    intArray[i], results[i]);
+            assertEquals("Returned array value " + i,intArray[i],results[i]);
         }
 
     }
@@ -451,14 +443,11 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
     private void checkStringArray(final Object value, final String stringArray[]) {
 
         assertNotNull("Returned value is not null", value);
-        assertEquals("Returned value is String[]",
-                stringArray.getClass(), value.getClass());
+        assertEquals("Returned value is String[]",stringArray.getClass(),value.getClass());
         final String results[] = (String[]) value;
-        assertEquals("Returned array length",
-                stringArray.length, results.length);
+        assertEquals("Returned array length",stringArray.length,results.length);
         for (int i = 0; i < stringArray.length; i++) {
-            assertEquals("Returned array value " + i,
-                    stringArray[i], results[i]);
+            assertEquals("Returned array value " + i,stringArray[i],results[i]);
         }
 
     }
@@ -466,20 +455,20 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
 
     public void testObjectToStringScalar_1_oe() {
 
-        assertEquals("Boolean->String", "false", LocaleConvertUtils.convert(Boolean.FALSE));
+        assertEquals("Boolean->String","false",LocaleConvertUtils.convert(Boolean.FALSE));
     }
 
     public void testObjectToStringScalar_2_oe() {
 
         // removed other assertion
-        assertEquals("Boolean->String", "true", LocaleConvertUtils.convert(Boolean.TRUE));
+        assertEquals("Boolean->String","true",LocaleConvertUtils.convert(Boolean.TRUE));
     }
 
     public void testObjectToStringScalar_3_oe() {
 
         // removed other assertion
         // removed other assertion
-        assertEquals("Byte->String", "123", LocaleConvertUtils.convert(new Byte((byte) 123)));
+        assertEquals("Byte->String","123",LocaleConvertUtils.convert(new Byte((byte)123)));
     }
 
     public void testObjectToStringScalar_4_oe() {
@@ -487,7 +476,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Character->String", "a", LocaleConvertUtils.convert(new Character('a')));
+        assertEquals("Character->String","a",LocaleConvertUtils.convert(new Character('a')));
     }
 
     public void testObjectToStringScalar_5_oe() {
@@ -496,7 +485,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Double->String", "123" + m_decimalSeparator + "4", LocaleConvertUtils.convert(new Double(123.4)));
+        assertEquals("Double->String","123" + m_decimalSeparator + "4",LocaleConvertUtils.convert(new Double(123.4)));
     }
 
     public void testObjectToStringScalar_6_oe() {
@@ -506,7 +495,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Float->String", "123" + m_decimalSeparator + "4", LocaleConvertUtils.convert(new Float((float) 123.4)));
+        assertEquals("Float->String","123" + m_decimalSeparator + "4",LocaleConvertUtils.convert(new Float((float)123.4)));
     }
 
     public void testObjectToStringScalar_7_oe() {
@@ -517,7 +506,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Integer->String", "123", LocaleConvertUtils.convert(new Integer(123)));
+        assertEquals("Integer->String","123",LocaleConvertUtils.convert(new Integer(123)));
     }
 
     public void testObjectToStringScalar_8_oe() {
@@ -529,7 +518,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Long->String", "123", LocaleConvertUtils.convert(new Long(123)));
+        assertEquals("Long->String","123",LocaleConvertUtils.convert(new Long(123)));
     }
 
     public void testObjectToStringScalar_9_oe() {
@@ -542,7 +531,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Short->String", "123", LocaleConvertUtils.convert(new Short((short) 123)));
+        assertEquals("Short->String","123",LocaleConvertUtils.convert(new Short((short)123)));
     }
 
     public void testObjectToStringScalar_10_oe() {
@@ -556,7 +545,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("String->String", "abc", LocaleConvertUtils.convert("abc"));
+        assertEquals("String->String","abc",LocaleConvertUtils.convert("abc"));
     }
 
     public void testObjectToStringScalar_11_oe() {
@@ -571,7 +560,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("String->String null", null, LocaleConvertUtils.convert(null));
+        assertEquals("String->String null",null,LocaleConvertUtils.convert(null));
     }
 
     public void testPositiveScalar_1_oe() {
@@ -1476,7 +1465,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = LocaleConvertUtils.convert("123" + m_decimalSeparator + "456", Float.TYPE);
         // removed other assertion
-        assertEquals(((Float) value).floatValue(), (float) 123.456, (float) 0.005);
+        assertEquals(((Float)value).floatValue(),(float)123.456,(float)0.005);
     }
 
     public void testPositiveScalar_11_oe() {
@@ -1693,7 +1682,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
 
         value = LocaleConvertUtils.convert("123" + m_decimalSeparator + "456", Float.class);
         // removed other assertion
-        assertEquals(((Float) value).floatValue(), (float) 123.456, (float) 0.005);
+        assertEquals(((Float)value).floatValue(),(float)123.456,(float)0.005);
     }
 
     public void testPositiveScalar_13_oe() {
@@ -3631,7 +3620,7 @@ public class LocaleConvertUtilsTestCase_OE25Dev extends TestCase {
 
     public void testDefaultToStringConversionUnsupportedType_1_oe() {
         final Integer value = 20131101;
-        assertEquals("Wrong result", value.toString(), LocaleConvertUtils.convert(value.toString(), getClass()));
+        assertEquals("Wrong result",value.toString(),LocaleConvertUtils.convert(value.toString(),getClass()));
     }
 
 }

@@ -1124,7 +1124,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     };
     HttpRequest request = get(url);
     // removed other assertion
-    assertEquals(30000, request.readTimeout(30000).getConnection() .getReadTimeout());
+    assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
   }
 
   @Test
@@ -1141,7 +1141,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     HttpRequest request = get(url);
     // removed other assertion
     // removed other assertion
-    assertEquals(50000, request.connectTimeout(50000).getConnection() .getConnectTimeout());
+    assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
   }
 
   @Test
@@ -3543,7 +3543,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     int code = post(url).form(data).form("zip", "12345").code();
     // removed other assertion
     // removed other assertion
-    assertEquals("application/x-www-form-urlencoded; charset=UTF-8", contentType.get());
+    assertEquals("application/x-www-form-urlencoded;charset=UTF-8",contentType.get());
   }
 
   @Test
@@ -5234,7 +5234,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   public void singleVerifier_1_oe() {
     HttpRequest request1 = get("https://localhost").trustAllHosts();
     HttpRequest request2 = get("https://localhost").trustAllHosts();
-    assertNotNull(((HttpsURLConnection) request1.getConnection()) .getHostnameVerifier());
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier());
   }
 
   @Test
@@ -5242,7 +5242,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     HttpRequest request1 = get("https://localhost").trustAllHosts();
     HttpRequest request2 = get("https://localhost").trustAllHosts();
     // removed other assertion
-    assertNotNull(((HttpsURLConnection) request2.getConnection()) .getHostnameVerifier());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
   }
 
   @Test
@@ -5251,14 +5251,14 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     HttpRequest request2 = get("https://localhost").trustAllHosts();
     // removed other assertion
     // removed other assertion
-    assertEquals( ((HttpsURLConnection) request1.getConnection()).getHostnameVerifier(), ((HttpsURLConnection) request2.getConnection()).getHostnameVerifier());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
   }
 
   @Test
   public void singleSslSocketFactory_1_oe() {
     HttpRequest request1 = get("https://localhost").trustAllCerts();
     HttpRequest request2 = get("https://localhost").trustAllCerts();
-    assertNotNull(((HttpsURLConnection) request1.getConnection()) .getSSLSocketFactory());
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory());
   }
 
   @Test
@@ -5266,7 +5266,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     HttpRequest request1 = get("https://localhost").trustAllCerts();
     HttpRequest request2 = get("https://localhost").trustAllCerts();
     // removed other assertion
-    assertNotNull(((HttpsURLConnection) request2.getConnection()) .getSSLSocketFactory());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 
   @Test
@@ -5275,7 +5275,7 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     HttpRequest request2 = get("https://localhost").trustAllCerts();
     // removed other assertion
     // removed other assertion
-    assertEquals( ((HttpsURLConnection) request1.getConnection()).getSSLSocketFactory(), ((HttpsURLConnection) request2.getConnection()).getSSLSocketFactory());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
   }
 
   @Test
@@ -8104,34 +8104,34 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
 
   @Test
   public void appendMappedQueryParamsWithNoPath_1_oe() throws Exception {
-    assertEquals( "http://test.com/?a=b", HttpRequest.append("http://test.com", Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com",Collections.singletonMap("a","b")));
   }
 
   @Test
   public void appendVarargsQueryParmasWithNoPath_1_oe() throws Exception {
-    assertEquals("http://test.com/?a=b", HttpRequest.append("http://test.com", "a", "b"));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com","a","b"));
   }
 
   @Test
   public void appendMappedQueryParamsWithPath_1_oe() throws Exception {
-    assertEquals( "http://test.com/segment1?a=b", HttpRequest.append("http://test.com/segment1", Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1",Collections.singletonMap("a","b")));
   }
 
   @Test
   public void appendMappedQueryParamsWithPath_2_oe() throws Exception {
     // removed other assertion
-    assertEquals( "http://test.com/?a=b", HttpRequest.append("http://test.com/", Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/",Collections.singletonMap("a","b")));
   }
 
   @Test
   public void appendVarargsQueryParamsWithPath_1_oe() throws Exception {
-    assertEquals("http://test.com/segment1?a=b", HttpRequest.append("http://test.com/segment1", "a", "b"));
+    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1","a","b"));
   }
 
   @Test
   public void appendVarargsQueryParamsWithPath_2_oe() throws Exception {
     // removed other assertion
-    assertEquals("http://test.com/?a=b", HttpRequest.append("http://test.com/", "a", "b"));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/","a","b"));
   }
 
   @Test
@@ -8139,32 +8139,32 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     Map<String, Object> params = new LinkedHashMap<String, Object>();
     params.put("a", "b");
     params.put("c", "d");
-    assertEquals("http://test.com/1?a=b&c=d", HttpRequest.append("http://test.com/1", params));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1",params));
   }
 
   @Test
   public void appendMultipleVarargsQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1?a=b&c=d", HttpRequest.append("http://test.com/1", "a", "b", "c", "d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1","a","b","c","d"));
   }
 
   @Test
   public void appendNullMappedQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1", HttpRequest.append("http://test.com/1", (Map<?, ?>) null));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Map<?,?>)null));
   }
 
   @Test
   public void appendNullVaragsQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1", HttpRequest.append("http://test.com/1", (Object[]) null));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Object[])null));
   }
 
   @Test
   public void appendEmptyMappedQueryParams_1_oe() throws Exception {
-    assertEquals( "http://test.com/1", HttpRequest.append("http://test.com/1", Collections.<String, String> emptyMap()));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",Collections.<String,String> emptyMap()));
   }
 
   @Test
   public void appendEmptyVarargsQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1", HttpRequest.append("http://test.com/1", new Object[0]));
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",new Object[0]));
   }
 
   @Test
@@ -8172,44 +8172,44 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     Map<String, Object> params = new LinkedHashMap<String, Object>();
     params.put("a", null);
     params.put("b", null);
-    assertEquals("http://test.com/1?a=&b=", HttpRequest.append("http://test.com/1", params));
+    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1",params));
   }
 
   @Test
   public void appendWithNullVaragsQueryParamValues_1_oe() throws Exception {
-    assertEquals("http://test.com/1?a=&b=", HttpRequest.append("http://test.com/1", "a", null, "b", null));
+    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1","a",null,"b",null));
   }
 
   @Test
   public void appendMappedQueryParamsWithExistingQueryStart_1_oe() {
-    assertEquals( "http://test.com/1?a=b", HttpRequest.append("http://test.com/1?", Collections.singletonMap("a", "b")));
+    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?",Collections.singletonMap("a","b")));
   }
 
   @Test
   public void appendVarargsQueryParamsWithExistingQueryStart_1_oe() {
-    assertEquals("http://test.com/1?a=b", HttpRequest.append("http://test.com/1?", "a", "b"));
+    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?","a","b"));
   }
 
   @Test
   public void appendMappedQueryParamsWithExistingParams_1_oe() {
-    assertEquals( "http://test.com/1?a=b&c=d", HttpRequest.append("http://test.com/1?a=b", Collections.singletonMap("c", "d")));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b",Collections.singletonMap("c","d")));
   }
 
   @Test
   public void appendMappedQueryParamsWithExistingParams_2_oe() {
     // removed other assertion
-    assertEquals( "http://test.com/1?a=b&c=d", HttpRequest.append("http://test.com/1?a=b&", Collections.singletonMap("c", "d")));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&",Collections.singletonMap("c","d")));
   }
 
   @Test
   public void appendWithVarargsQueryParamsWithExistingParams_1_oe() {
-    assertEquals("http://test.com/1?a=b&c=d", HttpRequest.append("http://test.com/1?a=b", "c", "d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b","c","d"));
   }
 
   @Test
   public void appendWithVarargsQueryParamsWithExistingParams_2_oe() {
     // removed other assertion
-    assertEquals("http://test.com/1?a=b&c=d", HttpRequest.append("http://test.com/1?a=b&", "c", "d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&","c","d"));
   }
 
   @Test

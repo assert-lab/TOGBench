@@ -224,8 +224,7 @@ public class TimeValidatorTest extends TestCase {
         assertNotNull("pattern result", result);
         assertEquals("pattern zone",  EST, result.getTimeZone());
         assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
-        assertEquals("pattern day",    11, result.get(Calendar.MONTH)); // months are 0-11
-        assertEquals("pattern day",    31, result.get(Calendar.DATE));
+        assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
         assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
         assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
         result = null;
@@ -235,8 +234,7 @@ public class TimeValidatorTest extends TestCase {
         assertNotNull("pattern result", result);
         assertEquals("pattern zone",  GMT, result.getTimeZone());
         assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
-        assertEquals("pattern day",    11, result.get(Calendar.MONTH)); // months are 0-11
-        assertEquals("pattern day",    31, result.get(Calendar.DATE));
+        assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
         assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
         assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
         result = null;

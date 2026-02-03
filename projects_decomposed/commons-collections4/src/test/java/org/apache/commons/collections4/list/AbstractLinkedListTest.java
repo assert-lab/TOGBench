@@ -176,8 +176,7 @@ public abstract class AbstractLinkedListTest<E> extends AbstractListTest<E> {
         for (int i = 0; i < list.size; i++) {
             assertEquals(list.getNode(i, false).next, list.getNode(i + 1, true));
             if (i < list.size - 1) {
-                assertEquals(list.getNode(i + 1, false).previous,
-                    list.getNode(i, false));
+                assertEquals(list.getNode(i + 1,false).previous,list.getNode(i,false));
             }
         }
     }

@@ -289,8 +289,7 @@ public class IteratorUtilsTest {
         assertTrue(iterator.next().equals("b"));
         assertTrue(iterator.next().equals("c"));
         assertTrue(iterator.next().equals("d"));
-        assertTrue(iterator.nextIndex() == 4); // size of list
-        assertTrue(iterator.previousIndex() == 3);
+        assertTrue(iterator.nextIndex()== 4);// size of list assertTrue(iterator.previousIndex()== 3);
 
         try {
             iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));

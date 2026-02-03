@@ -20,9 +20,7 @@ public class EnumUtilTest {
 		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A, Options.B))).isEqualTo(3);
 
 		assertThat(EnumUtil.processBits(Options.class, 3)).hasSize(2).containsExactly(Options.A, Options.B);
-		assertThat(EnumUtil.processBits(Options.class,
-				EnumUtil.generateBits(Options.class, Options.A, Options.C, Options.D))).hasSize(3)
-						.containsExactly(Options.A, Options.C, Options.D);
+		assertThat(EnumUtil.processBits(Options.class,EnumUtil.generateBits(Options.class,Options.A,Options.C,Options.D))).hasSize(3).containsExactly(Options.A,Options.C,Options.D);
 
 	}
 

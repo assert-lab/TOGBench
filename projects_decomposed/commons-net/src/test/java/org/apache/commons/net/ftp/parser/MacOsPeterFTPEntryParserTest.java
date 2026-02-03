@@ -88,8 +88,7 @@ public class MacOsPeterFTPEntryParserTest extends FTPParseTestFramework {
         cal.set(Calendar.HOUR_OF_DAY, 15);
         cal.set(Calendar.MINUTE, 13);
 
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp()
-                .getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
     }
 
     @Override
@@ -128,24 +127,15 @@ public class MacOsPeterFTPEntryParserTest extends FTPParseTestFramework {
      * @param f
      */
     private void checkPermissions(final FTPFile f) {
-        assertTrue("Should have user read permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should have user write permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have user execute permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have group read permission.", f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should NOT have group write permission.", !f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have group execute permission.", f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have world read permission.", f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should NOT have world write permission.", !f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have world execute permission.", f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have user execute permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should NOT have group write permission.",!f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should NOT have world write permission.",!f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     @Override

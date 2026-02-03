@@ -391,7 +391,7 @@ public class TestNtpPacket_OE25Dev {
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
         // removed other assertion
-        Assert.assertEquals(48, dp.getLength()); // fixed 48-byte length;
+        Assert.assertEquals(48,dp.getLength());// fixed 48-byte length;
     }
 
     @Test
@@ -426,7 +426,6 @@ public class TestNtpPacket_OE25Dev {
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
         // removed other assertion
         // removed other assertion
-
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);
@@ -466,7 +465,6 @@ public class TestNtpPacket_OE25Dev {
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
         // removed other assertion
         // removed other assertion
-
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);
@@ -507,7 +505,6 @@ public class TestNtpPacket_OE25Dev {
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
         // removed other assertion
         // removed other assertion
-
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);

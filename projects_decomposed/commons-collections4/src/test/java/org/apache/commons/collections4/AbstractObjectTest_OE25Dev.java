@@ -287,7 +287,7 @@ public abstract class AbstractObjectTest_OE25Dev extends BulkTest {
     public void testObjectHashCodeEqualsContract_1_oe() {
         final Object obj1 = makeObject();
         if (obj1.equals(obj1)) {
-            assertEquals( "[1] When two objects are equal, their hashCodes should be also.", obj1.hashCode(), obj1.hashCode());
+            assertEquals("[1] When two objects are equal,their hashCodes should be also.",obj1.hashCode(),obj1.hashCode());
     }
     }
 
@@ -298,7 +298,7 @@ public abstract class AbstractObjectTest_OE25Dev extends BulkTest {
         }
         final Object obj2 = makeObject();
         if (obj1.equals(obj2)) {
-            assertEquals( "[2] When two objects are equal, their hashCodes should be also.", obj1.hashCode(), obj2.hashCode());
+            assertEquals("[2] When two objects are equal,their hashCodes should be also.",obj1.hashCode(),obj2.hashCode());
     }
     }
 
@@ -310,7 +310,7 @@ public abstract class AbstractObjectTest_OE25Dev extends BulkTest {
         final Object obj2 = makeObject();
         if (obj1.equals(obj2)) {
             // removed other assertion
-            assertTrue( "When obj1.equals(obj2) is true, then obj2.equals(obj1) should also be true", obj2.equals(obj1));
+            assertTrue("When obj1.equals(obj2)is true,then obj2.equals(obj1)should also be true",obj2.equals(obj1));
     }
     }
 
@@ -329,7 +329,7 @@ public abstract class AbstractObjectTest_OE25Dev extends BulkTest {
             final Object object = makeObject();
             if (object instanceof Serializable) {
                 final String name = getCanonicalEmptyCollectionName(object);
-                assertTrue( "Canonical empty collection (" + name + ") is not in SVN", new File(name).exists());
+                assertTrue("Canonical empty collection(" + name + ")is not in SVN",new File(name).exists());
     }
     }
     }
@@ -339,7 +339,7 @@ public abstract class AbstractObjectTest_OE25Dev extends BulkTest {
             final Object object = makeObject();
             if (object instanceof Serializable) {
                 final String name = getCanonicalFullCollectionName(object);
-                assertTrue( "Canonical full collection (" + name + ") is not in SVN", new File(name).exists());
+                assertTrue("Canonical full collection(" + name + ")is not in SVN",new File(name).exists());
     }
     }
     }

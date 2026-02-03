@@ -152,7 +152,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         pd = fetchDescriptor(props, "fluentGetProperty");
-        assertNotNull("No read method for fluentGetProperty", pd.getReadMethod());
+        assertNotNull("No read method for fluentGetProperty",pd.getReadMethod());
     }
 
     public void testIntrospection_6_oe() throws IntrospectionException {
@@ -170,7 +170,7 @@ public class FluentPropertyBeanIntrospectorTestCase_OE25Dev extends TestCase {
         // removed other assertion
         pd = fetchDescriptor(props, "fluentGetProperty");
         // removed other assertion
-        assertNotNull("No write method for fluentGetProperty", pd.getWriteMethod());
+        assertNotNull("No write method for fluentGetProperty",pd.getWriteMethod());
     }
 
     public void testIntrospectionCaps_1_oe() throws Exception {

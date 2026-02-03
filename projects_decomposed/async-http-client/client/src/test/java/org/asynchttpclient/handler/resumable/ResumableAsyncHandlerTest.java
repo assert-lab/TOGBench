@@ -122,8 +122,7 @@ public class ResumableAsyncHandlerTest {
 
     HttpResponseBodyPart bodyPart = mock(HttpResponseBodyPart.class);
     State state = handler.onBodyPartReceived(bodyPart);
-    assertEquals(state, AsyncHandler.State.ABORT,
-            "State should be ABORT if the resumableListener threw an exception in onBodyPartReceived");
+    assertEquals(state,AsyncHandler.State.ABORT,"State should be ABORT if the resumableListener threw an exception in onBodyPartReceived");
   }
 
   @Test

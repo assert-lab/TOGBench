@@ -36,17 +36,12 @@ class HyperplaneSubsetsTest {
         final StubRegion1D region = new StubRegion1D();
 
         // act/assert
-        Assertions.assertEquals(RegionLocation.INSIDE,
-                HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1, 0), line, region));
-        Assertions.assertEquals(RegionLocation.BOUNDARY,
-                HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0, 0), line, region));
+        Assertions.assertEquals(RegionLocation.INSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,0),line,region));
+        Assertions.assertEquals(RegionLocation.BOUNDARY,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0,0),line,region));
 
-        Assertions.assertEquals(RegionLocation.OUTSIDE,
-                HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0, 1), line, region));
-        Assertions.assertEquals(RegionLocation.OUTSIDE,
-                HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1, 1), line, region));
-        Assertions.assertEquals(RegionLocation.OUTSIDE,
-                HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1, -1), line, region));
+        Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0,1),line,region));
+        Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,1),line,region));
+        Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,-1),line,region));
     }
 
     @Test

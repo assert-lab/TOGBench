@@ -94,7 +94,7 @@ public class TestTextFields extends TestCase {
             for (int month=1; month<=12; month++) {
                 DateTime dt = new DateTime(2004, month, 1, 1, 20, 30, 40, ZONES[i]);
                 String monthText = printer.print(dt);
-                assertEquals(MONTHS[month], monthText);
+                assertEquals(MONTHS[month],monthText);
             }
         }
     }
@@ -105,7 +105,7 @@ public class TestTextFields extends TestCase {
             for (int month=1; month<=12; month++) {
                 DateTime dt = new DateTime(2004, month, 15, 12, 20, 30, 40, ZONES[i]);
                 String monthText = printer.print(dt);
-                assertEquals(MONTHS[month], monthText);
+                assertEquals(MONTHS[month],monthText);
             }
         }
     }
@@ -119,7 +119,7 @@ public class TestTextFields extends TestCase {
                 int lastDay = chrono.dayOfMonth().getMaximumValue(dt.getMillis());
                 dt = new DateTime(2004, month, lastDay, 23, 20, 30, 40, chrono);
                 String monthText = printer.print(dt);
-                assertEquals(MONTHS[month], monthText);
+                assertEquals(MONTHS[month],monthText);
             }
         }
     }
@@ -132,7 +132,7 @@ public class TestTextFields extends TestCase {
                 mdt.setDayOfYear(day);
                 int weekday = mdt.getDayOfWeek();
                 String weekdayText = printer.print(mdt);
-                assertEquals(WEEKDAYS[weekday], weekdayText);
+                assertEquals(WEEKDAYS[weekday],weekdayText);
             }
         }
     }
@@ -146,7 +146,7 @@ public class TestTextFields extends TestCase {
                 mdt.setHourOfDay(hour);
                 int halfday = mdt.get(chrono.halfdayOfDay());
                 String halfdayText = printer.print(mdt);
-                assertEquals(HALFDAYS[halfday], halfdayText);
+                assertEquals(HALFDAYS[halfday],halfdayText);
             }
         }
     }

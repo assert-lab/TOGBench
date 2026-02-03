@@ -243,8 +243,7 @@ class ArithmeticUtilsTest {
             // expected
         }
 
-        Assertions.assertEquals((long) Integer.MAX_VALUE * (Integer.MAX_VALUE - 1),
-            ArithmeticUtils.lcm((long)Integer.MAX_VALUE, Integer.MAX_VALUE - 1));
+        Assertions.assertEquals((long)Integer.MAX_VALUE *(Integer.MAX_VALUE - 1),ArithmeticUtils.lcm((long)Integer.MAX_VALUE,Integer.MAX_VALUE - 1));
         try {
             ArithmeticUtils.lcm(Long.MAX_VALUE, Long.MAX_VALUE - 1);
             Assertions.fail("Expecting ArithmeticException");
@@ -328,10 +327,8 @@ class ArithmeticUtilsTest {
     void testPowInt() {
         final int base = 21;
 
-        Assertions.assertEquals(85766121L,
-                            ArithmeticUtils.pow(base, 6));
-        Assertions.assertEquals(1801088541L,
-                            ArithmeticUtils.pow(base, 7));
+        Assertions.assertEquals(85766121L,ArithmeticUtils.pow(base,6));
+        Assertions.assertEquals(1801088541L,ArithmeticUtils.pow(base,7));
     }
 
     @Test
@@ -345,10 +342,8 @@ class ArithmeticUtilsTest {
     void testPowNegativeInt() {
         final int base = -21;
 
-        Assertions.assertEquals(85766121,
-                            ArithmeticUtils.pow(base, 6));
-        Assertions.assertEquals(-1801088541,
-                            ArithmeticUtils.pow(base, 7));
+        Assertions.assertEquals(85766121,ArithmeticUtils.pow(base,6));
+        Assertions.assertEquals(-1801088541,ArithmeticUtils.pow(base,7));
     }
 
     @Test
@@ -380,10 +375,8 @@ class ArithmeticUtilsTest {
     void testPowLong() {
         final long base = 21;
 
-        Assertions.assertEquals(154472377739119461L,
-                            ArithmeticUtils.pow(base, 13));
-        Assertions.assertEquals(3243919932521508681L,
-                            ArithmeticUtils.pow(base, 14));
+        Assertions.assertEquals(154472377739119461L,ArithmeticUtils.pow(base,13));
+        Assertions.assertEquals(3243919932521508681L,ArithmeticUtils.pow(base,14));
     }
 
     @Test
@@ -397,10 +390,8 @@ class ArithmeticUtilsTest {
     void testPowNegativeLong() {
         final long base = -21;
 
-        Assertions.assertEquals(-154472377739119461L,
-                            ArithmeticUtils.pow(base, 13));
-        Assertions.assertEquals(3243919932521508681L,
-                            ArithmeticUtils.pow(base, 14));
+        Assertions.assertEquals(-154472377739119461L,ArithmeticUtils.pow(base,13));
+        Assertions.assertEquals(3243919932521508681L,ArithmeticUtils.pow(base,14));
     }
 
     @Test

@@ -78,14 +78,12 @@ public class GmtTimeZoneTest {
 
     @Test
     public void testGetOffset() {
-        assertEquals(-(6 * 60 + 30) * 60 * 1000,
-            new GmtTimeZone(true, 6, 30).getOffset(1, 1, 1, 1, 1, 1));
+        assertEquals(-(6 * 60 + 30)* 60 * 1000,new GmtTimeZone(true,6,30).getOffset(1,1,1,1,1,1));
     }
 
     @Test
     public void testToString() {
-        assertEquals("[GmtTimeZone id=\"GMT-12:00\",offset=-43200000]",
-            new GmtTimeZone(true, 12, 0).toString());
+        assertEquals("[GmtTimeZone id=\"GMT-12:00\",offset=-43200000]",new GmtTimeZone(true,12,0).toString());
     }
 
     @Test

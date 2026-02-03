@@ -270,9 +270,7 @@ public class PatriciaTrieTest<V> extends AbstractSortedMapTest<String, V> {
         Assert.assertFalse(iterator.hasNext());
 
         map = trie.prefixMap("");
-        Assert.assertSame(trie, map); // stricter than necessary, but a good check
-
-        map = trie.prefixMap("\0");
+        Assert.assertSame(trie,map);// stricter than necessary,but a good check map = trie.prefixMap("\0");
         Assert.assertTrue(map.isEmpty());
         Assert.assertEquals(0, map.size());
         try {

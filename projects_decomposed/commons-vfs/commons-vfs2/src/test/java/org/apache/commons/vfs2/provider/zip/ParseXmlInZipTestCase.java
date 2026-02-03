@@ -134,8 +134,7 @@ public class ParseXmlInZipTestCase {
         try {
             testResolveAndParseXmlInZip("read-xml-tests/name-not-well-formed.xml", "/read-xml-tests/name.xsd");
         } catch (final SAXException e) {
-            Assert.assertTrue(
-                    e.toString().contains("XML document structures must start and end within the same entity."));
+            Assert.assertTrue(e.toString().contains("XML document structures must start and end within the same entity."));
         }
     }
 

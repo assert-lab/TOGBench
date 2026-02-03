@@ -327,14 +327,14 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
         throws CacheException
     {
         final CacheAccess<String, String> swap = JCS.getInstance( "Swap" );
-        assertEquals( ICompositeCacheAttributes.DiskUsagePattern.SWAP, swap.getCacheAttributes() .getDiskUsagePattern() );
+        assertEquals(ICompositeCacheAttributes.DiskUsagePattern.SWAP,swap.getCacheAttributes().getDiskUsagePattern());
     }
 
     public void testUpdateConfig_1_oe()
         throws CacheException
     {
         final CacheAccess<String, String> swap = JCS.getInstance( "Update" );
-        assertEquals( ICompositeCacheAttributes.DiskUsagePattern.UPDATE, swap.getCacheAttributes() .getDiskUsagePattern() );
+        assertEquals(ICompositeCacheAttributes.DiskUsagePattern.UPDATE,swap.getCacheAttributes().getDiskUsagePattern());
     }
 
     public void testSpoolAllowed_1_oe()

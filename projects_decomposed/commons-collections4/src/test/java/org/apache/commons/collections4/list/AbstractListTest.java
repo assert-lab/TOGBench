@@ -327,9 +327,7 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
         }
         if (list2.size() > 1) {
             Collections.reverse(list2);
-            assertEquals(
-                "Full list shouldn't equal full list with same elements but different order",
-                false, list.equals(list2));
+            assertEquals("Full list shouldn't equal full list with same elements but different order",false,list.equals(list2));
             verify();
         }
 
@@ -473,15 +471,13 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
         final List<E> list2 = getConfirmed();
 
         for (final E element : list2) {
-            assertEquals("indexOf should return correct result",
-                    list1.indexOf(element), list2.indexOf(element));
+            assertEquals("indexOf should return correct result",list1.indexOf(element),list2.indexOf(element));
             verify();
         }
 
         final E[] other = getOtherElements();
         for (final E element : other) {
-            assertEquals("indexOf should return -1 for nonexistent element",
-                -1, list1.indexOf(element));
+            assertEquals("indexOf should return -1 for nonexistent element",-1,list1.indexOf(element));
             verify();
         }
     }
@@ -497,15 +493,13 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
         final Iterator<E> iterator = list2.iterator();
         while (iterator.hasNext()) {
             final E element = iterator.next();
-            assertEquals("lastIndexOf should return correct result",
-              list1.lastIndexOf(element), list2.lastIndexOf(element));
+            assertEquals("lastIndexOf should return correct result",list1.lastIndexOf(element),list2.lastIndexOf(element));
             verify();
         }
 
         final E[] other = getOtherElements();
         for (final E element : other) {
-            assertEquals("lastIndexOf should return -1 for nonexistent " +
-                "element", -1, list1.lastIndexOf(element));
+            assertEquals("lastIndexOf should return -1 for nonexistent " + "element",-1,list1.lastIndexOf(element));
             verify();
         }
     }
@@ -573,8 +567,7 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
 
         try {
             list.set(Integer.MIN_VALUE, element);
-            fail("List.set should throw IndexOutOfBoundsException " +
-              "[Integer.MIN_VALUE]");
+            fail("List.set should throw IndexOutOfBoundsException " + "[Integer.MIN_VALUE]");
         } catch(final IndexOutOfBoundsException e) {
             // expected
         }
@@ -595,8 +588,7 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
 
         try {
             list.set(Integer.MAX_VALUE, element);
-            fail("List.set should throw IndexOutOfBoundsException " +
-              "[Integer.MAX_VALUE]");
+            fail("List.set should throw IndexOutOfBoundsException " + "[Integer.MAX_VALUE]");
         } catch(final IndexOutOfBoundsException e) {
             // expected
         }
@@ -705,8 +697,7 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
 
         try {
             list.remove(Integer.MIN_VALUE);
-            fail("List.remove should throw IndexOutOfBoundsException " +
-              "[Integer.MIN_VALUE]");
+            fail("List.remove should throw IndexOutOfBoundsException " + "[Integer.MIN_VALUE]");
         } catch(final IndexOutOfBoundsException e) {
             // expected
         }
@@ -727,8 +718,7 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
 
         try {
             list.remove(Integer.MAX_VALUE);
-            fail("List.remove should throw IndexOutOfBoundsException " +
-              "[Integer.MAX_VALUE]");
+            fail("List.remove should throw IndexOutOfBoundsException " + "[Integer.MAX_VALUE]");
         } catch(final IndexOutOfBoundsException e) {
             // expected
         }
@@ -920,10 +910,8 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
 
         while (i < max) {
             assertTrue("Iterator should have next", iter.hasNext());
-            assertEquals("Iterator.nextIndex should work",
-                i, iter.nextIndex());
-            assertEquals("Iterator.previousIndex should work",
-                i - 1, iter.previousIndex());
+            assertEquals("Iterator.nextIndex should work",i,iter.nextIndex());
+            assertEquals("Iterator.previousIndex should work",i - 1,iter.previousIndex());
             final Object o = iter.next();
             assertEquals("Iterator returned correct element", list.get(i), o);
             i++;
@@ -951,15 +939,11 @@ public abstract class AbstractListTest<E> extends AbstractCollectionTest<E> {
         final List<E> list = getCollection();
 
         while (i > 0) {
-            assertTrue("Iterator should have previous, i:" + i,
-                iter.hasPrevious());
-            assertEquals("Iterator.nextIndex should work, i:" + i,
-                i, iter.nextIndex());
-            assertEquals("Iterator.previousIndex should work, i:" + i,
-                i - 1, iter.previousIndex());
+            assertTrue("Iterator should have previous,i:" + i,iter.hasPrevious());
+            assertEquals("Iterator.nextIndex should work,i:" + i,i,iter.nextIndex());
+            assertEquals("Iterator.previousIndex should work,i:" + i,i - 1,iter.previousIndex());
             final E o = iter.previous();
-            assertEquals("Iterator returned correct element",
-                list.get(i - 1), o);
+            assertEquals("Iterator returned correct element",list.get(i - 1),o);
             i--;
         }
 

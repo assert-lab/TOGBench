@@ -159,14 +159,14 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean1, alphaBean2);
-        assertTrue("Comparator did not sort properly.  Result:" + result, result == -1);
+        assertTrue("Comparator did not sort properly. Result:" + result,result == -1);
     }
 
     public void testSimpleCompareInverse_1_oe() {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean2, alphaBean1);
-        assertTrue("Comparator did not sort properly.  Result:" + result, result == 1);
+        assertTrue("Comparator did not sort properly. Result:" + result,result == 1);
     }
 
     public void testCompareIdentical_1_oe() {
@@ -175,14 +175,14 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean1, alphaBean2);
-        assertTrue("Comparator did not sort properly.  Result:" + result, result == 0);
+        assertTrue("Comparator did not sort properly. Result:" + result,result == 0);
     }
 
     public void testCompareBeanAgainstSelf_1_oe() {
         final BeanComparator<AlphaBean> beanComparator = new BeanComparator<AlphaBean>(
                 "name");
         final int result = beanComparator.compare(alphaBean1, alphaBean1);
-        assertTrue("Comparator did not sort properly.  Result:" + result, result == 0);
+        assertTrue("Comparator did not sort properly. Result:" + result,result == 0);
     }
 
     public void testCompareOnMissingProperty_2_oe() {
@@ -209,7 +209,7 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
                 "doubleProperty");
         int result = beanComparator.compare(testBeanA, testBeanB);
 
-        assertTrue("Comparator did not sort properly.  Result:" + result, result == 1);
+        assertTrue("Comparator did not sort properly. Result:" + result,result == 1);
     }
 
     public void testSetProperty_2_oe() {
@@ -232,7 +232,7 @@ public class BeanComparatorTestCase_OE25Dev extends TestCase {
 
         result = beanComparator.compare(testBeanA, testBeanB);
 
-        assertTrue("Comparator did not sort properly.  Result:" + result, result == -1);
+        assertTrue("Comparator did not sort properly. Result:" + result,result == -1);
     }
 
 }

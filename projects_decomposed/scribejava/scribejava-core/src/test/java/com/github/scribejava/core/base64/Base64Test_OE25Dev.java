@@ -197,7 +197,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -425,7 +425,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -1007,7 +1007,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -1277,7 +1277,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -1312,7 +1312,7 @@ public class Base64Test_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldDifferentCharsEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
     @Test
@@ -1464,7 +1464,7 @@ public class Base64Test_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        assertEquals(helloWorldTwoLinesEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
     }
 
     @Test
@@ -1505,7 +1505,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -1547,7 +1547,7 @@ public class Base64Test_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldDifferentCharsEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
     @Test
@@ -1775,7 +1775,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -1824,7 +1824,7 @@ public class Base64Test_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldDifferentCharsEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
     @Test
@@ -2087,7 +2087,7 @@ public class Base64Test_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
     }
 
     @Test
@@ -2143,7 +2143,7 @@ public class Base64Test_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(helloWorldDifferentCharsEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
     }
 
     @Test

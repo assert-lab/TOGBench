@@ -267,7 +267,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
             // act/assert
-            Assertions.assertEquals(LONG_STRING.substring(0, StlConstants.BINARY_HEADER_BYTES), reader.getHeaderAsString());
+            Assertions.assertEquals(LONG_STRING.substring(0,StlConstants.BINARY_HEADER_BYTES),reader.getHeaderAsString());
     }
     }
 
@@ -290,7 +290,7 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
         try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
             // act/assert
-            Assertions.assertEquals("A long string that will most definitely", reader.getHeaderAsString(StandardCharsets.UTF_16));
+            Assertions.assertEquals("A long string that will most definitely",reader.getHeaderAsString(StandardCharsets.UTF_16));
     }
     }
 

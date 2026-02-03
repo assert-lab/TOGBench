@@ -54,7 +54,7 @@ class LogFactorialTest_OE25Dev {
         // "LogGamma" class.
         for (int i = 21; i < 10000; i++) {
             final double expected = LogGamma.value(i + 1);
-            Assertions.assertEquals( expected, f.value(i), 0d, i + "! ");
+            Assertions.assertEquals(expected,f.value(i),0d,i + "! ");
     }
     }
 
@@ -68,7 +68,7 @@ class LogFactorialTest_OE25Dev {
 
         for (int i = 0; i < max; i++) {
             final double expected = logFactorial(i);
-            Assertions.assertEquals( expected, f.value(i), 2 * Math.ulp(expected), i + "! ");
+            Assertions.assertEquals(expected,f.value(i),2 * Math.ulp(expected),i + "! ");
     }
     }
 
@@ -79,7 +79,7 @@ class LogFactorialTest_OE25Dev {
 
         for (int i = 0; i < max; i++) {
             final double expected = logFactorial(i);
-            Assertions.assertEquals( expected, f.value(i), 0d, i + "! ");
+            Assertions.assertEquals(expected,f.value(i),0d,i + "! ");
     }
     }
 

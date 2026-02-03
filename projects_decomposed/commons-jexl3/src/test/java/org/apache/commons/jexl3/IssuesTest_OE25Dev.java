@@ -335,7 +335,7 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
-        Assert.assertNull(jscript.getSourceText(), jscript.execute(ctxt)); // OK;
+        Assert.assertNull(jscript.getSourceText(),jscript.execute(ctxt));// OK;
     }
 
     @Test
@@ -351,9 +351,8 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
 
         jscript = jexl.createScript("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
-        Assert.assertEquals(jscript.getSourceText(), Integer.valueOf("abcd".hashCode()), jscript.execute(ctxt)); // OK;
+        ctxt.set("dummy","abcd");
+        Assert.assertEquals(jscript.getSourceText(),Integer.valueOf("abcd".hashCode()),jscript.execute(ctxt));// OK;
     }
 
     @Test
@@ -369,12 +368,10 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
 
         jscript = jexl.createScript("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
+        ctxt.set("dummy","abcd");
         // removed other assertion
-
         jscript = jexl.createScript("dummy.hashCode");
-        Assert.assertNull(jscript.getSourceText(), jscript.execute(ctxt)); // OK;
+        Assert.assertNull(jscript.getSourceText(),jscript.execute(ctxt));// OK;
     }
 
     @Test
@@ -390,17 +387,14 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
 
         jscript = jexl.createScript("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
+        ctxt.set("dummy","abcd");
         // removed other assertion
-
         jscript = jexl.createScript("dummy.hashCode");
         // removed other assertion
-
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
-        Assert.assertNull(jexpr.toString(), jexpr.evaluate(ctxt)); // OK;
+        Assert.assertNull(jexpr.toString(),jexpr.evaluate(ctxt));// OK;
     }
 
     @Test
@@ -416,20 +410,16 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
 
         jscript = jexl.createScript("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
+        ctxt.set("dummy","abcd");
         // removed other assertion
-
         jscript = jexl.createScript("dummy.hashCode");
         // removed other assertion
-
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
-        Assert.assertEquals(jexpr.toString(), Integer.valueOf("abcd".hashCode()), jexpr.evaluate(ctxt)); // OK;
+        ctxt.set("dummy","abcd");
+        Assert.assertEquals(jexpr.toString(),Integer.valueOf("abcd".hashCode()),jexpr.evaluate(ctxt));// OK;
     }
 
     @Test
@@ -445,21 +435,16 @@ public class IssuesTest_OE25Dev extends JexlTestCase {
 
         jscript = jexl.createScript("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
+        ctxt.set("dummy","abcd");
         // removed other assertion
-
         jscript = jexl.createScript("dummy.hashCode");
         // removed other assertion
-
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
         // removed other assertion
-
-        ctxt.set("dummy", "abcd");
+        ctxt.set("dummy","abcd");
         // removed other assertion
-
         jexpr = jexl.createExpression("dummy.hashCode");
         Assert.assertNull(jexpr.toString(), jexpr.evaluate(ctxt)); // OK;
     }

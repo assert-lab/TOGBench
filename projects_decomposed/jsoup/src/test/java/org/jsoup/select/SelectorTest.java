@@ -266,8 +266,7 @@ public class SelectorTest {
         assertEquals("div", els.get(1).tagName());
         assertEquals("bar", els.get(1).attr("title"));
         assertEquals("div", els.get(2).tagName());
-        assertEquals(0, els.get(2).attr("title").length()); // missing attributes come back as empty string
-        assertFalse(els.get(2).hasAttr("title"));
+        assertEquals(0,els.get(2).attr("title").length());// missing attributes come back as empty string assertFalse(els.get(2).hasAttr("title"));
         assertEquals("p", els.get(3).tagName());
         assertEquals("span", els.get(4).tagName());
     }
@@ -344,9 +343,8 @@ public class SelectorTest {
 
         Elements divs = doc.select("div > div");
         assertEquals(2, divs.size());
-        assertEquals("2", divs.get(0).id()); // 2 is child of 1
-        assertEquals("3", divs.get(1).id()); // 3 is child of 2
-
+        assertEquals("2",divs.get(0).id());// 2 is child of 1 
+        assertEquals("3",divs.get(1).id());// 3 is child of 2 
         Elements div2 = doc.select("div#1 > div");
         assertEquals(1, div2.size());
         assertEquals("2", div2.get(0).id());
@@ -546,14 +544,12 @@ public class SelectorTest {
         assertEquals("2", divs3.get(2).id());
 
         Elements els1 = doc.body().select(":has(p)");
-        assertEquals(3, els1.size()); // body, div, div
-        assertEquals("body", els1.first().tagName());
+        assertEquals(3,els1.size());// body,div,div assertEquals("body",els1.first().tagName());
         assertEquals("0", els1.get(1).id());
         assertEquals("2", els1.get(2).id());
 
         Elements els2 = doc.body().select(":has(> span)");
-        assertEquals(2,els2.size()); // p, div
-        assertEquals("p",els2.first().tagName());
+        assertEquals(2,els2.size());// p,div assertEquals("p",els2.first().tagName());
         assertEquals("1", els2.get(1).id());
     }
 
@@ -599,8 +595,7 @@ public class SelectorTest {
         assertEquals("light", ps3.first().className());
 
         Elements ps5 = doc.select(":contains(rain)");
-        assertEquals(8, ps5.size()); // html, body, div,...
-
+        assertEquals(8,ps5.size());// html,body,div,... 
         Elements ps6 = doc.select(":contains(RAIN)");
         assertEquals(8, ps6.size());
     }
@@ -865,8 +860,7 @@ public class SelectorTest {
         Elements dataEls4 = body.select(":containsData(o)");
         Elements dataEls5 = body.select("style:containsData(ITEM)");
 
-        assertEquals(2, dataEls1.size()); // body and script
-        assertEquals(1, dataEls2.size());
+        assertEquals(2,dataEls1.size());// body and script assertEquals(1,dataEls2.size());
         assertEquals(dataEls1.last(), dataEls2.first());
         assertEquals("<script>FUNCTION</script>", dataEls2.outerHtml());
         assertEquals(1, dataEls3.size());

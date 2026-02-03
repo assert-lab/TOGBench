@@ -904,45 +904,21 @@ class AffineTransformMatrix2DTest {
     void testDeterminant() {
         // act/assert
         Assertions.assertEquals(1.0, AffineTransformMatrix2D.identity().determinant(), EPS);
-        Assertions.assertEquals(6.0, AffineTransformMatrix2D.of(
-                2, 0, 4,
-                0, 3, 5
-            ).determinant(), EPS);
-        Assertions.assertEquals(-6.0, AffineTransformMatrix2D.of(
-                2, 0, 4,
-                0, -3, 5
-            ).determinant(), EPS);
-        Assertions.assertEquals(-5.0, AffineTransformMatrix2D.of(
-                1, 3, 0,
-                2, 1, 0
-            ).determinant(), EPS);
-        Assertions.assertEquals(-0.0, AffineTransformMatrix2D.of(
-                0, 0, 1,
-                0, 0, 2
-            ).determinant(), EPS);
+        Assertions.assertEquals(6.0,AffineTransformMatrix2D.of(2,0,4,0,3,5).determinant(),EPS);
+        Assertions.assertEquals(-6.0,AffineTransformMatrix2D.of(2,0,4,0,-3,5).determinant(),EPS);
+        Assertions.assertEquals(-5.0,AffineTransformMatrix2D.of(1,3,0,2,1,0).determinant(),EPS);
+        Assertions.assertEquals(-0.0,AffineTransformMatrix2D.of(0,0,1,0,0,2).determinant(),EPS);
     }
 
     @Test
     void testPreservesOrientation() {
         // act/assert
         Assertions.assertTrue(AffineTransformMatrix2D.identity().preservesOrientation());
-        Assertions.assertTrue(AffineTransformMatrix2D.of(
-                2, 0, 4,
-                0, 3, 5
-            ).preservesOrientation());
+        Assertions.assertTrue(AffineTransformMatrix2D.of(2,0,4,0,3,5).preservesOrientation());
 
-        Assertions.assertFalse(AffineTransformMatrix2D.of(
-                2, 0, 4,
-                0, -3, 5
-            ).preservesOrientation());
-        Assertions.assertFalse(AffineTransformMatrix2D.of(
-                1, 3, 0,
-                2, 1, 0
-            ).preservesOrientation());
-        Assertions.assertFalse(AffineTransformMatrix2D.of(
-                0, 0, 1,
-                0, 0, 2
-            ).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix2D.of(2,0,4,0,-3,5).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix2D.of(1,3,0,2,1,0).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix2D.of(0,0,1,0,0,2).preservesOrientation());
     }
 
     @Test
@@ -1382,9 +1358,7 @@ class AffineTransformMatrix2DTest {
         final String result = a.toString();
 
         // assert
-        Assertions.assertEquals(
-                "[ 1.0, 2.0, 3.0; " +
-                "5.0, 6.0, 7.0 ]", result);
+        Assertions.assertEquals("[ 1.0,2.0,3.0;" + "5.0,6.0,7.0 ]",result);
     }
 
     @FunctionalInterface

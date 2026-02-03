@@ -322,7 +322,7 @@ public class TestDefaultPooledObjectInfo_OE25Dev {
             // removed other assertion
 
             // removed other assertion
-            assertEquals(sdf.format(Long.valueOf(s1Info.getLastReturnTime())), s1Info.getLastReturnTimeFormatted());
+            assertEquals(sdf.format(Long.valueOf(s1Info.getLastReturnTime())),s1Info.getLastReturnTimeFormatted());
     }
     }
 
@@ -453,7 +453,7 @@ public class TestDefaultPooledObjectInfo_OE25Dev {
             // removed other assertion
 
             // removed other assertion
-            assertEquals(sdf.format(Long.valueOf(s1Info.getLastBorrowTime())), s1Info.getLastBorrowTimeFormatted());
+            assertEquals(sdf.format(Long.valueOf(s1Info.getLastBorrowTime())),s1Info.getLastBorrowTimeFormatted());
     }
     }
 

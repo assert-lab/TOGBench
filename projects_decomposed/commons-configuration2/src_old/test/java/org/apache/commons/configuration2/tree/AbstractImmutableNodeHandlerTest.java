@@ -220,8 +220,7 @@ public abstract class AbstractImmutableNodeHandlerTest {
     @Test
     public void testNodeHandlerGetMatchingChildrenCount() {
         final NodeHandler<ImmutableNode> handler = createHandler(ROOT_AUTHORS_TREE);
-        assertEquals("Wrong result", NodeStructureHelper.authorsLength(),
-            handler.getMatchingChildrenCount(handler.getRootNode(), new DummyNodeMatcher(), this));
+        assertEquals("Wrong result",NodeStructureHelper.authorsLength(),handler.getMatchingChildrenCount(handler.getRootNode(),new DummyNodeMatcher(),this));
     }
 
     /**

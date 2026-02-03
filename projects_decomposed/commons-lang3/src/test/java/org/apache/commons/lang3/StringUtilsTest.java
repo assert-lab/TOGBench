@@ -136,11 +136,9 @@ public class StringUtilsTest {
         final String message = "abbreviate(String,String,int,int) failed";
         final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
         if (offset >= 0 && offset < abcdefghijklmno.length()) {
-            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
-                    message + " -- should contain offset character");
+            assertTrue(actual.indexOf((char)('a' + offset))!= -1,message + " -- should contain offset character");
         }
-        assertTrue(actual.length() <= maxWidth,
-                message + " -- should not be greater than maxWidth");
+        assertTrue(actual.length()<= maxWidth,message + " -- should not be greater than maxWidth");
         assertEquals(expected, actual, message);
     }
 
@@ -149,11 +147,9 @@ public class StringUtilsTest {
         final String message = "abbreviate(String,int,int) failed";
         final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
         if (offset >= 0 && offset < abcdefghijklmno.length()) {
-            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
-                    message + " -- should contain offset character");
+            assertTrue(actual.indexOf((char)('a' + offset))!= -1,message + " -- should contain offset character");
         }
-        assertTrue(actual.length() <= maxWidth,
-                message + " -- should not be greater than maxWidth");
+        assertTrue(actual.length()<= maxWidth,message + " -- should not be greater than maxWidth");
         assertEquals(expected, actual, message);
     }
 
@@ -391,17 +387,11 @@ public class StringUtilsTest {
         assertEquals("ab.f", StringUtils.abbreviateMiddle("abcdef", ".", 4));
 
         // JIRA issue (LANG-405) example (slightly different than actual expected result)
-        assertEquals(
-                "A very long text with un...f the text is complete.",
-                StringUtils.abbreviateMiddle(
-                        "A very long text with unimportant stuff in the middle but interesting start and " +
-                                "end to see if the text is complete.", "...", 50));
+        assertEquals("A very long text with un...f the text is complete.",StringUtils.abbreviateMiddle("A very long text with unimportant stuff in the middle but interesting start and " + "end to see if the text is complete.","...",50));
 
         // Test a much longer text :)
         final String longText = "Start text" + StringUtils.repeat("x", 10000) + "Close text";
-        assertEquals(
-                "Start text->Close text",
-                StringUtils.abbreviateMiddle(longText, "->", 22));
+        assertEquals("Start text->Close text",StringUtils.abbreviateMiddle(longText,"->",22));
 
         // Test negative length
         assertEquals("abc", StringUtils.abbreviateMiddle("abc", ".", -1));
@@ -870,16 +860,14 @@ public class StringUtilsTest {
     public void testGetBytes_Charset() {
         assertEquals(ArrayUtils.EMPTY_BYTE_ARRAY, StringUtils.getBytes(null, (Charset) null));
         assertArrayEquals(StringUtils.EMPTY.getBytes(), StringUtils.getBytes(StringUtils.EMPTY, (Charset) null));
-        assertArrayEquals(StringUtils.EMPTY.getBytes(StandardCharsets.US_ASCII),
-            StringUtils.getBytes(StringUtils.EMPTY, StandardCharsets.US_ASCII));
+        assertArrayEquals(StringUtils.EMPTY.getBytes(StandardCharsets.US_ASCII),StringUtils.getBytes(StringUtils.EMPTY,StandardCharsets.US_ASCII));
     }
 
     @Test
     public void testGetBytes_String() throws UnsupportedEncodingException {
         assertEquals(ArrayUtils.EMPTY_BYTE_ARRAY, StringUtils.getBytes(null, (String) null));
         assertArrayEquals(StringUtils.EMPTY.getBytes(), StringUtils.getBytes(StringUtils.EMPTY, (String) null));
-        assertArrayEquals(StringUtils.EMPTY.getBytes(StandardCharsets.US_ASCII.name()),
-            StringUtils.getBytes(StringUtils.EMPTY, StandardCharsets.US_ASCII.name()));
+        assertArrayEquals(StringUtils.EMPTY.getBytes(StandardCharsets.US_ASCII.name()),StringUtils.getBytes(StringUtils.EMPTY,StandardCharsets.US_ASCII.name()));
     }
 
     @Test
@@ -1380,11 +1368,8 @@ public class StringUtilsTest {
 
     @Test
     public void testJoinWith() {
-        assertEquals("", StringUtils.joinWith(","));        // empty array
-        assertEquals("", StringUtils.joinWith(",", (Object[]) NULL_ARRAY_LIST));
-        assertEquals("null", StringUtils.joinWith(",", NULL_TO_STRING_LIST));   //toString method prints 'null'
-
-        assertEquals("a,b,c", StringUtils.joinWith(",", "a", "b", "c"));
+        assertEquals("",StringUtils.joinWith(","));// empty array assertEquals("",StringUtils.joinWith(",",(Object[])NULL_ARRAY_LIST));
+        assertEquals("null",StringUtils.joinWith(",",NULL_TO_STRING_LIST));//toString method prints 'null' assertEquals("a,b,c",StringUtils.joinWith(",","a","b","c"));
         assertEquals(",a,", StringUtils.joinWith(",", null, "a", ""));
         assertEquals(",a,", StringUtils.joinWith(",", "", "a", ""));
 
@@ -1486,8 +1471,7 @@ public class StringUtilsTest {
         assertNull(StringUtils.lowerCase(null, Locale.ENGLISH));
         assertEquals("foo test thing", StringUtils.lowerCase("fOo test THING"), "lowerCase(String) failed");
         assertEquals("", StringUtils.lowerCase(""), "lowerCase(empty-string) failed");
-        assertEquals("foo test thing", StringUtils.lowerCase("fOo test THING", Locale.ENGLISH),
-                "lowerCase(String, Locale) failed");
+        assertEquals("foo test thing",StringUtils.lowerCase("fOo test THING",Locale.ENGLISH),"lowerCase(String,Locale)failed");
         assertEquals("", StringUtils.lowerCase("", Locale.ENGLISH), "lowerCase(empty-string, Locale) failed");
     }
 
@@ -1597,16 +1581,12 @@ public class StringUtilsTest {
     @Test
     public void testReCapitalize() {
         // reflection type of tests: Sentences.
-        assertEquals(SENTENCE_UNCAP, StringUtils.uncapitalize(StringUtils.capitalize(SENTENCE_UNCAP)),
-                "uncapitalize(capitalize(String)) failed");
-        assertEquals(SENTENCE_CAP, StringUtils.capitalize(StringUtils.uncapitalize(SENTENCE_CAP)),
-                "capitalize(uncapitalize(String)) failed");
+        assertEquals(SENTENCE_UNCAP,StringUtils.uncapitalize(StringUtils.capitalize(SENTENCE_UNCAP)),"uncapitalize(capitalize(String))failed");
+        assertEquals(SENTENCE_CAP,StringUtils.capitalize(StringUtils.uncapitalize(SENTENCE_CAP)),"capitalize(uncapitalize(String))failed");
 
         // reflection type of tests: One word.
-        assertEquals(FOO_UNCAP, StringUtils.uncapitalize(StringUtils.capitalize(FOO_UNCAP)),
-                "uncapitalize(capitalize(String)) failed");
-        assertEquals(FOO_CAP, StringUtils.capitalize(StringUtils.uncapitalize(FOO_CAP)),
-                "capitalize(uncapitalize(String)) failed");
+        assertEquals(FOO_UNCAP,StringUtils.uncapitalize(StringUtils.capitalize(FOO_UNCAP)),"uncapitalize(capitalize(String))failed");
+        assertEquals(FOO_CAP,StringUtils.capitalize(StringUtils.uncapitalize(FOO_CAP)),"capitalize(uncapitalize(String))failed");
     }
 
     @Test
@@ -2010,8 +1990,7 @@ public class StringUtilsTest {
         assertEquals("ABC___123", StringUtils.replaceAll("ABCabc123", "[a-z]", "_"));
         assertEquals("ABC_123", StringUtils.replaceAll("ABCabc123", "[^A-Z0-9]+", "_"));
         assertEquals("ABC123", StringUtils.replaceAll("ABCabc123", "[^A-Z0-9]+", ""));
-        assertEquals("Lorem_ipsum_dolor_sit",
-                     StringUtils.replaceAll("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
+        assertEquals("Lorem_ipsum_dolor_sit",StringUtils.replaceAll("Lorem ipsum dolor sit","(+)([a-z]+)","_$2"));
 
         assertThrows(
                 PatternSyntaxException.class,
@@ -2068,9 +2047,7 @@ public class StringUtilsTest {
 
         // From https://issues.apache.org/bugzilla/show_bug.cgi?id=25454
         assertEquals("bcc", StringUtils.replaceChars("abc", "ab", "bc"));
-        assertEquals("q651.506bera", StringUtils.replaceChars("d216.102oren",
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789",
-                "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM567891234"));
+        assertEquals("q651.506bera",StringUtils.replaceChars("d216.102oren","abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789","nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM567891234"));
     }
 
     @Test
@@ -2091,8 +2068,7 @@ public class StringUtilsTest {
         assertEquals("ABC_bc123", StringUtils.replaceFirst("ABCabc123", "[a-z]", "_"));
         assertEquals("ABC_123abc", StringUtils.replaceFirst("ABCabc123abc", "[^A-Z0-9]+", "_"));
         assertEquals("ABC123abc", StringUtils.replaceFirst("ABCabc123abc", "[^A-Z0-9]+", ""));
-        assertEquals("Lorem_ipsum  dolor   sit",
-                     StringUtils.replaceFirst("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
+        assertEquals("Lorem_ipsum dolor sit",StringUtils.replaceFirst("Lorem ipsum dolor sit","(+)([a-z]+)","_$2"));
 
         assertThrows(
                 PatternSyntaxException.class,
@@ -2224,8 +2200,7 @@ public class StringUtilsTest {
         assertEquals("ABC___123", StringUtils.replacePattern("ABCabc123", "[a-z]", "_"));
         assertEquals("ABC_123", StringUtils.replacePattern("ABCabc123", "[^A-Z0-9]+", "_"));
         assertEquals("ABC123", StringUtils.replacePattern("ABCabc123", "[^A-Z0-9]+", ""));
-        assertEquals("Lorem_ipsum_dolor_sit",
-                     StringUtils.replacePattern("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
+        assertEquals("Lorem_ipsum_dolor_sit",StringUtils.replacePattern("Lorem ipsum dolor sit","(+)([a-z]+)","_$2"));
     }
 
     //-----------------------------------------------------------------------
@@ -2921,16 +2896,14 @@ public class StringUtilsTest {
                 // don't actively test for that.
                 final Class<?>[] params = m.getParameterTypes();
                 if (params.length > 0 && (params[0] == CharSequence.class || params[0] == CharSequence[].class)) {
-                    assertTrue(!ArrayUtils.contains(excludeMethods, methodStr),
-                            "The method \"" + methodStr + "\" appears to be mutable in spirit and therefore must not accept a CharSequence");
+                    assertTrue(!ArrayUtils.contains(excludeMethods,methodStr),"The method \"" + methodStr + "\" appears to be mutable in spirit and therefore must not accept a CharSequence");
                 }
             } else {
                 // Assume this is immutable in spirit and ensure the first parameter is not String.
                 // As above, it may be something other than CharSequence.
                 final Class<?>[] params = m.getParameterTypes();
                 if (params.length > 0 && (params[0] == String.class || params[0] == String[].class)) {
-                    assertTrue(ArrayUtils.contains(excludeMethods, methodStr),
-                            "The method \"" + methodStr + "\" appears to be immutable in spirit and therefore must not accept a String");
+                    assertTrue(ArrayUtils.contains(excludeMethods,methodStr),"The method \"" + methodStr + "\" appears to be immutable in spirit and therefore must not accept a String");
                 }
             }
         }
@@ -3213,10 +3186,8 @@ public class StringUtilsTest {
         assertNull(StringUtils.upperCase(null, Locale.ENGLISH));
         assertEquals("FOO TEST THING", StringUtils.upperCase("fOo test THING"), "upperCase(String) failed");
         assertEquals("", StringUtils.upperCase(""), "upperCase(empty-string) failed");
-        assertEquals("FOO TEST THING", StringUtils.upperCase("fOo test THING", Locale.ENGLISH),
-                "upperCase(String, Locale) failed");
-        assertEquals("", StringUtils.upperCase("", Locale.ENGLISH),
-                "upperCase(empty-string, Locale) failed");
+        assertEquals("FOO TEST THING",StringUtils.upperCase("fOo test THING",Locale.ENGLISH),"upperCase(String,Locale)failed");
+        assertEquals("",StringUtils.upperCase("",Locale.ENGLISH),"upperCase(empty-string,Locale)failed");
     }
 
     @Test

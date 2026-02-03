@@ -140,8 +140,7 @@ class LinearCombinationsTest_OE25Dev {
      */
     private static void assertValue(double value, double[] a, double[] b) {
         final double expected = computeValue(a, b);
-        Assertions.assertEquals(expected, value, Math.ulp(expected),
-            () -> "Difference in Ulps = " + ulps(expected, value));
+        Assertions.assertEquals(expected,value,Math.ulp(expected),()-> "Difference in Ulps = " + ulps(expected,value));
     }
 
     /**
@@ -590,7 +589,7 @@ class LinearCombinationsTest_OE25Dev {
         final ThreeD fun3 = (ThreeD) fun;
         final FourD fun4 = (FourD) fun;
 
-        Assertions.assertEquals(-3, fun2.value(a[0][0], b[0][0], a[0][1], b[0][1]));
+        Assertions.assertEquals(-3,fun2.value(a[0][0],b[0][0],a[0][1],b[0][1]));
     }
 
     @ParameterizedTest
@@ -628,7 +627,7 @@ class LinearCombinationsTest_OE25Dev {
         final FourD fun4 = (FourD) fun;
 
         // removed other assertion
-        Assertions.assertEquals(6, fun3.value(a[0][0], b[0][0], a[0][1], b[0][1], a[0][2], b[0][2]));
+        Assertions.assertEquals(6,fun3.value(a[0][0],b[0][0],a[0][1],b[0][1],a[0][2],b[0][2]));
     }
 
     @ParameterizedTest
@@ -667,7 +666,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(22, fun4.value(a[0][0], b[0][0], a[0][1], b[0][1], a[0][2], b[0][2], a[0][3], b[0][3]));
+        Assertions.assertEquals(22,fun4.value(a[0][0],b[0][0],a[0][1],b[0][1],a[0][2],b[0][2],a[0][3],b[0][3]));
     }
 
     @ParameterizedTest
@@ -749,7 +748,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun2.value(a[1][0], b[1][0], a[1][1], b[1][1]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun2.value(a[1][0],b[1][0],a[1][1],b[1][1]));
     }
 
     @ParameterizedTest
@@ -792,7 +791,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun3.value(a[1][0], b[1][0], a[1][1], b[1][1], a[1][2], b[1][2]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun3.value(a[1][0],b[1][0],a[1][1],b[1][1],a[1][2],b[1][2]));
     }
 
     @ParameterizedTest
@@ -836,7 +835,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun4.value(a[1][0], b[1][0], a[1][1], b[1][1], a[1][2], b[1][2], a[1][3], b[1][3]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[1][0],b[1][0],a[1][1],b[1][1],a[1][2],b[1][2],a[1][3],b[1][3]));
     }
 
     @ParameterizedTest
@@ -928,7 +927,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(-3, fun2.value(a[2][0], b[2][0], a[2][1], b[2][1]));
+        Assertions.assertEquals(-3,fun2.value(a[2][0],b[2][0],a[2][1],b[2][1]));
     }
 
     @ParameterizedTest
@@ -976,7 +975,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun3.value(a[2][0], b[2][0], a[2][1], b[2][1], a[2][2], b[2][2]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[2][0],b[2][0],a[2][1],b[2][1],a[2][2],b[2][2]));
     }
 
     @ParameterizedTest
@@ -1025,7 +1024,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun4.value(a[2][0], b[2][0], a[2][1], b[2][1], a[2][2], b[2][2], a[2][3], b[2][3]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[2][0],b[2][0],a[2][1],b[2][1],a[2][2],b[2][2],a[2][3],b[2][3]));
     }
 
     @ParameterizedTest
@@ -1127,7 +1126,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun2.value(a[3][0], b[3][0], a[3][1], b[3][1]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun2.value(a[3][0],b[3][0],a[3][1],b[3][1]));
     }
 
     @ParameterizedTest
@@ -1180,7 +1179,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun3.value(a[3][0], b[3][0], a[3][1], b[3][1], a[3][2], b[3][2]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun3.value(a[3][0],b[3][0],a[3][1],b[3][1],a[3][2],b[3][2]));
     }
 
     @ParameterizedTest
@@ -1234,7 +1233,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun4.value(a[3][0], b[3][0], a[3][1], b[3][1], a[3][2], b[3][2], a[3][3], b[3][3]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[3][0],b[3][0],a[3][1],b[3][1],a[3][2],b[3][2],a[3][3],b[3][3]));
     }
 
     @ParameterizedTest
@@ -1346,7 +1345,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun2.value(a[4][0], b[4][0], a[4][1], b[4][1]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun2.value(a[4][0],b[4][0],a[4][1],b[4][1]));
     }
 
     @ParameterizedTest
@@ -1404,7 +1403,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun3.value(a[4][0], b[4][0], a[4][1], b[4][1], a[4][2], b[4][2]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[4][0],b[4][0],a[4][1],b[4][1],a[4][2],b[4][2]));
     }
 
     @ParameterizedTest
@@ -1463,7 +1462,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun4.value(a[4][0], b[4][0], a[4][1], b[4][1], a[4][2], b[4][2], a[4][3], b[4][3]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[4][0],b[4][0],a[4][1],b[4][1],a[4][2],b[4][2],a[4][3],b[4][3]));
     }
 
     @ParameterizedTest
@@ -1585,7 +1584,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(-3, fun2.value(a[5][0], b[5][0], a[5][1], b[5][1]));
+        Assertions.assertEquals(-3,fun2.value(a[5][0],b[5][0],a[5][1],b[5][1]));
     }
 
     @ParameterizedTest
@@ -1648,7 +1647,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun3.value(a[5][0], b[5][0], a[5][1], b[5][1], a[5][2], b[5][2]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[5][0],b[5][0],a[5][1],b[5][1],a[5][2],b[5][2]));
     }
 
     @ParameterizedTest
@@ -1712,7 +1711,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun4.value(a[5][0], b[5][0], a[5][1], b[5][1], a[5][2], b[5][2], a[5][3], b[5][3]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[5][0],b[5][0],a[5][1],b[5][1],a[5][2],b[5][2],a[5][3],b[5][3]));
     }
 
     @ParameterizedTest
@@ -1844,7 +1843,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun2.value(a[6][0], b[6][0], a[6][1], b[6][1]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun2.value(a[6][0],b[6][0],a[6][1],b[6][1]));
     }
 
     @ParameterizedTest
@@ -1912,7 +1911,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun3.value(a[6][0], b[6][0], a[6][1], b[6][1], a[6][2], b[6][2]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[6][0],b[6][0],a[6][1],b[6][1],a[6][2],b[6][2]));
     }
 
     @ParameterizedTest
@@ -1981,7 +1980,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.NaN, fun4.value(a[6][0], b[6][0], a[6][1], b[6][1], a[6][2], b[6][2], a[6][3], b[6][3]));
+        Assertions.assertEquals(Double.NaN,fun4.value(a[6][0],b[6][0],a[6][1],b[6][1],a[6][2],b[6][2],a[6][3],b[6][3]));
     }
 
     @ParameterizedTest
@@ -2123,7 +2122,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.NaN, fun2.value(a[7][0], b[7][0], a[7][1], b[7][1]));
+        Assertions.assertEquals(Double.NaN,fun2.value(a[7][0],b[7][0],a[7][1],b[7][1]));
     }
 
     @ParameterizedTest
@@ -2196,7 +2195,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.NaN, fun3.value(a[7][0], b[7][0], a[7][1], b[7][1], a[7][2], b[7][2]));
+        Assertions.assertEquals(Double.NaN,fun3.value(a[7][0],b[7][0],a[7][1],b[7][1],a[7][2],b[7][2]));
     }
 
     @ParameterizedTest
@@ -2270,7 +2269,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.NaN, fun4.value(a[7][0], b[7][0], a[7][1], b[7][1], a[7][2], b[7][2], a[7][3], b[7][3]));
+        Assertions.assertEquals(Double.NaN,fun4.value(a[7][0],b[7][0],a[7][1],b[7][1],a[7][2],b[7][2],a[7][3],b[7][3]));
     }
 
     @ParameterizedTest
@@ -2422,7 +2421,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun2.value(a[8][0], b[8][0], a[8][1], b[8][1]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun2.value(a[8][0],b[8][0],a[8][1],b[8][1]));
     }
 
     @ParameterizedTest
@@ -2500,7 +2499,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun3.value(a[8][0], b[8][0], a[8][1], b[8][1], a[8][2], b[8][2]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun3.value(a[8][0],b[8][0],a[8][1],b[8][1],a[8][2],b[8][2]));
     }
 
     @ParameterizedTest
@@ -2579,7 +2578,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun4.value(a[8][0], b[8][0], a[8][1], b[8][1], a[8][2], b[8][2], a[8][3], b[8][3]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[8][0],b[8][0],a[8][1],b[8][1],a[8][2],b[8][2],a[8][3],b[8][3]));
     }
 
     @ParameterizedTest
@@ -2741,7 +2740,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(-3, fun2.value(a[9][0], b[9][0], a[9][1], b[9][1]));
+        Assertions.assertEquals(-3,fun2.value(a[9][0],b[9][0],a[9][1],b[9][1]));
     }
 
     @ParameterizedTest
@@ -2824,7 +2823,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun3.value(a[9][0], b[9][0], a[9][1], b[9][1], a[9][2], b[9][2]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun3.value(a[9][0],b[9][0],a[9][1],b[9][1],a[9][2],b[9][2]));
     }
 
     @ParameterizedTest
@@ -2908,7 +2907,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, fun4.value(a[9][0], b[9][0], a[9][1], b[9][1], a[9][2], b[9][2], a[9][3], b[9][3]));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,fun4.value(a[9][0],b[9][0],a[9][1],b[9][1],a[9][2],b[9][2],a[9][3],b[9][3]));
     }
 
     @ParameterizedTest
@@ -3080,7 +3079,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(-Double.MAX_VALUE, fun2.value(a[10][0], b[10][0], a[10][1], b[10][1]));
+        Assertions.assertEquals(-Double.MAX_VALUE,fun2.value(a[10][0],b[10][0],a[10][1],b[10][1]));
     }
 
     @ParameterizedTest
@@ -3168,7 +3167,7 @@ class LinearCombinationsTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(-Double.MAX_VALUE, fun3.value(a[10][0], b[10][0], a[10][1], b[10][1], a[10][2], b[10][2]));
+        Assertions.assertEquals(-Double.MAX_VALUE,fun3.value(a[10][0],b[10][0],a[10][1],b[10][1],a[10][2],b[10][2]));
     }
 
     @ParameterizedTest
@@ -3257,7 +3256,7 @@ class LinearCombinationsTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, fun4.value(a[10][0], b[10][0], a[10][1], b[10][1], a[10][2], b[10][2], a[10][3], b[10][3]));
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,fun4.value(a[10][0],b[10][0],a[10][1],b[10][1],a[10][2],b[10][2],a[10][3],b[10][3]));
     }
 
     @ParameterizedTest

@@ -93,8 +93,8 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void test_epoch() throws Throwable {
         Instant test = Instant.EPOCH;
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(0L, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(0L,test.getMillis());
     }
 
     /**
@@ -102,8 +102,8 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void test_now() throws Throwable {
         Instant test = Instant.now();
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -112,19 +112,19 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void test_ofEpochMilli() throws Throwable {
         Instant test = Instant.ofEpochMilli(TEST_TIME1);
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
     
     public void test_ofEpochSecond() throws Throwable {
         Instant test = Instant.ofEpochSecond(TEST_TIME1 / 1000);
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
     
     public void test_ofEpochSecond_zero() throws Throwable {
         Instant test = Instant.ofEpochSecond(0);
-        assertEquals(0, test.getMillis());
+        assertEquals(0,test.getMillis());
     }
     
     public void test_ofEpochSecond_overflow() throws Throwable {
@@ -143,13 +143,13 @@ public class TestInstant_Constructors extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testParse_noFormatter() throws Throwable {
-        assertEquals(new DateTime(2010, 6, 30, 0, 20, ISOChronology.getInstance(LONDON)).toInstant(), Instant.parse("2010-06-30T01:20+02:00"));
-        assertEquals(new DateTime(2010, 1, 2, 14, 50, ISOChronology.getInstance(LONDON)).toInstant(), Instant.parse("2010-002T14:50"));
+        assertEquals(new DateTime(2010,6,30,0,20,ISOChronology.getInstance(LONDON)).toInstant(),Instant.parse("2010-06-30T01:20+02:00"));
+        assertEquals(new DateTime(2010,1,2,14,50,ISOChronology.getInstance(LONDON)).toInstant(),Instant.parse("2010-002T14:50"));
     }
 
     public void testParse_formatter() throws Throwable {
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy--dd MM HH").withChronology(ISOChronology.getInstance(PARIS));
-        assertEquals(new DateTime(2010, 6, 30, 13, 0, ISOChronology.getInstance(PARIS)).toInstant(), Instant.parse("2010--30 06 13", f));
+        assertEquals(new DateTime(2010,6,30,13,0,ISOChronology.getInstance(PARIS)).toInstant(),Instant.parse("2010--30 06 13",f));
     }
 
     //-----------------------------------------------------------------------
@@ -158,8 +158,8 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void testConstructor() throws Throwable {
         Instant test = new Instant();
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -168,8 +168,8 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void testConstructor_long1() throws Throwable {
         Instant test = new Instant(TEST_TIME1);
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -177,8 +177,8 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void testConstructor_long2() throws Throwable {
         Instant test = new Instant(TEST_TIME2);
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME2, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME2,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -188,8 +188,8 @@ public class TestInstant_Constructors extends TestCase {
     public void testConstructor_Object() throws Throwable {
         Date date = new Date(TEST_TIME1);
         Instant test = new Instant(date);
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -207,8 +207,8 @@ public class TestInstant_Constructors extends TestCase {
      */
     public void testConstructor_nullObject() throws Throwable {
         Instant test = new Instant((Object) null);
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -218,8 +218,8 @@ public class TestInstant_Constructors extends TestCase {
         try {
             ConverterManager.getInstance().addInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
             Instant test = new Instant(new Integer(0));
-            assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
-            assertEquals(0L, test.getMillis());
+            assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
+            assertEquals(0L,test.getMillis());
         } finally {
             ConverterManager.getInstance().removeInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
         }

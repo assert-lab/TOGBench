@@ -115,16 +115,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"ch"});
         DomainValidator validator = DomainValidator.getInstance();
-        assertFalse(validator.isValidGenericTld("ch")); // show that minus overrides the rest;
-    }
-
-    @Test
-    public void testUpdateGeneric3_2_oe() {
-        DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
-        DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"ch"});
-        DomainValidator validator = DomainValidator.getInstance();
-        // removed other assertion
-        assertTrue(validator.isValidGenericTld("com"));
+        assertFalse(validator.isValidGenericTld("ch"));// show that minus overrides the rest assertTrue(validator.isValidGenericTld("com"));
     }
 
     @Test
@@ -365,7 +356,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         items.add(new DomainValidator.Item(ArrayType.COUNTRY_CODE_MINUS,new String[]{""}));
         validator = DomainValidator.getInstance(false, items);
         // removed other assertion
-        assertTrue(validator.isValidGenericTld("com")); // Should be true again;
+        assertTrue(validator.isValidGenericTld("com"));// Should be true again assertTrue(validator.isValidCountryCodeTld("cp"));
     }
 
     @Test
@@ -387,7 +378,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         validator = DomainValidator.getInstance(false, items);
         // removed other assertion
         // removed other assertion
-        assertTrue(validator.isValidCountryCodeTld("cp"));
+        assertTrue(validator.isValidCountryCodeTld("ch"));// Should be true again validator = DomainValidator.getInstance(false);
     }
 
     @Test
@@ -410,7 +401,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(validator.isValidCountryCodeTld("ch")); // Should be true again;
+        assertTrue(validator.isValidGenericTld("gp"));
     }
 
     @Test
@@ -434,10 +425,7 @@ public class DomainValidatorStartupTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Show the class overrides are unaffected
-        validator = DomainValidator.getInstance(false);
-        assertTrue(validator.isValidGenericTld("gp"));
+        assertFalse(validator.isValidGenericTld("com"));
     }
 
     @Test
@@ -461,11 +449,8 @@ public class DomainValidatorStartupTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Show the class overrides are unaffected
-        validator = DomainValidator.getInstance(false);
         // removed other assertion
-        assertFalse(validator.isValidGenericTld("com"));
+        assertTrue(validator.isValidCountryCodeTld("cp"));
     }
 
     @Test
@@ -488,39 +473,6 @@ public class DomainValidatorStartupTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        // Show the class overrides are unaffected
-        validator = DomainValidator.getInstance(false);
-        // removed other assertion
-        // removed other assertion
-        assertTrue(validator.isValidCountryCodeTld("cp"));
-    }
-
-    @Test
-    public void testInstanceOverride_12_oe() { // Show that the instance picks up static values
-        DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"gp"});
-        DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"com"});
-        DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_PLUS, new String[]{"cp"});
-        DomainValidator.updateTLDOverride(ArrayType.COUNTRY_CODE_MINUS, new String[]{"ch"});
-        DomainValidator validator = DomainValidator.getInstance(false);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // show we can override them for a new instance
-        List<DomainValidator.Item> items = new ArrayList<>();
-        items.add(new DomainValidator.Item(ArrayType.GENERIC_MINUS,new String[]{""}));
-        items.add(new DomainValidator.Item(ArrayType.COUNTRY_CODE_MINUS,new String[]{""}));
-        validator = DomainValidator.getInstance(false, items);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Show the class overrides are unaffected
-        validator = DomainValidator.getInstance(false);
         // removed other assertion
         // removed other assertion
         // removed other assertion

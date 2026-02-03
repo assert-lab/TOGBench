@@ -37,12 +37,7 @@ public class HeaderExtractorTest {
         assertTrue(header.contains(key));
         assertTrue(header.contains(timestamp));
         // Assert that header only contains the checked elements above and nothing else
-        assertEquals(", , , ",
-                header.replaceFirst(oauth, "")
-                        .replaceFirst(callback, "")
-                        .replaceFirst(signature, "")
-                        .replaceFirst(key, "")
-                        .replaceFirst(timestamp, ""));
+        assertEquals(",,,",header.replaceFirst(oauth,"").replaceFirst(callback,"").replaceFirst(signature,"").replaceFirst(key,"").replaceFirst(timestamp,""));
     }
 
     public void shouldExceptionIfRequestIsNull() {

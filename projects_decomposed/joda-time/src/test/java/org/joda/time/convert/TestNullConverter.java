@@ -103,40 +103,40 @@ public class TestNullConverter extends TestCase {
     //-----------------------------------------------------------------------
     public void testSingleton() throws Exception {
         Class cls = NullConverter.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isProtected(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isProtected(con.getModifiers()));
         
         Field fld = cls.getDeclaredField("INSTANCE");
-        assertEquals(false, Modifier.isPublic(fld.getModifiers()));
-        assertEquals(false, Modifier.isProtected(fld.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(fld.getModifiers()));
+        assertEquals(false,Modifier.isPublic(fld.getModifiers()));
+        assertEquals(false,Modifier.isProtected(fld.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testSupportedType() throws Exception {
-        assertEquals(null, NullConverter.INSTANCE.getSupportedType());
+        assertEquals(null,NullConverter.INSTANCE.getSupportedType());
     }
 
     //-----------------------------------------------------------------------
     public void testGetInstantMillis_Object_Chronology() throws Exception {
-        assertEquals(TEST_TIME_NOW, NullConverter.INSTANCE.getInstantMillis(null, JULIAN));
-        assertEquals(TEST_TIME_NOW, NullConverter.INSTANCE.getInstantMillis(null, (Chronology) null));
+        assertEquals(TEST_TIME_NOW,NullConverter.INSTANCE.getInstantMillis(null,JULIAN));
+        assertEquals(TEST_TIME_NOW,NullConverter.INSTANCE.getInstantMillis(null,(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
     public void testGetChronology_Object_Zone() throws Exception {
-        assertEquals(ISO_PARIS, NullConverter.INSTANCE.getChronology(null, PARIS));
-        assertEquals(ISO, NullConverter.INSTANCE.getChronology(null, (DateTimeZone) null));
+        assertEquals(ISO_PARIS,NullConverter.INSTANCE.getChronology(null,PARIS));
+        assertEquals(ISO,NullConverter.INSTANCE.getChronology(null,(DateTimeZone)null));
     }
 
     public void testGetChronology_Object_Chronology() throws Exception {
-        assertEquals(JULIAN, NullConverter.INSTANCE.getChronology(null, JULIAN));
-        assertEquals(ISO, NullConverter.INSTANCE.getChronology(null, (Chronology) null));
+        assertEquals(JULIAN,NullConverter.INSTANCE.getChronology(null,JULIAN));
+        assertEquals(ISO,NullConverter.INSTANCE.getChronology(null,(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
@@ -144,50 +144,49 @@ public class TestNullConverter extends TestCase {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = new int[] {10 + 1, 20, 30, 40}; // now
         int[] actual = NullConverter.INSTANCE.getPartialValues(tod, null, ISOChronology.getInstance());
-        assertEquals(true, Arrays.equals(expected, actual));
+        assertEquals(true,Arrays.equals(expected,actual));
     }
 
     //-----------------------------------------------------------------------
     public void testGetDurationMillis_Object() throws Exception {
-        assertEquals(0L, NullConverter.INSTANCE.getDurationMillis(null));
+        assertEquals(0L,NullConverter.INSTANCE.getDurationMillis(null));
     }
 
     //-----------------------------------------------------------------------
     public void testGetPeriodType_Object() throws Exception {
-        assertEquals(PeriodType.standard(),
-            NullConverter.INSTANCE.getPeriodType(null));
+        assertEquals(PeriodType.standard(),NullConverter.INSTANCE.getPeriodType(null));
     }
 
     public void testSetInto_Object() throws Exception {
         MutablePeriod m = new MutablePeriod(PeriodType.millis());
         NullConverter.INSTANCE.setInto(m, null, null);
-        assertEquals(0L, m.getMillis());
+        assertEquals(0L,m.getMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testIsReadableInterval_Object_Chronology() throws Exception {
-        assertEquals(false, NullConverter.INSTANCE.isReadableInterval(null, null));
+        assertEquals(false,NullConverter.INSTANCE.isReadableInterval(null,null));
     }
 
     public void testSetInto_Object_Chronology1() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, null);
-        assertEquals(TEST_TIME_NOW, m.getStartMillis());
-        assertEquals(TEST_TIME_NOW, m.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), m.getChronology());
+        assertEquals(TEST_TIME_NOW,m.getStartMillis());
+        assertEquals(TEST_TIME_NOW,m.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),m.getChronology());
     }
 
     public void testSetInto_Object_Chronology2() throws Exception {
         MutableInterval m = new MutableInterval(1000L, 2000L, GJChronology.getInstance());
         NullConverter.INSTANCE.setInto(m, null, CopticChronology.getInstance());
-        assertEquals(TEST_TIME_NOW, m.getStartMillis());
-        assertEquals(TEST_TIME_NOW, m.getEndMillis());
-        assertEquals(CopticChronology.getInstance(), m.getChronology());
+        assertEquals(TEST_TIME_NOW,m.getStartMillis());
+        assertEquals(TEST_TIME_NOW,m.getEndMillis());
+        assertEquals(CopticChronology.getInstance(),m.getChronology());
     }
 
     //-----------------------------------------------------------------------
     public void testToString() {
-        assertEquals("Converter[null]", NullConverter.INSTANCE.toString());
+        assertEquals("Converter[null]",NullConverter.INSTANCE.toString());
     }
 
 }

@@ -221,45 +221,30 @@ class Bounds3DTest_OE25Dev {
         // check all possible interval relationships
 
         // start below minValue
-        Assertions.assertFalse(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue - 2), setter.apply(max, minValue - 1))));
+        Assertions.assertFalse(b.intersects(Bounds3D.from(setter.apply(min,minValue - 2),setter.apply(max,minValue - 1))));
 
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue - 2), setter.apply(max, minValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue - 2), setter.apply(max, midValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue - 2), setter.apply(max, maxValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue - 2), setter.apply(max, maxValue + 1))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue - 2),setter.apply(max,minValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue - 2),setter.apply(max,midValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue - 2),setter.apply(max,maxValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue - 2),setter.apply(max,maxValue + 1))));
 
         // start on minValue
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue), setter.apply(max, minValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue), setter.apply(max, midValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue), setter.apply(max, maxValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, minValue), setter.apply(max, maxValue + 1))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue),setter.apply(max,minValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue),setter.apply(max,midValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue),setter.apply(max,maxValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,minValue),setter.apply(max,maxValue + 1))));
 
         // start on midValue
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, midValue), setter.apply(max, midValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, midValue), setter.apply(max, maxValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, midValue), setter.apply(max, maxValue + 1))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,midValue),setter.apply(max,midValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,midValue),setter.apply(max,maxValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,midValue),setter.apply(max,maxValue + 1))));
 
         // start on maxValue
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, maxValue), setter.apply(max, maxValue))));
-        Assertions.assertTrue(b.intersects(Bounds3D.from(
-                setter.apply(min, maxValue), setter.apply(max, maxValue + 1))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,maxValue),setter.apply(max,maxValue))));
+        Assertions.assertTrue(b.intersects(Bounds3D.from(setter.apply(min,maxValue),setter.apply(max,maxValue + 1))));
 
         // start above maxValue
-        Assertions.assertFalse(b.intersects(Bounds3D.from(
-                setter.apply(min, maxValue + 1), setter.apply(max, maxValue + 2))));
+        Assertions.assertFalse(b.intersects(Bounds3D.from(setter.apply(min,maxValue + 1),setter.apply(max,maxValue + 2))));
     }
 
     private void checkIntersection(final Bounds3D b, final Vector3D a1, final Vector3D a2, final Vector3D r1, final Vector3D r2) {

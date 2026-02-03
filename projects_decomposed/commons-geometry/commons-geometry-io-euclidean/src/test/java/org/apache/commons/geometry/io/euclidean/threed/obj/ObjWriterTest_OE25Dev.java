@@ -218,7 +218,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "# line 1\r\n" + "# line 2\r\n" + "v 0.0 0.0 0.0\r\n", writer.getBuffer().toString());
+        Assertions.assertEquals("# line 1\r\n" + "# line 2\r\n" + "v 0.0 0.0 0.0\r\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -251,7 +251,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "# test\n" + "#  a\n" + "#  multi-line\n" + "# comment\n", writer.getBuffer().toString());
+        Assertions.assertEquals("# test\n" + "# a\n" + "# multi-line\n" + "# comment\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -389,7 +389,7 @@ class ObjWriterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals( "v 1.1 2.1 3.0\n" + "v 0.1 10.0 12.0\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 1.1 2.1 3.0\n" + "v 0.1 10.0 12.0\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -491,7 +491,7 @@ class ObjWriterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals( "vn 1.1 2.1 3.0\n" + "vn 0.1 10.0 12.0\n", writer.getBuffer().toString());
+        Assertions.assertEquals("vn 1.1 2.1 3.0\n" + "vn 0.1 10.0 12.0\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -511,7 +511,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "f 1 2 3\n" + "f 1 2 3 4\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "f 1 2 3\n" + "f 1 2 3 4\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -534,7 +534,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "vn 0.0 0.0 -1.0\n" + "f 1//1 2//1 3//1\n" + "f 1//2 2//2 3//2 4//2\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "vn 0.0 0.0 -1.0\n" + "f 1//1 2//1 3//1\n" + "f 1//2 2//2 3//2 4//2\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -553,7 +553,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 1 2 3\n" + "f 1 2 4\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 1 2 3\n" + "f 1 2 4\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -576,7 +576,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.5 0.0\n" + "v 0.0 2.0 0.0\n" + "vn 0.0 0.0 -1.0\n" + "vn 0.0 0.0 1.0\n" + "f 1//1 2//1 3//1\n" + "f 1 3 4\n" + "f 4//2 3//2 5//2\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.5 0.0\n" + "v 0.0 2.0 0.0\n" + "vn 0.0 0.0 -1.0\n" + "vn 0.0 0.0 1.0\n" + "f 1//1 2//1 3//1\n" + "f 1 3 4\n" + "f 4//2 3//2 5//2\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -599,7 +599,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.5 0.0\n" + "vn 0.0 0.0 -1.0\n" + "f 1//1 2//1 3//1\n" + "f 1 3 4\n" + "v 0.0 1.5 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 2.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "f 5//2 6//2 7//2\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.5 0.0\n" + "vn 0.0 0.0 -1.0\n" + "f 1//1 2//1 3//1\n" + "f 1 3 4\n" + "v 0.0 1.5 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 2.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "f 5//2 6//2 7//2\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -630,7 +630,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "v -1.0 0.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "f 1//1 2//1 3//1\n" + "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.5 0.0\n" + "vn 0.0 0.0 -1.0\n" + "f 4//2 5//2 6//2\n" + "f 4 6 7\n" + "v 0.0 1.5 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 2.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "f 8//3 9//3 10//3\n" + "f 10 3 2 1\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "v -1.0 0.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "f 1//1 2//1 3//1\n" + "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.5 0.0\n" + "vn 0.0 0.0 -1.0\n" + "f 4//2 5//2 6//2\n" + "f 4 6 7\n" + "v 0.0 1.5 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 2.0 0.0\n" + "vn 0.0 0.0 1.0\n" + "f 8//3 9//3 10//3\n" + "f 10 3 2 1\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -649,7 +649,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 1 2 3\n" + "f 1 2 4\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 1 2 3\n" + "f 1 2 4\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -668,7 +668,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 1 2 3\n" + "f 1 2 4\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 1 2 3\n" + "f 1 2 4\n",writer.getBuffer().toString());
     }
 
     @Test
@@ -687,7 +687,7 @@ class ObjWriterTest_OE25Dev {
         }
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "f 1 2 3\n" + "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 4 5 6\n", writer.getBuffer().toString());
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "f 1 2 3\n" + "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 4 5 6\n",writer.getBuffer().toString());
     }
 
 }

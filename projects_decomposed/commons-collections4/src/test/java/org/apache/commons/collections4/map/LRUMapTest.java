@@ -340,9 +340,7 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertNotNull(map.entry);
         assertEquals("A", map.key);
         assertEquals("a", map.value);
-        assertEquals("C", map.entry.getKey());  // entry is reused
-        assertEquals("c", map.entry.getValue());  // entry is reused
-        assertEquals(false, map.containsKey("A"));
+        assertEquals("C",map.entry.getKey());// entry is reused assertEquals("c",map.entry.getValue());// entry is reused assertEquals(false,map.containsKey("A"));
         assertEquals(true, map.containsKey("B"));
         assertEquals(true, map.containsKey("C"));
     }
@@ -491,10 +489,8 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertEquals(4, map.data.length);
         assertEquals(3, map.size);
         assertEquals(null, map.header.next);
-        assertEquals(one, map.header.after.key);  // LRU
-        assertEquals(two, map.header.after.after.key);
-        assertEquals(three, map.header.after.after.after.key);  // MRU
-        assertEquals(three, map.data[hashIndex].key);
+        assertEquals(one,map.header.after.key);// LRU assertEquals(two,map.header.after.after.key);
+        assertEquals(three,map.header.after.after.after.key);// MRU assertEquals(three,map.data[hashIndex].key);
         assertEquals(two, map.data[hashIndex].next.key);
         assertEquals(one, map.data[hashIndex].next.next.key);
 
@@ -503,10 +499,8 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertEquals(4, map.data.length);
         assertEquals(3, map.size);
         assertEquals(null, map.header.next);
-        assertEquals(two, map.header.after.key);  // LRU
-        assertEquals(three, map.header.after.after.key);
-        assertEquals(four, map.header.after.after.after.key);  // MRU
-        assertEquals(four, map.data[hashIndex].key);
+        assertEquals(two,map.header.after.key);// LRU assertEquals(three,map.header.after.after.key);
+        assertEquals(four,map.header.after.after.after.key);// MRU assertEquals(four,map.data[hashIndex].key);
         assertEquals(three, map.data[hashIndex].next.key);
         assertEquals(two, map.data[hashIndex].next.next.key);
 
@@ -515,10 +509,8 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertEquals(4, map.data.length);
         assertEquals(3, map.size);
         assertEquals(null, map.header.next);
-        assertEquals(two, map.header.after.key);  // LRU
-        assertEquals(four, map.header.after.after.key);
-        assertEquals(three, map.header.after.after.after.key);  // MRU
-        assertEquals(four, map.data[hashIndex].key);
+        assertEquals(two,map.header.after.key);// LRU assertEquals(four,map.header.after.after.key);
+        assertEquals(three,map.header.after.after.after.key);// MRU assertEquals(four,map.data[hashIndex].key);
         assertEquals(three, map.data[hashIndex].next.key);
         assertEquals(two, map.data[hashIndex].next.next.key);
 
@@ -527,10 +519,8 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertEquals(4, map.data.length);
         assertEquals(3, map.size);
         assertEquals(null, map.header.next);
-        assertEquals(four, map.header.after.key);  // LRU
-        assertEquals(three, map.header.after.after.key);
-        assertEquals(five, map.header.after.after.after.key);  // MRU
-        assertEquals(five, map.data[hashIndex].key);
+        assertEquals(four,map.header.after.key);// LRU assertEquals(three,map.header.after.after.key);
+        assertEquals(five,map.header.after.after.after.key);// MRU assertEquals(five,map.data[hashIndex].key);
         assertEquals(four, map.data[hashIndex].next.key);
         assertEquals(three, map.data[hashIndex].next.next.key);
 
@@ -540,10 +530,8 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertEquals(4, map.data.length);
         assertEquals(3, map.size);
         assertEquals(null, map.header.next);
-        assertEquals(four, map.header.after.key);  // LRU
-        assertEquals(three, map.header.after.after.key);
-        assertEquals(five, map.header.after.after.after.key);  // MRU
-        assertEquals(five, map.data[hashIndex].key);
+        assertEquals(four,map.header.after.key);// LRU assertEquals(three,map.header.after.after.key);
+        assertEquals(five,map.header.after.after.after.key);// MRU assertEquals(five,map.data[hashIndex].key);
         assertEquals(four, map.data[hashIndex].next.key);
         assertEquals(three, map.data[hashIndex].next.next.key);
 
@@ -552,10 +540,8 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         assertEquals(4, map.data.length);
         assertEquals(3, map.size);
         assertEquals(null, map.header.next);
-        assertEquals(three, map.header.after.key);  // LRU
-        assertEquals(five, map.header.after.after.key);
-        assertEquals(six, map.header.after.after.after.key);  // MRU
-        assertEquals(six, map.data[hashIndex].key);
+        assertEquals(three,map.header.after.key);// LRU assertEquals(five,map.header.after.after.key);
+        assertEquals(six,map.header.after.after.after.key);// MRU assertEquals(six,map.data[hashIndex].key);
         assertEquals(five, map.data[hashIndex].next.key);
         assertEquals(three, map.data[hashIndex].next.next.key);
     }
@@ -666,8 +652,7 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         assertEquals("Exceptions have been thrown: " + exceptions, 0, exceptions.size());
-        assertTrue("Each thread should have put at least 1 element into the map, but only "
-                + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     public void testSynchronizedRemoveFromEntrySet() throws InterruptedException {
@@ -749,8 +734,7 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         assertEquals("Exceptions have been thrown: " + exceptions, 0, exceptions.size());
-        assertTrue("Each thread should have put at least 1 element into the map, but only "
-                + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     public void testSynchronizedRemoveFromKeySet() throws InterruptedException {
@@ -832,8 +816,7 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         assertEquals("Exceptions have been thrown: " + exceptions, 0, exceptions.size());
-        assertTrue("Each thread should have put at least 1 element into the map, but only "
-                + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     public void testSynchronizedRemoveFromValues() throws InterruptedException {
@@ -914,8 +897,7 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         assertEquals("Exceptions have been thrown: " + exceptions, 0, exceptions.size());
-        assertTrue("Each thread should have put at least 1 element into the map, but only "
-                + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     @Override

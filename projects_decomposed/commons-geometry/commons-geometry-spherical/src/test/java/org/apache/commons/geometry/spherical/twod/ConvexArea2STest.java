@@ -246,8 +246,7 @@ class ConvexArea2STest {
         // assert
         Assertions.assertFalse(area.isFull());
         Assertions.assertFalse(area.isEmpty());
-        Assertions.assertEquals(p1.distance(p2) + p2.distance(p3) + p3.distance(p1),
-                area.getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(p1.distance(p2)+ p2.distance(p3)+ p3.distance(p1),area.getBoundarySize(),TEST_EPS);
         final double size = Angle.TWO_PI - a.angle(b) - b.angle(c) - c.angle(a);
         Assertions.assertEquals(size, area.getSize(), TEST_EPS);
 
@@ -292,8 +291,7 @@ class ConvexArea2STest {
         // assert
         Assertions.assertFalse(area.isFull());
         Assertions.assertFalse(area.isEmpty());
-        Assertions.assertEquals(p1.distance(p2) + p2.distance(p3) + p3.distance(p4) + p4.distance(p1),
-                area.getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(p1.distance(p2)+ p2.distance(p3)+ p3.distance(p4)+ p4.distance(p1),area.getBoundarySize(),TEST_EPS);
 
         final double size = 2 * Math.PI - c1.angle(c2) - c2.angle(c3) - c3.angle(c4) - c4.angle(c1);
         Assertions.assertEquals(size, area.getSize(), TEST_EPS);
@@ -630,8 +628,7 @@ class ConvexArea2STest {
     void testGetInteriorAngles_noAngles() {
         // act/assert
         Assertions.assertEquals(0, ConvexArea2S.full().getInteriorAngles().length);
-        Assertions.assertEquals(0, ConvexArea2S.fromBounds(GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION))
-                .getInteriorAngles().length);
+        Assertions.assertEquals(0,ConvexArea2S.fromBounds(GreatCircles.fromPole(Vector3D.Unit.PLUS_X,TEST_PRECISION)).getInteriorAngles().length);
     }
 
     @Test

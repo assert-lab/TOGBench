@@ -48,9 +48,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Bad XML at 0 [character 1 line 1]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Bad XML at 0 [character 1 line 1]",e.getMessage());
         }
     }
 
@@ -81,9 +79,7 @@ public class JSONMLTest {
             JSONML.toString(jsonArray);
             assertTrue("Expecting an exception", false);
         } catch (JSONException e) {
-            assertTrue("Expecting an exception message",
-                "JSONArray[0] not found.".
-                equals(e.getMessage()));
+            assertTrue("Expecting an exception message","JSONArray[0] not found.". equals(e.getMessage()));
         }
     }
 
@@ -101,9 +97,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Bad XML at 23 [character 24 line 1]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Bad XML at 23 [character 24 line 1]",e.getMessage());
         }
     }
 
@@ -137,9 +131,7 @@ public class JSONMLTest {
             JSONML.toString(jsonArray);
             assertTrue("Expecting an exception", false);
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "JSONArray[0] is not a String (class org.json.JSONArray).",
-                e.getMessage());
+            assertEquals("Expecting an exception message","JSONArray[0] is not a String(class org.json.JSONArray).",e.getMessage());
         }
     }
 
@@ -173,9 +165,7 @@ public class JSONMLTest {
             JSONML.toString(jsonArray);
             assertTrue("Expecting an exception", false);
         } catch (JSONException e) {
-            assertTrue("Expecting an exception message",
-                "'addr esses' contains a space character.".
-                equals(e.getMessage()));
+            assertTrue("Expecting an exception message","'addr esses' contains a space character.". equals(e.getMessage()));
         }
     }
 
@@ -204,9 +194,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Misshaped tag at 176 [character 14 line 4]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped tag at 176 [character 14 line 4]",e.getMessage());
         }
     }
 
@@ -229,9 +217,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Misshaped meta tag at 215 [character 12 line 7]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped meta tag at 215 [character 12 line 7]",e.getMessage());
         }
     }
 
@@ -259,9 +245,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Misshaped meta tag at 214 [character 12 line 7]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Misshaped meta tag at 214 [character 12 line 7]",e.getMessage());
         }
     }
 
@@ -289,9 +273,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Misplaced '<' at 194 [character 5 line 6]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Misplaced '<' at 194 [character 5 line 6]",e.getMessage());
         }
     }
 
@@ -319,9 +301,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             assertTrue("Expecting an exception", false);
         } catch (JSONException e) {
-            assertTrue("Expecting an exception message",
-                "Expected a closing name instead of '>'.".
-                equals(e.getMessage()));
+            assertTrue("Expecting an exception message","Expected a closing name instead of '>'.". equals(e.getMessage()));
         }
     }
 
@@ -349,9 +329,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Misplaced '<' at 206 [character 1 line 7]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Misplaced '<' at 206 [character 1 line 7]",e.getMessage());
         }
     }
 
@@ -379,9 +357,7 @@ public class JSONMLTest {
             JSONML.toJSONArray(xmlStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                "Expected 'CDATA[' at 204 [character 11 line 5]",
-                e.getMessage());
+            assertEquals("Expecting an exception message","Expected 'CDATA[' at 204 [character 11 line 5]",e.getMessage());
         }
     }
 
@@ -814,9 +790,7 @@ public class JSONMLTest {
             JSONML.toJSONObject("??*^M??|?CglR^F??`??>?w??PIlr^E??D^X^]?$?-^R?o??O?*??{OD?^FY??`2a????NM?b^Tq?:O?>S$^K?J?^FB.gUK?m^H??zE??^??!v]?^A???^[^A??^U?c??????h???s???g^Z???`?q^Dbi??:^QZl?)?}1^??k?0??:$V?$?Ovs(}J??^V????2;^QgQ?^_^A?^D?^U?Tg?K?`?h%c?hmGA?<!C*^P^Y?^X9?~?t?)??,z^XA???S}?Q??.q?j????]");
             fail("Exception expected for invalid JSON.");
         } catch (JSONException ex) {
-            assertEquals("Exception string did not match: ",
-                    "Unterminated string at 271 [character 272 line 1]",
-                    ex.getMessage());
+            assertEquals("Exception string did not match: ","Unterminated string at 271 [character 272 line 1]",ex.getMessage());
         }
     }
     
@@ -828,9 +802,7 @@ public class JSONMLTest {
          JSONML.toJSONObject(input);
             fail("Exception expected for invalid JSON.");
         } catch (JSONException ex) {
-            assertEquals("Exception string did not match: ",
-                    "Unterminated string at 242 [character 238 line 2]",
-                    ex.getMessage());
+            assertEquals("Exception string did not match: ","Unterminated string at 242 [character 238 line 2]",ex.getMessage());
         }
     }
 }

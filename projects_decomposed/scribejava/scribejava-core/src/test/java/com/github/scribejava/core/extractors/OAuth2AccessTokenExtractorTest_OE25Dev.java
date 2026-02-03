@@ -85,7 +85,7 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
-        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE", extracted.getAccessToken());
+        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",extracted.getAccessToken());
     }
 
     @Test
@@ -96,7 +96,7 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
-        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE", extracted.getAccessToken());
+        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",extracted.getAccessToken());
     }
 
     @Test
@@ -119,7 +119,7 @@ public class OAuth2AccessTokenExtractorTest_OE25Dev {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
-        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE", extracted.getAccessToken());
+        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",extracted.getAccessToken());
     }
 
     @Test

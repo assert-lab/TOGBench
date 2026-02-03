@@ -64,7 +64,7 @@ public class SystemPropertyUnitTest_OE25Dev
         JCS.setConfigFilename( "/TestSystemProperties.ccf" );
 
         final CacheAccess<String, String> cache = JCS.getInstance( "test1" );
-        assertEquals( "We should have used the system property for the memory size", maxMemory, cache .getCacheAttributes().getMaxObjects() );
+        assertEquals("We should have used the system property for the memory size",maxMemory,cache .getCacheAttributes().getMaxObjects());
     }
 
     public void test2SystemPropertyMissingInValueDelimeter_1_oe()
@@ -77,7 +77,7 @@ public class SystemPropertyUnitTest_OE25Dev
 
         final CacheAccess<String, String> cache = JCS.getInstance( "missing" );
         // TODO check against the actual default def
-        assertEquals( "We should have used the default property for the memory size", 100, cache.getCacheAttributes() .getMaxObjects() );
+        assertEquals("We should have used the default property for the memory size",100,cache.getCacheAttributes().getMaxObjects());
     }
 
 }

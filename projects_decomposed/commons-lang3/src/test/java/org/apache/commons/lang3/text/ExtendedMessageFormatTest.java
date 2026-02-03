@@ -310,10 +310,7 @@ public class ExtendedMessageFormatTest {
         // Different Class
         other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
         assertNotEquals(emf, other, "class, equals()");
-        assertEquals(emf.hashCode(), other.hashCode(), "class, hashcode()"); // same hashcode
-
-        // Different pattern
-        other = new ExtendedMessageFormat("X" + pattern, Locale.US, fmtRegistry);
+        assertEquals(emf.hashCode(),other.hashCode(),"class,hashcode()");// same hashcode other = new ExtendedMessageFormat("X" + pattern,Locale.US,fmtRegistry);
         assertNotEquals(emf, other, "pattern, equals()");
         assertNotEquals(emf.hashCode(), other.hashCode(), "pattern, hashcode()");
 

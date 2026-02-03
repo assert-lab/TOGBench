@@ -392,7 +392,7 @@ public class MapUtilTest_OE25Dev {
 		initExpireAllMap(weakKeyMap);
 		System.gc();
 		// removed other assertion
-		assertThat(weakKeyMap).hasSize(1); // key仍然在;
+		assertThat(weakKeyMap).hasSize(1);// key仍然在;
 	}
 
 	@Test
@@ -402,8 +402,7 @@ public class MapUtilTest_OE25Dev {
 		System.gc();
 		// removed other assertion
 		// removed other assertion
-
-		ConcurrentMap<MyBean, MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
@@ -417,8 +416,7 @@ public class MapUtilTest_OE25Dev {
 		System.gc();
 		// removed other assertion
 		// removed other assertion
-
-		ConcurrentMap<MyBean, MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
@@ -438,8 +436,7 @@ public class MapUtilTest_OE25Dev {
 		System.gc();
 		// removed other assertion
 		// removed other assertion
-
-		ConcurrentMap<MyBean, MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
@@ -465,8 +462,7 @@ public class MapUtilTest_OE25Dev {
 		System.gc();
 		// removed other assertion
 		// removed other assertion
-
-		ConcurrentMap<MyBean, MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();
@@ -498,8 +494,7 @@ public class MapUtilTest_OE25Dev {
 		System.gc();
 		// removed other assertion
 		// removed other assertion
-
-		ConcurrentMap<MyBean, MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();

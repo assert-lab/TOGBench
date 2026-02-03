@@ -159,7 +159,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
 
         // removed other assertion
         // removed other assertion
-        assertFalse(ccv.isValid("123456789012"));   // too short;
+        assertFalse(ccv.isValid("123456789012"));// too short assertFalse(ccv.isValid("12345678901234567890"));// too long assertFalse(ccv.isValid("4417123456789112"));
     }
 
     public void testIsValid_5_oe() {
@@ -170,7 +170,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse(ccv.isValid("12345678901234567890"));   // too long;
+        assertFalse(ccv.isValid("4417q23456w89113"));
     }
 
     public void testIsValid_6_oe() {
@@ -182,7 +182,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse(ccv.isValid("4417123456789112"));
+        assertTrue(ccv.isValid(VALID_VISA));
     }
 
     public void testIsValid_7_oe() {
@@ -195,7 +195,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse(ccv.isValid("4417q23456w89113"));
+        assertTrue(ccv.isValid(VALID_SHORT_VISA));
     }
 
     public void testIsValid_8_oe() {
@@ -209,7 +209,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(ccv.isValid(VALID_VISA));
+        assertTrue(ccv.isValid(VALID_AMEX));
     }
 
     public void testIsValid_9_oe() {
@@ -224,7 +224,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(ccv.isValid(VALID_SHORT_VISA));
+        assertTrue(ccv.isValid(VALID_MASTERCARD));
     }
 
     public void testIsValid_10_oe() {
@@ -240,7 +240,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(ccv.isValid(VALID_AMEX));
+        assertTrue(ccv.isValid(VALID_DISCOVER));
     }
 
     public void testIsValid_11_oe() {
@@ -257,7 +257,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(ccv.isValid(VALID_MASTERCARD));
+        assertTrue(ccv.isValid(VALID_DISCOVER65));
     }
 
     public void testIsValid_12_oe() {
@@ -275,7 +275,8 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(ccv.isValid(VALID_DISCOVER));
+
+        assertFalse(ccv.isValid(ERROR_VISA));
     }
 
     public void testIsValid_13_oe() {
@@ -293,8 +294,9 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
+
         // removed other assertion
-        assertTrue(ccv.isValid(VALID_DISCOVER65));
+        assertFalse(ccv.isValid(ERROR_SHORT_VISA));
     }
 
     public void testIsValid_14_oe() {
@@ -312,10 +314,10 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        assertFalse(ccv.isValid(ERROR_VISA));
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid(ERROR_AMEX));
     }
 
     public void testIsValid_15_oe() {
@@ -333,53 +335,6 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertFalse(ccv.isValid(ERROR_SHORT_VISA));
-    }
-
-    public void testIsValid_16_oe() {
-        CreditCardValidator ccv = new CreditCardValidator();
-        
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertFalse(ccv.isValid(ERROR_AMEX));
-    }
-
-    public void testIsValid_17_oe() {
-        CreditCardValidator ccv = new CreditCardValidator();
-        
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -387,13 +342,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         assertFalse(ccv.isValid(ERROR_MASTERCARD));
     }
 
-    public void testIsValid_18_oe() {
+    public void testIsValid_16_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -412,13 +365,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         assertFalse(ccv.isValid(ERROR_DISCOVER));
     }
 
-    public void testIsValid_19_oe() {
+    public void testIsValid_17_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -438,13 +389,11 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         assertFalse(ccv.isValid(ERROR_DISCOVER65));
     }
 
-    public void testIsValid_20_oe() {
+    public void testIsValid_18_oe() {
         CreditCardValidator ccv = new CreditCardValidator();
         
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6152,49 +6101,7 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Valid-D",         validator.isValid("4508750000000009")); // Electron;
-    }
-
-    public void testVisaValidator_29_oe() {
-
-        CodeValidator validator = CreditCardValidator.VISA_VALIDATOR;
-        RegexValidator regex    = validator.getRegexValidator();
-
-        // ****** Test Regular Expression ******
-        // length 13 or 16, must start with a "4"
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // *********** Test Validator **********
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Valid-E",         validator.isValid("4012888888881881"));
+        assertTrue("Valid-D",validator.isValid("4508750000000009"));// Electron assertTrue("Valid-E",validator.isValid("4012888888881881"));
     }
 
     public void testVisaOption_1_oe() {

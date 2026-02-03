@@ -73,14 +73,7 @@ public class HtmlTreeBuilderStateTest {
             "  </body>\n" +
             "</html>";
         String s = Jsoup.parse(html).toString();
-        assertEquals("<html>\n" +
-            " <head></head>\n" +
-            " <body><a href=\"#1\"> </a>\n" +
-            "  <div>\n" +
-            "   <a href=\"#1\"> </a><a href=\"#2\">child</a>\n" +
-            "  </div>\n" +
-            " </body>\n" +
-            "</html>", s);
+        assertEquals("<html>\n" + " <head></head>\n" + " <body><a href=\"#1\"> </a>\n" + " <div>\n" + " <a href=\"#1\"> </a><a href=\"#2\">child</a>\n" + " </div>\n" + " </body>\n" + "</html>",s);
     }
 
     @Test
@@ -97,17 +90,7 @@ public class HtmlTreeBuilderStateTest {
             "  </body>\n" +
             "</html>";
         String s = Jsoup.parse(html).toString();
-        assertEquals("<html>\n" +
-            " <head></head>\n" +
-            " <body><a href=\"#1\"> </a>\n" +
-            "  <div>\n" +
-            "   <a href=\"#1\"> </a>\n" +
-            "   <div>\n" +
-            "    <a href=\"#1\"> </a><a href=\"#2\">child</a>\n" +
-            "   </div>\n" +
-            "  </div>\n" +
-            " </body>\n" +
-            "</html>", s);
+        assertEquals("<html>\n" + " <head></head>\n" + " <body><a href=\"#1\"> </a>\n" + " <div>\n" + " <a href=\"#1\"> </a>\n" + " <div>\n" + " <a href=\"#1\"> </a><a href=\"#2\">child</a>\n" + " </div>\n" + " </div>\n" + " </body>\n" + "</html>",s);
     }
 
 }

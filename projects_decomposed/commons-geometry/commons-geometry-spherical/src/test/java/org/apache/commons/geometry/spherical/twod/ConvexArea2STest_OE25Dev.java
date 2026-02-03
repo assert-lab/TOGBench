@@ -670,7 +670,7 @@ class ConvexArea2STest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(p1.distance(p2) + p2.distance(p3) + p3.distance(p1), area.getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(p1.distance(p2)+ p2.distance(p3)+ p3.distance(p1),area.getBoundarySize(),TEST_EPS);
     }
 
     @Test
@@ -797,7 +797,7 @@ class ConvexArea2STest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(p1.distance(p2) + p2.distance(p3) + p3.distance(p4) + p4.distance(p1), area.getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(p1.distance(p2)+ p2.distance(p3)+ p3.distance(p4)+ p4.distance(p1),area.getBoundarySize(),TEST_EPS);
     }
 
     @Test
@@ -1403,7 +1403,7 @@ class ConvexArea2STest_OE25Dev {
     void testGetInteriorAngles_noAngles_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(0, ConvexArea2S.fromBounds(GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION)) .getInteriorAngles().length);
+        Assertions.assertEquals(0,ConvexArea2S.fromBounds(GreatCircles.fromPole(Vector3D.Unit.PLUS_X,TEST_PRECISION)).getInteriorAngles().length);
     }
 
     @Test

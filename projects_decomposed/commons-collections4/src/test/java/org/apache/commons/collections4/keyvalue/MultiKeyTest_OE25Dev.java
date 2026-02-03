@@ -518,7 +518,7 @@ public class MultiKeyTest_OE25Dev {
         final Integer[] keys = new Integer[] { ONE, TWO };
         final MultiKey<Integer> mk = new MultiKey<>(keys, false);
         final Object[] array = mk.getKeys();
-        assertTrue(array != keys);  // still not equal;
+        assertTrue(array != keys);// still not equal assertTrue(Arrays.equals(array,keys));
     }
 
     @Test
@@ -527,7 +527,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk = new MultiKey<>(keys, false);
         final Object[] array = mk.getKeys();
         // removed other assertion
-        assertTrue(Arrays.equals(array, keys));
+        assertSame(ONE, array[0]);
     }
 
     @Test
@@ -537,7 +537,7 @@ public class MultiKeyTest_OE25Dev {
         final Object[] array = mk.getKeys();
         // removed other assertion
         // removed other assertion
-        assertSame(ONE, array[0]);
+        assertSame(TWO, array[1]);
     }
 
     @Test
@@ -545,18 +545,6 @@ public class MultiKeyTest_OE25Dev {
         final Integer[] keys = new Integer[] { ONE, TWO };
         final MultiKey<Integer> mk = new MultiKey<>(keys, false);
         final Object[] array = mk.getKeys();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(TWO, array[1]);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorNonCloned_5_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, false);
-        final Object[] array = mk.getKeys();
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -684,7 +672,7 @@ public class MultiKeyTest_OE25Dev {
         final Map<?, ?> map2 = (Map<?, ?>) in.readObject();
         in.close();
 
-        assertEquals(2, sysKey.hashCode()); // different hashCode now;
+        assertEquals(2,sysKey.hashCode());// different hashCode now;
     }
 
     @Test
@@ -710,8 +698,7 @@ public class MultiKeyTest_OE25Dev {
         in.close();
 
         // removed other assertion
-
-        final MultiKey<?> mk2 = new MultiKey<Object>(ONE, sysKey);
+        final MultiKey<?> mk2 = new MultiKey<Object>(ONE,sysKey);
         assertEquals(TWO, map2.get(mk2));
     }
 

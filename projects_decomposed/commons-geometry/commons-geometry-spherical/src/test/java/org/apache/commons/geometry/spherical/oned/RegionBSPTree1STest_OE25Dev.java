@@ -234,10 +234,8 @@ class RegionBSPTree1STest_OE25Dev {
         if (TEST_PRECISION.eq(normalizedMin, normalizedMax)) {
             Assertions.assertTrue(interval.isFull());
         } else {
-            Assertions.assertEquals(normalizedMin,
-                    interval.getMinBoundary().getPoint().getNormalizedAzimuth(), TEST_EPS);
-            Assertions.assertEquals(normalizedMax,
-                    interval.getMaxBoundary().getPoint().getNormalizedAzimuth(), TEST_EPS);
+            Assertions.assertEquals(normalizedMin,interval.getMinBoundary().getPoint().getNormalizedAzimuth(),TEST_EPS);
+            Assertions.assertEquals(normalizedMax,interval.getMaxBoundary().getPoint().getNormalizedAzimuth(),TEST_EPS);
         }
     }
 
@@ -602,7 +600,7 @@ class RegionBSPTree1STest_OE25Dev {
 
             // removed other assertion
             // removed other assertion
-            Assertions.assertEquals(Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(theta + (0.25 * Math.PI)), tree.getCentroid().getNormalizedAzimuth(), TEST_EPS);
+            Assertions.assertEquals(Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(theta +(0.25 * Math.PI)),tree.getCentroid().getNormalizedAzimuth(),TEST_EPS);
     }
     }
 
@@ -711,7 +709,7 @@ class RegionBSPTree1STest_OE25Dev {
         final RegionBSPTree1S tree = RegionBSPTree1S.empty();
 
         // act/assert
-        Assertions.assertEquals(SplitLocation.NEITHER, tree.split(CutAngles.createPositiveFacing(0, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createPositiveFacing(0,TEST_PRECISION)).getLocation());
     }
 
     @Test
@@ -721,7 +719,7 @@ class RegionBSPTree1STest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(SplitLocation.NEITHER, tree.split(CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createNegativeFacing(Angle.PI_OVER_TWO,TEST_PRECISION)).getLocation());
     }
 
     @Test
@@ -732,7 +730,7 @@ class RegionBSPTree1STest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(SplitLocation.NEITHER, tree.split(CutAngles.createPositiveFacing(Math.PI, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createPositiveFacing(Math.PI,TEST_PRECISION)).getLocation());
     }
 
     @Test
@@ -744,7 +742,7 @@ class RegionBSPTree1STest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(SplitLocation.NEITHER, tree.split(CutAngles.createNegativeFacing(-Angle.PI_OVER_TWO, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createNegativeFacing(-Angle.PI_OVER_TWO,TEST_PRECISION)).getLocation());
     }
 
     @Test
@@ -757,7 +755,7 @@ class RegionBSPTree1STest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(SplitLocation.NEITHER, tree.split(CutAngles.createPositiveFacing(Angle.TWO_PI, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,tree.split(CutAngles.createPositiveFacing(Angle.TWO_PI,TEST_PRECISION)).getLocation());
     }
 
     @Test
@@ -1677,7 +1675,7 @@ class RegionBSPTree1STest_OE25Dev {
         tree.add(AngularInterval.of(Math.PI - 1, Math.PI + 1, TEST_PRECISION));
 
         // act/assert
-        Assertions.assertEquals(-Angle.PI_OVER_TWO, tree.project(Point1S.of(-Angle.PI_OVER_TWO - 0.1)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(-Angle.PI_OVER_TWO,tree.project(Point1S.of(-Angle.PI_OVER_TWO - 0.1)).getAzimuth(),TEST_EPS);
     }
 
     @Test
@@ -1689,7 +1687,7 @@ class RegionBSPTree1STest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(-Angle.PI_OVER_TWO, tree.project(Point1S.of(-Angle.PI_OVER_TWO)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(-Angle.PI_OVER_TWO,tree.project(Point1S.of(-Angle.PI_OVER_TWO)).getAzimuth(),TEST_EPS);
     }
 
     @Test
@@ -1702,7 +1700,7 @@ class RegionBSPTree1STest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(-Angle.PI_OVER_TWO, tree.project(Point1S.of(-Angle.PI_OVER_TWO + 0.1)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(-Angle.PI_OVER_TWO,tree.project(Point1S.of(-Angle.PI_OVER_TWO + 0.1)).getAzimuth(),TEST_EPS);
     }
 
     @Test
@@ -1769,7 +1767,7 @@ class RegionBSPTree1STest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Math.PI - 1, tree.project(Point1S.of(Math.PI - 0.5)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(Math.PI - 1,tree.project(Point1S.of(Math.PI - 0.5)).getAzimuth(),TEST_EPS);
     }
 
     @Test
@@ -1789,7 +1787,7 @@ class RegionBSPTree1STest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(Math.PI + 1, tree.project(Point1S.of(Math.PI + 0.5)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(Math.PI + 1,tree.project(Point1S.of(Math.PI + 0.5)).getAzimuth(),TEST_EPS);
     }
 
     @Test

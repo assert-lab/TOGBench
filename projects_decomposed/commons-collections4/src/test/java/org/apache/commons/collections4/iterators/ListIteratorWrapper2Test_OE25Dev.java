@@ -95,7 +95,7 @@ public class ListIteratorWrapper2Test_OE25Dev<E> extends AbstractIteratorTest<E>
         try {
             iter.next();
         } catch (final Exception e) {
-            assertTrue("NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 
@@ -151,7 +151,7 @@ public class ListIteratorWrapper2Test_OE25Dev<E> extends AbstractIteratorTest<E>
         try {
             iter.previous();
         } catch (final Exception e) {
-            assertTrue("NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 

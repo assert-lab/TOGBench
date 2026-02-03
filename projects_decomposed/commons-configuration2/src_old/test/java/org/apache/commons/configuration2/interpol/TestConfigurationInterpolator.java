@@ -285,8 +285,7 @@ public class TestConfigurationInterpolator {
         assertTrue("Got predefined lookups", interpolator.getLookups().isEmpty());
         assertNull("Got a parent interpolator", interpolator.getParentInterpolator());
         assertNotNull("Missing string converter", interpolator.getStringConverter());
-        assertEquals("Incorrect string converter value", "1",
-                interpolator.getStringConverter().apply(Arrays.asList(1, 2)));
+        assertEquals("Incorrect string converter value","1",interpolator.getStringConverter().apply(Arrays.asList(1,2)));
     }
 
     /**

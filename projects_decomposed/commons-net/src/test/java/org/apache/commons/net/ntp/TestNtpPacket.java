@@ -60,8 +60,7 @@ public class TestNtpPacket {
 
         final DatagramPacket dp = message.getDatagramPacket(); // this creates a new datagram
         Assert.assertNotNull(dp);
-        Assert.assertEquals(48, dp.getLength()); // fixed 48-byte length
-
+        Assert.assertEquals(48,dp.getLength());// fixed 48-byte length 
         final NtpV3Packet message2 = new NtpV3Impl();
         final DatagramPacket dp2 = new DatagramPacket(ntpPacket, ntpPacket.length);
         message2.setDatagramPacket(dp2);

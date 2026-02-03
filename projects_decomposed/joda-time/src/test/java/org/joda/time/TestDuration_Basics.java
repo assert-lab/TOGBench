@@ -106,41 +106,41 @@ public class TestDuration_Basics extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testTest() {
-        assertEquals("2002-06-09T00:00:00.000Z", new Instant(TEST_TIME_NOW).toString());
-        assertEquals("2002-04-05T12:24:00.000Z", new Instant(TEST_TIME1).toString());
-        assertEquals("2003-05-06T14:28:00.000Z", new Instant(TEST_TIME2).toString());
+        assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
+        assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
+        assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
     //-----------------------------------------------------------------------
     public void testGetMillis() {
         Duration test = new Duration(0L);
-        assertEquals(0, test.getMillis());
+        assertEquals(0,test.getMillis());
         
         test = new Duration(1234567890L);
-        assertEquals(1234567890L, test.getMillis());
+        assertEquals(1234567890L,test.getMillis());
     }
 
     public void testEqualsHashCode() {
         Duration test1 = new Duration(123L);
         Duration test2 = new Duration(123L);
-        assertEquals(true, test1.equals(test2));
-        assertEquals(true, test2.equals(test1));
-        assertEquals(true, test1.equals(test1));
-        assertEquals(true, test2.equals(test2));
-        assertEquals(true, test1.hashCode() == test2.hashCode());
-        assertEquals(true, test1.hashCode() == test1.hashCode());
-        assertEquals(true, test2.hashCode() == test2.hashCode());
+        assertEquals(true,test1.equals(test2));
+        assertEquals(true,test2.equals(test1));
+        assertEquals(true,test1.equals(test1));
+        assertEquals(true,test2.equals(test2));
+        assertEquals(true,test1.hashCode()== test2.hashCode());
+        assertEquals(true,test1.hashCode()== test1.hashCode());
+        assertEquals(true,test2.hashCode()== test2.hashCode());
         
         Duration test3 = new Duration(321L);
-        assertEquals(false, test1.equals(test3));
-        assertEquals(false, test2.equals(test3));
-        assertEquals(false, test3.equals(test1));
-        assertEquals(false, test3.equals(test2));
-        assertEquals(false, test1.hashCode() == test3.hashCode());
-        assertEquals(false, test2.hashCode() == test3.hashCode());
+        assertEquals(false,test1.equals(test3));
+        assertEquals(false,test2.equals(test3));
+        assertEquals(false,test3.equals(test1));
+        assertEquals(false,test3.equals(test2));
+        assertEquals(false,test1.hashCode()== test3.hashCode());
+        assertEquals(false,test2.hashCode()== test3.hashCode());
         
-        assertEquals(false, test1.equals("Hello"));
-        assertEquals(true, test1.equals(new MockDuration(123L)));
+        assertEquals(false,test1.equals("Hello"));
+        assertEquals(true,test1.equals(new MockDuration(123L)));
     }
     
     class MockDuration extends AbstractDuration {
@@ -157,17 +157,17 @@ public class TestDuration_Basics extends TestCase {
     public void testCompareTo() {
         Duration test1 = new Duration(123L);
         Duration test1a = new Duration(123L);
-        assertEquals(0, test1.compareTo(test1a));
-        assertEquals(0, test1a.compareTo(test1));
-        assertEquals(0, test1.compareTo(test1));
-        assertEquals(0, test1a.compareTo(test1a));
+        assertEquals(0,test1.compareTo(test1a));
+        assertEquals(0,test1a.compareTo(test1));
+        assertEquals(0,test1.compareTo(test1));
+        assertEquals(0,test1a.compareTo(test1a));
         
         Duration test2 = new Duration(321L);
-        assertEquals(-1, test1.compareTo(test2));
-        assertEquals(+1, test2.compareTo(test1));
+        assertEquals(-1,test1.compareTo(test2));
+        assertEquals(+1,test2.compareTo(test1));
         
-        assertEquals(+1, test2.compareTo(new MockDuration(123L)));
-        assertEquals(0, test1.compareTo(new MockDuration(123L)));
+        assertEquals(+1,test2.compareTo(new MockDuration(123L)));
+        assertEquals(0,test1.compareTo(new MockDuration(123L)));
         
         try {
             test1.compareTo(null);
@@ -182,55 +182,55 @@ public class TestDuration_Basics extends TestCase {
     public void testIsEqual() {
         Duration test1 = new Duration(123L);
         Duration test1a = new Duration(123L);
-        assertEquals(true, test1.isEqual(test1a));
-        assertEquals(true, test1a.isEqual(test1));
-        assertEquals(true, test1.isEqual(test1));
-        assertEquals(true, test1a.isEqual(test1a));
+        assertEquals(true,test1.isEqual(test1a));
+        assertEquals(true,test1a.isEqual(test1));
+        assertEquals(true,test1.isEqual(test1));
+        assertEquals(true,test1a.isEqual(test1a));
         
         Duration test2 = new Duration(321L);
-        assertEquals(false, test1.isEqual(test2));
-        assertEquals(false, test2.isEqual(test1));
+        assertEquals(false,test1.isEqual(test2));
+        assertEquals(false,test2.isEqual(test1));
         
-        assertEquals(false, test2.isEqual(new MockDuration(123L)));
-        assertEquals(true, test1.isEqual(new MockDuration(123L)));
-        assertEquals(false, test1.isEqual(null));
-        assertEquals(true, new Duration(0L).isEqual(null));
+        assertEquals(false,test2.isEqual(new MockDuration(123L)));
+        assertEquals(true,test1.isEqual(new MockDuration(123L)));
+        assertEquals(false,test1.isEqual(null));
+        assertEquals(true,new Duration(0L).isEqual(null));
     }
     
     public void testIsBefore() {
         Duration test1 = new Duration(123L);
         Duration test1a = new Duration(123L);
-        assertEquals(false, test1.isShorterThan(test1a));
-        assertEquals(false, test1a.isShorterThan(test1));
-        assertEquals(false, test1.isShorterThan(test1));
-        assertEquals(false, test1a.isShorterThan(test1a));
+        assertEquals(false,test1.isShorterThan(test1a));
+        assertEquals(false,test1a.isShorterThan(test1));
+        assertEquals(false,test1.isShorterThan(test1));
+        assertEquals(false,test1a.isShorterThan(test1a));
         
         Duration test2 = new Duration(321L);
-        assertEquals(true, test1.isShorterThan(test2));
-        assertEquals(false, test2.isShorterThan(test1));
+        assertEquals(true,test1.isShorterThan(test2));
+        assertEquals(false,test2.isShorterThan(test1));
         
-        assertEquals(false, test2.isShorterThan(new MockDuration(123L)));
-        assertEquals(false, test1.isShorterThan(new MockDuration(123L)));
-        assertEquals(false, test1.isShorterThan(null));
-        assertEquals(false, new Duration(0L).isShorterThan(null));
+        assertEquals(false,test2.isShorterThan(new MockDuration(123L)));
+        assertEquals(false,test1.isShorterThan(new MockDuration(123L)));
+        assertEquals(false,test1.isShorterThan(null));
+        assertEquals(false,new Duration(0L).isShorterThan(null));
     }
     
     public void testIsAfter() {
         Duration test1 = new Duration(123L);
         Duration test1a = new Duration(123L);
-        assertEquals(false, test1.isLongerThan(test1a));
-        assertEquals(false, test1a.isLongerThan(test1));
-        assertEquals(false, test1.isLongerThan(test1));
-        assertEquals(false, test1a.isLongerThan(test1a));
+        assertEquals(false,test1.isLongerThan(test1a));
+        assertEquals(false,test1a.isLongerThan(test1));
+        assertEquals(false,test1.isLongerThan(test1));
+        assertEquals(false,test1a.isLongerThan(test1a));
         
         Duration test2 = new Duration(321L);
-        assertEquals(false, test1.isLongerThan(test2));
-        assertEquals(true, test2.isLongerThan(test1));
+        assertEquals(false,test1.isLongerThan(test2));
+        assertEquals(true,test2.isLongerThan(test1));
         
-        assertEquals(true, test2.isLongerThan(new MockDuration(123L)));
-        assertEquals(false, test1.isLongerThan(new MockDuration(123L)));
-        assertEquals(true, test1.isLongerThan(null));
-        assertEquals(false, new Duration(0L).isLongerThan(null));
+        assertEquals(true,test2.isLongerThan(new MockDuration(123L)));
+        assertEquals(false,test1.isLongerThan(new MockDuration(123L)));
+        assertEquals(true,test1.isLongerThan(null));
+        assertEquals(false,new Duration(0L).isLongerThan(null));
     }
     
     //-----------------------------------------------------------------------
@@ -248,31 +248,31 @@ public class TestDuration_Basics extends TestCase {
         Duration result = (Duration) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertEquals(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testGetStandardSeconds() {
         Duration test = new Duration(0L);
-        assertEquals(0, test.getStandardSeconds());
+        assertEquals(0,test.getStandardSeconds());
         test = new Duration(1L);
-        assertEquals(0, test.getStandardSeconds());
+        assertEquals(0,test.getStandardSeconds());
         test = new Duration(999L);
-        assertEquals(0, test.getStandardSeconds());
+        assertEquals(0,test.getStandardSeconds());
         test = new Duration(1000L);
-        assertEquals(1, test.getStandardSeconds());
+        assertEquals(1,test.getStandardSeconds());
         test = new Duration(1001L);
-        assertEquals(1, test.getStandardSeconds());
+        assertEquals(1,test.getStandardSeconds());
         test = new Duration(1999L);
-        assertEquals(1, test.getStandardSeconds());
+        assertEquals(1,test.getStandardSeconds());
         test = new Duration(2000L);
-        assertEquals(2, test.getStandardSeconds());
+        assertEquals(2,test.getStandardSeconds());
         test = new Duration(-1L);
-        assertEquals(0, test.getStandardSeconds());
+        assertEquals(0,test.getStandardSeconds());
         test = new Duration(-999L);
-        assertEquals(0, test.getStandardSeconds());
+        assertEquals(0,test.getStandardSeconds());
         test = new Duration(-1000L);
-        assertEquals(-1, test.getStandardSeconds());
+        assertEquals(-1,test.getStandardSeconds());
     }
 
     //-----------------------------------------------------------------------
@@ -282,55 +282,55 @@ public class TestDuration_Basics extends TestCase {
             6L * DateTimeConstants.MILLIS_PER_MINUTE +
             7L * DateTimeConstants.MILLIS_PER_SECOND + 845L;
         Duration test = new Duration(length);
-        assertEquals("PT" + (length / 1000) + "." + (length % 1000) + "S", test.toString());
+        assertEquals("PT" +(length / 1000)+ "." +(length % 1000)+ "S",test.toString());
         
-        assertEquals("PT0S", new Duration(0L).toString());
-        assertEquals("PT10S", new Duration(10000L).toString());
-        assertEquals("PT1S", new Duration(1000L).toString());
-        assertEquals("PT12.345S", new Duration(12345L).toString());
-        assertEquals("PT-12.345S", new Duration(-12345L).toString());
-        assertEquals("PT-1.123S", new Duration(-1123L).toString());
-        assertEquals("PT-0.123S", new Duration(-123L).toString());
-        assertEquals("PT-0.012S", new Duration(-12L).toString());
-        assertEquals("PT-0.001S", new Duration(-1L).toString());
+        assertEquals("PT0S",new Duration(0L).toString());
+        assertEquals("PT10S",new Duration(10000L).toString());
+        assertEquals("PT1S",new Duration(1000L).toString());
+        assertEquals("PT12.345S",new Duration(12345L).toString());
+        assertEquals("PT-12.345S",new Duration(-12345L).toString());
+        assertEquals("PT-1.123S",new Duration(-1123L).toString());
+        assertEquals("PT-0.123S",new Duration(-123L).toString());
+        assertEquals("PT-0.012S",new Duration(-12L).toString());
+        assertEquals("PT-0.001S",new Duration(-1L).toString());
     }
 
     //-----------------------------------------------------------------------
     public void testToDuration1() {
         Duration test = new Duration(123L);
         Duration result = test.toDuration();
-        assertSame(test, result);
+        assertSame(test,result);
     }
     
     public void testToDuration2() {
         MockDuration test = new MockDuration(123L);
         Duration result = test.toDuration();
-        assertNotSame(test, result);
-        assertEquals(test, result);
+        assertNotSame(test,result);
+        assertEquals(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testToStandardDays() {
         Duration test = new Duration(0L);
-        assertEquals(Days.days(0), test.toStandardDays());
+        assertEquals(Days.days(0),test.toStandardDays());
         test = new Duration(1L);
-        assertEquals(Days.days(0), test.toStandardDays());
+        assertEquals(Days.days(0),test.toStandardDays());
         test = new Duration(24 * 60 * 60000L - 1);
-        assertEquals(Days.days(0), test.toStandardDays());
+        assertEquals(Days.days(0),test.toStandardDays());
         test = new Duration(24 * 60 * 60000L);
-        assertEquals(Days.days(1), test.toStandardDays());
+        assertEquals(Days.days(1),test.toStandardDays());
         test = new Duration(24 * 60 * 60000L + 1);
-        assertEquals(Days.days(1), test.toStandardDays());
+        assertEquals(Days.days(1),test.toStandardDays());
         test = new Duration(2 * 24 * 60 * 60000L - 1);
-        assertEquals(Days.days(1), test.toStandardDays());
+        assertEquals(Days.days(1),test.toStandardDays());
         test = new Duration(2 * 24 * 60 * 60000L);
-        assertEquals(Days.days(2), test.toStandardDays());
+        assertEquals(Days.days(2),test.toStandardDays());
         test = new Duration(-1L);
-        assertEquals(Days.days(0), test.toStandardDays());
+        assertEquals(Days.days(0),test.toStandardDays());
         test = new Duration(-24 * 60 * 60000L + 1);
-        assertEquals(Days.days(0), test.toStandardDays());
+        assertEquals(Days.days(0),test.toStandardDays());
         test = new Duration(-24 * 60 * 60000L);
-        assertEquals(Days.days(-1), test.toStandardDays());
+        assertEquals(Days.days(-1),test.toStandardDays());
     }
 
     public void testToStandardDays_overflow() {
@@ -346,25 +346,25 @@ public class TestDuration_Basics extends TestCase {
     //-----------------------------------------------------------------------
     public void testToStandardHours() {
         Duration test = new Duration(0L);
-        assertEquals(Hours.hours(0), test.toStandardHours());
+        assertEquals(Hours.hours(0),test.toStandardHours());
         test = new Duration(1L);
-        assertEquals(Hours.hours(0), test.toStandardHours());
+        assertEquals(Hours.hours(0),test.toStandardHours());
         test = new Duration(3600000L - 1);
-        assertEquals(Hours.hours(0), test.toStandardHours());
+        assertEquals(Hours.hours(0),test.toStandardHours());
         test = new Duration(3600000L);
-        assertEquals(Hours.hours(1), test.toStandardHours());
+        assertEquals(Hours.hours(1),test.toStandardHours());
         test = new Duration(3600000L + 1);
-        assertEquals(Hours.hours(1), test.toStandardHours());
+        assertEquals(Hours.hours(1),test.toStandardHours());
         test = new Duration(2 * 3600000L - 1);
-        assertEquals(Hours.hours(1), test.toStandardHours());
+        assertEquals(Hours.hours(1),test.toStandardHours());
         test = new Duration(2 * 3600000L);
-        assertEquals(Hours.hours(2), test.toStandardHours());
+        assertEquals(Hours.hours(2),test.toStandardHours());
         test = new Duration(-1L);
-        assertEquals(Hours.hours(0), test.toStandardHours());
+        assertEquals(Hours.hours(0),test.toStandardHours());
         test = new Duration(-3600000L + 1);
-        assertEquals(Hours.hours(0), test.toStandardHours());
+        assertEquals(Hours.hours(0),test.toStandardHours());
         test = new Duration(-3600000L);
-        assertEquals(Hours.hours(-1), test.toStandardHours());
+        assertEquals(Hours.hours(-1),test.toStandardHours());
     }
 
     public void testToStandardHours_overflow() {
@@ -380,25 +380,25 @@ public class TestDuration_Basics extends TestCase {
     //-----------------------------------------------------------------------
     public void testToStandardMinutes() {
         Duration test = new Duration(0L);
-        assertEquals(Minutes.minutes(0), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(0),test.toStandardMinutes());
         test = new Duration(1L);
-        assertEquals(Minutes.minutes(0), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(0),test.toStandardMinutes());
         test = new Duration(60000L - 1);
-        assertEquals(Minutes.minutes(0), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(0),test.toStandardMinutes());
         test = new Duration(60000L);
-        assertEquals(Minutes.minutes(1), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(1),test.toStandardMinutes());
         test = new Duration(60000L + 1);
-        assertEquals(Minutes.minutes(1), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(1),test.toStandardMinutes());
         test = new Duration(2 * 60000L - 1);
-        assertEquals(Minutes.minutes(1), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(1),test.toStandardMinutes());
         test = new Duration(2 * 60000L);
-        assertEquals(Minutes.minutes(2), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(2),test.toStandardMinutes());
         test = new Duration(-1L);
-        assertEquals(Minutes.minutes(0), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(0),test.toStandardMinutes());
         test = new Duration(-60000L + 1);
-        assertEquals(Minutes.minutes(0), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(0),test.toStandardMinutes());
         test = new Duration(-60000L);
-        assertEquals(Minutes.minutes(-1), test.toStandardMinutes());
+        assertEquals(Minutes.minutes(-1),test.toStandardMinutes());
     }
 
     public void testToStandardMinutes_overflow() {
@@ -414,25 +414,25 @@ public class TestDuration_Basics extends TestCase {
     //-----------------------------------------------------------------------
     public void testToStandardSeconds() {
         Duration test = new Duration(0L);
-        assertEquals(Seconds.seconds(0), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(0),test.toStandardSeconds());
         test = new Duration(1L);
-        assertEquals(Seconds.seconds(0), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(0),test.toStandardSeconds());
         test = new Duration(999L);
-        assertEquals(Seconds.seconds(0), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(0),test.toStandardSeconds());
         test = new Duration(1000L);
-        assertEquals(Seconds.seconds(1), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(1),test.toStandardSeconds());
         test = new Duration(1001L);
-        assertEquals(Seconds.seconds(1), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(1),test.toStandardSeconds());
         test = new Duration(1999L);
-        assertEquals(Seconds.seconds(1), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(1),test.toStandardSeconds());
         test = new Duration(2000L);
-        assertEquals(Seconds.seconds(2), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(2),test.toStandardSeconds());
         test = new Duration(-1L);
-        assertEquals(Seconds.seconds(0), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(0),test.toStandardSeconds());
         test = new Duration(-999L);
-        assertEquals(Seconds.seconds(0), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(0),test.toStandardSeconds());
         test = new Duration(-1000L);
-        assertEquals(Seconds.seconds(-1), test.toStandardSeconds());
+        assertEquals(Seconds.seconds(-1),test.toStandardSeconds());
     }
 
     public void testToStandardSeconds_overflow() {
@@ -457,14 +457,13 @@ public class TestDuration_Basics extends TestCase {
                 7L * DateTimeConstants.MILLIS_PER_SECOND + 8L;
             Duration dur = new Duration(length);
             Period test = dur.toPeriod();
-            assertEquals(0, test.getYears());  // (4 + (3 * 7) + (2 * 30) + 365) == 450
-            assertEquals(0, test.getMonths());
-            assertEquals(0, test.getWeeks());
-            assertEquals(0, test.getDays());
-            assertEquals((450 * 24) + 5, test.getHours());
-            assertEquals(6, test.getMinutes());
-            assertEquals(7, test.getSeconds());
-            assertEquals(8, test.getMillis());
+            assertEquals(0,test.getYears());//(4 +(3 * 7)+(2 * 30)+ 365)== 450 assertEquals(0,test.getMonths());
+            assertEquals(0,test.getWeeks());
+            assertEquals(0,test.getDays());
+            assertEquals((450 * 24)+ 5,test.getHours());
+            assertEquals(6,test.getMinutes());
+            assertEquals(7,test.getSeconds());
+            assertEquals(8,test.getMillis());
         } finally {
             DateTimeZone.setDefault(zone);
         }
@@ -481,14 +480,13 @@ public class TestDuration_Basics extends TestCase {
                 7L * DateTimeConstants.MILLIS_PER_SECOND + 8L;
             Duration dur = new Duration(length);
             Period test = dur.toPeriod();
-            assertEquals(0, test.getYears());  // (4 + (3 * 7) + (2 * 30) + 365) == 450
-            assertEquals(0, test.getMonths());
-            assertEquals(0, test.getWeeks());
-            assertEquals(0, test.getDays());
-            assertEquals((450 * 24) + 5, test.getHours());
-            assertEquals(6, test.getMinutes());
-            assertEquals(7, test.getSeconds());
-            assertEquals(8, test.getMillis());
+            assertEquals(0,test.getYears());//(4 +(3 * 7)+(2 * 30)+ 365)== 450 assertEquals(0,test.getMonths());
+            assertEquals(0,test.getWeeks());
+            assertEquals(0,test.getDays());
+            assertEquals((450 * 24)+ 5,test.getHours());
+            assertEquals(6,test.getMinutes());
+            assertEquals(7,test.getSeconds());
+            assertEquals(8,test.getMillis());
         } finally {
             DateTimeZone.setDefault(zone);
         }
@@ -503,8 +501,8 @@ public class TestDuration_Basics extends TestCase {
             7L * DateTimeConstants.MILLIS_PER_SECOND + 8L;
         Duration test = new Duration(length);
         Period result = test.toPeriod(PeriodType.standard().withMillisRemoved());
-        assertEquals(new Period(test, PeriodType.standard().withMillisRemoved()), result);
-        assertEquals(new Period(test.getMillis(), PeriodType.standard().withMillisRemoved()), result);
+        assertEquals(new Period(test,PeriodType.standard().withMillisRemoved()),result);
+        assertEquals(new Period(test.getMillis(),PeriodType.standard().withMillisRemoved()),result);
     }
 
     //-----------------------------------------------------------------------
@@ -516,8 +514,8 @@ public class TestDuration_Basics extends TestCase {
             7L * DateTimeConstants.MILLIS_PER_SECOND + 8L;
         Duration test = new Duration(length);
         Period result = test.toPeriod(ISOChronology.getInstanceUTC());
-        assertEquals(new Period(test, ISOChronology.getInstanceUTC()), result);
-        assertEquals(new Period(test.getMillis(), ISOChronology.getInstanceUTC()), result);
+        assertEquals(new Period(test,ISOChronology.getInstanceUTC()),result);
+        assertEquals(new Period(test.getMillis(),ISOChronology.getInstanceUTC()),result);
     }
 
     //-----------------------------------------------------------------------
@@ -529,8 +527,8 @@ public class TestDuration_Basics extends TestCase {
             7L * DateTimeConstants.MILLIS_PER_SECOND + 8L;
         Duration test = new Duration(length);
         Period result = test.toPeriod(PeriodType.standard().withMillisRemoved(), ISOChronology.getInstanceUTC());
-        assertEquals(new Period(test, PeriodType.standard().withMillisRemoved(), ISOChronology.getInstanceUTC()), result);
-        assertEquals(new Period(test.getMillis(), PeriodType.standard().withMillisRemoved(), ISOChronology.getInstanceUTC()), result);
+        assertEquals(new Period(test,PeriodType.standard().withMillisRemoved(),ISOChronology.getInstanceUTC()),result);
+        assertEquals(new Period(test.getMillis(),PeriodType.standard().withMillisRemoved(),ISOChronology.getInstanceUTC()),result);
     }
 
     //-----------------------------------------------------------------------
@@ -543,7 +541,7 @@ public class TestDuration_Basics extends TestCase {
         Duration test = new Duration(length);
         DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Period result = test.toPeriodFrom(dt);
-        assertEquals(new Period(dt, test), result);
+        assertEquals(new Period(dt,test),result);
     }
 
     //-----------------------------------------------------------------------
@@ -556,7 +554,7 @@ public class TestDuration_Basics extends TestCase {
         Duration test = new Duration(length);
         DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Period result = test.toPeriodFrom(dt, PeriodType.standard().withMillisRemoved());
-        assertEquals(new Period(dt, test, PeriodType.standard().withMillisRemoved()), result);
+        assertEquals(new Period(dt,test,PeriodType.standard().withMillisRemoved()),result);
     }
 
     //-----------------------------------------------------------------------
@@ -569,7 +567,7 @@ public class TestDuration_Basics extends TestCase {
         Duration test = new Duration(length);
         DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Period result = test.toPeriodTo(dt);
-        assertEquals(new Period(test, dt), result);
+        assertEquals(new Period(test,dt),result);
     }
 
     //-----------------------------------------------------------------------
@@ -582,7 +580,7 @@ public class TestDuration_Basics extends TestCase {
         Duration test = new Duration(length);
         DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Period result = test.toPeriodTo(dt, PeriodType.standard().withMillisRemoved());
-        assertEquals(new Period(test, dt, PeriodType.standard().withMillisRemoved()), result);
+        assertEquals(new Period(test,dt,PeriodType.standard().withMillisRemoved()),result);
     }
 
     //-----------------------------------------------------------------------
@@ -595,7 +593,7 @@ public class TestDuration_Basics extends TestCase {
         Duration test = new Duration(length);
         DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Interval result = test.toIntervalFrom(dt);
-        assertEquals(new Interval(dt, test), result);
+        assertEquals(new Interval(dt,test),result);
     }
 
     //-----------------------------------------------------------------------
@@ -608,141 +606,141 @@ public class TestDuration_Basics extends TestCase {
         Duration test = new Duration(length);
         DateTime dt = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Interval result = test.toIntervalTo(dt);
-        assertEquals(new Interval(test, dt), result);
+        assertEquals(new Interval(test,dt),result);
     }
 
     //-----------------------------------------------------------------------
     public void testWithMillis1() {
         Duration test = new Duration(123L);
         Duration result = test.withMillis(123L);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     public void testWithMillis2() {
         Duration test = new Duration(123L);
         Duration result = test.withMillis(1234567890L);
-        assertEquals(1234567890L, result.getMillis());
+        assertEquals(1234567890L,result.getMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testWithDurationAdded_long_int1() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(8000L, 1);
-        assertEquals(8123L, result.getMillis());
+        assertEquals(8123L,result.getMillis());
     }
 
     public void testWithDurationAdded_long_int2() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(8000L, 2);
-        assertEquals(16123L, result.getMillis());
+        assertEquals(16123L,result.getMillis());
     }
 
     public void testWithDurationAdded_long_int3() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(8000L, -1);
-        assertEquals((123L - 8000L), result.getMillis());
+        assertEquals((123L - 8000L),result.getMillis());
     }
 
     public void testWithDurationAdded_long_int4() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(0L, 1);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     public void testWithDurationAdded_long_int5() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(8000L, 0);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testPlus_long1() {
         Duration test = new Duration(123L);
         Duration result = test.plus(8000L);
-        assertEquals(8123L, result.getMillis());
+        assertEquals(8123L,result.getMillis());
     }
 
     public void testPlus_long2() {
         Duration test = new Duration(123L);
         Duration result = test.plus(0L);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testMinus_long1() {
         Duration test = new Duration(123L);
         Duration result = test.minus(8000L);
-        assertEquals(123L - 8000L, result.getMillis());
+        assertEquals(123L - 8000L,result.getMillis());
     }
 
     public void testMinus_long2() {
         Duration test = new Duration(123L);
         Duration result = test.minus(0L);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testMultipliedBy_long1() {
         Duration test = new Duration(123L);
         Duration result = test.multipliedBy(2L);
-        assertEquals(246L, result.getMillis());
+        assertEquals(246L,result.getMillis());
     }
 
     public void testMultipliedBy_long2() {
         Duration test = new Duration(123L);
         Duration result = test.multipliedBy(1L);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testDividedBy_long1() {
         Duration test = new Duration(246L);
         Duration result = test.dividedBy(2L);
-        assertEquals(123L, result.getMillis());
+        assertEquals(123L,result.getMillis());
     }
 
     public void testDividedBy_long2() {
         Duration test = new Duration(123L);
         Duration result = test.dividedBy(1L);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testDividedByRoundingMode_long1() {
         Duration test = new Duration(246L);
         Duration result = test.dividedBy(2L, RoundingMode.UNNECESSARY);
-        assertEquals(123L, result.getMillis());
+        assertEquals(123L,result.getMillis());
     }
 
     public void testDividedByRoundingMode_long2() {
         Duration test = new Duration(123L);
         Duration result = test.dividedBy(2L, RoundingMode.FLOOR);
-        assertEquals(61L, result.getMillis());
+        assertEquals(61L,result.getMillis());
     }
 
     public void testDividedByRoundingMode_long3() {
         Duration test = new Duration(123L);
         Duration result = test.dividedBy(7L, RoundingMode.CEILING);
-        assertEquals(18L, result.getMillis());
+        assertEquals(18L,result.getMillis());
     }
 
     public void testDividedByRoundingMode_long4() {
         Duration test = new Duration(33L);
         Duration result = test.dividedBy(1L, RoundingMode.FLOOR);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testNegated_long1() {
         Duration test = new Duration(246L);
         Duration result = test.negated();
-        assertEquals(-246L, result.getMillis());
+        assertEquals(-246L,result.getMillis());
     }
 
     public void testNegated_long2() {
         Duration test = new Duration(-246L);
         Duration result = test.negated();
-        assertEquals(246L, result.getMillis());
+        assertEquals(246L,result.getMillis());
     }
 
     public void testNegated_long3() {
@@ -757,94 +755,94 @@ public class TestDuration_Basics extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testAbs() {
-        assertEquals(246L, new Duration(246L).abs().getMillis());
-        assertEquals(0L, new Duration(0L).abs().getMillis());
-        assertEquals(246L, new Duration(-246L).abs().getMillis());
+        assertEquals(246L,new Duration(246L).abs().getMillis());
+        assertEquals(0L,new Duration(0L).abs().getMillis());
+        assertEquals(246L,new Duration(-246L).abs().getMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testWithDurationAdded_RD_int1() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(8000L), 1);
-        assertEquals(8123L, result.getMillis());
+        assertEquals(8123L,result.getMillis());
     }
 
     public void testWithDurationAdded_RD_int2() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(8000L), 2);
-        assertEquals(16123L, result.getMillis());
+        assertEquals(16123L,result.getMillis());
     }
 
     public void testWithDurationAdded_RD_int3() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(8000L), -1);
-        assertEquals((123L - 8000L), result.getMillis());
+        assertEquals((123L - 8000L),result.getMillis());
     }
 
     public void testWithDurationAdded_RD_int4() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(0L), 1);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     public void testWithDurationAdded_RD_int5() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(8000L), 0);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     public void testWithDurationAdded_RD_int6() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(null, 0);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testPlus_RD1() {
         Duration test = new Duration(123L);
         Duration result = test.plus(new Duration(8000L));
-        assertEquals(8123L, result.getMillis());
+        assertEquals(8123L,result.getMillis());
     }
 
     public void testPlus_RD2() {
         Duration test = new Duration(123L);
         Duration result = test.plus(new Duration(0L));
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     public void testPlus_RD3() {
         Duration test = new Duration(123L);
         Duration result = test.plus(null);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testMinus_RD1() {
         Duration test = new Duration(123L);
         Duration result = test.minus(new Duration(8000L));
-        assertEquals(123L - 8000L, result.getMillis());
+        assertEquals(123L - 8000L,result.getMillis());
     }
 
     public void testMinus_RD2() {
         Duration test = new Duration(123L);
         Duration result = test.minus(new Duration(0L));
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     public void testMinus_RD3() {
         Duration test = new Duration(123L);
         Duration result = test.minus(null);
-        assertSame(test, result);
+        assertSame(test,result);
     }
 
     //-----------------------------------------------------------------------
     public void testMutableDuration() {
         // no MutableDuration, so...
         MockMutableDuration test = new MockMutableDuration(123L);
-        assertEquals(123L, test.getMillis());
+        assertEquals(123L,test.getMillis());
         
         test.setMillis(2345L);
-        assertEquals(2345L, test.getMillis());
+        assertEquals(2345L,test.getMillis());
     }
 
     static class MockMutableDuration extends BaseDuration {

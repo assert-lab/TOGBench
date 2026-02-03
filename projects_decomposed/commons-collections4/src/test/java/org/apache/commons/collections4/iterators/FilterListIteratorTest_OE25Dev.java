@@ -310,32 +310,28 @@ public class FilterListIteratorTest_OE25Dev {
             for (int j = 0; j < i; j++) {
                 assertEquals(expected.nextIndex(), testing.nextIndex());
                 assertEquals(expected.previousIndex(), testing.previousIndex());
-                assertTrue(expected.hasNext()); // if this one fails we've got a logic error in the test
-                assertTrue(testing.hasNext());
+                assertTrue(expected.hasNext());// if this one fails we've got a logic error in the test assertTrue(testing.hasNext());
                 assertEquals(expected.next(), testing.next());
             }
             // walk back i/2
             for (int j = 0; j < i / 2; j++) {
                 assertEquals(expected.nextIndex(), testing.nextIndex());
                 assertEquals(expected.previousIndex(), testing.previousIndex());
-                assertTrue(expected.hasPrevious()); // if this one fails we've got a logic error in the test
-                assertTrue(testing.hasPrevious());
+                assertTrue(expected.hasPrevious());// if this one fails we've got a logic error in the test assertTrue(testing.hasPrevious());
                 assertEquals(expected.previous(), testing.previous());
             }
             // walk forward i/2
             for (int j = 0; j < i / 2; j++) {
                 assertEquals(expected.nextIndex(), testing.nextIndex());
                 assertEquals(expected.previousIndex(), testing.previousIndex());
-                assertTrue(expected.hasNext()); // if this one fails we've got a logic error in the test
-                assertTrue(testing.hasNext());
+                assertTrue(expected.hasNext());// if this one fails we've got a logic error in the test assertTrue(testing.hasNext());
                 assertEquals(expected.next(), testing.next());
             }
             // walk back i
             for (int j = 0; j < i; j++) {
                 assertEquals(expected.nextIndex(), testing.nextIndex());
                 assertEquals(expected.previousIndex(), testing.previousIndex());
-                assertTrue(expected.hasPrevious()); // if this one fails we've got a logic error in the test
-                assertTrue(testing.hasPrevious());
+                assertTrue(expected.hasPrevious());// if this one fails we've got a logic error in the test assertTrue(testing.hasPrevious());
                 assertEquals(expected.previous(), testing.previous());
             }
         }

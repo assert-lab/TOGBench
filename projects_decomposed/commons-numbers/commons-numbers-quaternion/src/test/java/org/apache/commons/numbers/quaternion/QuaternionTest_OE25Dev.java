@@ -142,15 +142,9 @@ class QuaternionTest_OE25Dev {
             final Rotation rotP = new Rotation(qP.getW(), qP.getX(), qP.getY(), qP.getZ(), true);
 
             Assert.assertEquals(rot.getAngle(), rotP.getAngle(), COMPARISON_EPS);
-            Assert.assertEquals(rot.getAxis(RotationConvention.VECTOR_OPERATOR).getX(),
-                                rot.getAxis(RotationConvention.VECTOR_OPERATOR).getX(),
-                                COMPARISON_EPS);
-            Assert.assertEquals(rot.getAxis(RotationConvention.VECTOR_OPERATOR).getY(),
-                                rot.getAxis(RotationConvention.VECTOR_OPERATOR).getY(),
-                                COMPARISON_EPS);
-            Assert.assertEquals(rot.getAxis(RotationConvention.VECTOR_OPERATOR).getZ(),
-                                rot.getAxis(RotationConvention.VECTOR_OPERATOR).getZ(),
-                                COMPARISON_EPS);
+            Assert.assertEquals(rot.getAxis(RotationConvention.VECTOR_OPERATOR).getX(),rot.getAxis(RotationConvention.VECTOR_OPERATOR).getX(),COMPARISON_EPS);
+            Assert.assertEquals(rot.getAxis(RotationConvention.VECTOR_OPERATOR).getY(),rot.getAxis(RotationConvention.VECTOR_OPERATOR).getY(),COMPARISON_EPS);
+            Assert.assertEquals(rot.getAxis(RotationConvention.VECTOR_OPERATOR).getZ(),rot.getAxis(RotationConvention.VECTOR_OPERATOR).getZ(),COMPARISON_EPS);
         }
     }
 */

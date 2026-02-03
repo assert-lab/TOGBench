@@ -110,8 +110,7 @@ public class UDPDiscoveryUnitTest
             //System.out.println( "Receiver count = " + receiver.getCnt() );
 
             // request braodcasts change things.
-            assertTrue( "Receiver count [" + receiver.getCnt() + "] should be the at least the number sent [" + cnt + "].",
-                        cnt <= receiver.getCnt() );
+            assertTrue("Receiver count [" + receiver.getCnt()+ "] should be the at least the number sent [" + cnt + "].",cnt <= receiver.getCnt());
         }
     }
 }

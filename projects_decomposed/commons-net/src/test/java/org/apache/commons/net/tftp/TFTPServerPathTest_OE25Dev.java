@@ -268,7 +268,7 @@ public class TFTPServerPathTest_OE25Dev extends TestCase
             // expected path
         }
 
-        assertFalse("file created when it should not have been", new File(serverDirectory, "../foo").exists());
+        assertFalse("file created when it should not have been",new File(serverDirectory,"../foo").exists());
     }
 
 }

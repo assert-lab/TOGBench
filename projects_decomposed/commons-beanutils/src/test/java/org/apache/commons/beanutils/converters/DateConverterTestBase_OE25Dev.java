@@ -394,8 +394,7 @@ public abstract class DateConverterTestBase_OE25Dev extends TestCase {
             format.parse(value);
             calendar = format.getCalendar();
         } catch (final Exception e) {
-            fail("Error creating Calendar value ='"
-                    + value + ", pattern='" + pattern + "' " + e.toString());
+            fail("Error creating Calendar value ='" + value + ",pattern='" + pattern + "' " + e.toString());
         }
         return calendar;
     }
@@ -514,7 +513,7 @@ public abstract class DateConverterTestBase_OE25Dev extends TestCase {
         for (int i = 0; i < date.length; i++) {
             final Object val = makeConverter().convert(getExpectedType(), date[i]);
             // removed other assertion
-            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(), getExpectedType().isInstance(val));
+            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),getExpectedType().isInstance(val));
     }
     }
 
@@ -544,7 +543,7 @@ public abstract class DateConverterTestBase_OE25Dev extends TestCase {
             final Object val = makeConverter().convert(getExpectedType(), date[i]);
             // removed other assertion
             // removed other assertion
-            assertEquals("Convert " + message[i] + " should return a " + date[0], now, getTimeInMillis(val));
+            assertEquals("Convert " + message[i] + " should return a " + date[0],now,getTimeInMillis(val));
     }
     }
 

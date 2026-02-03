@@ -258,8 +258,7 @@ public class ReactiveStreamsTest {
       assertEquals(response.getStatusCode(), 200, "HTTP response was invalid on first request.");
 
       byte[] responseBody = response.getResponseBodyAsBytes();
-      assertEquals(Integer.valueOf(response.getHeader("X-" + CONTENT_LENGTH)).intValue(),
-              LARGE_IMAGE_BYTES.length, "Server side payload length invalid");
+      assertEquals(Integer.valueOf(response.getHeader("X-" + CONTENT_LENGTH)).intValue(),LARGE_IMAGE_BYTES.length,"Server side payload length invalid");
       assertEquals(responseBody.length, LARGE_IMAGE_BYTES.length, "Client side payload length invalid");
       assertEquals(response.getHeader(CONTENT_MD5), LARGE_IMAGE_BYTES_MD5, "Server side payload MD5 invalid");
       assertEquals(TestUtils.md5(responseBody), LARGE_IMAGE_BYTES_MD5, "Client side payload MD5 invalid");
@@ -268,8 +267,7 @@ public class ReactiveStreamsTest {
       response = requestBuilder.execute().get();
       assertEquals(response.getStatusCode(), 200);
       responseBody = response.getResponseBodyAsBytes();
-      assertEquals(Integer.valueOf(response.getHeader("X-" + CONTENT_LENGTH)).intValue(),
-              LARGE_IMAGE_BYTES.length, "Server side payload length invalid");
+      assertEquals(Integer.valueOf(response.getHeader("X-" + CONTENT_LENGTH)).intValue(),LARGE_IMAGE_BYTES.length,"Server side payload length invalid");
       assertEquals(responseBody.length, LARGE_IMAGE_BYTES.length, "Client side payload length invalid");
 
       try {

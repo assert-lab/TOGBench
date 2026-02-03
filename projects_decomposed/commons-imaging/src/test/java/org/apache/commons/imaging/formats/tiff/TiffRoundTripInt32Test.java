@@ -85,9 +85,7 @@ public class TiffRoundTripInt32Test extends TiffBaseTest {
             TiffRasterData rdInt = directory.getRasterData(null);
             int []test = rdInt.getIntData();
             for(int j=0; j<sample.length; j++){
-                  assertEquals(sample[j], test[j],
-                "Extracted data does not match original, test "+name+": "
-                + i + ", index " + j);
+                  assertEquals(sample[j],test[j],"Extracted data does not match original,test "+name+": " + i + ",index " + j);
             }
             final TiffImagingParameters params = new TiffImagingParameters();
             params.setSubImage(2, 2, width-4, height-4);

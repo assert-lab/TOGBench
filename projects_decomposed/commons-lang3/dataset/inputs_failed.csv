@@ -130,7 +130,7 @@ lang_289_6,"    @TestFactory
                     final Executable seTestMethod = () -> Functions.stream(input)
                             .forEach(asIntConsumer(se));
                     // removed other assertion
-                    assertAll( () -> assertThat(seThrown.getMessage(), is(nullValue())), () -> assertThat(seThrown.getCause(), is(equalTo(se))) );
+                    assertAll(()-> assertThat(seThrown.getMessage(),is(nullValue())),()-> assertThat(seThrown.getCause(),is(equalTo(se))));
     }
     }
 ",StreamsTest::simpleStreamForEachFailing_6_oe
@@ -319,7 +319,7 @@ lang_291_7,"    @TestFactory
                             .filter(asIntPredicate(se))
                             .collect(Collectors.toList());
                     // removed other assertion
-                    assertAll( () -> assertThat(thrown.getMessage(), is(nullValue())), () -> assertThat(thrown.getCause(), is(equalTo(se))) );
+                    assertAll(()-> assertThat(thrown.getMessage(),is(nullValue())),()-> assertThat(thrown.getCause(),is(equalTo(se))));
     }
     }
 ",StreamsTest::simpleStreamFilterFailing_7_oe
@@ -2926,7 +2926,7 @@ lang_2522_50,"    @Test
             TimeZone.setDefault(zone);
             dateTimeParser.setTimeZone(zone);
 
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling(date4, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling(date4,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_50_oe
@@ -2997,7 +2997,7 @@ lang_2522_51,"    @Test
             dateTimeParser.setTimeZone(zone);
 
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling((Object) cal4, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling((Object)cal4,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_51_oe
@@ -3069,7 +3069,7 @@ lang_2522_52,"    @Test
 
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling(date5, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling(date5,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_52_oe
@@ -3142,7 +3142,7 @@ lang_2522_53,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling((Object) cal5, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling((Object)cal5,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_53_oe
@@ -3216,7 +3216,7 @@ lang_2522_54,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling(date6, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling(date6,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_54_oe
@@ -3291,7 +3291,7 @@ lang_2522_55,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling((Object) cal6, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling((Object)cal6,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_55_oe
@@ -3367,7 +3367,7 @@ lang_2522_56,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling(date7, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling(date7,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_56_oe
@@ -3444,7 +3444,7 @@ lang_2522_57,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 31, 2003 00:00:00.000""), DateUtils.ceiling((Object) cal7, Calendar.DATE), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 31,2003 00:00:00.000""),DateUtils.ceiling((Object)cal7,Calendar.DATE),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_57_oe
@@ -3523,7 +3523,7 @@ lang_2522_58,"    @Test
             // removed other assertion
             // removed other assertion
 
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.ceiling(date4, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.ceiling(date4,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_58_oe
@@ -3603,7 +3603,7 @@ lang_2522_59,"    @Test
             // removed other assertion
 
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.ceiling((Object) cal4, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.ceiling((Object)cal4,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_59_oe
@@ -3684,7 +3684,7 @@ lang_2522_60,"    @Test
 
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.ceiling(date5, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.ceiling(date5,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_60_oe
@@ -3766,7 +3766,7 @@ lang_2522_61,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.ceiling((Object) cal5, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.ceiling((Object)cal5,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_61_oe
@@ -3849,7 +3849,7 @@ lang_2522_62,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 04:00:00.000""), DateUtils.ceiling(date6, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 04:00:00.000""),DateUtils.ceiling(date6,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_62_oe
@@ -3933,7 +3933,7 @@ lang_2522_63,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 04:00:00.000""), DateUtils.ceiling((Object) cal6, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 04:00:00.000""),DateUtils.ceiling((Object)cal6,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_63_oe
@@ -4018,7 +4018,7 @@ lang_2522_64,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 04:00:00.000""), DateUtils.ceiling(date7, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 04:00:00.000""),DateUtils.ceiling(date7,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_64_oe
@@ -4104,7 +4104,7 @@ lang_2522_65,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 04:00:00.000""), DateUtils.ceiling((Object) cal7, Calendar.HOUR_OF_DAY), ""ceiling MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 04:00:00.000""),DateUtils.ceiling((Object)cal7,Calendar.HOUR_OF_DAY),""ceiling MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testCeil_65_oe
@@ -4171,7 +4171,7 @@ lang_2556_49,"    @Test
         try {
             TimeZone.setDefault(zone);
             dateTimeParser.setTimeZone(zone);
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round(date4, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round(date4,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_49_oe
@@ -4239,7 +4239,7 @@ lang_2556_50,"    @Test
             TimeZone.setDefault(zone);
             dateTimeParser.setTimeZone(zone);
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round((Object) cal4, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round((Object)cal4,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_50_oe
@@ -4308,7 +4308,7 @@ lang_2556_51,"    @Test
             dateTimeParser.setTimeZone(zone);
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round(date5, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round(date5,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_51_oe
@@ -4378,7 +4378,7 @@ lang_2556_52,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round((Object) cal5, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round((Object)cal5,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_52_oe
@@ -4449,7 +4449,7 @@ lang_2556_53,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round(date6, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round(date6,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_53_oe
@@ -4521,7 +4521,7 @@ lang_2556_54,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round((Object) cal6, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round((Object)cal6,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_54_oe
@@ -4594,7 +4594,7 @@ lang_2556_55,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round(date7, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round(date7,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_55_oe
@@ -4668,7 +4668,7 @@ lang_2556_56,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.round((Object) cal7, Calendar.DATE), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.round((Object)cal7,Calendar.DATE),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_56_oe
@@ -4744,7 +4744,7 @@ lang_2556_57,"    @Test
             // removed other assertion
             // removed other assertion
 
-            assertEquals(dateTimeParser.parse(""March 30, 2003 01:00:00.000""), DateUtils.round(date4, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 01:00:00.000""),DateUtils.round(date4,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_57_oe
@@ -4821,7 +4821,7 @@ lang_2556_58,"    @Test
             // removed other assertion
 
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 01:00:00.000""), DateUtils.round((Object) cal4, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 01:00:00.000""),DateUtils.round((Object)cal4,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_58_oe
@@ -4899,7 +4899,7 @@ lang_2556_59,"    @Test
 
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.round(date5, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.round(date5,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_59_oe
@@ -4978,7 +4978,7 @@ lang_2556_60,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.round((Object) cal5, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.round((Object)cal5,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_60_oe
@@ -5058,7 +5058,7 @@ lang_2556_61,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.round(date6, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.round(date6,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_61_oe
@@ -5139,7 +5139,7 @@ lang_2556_62,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 03:00:00.000""), DateUtils.round((Object) cal6, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 03:00:00.000""),DateUtils.round((Object)cal6,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_62_oe
@@ -5221,7 +5221,7 @@ lang_2556_63,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 04:00:00.000""), DateUtils.round(date7, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 04:00:00.000""),DateUtils.round(date7,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_63_oe
@@ -5304,7 +5304,7 @@ lang_2556_64,"    @Test
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 04:00:00.000""), DateUtils.round((Object) cal7, Calendar.HOUR_OF_DAY), ""round MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 04:00:00.000""),DateUtils.round((Object)cal7,Calendar.HOUR_OF_DAY),""round MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testRound_64_oe
@@ -5368,7 +5368,7 @@ lang_2570_47,"    @Test
         try {
             TimeZone.setDefault(zone);
             dateTimeParser.setTimeZone(zone);
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.truncate(date3, Calendar.DATE), ""truncate MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.truncate(date3,Calendar.DATE),""truncate MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testTruncate_47_oe
@@ -5433,7 +5433,7 @@ lang_2570_48,"    @Test
             TimeZone.setDefault(zone);
             dateTimeParser.setTimeZone(zone);
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""March 30, 2003 00:00:00.000""), DateUtils.truncate((Object) cal3, Calendar.DATE), ""truncate MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""March 30,2003 00:00:00.000""),DateUtils.truncate((Object)cal3,Calendar.DATE),""truncate MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testTruncate_48_oe
@@ -5500,7 +5500,7 @@ lang_2570_49,"    @Test
             // removed other assertion
             // removed other assertion
             // Test truncate across end of daylight saving time
-            assertEquals(dateTimeParser.parse(""October 26, 2003 00:00:00.000""), DateUtils.truncate(date8, Calendar.DATE), ""truncate MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""October 26,2003 00:00:00.000""),DateUtils.truncate(date8,Calendar.DATE),""truncate MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testTruncate_49_oe
@@ -5568,7 +5568,7 @@ lang_2570_50,"    @Test
             // removed other assertion
             // Test truncate across end of daylight saving time
             // removed other assertion
-            assertEquals(dateTimeParser.parse(""October 26, 2003 00:00:00.000""), DateUtils.truncate((Object) cal8, Calendar.DATE), ""truncate MET date across DST change-over"");
+            assertEquals(dateTimeParser.parse(""October 26,2003 00:00:00.000""),DateUtils.truncate((Object)cal8,Calendar.DATE),""truncate MET date across DST change-over"");
     }
     }
 ",DateUtilsTest::testTruncate_50_oe
@@ -5741,7 +5741,7 @@ lang_2571_7,"    @Test
             // removed other assertion
 
             // ---------- Test Truncate ----------
-            assertEquals(oct31_01_02_03_04MDT, DateUtils.truncate(oct31_01_02_03_04MDT, Calendar.MILLISECOND), ""Truncate Calendar.MILLISECOND"");
+            assertEquals(oct31_01_02_03_04MDT,DateUtils.truncate(oct31_01_02_03_04MDT,Calendar.MILLISECOND),""Truncate Calendar.MILLISECOND"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_7_oe
@@ -5776,7 +5776,7 @@ lang_2571_8,"    @Test
             // ---------- Test Truncate ----------
             // removed other assertion
 
-            assertEquals(oct31_01_02_03MDT, DateUtils.truncate(oct31_01_02_03_04MDT, Calendar.SECOND), ""Truncate Calendar.SECOND"");
+            assertEquals(oct31_01_02_03MDT,DateUtils.truncate(oct31_01_02_03_04MDT,Calendar.SECOND),""Truncate Calendar.SECOND"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_8_oe
@@ -5813,7 +5813,7 @@ lang_2571_9,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31_01_02MDT, DateUtils.truncate(oct31_01_02_03_04MDT, Calendar.MINUTE), ""Truncate Calendar.MINUTE"");
+            assertEquals(oct31_01_02MDT,DateUtils.truncate(oct31_01_02_03_04MDT,Calendar.MINUTE),""Truncate Calendar.MINUTE"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_9_oe
@@ -5852,7 +5852,7 @@ lang_2571_10,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31_01MDT, DateUtils.truncate(oct31_01_02_03_04MDT, Calendar.HOUR_OF_DAY), ""Truncate Calendar.HOUR_OF_DAY"");
+            assertEquals(oct31_01MDT,DateUtils.truncate(oct31_01_02_03_04MDT,Calendar.HOUR_OF_DAY),""Truncate Calendar.HOUR_OF_DAY"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_10_oe
@@ -5893,7 +5893,7 @@ lang_2571_11,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31_01MDT, DateUtils.truncate(oct31_01_02_03_04MDT, Calendar.HOUR), ""Truncate Calendar.HOUR"");
+            assertEquals(oct31_01MDT,DateUtils.truncate(oct31_01_02_03_04MDT,Calendar.HOUR),""Truncate Calendar.HOUR"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_11_oe
@@ -5936,7 +5936,7 @@ lang_2571_12,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31MDT, DateUtils.truncate(oct31_01_02_03_04MDT, Calendar.DATE), ""Truncate Calendar.DATE"");
+            assertEquals(oct31MDT,DateUtils.truncate(oct31_01_02_03_04MDT,Calendar.DATE),""Truncate Calendar.DATE"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_12_oe
@@ -5982,7 +5982,7 @@ lang_2571_13,"    @Test
             // removed other assertion
 
             // ---------- Test Round (down) ----------
-            assertEquals(oct31_01_02_03_04MDT, DateUtils.round(oct31_01_02_03_04MDT, Calendar.MILLISECOND), ""Round Calendar.MILLISECOND"");
+            assertEquals(oct31_01_02_03_04MDT,DateUtils.round(oct31_01_02_03_04MDT,Calendar.MILLISECOND),""Round Calendar.MILLISECOND"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_13_oe
@@ -6030,7 +6030,7 @@ lang_2571_14,"    @Test
             // ---------- Test Round (down) ----------
             // removed other assertion
 
-            assertEquals(oct31_01_02_03MDT, DateUtils.round(oct31_01_02_03_04MDT, Calendar.SECOND), ""Round Calendar.SECOND"");
+            assertEquals(oct31_01_02_03MDT,DateUtils.round(oct31_01_02_03_04MDT,Calendar.SECOND),""Round Calendar.SECOND"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_14_oe
@@ -6080,7 +6080,7 @@ lang_2571_15,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31_01_02MDT, DateUtils.round(oct31_01_02_03_04MDT, Calendar.MINUTE), ""Round Calendar.MINUTE"");
+            assertEquals(oct31_01_02MDT,DateUtils.round(oct31_01_02_03_04MDT,Calendar.MINUTE),""Round Calendar.MINUTE"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_15_oe
@@ -6132,7 +6132,7 @@ lang_2571_16,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31_01MDT, DateUtils.round(oct31_01_02_03_04MDT, Calendar.HOUR_OF_DAY), ""Round Calendar.HOUR_OF_DAY"");
+            assertEquals(oct31_01MDT,DateUtils.round(oct31_01_02_03_04MDT,Calendar.HOUR_OF_DAY),""Round Calendar.HOUR_OF_DAY"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_16_oe
@@ -6186,7 +6186,7 @@ lang_2571_17,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31_01MDT, DateUtils.round(oct31_01_02_03_04MDT, Calendar.HOUR), ""Round Calendar.HOUR"");
+            assertEquals(oct31_01MDT,DateUtils.round(oct31_01_02_03_04MDT,Calendar.HOUR),""Round Calendar.HOUR"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_17_oe
@@ -6242,7 +6242,7 @@ lang_2571_18,"    @Test
 
             // removed other assertion
 
-            assertEquals(oct31MDT, DateUtils.round(oct31_01_02_03_04MDT, Calendar.DATE), ""Round Calendar.DATE"");
+            assertEquals(oct31MDT,DateUtils.round(oct31_01_02_03_04MDT,Calendar.DATE),""Round Calendar.DATE"");
     }
     }
 ",DateUtilsTest::testTruncateLang59_18_oe
@@ -6395,7 +6395,7 @@ lang_2746_7,"    @TestFactory
                 final Executable testMethod = () -> Failable.stream(input).map(Integer::valueOf)
                     .filter(asIntPredicate(se)).collect(Collectors.toList());
                 // removed other assertion
-                assertAll(() -> assertThat(thrown.getMessage(), is(nullValue())), () -> assertThat(thrown.getCause(), is(equalTo(se))));
+                assertAll(()-> assertThat(thrown.getMessage(),is(nullValue())),()-> assertThat(thrown.getCause(),is(equalTo(se))));
     }
     }
 ",StreamsTest::simpleStreamFilterFailing_7_oe
@@ -6518,7 +6518,7 @@ lang_2747_6,"    @TestFactory
                 final SAXException se = new SAXException();
                 final Executable seTestMethod = () -> Failable.stream(input).forEach(asIntConsumer(se));
                 // removed other assertion
-                assertAll(() -> assertThat(seThrown.getMessage(), is(nullValue())), () -> assertThat(seThrown.getCause(), is(equalTo(se))));
+                assertAll(()-> assertThat(seThrown.getMessage(),is(nullValue())),()-> assertThat(seThrown.getCause(),is(equalTo(se))));
     }
     }
 ",StreamsTest::simpleStreamForEachFailing_6_oe

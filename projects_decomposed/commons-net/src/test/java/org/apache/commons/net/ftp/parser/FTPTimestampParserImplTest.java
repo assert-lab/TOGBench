@@ -156,9 +156,7 @@ public class FTPTimestampParserImplTest extends TestCase {
             final Calendar parsed = parser.parseTimestamp(fmtTimePlusOneHour);
             // the only difference should be the two hours
             // difference, no rolling back a year should occur.
-            assertEquals("no.rollback.because.of.time.zones",
-                TWO_HOURS_OF_MILLISECONDS,
-                cal.getTime().getTime() - parsed.getTime().getTime());
+            assertEquals("no.rollback.because.of.time.zones",TWO_HOURS_OF_MILLISECONDS,cal.getTime().getTime()- parsed.getTime().getTime());
         } catch (final ParseException e){
             fail("Unable to parse " + fmtTimePlusOneHour);
         }
@@ -170,8 +168,7 @@ public class FTPTimestampParserImplTest extends TestCase {
         try {
             final Calendar parsed = parser.parseTimestamp(fmtTimePlusThreeHours);
             // rollback should occur here.
-            assertEquals("rollback.even.with.time.zones",
-                    1, cal.get(Calendar.YEAR) - parsed.get(Calendar.YEAR));
+            assertEquals("rollback.even.with.time.zones",1,cal.get(Calendar.YEAR)- parsed.get(Calendar.YEAR));
         } catch (final ParseException e){
             fail("Unable to parse" + fmtTimePlusThreeHours);
         }
@@ -304,11 +301,7 @@ public class FTPTimestampParserImplTest extends TestCase {
         final int inmon = expected.get(Calendar.MONTH);
         if (indom != outdom || inmon != outmon || inyear != outyear){
             final Format longFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-            fail("Test: '"+msg+"' Server="+longFormat.format(servertime.getTime())
-                    +". Failed to parse "+shortDate + (lenient ? " (lenient)" : " (non-lenient)")
-                    +" using " + shortFormat.toPattern()
-                    +". Actual "+longFormat.format(output.getTime())
-                    +". Expected "+longFormat.format(expected.getTime()));
+            fail("Test: '"+msg+"' Server="+longFormat.format(servertime.getTime())+". Failed to parse "+shortDate +(lenient ? "(lenient)" : "(non-lenient)")+" using " + shortFormat.toPattern()+". Actual "+longFormat.format(output.getTime())+". Expected "+longFormat.format(expected.getTime()));
         }
     }
 

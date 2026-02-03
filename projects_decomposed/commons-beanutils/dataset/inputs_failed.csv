@@ -110,7 +110,7 @@ bean_69_2,"    public void testSimpleStatic1_2_oe() {
             value = MethodUtils.invokeMethod
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic1_2_oe
@@ -127,7 +127,7 @@ bean_69_3,"    public void testSimpleStatic1_3_oe() {
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic1_3_oe
@@ -182,7 +182,7 @@ bean_69_5,"    public void testSimpleStatic1_5_oe() {
             value = MethodUtils.invokeMethod
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic1_5_oe
@@ -211,7 +211,7 @@ bean_69_6,"    public void testSimpleStatic1_6_oe() {
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic1_6_oe
@@ -294,7 +294,7 @@ bean_69_8,"    public void testSimpleStatic1_8_oe() {
             value = MethodUtils.invokeMethod
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic1_8_oe
@@ -337,7 +337,7 @@ bean_69_9,"    public void testSimpleStatic1_9_oe() {
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic1_9_oe
@@ -368,7 +368,7 @@ bean_70_2,"    public void testSimpleStatic2_2_oe() {
             value = MethodUtils.invokeExactMethod
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic2_2_oe
@@ -385,7 +385,7 @@ bean_70_3,"    public void testSimpleStatic2_3_oe() {
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic2_3_oe
@@ -440,7 +440,7 @@ bean_70_5,"    public void testSimpleStatic2_5_oe() {
             value = MethodUtils.invokeExactMethod
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic2_5_oe
@@ -469,7 +469,7 @@ bean_70_6,"    public void testSimpleStatic2_6_oe() {
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic2_6_oe
@@ -552,7 +552,7 @@ bean_70_8,"    public void testSimpleStatic2_8_oe() {
             value = MethodUtils.invokeExactMethod
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic2_8_oe
@@ -595,7 +595,7 @@ bean_70_9,"    public void testSimpleStatic2_9_oe() {
                 (bean, ""currentCounter"", new Object[0], new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic2_9_oe
@@ -610,7 +610,7 @@ bean_71_1,"    public void testSimpleStatic3_1_oe() {
             final Method currentCounterMethod = MethodUtils.getAccessibleMethod
                 (TestBean.class, ""currentCounter"",
                  new Class[0]);
-            assertNotNull(""currentCounterMethod exists"", currentCounterMethod);
+            assertNotNull(""currentCounterMethod exists"",currentCounterMethod);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_1_oe
@@ -626,7 +626,7 @@ bean_71_2,"    public void testSimpleStatic3_2_oe() {
                 (TestBean.class, ""currentCounter"",
                  new Class[0]);
             // removed other assertion
-            assertEquals(""currentCounterMethod name"", ""currentCounter"", currentCounterMethod.getName());
+            assertEquals(""currentCounterMethod name"",""currentCounter"",currentCounterMethod.getName());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_2_oe
@@ -643,7 +643,7 @@ bean_71_3,"    public void testSimpleStatic3_3_oe() {
                  new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounterMethod args"", 0, currentCounterMethod.getParameterTypes().length);
+            assertEquals(""currentCounterMethod args"",0,currentCounterMethod.getParameterTypes().length);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_3_oe
@@ -661,7 +661,7 @@ bean_71_4,"    public void testSimpleStatic3_4_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertTrue(""currentCounterMethod public"", Modifier.isPublic(currentCounterMethod.getModifiers()));
+            assertTrue(""currentCounterMethod public"",Modifier.isPublic(currentCounterMethod.getModifiers()));
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_4_oe
@@ -680,7 +680,7 @@ bean_71_5,"    public void testSimpleStatic3_5_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertTrue(""currentCounterMethod static"", Modifier.isStatic(currentCounterMethod.getModifiers()));
+            assertTrue(""currentCounterMethod static"",Modifier.isStatic(currentCounterMethod.getModifiers()));
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_5_oe
@@ -703,7 +703,7 @@ bean_71_6,"    public void testSimpleStatic3_6_oe() {
             final Method incrementCounterMethod1 = MethodUtils.getAccessibleMethod
                 (TestBean.class, ""incrementCounter"",
                  new Class[0]);
-            assertNotNull(""incrementCounterMethod1 exists"", incrementCounterMethod1);
+            assertNotNull(""incrementCounterMethod1 exists"",incrementCounterMethod1);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_6_oe
@@ -727,7 +727,7 @@ bean_71_7,"    public void testSimpleStatic3_7_oe() {
                 (TestBean.class, ""incrementCounter"",
                  new Class[0]);
             // removed other assertion
-            assertEquals(""incrementCounterMethod1 name"", ""incrementCounter"", incrementCounterMethod1.getName());
+            assertEquals(""incrementCounterMethod1 name"",""incrementCounter"",incrementCounterMethod1.getName());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_7_oe
@@ -752,7 +752,7 @@ bean_71_8,"    public void testSimpleStatic3_8_oe() {
                  new Class[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""incrementCounterMethod1 args"", 0, incrementCounterMethod1.getParameterTypes().length);
+            assertEquals(""incrementCounterMethod1 args"",0,incrementCounterMethod1.getParameterTypes().length);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_8_oe
@@ -778,7 +778,7 @@ bean_71_9,"    public void testSimpleStatic3_9_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertTrue(""incrementCounterMethod1 public"", Modifier.isPublic(incrementCounterMethod1.getModifiers()));
+            assertTrue(""incrementCounterMethod1 public"",Modifier.isPublic(incrementCounterMethod1.getModifiers()));
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_9_oe
@@ -805,7 +805,7 @@ bean_71_10,"    public void testSimpleStatic3_10_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertTrue(""incrementCounterMethod1 static"", Modifier.isStatic(incrementCounterMethod1.getModifiers()));
+            assertTrue(""incrementCounterMethod1 static"",Modifier.isStatic(incrementCounterMethod1.getModifiers()));
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_10_oe
@@ -836,7 +836,7 @@ bean_71_11,"    public void testSimpleStatic3_11_oe() {
             final Method incrementCounterMethod2 = MethodUtils.getAccessibleMethod
                 (TestBean.class, ""incrementCounter"",
                  new Class[] { Integer.TYPE });
-            assertNotNull(""incrementCounterMethod2 exists"", incrementCounterMethod2);
+            assertNotNull(""incrementCounterMethod2 exists"",incrementCounterMethod2);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_11_oe
@@ -868,7 +868,7 @@ bean_71_12,"    public void testSimpleStatic3_12_oe() {
                 (TestBean.class, ""incrementCounter"",
                  new Class[] { Integer.TYPE });
             // removed other assertion
-            assertEquals(""incrementCounterMethod2 name"", ""incrementCounter"", incrementCounterMethod2.getName());
+            assertEquals(""incrementCounterMethod2 name"",""incrementCounter"",incrementCounterMethod2.getName());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_12_oe
@@ -901,7 +901,7 @@ bean_71_13,"    public void testSimpleStatic3_13_oe() {
                  new Class[] { Integer.TYPE });
             // removed other assertion
             // removed other assertion
-            assertEquals(""incrementCounterMethod2 args"", 1, incrementCounterMethod2.getParameterTypes().length);
+            assertEquals(""incrementCounterMethod2 args"",1,incrementCounterMethod2.getParameterTypes().length);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_13_oe
@@ -935,7 +935,7 @@ bean_71_14,"    public void testSimpleStatic3_14_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertTrue(""incrementCounterMethod2 public"", Modifier.isPublic(incrementCounterMethod2.getModifiers()));
+            assertTrue(""incrementCounterMethod2 public"",Modifier.isPublic(incrementCounterMethod2.getModifiers()));
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_14_oe
@@ -970,7 +970,7 @@ bean_71_15,"    public void testSimpleStatic3_15_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertTrue(""incrementCounterMethod2 static"", Modifier.isStatic(incrementCounterMethod2.getModifiers()));
+            assertTrue(""incrementCounterMethod2 static"",Modifier.isStatic(incrementCounterMethod2.getModifiers()));
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_15_oe
@@ -1049,7 +1049,7 @@ bean_71_17,"    public void testSimpleStatic3_17_oe() {
             // Return initial value of the counter
             value = currentCounterMethod.invoke(null, new Object[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_17_oe
@@ -1090,7 +1090,7 @@ bean_71_18,"    public void testSimpleStatic3_18_oe() {
             value = currentCounterMethod.invoke(null, new Object[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_18_oe
@@ -1189,7 +1189,7 @@ bean_71_20,"    public void testSimpleStatic3_20_oe() {
             current++;
             value = currentCounterMethod.invoke(null, new Object[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_20_oe
@@ -1240,7 +1240,7 @@ bean_71_21,"    public void testSimpleStatic3_21_oe() {
             value = currentCounterMethod.invoke(null, new Object[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_21_oe
@@ -1361,7 +1361,7 @@ bean_71_23,"    public void testSimpleStatic3_23_oe() {
             current += 5;
             value = currentCounterMethod.invoke(null, new Object[0]);
             // removed other assertion
-            assertTrue(""currentCounter type"", value instanceof Integer);
+            assertTrue(""currentCounter type"",value instanceof Integer);
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_23_oe
@@ -1423,7 +1423,7 @@ bean_71_24,"    public void testSimpleStatic3_24_oe() {
             value = currentCounterMethod.invoke(null, new Object[0]);
             // removed other assertion
             // removed other assertion
-            assertEquals(""currentCounter value"", current, ((Integer) value).intValue());
+            assertEquals(""currentCounter value"",current,((Integer)value).intValue());
     }
     }
 ",MethodUtilsTestCase::testSimpleStatic3_24_oe
@@ -1489,7 +1489,7 @@ bean_84_1,"    public void testBeanMapClone_1_oe() {
             // ok, and the read methods were properly initialized
             final Object[] keys = getSampleKeys();
             for (Object key : keys) {
-                assertTrue(""Cloned BeanMap should contain the same keys"", map2.containsKey(key));
+                assertTrue(""Cloned BeanMap should contain the same keys"",map2.containsKey(key));
     }
     }
     }
@@ -1785,7 +1785,7 @@ bean_101_7,"    public void testSeparateConvertInstances_7_oe() throws Exception
             // nothing should have changed
             value = utilsTwo.convert(""true"", Boolean.TYPE);
             // removed other assertion
-            assertEquals( ""Standard conversion failed (3)"", ((Boolean) value).booleanValue(), true);
+            assertEquals(""Standard conversion failed(3)"",((Boolean)value).booleanValue(),true);
     }
     }
 ",ConvertUtilsTestCase::testSeparateConvertInstances_7_oe
@@ -2365,7 +2365,7 @@ bean_108_2,"    public void testGetIndexedValues_2_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""intArray"", i);
                 // removed other assertion
-                assertTrue(""intArray returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intArray returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -2383,7 +2383,7 @@ bean_108_3,"    public void testGetIndexedValues_3_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""intArray"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intArray returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intArray returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -2436,7 +2436,7 @@ bean_108_6,"    public void testGetIndexedValues_6_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""intIndexed"", i);
                 // removed other assertion
-                assertTrue(""intIndexed returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intIndexed returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -2464,7 +2464,7 @@ bean_108_7,"    public void testGetIndexedValues_7_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""intIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intIndexed returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intIndexed returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -2537,7 +2537,7 @@ bean_108_10,"    public void testGetIndexedValues_10_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""listIndexed"", i);
                 // removed other assertion
-                assertTrue(""list returned String "" + i, value instanceof String);
+                assertTrue(""list returned String "" + i,value instanceof String);
     }
     }
     }
@@ -2575,7 +2575,7 @@ bean_108_11,"    public void testGetIndexedValues_11_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""listIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""listIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""listIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -2668,7 +2668,7 @@ bean_108_14,"    public void testGetIndexedValues_14_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""stringArray"", i);
                 // removed other assertion
-                assertTrue(""stringArray returned String "" + i, value instanceof String);
+                assertTrue(""stringArray returned String "" + i,value instanceof String);
     }
     }
     }
@@ -2716,7 +2716,7 @@ bean_108_15,"    public void testGetIndexedValues_15_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""stringArray"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringArray returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringArray returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -2829,7 +2829,7 @@ bean_108_18,"    public void testGetIndexedValues_18_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""stringIndexed"", i);
                 // removed other assertion
-                assertTrue(""stringIndexed returned String "" + i, value instanceof String);
+                assertTrue(""stringIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -2887,7 +2887,7 @@ bean_108_19,"    public void testGetIndexedValues_19_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""stringIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -3034,7 +3034,7 @@ bean_108_22,"    public void testGetIndexedValues_22_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""intArray["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""intArray returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intArray returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -3109,7 +3109,7 @@ bean_108_23,"    public void testGetIndexedValues_23_oe() {
                                 ""intArray["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intArray returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intArray returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -3278,7 +3278,7 @@ bean_108_26,"    public void testGetIndexedValues_26_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""intIndexed["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""intIndexed returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intIndexed returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -3364,7 +3364,7 @@ bean_108_27,"    public void testGetIndexedValues_27_oe() {
                                 ""intIndexed["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intIndexed returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intIndexed returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -3555,7 +3555,7 @@ bean_108_30,"    public void testGetIndexedValues_30_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""listIndexed["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""listIndexed returned String "" + i, value instanceof String);
+                assertTrue(""listIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -3652,7 +3652,7 @@ bean_108_31,"    public void testGetIndexedValues_31_oe() {
                                 ""listIndexed["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""listIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""listIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -3865,7 +3865,7 @@ bean_108_34,"    public void testGetIndexedValues_34_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""stringArray["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""stringArray returned String "" + i, value instanceof String);
+                assertTrue(""stringArray returned String "" + i,value instanceof String);
     }
     }
     }
@@ -3973,7 +3973,7 @@ bean_108_35,"    public void testGetIndexedValues_35_oe() {
                                 ""stringArray["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringArray returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringArray returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -4208,7 +4208,7 @@ bean_108_38,"    public void testGetIndexedValues_38_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""stringIndexed["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""stringIndexed returned String "" + i, value instanceof String);
+                assertTrue(""stringIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -4327,7 +4327,7 @@ bean_108_39,"    public void testGetIndexedValues_39_oe() {
                                 ""stringIndexed["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -6352,7 +6352,7 @@ bean_110_2,"    public void testGetMappedPeriods_2_oe() {
         bean.set(""mappedProperty"", ""key.with.a.dot"", ""Special Value"");
         // removed other assertion
         try {
-            assertEquals(""Can retrieve via getMappedProperty"", ""Special Value"", PropertyUtils.getMappedProperty (bean, ""mappedProperty"", ""key.with.a.dot""));
+            assertEquals(""Can retrieve via getMappedProperty"",""Special Value"",PropertyUtils.getMappedProperty(bean,""mappedProperty"",""key.with.a.dot""));
     }
     }
 ",DynaPropertyUtilsTestCase::testGetMappedPeriods_2_oe
@@ -6366,7 +6366,7 @@ bean_110_4,"    public void testGetMappedPeriods_4_oe() {
             // removed other assertion
         }
         try {
-            assertEquals(""Can retrieve via getNestedProperty"", ""Special Value"", PropertyUtils.getNestedProperty (bean, ""mappedProperty(key.with.a.dot)""));
+            assertEquals(""Can retrieve via getNestedProperty"",""Special Value"",PropertyUtils.getNestedProperty(bean,""mappedProperty(key.with.a.dot)""));
     }
     }
 ",DynaPropertyUtilsTestCase::testGetMappedPeriods_4_oe
@@ -6388,7 +6388,7 @@ bean_110_7,"    public void testGetMappedPeriods_7_oe() {
         bean.set(""mappedObjects"", ""nested.property"", new TestBean());
         // removed other assertion
         try {
-            assertEquals(""Can retrieve nested"", ""This is a string"", PropertyUtils.getNestedProperty (bean, ""mappedObjects(nested.property).stringProperty""));
+            assertEquals(""Can retrieve nested"",""This is a string"",PropertyUtils.getNestedProperty(bean,""mappedObjects(nested.property).stringProperty""));
     }
     }
 ",DynaPropertyUtilsTestCase::testGetMappedPeriods_7_oe
@@ -6397,7 +6397,7 @@ bean_111_2,"    public void testGetMappedSlashes_2_oe() {
         bean.set(""mappedProperty"", ""key/with/a/slash"", ""Special Value"");
         // removed other assertion
         try {
-            assertEquals(""Can retrieve via getMappedProperty"", ""Special Value"", PropertyUtils.getMappedProperty (bean, ""mappedProperty"", ""key/with/a/slash""));
+            assertEquals(""Can retrieve via getMappedProperty"",""Special Value"",PropertyUtils.getMappedProperty(bean,""mappedProperty"",""key/with/a/slash""));
     }
     }
 ",DynaPropertyUtilsTestCase::testGetMappedSlashes_2_oe
@@ -6411,7 +6411,7 @@ bean_111_4,"    public void testGetMappedSlashes_4_oe() {
             // removed other assertion
         }
         try {
-            assertEquals(""Can retrieve via getNestedProperty"", ""Special Value"", PropertyUtils.getNestedProperty (bean, ""mappedProperty(key/with/a/slash)""));
+            assertEquals(""Can retrieve via getNestedProperty"",""Special Value"",PropertyUtils.getNestedProperty(bean,""mappedProperty(key/with/a/slash)""));
     }
     }
 ",DynaPropertyUtilsTestCase::testGetMappedSlashes_4_oe
@@ -6433,7 +6433,7 @@ bean_111_7,"    public void testGetMappedSlashes_7_oe() {
         bean.set(""mappedObjects"", ""nested/property"", new TestBean());
         // removed other assertion
         try {
-            assertEquals(""Can retrieve nested"", ""This is a string"", PropertyUtils.getNestedProperty (bean, ""mappedObjects(nested/property).stringProperty""));
+            assertEquals(""Can retrieve nested"",""This is a string"",PropertyUtils.getNestedProperty(bean,""mappedObjects(nested/property).stringProperty""));
     }
     }
 ",DynaPropertyUtilsTestCase::testGetMappedSlashes_7_oe
@@ -6936,7 +6936,7 @@ bean_114_3,"    public void testGetNestedBoolean_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertTrue(""Got correct value"", ((Boolean) value).booleanValue() == nested.getBooleanProperty());
+            assertTrue(""Got correct value"",((Boolean)value).booleanValue()== nested.getBooleanProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedBoolean_3_oe
@@ -6970,7 +6970,7 @@ bean_115_3,"    public void testGetNestedDouble_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", ((Double) value).doubleValue(), nested.getDoubleProperty(), 0.005);
+            assertEquals(""Got correct value"",((Double)value).doubleValue(),nested.getDoubleProperty(),0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedDouble_3_oe
@@ -7004,7 +7004,7 @@ bean_116_3,"    public void testGetNestedFloat_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", ((Float) value).floatValue(), nested.getFloatProperty(), (float) 0.005);
+            assertEquals(""Got correct value"",((Float)value).floatValue(),nested.getFloatProperty(),(float)0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedFloat_3_oe
@@ -7038,7 +7038,7 @@ bean_117_3,"    public void testGetNestedInt_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", ((Integer) value).intValue(), nested.getIntProperty());
+            assertEquals(""Got correct value"",((Integer)value).intValue(),nested.getIntProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedInt_3_oe
@@ -7072,7 +7072,7 @@ bean_118_3,"    public void testGetNestedLong_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", ((Long) value).longValue(), nested.getLongProperty());
+            assertEquals(""Got correct value"",((Long)value).longValue(),nested.getLongProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedLong_3_oe
@@ -7106,7 +7106,7 @@ bean_119_3,"    public void testGetNestedReadOnly_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", (String) value, nested.getReadOnlyProperty());
+            assertEquals(""Got correct value"",(String)value,nested.getReadOnlyProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedReadOnly_3_oe
@@ -7140,7 +7140,7 @@ bean_120_3,"    public void testGetNestedShort_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", ((Short) value).shortValue(), nested.getShortProperty());
+            assertEquals(""Got correct value"",((Short)value).shortValue(),nested.getShortProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedShort_3_oe
@@ -7174,7 +7174,7 @@ bean_121_3,"    public void testGetNestedString_3_oe() {
             // removed other assertion
             // removed other assertion
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertEquals(""Got correct value"", ((String) value), nested.getStringProperty());
+            assertEquals(""Got correct value"",((String)value),nested.getStringProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testGetNestedString_3_oe
@@ -7240,7 +7240,7 @@ bean_124_3,"    public void testGetSimpleBoolean_3_oe() {
                             ""booleanProperty"");
             // removed other assertion
             // removed other assertion
-            assertTrue(""Got correct value"", ((Boolean) value).booleanValue() == true);
+            assertTrue(""Got correct value"",((Boolean)value).booleanValue()== true);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleBoolean_3_oe
@@ -7273,7 +7273,7 @@ bean_125_3,"    public void testGetSimpleDouble_3_oe() {
                             ""doubleProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Double) value).doubleValue(), 321.0, 0.005);
+            assertEquals(""Got correct value"",((Double)value).doubleValue(),321.0,0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleDouble_3_oe
@@ -7306,7 +7306,7 @@ bean_126_3,"    public void testGetSimpleFloat_3_oe() {
                             ""floatProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Float) value).floatValue(), (float) 123.0, (float) 0.005);
+            assertEquals(""Got correct value"",((Float)value).floatValue(),(float)123.0,(float)0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleFloat_3_oe
@@ -7348,7 +7348,7 @@ bean_128_3,"    public void testGetSimpleInt_3_oe() {
                             ""intProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Integer) value).intValue(), 123);
+            assertEquals(""Got correct value"",((Integer)value).intValue(),123);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleInt_3_oe
@@ -7381,7 +7381,7 @@ bean_129_3,"    public void testGetSimpleLong_3_oe() {
                             ""longProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Long) value).longValue(), 321);
+            assertEquals(""Got correct value"",((Long)value).longValue(),321);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleLong_3_oe
@@ -7423,7 +7423,7 @@ bean_131_3,"    public void testGetSimpleShort_3_oe() {
                             ""shortProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Short) value).shortValue(), (short) 987);
+            assertEquals(""Got correct value"",((Short)value).shortValue(),(short)987);
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleShort_3_oe
@@ -7456,7 +7456,7 @@ bean_132_3,"    public void testGetSimpleString_3_oe() {
                             ""stringProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", (String) value, ""This is a string"");
+            assertEquals(""Got correct value"",(String)value,""This is a string"");
     }
     }
 ",DynaPropertyUtilsTestCase::testGetSimpleString_3_oe
@@ -8102,7 +8102,7 @@ bean_135_2,"    public void testSetIndexedValues_2_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intArray"", 0);
             // removed other assertion
-            assertTrue(""Returned Integer new value 0"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 0"",value instanceof Integer);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_2_oe
@@ -8121,7 +8121,7 @@ bean_135_3,"    public void testSetIndexedValues_3_oe() {
                             ""intArray"", 0);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 0"", 1, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 0"",1,((Integer)value).intValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_3_oe
@@ -8184,7 +8184,7 @@ bean_135_6,"    public void testSetIndexedValues_6_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intIndexed"", 1);
             // removed other assertion
-            assertTrue(""Returned Integer new value 1"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 1"",value instanceof Integer);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_6_oe
@@ -8217,7 +8217,7 @@ bean_135_7,"    public void testSetIndexedValues_7_oe() {
                             ""intIndexed"", 1);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 1"", 11, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 1"",11,((Integer)value).intValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_7_oe
@@ -8308,7 +8308,7 @@ bean_135_10,"    public void testSetIndexedValues_10_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""listIndexed"", 2);
             // removed other assertion
-            assertTrue(""Returned String new value 2"", value instanceof String);
+            assertTrue(""Returned String new value 2"",value instanceof String);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_10_oe
@@ -8355,7 +8355,7 @@ bean_135_11,"    public void testSetIndexedValues_11_oe() {
                             ""listIndexed"", 2);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 2"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 2"",""New Value 2"",(String)value);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_11_oe
@@ -8474,7 +8474,7 @@ bean_135_14,"    public void testSetIndexedValues_14_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray"", 2);
             // removed other assertion
-            assertTrue(""Returned String new value 2"", value instanceof String);
+            assertTrue(""Returned String new value 2"",value instanceof String);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_14_oe
@@ -8535,7 +8535,7 @@ bean_135_15,"    public void testSetIndexedValues_15_oe() {
                             ""stringArray"", 2);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 2"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 2"",""New Value 2"",(String)value);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_15_oe
@@ -8682,7 +8682,7 @@ bean_135_18,"    public void testSetIndexedValues_18_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray"", 3);
             // removed other assertion
-            assertTrue(""Returned String new value 3"", value instanceof String);
+            assertTrue(""Returned String new value 3"",value instanceof String);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_18_oe
@@ -8757,7 +8757,7 @@ bean_135_19,"    public void testSetIndexedValues_19_oe() {
                             ""stringArray"", 3);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 3"", ""New Value 3"", (String) value);
+            assertEquals(""Returned correct new value 3"",""New Value 3"",(String)value);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_19_oe
@@ -8936,7 +8936,7 @@ bean_135_22,"    public void testSetIndexedValues_22_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intArray[4]"");
             // removed other assertion
-            assertTrue(""Returned Integer new value 4"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 4"",value instanceof Integer);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_22_oe
@@ -9027,7 +9027,7 @@ bean_135_23,"    public void testSetIndexedValues_23_oe() {
                             ""intArray[4]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 4"", 1, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 4"",1,((Integer)value).intValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_23_oe
@@ -9234,7 +9234,7 @@ bean_135_26,"    public void testSetIndexedValues_26_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intIndexed[3]"");
             // removed other assertion
-            assertTrue(""Returned Integer new value 5"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 5"",value instanceof Integer);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_26_oe
@@ -9339,7 +9339,7 @@ bean_135_27,"    public void testSetIndexedValues_27_oe() {
                             ""intIndexed[3]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 5"", 11, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 5"",11,((Integer)value).intValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_27_oe
@@ -9574,7 +9574,7 @@ bean_135_30,"    public void testSetIndexedValues_30_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""listIndexed[1]"");
             // removed other assertion
-            assertTrue(""Returned String new value 6"", value instanceof String);
+            assertTrue(""Returned String new value 6"",value instanceof String);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_30_oe
@@ -9693,7 +9693,7 @@ bean_135_31,"    public void testSetIndexedValues_31_oe() {
                             ""listIndexed[1]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 6"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 6"",""New Value 2"",(String)value);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_31_oe
@@ -9956,7 +9956,7 @@ bean_135_34,"    public void testSetIndexedValues_34_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray[2]"");
             // removed other assertion
-            assertTrue(""Returned String new value 6"", value instanceof String);
+            assertTrue(""Returned String new value 6"",value instanceof String);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_34_oe
@@ -10089,7 +10089,7 @@ bean_135_35,"    public void testSetIndexedValues_35_oe() {
                             ""stringArray[2]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 6"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 6"",""New Value 2"",(String)value);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_35_oe
@@ -10380,7 +10380,7 @@ bean_135_38,"    public void testSetIndexedValues_38_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray[0]"");
             // removed other assertion
-            assertTrue(""Returned String new value 7"", value instanceof String);
+            assertTrue(""Returned String new value 7"",value instanceof String);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_38_oe
@@ -10527,7 +10527,7 @@ bean_135_39,"    public void testSetIndexedValues_39_oe() {
                             ""stringArray[0]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 7"", ""New Value 3"", (String) value);
+            assertEquals(""Returned correct new value 7"",""New Value 3"",(String)value);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetIndexedValues_39_oe
@@ -13151,7 +13151,7 @@ bean_139_1,"    public void testSetNestedBoolean_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.booleanProperty"",
                     new Boolean(newValue));
-            assertTrue(""Matched new value"", newValue == nested.getBooleanProperty());
+            assertTrue(""Matched new value"",newValue == nested.getBooleanProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedBoolean_1_oe
@@ -13163,7 +13163,7 @@ bean_140_1,"    public void testSetNestedDouble_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.doubleProperty"",
                     new Double(newValue));
-            assertEquals(""Matched new value"", newValue, nested.getDoubleProperty(), 0.005);
+            assertEquals(""Matched new value"",newValue,nested.getDoubleProperty(),0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedDouble_1_oe
@@ -13175,7 +13175,7 @@ bean_141_1,"    public void testSetNestedFloat_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.floatProperty"",
                     new Float(newValue));
-            assertEquals(""Matched new value"", newValue, nested.getFloatProperty(), (float) 0.005);
+            assertEquals(""Matched new value"",newValue,nested.getFloatProperty(),(float)0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedFloat_1_oe
@@ -13187,7 +13187,7 @@ bean_142_1,"    public void testSetNestedInt_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.intProperty"",
                     new Integer(newValue));
-            assertEquals(""Matched new value"", newValue, nested.getIntProperty());
+            assertEquals(""Matched new value"",newValue,nested.getIntProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedInt_1_oe
@@ -13199,7 +13199,7 @@ bean_143_1,"    public void testSetNestedLong_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.longProperty"",
                     new Long(newValue));
-            assertEquals(""Matched new value"", newValue, nested.getLongProperty());
+            assertEquals(""Matched new value"",newValue,nested.getLongProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedLong_1_oe
@@ -13224,7 +13224,7 @@ bean_145_1,"    public void testSetNestedShort_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.shortProperty"",
                     new Short(newValue));
-            assertEquals(""Matched new value"", newValue, nested.getShortProperty());
+            assertEquals(""Matched new value"",newValue,nested.getShortProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedShort_1_oe
@@ -13236,7 +13236,7 @@ bean_146_1,"    public void testSetNestedString_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.stringProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, nested.getStringProperty());
+            assertEquals(""Matched new value"",newValue,nested.getStringProperty());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedString_1_oe
@@ -13259,7 +13259,7 @@ bean_148_1,"    public void testSetNestedWriteOnly_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.writeOnlyProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, nested.getWriteOnlyPropertyValue());
+            assertEquals(""Matched new value"",newValue,nested.getWriteOnlyPropertyValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetNestedWriteOnly_1_oe
@@ -13296,7 +13296,7 @@ bean_150_1,"    public void testSetSimpleBoolean_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""booleanProperty"",
                     new Boolean(newValue));
-            assertTrue(""Matched new value"", newValue == ((Boolean) bean.get(""booleanProperty"")).booleanValue());
+            assertTrue(""Matched new value"",newValue ==((Boolean)bean.get(""booleanProperty"")).booleanValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleBoolean_1_oe
@@ -13308,7 +13308,7 @@ bean_151_1,"    public void testSetSimpleDouble_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""doubleProperty"",
                     new Double(newValue));
-            assertEquals(""Matched new value"", newValue, ((Double) bean.get(""doubleProperty"")).doubleValue(), 0.005);
+            assertEquals(""Matched new value"",newValue,((Double)bean.get(""doubleProperty"")).doubleValue(),0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleDouble_1_oe
@@ -13320,7 +13320,7 @@ bean_152_1,"    public void testSetSimpleFloat_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""floatProperty"",
                     new Float(newValue));
-            assertEquals(""Matched new value"", newValue, ((Float) bean.get(""floatProperty"")).floatValue(), (float) 0.005);
+            assertEquals(""Matched new value"",newValue,((Float)bean.get(""floatProperty"")).floatValue(),(float)0.005);
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleFloat_1_oe
@@ -13342,7 +13342,7 @@ bean_154_1,"    public void testSetSimpleInt_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""intProperty"",
                     new Integer(newValue));
-            assertEquals(""Matched new value"", newValue, ((Integer) bean.get(""intProperty"")).intValue());
+            assertEquals(""Matched new value"",newValue,((Integer)bean.get(""intProperty"")).intValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleInt_1_oe
@@ -13354,7 +13354,7 @@ bean_155_1,"    public void testSetSimpleLong_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""longProperty"",
                     new Long(newValue));
-            assertEquals(""Matched new value"", newValue, ((Long) bean.get(""longProperty"")).longValue());
+            assertEquals(""Matched new value"",newValue,((Long)bean.get(""longProperty"")).longValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleLong_1_oe
@@ -13377,7 +13377,7 @@ bean_157_1,"    public void testSetSimpleShort_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""shortProperty"",
                     new Short(newValue));
-            assertEquals(""Matched new value"", newValue, ((Short) bean.get(""shortProperty"")).shortValue());
+            assertEquals(""Matched new value"",newValue,((Short)bean.get(""shortProperty"")).shortValue());
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleShort_1_oe
@@ -13389,7 +13389,7 @@ bean_158_1,"    public void testSetSimpleString_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""stringProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, (String) bean.get(""stringProperty""));
+            assertEquals(""Matched new value"",newValue,(String)bean.get(""stringProperty""));
     }
     }
 ",DynaPropertyUtilsTestCase::testSetSimpleString_1_oe
@@ -13409,7 +13409,7 @@ bean_160_1,"    public void testGetDescriptorArguments_1_oe() {
         try {
             final DynaProperty descriptor =
                     bean.getDynaClass().getDynaProperty(""unknown"");
-            assertNull(""Unknown property descriptor should be null"", descriptor);
+            assertNull(""Unknown property descriptor should be null"",descriptor);
     }
     }
 ",BasicDynaBeanTestCase::testGetDescriptorArguments_1_oe
@@ -13459,7 +13459,7 @@ bean_163_2,"    public void testGetIndexedValues_2_oe() {
             try {
                 value = bean.get(""intArray"", i);
                 // removed other assertion
-                assertTrue(""intArray returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intArray returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -13474,7 +13474,7 @@ bean_163_3,"    public void testGetIndexedValues_3_oe() {
                 value = bean.get(""intArray"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intArray returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intArray returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -13519,7 +13519,7 @@ bean_163_6,"    public void testGetIndexedValues_6_oe() {
             try {
                 value = bean.get(""intIndexed"", i);
                 // removed other assertion
-                assertTrue(""intIndexed returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intIndexed returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -13543,7 +13543,7 @@ bean_163_7,"    public void testGetIndexedValues_7_oe() {
                 value = bean.get(""intIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intIndexed returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intIndexed returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -13606,7 +13606,7 @@ bean_163_10,"    public void testGetIndexedValues_10_oe() {
             try {
                 value = bean.get(""listIndexed"", i);
                 // removed other assertion
-                assertTrue(""list returned String "" + i, value instanceof String);
+                assertTrue(""list returned String "" + i,value instanceof String);
     }
     }
     }
@@ -13639,7 +13639,7 @@ bean_163_11,"    public void testGetIndexedValues_11_oe() {
                 value = bean.get(""listIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""listIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""listIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -13720,7 +13720,7 @@ bean_163_14,"    public void testGetIndexedValues_14_oe() {
             try {
                 value = bean.get(""stringArray"", i);
                 // removed other assertion
-                assertTrue(""stringArray returned String "" + i, value instanceof String);
+                assertTrue(""stringArray returned String "" + i,value instanceof String);
     }
     }
     }
@@ -13762,7 +13762,7 @@ bean_163_15,"    public void testGetIndexedValues_15_oe() {
                 value = bean.get(""stringArray"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringArray returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringArray returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -13861,7 +13861,7 @@ bean_163_18,"    public void testGetIndexedValues_18_oe() {
             try {
                 value = bean.get(""stringIndexed"", i);
                 // removed other assertion
-                assertTrue(""stringIndexed returned String "" + i, value instanceof String);
+                assertTrue(""stringIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -13912,7 +13912,7 @@ bean_163_19,"    public void testGetIndexedValues_19_oe() {
                 value = bean.get(""stringIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -14008,7 +14008,7 @@ bean_167_3,"    public void testGetSimpleBoolean_3_oe() {
             final Object value = bean.get(""booleanProperty"");
             // removed other assertion
             // removed other assertion
-            assertTrue(""Got correct value"", ((Boolean) value).booleanValue() == true);
+            assertTrue(""Got correct value"",((Boolean)value).booleanValue()== true);
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleBoolean_3_oe
@@ -14035,7 +14035,7 @@ bean_168_3,"    public void testGetSimpleDouble_3_oe() {
             final Object value = bean.get(""doubleProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Double) value).doubleValue(), 321.0, 0.005);
+            assertEquals(""Got correct value"",((Double)value).doubleValue(),321.0,0.005);
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleDouble_3_oe
@@ -14062,7 +14062,7 @@ bean_169_3,"    public void testGetSimpleFloat_3_oe() {
             final Object value = bean.get(""floatProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Float) value).floatValue(), (float) 123.0, (float) 0.005);
+            assertEquals(""Got correct value"",((Float)value).floatValue(),(float)123.0,(float)0.005);
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleFloat_3_oe
@@ -14089,7 +14089,7 @@ bean_170_3,"    public void testGetSimpleInt_3_oe() {
             final Object value = bean.get(""intProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Integer) value).intValue(), 123);
+            assertEquals(""Got correct value"",((Integer)value).intValue(),123);
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleInt_3_oe
@@ -14116,7 +14116,7 @@ bean_171_3,"    public void testGetSimpleLong_3_oe() {
             final Object value = bean.get(""longProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Long) value).longValue(), 321);
+            assertEquals(""Got correct value"",((Long)value).longValue(),321);
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleLong_3_oe
@@ -14143,7 +14143,7 @@ bean_172_3,"    public void testGetSimpleShort_3_oe() {
             final Object value = bean.get(""shortProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Short) value).shortValue(), (short) 987);
+            assertEquals(""Got correct value"",((Short)value).shortValue(),(short)987);
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleShort_3_oe
@@ -14170,14 +14170,14 @@ bean_173_3,"    public void testGetSimpleString_3_oe() {
             final Object value = bean.get(""stringProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", (String) value, ""This is a string"");
+            assertEquals(""Got correct value"",(String)value,""This is a string"");
     }
     }
 ",BasicDynaBeanTestCase::testGetSimpleString_3_oe
 bean_174_1,"    public void testMappedContains_1_oe() {
 
         try {
-            assertTrue(""Can see first key"", bean.contains(""mappedProperty"", ""First Key""));
+            assertTrue(""Can see first key"",bean.contains(""mappedProperty"",""First Key""));
     }
     }
 ",BasicDynaBeanTestCase::testMappedContains_1_oe
@@ -14191,14 +14191,14 @@ bean_174_3,"    public void testMappedContains_3_oe() {
 
 
         try {
-            assertTrue(""Can not see unknown key"", !bean.contains(""mappedProperty"", ""Unknown Key""));
+            assertTrue(""Can not see unknown key"",!bean.contains(""mappedProperty"",""Unknown Key""));
     }
     }
 ",BasicDynaBeanTestCase::testMappedContains_3_oe
 bean_175_1,"    public void testMappedRemove_1_oe() {
 
         try {
-            assertTrue(""Can see first key"", bean.contains(""mappedProperty"", ""First Key""));
+            assertTrue(""Can see first key"",bean.contains(""mappedProperty"",""First Key""));
     }
     }
 ",BasicDynaBeanTestCase::testMappedRemove_1_oe
@@ -14207,7 +14207,7 @@ bean_175_2,"    public void testMappedRemove_2_oe() {
         try {
             // removed other assertion
             bean.remove(""mappedProperty"", ""First Key"");
-            assertTrue(""Can not see first key"", !bean.contains(""mappedProperty"", ""First Key""));
+            assertTrue(""Can not see first key"",!bean.contains(""mappedProperty"",""First Key""));
     }
     }
 ",BasicDynaBeanTestCase::testMappedRemove_2_oe
@@ -14222,7 +14222,7 @@ bean_175_4,"    public void testMappedRemove_4_oe() {
         }
 
         try {
-            assertTrue(""Can not see unknown key"", !bean.contains(""mappedProperty"", ""Unknown Key""));
+            assertTrue(""Can not see unknown key"",!bean.contains(""mappedProperty"",""Unknown Key""));
     }
     }
 ",BasicDynaBeanTestCase::testMappedRemove_4_oe
@@ -14239,7 +14239,7 @@ bean_175_5,"    public void testMappedRemove_5_oe() {
         try {
             // removed other assertion
             bean.remove(""mappedProperty"", ""Unknown Key"");
-            assertTrue(""Can not see unknown key"", !bean.contains(""mappedProperty"", ""Unknown Key""));
+            assertTrue(""Can not see unknown key"",!bean.contains(""mappedProperty"",""Unknown Key""));
     }
     }
 ",BasicDynaBeanTestCase::testMappedRemove_5_oe
@@ -14270,7 +14270,7 @@ bean_178_2,"    public void testSetIndexedValues_2_oe() {
             bean.set(""intArray"", 0, new Integer(1));
             value = bean.get(""intArray"", 0);
             // removed other assertion
-            assertTrue(""Returned Integer new value 0"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 0"",value instanceof Integer);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_2_oe
@@ -14283,7 +14283,7 @@ bean_178_3,"    public void testSetIndexedValues_3_oe() {
             value = bean.get(""intArray"", 0);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 0"", 1, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 0"",1,((Integer)value).intValue());
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_3_oe
@@ -14326,7 +14326,7 @@ bean_178_6,"    public void testSetIndexedValues_6_oe() {
             bean.set(""intIndexed"", 1, new Integer(11));
             value = bean.get(""intIndexed"", 1);
             // removed other assertion
-            assertTrue(""Returned Integer new value 1"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 1"",value instanceof Integer);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_6_oe
@@ -14349,7 +14349,7 @@ bean_178_7,"    public void testSetIndexedValues_7_oe() {
             value = bean.get(""intIndexed"", 1);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 1"", 11, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 1"",11,((Integer)value).intValue());
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_7_oe
@@ -14412,7 +14412,7 @@ bean_178_10,"    public void testSetIndexedValues_10_oe() {
             bean.set(""listIndexed"", 2, ""New Value 2"");
             value = bean.get(""listIndexed"", 2);
             // removed other assertion
-            assertTrue(""Returned String new value 2"", value instanceof String);
+            assertTrue(""Returned String new value 2"",value instanceof String);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_10_oe
@@ -14445,7 +14445,7 @@ bean_178_11,"    public void testSetIndexedValues_11_oe() {
             value = bean.get(""listIndexed"", 2);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 2"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 2"",""New Value 2"",(String)value);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_11_oe
@@ -14528,7 +14528,7 @@ bean_178_14,"    public void testSetIndexedValues_14_oe() {
             bean.set(""stringArray"", 3, ""New Value 3"");
             value = bean.get(""stringArray"", 3);
             // removed other assertion
-            assertTrue(""Returned String new value 3"", value instanceof String);
+            assertTrue(""Returned String new value 3"",value instanceof String);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_14_oe
@@ -14571,7 +14571,7 @@ bean_178_15,"    public void testSetIndexedValues_15_oe() {
             value = bean.get(""stringArray"", 3);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 3"", ""New Value 3"", (String) value);
+            assertEquals(""Returned correct new value 3"",""New Value 3"",(String)value);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_15_oe
@@ -14674,7 +14674,7 @@ bean_178_18,"    public void testSetIndexedValues_18_oe() {
             bean.set(""stringIndexed"", 4, ""New Value 4"");
             value = bean.get(""stringIndexed"", 4);
             // removed other assertion
-            assertTrue(""Returned String new value 4"", value instanceof String);
+            assertTrue(""Returned String new value 4"",value instanceof String);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_18_oe
@@ -14727,7 +14727,7 @@ bean_178_19,"    public void testSetIndexedValues_19_oe() {
             value = bean.get(""stringIndexed"", 4);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 4"", ""New Value 4"", (String) value);
+            assertEquals(""Returned correct new value 4"",""New Value 4"",(String)value);
     }
     }
 ",BasicDynaBeanTestCase::testSetIndexedValues_19_oe
@@ -14735,7 +14735,7 @@ bean_179_1,"    public void testSetMappedValues_1_oe() {
 
         try {
             bean.set(""mappedProperty"", ""First Key"", ""New First Value"");
-            assertEquals(""Can replace old value"", ""New First Value"", (String) bean.get(""mappedProperty"", ""First Key""));
+            assertEquals(""Can replace old value"",""New First Value"",(String)bean.get(""mappedProperty"",""First Key""));
     }
     }
 ",BasicDynaBeanTestCase::testSetMappedValues_1_oe
@@ -14750,7 +14750,7 @@ bean_179_3,"    public void testSetMappedValues_3_oe() {
 
         try {
             bean.set(""mappedProperty"", ""Fourth Key"", ""Fourth Value"");
-            assertEquals(""Can set new value"", ""Fourth Value"", (String) bean.get(""mappedProperty"", ""Fourth Key""));
+            assertEquals(""Can set new value"",""Fourth Value"",(String)bean.get(""mappedProperty"",""Fourth Key""));
     }
     }
 ",BasicDynaBeanTestCase::testSetMappedValues_3_oe
@@ -14761,7 +14761,7 @@ bean_180_1,"    public void testSetSimpleBoolean_1_oe() {
                     ((Boolean) bean.get(""booleanProperty"")).booleanValue();
             final boolean newValue = !oldValue;
             bean.set(""booleanProperty"", new Boolean(newValue));
-            assertTrue(""Matched new value"", newValue == ((Boolean) bean.get(""booleanProperty"")).booleanValue());
+            assertTrue(""Matched new value"",newValue ==((Boolean)bean.get(""booleanProperty"")).booleanValue());
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleBoolean_1_oe
@@ -14772,7 +14772,7 @@ bean_181_1,"    public void testSetSimpleDouble_1_oe() {
                     ((Double) bean.get(""doubleProperty"")).doubleValue();
             final double newValue = oldValue + 1.0;
             bean.set(""doubleProperty"", new Double(newValue));
-            assertEquals(""Matched new value"", newValue, ((Double) bean.get(""doubleProperty"")).doubleValue(), 0.005);
+            assertEquals(""Matched new value"",newValue,((Double)bean.get(""doubleProperty"")).doubleValue(),0.005);
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleDouble_1_oe
@@ -14783,7 +14783,7 @@ bean_182_1,"    public void testSetSimpleFloat_1_oe() {
                     ((Float) bean.get(""floatProperty"")).floatValue();
             final float newValue = oldValue + (float) 1.0;
             bean.set(""floatProperty"", new Float(newValue));
-            assertEquals(""Matched new value"", newValue, ((Float) bean.get(""floatProperty"")).floatValue(), (float) 0.005);
+            assertEquals(""Matched new value"",newValue,((Float)bean.get(""floatProperty"")).floatValue(),(float)0.005);
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleFloat_1_oe
@@ -14794,7 +14794,7 @@ bean_183_1,"    public void testSetSimpleInt_1_oe() {
                     ((Integer) bean.get(""intProperty"")).intValue();
             final int newValue = oldValue + 1;
             bean.set(""intProperty"", new Integer(newValue));
-            assertEquals(""Matched new value"", newValue, ((Integer) bean.get(""intProperty"")).intValue());
+            assertEquals(""Matched new value"",newValue,((Integer)bean.get(""intProperty"")).intValue());
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleInt_1_oe
@@ -14805,7 +14805,7 @@ bean_184_1,"    public void testSetSimpleLong_1_oe() {
                     ((Long) bean.get(""longProperty"")).longValue();
             final long newValue = oldValue + 1;
             bean.set(""longProperty"", new Long(newValue));
-            assertEquals(""Matched new value"", newValue, ((Long) bean.get(""longProperty"")).longValue());
+            assertEquals(""Matched new value"",newValue,((Long)bean.get(""longProperty"")).longValue());
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleLong_1_oe
@@ -14816,7 +14816,7 @@ bean_185_1,"    public void testSetSimpleShort_1_oe() {
                     ((Short) bean.get(""shortProperty"")).shortValue();
             final short newValue = (short) (oldValue + 1);
             bean.set(""shortProperty"", new Short(newValue));
-            assertEquals(""Matched new value"", newValue, ((Short) bean.get(""shortProperty"")).shortValue());
+            assertEquals(""Matched new value"",newValue,((Short)bean.get(""shortProperty"")).shortValue());
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleShort_1_oe
@@ -14826,7 +14826,7 @@ bean_186_1,"    public void testSetSimpleString_1_oe() {
             final String oldValue = (String) bean.get(""stringProperty"");
             final String newValue = oldValue + "" Extra Value"";
             bean.set(""stringProperty"", newValue);
-            assertEquals(""Matched new value"", newValue, (String) bean.get(""stringProperty""));
+            assertEquals(""Matched new value"",newValue,(String)bean.get(""stringProperty""));
     }
     }
 ",BasicDynaBeanTestCase::testSetSimpleString_1_oe
@@ -14865,7 +14865,7 @@ bean_192_2,"    public void testPopulateArrayProperties_2_oe() {
 
             final int intArray[] = (int[]) bean.get(""intArray"");
             // removed other assertion
-            assertEquals(""intArray length"", 3, intArray.length);
+            assertEquals(""intArray length"",3,intArray.length);
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayProperties_2_oe
@@ -15046,7 +15046,7 @@ bean_193_1,"    public void testGetArrayProperty_1_oe() {
             String arr[] = BeanUtils.getArrayProperty(bean, ""stringArray"");
             final String comp[] = (String[]) bean.get(""stringArray"");
 
-            assertTrue(""String array length = "" + comp.length, (comp.length == arr.length));
+            assertTrue(""String array length = "" + comp.length,(comp.length == arr.length));
     }
     }
 ",DynaBeanUtilsTestCase::testGetArrayProperty_1_oe
@@ -15060,7 +15060,7 @@ bean_193_2,"    public void testGetArrayProperty_2_oe() {
             arr = BeanUtils.getArrayProperty(bean, ""intArray"");
             final int iarr[] = (int[]) bean.get(""intArray"");
 
-            assertTrue(""String array length = "" + iarr.length, (iarr.length == arr.length));
+            assertTrue(""String array length = "" + iarr.length,(iarr.length == arr.length));
     }
     }
 ",DynaBeanUtilsTestCase::testGetArrayProperty_2_oe
@@ -15111,7 +15111,7 @@ bean_196_1,"    public void testGetNestedProperty_1_oe() {
         try {
             final String val = BeanUtils.getNestedProperty(bean, ""nested.stringProperty"");
             final String comp = nested.getStringProperty();
-            assertTrue(""nested.StringProperty == "" + comp, val.equals(comp));
+            assertTrue(""nested.StringProperty == "" + comp,val.equals(comp));
     }
     }
 ",DynaBeanUtilsTestCase::testGetNestedProperty_1_oe
@@ -15120,7 +15120,7 @@ bean_197_1,"    public void testGetGeneralProperty_1_oe() {
             final String val = BeanUtils.getProperty(bean, ""nested.intIndexed[2]"");
             final String comp = String.valueOf(bean.get(""intIndexed"", 2));
 
-            assertTrue(""nested.intIndexed[2] == "" + comp, val.equals(comp));
+            assertTrue(""nested.intIndexed[2] == "" + comp,val.equals(comp));
     }
     }
 ",DynaBeanUtilsTestCase::testGetGeneralProperty_1_oe
@@ -15129,7 +15129,7 @@ bean_198_1,"    public void testGetSimpleProperty_1_oe() {
             final String val = BeanUtils.getSimpleProperty(bean, ""shortProperty"");
             final String comp = String.valueOf(bean.get(""shortProperty""));
 
-            assertTrue(""shortProperty == "" + comp, val.equals(comp));
+            assertTrue(""shortProperty == "" + comp,val.equals(comp));
     }
     }
 ",DynaBeanUtilsTestCase::testGetSimpleProperty_1_oe
@@ -15144,7 +15144,7 @@ bean_199_1,"    public void testPopulateArrayElements_1_oe() {
 
             BeanUtils.populate(bean, map);
             final Integer intIndexed0 = (Integer) bean.get(""intIndexed"", 0);
-            assertEquals(""intIndexed[0] is 100"", 100, intIndexed0.intValue());
+            assertEquals(""intIndexed[0] is 100"",100,intIndexed0.intValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_1_oe
@@ -15161,7 +15161,7 @@ bean_199_2,"    public void testPopulateArrayElements_2_oe() {
             final Integer intIndexed0 = (Integer) bean.get(""intIndexed"", 0);
             // removed other assertion
             final Integer intIndexed1 = (Integer) bean.get(""intIndexed"", 1);
-            assertEquals(""intIndexed[1] is 10"", 10, intIndexed1.intValue());
+            assertEquals(""intIndexed[1] is 10"",10,intIndexed1.intValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_2_oe
@@ -15180,7 +15180,7 @@ bean_199_3,"    public void testPopulateArrayElements_3_oe() {
             final Integer intIndexed1 = (Integer) bean.get(""intIndexed"", 1);
             // removed other assertion
             final Integer intIndexed2 = (Integer) bean.get(""intIndexed"", 2);
-            assertEquals(""intIndexed[2] is 120"", 120, intIndexed2.intValue());
+            assertEquals(""intIndexed[2] is 120"",120,intIndexed2.intValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_3_oe
@@ -15201,7 +15201,7 @@ bean_199_4,"    public void testPopulateArrayElements_4_oe() {
             final Integer intIndexed2 = (Integer) bean.get(""intIndexed"", 2);
             // removed other assertion
             final Integer intIndexed3 = (Integer) bean.get(""intIndexed"", 3);
-            assertEquals(""intIndexed[3] is 30"", 30, intIndexed3.intValue());
+            assertEquals(""intIndexed[3] is 30"",30,intIndexed3.intValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_4_oe
@@ -15224,7 +15224,7 @@ bean_199_5,"    public void testPopulateArrayElements_5_oe() {
             final Integer intIndexed3 = (Integer) bean.get(""intIndexed"", 3);
             // removed other assertion
             final Integer intIndexed4 = (Integer) bean.get(""intIndexed"", 4);
-            assertEquals(""intIndexed[4] is 140"", 140, intIndexed4.intValue());
+            assertEquals(""intIndexed[4] is 140"",140,intIndexed4.intValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_5_oe
@@ -15255,7 +15255,7 @@ bean_199_6,"    public void testPopulateArrayElements_6_oe() {
 
             BeanUtils.populate(bean, map);
 
-            assertEquals(""stringIndexed[0] is \""String 0\"""", ""String 0"", (String) bean.get(""stringIndexed"", 0));
+            assertEquals(""stringIndexed[0] is \""String 0\"""",""String 0"",(String)bean.get(""stringIndexed"",0));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_6_oe
@@ -15287,7 +15287,7 @@ bean_199_7,"    public void testPopulateArrayElements_7_oe() {
             BeanUtils.populate(bean, map);
 
             // removed other assertion
-            assertEquals(""stringIndexed[1] is \""New String 1\"""", ""New String 1"", (String) bean.get(""stringIndexed"", 1));
+            assertEquals(""stringIndexed[1] is \""New String 1\"""",""New String 1"",(String)bean.get(""stringIndexed"",1));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_7_oe
@@ -15320,7 +15320,7 @@ bean_199_8,"    public void testPopulateArrayElements_8_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringIndexed[2] is \""String 2\"""", ""String 2"", (String) bean.get(""stringIndexed"", 2));
+            assertEquals(""stringIndexed[2] is \""String 2\"""",""String 2"",(String)bean.get(""stringIndexed"",2));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_8_oe
@@ -15354,7 +15354,7 @@ bean_199_9,"    public void testPopulateArrayElements_9_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringIndexed[3] is \""New String 3\"""", ""New String 3"", (String) bean.get(""stringIndexed"", 3));
+            assertEquals(""stringIndexed[3] is \""New String 3\"""",""New String 3"",(String)bean.get(""stringIndexed"",3));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_9_oe
@@ -15389,7 +15389,7 @@ bean_199_10,"    public void testPopulateArrayElements_10_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringIndexed[4] is \""String 4\"""", ""String 4"", (String) bean.get(""stringIndexed"", 4));
+            assertEquals(""stringIndexed[4] is \""String 4\"""",""String 4"",(String)bean.get(""stringIndexed"",4));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateArrayElements_10_oe
@@ -15403,7 +15403,7 @@ bean_200_1,"    public void testPopulateMapped_1_oe() {
 
             BeanUtils.populate(bean, map);
 
-            assertEquals(""mappedProperty(First Key)"", ""New First Value"", (String) bean.get(""mappedProperty"", ""First Key""));
+            assertEquals(""mappedProperty(First Key)"",""New First Value"",(String)bean.get(""mappedProperty"",""First Key""));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateMapped_1_oe
@@ -15418,7 +15418,7 @@ bean_200_2,"    public void testPopulateMapped_2_oe() {
             BeanUtils.populate(bean, map);
 
             // removed other assertion
-            assertEquals(""mappedProperty(Second Key)"", ""Second Value"", (String) bean.get(""mappedProperty"", ""Second Key""));
+            assertEquals(""mappedProperty(Second Key)"",""Second Value"",(String)bean.get(""mappedProperty"",""Second Key""));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateMapped_2_oe
@@ -15434,7 +15434,7 @@ bean_200_3,"    public void testPopulateMapped_3_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""mappedProperty(Third Key)"", ""New Third Value"", (String) bean.get(""mappedProperty"", ""Third Key""));
+            assertEquals(""mappedProperty(Third Key)"",""New Third Value"",(String)bean.get(""mappedProperty"",""Third Key""));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateMapped_3_oe
@@ -15472,7 +15472,7 @@ bean_201_1,"    public void testPopulateNested_1_oe() {
             BeanUtils.populate(bean, map);
 
             final TestBean nested = (TestBean) bean.get(""nested"");
-            assertTrue(""booleanProperty is false"", !nested.getBooleanProperty());
+            assertTrue(""booleanProperty is false"",!nested.getBooleanProperty());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_1_oe
@@ -15494,7 +15494,7 @@ bean_201_2,"    public void testPopulateNested_2_oe() {
 
             final TestBean nested = (TestBean) bean.get(""nested"");
             // removed other assertion
-            assertTrue(""booleanSecond is true"", nested.isBooleanSecond());
+            assertTrue(""booleanSecond is true"",nested.isBooleanSecond());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_2_oe
@@ -15517,7 +15517,7 @@ bean_201_3,"    public void testPopulateNested_3_oe() {
             final TestBean nested = (TestBean) bean.get(""nested"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""doubleProperty is 432.0"", 432.0, nested.getDoubleProperty(), 0.005);
+            assertEquals(""doubleProperty is 432.0"",432.0,nested.getDoubleProperty(),0.005);
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_3_oe
@@ -15541,7 +15541,7 @@ bean_201_4,"    public void testPopulateNested_4_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""floatProperty is 123.0"", (float) 123.0, nested.getFloatProperty(), (float) 0.005);
+            assertEquals(""floatProperty is 123.0"",(float)123.0,nested.getFloatProperty(),(float)0.005);
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_4_oe
@@ -15566,7 +15566,7 @@ bean_201_5,"    public void testPopulateNested_5_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""intProperty is 543"", 543, nested.getIntProperty());
+            assertEquals(""intProperty is 543"",543,nested.getIntProperty());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_5_oe
@@ -15592,7 +15592,7 @@ bean_201_6,"    public void testPopulateNested_6_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""longProperty is 321"", 321, nested.getLongProperty());
+            assertEquals(""longProperty is 321"",321,nested.getLongProperty());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_6_oe
@@ -15619,7 +15619,7 @@ bean_201_7,"    public void testPopulateNested_7_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""shortProperty is 654"", (short) 654, nested.getShortProperty());
+            assertEquals(""shortProperty is 654"",(short)654,nested.getShortProperty());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_7_oe
@@ -15647,7 +15647,7 @@ bean_201_8,"    public void testPopulateNested_8_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringProperty is \""This is a string\"""", ""This is a string"", nested.getStringProperty());
+            assertEquals(""stringProperty is \""This is a string\"""",""This is a string"",nested.getStringProperty());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateNested_8_oe
@@ -15725,7 +15725,7 @@ bean_202_3,"    public void testPopulateScalar_3_oe() {
             final Boolean booleanSecond = (Boolean) bean.get(""booleanSecond"");
             // removed other assertion
             final Double doubleProperty = (Double) bean.get(""doubleProperty"");
-            assertEquals(""doubleProperty is 432.0"", 432.0, doubleProperty.doubleValue(), 0.005);
+            assertEquals(""doubleProperty is 432.0"",432.0,doubleProperty.doubleValue(),0.005);
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateScalar_3_oe
@@ -15755,7 +15755,7 @@ bean_202_4,"    public void testPopulateScalar_4_oe() {
             final Double doubleProperty = (Double) bean.get(""doubleProperty"");
             // removed other assertion
             final Float floatProperty = (Float) bean.get(""floatProperty"");
-            assertEquals(""floatProperty is 123.0"", (float) 123.0, floatProperty.floatValue(), (float) 0.005);
+            assertEquals(""floatProperty is 123.0"",(float)123.0,floatProperty.floatValue(),(float)0.005);
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateScalar_4_oe
@@ -15787,7 +15787,7 @@ bean_202_5,"    public void testPopulateScalar_5_oe() {
             final Float floatProperty = (Float) bean.get(""floatProperty"");
             // removed other assertion
             final Integer intProperty = (Integer) bean.get(""intProperty"");
-            assertEquals(""intProperty is 543"", 543, intProperty.intValue());
+            assertEquals(""intProperty is 543"",543,intProperty.intValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateScalar_5_oe
@@ -15821,7 +15821,7 @@ bean_202_6,"    public void testPopulateScalar_6_oe() {
             final Integer intProperty = (Integer) bean.get(""intProperty"");
             // removed other assertion
             final Long longProperty = (Long) bean.get(""longProperty"");
-            assertEquals(""longProperty is 321"", 321, longProperty.longValue());
+            assertEquals(""longProperty is 321"",321,longProperty.longValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateScalar_6_oe
@@ -15893,7 +15893,7 @@ bean_202_8,"    public void testPopulateScalar_8_oe() {
             // removed other assertion
             // removed other assertion
             final Short shortProperty = (Short) bean.get(""shortProperty"");
-            assertEquals(""shortProperty is 654"", (short) 654, shortProperty.shortValue());
+            assertEquals(""shortProperty is 654"",(short)654,shortProperty.shortValue());
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateScalar_8_oe
@@ -15931,7 +15931,7 @@ bean_202_9,"    public void testPopulateScalar_9_oe() {
             // removed other assertion
             final Short shortProperty = (Short) bean.get(""shortProperty"");
             // removed other assertion
-            assertEquals(""stringProperty is \""This is a string\"""", ""This is a string"", (String) bean.get(""stringProperty""));
+            assertEquals(""stringProperty is \""This is a string\"""",""This is a string"",(String)bean.get(""stringProperty""));
     }
     }
 ",DynaBeanUtilsTestCase::testPopulateScalar_9_oe
@@ -16587,7 +16587,7 @@ bean_345_1,"    public void testGetArrayProperty_1_oe() {
             String arr[] = BeanUtils.getArrayProperty(bean, ""stringArray"");
             final String comp[] = bean.getStringArray();
 
-            assertTrue(""String array length = "" + comp.length, (comp.length == arr.length));
+            assertTrue(""String array length = "" + comp.length,(comp.length == arr.length));
     }
     }
 ",BeanUtilsTestCase::testGetArrayProperty_1_oe
@@ -16601,7 +16601,7 @@ bean_345_2,"    public void testGetArrayProperty_2_oe() {
             arr = BeanUtils.getArrayProperty(bean, ""intArray"");
             final int iarr[] = bean.getIntArray();
 
-            assertTrue(""String array length = "" + iarr.length, (iarr.length == arr.length));
+            assertTrue(""String array length = "" + iarr.length,(iarr.length == arr.length));
     }
     }
 ",BeanUtilsTestCase::testGetArrayProperty_2_oe
@@ -16748,7 +16748,7 @@ bean_350_1,"    public void testGetNestedProperty_1_oe() {
         try {
             final String val = BeanUtils.getNestedProperty(bean, ""nested.stringProperty"");
             final String comp = bean.getNested().getStringProperty();
-            assertTrue(""nested.StringProperty == "" + comp, val.equals(comp));
+            assertTrue(""nested.StringProperty == "" + comp,val.equals(comp));
     }
     }
 ",BeanUtilsTestCase::testGetNestedProperty_1_oe
@@ -16757,7 +16757,7 @@ bean_351_1,"    public void testGetGeneralProperty_1_oe() {
             final String val = BeanUtils.getProperty(bean, ""nested.intIndexed[2]"");
             final String comp = String.valueOf(bean.getIntIndexed(2));
 
-            assertTrue(""nested.intIndexed[2] == "" + comp, val.equals(comp));
+            assertTrue(""nested.intIndexed[2] == "" + comp,val.equals(comp));
     }
     }
 ",BeanUtilsTestCase::testGetGeneralProperty_1_oe
@@ -16766,7 +16766,7 @@ bean_352_1,"    public void testGetSimpleProperty_1_oe() {
             final String val = BeanUtils.getSimpleProperty(bean, ""shortProperty"");
             final String comp = String.valueOf(bean.getShortProperty());
 
-            assertTrue(""shortProperty == "" + comp, val.equals(comp));
+            assertTrue(""shortProperty == "" + comp,val.equals(comp));
     }
     }
 ",BeanUtilsTestCase::testGetSimpleProperty_1_oe
@@ -16781,7 +16781,7 @@ bean_354_1,"    public void testPopulateArrayElements_1_oe() {
 
             BeanUtils.populate(bean, map);
 
-            assertEquals(""intIndexed[0] is 100"", 100, bean.getIntIndexed(0));
+            assertEquals(""intIndexed[0] is 100"",100,bean.getIntIndexed(0));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_1_oe
@@ -16797,7 +16797,7 @@ bean_354_2,"    public void testPopulateArrayElements_2_oe() {
             BeanUtils.populate(bean, map);
 
             // removed other assertion
-            assertEquals(""intIndexed[1] is 10"", 10, bean.getIntIndexed(1));
+            assertEquals(""intIndexed[1] is 10"",10,bean.getIntIndexed(1));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_2_oe
@@ -16814,7 +16814,7 @@ bean_354_3,"    public void testPopulateArrayElements_3_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""intIndexed[2] is 120"", 120, bean.getIntIndexed(2));
+            assertEquals(""intIndexed[2] is 120"",120,bean.getIntIndexed(2));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_3_oe
@@ -16832,7 +16832,7 @@ bean_354_4,"    public void testPopulateArrayElements_4_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""intIndexed[3] is 30"", 30, bean.getIntIndexed(3));
+            assertEquals(""intIndexed[3] is 30"",30,bean.getIntIndexed(3));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_4_oe
@@ -16851,7 +16851,7 @@ bean_354_5,"    public void testPopulateArrayElements_5_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""intIndexed[4] is 140"", 140, bean.getIntIndexed(4));
+            assertEquals(""intIndexed[4] is 140"",140,bean.getIntIndexed(4));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_5_oe
@@ -16878,7 +16878,7 @@ bean_354_6,"    public void testPopulateArrayElements_6_oe() {
 
             BeanUtils.populate(bean, map);
 
-            assertEquals(""stringIndexed[0] is \""String 0\"""", ""String 0"", bean.getStringIndexed(0));
+            assertEquals(""stringIndexed[0] is \""String 0\"""",""String 0"",bean.getStringIndexed(0));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_6_oe
@@ -16906,7 +16906,7 @@ bean_354_7,"    public void testPopulateArrayElements_7_oe() {
             BeanUtils.populate(bean, map);
 
             // removed other assertion
-            assertEquals(""stringIndexed[1] is \""New String 1\"""", ""New String 1"", bean.getStringIndexed(1));
+            assertEquals(""stringIndexed[1] is \""New String 1\"""",""New String 1"",bean.getStringIndexed(1));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_7_oe
@@ -16935,7 +16935,7 @@ bean_354_8,"    public void testPopulateArrayElements_8_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringIndexed[2] is \""String 2\"""", ""String 2"", bean.getStringIndexed(2));
+            assertEquals(""stringIndexed[2] is \""String 2\"""",""String 2"",bean.getStringIndexed(2));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_8_oe
@@ -16965,7 +16965,7 @@ bean_354_9,"    public void testPopulateArrayElements_9_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringIndexed[3] is \""New String 3\"""", ""New String 3"", bean.getStringIndexed(3));
+            assertEquals(""stringIndexed[3] is \""New String 3\"""",""New String 3"",bean.getStringIndexed(3));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_9_oe
@@ -16996,7 +16996,7 @@ bean_354_10,"    public void testPopulateArrayElements_10_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringIndexed[4] is \""String 4\"""", ""String 4"", bean.getStringIndexed(4));
+            assertEquals(""stringIndexed[4] is \""String 4\"""",""String 4"",bean.getStringIndexed(4));
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayElements_10_oe
@@ -17033,7 +17033,7 @@ bean_355_2,"    public void testPopulateArrayProperties_2_oe() {
 
             intArray = bean.getIntArray();
             // removed other assertion
-            assertEquals(""intArray length"", 3, intArray.length);
+            assertEquals(""intArray length"",3,intArray.length);
     }
     }
 ",BeanUtilsTestCase::testPopulateArrayProperties_2_oe
@@ -17212,7 +17212,7 @@ bean_356_1,"    public void testPopulateMapped_1_oe() {
 
             BeanUtils.populate(bean, map);
 
-            assertEquals(""mappedProperty(First Key)"", ""New First Value"", bean.getMappedProperty(""First Key""));
+            assertEquals(""mappedProperty(First Key)"",""New First Value"",bean.getMappedProperty(""First Key""));
     }
     }
 ",BeanUtilsTestCase::testPopulateMapped_1_oe
@@ -17227,7 +17227,7 @@ bean_356_2,"    public void testPopulateMapped_2_oe() {
             BeanUtils.populate(bean, map);
 
             // removed other assertion
-            assertEquals(""mappedProperty(Second Key)"", ""Second Value"", bean.getMappedProperty(""Second Key""));
+            assertEquals(""mappedProperty(Second Key)"",""Second Value"",bean.getMappedProperty(""Second Key""));
     }
     }
 ",BeanUtilsTestCase::testPopulateMapped_2_oe
@@ -17243,7 +17243,7 @@ bean_356_3,"    public void testPopulateMapped_3_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""mappedProperty(Third Key)"", ""New Third Value"", bean.getMappedProperty(""Third Key""));
+            assertEquals(""mappedProperty(Third Key)"",""New Third Value"",bean.getMappedProperty(""Third Key""));
     }
     }
 ",BeanUtilsTestCase::testPopulateMapped_3_oe
@@ -17281,7 +17281,7 @@ bean_357_1,"    public void testPopulateNested_1_oe() {
 
             BeanUtils.populate(bean, map);
 
-            assertTrue(""booleanProperty is false"", !bean.getNested().getBooleanProperty());
+            assertTrue(""booleanProperty is false"",!bean.getNested().getBooleanProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_1_oe
@@ -17303,7 +17303,7 @@ bean_357_2,"    public void testPopulateNested_2_oe() {
             BeanUtils.populate(bean, map);
 
             // removed other assertion
-            assertTrue(""booleanSecond is true"", bean.getNested().isBooleanSecond());
+            assertTrue(""booleanSecond is true"",bean.getNested().isBooleanSecond());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_2_oe
@@ -17326,7 +17326,7 @@ bean_357_3,"    public void testPopulateNested_3_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""doubleProperty is 432.0"", 432.0, bean.getNested().getDoubleProperty(), 0.005);
+            assertEquals(""doubleProperty is 432.0"",432.0,bean.getNested().getDoubleProperty(),0.005);
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_3_oe
@@ -17350,7 +17350,7 @@ bean_357_4,"    public void testPopulateNested_4_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""floatProperty is 123.0"", (float) 123.0, bean.getNested().getFloatProperty(), (float) 0.005);
+            assertEquals(""floatProperty is 123.0"",(float)123.0,bean.getNested().getFloatProperty(),(float)0.005);
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_4_oe
@@ -17375,7 +17375,7 @@ bean_357_5,"    public void testPopulateNested_5_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""intProperty is 543"", 543, bean.getNested().getIntProperty());
+            assertEquals(""intProperty is 543"",543,bean.getNested().getIntProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_5_oe
@@ -17401,7 +17401,7 @@ bean_357_6,"    public void testPopulateNested_6_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""longProperty is 321"", 321, bean.getNested().getLongProperty());
+            assertEquals(""longProperty is 321"",321,bean.getNested().getLongProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_6_oe
@@ -17428,7 +17428,7 @@ bean_357_7,"    public void testPopulateNested_7_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""shortProperty is 654"", (short) 654, bean.getNested().getShortProperty());
+            assertEquals(""shortProperty is 654"",(short)654,bean.getNested().getShortProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_7_oe
@@ -17456,7 +17456,7 @@ bean_357_8,"    public void testPopulateNested_8_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringProperty is \""This is a string\"""", ""This is a string"", bean.getNested().getStringProperty());
+            assertEquals(""stringProperty is \""This is a string\"""",""This is a string"",bean.getNested().getStringProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_8_oe
@@ -17485,7 +17485,7 @@ bean_357_9,"    public void testPopulateNested_9_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""writeOnlyProperty is \""New writeOnlyProperty value\"""", ""New writeOnlyProperty value"", bean.getNested().getWriteOnlyPropertyValue());
+            assertEquals(""writeOnlyProperty is \""New writeOnlyProperty value\"""",""New writeOnlyProperty value"",bean.getNested().getWriteOnlyPropertyValue());
     }
     }
 ",BeanUtilsTestCase::testPopulateNested_9_oe
@@ -17566,7 +17566,7 @@ bean_358_3,"    public void testPopulateScalar_3_oe() {
 
             // removed other assertion
             // removed other assertion
-            assertEquals(""byteProperty is 111"", (byte) 111, bean.getByteProperty());
+            assertEquals(""byteProperty is 111"",(byte)111,bean.getByteProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_3_oe
@@ -17595,7 +17595,7 @@ bean_358_4,"    public void testPopulateScalar_4_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""doubleProperty is 432.0"", 432.0, bean.getDoubleProperty(), 0.005);
+            assertEquals(""doubleProperty is 432.0"",432.0,bean.getDoubleProperty(),0.005);
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_4_oe
@@ -17625,7 +17625,7 @@ bean_358_5,"    public void testPopulateScalar_5_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""floatProperty is 123.0"", (float) 123.0, bean.getFloatProperty(), (float) 0.005);
+            assertEquals(""floatProperty is 123.0"",(float)123.0,bean.getFloatProperty(),(float)0.005);
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_5_oe
@@ -17656,7 +17656,7 @@ bean_358_6,"    public void testPopulateScalar_6_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""intProperty is 543"", 543, bean.getIntProperty());
+            assertEquals(""intProperty is 543"",543,bean.getIntProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_6_oe
@@ -17688,7 +17688,7 @@ bean_358_7,"    public void testPopulateScalar_7_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""longProperty is 0"", 0, bean.getLongProperty());
+            assertEquals(""longProperty is 0"",0,bean.getLongProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_7_oe
@@ -17721,7 +17721,7 @@ bean_358_8,"    public void testPopulateScalar_8_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertNull(""nullProperty is null"", bean.getNullProperty());
+            assertNull(""nullProperty is null"",bean.getNullProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_8_oe
@@ -17755,7 +17755,7 @@ bean_358_9,"    public void testPopulateScalar_9_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""shortProperty is 654"", (short) 654, bean.getShortProperty());
+            assertEquals(""shortProperty is 654"",(short)654,bean.getShortProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_9_oe
@@ -17790,7 +17790,7 @@ bean_358_10,"    public void testPopulateScalar_10_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""stringProperty is \""This is a string\"""", ""This is a string"", bean.getStringProperty());
+            assertEquals(""stringProperty is \""This is a string\"""",""This is a string"",bean.getStringProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_10_oe
@@ -17826,7 +17826,7 @@ bean_358_11,"    public void testPopulateScalar_11_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""writeOnlyProperty is \""New writeOnlyProperty value\"""", ""New writeOnlyProperty value"", bean.getWriteOnlyPropertyValue());
+            assertEquals(""writeOnlyProperty is \""New writeOnlyProperty value\"""",""New writeOnlyProperty value"",bean.getWriteOnlyPropertyValue());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_11_oe
@@ -17863,7 +17863,7 @@ bean_358_12,"    public void testPopulateScalar_12_oe() {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(""readOnlyProperty is \""Read Only String Property\"""", ""Read Only String Property"", bean.getReadOnlyProperty());
+            assertEquals(""readOnlyProperty is \""Read Only String Property\"""",""Read Only String Property"",bean.getReadOnlyProperty());
     }
     }
 ",BeanUtilsTestCase::testPopulateScalar_12_oe
@@ -18126,7 +18126,7 @@ bean_430_2,"    public void testGetDescriptorMappedPeriods_2_oe() {
         try {
             desc = PropertyUtils.getPropertyDescriptor
                          (bean, ""mappedIntProperty(key.with.a.dot)"");
-            assertEquals(""Check descriptor type (A)"", Integer.TYPE, ((MappedPropertyDescriptor)desc).getMappedPropertyType());
+            assertEquals(""Check descriptor type(A)"",Integer.TYPE,((MappedPropertyDescriptor)desc).getMappedPropertyType());
     }
     }
 ",PropertyUtilsTestCase::testGetDescriptorMappedPeriods_2_oe
@@ -18152,7 +18152,7 @@ bean_430_5,"    public void testGetDescriptorMappedPeriods_5_oe() {
         try {
             desc = PropertyUtils.getPropertyDescriptor
                          (bean, ""mappedObjects(nested.property).intProperty"");
-            assertEquals(""Check descriptor type (B)"", Integer.TYPE, desc.getPropertyType());
+            assertEquals(""Check descriptor type(B)"",Integer.TYPE,desc.getPropertyType());
     }
     }
 ",PropertyUtilsTestCase::testGetDescriptorMappedPeriods_5_oe
@@ -18740,7 +18740,7 @@ bean_434_2,"    public void testGetIndexedValues_2_oe() {
                 value = PropertyUtils.getIndexedProperty
                     (bean, ""dupProperty"", i);
                 // removed other assertion
-                assertTrue(""dupProperty returned String "" + i, value instanceof String);
+                assertTrue(""dupProperty returned String "" + i,value instanceof String);
     }
     }
     }
@@ -18758,7 +18758,7 @@ bean_434_3,"    public void testGetIndexedValues_3_oe() {
                     (bean, ""dupProperty"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""dupProperty returned correct "" + i, ""Dup "" + i, (String) value);
+                assertEquals(""dupProperty returned correct "" + i,""Dup "" + i,(String)value);
     }
     }
     }
@@ -18811,7 +18811,7 @@ bean_434_6,"    public void testGetIndexedValues_6_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""intArray"", i);
                 // removed other assertion
-                assertTrue(""intArray returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intArray returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -18839,7 +18839,7 @@ bean_434_7,"    public void testGetIndexedValues_7_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""intArray"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intArray returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intArray returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -18912,7 +18912,7 @@ bean_434_10,"    public void testGetIndexedValues_10_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""intIndexed"", i);
                 // removed other assertion
-                assertTrue(""intIndexed returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intIndexed returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -18950,7 +18950,7 @@ bean_434_11,"    public void testGetIndexedValues_11_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""intIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intIndexed returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intIndexed returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -19043,7 +19043,7 @@ bean_434_14,"    public void testGetIndexedValues_14_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""listIndexed"", i);
                 // removed other assertion
-                assertTrue(""list returned String "" + i, value instanceof String);
+                assertTrue(""list returned String "" + i,value instanceof String);
     }
     }
     }
@@ -19091,7 +19091,7 @@ bean_434_15,"    public void testGetIndexedValues_15_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""listIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""listIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""listIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -19204,7 +19204,7 @@ bean_434_18,"    public void testGetIndexedValues_18_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""stringArray"", i);
                 // removed other assertion
-                assertTrue(""stringArray returned String "" + i, value instanceof String);
+                assertTrue(""stringArray returned String "" + i,value instanceof String);
     }
     }
     }
@@ -19262,7 +19262,7 @@ bean_434_19,"    public void testGetIndexedValues_19_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""stringArray"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringArray returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringArray returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -19395,7 +19395,7 @@ bean_434_22,"    public void testGetIndexedValues_22_oe() {
                 value =
                         PropertyUtils.getIndexedProperty(bean, ""stringIndexed"", i);
                 // removed other assertion
-                assertTrue(""stringIndexed returned String "" + i, value instanceof String);
+                assertTrue(""stringIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -19463,7 +19463,7 @@ bean_434_23,"    public void testGetIndexedValues_23_oe() {
                         PropertyUtils.getIndexedProperty(bean, ""stringIndexed"", i);
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -19628,7 +19628,7 @@ bean_434_26,"    public void testGetIndexedValues_26_oe() {
                 value = PropertyUtils.getIndexedProperty
                     (bean, ""dupProperty["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""dupProperty returned String "" + i, value instanceof String);
+                assertTrue(""dupProperty returned String "" + i,value instanceof String);
     }
     }
     }
@@ -19712,7 +19712,7 @@ bean_434_27,"    public void testGetIndexedValues_27_oe() {
                     (bean, ""dupProperty["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""dupProperty returned correct "" + i, ""Dup "" + i, (String) value);
+                assertEquals(""dupProperty returned correct "" + i,""Dup "" + i,(String)value);
     }
     }
     }
@@ -19899,7 +19899,7 @@ bean_434_30,"    public void testGetIndexedValues_30_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""intArray["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""intArray returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intArray returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -19994,7 +19994,7 @@ bean_434_31,"    public void testGetIndexedValues_31_oe() {
                                 ""intArray["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intArray returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intArray returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -20203,7 +20203,7 @@ bean_434_34,"    public void testGetIndexedValues_34_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""intIndexed["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""intIndexed returned Integer "" + i, value instanceof Integer);
+                assertTrue(""intIndexed returned Integer "" + i,value instanceof Integer);
     }
     }
     }
@@ -20309,7 +20309,7 @@ bean_434_35,"    public void testGetIndexedValues_35_oe() {
                                 ""intIndexed["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""intIndexed returned correct "" + i, i * 10, ((Integer) value).intValue());
+                assertEquals(""intIndexed returned correct "" + i,i * 10,((Integer)value).intValue());
     }
     }
     }
@@ -20540,7 +20540,7 @@ bean_434_38,"    public void testGetIndexedValues_38_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""listIndexed["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""listIndexed returned String "" + i, value instanceof String);
+                assertTrue(""listIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -20657,7 +20657,7 @@ bean_434_39,"    public void testGetIndexedValues_39_oe() {
                                 ""listIndexed["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""listIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""listIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -20910,7 +20910,7 @@ bean_434_42,"    public void testGetIndexedValues_42_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""stringArray["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""stringArray returned String "" + i, value instanceof String);
+                assertTrue(""stringArray returned String "" + i,value instanceof String);
     }
     }
     }
@@ -21038,7 +21038,7 @@ bean_434_43,"    public void testGetIndexedValues_43_oe() {
                                 ""stringArray["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringArray returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringArray returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -21313,7 +21313,7 @@ bean_434_46,"    public void testGetIndexedValues_46_oe() {
                         PropertyUtils.getIndexedProperty(bean,
                                 ""stringIndexed["" + i + ""]"");
                 // removed other assertion
-                assertTrue(""stringIndexed returned String "" + i, value instanceof String);
+                assertTrue(""stringIndexed returned String "" + i,value instanceof String);
     }
     }
     }
@@ -21452,7 +21452,7 @@ bean_434_47,"    public void testGetIndexedValues_47_oe() {
                                 ""stringIndexed["" + i + ""]"");
                 // removed other assertion
                 // removed other assertion
-                assertEquals(""stringIndexed returned correct "" + i, ""String "" + i, (String) value);
+                assertEquals(""stringIndexed returned correct "" + i,""String "" + i,(String)value);
     }
     }
     }
@@ -24588,7 +24588,7 @@ bean_442_2,"    public void testGetMappedPeriods_2_oe() {
         bean.setMappedProperty(""key.with.a.dot"", ""Special Value"");
         // removed other assertion
         try {
-            assertEquals(""Can retrieve via getMappedProperty"", ""Special Value"", PropertyUtils.getMappedProperty (bean, ""mappedProperty"", ""key.with.a.dot""));
+            assertEquals(""Can retrieve via getMappedProperty"",""Special Value"",PropertyUtils.getMappedProperty(bean,""mappedProperty"",""key.with.a.dot""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedPeriods_2_oe
@@ -24602,7 +24602,7 @@ bean_442_4,"    public void testGetMappedPeriods_4_oe() {
             // removed other assertion
         }
         try {
-            assertEquals(""Can retrieve via getNestedProperty"", ""Special Value"", PropertyUtils.getNestedProperty (bean, ""mappedProperty(key.with.a.dot)""));
+            assertEquals(""Can retrieve via getNestedProperty"",""Special Value"",PropertyUtils.getNestedProperty(bean,""mappedProperty(key.with.a.dot)""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedPeriods_4_oe
@@ -24624,7 +24624,7 @@ bean_442_7,"    public void testGetMappedPeriods_7_oe() {
         bean.setMappedObjects(""nested.property"", new TestBean());
         // removed other assertion
         try {
-            assertEquals(""Can retrieve nested"", ""This is a string"", PropertyUtils.getNestedProperty (bean, ""mappedObjects(nested.property).stringProperty""));
+            assertEquals(""Can retrieve nested"",""This is a string"",PropertyUtils.getNestedProperty(bean,""mappedObjects(nested.property).stringProperty""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedPeriods_7_oe
@@ -24653,7 +24653,7 @@ bean_442_9,"    public void testGetMappedPeriods_9_oe() {
 
         try
         {
-            assertEquals(""Can't retrieved nested with mapped property"", ""Mapped Value"", PropertyUtils.getNestedProperty( bean,""mappedNested.value(Mapped Key)""));
+            assertEquals(""Can't retrieved nested with mapped property"",""Mapped Value"",PropertyUtils.getNestedProperty(bean,""mappedNested.value(Mapped Key)""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedPeriods_9_oe
@@ -24662,7 +24662,7 @@ bean_443_2,"    public void testGetMappedSlashes_2_oe() {
         bean.setMappedProperty(""key/with/a/slash"", ""Special Value"");
         // removed other assertion
         try {
-            assertEquals(""Can retrieve via getMappedProperty"", ""Special Value"", PropertyUtils.getMappedProperty (bean, ""mappedProperty"", ""key/with/a/slash""));
+            assertEquals(""Can retrieve via getMappedProperty"",""Special Value"",PropertyUtils.getMappedProperty(bean,""mappedProperty"",""key/with/a/slash""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedSlashes_2_oe
@@ -24676,7 +24676,7 @@ bean_443_4,"    public void testGetMappedSlashes_4_oe() {
             // removed other assertion
         }
         try {
-            assertEquals(""Can retrieve via getNestedProperty"", ""Special Value"", PropertyUtils.getNestedProperty (bean, ""mappedProperty(key/with/a/slash)""));
+            assertEquals(""Can retrieve via getNestedProperty"",""Special Value"",PropertyUtils.getNestedProperty(bean,""mappedProperty(key/with/a/slash)""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedSlashes_4_oe
@@ -24698,7 +24698,7 @@ bean_443_7,"    public void testGetMappedSlashes_7_oe() {
         bean.setMappedObjects(""nested/property"", new TestBean());
         // removed other assertion
         try {
-            assertEquals(""Can retrieve nested"", ""This is a string"", PropertyUtils.getNestedProperty (bean, ""mappedObjects(nested/property).stringProperty""));
+            assertEquals(""Can retrieve nested"",""This is a string"",PropertyUtils.getNestedProperty(bean,""mappedObjects(nested/property).stringProperty""));
     }
     }
 ",PropertyUtilsTestCase::testGetMappedSlashes_7_oe
@@ -25200,7 +25200,7 @@ bean_446_3,"    public void testGetNestedBoolean_3_oe() {
                     (bean, ""nested.booleanProperty"");
             // removed other assertion
             // removed other assertion
-            assertTrue(""Got correct value"", ((Boolean) value).booleanValue() == bean.getNested().getBooleanProperty());
+            assertTrue(""Got correct value"",((Boolean)value).booleanValue()== bean.getNested().getBooleanProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetNestedBoolean_3_oe
@@ -25233,7 +25233,7 @@ bean_447_3,"    public void testGetNestedDouble_3_oe() {
                     (bean, ""nested.doubleProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Double) value).doubleValue(), bean.getNested().getDoubleProperty(), 0.005);
+            assertEquals(""Got correct value"",((Double)value).doubleValue(),bean.getNested().getDoubleProperty(),0.005);
     }
     }
 ",PropertyUtilsTestCase::testGetNestedDouble_3_oe
@@ -25266,7 +25266,7 @@ bean_448_3,"    public void testGetNestedFloat_3_oe() {
                     (bean, ""nested.floatProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Float) value).floatValue(), bean.getNested().getFloatProperty(), (float) 0.005);
+            assertEquals(""Got correct value"",((Float)value).floatValue(),bean.getNested().getFloatProperty(),(float)0.005);
     }
     }
 ",PropertyUtilsTestCase::testGetNestedFloat_3_oe
@@ -25299,7 +25299,7 @@ bean_449_3,"    public void testGetNestedInt_3_oe() {
                     (bean, ""nested.intProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Integer) value).intValue(), bean.getNested().getIntProperty());
+            assertEquals(""Got correct value"",((Integer)value).intValue(),bean.getNested().getIntProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetNestedInt_3_oe
@@ -25332,7 +25332,7 @@ bean_450_3,"    public void testGetNestedLong_3_oe() {
                     (bean, ""nested.longProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Long) value).longValue(), bean.getNested().getLongProperty());
+            assertEquals(""Got correct value"",((Long)value).longValue(),bean.getNested().getLongProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetNestedLong_3_oe
@@ -25365,7 +25365,7 @@ bean_451_3,"    public void testGetNestedReadOnly_3_oe() {
                     (bean, ""nested.readOnlyProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", (String) value, bean.getReadOnlyProperty());
+            assertEquals(""Got correct value"",(String)value,bean.getReadOnlyProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetNestedReadOnly_3_oe
@@ -25398,7 +25398,7 @@ bean_452_3,"    public void testGetNestedShort_3_oe() {
                     (bean, ""nested.shortProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Short) value).shortValue(), bean.getNested().getShortProperty());
+            assertEquals(""Got correct value"",((Short)value).shortValue(),bean.getNested().getShortProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetNestedShort_3_oe
@@ -25431,7 +25431,7 @@ bean_453_3,"    public void testGetNestedString_3_oe() {
                     (bean, ""nested.stringProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((String) value), bean.getNested().getStringProperty());
+            assertEquals(""Got correct value"",((String)value),bean.getNested().getStringProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetNestedString_3_oe
@@ -28036,7 +28036,7 @@ bean_461_3,"    public void testGetSimpleBoolean_3_oe() {
                             ""booleanProperty"");
             // removed other assertion
             // removed other assertion
-            assertTrue(""Got correct value"", ((Boolean) value).booleanValue() == bean.getBooleanProperty());
+            assertTrue(""Got correct value"",((Boolean)value).booleanValue()== bean.getBooleanProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleBoolean_3_oe
@@ -28069,7 +28069,7 @@ bean_462_3,"    public void testGetSimpleDouble_3_oe() {
                             ""doubleProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Double) value).doubleValue(), bean.getDoubleProperty(), 0.005);
+            assertEquals(""Got correct value"",((Double)value).doubleValue(),bean.getDoubleProperty(),0.005);
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleDouble_3_oe
@@ -28102,7 +28102,7 @@ bean_463_3,"    public void testGetSimpleFloat_3_oe() {
                             ""floatProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Float) value).floatValue(), bean.getFloatProperty(), (float) 0.005);
+            assertEquals(""Got correct value"",((Float)value).floatValue(),bean.getFloatProperty(),(float)0.005);
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleFloat_3_oe
@@ -28144,7 +28144,7 @@ bean_465_3,"    public void testGetSimpleInt_3_oe() {
                             ""intProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Integer) value).intValue(), bean.getIntProperty());
+            assertEquals(""Got correct value"",((Integer)value).intValue(),bean.getIntProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleInt_3_oe
@@ -28177,7 +28177,7 @@ bean_466_3,"    public void testGetSimpleLong_3_oe() {
                             ""longProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Long) value).longValue(), bean.getLongProperty());
+            assertEquals(""Got correct value"",((Long)value).longValue(),bean.getLongProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleLong_3_oe
@@ -28219,7 +28219,7 @@ bean_468_3,"    public void testGetSimpleReadOnly_3_oe() {
                             ""readOnlyProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", (String) value, bean.getReadOnlyProperty());
+            assertEquals(""Got correct value"",(String)value,bean.getReadOnlyProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleReadOnly_3_oe
@@ -28252,7 +28252,7 @@ bean_469_3,"    public void testGetSimpleShort_3_oe() {
                             ""shortProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", ((Short) value).shortValue(), bean.getShortProperty());
+            assertEquals(""Got correct value"",((Short)value).shortValue(),bean.getShortProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleShort_3_oe
@@ -28285,7 +28285,7 @@ bean_470_3,"    public void testGetSimpleString_3_oe() {
                             ""stringProperty"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Got correct value"", (String) value, bean.getStringProperty());
+            assertEquals(""Got correct value"",(String)value,bean.getStringProperty());
     }
     }
 ",PropertyUtilsTestCase::testGetSimpleString_3_oe
@@ -29841,7 +29841,7 @@ bean_480_2,"    public void testSetIndexedValues_2_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""dupProperty"", 0);
             // removed other assertion
-            assertTrue(""Returned String new value 0"", value instanceof String);
+            assertTrue(""Returned String new value 0"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_2_oe
@@ -29860,7 +29860,7 @@ bean_480_3,"    public void testSetIndexedValues_3_oe() {
                             ""dupProperty"", 0);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 0"", ""New 0"", (String) value);
+            assertEquals(""Returned correct new value 0"",""New 0"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_3_oe
@@ -29923,7 +29923,7 @@ bean_480_6,"    public void testSetIndexedValues_6_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intArray"", 0);
             // removed other assertion
-            assertTrue(""Returned Integer new value 0"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 0"",value instanceof Integer);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_6_oe
@@ -29956,7 +29956,7 @@ bean_480_7,"    public void testSetIndexedValues_7_oe() {
                             ""intArray"", 0);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 0"", 1, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 0"",1,((Integer)value).intValue());
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_7_oe
@@ -30047,7 +30047,7 @@ bean_480_10,"    public void testSetIndexedValues_10_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intIndexed"", 1);
             // removed other assertion
-            assertTrue(""Returned Integer new value 1"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 1"",value instanceof Integer);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_10_oe
@@ -30094,7 +30094,7 @@ bean_480_11,"    public void testSetIndexedValues_11_oe() {
                             ""intIndexed"", 1);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 1"", 11, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 1"",11,((Integer)value).intValue());
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_11_oe
@@ -30213,7 +30213,7 @@ bean_480_14,"    public void testSetIndexedValues_14_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""listIndexed"", 2);
             // removed other assertion
-            assertTrue(""Returned String new value 2"", value instanceof String);
+            assertTrue(""Returned String new value 2"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_14_oe
@@ -30274,7 +30274,7 @@ bean_480_15,"    public void testSetIndexedValues_15_oe() {
                             ""listIndexed"", 2);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 2"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 2"",""New Value 2"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_15_oe
@@ -30421,7 +30421,7 @@ bean_480_18,"    public void testSetIndexedValues_18_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray"", 2);
             // removed other assertion
-            assertTrue(""Returned String new value 2"", value instanceof String);
+            assertTrue(""Returned String new value 2"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_18_oe
@@ -30496,7 +30496,7 @@ bean_480_19,"    public void testSetIndexedValues_19_oe() {
                             ""stringArray"", 2);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 2"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 2"",""New Value 2"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_19_oe
@@ -30671,7 +30671,7 @@ bean_480_22,"    public void testSetIndexedValues_22_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray"", 3);
             // removed other assertion
-            assertTrue(""Returned String new value 3"", value instanceof String);
+            assertTrue(""Returned String new value 3"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_22_oe
@@ -30760,7 +30760,7 @@ bean_480_23,"    public void testSetIndexedValues_23_oe() {
                             ""stringArray"", 3);
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 3"", ""New Value 3"", (String) value);
+            assertEquals(""Returned correct new value 3"",""New Value 3"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_23_oe
@@ -30967,7 +30967,7 @@ bean_480_26,"    public void testSetIndexedValues_26_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""dupProperty[4]"");
             // removed other assertion
-            assertTrue(""Returned String new value 4"", value instanceof String);
+            assertTrue(""Returned String new value 4"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_26_oe
@@ -31072,7 +31072,7 @@ bean_480_27,"    public void testSetIndexedValues_27_oe() {
                             ""dupProperty[4]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 4"", ""New 4"", (String) value);
+            assertEquals(""Returned correct new value 4"",""New 4"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_27_oe
@@ -31307,7 +31307,7 @@ bean_480_30,"    public void testSetIndexedValues_30_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intArray[4]"");
             // removed other assertion
-            assertTrue(""Returned Integer new value 4"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 4"",value instanceof Integer);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_30_oe
@@ -31426,7 +31426,7 @@ bean_480_31,"    public void testSetIndexedValues_31_oe() {
                             ""intArray[4]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 4"", 1, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 4"",1,((Integer)value).intValue());
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_31_oe
@@ -31689,7 +31689,7 @@ bean_480_34,"    public void testSetIndexedValues_34_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""intIndexed[3]"");
             // removed other assertion
-            assertTrue(""Returned Integer new value 5"", value instanceof Integer);
+            assertTrue(""Returned Integer new value 5"",value instanceof Integer);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_34_oe
@@ -31822,7 +31822,7 @@ bean_480_35,"    public void testSetIndexedValues_35_oe() {
                             ""intIndexed[3]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 5"", 11, ((Integer) value).intValue());
+            assertEquals(""Returned correct new value 5"",11,((Integer)value).intValue());
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_35_oe
@@ -32113,7 +32113,7 @@ bean_480_38,"    public void testSetIndexedValues_38_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""listIndexed[1]"");
             // removed other assertion
-            assertTrue(""Returned String new value 6"", value instanceof String);
+            assertTrue(""Returned String new value 6"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_38_oe
@@ -32260,7 +32260,7 @@ bean_480_39,"    public void testSetIndexedValues_39_oe() {
                             ""listIndexed[1]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 6"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 6"",""New Value 2"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_39_oe
@@ -32579,7 +32579,7 @@ bean_480_42,"    public void testSetIndexedValues_42_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray[2]"");
             // removed other assertion
-            assertTrue(""Returned String new value 6"", value instanceof String);
+            assertTrue(""Returned String new value 6"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_42_oe
@@ -32740,7 +32740,7 @@ bean_480_43,"    public void testSetIndexedValues_43_oe() {
                             ""stringArray[2]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 6"", ""New Value 2"", (String) value);
+            assertEquals(""Returned correct new value 6"",""New Value 2"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_43_oe
@@ -33087,7 +33087,7 @@ bean_480_46,"    public void testSetIndexedValues_46_oe() {
                     PropertyUtils.getIndexedProperty(bean,
                             ""stringArray[0]"");
             // removed other assertion
-            assertTrue(""Returned String new value 7"", value instanceof String);
+            assertTrue(""Returned String new value 7"",value instanceof String);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_46_oe
@@ -33262,7 +33262,7 @@ bean_480_47,"    public void testSetIndexedValues_47_oe() {
                             ""stringArray[0]"");
             // removed other assertion
             // removed other assertion
-            assertEquals(""Returned correct new value 7"", ""New Value 3"", (String) value);
+            assertEquals(""Returned correct new value 7"",""New Value 3"",(String)value);
     }
     }
 ",PropertyUtilsTestCase::testSetIndexedValues_47_oe
@@ -36745,7 +36745,7 @@ bean_486_2,"    public void testSetMappedPeriods_2_oe() {
 
         try {
             PropertyUtils.setMappedProperty(bean, ""mappedProperty"", ""key.with.a.dot"", ""Updated Special Value"");
-            assertEquals(""Check set via setMappedProperty"", ""Updated Special Value"", bean.getMappedProperty(""key.with.a.dot""));
+            assertEquals(""Check set via setMappedProperty"",""Updated Special Value"",bean.getMappedProperty(""key.with.a.dot""));
     }
     }
 ",PropertyUtilsTestCase::testSetMappedPeriods_2_oe
@@ -36768,7 +36768,7 @@ bean_486_5,"    public void testSetMappedPeriods_5_oe() {
         // removed other assertion
         try {
             PropertyUtils.setNestedProperty(bean, ""mappedProperty(key.with.a.dot)"", ""Updated Special Value"");
-            assertEquals(""Check set via setNestedProperty (B)"", ""Updated Special Value"", bean.getMappedProperty(""key.with.a.dot""));
+            assertEquals(""Check set via setNestedProperty(B)"",""Updated Special Value"",bean.getMappedProperty(""key.with.a.dot""));
     }
     }
 ",PropertyUtilsTestCase::testSetMappedPeriods_5_oe
@@ -36804,7 +36804,7 @@ bean_486_8,"    public void testSetMappedPeriods_8_oe() {
         try {
             PropertyUtils.setNestedProperty(bean, ""mappedObjects(nested.property).stringProperty"",
                                                   ""Updated String Value"");
-            assertEquals(""Check set via setNestedProperty (C)"", ""Updated String Value"", testBean.getStringProperty());
+            assertEquals(""Check set via setNestedProperty(C)"",""Updated String Value"",testBean.getStringProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetMappedPeriods_8_oe
@@ -36848,7 +36848,7 @@ bean_486_10,"    public void testSetMappedPeriods_10_oe() {
         // -------- PropertyUtils.setNestedProperty() --------
         bean.getNested().setMappedProperty(""Mapped Key"", ""Nested Mapped Value"");
         try {
-            assertEquals(""Can retrieve via getNestedProperty (D)"", ""Nested Mapped Value"", PropertyUtils.getNestedProperty( bean,""nested.mappedProperty(Mapped Key)""));
+            assertEquals(""Can retrieve via getNestedProperty(D)"",""Nested Mapped Value"",PropertyUtils.getNestedProperty(bean,""nested.mappedProperty(Mapped Key)""));
     }
     }
 ",PropertyUtilsTestCase::testSetMappedPeriods_10_oe
@@ -36895,7 +36895,7 @@ bean_486_11,"    public void testSetMappedPeriods_11_oe() {
             // removed other assertion
             PropertyUtils.setNestedProperty(bean, ""nested.mappedProperty(Mapped Key)"",
                                                   ""Updated Nested Mapped Value"");
-            assertEquals(""Check set via setNestedProperty (D)"", ""Updated Nested Mapped Value"", PropertyUtils.getNestedProperty( bean,""nested.mappedProperty(Mapped Key)""));
+            assertEquals(""Check set via setNestedProperty(D)"",""Updated Nested Mapped Value"",PropertyUtils.getNestedProperty(bean,""nested.mappedProperty(Mapped Key)""));
     }
     }
 ",PropertyUtilsTestCase::testSetMappedPeriods_11_oe
@@ -36932,7 +36932,7 @@ bean_488_1,"    public void testSetNestedBoolean_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.booleanProperty"",
                     new Boolean(newValue));
-            assertTrue(""Matched new value"", newValue == bean.getNested().getBooleanProperty());
+            assertTrue(""Matched new value"",newValue == bean.getNested().getBooleanProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetNestedBoolean_1_oe
@@ -36944,7 +36944,7 @@ bean_489_1,"    public void testSetNestedDouble_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.doubleProperty"",
                     new Double(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getNested().getDoubleProperty(), 0.005);
+            assertEquals(""Matched new value"",newValue,bean.getNested().getDoubleProperty(),0.005);
     }
     }
 ",PropertyUtilsTestCase::testSetNestedDouble_1_oe
@@ -36956,7 +36956,7 @@ bean_490_1,"    public void testSetNestedFloat_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.floatProperty"",
                     new Float(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getNested().getFloatProperty(), (float) 0.005);
+            assertEquals(""Matched new value"",newValue,bean.getNested().getFloatProperty(),(float)0.005);
     }
     }
 ",PropertyUtilsTestCase::testSetNestedFloat_1_oe
@@ -36968,7 +36968,7 @@ bean_491_1,"    public void testSetNestedInt_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.intProperty"",
                     new Integer(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getNested().getIntProperty());
+            assertEquals(""Matched new value"",newValue,bean.getNested().getIntProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetNestedInt_1_oe
@@ -36980,7 +36980,7 @@ bean_492_1,"    public void testSetNestedLong_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.longProperty"",
                     new Long(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getNested().getLongProperty());
+            assertEquals(""Matched new value"",newValue,bean.getNested().getLongProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetNestedLong_1_oe
@@ -37005,7 +37005,7 @@ bean_494_1,"    public void testSetNestedShort_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.shortProperty"",
                     new Short(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getNested().getShortProperty());
+            assertEquals(""Matched new value"",newValue,bean.getNested().getShortProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetNestedShort_1_oe
@@ -37017,7 +37017,7 @@ bean_495_1,"    public void testSetNestedString_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.stringProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, bean.getNested().getStringProperty());
+            assertEquals(""Matched new value"",newValue,bean.getNested().getStringProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetNestedString_1_oe
@@ -37040,7 +37040,7 @@ bean_497_1,"    public void testSetNestedWriteOnly_1_oe() {
             PropertyUtils.setNestedProperty(bean,
                     ""nested.writeOnlyProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, bean.getNested().getWriteOnlyPropertyValue());
+            assertEquals(""Matched new value"",newValue,bean.getNested().getWriteOnlyPropertyValue());
     }
     }
 ",PropertyUtilsTestCase::testSetNestedWriteOnly_1_oe
@@ -37077,7 +37077,7 @@ bean_499_1,"    public void testSetSimpleBoolean_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""booleanProperty"",
                     new Boolean(newValue));
-            assertTrue(""Matched new value"", newValue == bean.getBooleanProperty());
+            assertTrue(""Matched new value"",newValue == bean.getBooleanProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleBoolean_1_oe
@@ -37089,7 +37089,7 @@ bean_500_1,"    public void testSetSimpleDouble_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""doubleProperty"",
                     new Double(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getDoubleProperty(), 0.005);
+            assertEquals(""Matched new value"",newValue,bean.getDoubleProperty(),0.005);
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleDouble_1_oe
@@ -37101,7 +37101,7 @@ bean_501_1,"    public void testSetSimpleFloat_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""floatProperty"",
                     new Float(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getFloatProperty(), (float) 0.005);
+            assertEquals(""Matched new value"",newValue,bean.getFloatProperty(),(float)0.005);
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleFloat_1_oe
@@ -37123,7 +37123,7 @@ bean_503_1,"    public void testSetSimpleInt_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""intProperty"",
                     new Integer(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getIntProperty());
+            assertEquals(""Matched new value"",newValue,bean.getIntProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleInt_1_oe
@@ -37135,7 +37135,7 @@ bean_504_1,"    public void testSetSimpleLong_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""longProperty"",
                     new Long(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getLongProperty());
+            assertEquals(""Matched new value"",newValue,bean.getLongProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleLong_1_oe
@@ -37170,7 +37170,7 @@ bean_507_1,"    public void testSetSimpleShort_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""shortProperty"",
                     new Short(newValue));
-            assertEquals(""Matched new value"", newValue, bean.getShortProperty());
+            assertEquals(""Matched new value"",newValue,bean.getShortProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleShort_1_oe
@@ -37182,7 +37182,7 @@ bean_508_1,"    public void testSetSimpleString_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""stringProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, bean.getStringProperty());
+            assertEquals(""Matched new value"",newValue,bean.getStringProperty());
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleString_1_oe
@@ -37205,7 +37205,7 @@ bean_510_1,"    public void testSetSimpleWriteOnly_1_oe() {
             PropertyUtils.setSimpleProperty(bean,
                     ""writeOnlyProperty"",
                     newValue);
-            assertEquals(""Matched new value"", newValue, bean.getWriteOnlyPropertyValue());
+            assertEquals(""Matched new value"",newValue,bean.getWriteOnlyPropertyValue());
     }
     }
 ",PropertyUtilsTestCase::testSetSimpleWriteOnly_1_oe
@@ -37516,7 +37516,7 @@ bean_562_5,"    public void testIndexedProperties_5_oe() {
 bean_563_1,"    public void testMappedContains_1_oe() {
 
         try {
-            assertTrue(""Can see first key"", bean.contains(""mappedProperty"", ""First Key""));
+            assertTrue(""Can see first key"",bean.contains(""mappedProperty"",""First Key""));
     }
     }
 ",WrapDynaBeanTestCase::testMappedContains_1_oe
@@ -37541,7 +37541,7 @@ bean_563_4,"    public void testMappedContains_4_oe() {
 
 
         try {
-            assertTrue(""Can not see unknown key"", !bean.contains(""mappedProperty"", ""Unknown Key""));
+            assertTrue(""Can not see unknown key"",!bean.contains(""mappedProperty"",""Unknown Key""));
     }
     }
 ",WrapDynaBeanTestCase::testMappedContains_4_oe
@@ -37566,7 +37566,7 @@ bean_563_5,"    public void testMappedContains_5_oe() {
 bean_564_1,"    public void testMappedRemove_1_oe() {
 
         try {
-            assertTrue(""Can see first key"", bean.contains(""mappedProperty"", ""First Key""));
+            assertTrue(""Can see first key"",bean.contains(""mappedProperty"",""First Key""));
     }
     }
 ",WrapDynaBeanTestCase::testMappedRemove_1_oe
@@ -37594,7 +37594,7 @@ bean_564_4,"    public void testMappedRemove_4_oe() {
         }
 
         try {
-            assertTrue(""Can not see unknown key"", !bean.contains(""mappedProperty"", ""Unknown Key""));
+            assertTrue(""Can not see unknown key"",!bean.contains(""mappedProperty"",""Unknown Key""));
     }
     }
 ",WrapDynaBeanTestCase::testMappedRemove_4_oe
@@ -38060,7 +38060,7 @@ bean_663_7,"    @Test
             // force garbage collection and  verify that the componentLoader
             // has been garbage-collected
             forceGarbageCollection(weakRefToComponent1);
-            assertNull( ""Component classloader did not release properly; memory leak present"", weakRefToComponent1.get());
+            assertNull(""Component classloader did not release properly;memory leak present"",weakRefToComponent1.get());
     }
     }
 ",MemoryTestCase::testComponentRegistersStandardConverter_7_oe
@@ -38128,7 +38128,7 @@ bean_664_3,"    @Test
               // verify that this new object does implement the Converter type
               // despite being loaded via a classloader different from the one
               // that loaded the Converter class.
-              assertTrue( ""Converter loader via child does not implement parent type"", Converter.class.isInstance(newFloatConverter));
+              assertTrue(""Converter loader via child does not implement parent type"",Converter.class.isInstance(newFloatConverter));
     }
     }
     }
@@ -38345,7 +38345,7 @@ bean_664_7,"    @Test
             // force garbage collection and  verify that the componentLoader
             // has been garbage-collected
             forceGarbageCollection(weakRefToComponent);
-            assertNull( ""Component classloader did not release properly; memory leak present"", weakRefToComponent.get());
+            assertNull(""Component classloader did not release properly;memory leak present"",weakRefToComponent.get());
     }
     }
 ",MemoryTestCase::testComponentRegistersCustomConverter_7_oe

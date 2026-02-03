@@ -133,7 +133,7 @@ public class FTPClientConfigFunctionalTest_OE25Dev extends TestCase {
             //        + " " +thisfile.getName());
             if (lastfile != null) {
                 // verify that the list is sorted earliest to latest.
-                assertTrue(lastfile.getTimestamp() .before(thisfile.getTimestamp()));
+                assertTrue(lastfile.getTimestamp().before(thisfile.getTimestamp()));
     }
     }
     }
@@ -225,7 +225,7 @@ public class FTPClientConfigFunctionalTest_OE25Dev extends TestCase {
             // by the parser and therefore been relegated to the same date a
             // year ago.
             first.add(Calendar.DAY_OF_MONTH, 2);
-            assertTrue(lastfile.getTimestamp().getTime().toString() + " before "+ first.getTime().toString(),lastfile.getTimestamp().before(first));
+            assertTrue(lastfile.getTimestamp().getTime().toString()+ " before "+ first.getTime().toString(),lastfile.getTimestamp().before(first));
     }
     }
 

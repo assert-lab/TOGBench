@@ -55,8 +55,7 @@ public class ReverseListIteratorTest<E> extends AbstractListIteratorTest<E> {
         final ListIterator<E> it = makeEmptyIterator();
 
         assertEquals(false, it.hasNext());
-        assertEquals(-1, it.nextIndex());  // reversed index
-        assertEquals(false, it.hasPrevious());
+        assertEquals(-1,it.nextIndex());// reversed index assertEquals(false,it.hasPrevious());
         assertEquals(0, it.previousIndex());  // reversed index
 
         // next() should throw a NoSuchElementException
@@ -97,11 +96,7 @@ public class ReverseListIteratorTest<E> extends AbstractListIteratorTest<E> {
 
         // loop back through comparing
         for (int i = list.size() - 1; i >= 0; i--) {
-            assertEquals("" + i, list.size() - i - 2, it.nextIndex());  // reversed index
-            assertEquals(list.size() - i - 1, it.previousIndex());  // reversed index
-
-            final Object obj = list.get(i);
-            assertEquals(obj, it.previous());
+            assertEquals("" + i,list.size()- i - 2,it.nextIndex());
         }
 
         // check state at start

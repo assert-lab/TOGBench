@@ -294,7 +294,7 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
 
         // Invalid UK
-        assertFalse("UK wrong symbol",    validator.isValid("12@",   Locale.UK)); // ???;
+        assertFalse("UK wrong symbol",validator.isValid("12@",Locale.UK));// ??? assertFalse("UK wrong negative",validator.isValid("(12%)",Locale.UK));
     }
 
     public void testInvalid_6_oe() {
@@ -308,42 +308,9 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
 
         // Invalid UK
         // removed other assertion
-        assertFalse("UK wrong negative",  validator.isValid("(12%)", Locale.UK));
-    }
-
-    public void testInvalid_7_oe() {
-        BigDecimalValidator validator = PercentValidator.getInstance();
-
-        // Invalid Missing
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Invalid UK
-        // removed other assertion
-        // removed other assertion
 
         // Invalid US - can't find a Locale with different symbols!
-        assertFalse("US wrong symbol",    validator.isValid("12@",   Locale.US)); // ???;
-    }
-
-    public void testInvalid_8_oe() {
-        BigDecimalValidator validator = PercentValidator.getInstance();
-
-        // Invalid Missing
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Invalid UK
-        // removed other assertion
-        // removed other assertion
-
-        // Invalid US - can't find a Locale with different symbols!
-        // removed other assertion
-        assertFalse("US wrong negative",  validator.isValid("(12%)", Locale.US));
+        assertFalse("US wrong symbol",validator.isValid("12@",Locale.US));// ??? assertFalse("US wrong negative",validator.isValid("(12%)",Locale.US));
     }
 
 }

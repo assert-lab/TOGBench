@@ -64,15 +64,13 @@ public class NumberUtilsTest {
     private void compareIsCreatableWithCreateNumber(final String val, final boolean expected) {
         final boolean isValid = NumberUtils.isCreatable(val);
         final boolean canCreate = checkCreateNumber(val);
-        assertTrue(isValid == expected && canCreate == expected, "Expecting " + expected
-            + " for isCreatable/createNumber using \"" + val + "\" but got " + isValid + " and " + canCreate);
+        assertTrue(isValid == expected && canCreate == expected,"Expecting " + expected + " for isCreatable/createNumber using \"" + val + "\" but got " + isValid + " and " + canCreate);
     }
 
     private void compareIsNumberWithCreateNumber(final String val, final boolean expected) {
         final boolean isValid = NumberUtils.isCreatable(val);
         final boolean canCreate = checkCreateNumber(val);
-        assertTrue(isValid == expected && canCreate == expected, "Expecting " + expected
-            + " for isCreatable/createNumber using \"" + val + "\" but got " + isValid + " and " + canCreate);
+        assertTrue(isValid == expected && canCreate == expected,"Expecting " + expected + " for isCreatable/createNumber using \"" + val + "\" but got " + isValid + " and " + canCreate);
     }
 
     @Test
@@ -349,8 +347,7 @@ public class NumberUtilsTest {
 
     @Test
     public void testCreateBigDecimal() {
-        assertEquals(new BigDecimal("1234.5"), NumberUtils.createBigDecimal("1234.5"),
-            "createBigDecimal(String) failed");
+        assertEquals(new BigDecimal("1234.5"),NumberUtils.createBigDecimal("1234.5"),"createBigDecimal(String)failed");
         assertNull(NumberUtils.createBigDecimal(null), "createBigDecimal(null) failed");
         this.testCreateBigDecimalFailure("");
         this.testCreateBigDecimalFailure(" ");
@@ -476,8 +473,7 @@ public class NumberUtilsTest {
         assertEquals(Double.valueOf("1234.5"), NumberUtils.createNumber("1234.5d"), "createNumber(String) 3 failed");
         assertEquals(Float.valueOf("1234.5"), NumberUtils.createNumber("1234.5F"), "createNumber(String) 4 failed");
         assertEquals(Float.valueOf("1234.5"), NumberUtils.createNumber("1234.5f"), "createNumber(String) 4 failed");
-        assertEquals(Long.valueOf(Integer.MAX_VALUE + 1L), NumberUtils.createNumber("" + (Integer.MAX_VALUE + 1L)),
-            "createNumber(String) 5 failed");
+        assertEquals(Long.valueOf(Integer.MAX_VALUE + 1L),NumberUtils.createNumber("" +(Integer.MAX_VALUE + 1L)),"createNumber(String)5 failed");
         assertEquals(Long.valueOf(12345), NumberUtils.createNumber("12345L"), "createNumber(String) 6 failed");
         assertEquals(Long.valueOf(12345), NumberUtils.createNumber("12345l"), "createNumber(String) 6 failed");
         assertEquals(Float.valueOf("-1234.5"), NumberUtils.createNumber("-1234.5"), "createNumber(String) 7 failed");
@@ -488,23 +484,16 @@ public class NumberUtilsTest {
         assertEquals(-0xFADE, NumberUtils.createNumber("-0Xfade").intValue(), "createNumber(String) 10b failed");
         assertEquals(Double.valueOf("1.1E200"), NumberUtils.createNumber("1.1E200"), "createNumber(String) 11 failed");
         assertEquals(Float.valueOf("1.1E20"), NumberUtils.createNumber("1.1E20"), "createNumber(String) 12 failed");
-        assertEquals(Double.valueOf("-1.1E200"), NumberUtils.createNumber("-1.1E200"),
-            "createNumber(String) 13 failed");
-        assertEquals(Double.valueOf("1.1E-200"), NumberUtils.createNumber("1.1E-200"),
-            "createNumber(String) 14 failed");
+        assertEquals(Double.valueOf("-1.1E200"),NumberUtils.createNumber("-1.1E200"),"createNumber(String)13 failed");
+        assertEquals(Double.valueOf("1.1E-200"),NumberUtils.createNumber("1.1E-200"),"createNumber(String)14 failed");
         assertNull(NumberUtils.createNumber(null), "createNumber(null) failed");
-        assertEquals(new BigInteger("12345678901234567890"), NumberUtils.createNumber("12345678901234567890L"),
-            "createNumber(String) failed");
+        assertEquals(new BigInteger("12345678901234567890"),NumberUtils.createNumber("12345678901234567890L"),"createNumber(String)failed");
 
-        assertEquals(new BigDecimal("1.1E-700"), NumberUtils.createNumber("1.1E-700F"),
-            "createNumber(String) 15 failed");
+        assertEquals(new BigDecimal("1.1E-700"),NumberUtils.createNumber("1.1E-700F"),"createNumber(String)15 failed");
 
-        assertEquals(Long.valueOf("10" + Integer.MAX_VALUE), NumberUtils.createNumber("10" + Integer.MAX_VALUE + "L"),
-            "createNumber(String) 16 failed");
-        assertEquals(Long.valueOf("10" + Integer.MAX_VALUE), NumberUtils.createNumber("10" + Integer.MAX_VALUE),
-            "createNumber(String) 17 failed");
-        assertEquals(new BigInteger("10" + Long.MAX_VALUE), NumberUtils.createNumber("10" + Long.MAX_VALUE),
-            "createNumber(String) 18 failed");
+        assertEquals(Long.valueOf("10" + Integer.MAX_VALUE),NumberUtils.createNumber("10" + Integer.MAX_VALUE + "L"),"createNumber(String)16 failed");
+        assertEquals(Long.valueOf("10" + Integer.MAX_VALUE),NumberUtils.createNumber("10" + Integer.MAX_VALUE),"createNumber(String)17 failed");
+        assertEquals(new BigInteger("10" + Long.MAX_VALUE),NumberUtils.createNumber("10" + Long.MAX_VALUE),"createNumber(String)18 failed");
 
         // LANG-521
         assertEquals(Float.valueOf("2."), NumberUtils.createNumber("2."), "createNumber(String) LANG-521 failed");
@@ -513,8 +502,7 @@ public class NumberUtilsTest {
         assertFalse(checkCreateNumber("1eE"), "createNumber(String) succeeded");
 
         // LANG-693
-        assertEquals(Double.valueOf(Double.MAX_VALUE), NumberUtils.createNumber("" + Double.MAX_VALUE),
-            "createNumber(String) LANG-693 failed");
+        assertEquals(Double.valueOf(Double.MAX_VALUE),NumberUtils.createNumber("" + Double.MAX_VALUE),"createNumber(String)LANG-693 failed");
 
         // LANG-822
         // ensure that the underlying negative number would create a BigDecimal
@@ -523,43 +511,26 @@ public class NumberUtilsTest {
         assertEquals(BigDecimal.class, bigNum.getClass());
 
         // LANG-1018
-        assertEquals(Double.valueOf("-160952.54"), NumberUtils.createNumber("-160952.54"),
-            "createNumber(String) LANG-1018 failed");
+        assertEquals(Double.valueOf("-160952.54"),NumberUtils.createNumber("-160952.54"),"createNumber(String)LANG-1018 failed");
         // LANG-1187
-        assertEquals(Double.valueOf("6264583.33"), NumberUtils.createNumber("6264583.33"),
-            "createNumber(String) LANG-1187 failed");
+        assertEquals(Double.valueOf("6264583.33"),NumberUtils.createNumber("6264583.33"),"createNumber(String)LANG-1187 failed");
         // LANG-1215
-        assertEquals(Double.valueOf("193343.82"), NumberUtils.createNumber("193343.82"),
-            "createNumber(String) LANG-1215 failed");
+        assertEquals(Double.valueOf("193343.82"),NumberUtils.createNumber("193343.82"),"createNumber(String)LANG-1215 failed");
         // LANG-1060
-        assertEquals(Double.valueOf("001234.5678"), NumberUtils.createNumber("001234.5678"),
-            "createNumber(String) LANG-1060a failed");
-        assertEquals(Double.valueOf("+001234.5678"), NumberUtils.createNumber("+001234.5678"),
-            "createNumber(String) LANG-1060b failed");
-        assertEquals(Double.valueOf("-001234.5678"), NumberUtils.createNumber("-001234.5678"),
-            "createNumber(String) LANG-1060c failed");
-        assertEquals(Double.valueOf("0000.00000"), NumberUtils.createNumber("0000.00000d"),
-            "createNumber(String) LANG-1060d failed");
-        assertEquals(Float.valueOf("001234.56"), NumberUtils.createNumber("001234.56"),
-            "createNumber(String) LANG-1060e failed");
-        assertEquals(Float.valueOf("+001234.56"), NumberUtils.createNumber("+001234.56"),
-            "createNumber(String) LANG-1060f failed");
-        assertEquals(Float.valueOf("-001234.56"), NumberUtils.createNumber("-001234.56"),
-            "createNumber(String) LANG-1060g failed");
-        assertEquals(Float.valueOf("0000.10"), NumberUtils.createNumber("0000.10"),
-            "createNumber(String) LANG-1060h failed");
-        assertEquals(Float.valueOf("001.1E20"), NumberUtils.createNumber("001.1E20"),
-            "createNumber(String) LANG-1060i failed");
-        assertEquals(Float.valueOf("+001.1E20"), NumberUtils.createNumber("+001.1E20"),
-            "createNumber(String) LANG-1060j failed");
-        assertEquals(Float.valueOf("-001.1E20"), NumberUtils.createNumber("-001.1E20"),
-            "createNumber(String) LANG-1060k failed");
-        assertEquals(Double.valueOf("001.1E200"), NumberUtils.createNumber("001.1E200"),
-            "createNumber(String) LANG-1060l failed");
-        assertEquals(Double.valueOf("+001.1E200"), NumberUtils.createNumber("+001.1E200"),
-            "createNumber(String) LANG-1060m failed");
-        assertEquals(Double.valueOf("-001.1E200"), NumberUtils.createNumber("-001.1E200"),
-            "createNumber(String) LANG-1060n failed");
+        assertEquals(Double.valueOf("001234.5678"),NumberUtils.createNumber("001234.5678"),"createNumber(String)LANG-1060a failed");
+        assertEquals(Double.valueOf("+001234.5678"),NumberUtils.createNumber("+001234.5678"),"createNumber(String)LANG-1060b failed");
+        assertEquals(Double.valueOf("-001234.5678"),NumberUtils.createNumber("-001234.5678"),"createNumber(String)LANG-1060c failed");
+        assertEquals(Double.valueOf("0000.00000"),NumberUtils.createNumber("0000.00000d"),"createNumber(String)LANG-1060d failed");
+        assertEquals(Float.valueOf("001234.56"),NumberUtils.createNumber("001234.56"),"createNumber(String)LANG-1060e failed");
+        assertEquals(Float.valueOf("+001234.56"),NumberUtils.createNumber("+001234.56"),"createNumber(String)LANG-1060f failed");
+        assertEquals(Float.valueOf("-001234.56"),NumberUtils.createNumber("-001234.56"),"createNumber(String)LANG-1060g failed");
+        assertEquals(Float.valueOf("0000.10"),NumberUtils.createNumber("0000.10"),"createNumber(String)LANG-1060h failed");
+        assertEquals(Float.valueOf("001.1E20"),NumberUtils.createNumber("001.1E20"),"createNumber(String)LANG-1060i failed");
+        assertEquals(Float.valueOf("+001.1E20"),NumberUtils.createNumber("+001.1E20"),"createNumber(String)LANG-1060j failed");
+        assertEquals(Float.valueOf("-001.1E20"),NumberUtils.createNumber("-001.1E20"),"createNumber(String)LANG-1060k failed");
+        assertEquals(Double.valueOf("001.1E200"),NumberUtils.createNumber("001.1E200"),"createNumber(String)LANG-1060l failed");
+        assertEquals(Double.valueOf("+001.1E200"),NumberUtils.createNumber("+001.1E200"),"createNumber(String)LANG-1060m failed");
+        assertEquals(Double.valueOf("-001.1E200"),NumberUtils.createNumber("-001.1E200"),"createNumber(String)LANG-1060n failed");
     }
 
     @Test
@@ -633,11 +604,7 @@ public class NumberUtilsTest {
         assertEquals(Long.valueOf(0x7fffffffffffffffL), NumberUtils.createNumber("#7fffffffffffffff"));
         assertEquals(new BigInteger("7fffffffffffffff0", 16), NumberUtils.createNumber("#7fffffffffffffff0"));
 
-        assertEquals(Integer.valueOf(017777777777), NumberUtils.createNumber("017777777777")); // 31 bits
-        assertEquals(Long.valueOf(037777777777L), NumberUtils.createNumber("037777777777")); // 32 bits
-
-        // 63 bits
-        assertEquals(Long.valueOf(0777777777777777777777L), NumberUtils.createNumber("0777777777777777777777"));
+        assertEquals(Integer.valueOf(017777777777),NumberUtils.createNumber("017777777777"));// 31 bits assertEquals(Long.valueOf(037777777777L),NumberUtils.createNumber("037777777777"));// 32 bits assertEquals(Long.valueOf(0777777777777777777777L),NumberUtils.createNumber("0777777777777777777777"));
         // 64 bits
         assertEquals(new BigInteger("1777777777777777777777", 8), NumberUtils.createNumber("01777777777777777777777"));
     }
@@ -941,8 +908,7 @@ public class NumberUtilsTest {
     public void testMaxByte() {
         assertEquals((byte) 5, NumberUtils.max((byte) 5), "max(byte[]) failed for array length 1");
         assertEquals((byte) 9, NumberUtils.max((byte) 6, (byte) 9), "max(byte[]) failed for array length 2");
-        assertEquals((byte) 10, NumberUtils.max((byte) -10, (byte) -5, (byte) 0, (byte) 5, (byte) 10),
-            "max(byte[]) failed for array length 5");
+        assertEquals((byte)10,NumberUtils.max((byte)-10,(byte)-5,(byte)0,(byte)5,(byte)10),"max(byte[])failed for array length 5");
         assertEquals((byte) 10, NumberUtils.max((byte) -10, (byte) -5, (byte) 0, (byte) 5, (byte) 10));
         assertEquals((byte) 10, NumberUtils.max((byte) -5, (byte) 0, (byte) 10, (byte) 5, (byte) -10));
     }
@@ -1106,8 +1072,7 @@ public class NumberUtilsTest {
     public void testMaxShort() {
         assertEquals((short) 5, NumberUtils.max((short) 5), "max(short[]) failed for array length 1");
         assertEquals((short) 9, NumberUtils.max((short) 6, (short) 9), "max(short[]) failed for array length 2");
-        assertEquals((short) 10, NumberUtils.max((short) -10, (short) -5, (short) 0, (short) 5, (short) 10),
-            "max(short[]) failed for array length 5");
+        assertEquals((short)10,NumberUtils.max((short)-10,(short)-5,(short)0,(short)5,(short)10),"max(short[])failed for array length 5");
         assertEquals((short) 10, NumberUtils.max((short) -10, (short) -5, (short) 0, (short) 5, (short) 10));
         assertEquals((short) 10, NumberUtils.max((short) -5, (short) 0, (short) 10, (short) 5, (short) -10));
     }
@@ -1351,10 +1316,8 @@ public class NumberUtilsTest {
         assertEquals(1.2345d, NumberUtils.toDouble("001.2345"), "toDouble(String) 6 failed");
         assertEquals(0d, NumberUtils.toDouble("000.00000"), "toDouble(String) 7 failed");
 
-        assertEquals(NumberUtils.toDouble(Double.MAX_VALUE + ""), Double.MAX_VALUE,
-            "toDouble(Double.MAX_VALUE) failed");
-        assertEquals(NumberUtils.toDouble(Double.MIN_VALUE + ""), Double.MIN_VALUE,
-            "toDouble(Double.MIN_VALUE) failed");
+        assertEquals(NumberUtils.toDouble(Double.MAX_VALUE + ""),Double.MAX_VALUE,"toDouble(Double.MAX_VALUE)failed");
+        assertEquals(NumberUtils.toDouble(Double.MIN_VALUE + ""),Double.MIN_VALUE,"toDouble(Double.MIN_VALUE)failed");
         assertEquals(0.0d, NumberUtils.toDouble(""), "toDouble(empty) failed");
         assertEquals(0.0d, NumberUtils.toDouble((String) null), "toDouble(null) failed");
     }
@@ -1475,18 +1438,12 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalBigDecimal() {
-        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(123.456)), BigDecimal.valueOf(123.46),
-            "toScaledBigDecimal(BigDecimal) 1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(123.456)),BigDecimal.valueOf(123.46),"toScaledBigDecimal(BigDecimal)1 failed");
         // Test RoudingMode.HALF_EVEN default rounding.
-        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.515)), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(BigDecimal) 2 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.525)), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(BigDecimal) 3 failed");
-        assertEquals("2352.00",
-            NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.525)).multiply(BigDecimal.valueOf(100)).toString(),
-            "toScaledBigDecimal(BigDecimal) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((BigDecimal) null), BigDecimal.ZERO,
-            "toScaledBigDecimal(BigDecimal) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.515)),BigDecimal.valueOf(23.52),"toScaledBigDecimal(BigDecimal)2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.525)),BigDecimal.valueOf(23.52),"toScaledBigDecimal(BigDecimal)3 failed");
+        assertEquals("2352.00",NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.525)).multiply(BigDecimal.valueOf(100)).toString(),"toScaledBigDecimal(BigDecimal)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((BigDecimal)null),BigDecimal.ZERO,"toScaledBigDecimal(BigDecimal)5 failed");
     }
 
     /**
@@ -1494,18 +1451,11 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalBigDecimalIRM() {
-        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(123.456), 1, RoundingMode.CEILING),
-            BigDecimal.valueOf(123.5), "toScaledBigDecimal(BigDecimal, int, RoudingMode) 1 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.5159), 3, RoundingMode.FLOOR),
-            BigDecimal.valueOf(23.515), "toScaledBigDecimal(BigDecimal, int, RoudingMode) 2 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.525), 2, RoundingMode.HALF_UP),
-            BigDecimal.valueOf(23.53), "toScaledBigDecimal(BigDecimal, int, RoudingMode) 3 failed");
-        assertEquals("23521.0000",
-            NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.521), 4, RoundingMode.HALF_EVEN)
-                .multiply(BigDecimal.valueOf(1000)).toString(),
-            "toScaledBigDecimal(BigDecimal, int, RoudingMode) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((BigDecimal) null, 2, RoundingMode.HALF_UP), BigDecimal.ZERO,
-            "toScaledBigDecimal(BigDecimal, int, RoudingMode) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(123.456),1,RoundingMode.CEILING),BigDecimal.valueOf(123.5),"toScaledBigDecimal(BigDecimal,int,RoudingMode)1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.5159),3,RoundingMode.FLOOR),BigDecimal.valueOf(23.515),"toScaledBigDecimal(BigDecimal,int,RoudingMode)2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.525),2,RoundingMode.HALF_UP),BigDecimal.valueOf(23.53),"toScaledBigDecimal(BigDecimal,int,RoudingMode)3 failed");
+        assertEquals("23521.0000",NumberUtils.toScaledBigDecimal(BigDecimal.valueOf(23.521),4,RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(1000)).toString(),"toScaledBigDecimal(BigDecimal,int,RoudingMode)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((BigDecimal)null,2,RoundingMode.HALF_UP),BigDecimal.ZERO,"toScaledBigDecimal(BigDecimal,int,RoudingMode)5 failed");
     }
 
     /**
@@ -1513,18 +1463,12 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalDouble() {
-        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(123.456d)), BigDecimal.valueOf(123.46),
-            "toScaledBigDecimal(Double) 1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(123.456d)),BigDecimal.valueOf(123.46),"toScaledBigDecimal(Double)1 failed");
         // Test RoudingMode.HALF_EVEN default rounding.
-        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.515d)), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(Double) 2 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.525d)), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(Double) 3 failed");
-        assertEquals("2352.00",
-            NumberUtils.toScaledBigDecimal(Double.valueOf(23.525d)).multiply(BigDecimal.valueOf(100)).toString(),
-            "toScaledBigDecimal(Double) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((Double) null), BigDecimal.ZERO,
-            "toScaledBigDecimal(Double) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.515d)),BigDecimal.valueOf(23.52),"toScaledBigDecimal(Double)2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.525d)),BigDecimal.valueOf(23.52),"toScaledBigDecimal(Double)3 failed");
+        assertEquals("2352.00",NumberUtils.toScaledBigDecimal(Double.valueOf(23.525d)).multiply(BigDecimal.valueOf(100)).toString(),"toScaledBigDecimal(Double)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((Double)null),BigDecimal.ZERO,"toScaledBigDecimal(Double)5 failed");
     }
 
     /**
@@ -1532,18 +1476,11 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalDoubleIRM() {
-        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(123.456d), 1, RoundingMode.CEILING),
-            BigDecimal.valueOf(123.5), "toScaledBigDecimal(Double, int, RoudingMode) 1 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.5159d), 3, RoundingMode.FLOOR),
-            BigDecimal.valueOf(23.515), "toScaledBigDecimal(Double, int, RoudingMode) 2 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.525d), 2, RoundingMode.HALF_UP),
-            BigDecimal.valueOf(23.53), "toScaledBigDecimal(Double, int, RoudingMode) 3 failed");
-        assertEquals("23521.0000",
-            NumberUtils.toScaledBigDecimal(Double.valueOf(23.521d), 4, RoundingMode.HALF_EVEN)
-                .multiply(BigDecimal.valueOf(1000)).toString(),
-            "toScaledBigDecimal(Double, int, RoudingMode) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((Double) null, 2, RoundingMode.HALF_UP), BigDecimal.ZERO,
-            "toScaledBigDecimal(Double, int, RoudingMode) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(123.456d),1,RoundingMode.CEILING),BigDecimal.valueOf(123.5),"toScaledBigDecimal(Double,int,RoudingMode)1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.5159d),3,RoundingMode.FLOOR),BigDecimal.valueOf(23.515),"toScaledBigDecimal(Double,int,RoudingMode)2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Double.valueOf(23.525d),2,RoundingMode.HALF_UP),BigDecimal.valueOf(23.53),"toScaledBigDecimal(Double,int,RoudingMode)3 failed");
+        assertEquals("23521.0000",NumberUtils.toScaledBigDecimal(Double.valueOf(23.521d),4,RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(1000)).toString(),"toScaledBigDecimal(Double,int,RoudingMode)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((Double)null,2,RoundingMode.HALF_UP),BigDecimal.ZERO,"toScaledBigDecimal(Double,int,RoudingMode)5 failed");
     }
 
     /**
@@ -1551,20 +1488,14 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalFloat() {
-        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(123.456f)), BigDecimal.valueOf(123.46),
-            "toScaledBigDecimal(Float) 1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(123.456f)),BigDecimal.valueOf(123.46),"toScaledBigDecimal(Float)1 failed");
         // Test RoudingMode.HALF_EVEN default rounding.
-        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.515f)), BigDecimal.valueOf(23.51),
-            "toScaledBigDecimal(Float) 2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.515f)),BigDecimal.valueOf(23.51),"toScaledBigDecimal(Float)2 failed");
         // Note. NumberUtils.toScaledBigDecimal(Float.valueOf(23.515f)).equals(BigDecimal.valueOf(23.51))
         // because of roundoff error. It is ok.
-        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.525f)), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(Float) 3 failed");
-        assertEquals("2352.00",
-            NumberUtils.toScaledBigDecimal(Float.valueOf(23.525f)).multiply(BigDecimal.valueOf(100)).toString(),
-            "toScaledBigDecimal(Float) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((Float) null), BigDecimal.ZERO,
-            "toScaledBigDecimal(Float) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.525f)),BigDecimal.valueOf(23.52),"toScaledBigDecimal(Float)3 failed");
+        assertEquals("2352.00",NumberUtils.toScaledBigDecimal(Float.valueOf(23.525f)).multiply(BigDecimal.valueOf(100)).toString(),"toScaledBigDecimal(Float)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((Float)null),BigDecimal.ZERO,"toScaledBigDecimal(Float)5 failed");
     }
 
     /**
@@ -1572,17 +1503,12 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalFloatIRM() {
-        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(123.456f), 1, RoundingMode.CEILING),
-            BigDecimal.valueOf(123.5), "toScaledBigDecimal(Float, int, RoudingMode) 1 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.5159f), 3, RoundingMode.FLOOR),
-            BigDecimal.valueOf(23.515), "toScaledBigDecimal(Float, int, RoudingMode) 2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(123.456f),1,RoundingMode.CEILING),BigDecimal.valueOf(123.5),"toScaledBigDecimal(Float,int,RoudingMode)1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.5159f),3,RoundingMode.FLOOR),BigDecimal.valueOf(23.515),"toScaledBigDecimal(Float,int,RoudingMode)2 failed");
         // The following happens due to roundoff error. We're ok with this.
-        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.525f), 2, RoundingMode.HALF_UP),
-            BigDecimal.valueOf(23.52), "toScaledBigDecimal(Float, int, RoudingMode) 3 failed");
-        assertEquals("23521.0000", NumberUtils.toScaledBigDecimal(Float.valueOf(23.521f), 4, RoundingMode.HALF_EVEN)
-            .multiply(BigDecimal.valueOf(1000)).toString(), "toScaledBigDecimal(Float, int, RoudingMode) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((Float) null, 2, RoundingMode.HALF_UP), BigDecimal.ZERO,
-            "toScaledBigDecimal(Float, int, RoudingMode) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal(Float.valueOf(23.525f),2,RoundingMode.HALF_UP),BigDecimal.valueOf(23.52),"toScaledBigDecimal(Float,int,RoudingMode)3 failed");
+        assertEquals("23521.0000",NumberUtils.toScaledBigDecimal(Float.valueOf(23.521f),4,RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(1000)).toString(),"toScaledBigDecimal(Float,int,RoudingMode)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((Float)null,2,RoundingMode.HALF_UP),BigDecimal.ZERO,"toScaledBigDecimal(Float,int,RoudingMode)5 failed");
     }
 
     /**
@@ -1590,17 +1516,12 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalString() {
-        assertEquals(NumberUtils.toScaledBigDecimal("123.456"), BigDecimal.valueOf(123.46),
-            "toScaledBigDecimal(String) 1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal("123.456"),BigDecimal.valueOf(123.46),"toScaledBigDecimal(String)1 failed");
         // Test RoudingMode.HALF_EVEN default rounding.
-        assertEquals(NumberUtils.toScaledBigDecimal("23.515"), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(String) 2 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal("23.525"), BigDecimal.valueOf(23.52),
-            "toScaledBigDecimal(String) 3 failed");
-        assertEquals("2352.00", NumberUtils.toScaledBigDecimal("23.525").multiply(BigDecimal.valueOf(100)).toString(),
-            "toScaledBigDecimal(String) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((String) null), BigDecimal.ZERO,
-            "toScaledBigDecimal(String) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal("23.515"),BigDecimal.valueOf(23.52),"toScaledBigDecimal(String)2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal("23.525"),BigDecimal.valueOf(23.52),"toScaledBigDecimal(String)3 failed");
+        assertEquals("2352.00",NumberUtils.toScaledBigDecimal("23.525").multiply(BigDecimal.valueOf(100)).toString(),"toScaledBigDecimal(String)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((String)null),BigDecimal.ZERO,"toScaledBigDecimal(String)5 failed");
     }
 
     /**
@@ -1608,18 +1529,11 @@ public class NumberUtilsTest {
      */
     @Test
     public void testToScaledBigDecimalStringIRM() {
-        assertEquals(NumberUtils.toScaledBigDecimal("123.456", 1, RoundingMode.CEILING), BigDecimal.valueOf(123.5),
-            "toScaledBigDecimal(String, int, RoudingMode) 1 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal("23.5159", 3, RoundingMode.FLOOR), BigDecimal.valueOf(23.515),
-            "toScaledBigDecimal(String, int, RoudingMode) 2 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal("23.525", 2, RoundingMode.HALF_UP), BigDecimal.valueOf(23.53),
-            "toScaledBigDecimal(String, int, RoudingMode) 3 failed");
-        assertEquals(
-            "23521.0000", NumberUtils.toScaledBigDecimal("23.521", 4, RoundingMode.HALF_EVEN)
-                .multiply(BigDecimal.valueOf(1000)).toString(),
-            "toScaledBigDecimal(String, int, RoudingMode) 4 failed");
-        assertEquals(NumberUtils.toScaledBigDecimal((String) null, 2, RoundingMode.HALF_UP), BigDecimal.ZERO,
-            "toScaledBigDecimal(String, int, RoudingMode) 5 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal("123.456",1,RoundingMode.CEILING),BigDecimal.valueOf(123.5),"toScaledBigDecimal(String,int,RoudingMode)1 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal("23.5159",3,RoundingMode.FLOOR),BigDecimal.valueOf(23.515),"toScaledBigDecimal(String,int,RoudingMode)2 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal("23.525",2,RoundingMode.HALF_UP),BigDecimal.valueOf(23.53),"toScaledBigDecimal(String,int,RoudingMode)3 failed");
+        assertEquals("23521.0000",NumberUtils.toScaledBigDecimal("23.521",4,RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(1000)).toString(),"toScaledBigDecimal(String,int,RoudingMode)4 failed");
+        assertEquals(NumberUtils.toScaledBigDecimal((String)null,2,RoundingMode.HALF_UP),BigDecimal.ZERO,"toScaledBigDecimal(String,int,RoudingMode)5 failed");
     }
 
     /**

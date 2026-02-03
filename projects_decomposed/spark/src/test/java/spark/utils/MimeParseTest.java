@@ -16,9 +16,7 @@ public class MimeParseTest {
 
         Collection<String> supported = Arrays.asList("application/xml", "text/html");
 
-        assertEquals("bestMatch should return the supported mime type with the highest quality factor" +
-                        "because it is preferred mime type as indicated in the HTTP header",
-                "text/html", MimeParse.bestMatch(supported, header));
+        assertEquals("bestMatch should return the supported mime type with the highest quality factor" + "because it is preferred mime type as indicated in the HTTP header","text/html",MimeParse.bestMatch(supported,header));
 
     }
 
@@ -29,10 +27,7 @@ public class MimeParseTest {
 
         Collection<String> supported = Arrays.asList("application/json");
 
-        assertEquals("bestMatch should return the mime type even if it is not included in the supported" +
-                        "mime types because it is considered by the */* all media type specified in the Accept" +
-                        "Header",
-                "application/json", MimeParse.bestMatch(supported, header));
+        assertEquals("bestMatch should return the mime type even if it is not included in the supported" + "mime types because it is considered by the */* all media type specified in the Accept" + "Header","application/json",MimeParse.bestMatch(supported,header));
 
     }
 

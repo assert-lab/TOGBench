@@ -128,14 +128,8 @@ public class BigDecimalConverterTestCase extends NumberConverterTestBase {
         };
 
         for(int i=0;i<expected.length;i++) {
-            assertEquals(
-                message[i] + " to BigDecimal",
-                expected[i],
-                converter.convert(BigDecimal.class,input[i]));
-            assertEquals(
-                message[i] + " to null type",
-                expected[i],
-                converter.convert(null,input[i]));
+            assertEquals(message[i] + " to BigDecimal",expected[i],converter.convert(BigDecimal.class,input[i]));
+            assertEquals(message[i] + " to null type",expected[i],converter.convert(null,input[i]));
         }
     }
 

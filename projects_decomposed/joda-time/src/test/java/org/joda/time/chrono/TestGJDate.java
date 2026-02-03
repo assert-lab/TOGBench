@@ -54,76 +54,76 @@ public class TestGJDate extends TestCase {
     public void test_plusYears_positiveToPositive() {
         LocalDate date = new LocalDate(3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(7, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(4));
+        assertEquals(expected,date.plusYears(4));
     }
 
     public void test_plusYears_positiveToZero() {
         LocalDate date = new LocalDate(3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-1, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(-3));
+        assertEquals(expected,date.plusYears(-3));
     }
 
     public void test_plusYears_positiveToNegative() {
         LocalDate date = new LocalDate(3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-2, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(-4));
+        assertEquals(expected,date.plusYears(-4));
     }
 
     //-----------------------------------------------------------------------
     public void test_plusYears_negativeToNegative() {
         LocalDate date = new LocalDate(-3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-1, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(2));
+        assertEquals(expected,date.plusYears(2));
     }
 
     public void test_plusYears_negativeToZero() {
         LocalDate date = new LocalDate(-3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(1, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(3));
+        assertEquals(expected,date.plusYears(3));
     }
 
     public void test_plusYears_negativeToPositive() {
         LocalDate date = new LocalDate(-3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(2, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(4));
+        assertEquals(expected,date.plusYears(4));
     }
 
     //-----------------------------------------------------------------------
     public void test_plusYears_positiveToPositive_crossCutover() {
         LocalDate date = new LocalDate(3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(2007, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(2004));
+        assertEquals(expected,date.plusYears(2004));
     }
 
     public void test_plusYears_positiveToZero_crossCutover() {
         LocalDate date = new LocalDate(2003, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-1, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(-2003));
+        assertEquals(expected,date.plusYears(-2003));
     }
 
     public void test_plusYears_positiveToNegative_crossCutover() {
         LocalDate date = new LocalDate(2003, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-2, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(-2004));
+        assertEquals(expected,date.plusYears(-2004));
     }
 
     public void test_plusYears_negativeToPositive_crossCutover() {
         LocalDate date = new LocalDate(-3, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(2002, 6, 30, GJ_CHRONOLOGY);
-        assertEquals(expected, date.plusYears(2004));
+        assertEquals(expected,date.plusYears(2004));
     }
 
     //-----------------------------------------------------------------------
     public void test_plusWeekyears_positiveToZero_crossCutover() {
         LocalDate date = new LocalDate(2003, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-1, 6, 30, GJ_CHRONOLOGY).withWeekOfWeekyear(date.getWeekOfWeekyear()).withDayOfWeek(date.getDayOfWeek());
-        assertEquals(expected, date.weekyear().addToCopy(-2003));
+        assertEquals(expected,date.weekyear().addToCopy(-2003));
     }
 
     public void test_plusWeekyears_positiveToNegative_crossCutover() {
         LocalDate date = new LocalDate(2003, 6, 30, GJ_CHRONOLOGY);
         LocalDate expected = new LocalDate(-2, 6, 30, GJ_CHRONOLOGY).withWeekOfWeekyear(date.getWeekOfWeekyear()).withDayOfWeek(date.getDayOfWeek());
-        assertEquals(expected, date.weekyear().addToCopy(-2004));
+        assertEquals(expected,date.weekyear().addToCopy(-2004));
     }
 
     //-----------------------------------------------------------------------

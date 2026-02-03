@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
-[INFO] Storing buildNumber: 1bce5ff5302ae8df6fc5734364b77ec74ad0d827 at timestamp: 1770061126051
+[INFO] Storing buildNumber: 096bdf15456a4d833b6cf23506c3db7b96292bf1 at timestamp: 1770119343461
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2 ---
@@ -84,8 +84,8 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev
-[ERROR] Tests run: 14, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 0.089 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_10_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] Tests run: 14, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 0.086 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_10_oe  Time elapsed: 0.01 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -109,7 +109,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_11_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_11_oe  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -133,7 +133,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_12_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_12_oe  Time elapsed: 0.005 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -157,7 +157,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_13_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_13_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -181,7 +181,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_14_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_14_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -205,7 +205,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -229,7 +229,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_2_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_2_oe  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -277,7 +277,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_4_oe  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -301,7 +301,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_5_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -397,7 +397,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_9_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderRandomReadTests_OE25Dev.testRandomRead_9_oe  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -422,7 +422,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.PermissionsTests_OE25Dev
-[ERROR] Tests run: 20, Failures: 20, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.vfs2.PermissionsTests_OE25Dev
+[ERROR] Tests run: 20, Failures: 20, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.vfs2.PermissionsTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.PermissionsTests_OE25Dev.testWriteable_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -807,7 +807,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.PermissionsTests_OE25Dev.testReadable_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.PermissionsTests_OE25Dev.testReadable_4_oe  Time elapsed: 0.003 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -904,8 +904,8 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.FileIteratorTest_OE25Dev
-[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.316 s <<< FAILURE! - in org.apache.commons.vfs2.FileIteratorTest_OE25Dev
-[ERROR] org.apache.commons.vfs2.FileIteratorTest_OE25Dev.testIterator_3_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.34 s <<< FAILURE! - in org.apache.commons.vfs2.FileIteratorTest_OE25Dev
+[ERROR] org.apache.commons.vfs2.FileIteratorTest_OE25Dev.testIterator_3_oe  Time elapsed: 0.011 s  <<< FAILURE!
 java.lang.AssertionError: expected:<ram:///org.apache.commons.vfs2.FileIteratorTest_OE25Dev/a.htm> but was:<ram:///org.apache.commons.vfs2.FileIteratorTest_OE25Dev/a.html>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -943,7 +943,7 @@ java.lang.AssertionError: expected:<ram:///org.apache.commons.vfs2.FileIteratorT
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.FileIteratorTest_OE25Dev.testIterator_4_oe  Time elapsed: 0.008 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.FileIteratorTest_OE25Dev.testIterator_4_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: expected:<ram:///org.apache.commons.vfs2.FileIteratorTest_OE25Dev/a.htm> but was:<ram:///org.apache.commons.vfs2.FileIteratorTest_OE25Dev/a.html>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -982,11 +982,11 @@ java.lang.AssertionError: expected:<ram:///org.apache.commons.vfs2.FileIteratorT
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.ProviderDeleteTests_OE25Dev
-[ERROR] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderDeleteTests_OE25Dev
+[ERROR] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderDeleteTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ProviderDeleteTests_OE25Dev.testDeleteNonExistantFile_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -1108,7 +1108,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.PathTests_OE25Dev
-[ERROR] Tests run: 13, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.vfs2.PathTests_OE25Dev
+[ERROR] Tests run: 13, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.apache.commons.vfs2.PathTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testURIContentProvider_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -1277,7 +1277,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testAbsoluteURI_3_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testAbsoluteURI_3_oe  Time elapsed: 0.002 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -1349,7 +1349,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testGetPath_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testGetPath_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -1373,7 +1373,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testGetPath_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.PathTests_OE25Dev.testGetPath_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -1422,12 +1422,12 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.337 s - in org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.275 s - in org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
-[ERROR] Tests run: 43, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.122 s <<< FAILURE! - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
-[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileByteByByte_2_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] Tests run: 43, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.073 s <<< FAILURE! - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
+[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileByteByByte_2_oe  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Rread 2st byte failed expected:<2> but was:<1>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -1501,7 +1501,7 @@ java.lang.AssertionError: Read 3st byte failed expected:<3> but was:<1>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileByteByByte_4_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileByteByByte_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: File should be empty expected:<-1> but was:<1>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -1538,7 +1538,7 @@ java.lang.AssertionError: File should be empty expected:<-1> but was:<1>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBuffer_2_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBuffer_2_oe  Time elapsed: 0.003 s  <<< FAILURE!
 Buffer not filled: arrays first differed at element [0]; expected:<1> but was:<0>
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
@@ -1584,7 +1584,7 @@ Caused by: java.lang.AssertionError: expected:<1> but was:<0>
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)
 	... 34 more
 
-[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBuffer_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBuffer_3_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: File should be empty after filling buffer expected:<-1> but was:<3>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -1621,7 +1621,7 @@ java.lang.AssertionError: File should be empty after filling buffer expected:<-1
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBufferWithOffsetAndLength_2_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBufferWithOffsetAndLength_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
 Buffer not filled: arrays first differed at element [10]; expected:<1> but was:<0>
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
@@ -1667,7 +1667,7 @@ Caused by: java.lang.AssertionError: expected:<1> but was:<0>
 	at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)
 	... 34 more
 
-[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBufferWithOffsetAndLength_3_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev.testReadNonEmptyFileIntoBufferWithOffsetAndLength_3_oe  Time elapsed: 0.003 s  <<< FAILURE!
 java.lang.AssertionError: File should be empty after filling buffer expected:<-1> but was:<3>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -1707,8 +1707,8 @@ java.lang.AssertionError: File should be empty after filling buffer expected:<-1
 [INFO] Running org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
-[ERROR] Tests run: 55, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 4.339 s <<< FAILURE! - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
-[ERROR] org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev.testRandomAccessContent_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] Tests run: 55, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 4.267 s <<< FAILURE! - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[ERROR] org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev.testRandomAccessContent_1_oe  Time elapsed: 0.004 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: org.apache.commons.vfs2.FileSystemException
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
@@ -1735,7 +1735,7 @@ java.lang.AssertionError: Expected exception: org.apache.commons.vfs2.FileSystem
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev.testRandomAccessContent_2_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev.testRandomAccessContent_2_oe  Time elapsed: 0.003 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: org.apache.commons.vfs2.FileSystemException
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
@@ -1762,7 +1762,7 @@ java.lang.AssertionError: Expected exception: org.apache.commons.vfs2.FileSystem
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev.testRandomAccessContent_3_oe  Time elapsed: 0.044 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev.testRandomAccessContent_3_oe  Time elapsed: 0.046 s  <<< FAILURE!
 java.lang.AssertionError: Expected exception: org.apache.commons.vfs2.FileSystemException
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
@@ -1790,27 +1790,27 @@ java.lang.AssertionError: Expected exception: org.apache.commons.vfs2.FileSystem
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-Threads still running (2) at 2026-02-02T19:39:16.683196013Z, live threads:
-	Thread[0]  ID 262, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
-[INFO] Tests run: 111, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.913 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
+Threads still running (2) at 2026-02-03T11:49:34.607453754Z, live threads:
+	Thread[0]  ID 264, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 111, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.478 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.512 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
-[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.local.UrlTests_OE25Dev
-[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.provider.local.UrlTests_OE25Dev
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.provider.local.UrlTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.provider.local.UrlTests_OE25Dev.testHashURL_1_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.provider.local.UrlTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.provider.local.UrlTests_OE25Dev.testHashURL_1_oe(UrlTests_OE25Dev.java:79)
@@ -1890,7 +1890,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev.testLocalFile_2_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileSystemManager.resolveFile(java.net.URI)" because "manager" is null
 	at org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev.testLocalFile_2_oe(TempFileTests_OE25Dev.java:51)
@@ -1975,7 +1975,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev
-[ERROR] Tests run: 16, Failures: 1, Errors: 15, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev
+[ERROR] Tests run: 16, Failures: 1, Errors: 15, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsRoots_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: Unexpected null manager for test AbstractProviderTestCase [baseFolder=null, readFolder=null, writeFolder=null, manager=null, providerConfig=null, method=null, addEmptyDir=false]
 	at org.junit.Assert.fail(Assert.java:89)
@@ -2343,7 +2343,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsFilenameUNCStartError_3_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsFilenameUNCStartError_3_oe  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveFile(String)" because "manager" is null
 	at org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsFilenameUNCStartError_3_oe(WindowsFileNameTests_OE25Dev.java:70)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -2369,7 +2369,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsFilenameUNCStartError_4_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsFilenameUNCStartError_4_oe  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveFile(String)" because "manager" is null
 	at org.apache.commons.vfs2.provider.local.WindowsFileNameTests_OE25Dev.testWindowsFilenameUNCStartError_4_oe(WindowsFileNameTests_OE25Dev.java:83)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -2398,32 +2398,32 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 [INFO] Running org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s - in org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
-[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.004 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
+[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.005 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.152 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
+[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.165 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.112 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.315 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
 [INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
-[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev
 [ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.provider.test.JunctionTests_OE25Dev.testAncestors_1_oe  Time elapsed: 0 s  <<< ERROR!
@@ -2622,10 +2622,10 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.provider.https.GetContentInfoFunctionalTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.https.GetContentInfoFunctionalTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.provider.https.GetContentInfoFunctionalTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
-[ERROR] Tests run: 9, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
-[ERROR] org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev.testMarkingWhenReadingEOS_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 9, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
+[ERROR] org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev.testMarkingWhenReadingEOS_1_oe  Time elapsed: 0.005 s  <<< FAILURE!
 java.lang.AssertionError: expected:<7> but was:<-1>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -2661,7 +2661,7 @@ java.lang.AssertionError: expected:<7> but was:<-1>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev.testMarkingWhenReadingEOS_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev.testMarkingWhenReadingEOS_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[testing]> but was:<[]>
 	at org.junit.Assert.assertEquals(Assert.java:117)
 	at org.junit.Assert.assertEquals(Assert.java:146)
@@ -2695,7 +2695,7 @@ org.junit.ComparisonFailure: expected:<[testing]> but was:<[]>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev.testMarkingWorks_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev.testMarkingWorks_1_oe  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[testing]> but was:<[]>
 	at org.junit.Assert.assertEquals(Assert.java:117)
 	at org.junit.Assert.assertEquals(Assert.java:146)
@@ -2731,18 +2731,16 @@ org.junit.ComparisonFailure: expected:<[testing]> but was:<[]>
 
 [INFO] Running org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-Threads still running (1) at 2026-02-02T19:39:46.302328398Z, live threads:
-	Thread[0]  ID 336, Thread[org.apache.commons.vfs2.cache.SoftRefFilesCache$ReleaseThread,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
-[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.616 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.731 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 s - in org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 s - in org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.UrlStructureTests_OE25Dev
-[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.vfs2.UrlStructureTests_OE25Dev
-[ERROR] org.apache.commons.vfs2.UrlStructureTests_OE25Dev.testFolderURL_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.vfs2.UrlStructureTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.UrlStructureTests_OE25Dev.testFolderURL_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -2766,7 +2764,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.UrlStructureTests_OE25Dev.testFolderURL_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.UrlStructureTests_OE25Dev.testFolderURL_2_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -2791,8 +2789,8 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.NamingTests_OE25Dev
-[ERROR] Tests run: 18, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.vfs2.NamingTests_OE25Dev
-[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testAbsoluteNameConvert_1_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] Tests run: 18, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testAbsoluteNameConvert_1_oe  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.getName()" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.NamingTests_OE25Dev.testAbsoluteNameConvert_1_oe(NamingTests_OE25Dev.java:262)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -2922,7 +2920,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testRelativeURI_1_oe  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testRelativeURI_1_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.setBaseFile(org.apache.commons.vfs2.FileObject)" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getManager()" is null
 	at org.apache.commons.vfs2.NamingTests_OE25Dev.testRelativeURI_1_oe(NamingTests_OE25Dev.java:370)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -3182,7 +3180,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testRelativeUriEncoding_3_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.NamingTests_OE25Dev.testRelativeUriEncoding_3_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.setBaseFile(org.apache.commons.vfs2.FileObject)" because the return value of "org.apache.commons.vfs2.NamingTests_OE25Dev.getManager()" is null
 	at org.apache.commons.vfs2.NamingTests_OE25Dev.testRelativeUriEncoding_3_oe(NamingTests_OE25Dev.java:462)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -3261,11 +3259,11 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.FileTypeTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.FileTypeTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.ProviderWriteAppendTests_OE25Dev
-[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderWriteAppendTests_OE25Dev
+[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderWriteAppendTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ProviderWriteAppendTests_OE25Dev.testAppendContent_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -3363,10 +3361,10 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.VFSTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.vfs2.VFSTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.vfs2.VFSTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.LastModifiedTests_OE25Dev
-[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.vfs2.LastModifiedTests_OE25Dev
-[ERROR] org.apache.commons.vfs2.LastModifiedTests_OE25Dev.testGetAccurary_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.vfs2.LastModifiedTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.LastModifiedTests_OE25Dev.testGetAccurary_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -3414,7 +3412,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.LastModifiedTests_OE25Dev.testGetLastModifiedFile_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.LastModifiedTests_OE25Dev.testGetLastModifiedFile_1_oe  Time elapsed: 0.01 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -3463,9 +3461,9 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.UrlTests_OE25Dev
-[ERROR] Tests run: 10, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.vfs2.UrlTests_OE25Dev
+[ERROR] Tests run: 10, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in org.apache.commons.vfs2.UrlTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.UrlTests_OE25Dev.testReservedCharacter_Space_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -3514,7 +3512,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.UrlTests_OE25Dev.testURLContentProvider_1_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.UrlTests_OE25Dev.testURLContentProvider_1_oe  Time elapsed: 0.022 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -3707,7 +3705,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.ProviderRandomSetLengthTests_OE25Dev
-[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderRandomSetLengthTests_OE25Dev
+[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderRandomSetLengthTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ProviderRandomSetLengthTests_OE25Dev.testRandomSetLength_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -3805,45 +3803,45 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.004 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.004 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
 [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
-[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
 [INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
 [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.UriTests_OE25Dev
-[ERROR] Tests run: 14, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.UriTests_OE25Dev
+[ERROR] Tests run: 14, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.vfs2.UriTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.UriTests_OE25Dev.testURIContentProvider_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -4060,7 +4058,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.UriTests_OE25Dev.testAbsoluteURI_5_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.UriTests_OE25Dev.testAbsoluteURI_5_oe  Time elapsed: 0.008 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -4473,19 +4471,19 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.518 s - in org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.755 s - in org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.ProviderRenameTests_OE25Dev
-[ERROR] Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderRenameTests_OE25Dev
+[ERROR] Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderRenameTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ProviderRenameTests_OE25Dev.testRenameFileAndLeaveFolderEmpty_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -4655,7 +4653,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.ContentTests_OE25Dev
-[ERROR] Tests run: 53, Failures: 0, Errors: 53, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in org.apache.commons.vfs2.ContentTests_OE25Dev
+[ERROR] Tests run: 53, Failures: 0, Errors: 53, Skipped: 0, Time elapsed: 0.046 s <<< FAILURE! - in org.apache.commons.vfs2.ContentTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_10_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_10_oe(ContentTests_OE25Dev.java:778)
@@ -4838,7 +4836,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testChildren_2_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testChildren_2_oe  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testChildren_2_oe(ContentTests_OE25Dev.java:227)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -4994,7 +4992,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testReadSingleSequencial_1_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testReadSingleSequencial_1_oe  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testReadSingleSequencial_1_oe(ContentTests_OE25Dev.java:864)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -5072,7 +5070,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testInputStreamMultipleCleanup_3_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testInputStreamMultipleCleanup_3_oe  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testInputStreamMultipleCleanup_3_oe(ContentTests_OE25Dev.java:498)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -5280,7 +5278,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_3_oe  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_3_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_3_oe(ContentTests_OE25Dev.java:657)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -5436,7 +5434,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_9_oe  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_9_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testParent_9_oe(ContentTests_OE25Dev.java:755)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -5488,7 +5486,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testGetString_String_2_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testGetString_String_2_oe  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testGetString_String_2_oe(ContentTests_OE25Dev.java:463)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -5514,7 +5512,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testGetString_String_3_oe  Time elapsed: 0.014 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testGetString_String_3_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testGetString_String_3_oe(ContentTests_OE25Dev.java:472)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -5566,7 +5564,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testInputStreamReadAll_2_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testInputStreamReadAll_2_oe  Time elapsed: 0.013 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testInputStreamReadAll_2_oe(ContentTests_OE25Dev.java:573)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -6009,7 +6007,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testByteArrayReadAll_3_oe  Time elapsed: 0 s  <<< ERROR!
+[ERROR] org.apache.commons.vfs2.ContentTests_OE25Dev.testByteArrayReadAll_3_oe  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because the return value of "org.apache.commons.vfs2.ContentTests_OE25Dev.getReadFolder()" is null
 	at org.apache.commons.vfs2.ContentTests_OE25Dev.testByteArrayReadAll_3_oe(ContentTests_OE25Dev.java:209)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -6036,7 +6034,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.ProviderWriteTests_OE25Dev
-[ERROR] Tests run: 100, Failures: 100, Errors: 0, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderWriteTests_OE25Dev
+[ERROR] Tests run: 100, Failures: 100, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderWriteTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testListener_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -6061,7 +6059,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testDelete_1_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testDelete_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -6709,7 +6707,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFolderCreate_11_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFolderCreate_11_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -6781,7 +6779,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFolderCreate_14_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFolderCreate_14_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -6805,7 +6803,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFolderCreate_15_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFolderCreate_15_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -6829,7 +6827,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testOverwriteSameFileSystem_11_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testOverwriteSameFileSystem_11_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -7213,7 +7211,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCopyFromOverwriteSameFileSystem_3_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCopyFromOverwriteSameFileSystem_3_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -7309,7 +7307,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFileCreate_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFileCreate_3_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -7669,7 +7667,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFileCreate_18_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFileCreate_18_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -7885,7 +7883,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFileCreate_27_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testFileCreate_27_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -8365,7 +8363,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCreateDeleteCreateSameFileSystem_7_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCreateDeleteCreateSameFileSystem_7_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -8389,7 +8387,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCopySameFileSystem_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCopySameFileSystem_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -8413,7 +8411,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCopySameFileSystem_3_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderWriteTests_OE25Dev.testCopySameFileSystem_3_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -8438,7 +8436,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev
-[ERROR] Tests run: 10, Failures: 3, Errors: 7, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev
+[ERROR] Tests run: 9, Failures: 3, Errors: 6, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testBasicCacheOps_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test should not have a null DefaultFileSystemManager
 	at org.junit.Assert.fail(Assert.java:89)
@@ -8572,38 +8570,12 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.Defa
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testBasicCacheOps_6_oe  Time elapsed: 0 s  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.getFilesCache()" because "manager" is null
-	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testBasicCacheOps_6_oe(NullFilesCacheTests_OE25Dev.java:114)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at junit.framework.TestCase.runTest(TestCase.java:177)
-	at org.apache.commons.vfs2.AbstractProviderTestCase.runTest(AbstractProviderTestCase.java:309)
-	at junit.framework.TestCase.runBare(TestCase.java:142)
-	at junit.framework.TestResult$1.protect(TestResult.java:122)
-	at junit.framework.TestResult.runProtected(TestResult.java:142)
-	at junit.framework.TestResult.run(TestResult.java:125)
-	at junit.framework.TestCase.run(TestCase.java:130)
-	at junit.framework.TestSuite.runTest(TestSuite.java:241)
-	at junit.framework.TestSuite.run(TestSuite.java:236)
-	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:90)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
-
 [ERROR] org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testClass_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test should not have a null DefaultFileSystemManager
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertNotNull(Assert.java:713)
-	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testClass_1_oe(NullFilesCacheTests_OE25Dev.java:135)
+	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testClass_1_oe(NullFilesCacheTests_OE25Dev.java:114)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -8629,7 +8601,7 @@ java.lang.AssertionError: This test should not have a null DefaultFileSystemMana
 
 [ERROR] org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testClass_2_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.getFilesCache()" because "manager" is null
-	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testClass_2_oe(NullFilesCacheTests_OE25Dev.java:142)
+	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testClass_2_oe(NullFilesCacheTests_OE25Dev.java:121)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -8658,7 +8630,7 @@ java.lang.AssertionError: This test should not have a null FileObject scratch fo
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertNotNull(Assert.java:713)
-	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testFilesCache_1_oe(NullFilesCacheTests_OE25Dev.java:148)
+	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testFilesCache_1_oe(NullFilesCacheTests_OE25Dev.java:127)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -8684,7 +8656,7 @@ java.lang.AssertionError: This test should not have a null FileObject scratch fo
 
 [ERROR] org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testFilesCache_2_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because "scratchFolder" is null
-	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testFilesCache_2_oe(NullFilesCacheTests_OE25Dev.java:156)
+	at org.apache.commons.vfs2.cache.NullFilesCacheTests_OE25Dev.testFilesCache_2_oe(NullFilesCacheTests_OE25Dev.java:135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -8709,8 +8681,8 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.cache.DefaultFilesCacheTests_OE25Dev
-[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.vfs2.cache.DefaultFilesCacheTests_OE25Dev
-[ERROR] org.apache.commons.vfs2.cache.DefaultFilesCacheTests_OE25Dev.testFilesCache_1_oe  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.vfs2.cache.DefaultFilesCacheTests_OE25Dev
+[ERROR] org.apache.commons.vfs2.cache.DefaultFilesCacheTests_OE25Dev.testFilesCache_1_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObject.resolveFile(String)" because "scratchFolder" is null
 	at org.apache.commons.vfs2.cache.DefaultFilesCacheTests_OE25Dev.testFilesCache_1_oe(DefaultFilesCacheTests_OE25Dev.java:31)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -8901,7 +8873,7 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.cache.WeakRefFilesCacheTests_OE25Dev
-[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.vfs2.cache.WeakRefFilesCacheTests_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.vfs2.cache.WeakRefFilesCacheTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.cache.WeakRefFilesCacheTests_OE25Dev.testClass_1_oe  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.impl.DefaultFileSystemManager.getFilesCache()" because the return value of "org.apache.commons.vfs2.cache.WeakRefFilesCacheTests_OE25Dev.getManager()" is null
 	at org.apache.commons.vfs2.cache.WeakRefFilesCacheTests_OE25Dev.testClass_1_oe(WeakRefFilesCacheTests_OE25Dev.java:29)
@@ -9009,9 +8981,9 @@ java.lang.NullPointerException: Cannot invoke "org.apache.commons.vfs2.FileObjec
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
 [INFO] Running org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.ProviderReadTests_OE25Dev
-[ERROR] Tests run: 32, Failures: 32, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderReadTests_OE25Dev
+[ERROR] Tests run: 32, Failures: 32, Errors: 0, Skipped: 0, Time elapsed: 0.046 s <<< FAILURE! - in org.apache.commons.vfs2.ProviderReadTests_OE25Dev
 [ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testGetContent_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
@@ -9108,7 +9080,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testConcurrentReadFolder_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testConcurrentReadFolder_1_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -9588,7 +9560,7 @@ java.lang.AssertionError: This test's read folder should not be null
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 
-[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testType_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] org.apache.commons.vfs2.ProviderReadTests_OE25Dev.testType_2_oe  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: This test's read folder should not be null
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.assertTrue(Assert.java:42)
@@ -10145,8 +10117,8 @@ java.lang.AssertionError: This test's read folder should not be null
 [ERROR]   LRUFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_1_oe:36 manager
 [ERROR]   LRUFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:51 scratchFolder
 [ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_1_oe:36 This test should not have a null DefaultFileSystemManager
-[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_1_oe:135 This test should not have a null DefaultFileSystemManager
-[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:148 This test should not have a null FileObject scratch folder
+[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_1_oe:114 This test should not have a null DefaultFileSystemManager
+[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:127 This test should not have a null FileObject scratch folder
 [ERROR]   VfsClassLoaderTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
 [ERROR]   VfsClassLoaderTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
 [ERROR]   VfsClassLoaderTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
@@ -10256,9 +10228,8 @@ java.lang.AssertionError: This test's read folder should not be null
 [ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_3_oe:58 NullPointer
 [ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_4_oe:75 NullPointer
 [ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_5_oe:94 NullPointer
-[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_6_oe:114 NullPointer
-[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_2_oe:142 NullPointer
-[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_2_oe:156 NullPointer
+[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_2_oe:121 NullPointer
+[ERROR]   NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_2_oe:135 NullPointer
 [ERROR]   SoftRefFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCacheClass_1_oe:40 NullPointer
 [ERROR]   SoftRefFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:31 NullPointer
 [ERROR]   WeakRefFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_1_oe:29 NullPointer
@@ -10290,13 +10261,13 @@ java.lang.AssertionError: This test's read folder should not be null
 [ERROR]   JunctionTests_OE25Dev>AbstractProviderTestCase.runTest:309->testAncestors_5_oe:134 NullPointer
 [ERROR]   JunctionTests_OE25Dev>AbstractProviderTestCase.runTest:309->testAncestors_6_oe:157 NullPointer
 [INFO] 
-[ERROR] Tests run: 1452, Failures: 269, Errors: 113, Skipped: 8
+[ERROR] Tests run: 1451, Failures: 269, Errors: 112, Skipped: 8
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  01:06 min
-[INFO] Finished at: 2026-02-02T13:39:48-06:00
+[INFO] Finished at: 2026-02-03T05:50:05-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-vfs2: There are test failures.
 [ERROR] 

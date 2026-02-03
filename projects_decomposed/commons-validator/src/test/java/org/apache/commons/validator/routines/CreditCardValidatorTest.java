@@ -88,9 +88,7 @@ public class CreditCardValidatorTest extends TestCase {
 
         assertFalse(ccv.isValid(null));
         assertFalse(ccv.isValid(""));
-        assertFalse(ccv.isValid("123456789012"));   // too short
-        assertFalse(ccv.isValid("12345678901234567890"));   // too long
-        assertFalse(ccv.isValid("4417123456789112"));
+        assertFalse(ccv.isValid("123456789012"));// too short assertFalse(ccv.isValid("12345678901234567890"));// too long assertFalse(ccv.isValid("4417123456789112"));
         assertFalse(ccv.isValid("4417q23456w89113"));
         assertTrue(ccv.isValid(VALID_VISA));
         assertTrue(ccv.isValid(VALID_SHORT_VISA));
@@ -482,8 +480,7 @@ public class CreditCardValidatorTest extends TestCase {
         assertTrue("Valid-A",         validator.isValid("4111111111111111"));
         assertTrue("Valid-C",         validator.isValid("4543059999999982"));
         assertTrue("Valid-B",         validator.isValid("4462000000000003"));
-        assertTrue("Valid-D",         validator.isValid("4508750000000009")); // Electron
-        assertTrue("Valid-E",         validator.isValid("4012888888881881"));
+        assertTrue("Valid-D",validator.isValid("4508750000000009"));// Electron assertTrue("Valid-E",validator.isValid("4012888888881881"));
     }
 
     /**

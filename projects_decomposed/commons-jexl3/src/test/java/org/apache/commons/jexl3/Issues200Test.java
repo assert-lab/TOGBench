@@ -286,8 +286,7 @@ public class Issues200Test extends JexlTestCase {
         final JexlEngine JEXL_ENGINE = new JexlBuilder().strict(true).silent(true).create();
         final JexlExpression jsp = JEXL_ENGINE.createExpression("a + b");
         final Double e = (Double) jsp.evaluate(context);
-        Assert.assertEquals(Double.doubleToLongBits(e) + " != " + Double.doubleToLongBits(c), c,
-                e, 0.0);
+        Assert.assertEquals(Double.doubleToLongBits(e)+ " != " + Double.doubleToLongBits(c),c,e,0.0);
         Assert.assertEquals(Double.doubleToLongBits(e) + " != " + Double.doubleToLongBits(c), a + b, e, 0.0);
     }
 

@@ -157,8 +157,7 @@ class JumpableProvidersParametricTest {
             final RandomProviderState copyState = ((RestorableUniformRandomProvider) copy).saveState();
             final RandomProviderDefaultState expected = (RandomProviderDefaultState) preJumpState;
             final RandomProviderDefaultState actual = (RandomProviderDefaultState) copyState;
-            Assertions.assertArrayEquals(expected.getState(), actual.getState(),
-                "The copy instance state should match the state of the original");
+            Assertions.assertArrayEquals(expected.getState(),actual.getState(),"The copy instance state should match the state of the original");
         }
     }
 
@@ -222,8 +221,7 @@ class JumpableProvidersParametricTest {
             // The implementation requires that any sub-class state is prepended to the
             // state thus the default state is at the end.
             final byte[] defaultState = Arrays.copyOfRange(actual, actual.length - stateSize, actual.length);
-            Assertions.assertArrayEquals(expected, defaultState,
-                "The jump should reset the default state to zero");
+            Assertions.assertArrayEquals(expected,defaultState,"The jump should reset the default state to zero");
         }
     }
 

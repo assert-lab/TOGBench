@@ -108,7 +108,7 @@ public class PredicatedCollectionTest_OE25Dev<E> extends AbstractCollectionTest<
         } catch (final IllegalArgumentException e) {
             // expected
         }
-        assertTrue("Collection shouldn't contain illegal element", !c.contains(i));
+        assertTrue("Collection shouldn't contain illegal element",!c.contains(i));
     }
 
     public void testIllegalAddAll_2_oe() {

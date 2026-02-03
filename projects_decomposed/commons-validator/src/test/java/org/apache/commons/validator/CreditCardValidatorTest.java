@@ -46,9 +46,7 @@ public class CreditCardValidatorTest extends TestCase {
         
         assertFalse(ccv.isValid(null));
         assertFalse(ccv.isValid(""));
-        assertFalse(ccv.isValid("123456789012"));   // too short
-        assertFalse(ccv.isValid("12345678901234567890"));   // too long
-        assertFalse(ccv.isValid("4417123456789112"));
+        assertFalse(ccv.isValid("123456789012"));// too short assertFalse(ccv.isValid("12345678901234567890"));// too long assertFalse(ccv.isValid("4417123456789112"));
         assertFalse(ccv.isValid("4417q23456w89113"));
         assertTrue(ccv.isValid(VALID_VISA));
         assertTrue(ccv.isValid(VALID_SHORT_VISA));

@@ -42,14 +42,12 @@ public class SessionTest {
         // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
-        assertEquals(0, doc1.select("table tr").size()); // none sent to servlet
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        assertEquals(0,doc1.select("table tr").size());// none sent to servlet 
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
-        assertEquals(0, doc2.select("table tr").size());  // none sent to servlet - we just got them!
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
-        assertEquals(1, cookies.size());
+        assertEquals(0,doc2.select("table tr").size());// none sent to servlet - we just got them! 
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        assertEquals(1,cookies.size());
         assertEquals("Root", cookies.get("One"));
 
         // todo - interrogate cookie-store
@@ -61,22 +59,18 @@ public class SessionTest {
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
         assertEchoServlet(echo);
-        assertEquals(userAgent, keyText("User-Agent", echo)); // check that customer user agent sent on session arrived
-
-        // check that cookies aren't set out of the session
+        assertEquals(userAgent,keyText("User-Agent",echo));// check that customer user agent sent on session arrived 
         Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
-        assertEquals(0, doc4.select("table tr").size()); // none sent to servlet
-
-        // check can add local ones also
-        Document doc5 = session.newRequest().cookie("Bar", "Qux").get();
+        assertEquals(0,doc4.select("table tr").size());// none sent to servlet 
+        Document doc5 = session.newRequest().cookie("Bar","Qux").get();
         Elements doc5Bar = keyEls("Bar", doc5);
         assertEquals("Qux", doc5Bar.first().text());
     }
 
     // validate that only cookies set by cookie servlet get to the cookie servlet path
     private void assertCookieServlet(Document doc) {
-        assertEquals(2, doc.select("table tr").size());  // two of three sent to servlet (/ and /CookieServlet)
-        Elements doc3Els = keyEls("One", doc);
+        assertEquals(2,doc.select("table tr").size());// two of three sent to servlet(/ and /CookieServlet)
+        Elements doc3Els = keyEls("One",doc);
         assertEquals(2, doc3Els.size());
         assertEquals("CookieServlet", doc3Els.get(0).text()); // ordered by most specific path
         assertEquals("Root", doc3Els.get(1).text()); // ordered by most specific path
@@ -123,8 +117,7 @@ public class SessionTest {
         String xmlVal = "<doc><val>One<val>Two</val>Three</val></doc>\n";
 
         Document doc1 = session.newRequest().url(xmlUrl).get();
-        assertEquals(xmlVal, doc1.html()); // not HTML normed, used XML parser
-
+        assertEquals(xmlVal,doc1.html());// not HTML normed,used XML parser 
         Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
         assertTrue(doc2.html().startsWith("<html>"));
 

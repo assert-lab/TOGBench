@@ -2415,7 +2415,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(cubeVolume(size) + (sphereVolume(radius) * 0.5), result.getSize(), tolerance);
+        Assertions.assertEquals(cubeVolume(size)+(sphereVolume(radius)* 0.5),result.getSize(),tolerance);
     }
 
     @Test
@@ -2436,7 +2436,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(cubeSurface(size) - circleSurface(radius) + (0.5 * sphereSurface(radius)), result.getBoundarySize(), tolerance);
+        Assertions.assertEquals(cubeSurface(size)- circleSurface(radius)+(0.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
     @Test
@@ -2596,7 +2596,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(circleSurface(radius) + (0.5 * sphereSurface(radius)), result.getBoundarySize(), tolerance);
+        Assertions.assertEquals(circleSurface(radius)+(0.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
     @Test
@@ -2820,7 +2820,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(cubeSurface(size) + (sphereSurface(radius)), result.getBoundarySize(), tolerance);
+        Assertions.assertEquals(cubeSurface(size)+(sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
     @Test
@@ -2994,7 +2994,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(cubeSurface(size) - circleSurface(radius) + (0.5 * sphereSurface(radius)), result.getBoundarySize(), tolerance);
+        Assertions.assertEquals(cubeSurface(size)- circleSurface(radius)+(0.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
     @Test
@@ -3154,7 +3154,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(cubeVolume(size) - (sphereVolume(radius) * 0.5), result.getSize(), tolerance);
+        Assertions.assertEquals(cubeVolume(size)-(sphereVolume(radius)* 0.5),result.getSize(),tolerance);
     }
 
     @Test
@@ -3179,7 +3179,7 @@ class RegionBSPTree3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(cubeSurface(size) - (3.0 * circleSurface(radius)) + (1.5 * sphereSurface(radius)), result.getBoundarySize(), tolerance);
+        Assertions.assertEquals(cubeSurface(size)-(3.0 * circleSurface(radius))+(1.5 * sphereSurface(radius)),result.getBoundarySize(),tolerance);
     }
 
     @Test

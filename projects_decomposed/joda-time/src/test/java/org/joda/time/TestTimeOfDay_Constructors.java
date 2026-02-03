@@ -95,11 +95,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstantMidnight() throws Throwable {
         TimeOfDay test = TimeOfDay.MIDNIGHT;
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(0, test.getHourOfDay());
-        assertEquals(0, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(0,test.getHourOfDay());
+        assertEquals(0,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
     }
 
     //-----------------------------------------------------------------------
@@ -107,7 +107,7 @@ public class TestTimeOfDay_Constructors extends TestCase {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         TimeOfDay expected = new TimeOfDay(4, 5, 6, 7);
-        assertEquals(expected, TimeOfDay.fromCalendarFields(cal));
+        assertEquals(expected,TimeOfDay.fromCalendarFields(cal));
         try {
             TimeOfDay.fromCalendarFields(null);
             fail();
@@ -119,14 +119,14 @@ public class TestTimeOfDay_Constructors extends TestCase {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         TimeOfDay expected = new TimeOfDay(4, 5, 6, 7);
-        assertEquals(expected, TimeOfDay.fromDateFields(cal.getTime()));
+        assertEquals(expected,TimeOfDay.fromDateFields(cal.getTime()));
     }
 
     public void testFactory_FromDateFields_before1970() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(1969, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
         TimeOfDay expected = new TimeOfDay(4, 5, 6, 7);
-        assertEquals(expected, TimeOfDay.fromDateFields(cal.getTime()));
+        assertEquals(expected,TimeOfDay.fromDateFields(cal.getTime()));
     }
 
     public void testFactory_FromDateFields_null() throws Exception {
@@ -142,11 +142,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testFactoryMillisOfDay_long1() throws Throwable {
         TimeOfDay test = TimeOfDay.fromMillisOfDay(TEST_TIME1);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -154,11 +154,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testFactoryMillisOfDay_long1_Chronology() throws Throwable {
         TimeOfDay test = TimeOfDay.fromMillisOfDay(TEST_TIME1, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(1, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(1,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -166,11 +166,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testFactoryMillisOfDay_long_nullChronology() throws Throwable {
         TimeOfDay test = TimeOfDay.fromMillisOfDay(TEST_TIME1, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     //-----------------------------------------------------------------------
@@ -179,11 +179,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor() throws Throwable {
         TimeOfDay test = new TimeOfDay();
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10 + OFFSET, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10 + OFFSET,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     /**
@@ -195,18 +195,18 @@ public class TestTimeOfDay_Constructors extends TestCase {
         // 23:59 in London is 00:59 the following day in Paris
         
         TimeOfDay test = new TimeOfDay(LONDON);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(23, test.getHourOfDay());
-        assertEquals(59, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(23,test.getHourOfDay());
+        assertEquals(59,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
         
         test = new TimeOfDay(PARIS);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(0, test.getHourOfDay());
-        assertEquals(59, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(0,test.getHourOfDay());
+        assertEquals(59,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     /**
@@ -218,11 +218,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
         // 23:59 in London is 00:59 the following day in Paris
         
         TimeOfDay test = new TimeOfDay((DateTimeZone) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(23, test.getHourOfDay());
-        assertEquals(59, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(23,test.getHourOfDay());
+        assertEquals(59,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     /**
@@ -230,11 +230,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(10 + OFFSET, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(10 + OFFSET,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     /**
@@ -242,11 +242,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_nullChronology() throws Throwable {
         TimeOfDay test = new TimeOfDay((Chronology) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10 + OFFSET, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10 + OFFSET,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     //-----------------------------------------------------------------------
@@ -255,11 +255,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_long1() throws Throwable {
         TimeOfDay test = new TimeOfDay(TEST_TIME1);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -267,11 +267,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_long2() throws Throwable {
         TimeOfDay test = new TimeOfDay(TEST_TIME2);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(5 + OFFSET, test.getHourOfDay());
-        assertEquals(6, test.getMinuteOfHour());
-        assertEquals(7, test.getSecondOfMinute());
-        assertEquals(8, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(5 + OFFSET,test.getHourOfDay());
+        assertEquals(6,test.getMinuteOfHour());
+        assertEquals(7,test.getSecondOfMinute());
+        assertEquals(8,test.getMillisOfSecond());
     }
 
     /**
@@ -279,11 +279,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_long1_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(TEST_TIME1, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -291,11 +291,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_long2_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(TEST_TIME2, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(5 + OFFSET, test.getHourOfDay());
-        assertEquals(6, test.getMinuteOfHour());
-        assertEquals(7, test.getSecondOfMinute());
-        assertEquals(8, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(5 + OFFSET,test.getHourOfDay());
+        assertEquals(6,test.getMinuteOfHour());
+        assertEquals(7,test.getSecondOfMinute());
+        assertEquals(8,test.getMillisOfSecond());
     }
 
     /**
@@ -303,11 +303,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_long_nullChronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(TEST_TIME1, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     //-----------------------------------------------------------------------
@@ -317,11 +317,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
     public void testConstructor_Object1() throws Throwable {
         Date date = new Date(TEST_TIME1);
         TimeOfDay test = new TimeOfDay(date);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -331,11 +331,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
         Calendar cal = new GregorianCalendar();
         cal.setTime(new Date(TEST_TIME1));
         TimeOfDay test = new TimeOfDay(cal);
-        assertEquals(GJChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(GJChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -343,11 +343,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_nullObject() throws Throwable {
         TimeOfDay test = new TimeOfDay((Object) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10 + OFFSET, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10 + OFFSET,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     /**
@@ -356,65 +356,65 @@ public class TestTimeOfDay_Constructors extends TestCase {
     public void testConstructor_todObject() throws Throwable {
         TimeOfDay base = new TimeOfDay(10, 20, 30, 40, CopticChronology.getInstance(PARIS));
         TimeOfDay test = new TimeOfDay(base);
-        assertEquals(CopticChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(CopticChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectString1() throws Throwable {
         TimeOfDay test = new TimeOfDay("10:20:30.040");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectString2() throws Throwable {
         TimeOfDay test = new TimeOfDay("10:20:30.040+04:00");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10 + OFFSET - 4, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10 + OFFSET - 4,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectString3() throws Throwable {
         TimeOfDay test = new TimeOfDay("T10:20:30.040");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectString4() throws Throwable {
         TimeOfDay test = new TimeOfDay("T10:20:30.040+04:00");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10 + OFFSET - 4, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10 + OFFSET - 4,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectString5() throws Throwable {
         TimeOfDay test = new TimeOfDay("10:20");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectString6() throws Throwable {
         TimeOfDay test = new TimeOfDay("10");
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(0, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(0,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
     }
 
     public void testConstructor_ObjectStringEx1() throws Throwable {
@@ -452,11 +452,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
     public void testConstructor_Object_Chronology() throws Throwable {
         Date date = new Date(TEST_TIME1);
         TimeOfDay test = new TimeOfDay(date, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -464,10 +464,10 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor2_Object_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay("T10:20");
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
         
         try {
             new TimeOfDay("T1020");
@@ -480,11 +480,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay((Object) null, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(10 + OFFSET, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(10 + OFFSET,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     /**
@@ -493,11 +493,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
     public void testConstructor_Object_nullChronology() throws Throwable {
         Date date = new Date(TEST_TIME1);
         TimeOfDay test = new TimeOfDay(date, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1 + OFFSET, test.getHourOfDay());
-        assertEquals(2, test.getMinuteOfHour());
-        assertEquals(3, test.getSecondOfMinute());
-        assertEquals(4, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1 + OFFSET,test.getHourOfDay());
+        assertEquals(2,test.getMinuteOfHour());
+        assertEquals(3,test.getSecondOfMinute());
+        assertEquals(4,test.getMillisOfSecond());
     }
 
     /**
@@ -505,11 +505,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_nullChronology() throws Throwable {
         TimeOfDay test = new TimeOfDay((Object) null, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10 + OFFSET, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10 + OFFSET,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
     //-----------------------------------------------------------------------
@@ -518,11 +518,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
         try {
             new TimeOfDay(-1, 20);
             fail();
@@ -546,11 +546,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
         try {
             new TimeOfDay(-1, 20, JulianChronology.getInstance());
             fail();
@@ -574,11 +574,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_nullChronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(0, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(0,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
     }
 
     /**
@@ -586,11 +586,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, 30);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
         try {
             new TimeOfDay(-1, 20, 30);
             fail();
@@ -622,11 +622,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, 30, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
         try {
             new TimeOfDay(-1, 20, 30, JulianChronology.getInstance());
             fail();
@@ -658,11 +658,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_nullChronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, 30, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(0, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(0,test.getMillisOfSecond());
     }
 
     /**
@@ -670,11 +670,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
         try {
             new TimeOfDay(-1, 20, 30, 40);
             fail();
@@ -714,11 +714,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_Chronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40, JulianChronology.getInstance());
-        assertEquals(JulianChronology.getInstanceUTC(), test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(JulianChronology.getInstanceUTC(),test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
         try {
             new TimeOfDay(-1, 20, 30, 40, JulianChronology.getInstance());
             fail();
@@ -758,11 +758,11 @@ public class TestTimeOfDay_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_nullChronology() throws Throwable {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40, null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(10, test.getHourOfDay());
-        assertEquals(20, test.getMinuteOfHour());
-        assertEquals(30, test.getSecondOfMinute());
-        assertEquals(40, test.getMillisOfSecond());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(10,test.getHourOfDay());
+        assertEquals(20,test.getMinuteOfHour());
+        assertEquals(30,test.getSecondOfMinute());
+        assertEquals(40,test.getMillisOfSecond());
     }
 
 }

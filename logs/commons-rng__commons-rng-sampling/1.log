@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-sampling ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling
-[INFO] Storing buildNumber: 1bce5ff5302ae8df6fc5734364b77ec74ad0d827 at timestamp: 2026-02-02 13:39:23-0600
+[INFO] Storing buildNumber: 096bdf15456a4d833b6cf23506c3db7b96292bf1 at timestamp: 2026-02-03 05:49:41-0600
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-sampling ---
@@ -65,10 +65,10 @@ main:
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[51,21] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[160,21] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[712,41] createPoissonSampler(org.apache.commons.rng.UniformRandomProvider,double) in org.apache.commons.rng.sampling.distribution.PoissonSamplerCache has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[510,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[527,71] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[508,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[525,71] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[41,19] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[546,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[544,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-sampling ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
@@ -82,96 +82,96 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.rng.sampling.PermutationSamplerTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.apache.commons.rng.sampling.PermutationSamplerTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in org.apache.commons.rng.sampling.PermutationSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.InverseTransformParetoSamplerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.rng.sampling.distribution.InverseTransformParetoSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.rng.sampling.distribution.InverseTransformParetoSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.RejectionInversionZipfSamplerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.sampling.distribution.RejectionInversionZipfSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.distribution.RejectionInversionZipfSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.InternalUtilsTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in org.apache.commons.rng.sampling.distribution.InternalUtilsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.rng.sampling.distribution.InternalUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.ZigguratNormalizedGaussianSamplerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.rng.sampling.distribution.ZigguratNormalizedGaussianSamplerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.sampling.distribution.ZigguratNormalizedGaussianSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.DirichletSamplerTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.rng.sampling.distribution.DirichletSamplerTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.sampling.distribution.DirichletSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
-[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.LevySamplerTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.rng.sampling.distribution.LevySamplerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.sampling.distribution.LevySamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.UniformLongSamplerTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.rng.sampling.distribution.UniformLongSamplerTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.rng.sampling.distribution.UniformLongSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.MarsagliaNormalisedGaussianSamplerTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.MarsagliaNormalisedGaussianSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.ContinuousUniformSamplerTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.rng.sampling.distribution.ContinuousUniformSamplerTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.rng.sampling.distribution.ContinuousUniformSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.GaussianSamplerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.rng.sampling.distribution.GaussianSamplerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.GaussianSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.ChengBetaSamplerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.rng.sampling.distribution.ChengBetaSamplerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.sampling.distribution.ChengBetaSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
-[INFO] Tests run: 151, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s - in org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[INFO] Tests run: 151, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.AhrensDieterExponentialSamplerTest_OE25Dev
-[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.rng.sampling.distribution.AhrensDieterExponentialSamplerTest_OE25Dev
-[ERROR] testSamplerWithZeroFromRandomGenerator_2_oe  Time elapsed: 0.015 s  <<< FAILURE!
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.apache.commons.rng.sampling.distribution.AhrensDieterExponentialSamplerTest_OE25Dev
+[ERROR] testSamplerWithZeroFromRandomGenerator_2_oe  Time elapsed: 0.011 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.apache.commons.rng.sampling.distribution.AhrensDieterExponentialSamplerTest_OE25Dev.testSamplerWithZeroFromRandomGenerator_2_oe(AhrensDieterExponentialSamplerTest_OE25Dev.java:96)
 
 [INFO] Running org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.SamplerBaseTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.SamplerBaseTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.sampling.distribution.SamplerBaseTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.SmallMeanPoissonSamplerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.distribution.SmallMeanPoissonSamplerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.rng.sampling.distribution.SmallMeanPoissonSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.GeometricSamplerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.GeometricSamplerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.rng.sampling.distribution.GeometricSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.LogNormalSamplerTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.sampling.distribution.LogNormalSamplerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.rng.sampling.distribution.LogNormalSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.CollectionSamplerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.CollectionSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.CollectionSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.CombinationSamplerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.sampling.CombinationSamplerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.sampling.CombinationSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.shape.LineSamplerTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.sampling.shape.LineSamplerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.sampling.shape.LineSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.shape.TetrahedronSamplerTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.rng.sampling.shape.TetrahedronSamplerTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.rng.sampling.shape.TetrahedronSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.DiscreteProbabilityCollectionSamplerTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.28 s - in org.apache.commons.rng.sampling.DiscreteProbabilityCollectionSamplerTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.293 s - in org.apache.commons.rng.sampling.DiscreteProbabilityCollectionSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.ListSamplerTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.rng.sampling.ListSamplerTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.rng.sampling.ListSamplerTest_OE25Dev
 [INFO] Running org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
-[ERROR] Tests run: 16, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.131 s <<< FAILURE! - in org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
-[ERROR] testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] Tests run: 16, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.073 s <<< FAILURE! - in org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Factory should be used to create the shared state sampler ==> expected: <2> but was: <0>
 	at org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev.testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe(CompositeSamplersTest_OE25Dev.java:996)
 
-[ERROR] testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Factory should not be used to create the shared state sampler ==> expected: <1> but was: <0>
 	at org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev.testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe(CompositeSamplersTest_OE25Dev.java:961)
 
@@ -188,8 +188,8 @@ org.opentest4j.AssertionFailedError: Factory should not be used to create the sh
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.337 s
-[INFO] Finished at: 2026-02-02T13:39:37-06:00
+[INFO] Total time:  14.063 s
+[INFO] Finished at: 2026-02-03T05:49:53-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-sampling: There are test failures.
 [ERROR] 

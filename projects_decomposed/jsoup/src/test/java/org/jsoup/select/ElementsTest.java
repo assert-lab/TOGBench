@@ -39,8 +39,7 @@ public class ElementsTest {
         assertEquals("foo", withTitle.attr("title"));
 
         withTitle.removeAttr("title");
-        assertEquals(2, withTitle.size()); // existing Elements are not reevaluated
-        assertEquals(0, doc.select("p[title]").size());
+        assertEquals(2,withTitle.size());// existing Elements are not reevaluated assertEquals(0,doc.select("p[title]").size());
 
         Elements ps = doc.select("p").attr("style", "classy");
         assertEquals(4, ps.size());
@@ -184,9 +183,7 @@ public class ElementsTest {
         String h = "<p><b>This</b> is <b>jsoup</b>.</p> <p>How do you like it?</p>";
         Document doc = Jsoup.parse(h);
         doc.select("p").wrap("<div></div>");
-        assertEquals(
-            "<div>\n <p><b>This</b> is <b>jsoup</b>.</p>\n</div>\n<div>\n <p>How do you like it?</p>\n</div>",
-            doc.body().html());
+        assertEquals("<div>\n <p><b>This</b> is <b>jsoup</b>.</p>\n</div>\n<div>\n <p>How do you like it?</p>\n</div>",doc.body().html());
     }
 
     @Test public void unwrap() {
@@ -406,8 +403,7 @@ public class ElementsTest {
         List<String> pText = doc.select("p").eachText();
         Elements ps = doc.select("p");
         assertEquals(13, ps.size());
-        assertEquals(12, pText.size()); // not 13, as last doesn't have text
-        assertEquals("1", pText.get(0));
+        assertEquals(12,pText.size());// not 13,as last doesn't have text assertEquals("1",pText.get(0));
         assertEquals("2", pText.get(1));
         assertEquals("5", pText.get(4));
         assertEquals("7", pText.get(6));

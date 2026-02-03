@@ -202,7 +202,7 @@ public class UrlConnectTest {
     public void redirectsResponseCookieToNextResponse() throws IOException {
         Connection con = Jsoup.connect("http://direct.infohound.net/tools/302-cookie.pl");
         Connection.Response res = con.execute();
-        assertEquals("asdfg123", res.cookie("token")); // confirms that cookies set on 1st hit are presented in final result
+        assertEquals("asdfg123",res.cookie("token"));// confirms that cookies set on 1st hit are presented in final result 
         Document doc = res.parse();
         assertEquals("token=asdfg123; uid=jhy", ihVal("HTTP_COOKIE", doc)); // confirms that redirected hit saw cookie
     }
@@ -224,10 +224,7 @@ public class UrlConnectTest {
         // tests that when we get back "UFT8", that it is recognised as unsupported, and falls back to default instead
         String url = "http://direct.infohound.net/tools/bad-charset.pl";
         Connection.Response res = Jsoup.connect(url).execute();
-        assertEquals("text/html; charset=UFT8", res.header("Content-Type")); // from the header
-        assertNull(res.charset()); // tried to get from header, not supported, so returns null
-        Document doc = res.parse(); // would throw an error if charset unsupported
-        assertTrue(doc.text().contains("Hello!"));
+        assertEquals("text/html;charset=UFT8",res.header("Content-Type"));// from the header assertNull(res.charset());// tried to get from header,not supported,so returns null Document doc = res.parse();// would throw an error if charset unsupported assertTrue(doc.text().contains("Hello!"));
         assertEquals("UTF-8", res.charset()); // set from default on parse
     }
 
@@ -367,28 +364,27 @@ public class UrlConnectTest {
 
         // included in meta
         Connection.Response res1 = Jsoup.connect(charsetUrl).execute();
-        assertNull(res1.charset()); // not set in headers
+        assertNull(res1.charset());// not set in headers 
         final Document doc1 = res1.parse();
-        assertEquals("windows-1252", doc1.charset().displayName()); // but determined at parse time
-        assertEquals("Cost is €100", doc1.select("p").text());
+        assertEquals("windows-1252",doc1.charset().displayName());// but determined at parse time 
+        assertEquals("Cost is €100",doc1.select("p").text());
         assertTrue(doc1.text().contains("€"));
 
         // no meta, no override
         Connection.Response res2 = Jsoup.connect(noCharsetUrl).execute();
-        assertNull(res2.charset()); // not set in headers
+        assertNull(res2.charset());// not set in headers 
         final Document doc2 = res2.parse();
-        assertEquals("UTF-8", doc2.charset().displayName()); // so defaults to utf-8
-        assertEquals("Cost is �100", doc2.select("p").text());
+        assertEquals("UTF-8",doc2.charset().displayName());// so defaults to utf-8 
+        assertEquals("Cost is �100",doc2.select("p").text());
         assertTrue(doc2.text().contains("�"));
 
         // no meta, let's override
         Connection.Response res3 = Jsoup.connect(noCharsetUrl).execute();
-        assertNull(res3.charset()); // not set in headers
+        assertNull(res3.charset());// not set in headers 
         res3.charset("windows-1252");
-        assertEquals("windows-1252", res3.charset()); // read back
+        assertEquals("windows-1252",res3.charset());// read back 
         final Document doc3 = res3.parse();
-        assertEquals("windows-1252", doc3.charset().displayName()); // from override
-        assertEquals("Cost is €100", doc3.select("p").text());
+        assertEquals("windows-1252",doc3.charset().displayName());// from override assertEquals("Cost is €100",doc3.select("p").text());
         assertTrue(doc3.text().contains("€"));
     }
 
@@ -432,20 +428,14 @@ public class UrlConnectTest {
     public void inWildUtfRedirect() throws IOException {
         Connection.Response res = Jsoup.connect("http://brabantn.ws/Q4F").execute();
         Document doc = res.parse();
-        assertEquals(
-            "http://www.omroepbrabant.nl/?news/2474781303/Gestrande+ree+in+Oss+niet+verdoofd,+maar+doodgeschoten+%E2%80%98Dit+kan+gewoon+niet,+bizar%E2%80%99+[VIDEO].aspx",
-            doc.location()
-            );
+        assertEquals("http://www.omroepbrabant.nl/?news/2474781303/Gestrande+ree+in+Oss+niet+verdoofd,+maar+doodgeschoten+%E2%80%98Dit+kan+gewoon+niet,+bizar%E2%80%99+[VIDEO].aspx",doc.location());
     }
 
     @Test
     public void inWildUtfRedirect2() throws IOException {
         Connection.Response res = Jsoup.connect("https://ssl.souq.com/sa-en/2724288604627/s").execute();
         Document doc = res.parse();
-        assertEquals(
-            "https://saudi.souq.com/sa-en/%D8%AE%D8%B2%D9%86%D8%A9-%D8%A2%D9%85%D9%86%D8%A9-3-%D8%B7%D8%A8%D9%82%D8%A7%D8%AA-%D8%A8%D9%86%D8%B8%D8%A7%D9%85-%D9%82%D9%81%D9%84-%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A-bsd11523-6831477/i/?ctype=dsrch",
-            doc.location()
-        );
+        assertEquals("https://saudi.souq.com/sa-en/%D8%AE%D8%B2%D9%86%D8%A9-%D8%A2%D9%85%D9%86%D8%A9-3-%D8%B7%D8%A8%D9%82%D8%A7%D8%AA-%D8%A8%D9%86%D8%B8%D8%A7%D9%85-%D9%82%D9%81%D9%84-%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A-bsd11523-6831477/i/?ctype=dsrch",doc.location());
     }
 
    @Test public void handlesEscapedRedirectUrls() throws IOException {

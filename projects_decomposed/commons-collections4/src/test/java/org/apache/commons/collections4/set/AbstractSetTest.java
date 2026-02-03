@@ -59,8 +59,7 @@ public abstract class AbstractSetTest<E> extends AbstractCollectionTest<E> {
         super.verify();
 
         assertEquals("Sets should be equal", getConfirmed(), getCollection());
-        assertEquals("Sets should have equal hashCodes",
-                     getConfirmed().hashCode(), getCollection().hashCode());
+        assertEquals("Sets should have equal hashCodes",getConfirmed().hashCode(),getCollection().hashCode());
         final Collection<E> set = makeConfirmedCollection();
         for (final E element : getCollection()) {
             assertTrue("Set.iterator should only return unique elements", set.add(element));
@@ -166,12 +165,10 @@ public abstract class AbstractSetTest<E> extends AbstractCollectionTest<E> {
      */
     public void testSetHashCode() {
         resetEmpty();
-        assertEquals("Empty sets have equal hashCodes",
-                getCollection().hashCode(), getConfirmed().hashCode());
+        assertEquals("Empty sets have equal hashCodes",getCollection().hashCode(),getConfirmed().hashCode());
 
         resetFull();
-        assertEquals("Equal sets have equal hashCodes",
-                getCollection().hashCode(), getConfirmed().hashCode());
+        assertEquals("Equal sets have equal hashCodes",getCollection().hashCode(),getConfirmed().hashCode());
     }
 
 }

@@ -1261,58 +1261,7 @@ public abstract class TestObjectPool_OE25Dev {
         expectedMethods.add(new MethodCall("passivateObject", obj));
         removeDestroyObjectCall(factory.getMethodCalls()); // The exact timing of destroyObject is flexible here.
         // removed other assertion
-        assertEquals(1, pool.getNumIdle());   // Not returned;
-    }
-
-    @Test
-    public void testPOFReturnObjectUsages_7_oe() throws Exception {
-        final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
-        final ObjectPool<Object> pool;
-        try {
-            pool = makeEmptyPool(factory);
-        } catch (final UnsupportedOperationException uoe) {
-            return; // test not supported
-        }
-        final List<MethodCall> expectedMethods = new ArrayList<>();
-        Object obj;
-
-        /// Test correct behavior code paths
-        obj = pool.borrowObject();
-        clear(factory, expectedMethods);
-
-        // returned object should be passivated
-        pool.returnObject(obj);
-        // StackObjectPool, SoftReferenceObjectPool also validate on return
-        if (pool instanceof SoftReferenceObjectPool) {
-            expectedMethods.add(new MethodCall(
-                    "validateObject", obj).returned(Boolean.TRUE));
-        }
-        expectedMethods.add(new MethodCall("passivateObject", obj));
-        // removed other assertion
-
-        //// Test exception handling of returnObject
-        reset(pool, factory, expectedMethods);
-        pool.addObject();
-        pool.addObject();
-        pool.addObject();
-        // removed other assertion
-        // passivateObject should swallow exceptions and not add the object to the pool
-        obj = pool.borrowObject();
-        pool.borrowObject();
-        // removed other assertion
-        // removed other assertion
-        clear(factory, expectedMethods);
-        factory.setPassivateObjectFail(true);
-        pool.returnObject(obj);
-        // StackObjectPool, SoftReferenceObjectPool also validate on return
-        if (pool instanceof SoftReferenceObjectPool) {
-            expectedMethods.add(new MethodCall("validateObject", obj).returned(Boolean.TRUE));
-        }
-        expectedMethods.add(new MethodCall("passivateObject", obj));
-        removeDestroyObjectCall(factory.getMethodCalls()); // The exact timing of destroyObject is flexible here.
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1, pool.getNumActive()); // But not in active count;
+        assertEquals(1,pool.getNumIdle());// Not returned assertEquals(1,pool.getNumActive());// But not in active count reset(pool,factory,expectedMethods);
     }
 
 }

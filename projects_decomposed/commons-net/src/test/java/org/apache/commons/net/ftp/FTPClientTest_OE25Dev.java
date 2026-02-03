@@ -118,7 +118,7 @@ public class FTPClientTest_OE25Dev extends TestCase {
         final FTPFileEntryParser entryParserSYST = client.getEntryParser();
         // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
-        assertSame(entryParserSYST, client.getEntryParser()); // the previous entry was cached;
+        assertSame(entryParserSYST,client.getEntryParser());// the previous entry was cached client.createParser(FTPClientConfig.SYST_VMS);
     }
 
     public void testParserCachingWithKey_4_oe() throws Exception {
@@ -129,9 +129,8 @@ public class FTPClientTest_OE25Dev extends TestCase {
         // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         // removed other assertion
-        client.createParser(FTPClientConfig.SYST_VMS);
         final FTPFileEntryParser entryParserVMS = client.getEntryParser();
-        assertNotSame(entryParserSYST, entryParserVMS); // the previous entry was replaced;
+        assertNotSame(entryParserSYST,entryParserVMS);// the previous entry was replaced client.createParser(FTPClientConfig.SYST_VMS);
     }
 
     public void testParserCachingWithKey_5_oe() throws Exception {
@@ -142,10 +141,8 @@ public class FTPClientTest_OE25Dev extends TestCase {
         // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         // removed other assertion
-        client.createParser(FTPClientConfig.SYST_VMS);
         final FTPFileEntryParser entryParserVMS = client.getEntryParser();
         // removed other assertion
-        client.createParser(FTPClientConfig.SYST_VMS);
         assertSame(entryParserVMS, client.getEntryParser()); // the previous entry was cached;
     }
 
@@ -157,10 +154,8 @@ public class FTPClientTest_OE25Dev extends TestCase {
         // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX);
         // removed other assertion
-        client.createParser(FTPClientConfig.SYST_VMS);
         final FTPFileEntryParser entryParserVMS = client.getEntryParser();
         // removed other assertion
-        client.createParser(FTPClientConfig.SYST_VMS);
         // removed other assertion
         client.createParser(FTPClientConfig.SYST_UNIX); // revert
         assertNotSame(entryParserVMS, client.getEntryParser()); // the previous entry was replaced;
@@ -189,7 +184,7 @@ public class FTPClientTest_OE25Dev extends TestCase {
         final FTPFileEntryParser entryParser = client.getEntryParser();
         // removed other assertion
         client.createParser(null);
-        assertSame(entryParser, client.getEntryParser()); // parser was cached;
+        assertSame(entryParser,client.getEntryParser());// parser was cached client.setSystemType(FTPClientConfig.SYST_NT);
     }
 
     public void testParserCachingNullKey_4_oe() throws Exception {
@@ -201,7 +196,6 @@ public class FTPClientTest_OE25Dev extends TestCase {
         // removed other assertion
         client.createParser(null);
         // removed other assertion
-        client.setSystemType(FTPClientConfig.SYST_NT);
         client.createParser(null);
         assertSame(entryParser, client.getEntryParser()); // parser was cached;
     }

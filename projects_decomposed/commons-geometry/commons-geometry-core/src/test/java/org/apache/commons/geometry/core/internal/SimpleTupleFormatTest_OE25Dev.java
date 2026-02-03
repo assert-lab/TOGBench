@@ -290,8 +290,7 @@ class SimpleTupleFormatTest_OE25Dev {
             Assertions.fail("Operation should have failed");
         } catch (final IllegalArgumentException exc) {
             final String excMsg = exc.getMessage();
-            Assertions.assertTrue(excMsg.contains(msgSubstr),
-                    "Expected message to contain [" + msgSubstr + "] but was [" + excMsg + "]");
+            Assertions.assertTrue(excMsg.contains(msgSubstr),"Expected message to contain [" + msgSubstr + "] but was [" + excMsg + "]");
         }
     }
 
@@ -309,8 +308,7 @@ class SimpleTupleFormatTest_OE25Dev {
             Assertions.fail("Operation should have failed");
         } catch (final IllegalArgumentException exc) {
             final String excMsg = exc.getMessage();
-            Assertions.assertTrue(excMsg.contains(msgSubstr),
-                    "Expected message to contain [" + msgSubstr + "] but was [" + excMsg + "]");
+            Assertions.assertTrue(excMsg.contains(msgSubstr),"Expected message to contain [" + msgSubstr + "] but was [" + excMsg + "]");
         }
     }
 

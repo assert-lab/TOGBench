@@ -210,7 +210,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
 
         // VERIFY
         // test to see if the count is right
-        assertTrue( "The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [" + meh.getSpoolCount() + "] does not equal the number expected [" + items + "]", meh.getSpoolCount() >= items );
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [" + meh.getSpoolCount()+ "] does not equal the number expected [" + items + "]",meh.getSpoolCount()>= items);
     }
 
     public void testSpoolNoDiskEvent_1_oe()
@@ -233,7 +233,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         Thread.sleep( items / 20 );
 
         // test to see if the count is right
-        assertTrue( "The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events  [" + meh.getSpoolNoDiskCount() + "] does not equal the number expected.", meh.getSpoolNoDiskCount() >= items );
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [" + meh.getSpoolNoDiskCount()+ "] does not equal the number expected.",meh.getSpoolNoDiskCount()>= items);
     }
 
     public void testSpoolNotAllowedEvent_1_oe()
@@ -255,7 +255,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         Thread.sleep( items / 20 );
 
         // test to see if the count is right
-        assertTrue( "The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount() + "] does not equal the number expected.", meh.getSpoolNotAllowedCount() >= items );
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
     }
 
     public void testSpoolNotAllowedEventOnItem_1_oe()
@@ -279,7 +279,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         Thread.sleep( items / 20 );
 
         // test to see if the count is right
-        assertTrue( "The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount() + "] does not equal the number expected.", meh.getSpoolNotAllowedCount() >= items );
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
     }
 
     public void testExceededMaxlifeOnrequestEvent_1_oe()
@@ -335,7 +335,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         Thread.sleep( 100 );
 
         // test to see if the count is right
-        assertTrue( "The number of ELEMENT_EVENT_EXCEEDED_MAXLIFE_ONREQUEST events [" + meh.getExceededMaxlifeCount() + "] does not equal the number expected.", meh.getExceededMaxlifeCount() >= 200 );
+        assertTrue("The number of ELEMENT_EVENT_EXCEEDED_MAXLIFE_ONREQUEST events [" + meh.getExceededMaxlifeCount()+ "] does not equal the number expected.",meh.getExceededMaxlifeCount()>= 200);
     }
 
     public void testExceededIdletimeOnrequestEvent_1_oe()
@@ -428,7 +428,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         Thread.sleep( 100 );
 
         // test to see if the count is right
-        assertTrue( "The number of ELEMENT_EVENT_EXCEEDED_IDLETIME_ONREQUEST events [" + meh.getExceededIdletimeCount() + "] does not equal the number expected.", meh.getExceededIdletimeCount() >= 200 );
+        assertTrue("The number of ELEMENT_EVENT_EXCEEDED_IDLETIME_ONREQUEST events [" + meh.getExceededIdletimeCount()+ "] does not equal the number expected.",meh.getExceededIdletimeCount()>= 200);
     }
 
     public void testElementAttributesCreationTime_1_oe()

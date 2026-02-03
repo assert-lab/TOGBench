@@ -110,9 +110,7 @@ class TwoCmresTest {
         list.add(new Cmres(multiply, rotate, start));
 
         long nextMultiply = multiply + 1;
-        Assertions.assertDoesNotThrow(
-            () -> Cmres.Factory.checkUnique(list, nextMultiply),
-            () -> "The next multiply should be unique: " + nextMultiply);
+        Assertions.assertDoesNotThrow(()-> Cmres.Factory.checkUnique(list,nextMultiply),()-> "The next multiply should be unique: " + nextMultiply);
 
         list.add(new Cmres(nextMultiply, rotate, start));
         // This should throw as the list now contains the multiply value

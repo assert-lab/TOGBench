@@ -126,17 +126,13 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
   }
 
   private void expectReadTimeout(Throwable e) {
-    assertTrue(e instanceof TimeoutException,
-            "Expected a read timeout, but got " + e);
-    assertTrue(e.getMessage().contains("Read timeout"),
-            "Expected read timeout, but was " + e);
+    assertTrue(e instanceof TimeoutException,"Expected a read timeout,but got " + e);
+    assertTrue(e.getMessage().contains("Read timeout"),"Expected read timeout,but was " + e);
   }
 
   private void expectRequestTimeout(Throwable e) {
-    assertTrue(e instanceof TimeoutException,
-            "Expected a request timeout, but got " + e);
-    assertTrue(e.getMessage().contains("Request timeout"),
-            "Expected request timeout, but was " + e);
+    assertTrue(e instanceof TimeoutException,"Expected a request timeout,but got " + e);
+    assertTrue(e.getMessage().contains("Request timeout"),"Expected request timeout,but was " + e);
   }
 
   private void execute(ServletResponseHandler responseHandler,

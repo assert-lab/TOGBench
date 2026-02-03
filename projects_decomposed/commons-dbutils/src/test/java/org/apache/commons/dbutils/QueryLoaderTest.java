@@ -31,8 +31,7 @@ public class QueryLoaderTest extends BaseTestCase {
         QueryLoader loader = QueryLoader.instance();
         Map<String,String> q = loader.load(QUERIES);
         Map<String,String> q2 = loader.load(QUERIES);
-        assertTrue(q == q2); // pointer comparison should return true
-        assertEquals("SELECT * FROM SomeTable", q.get("test.query"));
+        assertTrue(q == q2);// pointer comparison should return true assertEquals("SELECT * FROM SomeTable",q.get("test.query"));
 
         loader.unload(QUERIES);
         Map<String,String> q3 = loader.load(QUERIES);

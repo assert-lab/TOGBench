@@ -184,9 +184,7 @@ class SlerpTest_OE25Dev {
 
             // make sure that we're steadily progressing to the end angle
             double angle = angle(slerpVec, startVec);
-            Assertions.assertTrue(Precision.compareTo(angle, prevAngle, EPS) >= 0,
-                    "Expected slerp angle to continuously increase; previous angle was " +
-                            prevAngle + " and new angle is " + angle);
+            Assertions.assertTrue(Precision.compareTo(angle,prevAngle,EPS)>= 0,"Expected slerp angle to continuously increase;previous angle was " + prevAngle + " and new angle is " + angle);
         }
     }
 

@@ -71,8 +71,7 @@ public class ParameterTest_OE25Dev extends AbstractCommonTest {
             Class<?> type) {
         Object value = validator.getParameterValue(name);
         assertNotNull("Expected '" + type.getName() + "' but was null", value);
-        assertTrue("Expected '" + type.getName() + "' but was '" + value.getClass().getName() + "'",
-                   type.isInstance(value));
+        assertTrue("Expected '" + type.getName()+ "' but was '" + value.getClass().getName()+ "'",type.isInstance(value));
     }
 
     /**

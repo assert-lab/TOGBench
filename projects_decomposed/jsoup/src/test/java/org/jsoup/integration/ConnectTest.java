@@ -135,8 +135,7 @@ public class ConnectTest {
 
         assertTrue(ihVal("Content-Type", doc).contains(MULTIPART_FORM_DATA));
 
-        assertTrue(ihVal("Content-Type", doc).contains("boundary")); // should be automatically set
-        assertEquals("Jsoup, Jonathan", ihVal("uname", doc));
+        assertTrue(ihVal("Content-Type",doc).contains("boundary"));// should be automatically set assertEquals("Jsoup,Jonathan",ihVal("uname",doc));
         assertEquals("度一下", ihVal("百", doc));
     }
 
@@ -366,7 +365,7 @@ public class ConnectTest {
             .cookie("DoesItWork", "Yes");
 
         Connection.Response res = con.execute();
-        assertEquals(0, res.cookies().size()); // were not set by Redir or Echo servlet
+        assertEquals(0,res.cookies().size());// were not set by Redir or Echo servlet 
         Document doc = res.parse();
         assertEquals(echoUrl, doc.location());
         assertEquals("True", ihVal("Cookie: LetMeIn", doc));
@@ -490,8 +489,7 @@ public class ConnectTest {
         assertNotNull(title);
         assertEquals("jsoup RSS news", title.text());
         assertEquals("channel", title.parent().nodeName());
-        assertEquals("", doc.title()); // the document title is unset, this tag is channel>title, not html>head>title
-        assertEquals(3, doc.select("link").size());
+        assertEquals("",doc.title());// the document title is unset,this tag is channel>title,not html>head>title assertEquals(3,doc.select("link").size());
         assertEquals("application/rss+xml", con.response().contentType());
         assertTrue(doc.parser().getTreeBuilder() instanceof XmlTreeBuilder);
         assertEquals(Document.OutputSettings.Syntax.xml, doc.outputSettings().syntax());
@@ -549,8 +547,7 @@ public class ConnectTest {
         }
 
         Document doc = res.parse();
-        assertEquals(ihVal("Method", doc), "POST"); // from form action
-        assertEquals(ihVal("Part _file Filename", doc), "check.html");
+        assertEquals(ihVal("Method",doc),"POST");// from form action assertEquals(ihVal("Part _file Filename",doc),"check.html");
         assertEquals(ihVal("Part _file Name", doc), "_file");
         assertEquals(ihVal("_function", doc), "tidy");
     }
@@ -611,7 +608,7 @@ public class ConnectTest {
             .data(FileServlet.ContentTypeParam, "text/xml");
         final Connection.Response response = con.execute();
         assertEquals("text/xml", response.header("Content-Type"));
-        assertEquals("", response.body()); // head ought to have no body
+        assertEquals("",response.body());// head ought to have no body 
         Document doc = response.parse();
         assertEquals("", doc.text());
     }

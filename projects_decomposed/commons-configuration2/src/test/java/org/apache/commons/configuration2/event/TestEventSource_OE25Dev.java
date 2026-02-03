@@ -335,7 +335,7 @@ public class TestEventSource_OE25Dev {
 
         source.fireError(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE, testException);
         lstRead.done();
-        assertEquals("Wrong exception (1)", testException, lstWrite.checkEvent(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE));
+        assertEquals("Wrong exception(1)",testException,lstWrite.checkEvent(ConfigurationErrorEvent.WRITE,ConfigurationEvent.ADD_PROPERTY,TEST_PROPNAME,TEST_PROPVALUE));
     }
 
     @Test

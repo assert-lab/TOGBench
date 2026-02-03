@@ -99,7 +99,6 @@ public class UriTests extends AbstractProviderTestCase {
         final FileObject f2 = getManager().resolveFile(uriStr, options);
 
         assertEquals("Two files resolved by URI must be equals on " + uriStr, f1, f2);
-        assertSame("Resolving two times should not produce new filesystem on " + uriStr, f1.getFileSystem(),
-            f2.getFileSystem());
+        assertSame("Resolving two times should not produce new filesystem on " + uriStr,f1.getFileSystem(),f2.getFileSystem());
     }
 }

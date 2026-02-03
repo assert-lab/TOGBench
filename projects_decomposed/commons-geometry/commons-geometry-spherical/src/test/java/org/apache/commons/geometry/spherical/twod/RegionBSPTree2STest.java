@@ -1025,14 +1025,12 @@ class RegionBSPTree2STest {
         final List<Point2S> actual = path.getVertices();
 
         if (expected.size() != actual.size()) {
-            Assertions.fail("Unexpected path size. Expected path " + expected +
-                    " but was " + actual);
+            Assertions.fail("Unexpected path size. Expected path " + expected + " but was " + actual);
         }
 
         for (int i = 0; i < expected.size(); ++i) {
             if (!expected.get(i).eq(actual.get(i), TEST_PRECISION)) {
-                Assertions.fail("Unexpected path vertex at index " + i + ". Expected path " + expected +
-                        " but was " + actual);
+                Assertions.fail("Unexpected path vertex at index " + i + ". Expected path " + expected + " but was " + actual);
             }
         }
     }
@@ -1053,8 +1051,7 @@ class RegionBSPTree2STest {
         final List<Point2S> actualLoopVertices = actual.subList(0, actual.size() - 1);
 
         if (expected.size() != actualLoopVertices.size()) {
-            Assertions.fail("Unexpected path loop. Expected vertex loop " + expected +
-                    " but " + actual);
+            Assertions.fail("Unexpected path loop. Expected vertex loop " + expected + " but " + actual);
         }
 
         int offset = -1;
@@ -1067,8 +1064,7 @@ class RegionBSPTree2STest {
         }
 
         if (offset < 0) {
-            Assertions.fail("Vertex loops do not share any points: expected vertex loop " + expected +
-                    " but was " + actual);
+            Assertions.fail("Vertex loops do not share any points: expected vertex loop " + expected + " but was " + actual);
         }
 
         for (int i = 0; i < expected.size(); ++i) {
@@ -1076,8 +1072,7 @@ class RegionBSPTree2STest {
             final Point2S actualVertex = actualLoopVertices.get((i + offset) % actualLoopVertices.size());
 
             if (!expectedVertex.eq(actualVertex, TEST_PRECISION)) {
-                Assertions.fail("Unexpected vertex at index " + i + ": expected " + expectedVertex +
-                        " but was " + actualVertex);
+                Assertions.fail("Unexpected vertex at index " + i + ": expected " + expectedVertex + " but was " + actualVertex);
             }
         }
     }

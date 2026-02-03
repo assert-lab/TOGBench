@@ -141,7 +141,7 @@ public class TiffRasterStatisticsTest_OE25Dev {
         Arrays.fill(zero, 10);
         final TiffRasterData zeroData = new TiffRasterDataFloat(10, 10, zero);
         final TiffRasterStatistics zeroStat = zeroData.getSimpleStatistics(10);
-        assertEquals(0.0f, zeroStat.getMeanValue(), "Invalid mean data for excluded value");
+        assertEquals(0.0f,zeroStat.getMeanValue(),"Invalid mean data for excluded value");
     }
 
     @Test

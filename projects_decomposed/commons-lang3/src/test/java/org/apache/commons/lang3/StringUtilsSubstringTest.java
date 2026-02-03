@@ -361,12 +361,9 @@ public class StringUtilsSubstringTest  {
         assertEquals(0, StringUtils.countMatches("x", ""));
         assertEquals(0, StringUtils.countMatches("", ""));
 
-        assertEquals(3,
-             StringUtils.countMatches("one long someone sentence of one", "one"));
-        assertEquals(0,
-             StringUtils.countMatches("one long someone sentence of one", "two"));
-        assertEquals(4,
-             StringUtils.countMatches("oooooooooooo", "ooo"));
+        assertEquals(3,StringUtils.countMatches("one long someone sentence of one","one"));
+        assertEquals(0,StringUtils.countMatches("one long someone sentence of one","two"));
+        assertEquals(4,StringUtils.countMatches("oooooooooooo","ooo"));
         assertEquals(0, StringUtils.countMatches(null, "?"));
         assertEquals(0, StringUtils.countMatches("", "?"));
         assertEquals(0, StringUtils.countMatches("abba", null));

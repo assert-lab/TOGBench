@@ -685,7 +685,7 @@ class AngleTest_OE25Dev {
         final double aboveZero = Math.nextUp(0);
         final double belowZero = Math.nextDown(0);
 
-        Assertions.assertEquals(aboveZero, Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(aboveZero));
+        Assertions.assertEquals(aboveZero,Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(aboveZero));
     }
 
     @Test
@@ -694,7 +694,7 @@ class AngleTest_OE25Dev {
         final double belowZero = Math.nextDown(0);
 
         // removed other assertion
-        Assertions.assertEquals(aboveZero, Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(aboveZero));
+        Assertions.assertEquals(aboveZero,Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(aboveZero));
     }
 
     @Test
@@ -705,7 +705,7 @@ class AngleTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(belowZero, Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(belowZero));
+        Assertions.assertEquals(belowZero,Angle.Rad.WITHIN_MINUS_PI_AND_PI.applyAsDouble(belowZero));
     }
 
     @Test
@@ -717,7 +717,7 @@ class AngleTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(0, Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(belowZero));
+        Assertions.assertEquals(0,Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(belowZero));
     }
 
     @Test

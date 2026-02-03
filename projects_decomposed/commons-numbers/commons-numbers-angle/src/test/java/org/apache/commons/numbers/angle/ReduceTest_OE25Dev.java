@@ -37,7 +37,7 @@ class ReduceTest_OE25Dev {
         double expected = delta;
 
         final Reduce r = new Reduce(offset, period);
-        Assertions.assertEquals(expected, r.applyAsDouble(orig), 1e-7);
+        Assertions.assertEquals(expected,r.applyAsDouble(orig),1e-7);
     }
 
     @Test
@@ -55,7 +55,7 @@ class ReduceTest_OE25Dev {
 
         orig = offset - 123356789 * period - delta;
         expected = Math.abs(period) - delta;
-        Assertions.assertEquals(expected, r.applyAsDouble(orig), 1e-6);
+        Assertions.assertEquals(expected,r.applyAsDouble(orig),1e-6);
     }
 
     @Test
@@ -77,7 +77,7 @@ class ReduceTest_OE25Dev {
 
         orig = offset - 123446789 * period + delta;
         expected = delta;
-        Assertions.assertEquals(expected, r.applyAsDouble(orig), 1e-6);
+        Assertions.assertEquals(expected,r.applyAsDouble(orig),1e-6);
     }
 
     @Test
@@ -136,7 +136,7 @@ class ReduceTest_OE25Dev {
 
         final Reduce r1 = new Reduce(offset, period);
         final Reduce r2 = new Reduce(offset, -period);
-        Assertions.assertEquals(expected, r1.applyAsDouble(orig), 1e-7);
+        Assertions.assertEquals(expected,r1.applyAsDouble(orig),1e-7);
     }
 
     @Test
@@ -150,7 +150,7 @@ class ReduceTest_OE25Dev {
         final Reduce r1 = new Reduce(offset, period);
         final Reduce r2 = new Reduce(offset, -period);
         // removed other assertion
-        Assertions.assertEquals(r1.applyAsDouble(orig), r2.applyAsDouble(orig), 0d);
+        Assertions.assertEquals(r1.applyAsDouble(orig),r2.applyAsDouble(orig),0d);
     }
 
     @Test
@@ -162,7 +162,7 @@ class ReduceTest_OE25Dev {
             for (double a = -15; a <= 15; a += 0.5) {
                 final double nA = n.applyAsDouble(a);
                 final double r = reduce.applyAsDouble(a) + lo;
-                Assertions.assertEquals(nA, r, Math.ulp(nA), "a=" + a + " lo=" + lo);
+                Assertions.assertEquals(nA,r,Math.ulp(nA),"a=" + a + " lo=" + lo);
     }
     }
     }

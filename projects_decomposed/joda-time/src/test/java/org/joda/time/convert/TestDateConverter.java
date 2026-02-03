@@ -66,42 +66,42 @@ public class TestDateConverter extends TestCase {
     //-----------------------------------------------------------------------
     public void testSingleton() throws Exception {
         Class cls = DateConverter.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isProtected(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isProtected(con.getModifiers()));
         
         Field fld = cls.getDeclaredField("INSTANCE");
-        assertEquals(false, Modifier.isPublic(fld.getModifiers()));
-        assertEquals(false, Modifier.isProtected(fld.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(fld.getModifiers()));
+        assertEquals(false,Modifier.isPublic(fld.getModifiers()));
+        assertEquals(false,Modifier.isProtected(fld.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testSupportedType() throws Exception {
-        assertEquals(Date.class, DateConverter.INSTANCE.getSupportedType());
+        assertEquals(Date.class,DateConverter.INSTANCE.getSupportedType());
     }
 
     //-----------------------------------------------------------------------
     public void testGetInstantMillis_Object_Chronology() throws Exception {
         Date date = new Date(123L);
         long millis = DateConverter.INSTANCE.getInstantMillis(date, JULIAN);
-        assertEquals(123L, millis);
-        assertEquals(123L, DateConverter.INSTANCE.getInstantMillis(date, (Chronology) null));
+        assertEquals(123L,millis);
+        assertEquals(123L,DateConverter.INSTANCE.getInstantMillis(date,(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
     public void testGetChronology_Object_Zone() throws Exception {
-        assertEquals(ISO_PARIS, DateConverter.INSTANCE.getChronology(new Date(123L), PARIS));
-        assertEquals(ISO, DateConverter.INSTANCE.getChronology(new Date(123L), (DateTimeZone) null));
+        assertEquals(ISO_PARIS,DateConverter.INSTANCE.getChronology(new Date(123L),PARIS));
+        assertEquals(ISO,DateConverter.INSTANCE.getChronology(new Date(123L),(DateTimeZone)null));
     }
 
     public void testGetChronology_Object_Chronology() throws Exception {
-        assertEquals(JULIAN, DateConverter.INSTANCE.getChronology(new Date(123L), JULIAN));
-        assertEquals(ISO, DateConverter.INSTANCE.getChronology(new Date(123L), (Chronology) null));
+        assertEquals(JULIAN,DateConverter.INSTANCE.getChronology(new Date(123L),JULIAN));
+        assertEquals(ISO,DateConverter.INSTANCE.getChronology(new Date(123L),(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
@@ -109,12 +109,12 @@ public class TestDateConverter extends TestCase {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = COPTIC.get(tod, 12345678L);
         int[] actual = DateConverter.INSTANCE.getPartialValues(tod, new Date(12345678L), COPTIC);
-        assertEquals(true, Arrays.equals(expected, actual));
+        assertEquals(true,Arrays.equals(expected,actual));
     }
 
     //-----------------------------------------------------------------------
     public void testToString() {
-        assertEquals("Converter[java.util.Date]", DateConverter.INSTANCE.toString());
+        assertEquals("Converter[java.util.Date]",DateConverter.INSTANCE.toString());
     }
 
 }

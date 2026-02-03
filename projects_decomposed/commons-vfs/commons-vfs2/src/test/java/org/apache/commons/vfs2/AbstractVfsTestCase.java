@@ -124,8 +124,7 @@ public abstract class AbstractVfsTestCase extends TestCase {
     public static File getTestDirectory(final String name) {
         File file = new File(getTestDirectoryFile(), name);
         file = getCanonicalFile(file);
-        assertTrue("Test directory \"" + file + "\" does not exist or is not a directory.",
-                file.isDirectory() || file.mkdirs());
+        assertTrue("Test directory \"" + file + "\" does not exist or is not a directory.",file.isDirectory()|| file.mkdirs());
         return file;
     }
 

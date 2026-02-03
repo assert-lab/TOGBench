@@ -127,21 +127,9 @@ public class DoubleConverterTestCase extends NumberConverterTestBase {
         };
 
         for(int i=0;i<expected.length;i++) {
-            assertEquals(
-                message[i] + " to Double",
-                expected[i].doubleValue(),
-                (converter.convert(Double.class,input[i])).doubleValue(),
-                0.00001D);
-            assertEquals(
-                message[i] + " to double",
-                expected[i].doubleValue(),
-                (converter.convert(Double.TYPE,input[i])).doubleValue(),
-                0.00001D);
-            assertEquals(
-                message[i] + " to null type",
-                expected[i].doubleValue(),
-                ((Double)(converter.convert(null,input[i]))).doubleValue(),
-                0.00001D);
+            assertEquals(message[i] + " to Double",expected[i].doubleValue(),(converter.convert(Double.class,input[i])).doubleValue(),0.00001D);
+            assertEquals(message[i] + " to double",expected[i].doubleValue(),(converter.convert(Double.TYPE,input[i])).doubleValue(),0.00001D);
+            assertEquals(message[i] + " to null type",expected[i].doubleValue(),((Double)(converter.convert(null,input[i]))).doubleValue(),0.00001D);
         }
     }
 

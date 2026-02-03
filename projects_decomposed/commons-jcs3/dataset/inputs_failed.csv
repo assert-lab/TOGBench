@@ -273,7 +273,7 @@ jcs3_225_2,"	  public void testRecycleBin_2_oe()
 		                }
 		                else
 		                {
-		                    assertNotNull( ""The element for key ["" + ""key:"" + test[i] + ""] should not be null. i = "" + i, element );
+		                    assertNotNull(""The element for key ["" + ""key:"" + test[i] + ""] should not be null. i = "" + i,element);
 	  }
 	  }
 	  }
@@ -505,7 +505,7 @@ jcs3_228_2,"	  public void testRecycleBin_2_oe()
 		                }
 		                else
 		                {
-		                    assertNotNull( ""The element for key ["" + ""key:"" + test[i] + ""] should not be null. i = "" + i, element );
+		                    assertNotNull(""The element for key ["" + ""key:"" + test[i] + ""] should not be null. i = "" + i,element);
 	  }
 	  }
 	  }

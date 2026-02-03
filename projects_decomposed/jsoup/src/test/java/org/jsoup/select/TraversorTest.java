@@ -168,10 +168,7 @@ public class TraversorTest {
             }
         }, doc);
 
-        assertEquals("<div>\n" +
-            " <p><span>0</span><span>1</span></p>\n" +
-            " <p><span>2</span><span>3</span></p>\n" +
-            "</div>", doc.body().html());
+        assertEquals("<div>\n" + " <p><span>0</span><span>1</span></p>\n" + " <p><span>2</span><span>3</span></p>\n" + "</div>",doc.body().html());
     }
 
     @Test public void canSpecifyOnlyHead() {

@@ -105,8 +105,7 @@ public class FormElementTest {
             form.submit();
         } catch (IllegalArgumentException e) {
             threw = true;
-            assertEquals("Could not determine a form action URL for submit. Ensure you set a base URI when parsing.",
-                    e.getMessage());
+            assertEquals("Could not determine a form action URL for submit. Ensure you set a base URI when parsing.",e.getMessage());
         }
         assertTrue(threw);
     }

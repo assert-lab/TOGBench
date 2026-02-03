@@ -192,8 +192,7 @@ public class WrapDynaBeanTestCase extends BasicDynaBeanTestCase {
     public void testMappedContains() {
 
         try {
-            assertTrue("Can see first key",
-                    bean.contains("mappedProperty", "First Key"));
+            assertTrue("Can see first key",bean.contains("mappedProperty","First Key"));
             fail("Should have thrown UnsupportedOperationException");
         } catch (final UnsupportedOperationException t) {
             // Expected result
@@ -203,8 +202,7 @@ public class WrapDynaBeanTestCase extends BasicDynaBeanTestCase {
 
 
         try {
-            assertTrue("Can not see unknown key",
-                    !bean.contains("mappedProperty", "Unknown Key"));
+            assertTrue("Can not see unknown key",!bean.contains("mappedProperty","Unknown Key"));
             fail("Should have thrown UnsupportedOperationException");
         } catch (final UnsupportedOperationException t) {
             // Expected result
@@ -223,8 +221,7 @@ public class WrapDynaBeanTestCase extends BasicDynaBeanTestCase {
     public void testMappedRemove() {
 
         try {
-            assertTrue("Can see first key",
-                    bean.contains("mappedProperty", "First Key"));
+            assertTrue("Can see first key",bean.contains("mappedProperty","First Key"));
             bean.remove("mappedProperty", "First Key");
             fail("Should have thrown UnsupportedOperationException");
             //            assertTrue("Can not see first key",
@@ -236,8 +233,7 @@ public class WrapDynaBeanTestCase extends BasicDynaBeanTestCase {
         }
 
         try {
-            assertTrue("Can not see unknown key",
-                    !bean.contains("mappedProperty", "Unknown Key"));
+            assertTrue("Can not see unknown key",!bean.contains("mappedProperty","Unknown Key"));
             bean.remove("mappedProperty", "Unknown Key");
             fail("Should have thrown UnsupportedOperationException");
             //            assertTrue("Can not see unknown key",
@@ -336,8 +332,7 @@ public class WrapDynaBeanTestCase extends BasicDynaBeanTestCase {
      */
     public void testGetWrapDynaClassFromCache() {
         final WrapDynaClass clazz = WrapDynaClass.createDynaClass(TestBean.class);
-        assertSame("Instance not cached", clazz,
-                WrapDynaClass.createDynaClass(TestBean.class));
+        assertSame("Instance not cached",clazz,WrapDynaClass.createDynaClass(TestBean.class));
     }
 
     /**

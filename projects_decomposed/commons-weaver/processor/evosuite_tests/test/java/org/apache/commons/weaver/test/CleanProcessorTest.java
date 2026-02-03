@@ -43,11 +43,7 @@ public class CleanProcessorTest extends WeaverTestBase {
         final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
         cp.clean();
 
-        Assert.assertFalse(new File(getTargetFolder(), TestBeanWithMethodAnnotation.class.getName().replace('.',
-            File.separatorChar)
-            + ".class").exists());
-        Assert.assertFalse(new File(getTargetFolder(), TestBeanWithClassAnnotation.class.getName().replace('.',
-            File.separatorChar)
-            + ".class").exists());
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ ".class").exists());
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ ".class").exists());
     }
 }

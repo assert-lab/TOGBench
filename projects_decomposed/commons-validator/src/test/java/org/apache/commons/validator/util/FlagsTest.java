@@ -124,9 +124,7 @@ public class FlagsTest extends TestCase {
         s = f.toString();
         assertEquals(64, s.length());
 
-        assertEquals(
-            "0000000000000000000000000000000000000000000000000000000000000100",
-            s);
+        assertEquals("0000000000000000000000000000000000000000000000000000000000000100",s);
     }
 
 }

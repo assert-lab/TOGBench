@@ -291,7 +291,6 @@ class MersenneTwister64Test {
         // An empty seed is allowed
         final MersenneTwister64 rng = new MersenneTwister64(new long[0]);
         // It should be functional so check it returns different values.
-        Assertions.assertNotEquals(rng.nextLong(), rng.nextLong(),
-            "Empty seed creates sequence with same values");
+        Assertions.assertNotEquals(rng.nextLong(),rng.nextLong(),"Empty seed creates sequence with same values");
     }
 }

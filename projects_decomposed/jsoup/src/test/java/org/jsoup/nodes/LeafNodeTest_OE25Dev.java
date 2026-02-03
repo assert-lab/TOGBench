@@ -35,7 +35,7 @@ public class LeafNodeTest_OE25Dev {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
-        assertTrue(hasAnyAttributes(doc)); // should have one - the base uri on the doc;
+        assertTrue(hasAnyAttributes(doc));// should have one - the base uri on the doc;
     }
 
     @Test
@@ -44,7 +44,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         assertFalse(hasAnyAttributes(html));
     }
@@ -55,7 +54,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -69,7 +67,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -87,7 +84,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -106,7 +102,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -128,7 +123,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -153,7 +147,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -179,7 +172,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -206,7 +198,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -236,7 +227,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -267,7 +257,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -299,7 +288,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -334,7 +322,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -371,7 +358,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 
@@ -409,7 +395,6 @@ public class LeafNodeTest_OE25Dev {
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
         // removed other assertion
-
         Element html = doc.child(0);
         // removed other assertion
 

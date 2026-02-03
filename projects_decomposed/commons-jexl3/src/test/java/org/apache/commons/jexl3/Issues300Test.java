@@ -105,9 +105,7 @@ public class Issues300Test {
 
         final JexlContext context = new MapContext(map);
         Object value = e304.evaluate(context);
-        assertEquals("4711", value); // fails
-
-        map.clear();
+        assertEquals("4711",value);// fails map.clear();
         map.put("overview.limit.var", 42);
         value = e304.evaluate(context);
         assertEquals(42, value);

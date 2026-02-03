@@ -97,8 +97,7 @@ public class PredicatedCollectionTest<E> extends AbstractCollectionTest<E> {
         } catch (final IllegalArgumentException e) {
             // expected
         }
-        assertTrue("Collection shouldn't contain illegal element",
-         !c.contains(i));
+        assertTrue("Collection shouldn't contain illegal element",!c.contains(i));
     }
 
     @SuppressWarnings("unchecked")

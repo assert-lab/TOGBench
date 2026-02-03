@@ -120,10 +120,8 @@ public class VfsClassLoaderTests extends AbstractProviderTestCase {
         final URL url1 = urls.nextElement();
         final URL url2 = urls.nextElement();
 
-        assertTrue("First resource must refer to nested.jar but was " + url1,
-                url1.toString().endsWith("nested.jar!/META-INF/MANIFEST.MF"));
-        assertTrue("Second resource must refer to test.jar but was " + url2,
-                url2.toString().endsWith("test.jar!/META-INF/MANIFEST.MF"));
+        assertTrue("First resource must refer to nested.jar but was " + url1,url1.toString().endsWith("nested.jar!/META-INF/MANIFEST.MF"));
+        assertTrue("Second resource must refer to test.jar but was " + url2,url2.toString().endsWith("test.jar!/META-INF/MANIFEST.MF"));
     }
 
     /**

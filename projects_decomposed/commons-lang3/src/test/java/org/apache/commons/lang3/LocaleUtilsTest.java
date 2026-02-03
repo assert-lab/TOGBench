@@ -404,8 +404,7 @@ public class LocaleUtilsTest  {
             while (iterator.hasNext()) {
                 final Locale locale = iterator.next();
                 // should have an en empty variant
-                assertTrue(locale.getVariant() == null
-                        || locale.getVariant().isEmpty());
+                assertTrue(locale.getVariant()== null || locale.getVariant().isEmpty());
                 assertEquals(country, locale.getCountry());
                 if (language.equals(locale.getLanguage())) {
                     found = true;
@@ -452,8 +451,7 @@ public class LocaleUtilsTest  {
             while (iterator.hasNext()) {
                 final Locale locale = iterator.next();
                 // should have an en empty variant
-                assertTrue(locale.getVariant() == null
-                        || locale.getVariant().isEmpty());
+                assertTrue(locale.getVariant()== null || locale.getVariant().isEmpty());
                 assertEquals(language, locale.getLanguage());
                 if (country.equals(locale.getCountry())) {
                     found = true;

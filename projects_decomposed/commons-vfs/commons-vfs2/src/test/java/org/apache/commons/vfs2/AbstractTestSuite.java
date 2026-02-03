@@ -126,8 +126,7 @@ public abstract class AbstractTestSuite extends TestSetup {
      */
     private void checkTempDir(final String assertMsg) {
         if (tempDir.exists()) {
-            Assert.assertTrue(assertMsg + " (" + tempDir.getAbsolutePath() + ")",
-                tempDir.isDirectory() && ArrayUtils.isEmpty(tempDir.list()));
+            Assert.assertTrue(assertMsg + "(" + tempDir.getAbsolutePath()+ ")",tempDir.isDirectory()&& ArrayUtils.isEmpty(tempDir.list()));
         }
     }
 

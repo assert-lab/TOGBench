@@ -112,8 +112,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetEmpty();
         try {
             getCollection().getFirst();
-            fail("getFirst() should throw a NoSuchElementException for an " +
-                    "empty list.");
+            fail("getFirst()should throw a NoSuchElementException for an " + "empty list.");
         } catch (final NoSuchElementException e) {
             // This is correct
         }
@@ -122,8 +121,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetFull();
         final Object first = getCollection().getFirst();
         final Object confirmedFirst = getConfirmedLinkedList().getFirst();
-        assertEquals("Result returned by getFirst() was wrong.",
-                confirmedFirst, first);
+        assertEquals("Result returned by getFirst()was wrong.",confirmedFirst,first);
         verify();
     }
 
@@ -134,8 +132,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetEmpty();
         try {
             getCollection().getLast();
-            fail("getLast() should throw a NoSuchElementException for an " +
-                    "empty list.");
+            fail("getLast()should throw a NoSuchElementException for an " + "empty list.");
         } catch (final NoSuchElementException e) {
             // This is correct
         }
@@ -144,8 +141,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetFull();
         final Object last = getCollection().getLast();
         final Object confirmedLast = getConfirmedLinkedList().getLast();
-        assertEquals("Result returned by getLast() was wrong.",
-                confirmedLast, last);
+        assertEquals("Result returned by getLast()was wrong.",confirmedLast,last);
         verify();
     }
 
@@ -160,8 +156,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetEmpty();
         try {
             getCollection().removeFirst();
-            fail("removeFirst() should throw a NoSuchElementException for " +
-                    "an empty list.");
+            fail("removeFirst()should throw a NoSuchElementException for " + "an empty list.");
         } catch (final NoSuchElementException e) {
             // This is correct
         }
@@ -170,8 +165,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetFull();
         final Object first = getCollection().removeFirst();
         final Object confirmedFirst = getConfirmedLinkedList().removeFirst();
-        assertEquals("Result returned by removeFirst() was wrong.",
-                confirmedFirst, first);
+        assertEquals("Result returned by removeFirst()was wrong.",confirmedFirst,first);
         verify();
     }
 
@@ -186,8 +180,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetEmpty();
         try {
             getCollection().removeLast();
-            fail("removeLast() should throw a NoSuchElementException for " +
-                    "an empty list.");
+            fail("removeLast()should throw a NoSuchElementException for " + "an empty list.");
         } catch (final NoSuchElementException e) {
             // This is correct
         }
@@ -196,8 +189,7 @@ public abstract class AbstractLinkedListTest<T> extends AbstractListTest<T> {
         resetFull();
         final Object last = getCollection().removeLast();
         final Object confirmedLast = getConfirmedLinkedList().removeLast();
-        assertEquals("Result returned by removeLast() was wrong.",
-                confirmedLast, last);
+        assertEquals("Result returned by removeLast()was wrong.",confirmedLast,last);
         verify();
     }
 

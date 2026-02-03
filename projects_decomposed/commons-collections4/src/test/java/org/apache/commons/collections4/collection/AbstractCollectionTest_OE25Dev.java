@@ -242,10 +242,8 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
      */
     public void verify() {
         final int confirmedSize = getConfirmed().size();
-        assertEquals("Collection size should match confirmed collection's", confirmedSize,
-                getCollection().size());
-        assertEquals("Collection isEmpty() result should match confirmed collection's",
-                getConfirmed().isEmpty(), getCollection().isEmpty());
+        assertEquals("Collection size should match confirmed collection's",confirmedSize,getCollection().size());
+        assertEquals("Collection isEmpty()result should match confirmed collection's",getConfirmed().isEmpty(),getCollection().isEmpty());
 
         // verify the collections are the same by attempting to match each
         // object in the collection and confirmed collection.  To account for
@@ -291,9 +289,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
             }
             // no match found!
             if (!match) {
-                fail("Collection should not contain a value that the "
-                        + "confirmed collection does not have: " + o + "\nTest: " + getCollection()
-                        + "\nReal: " + getConfirmed());
+                fail("Collection should not contain a value that the " + "confirmed collection does not have: " + o + "\nTest: " + getCollection()+ "\nReal: " + getConfirmed());
             }
         }
 
@@ -301,8 +297,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         for (int i = 0; i < confirmedSize; i++) {
             if (!matched[i]) {
                 // the collection didn't match all the confirmed values
-                fail("Collection should contain all values that are in the confirmed collection"
-                        + "\nTest: " + getCollection() + "\nReal: " + getConfirmed());
+                fail("Collection should contain all values that are in the confirmed collection" + "\nTest: " + getCollection()+ "\nReal: " + getConfirmed());
             }
         }
     }
@@ -1029,7 +1024,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         verify();
         // removed other assertion
         for (final E element : elements) {
-            assertTrue("Full collection should contain added element", getCollection().contains(element));
+            assertTrue("Full collection should contain added element",getCollection().contains(element));
     }
     }
 
@@ -1143,7 +1138,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         resetEmpty();
         elements = getFullElements();
         for (int i = 0; i < elements.length; i++) {
-            assertTrue("Empty collection shouldn't contain element[" + i + "]", !getCollection().contains(elements[i]));
+            assertTrue("Empty collection shouldn't contain element[" + i + "]",!getCollection().contains(elements[i]));
     }
     }
 
@@ -1160,7 +1155,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
 
         elements = getOtherElements();
         for (int i = 0; i < elements.length; i++) {
-            assertTrue("Empty collection shouldn't contain element[" + i + "]", !getCollection().contains(elements[i]));
+            assertTrue("Empty collection shouldn't contain element[" + i + "]",!getCollection().contains(elements[i]));
     }
     }
 
@@ -1185,7 +1180,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         resetFull();
         elements = getFullElements();
         for (int i = 0; i < elements.length; i++) {
-            assertTrue("Full collection should contain element[" + i + "]", getCollection().contains(elements[i]));
+            assertTrue("Full collection should contain element[" + i + "]",getCollection().contains(elements[i]));
     }
     }
 
@@ -1218,14 +1213,14 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         resetFull();
         elements = getOtherElements();
         for (final Object element : elements) {
-            assertTrue("Full collection shouldn't contain element", !getCollection().contains(element));
+            assertTrue("Full collection shouldn't contain element",!getCollection().contains(element));
     }
     }
 
     public void testCollectionContainsAll_1_oe() {
         resetEmpty();
         Collection<E> col = new HashSet<>();
-        assertTrue("Every Collection should contain all elements of an " + "empty Collection.", getCollection().containsAll(col));
+        assertTrue("Every Collection should contain all elements of an " + "empty Collection.",getCollection().containsAll(col));
     }
 
     public void testCollectionContainsAll_2_oe() {
@@ -1233,7 +1228,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         Collection<E> col = new HashSet<>();
         // removed other assertion
         col.addAll(Arrays.asList(getOtherElements()));
-        assertTrue("Empty Collection shouldn't contain all elements of " + "a non-empty Collection.", !getCollection().containsAll(col));
+        assertTrue("Empty Collection shouldn't contain all elements of " + "a non-empty Collection.",!getCollection().containsAll(col));
     }
 
     public void testCollectionContainsAll_3_oe() {
@@ -1246,7 +1241,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         verify();
 
         resetFull();
-        assertTrue("Full collection shouldn't contain other elements", !getCollection().containsAll(col));
+        assertTrue("Full collection shouldn't contain other elements",!getCollection().containsAll(col));
     }
 
     public void testCollectionContainsAll_4_oe() {
@@ -1263,7 +1258,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
 
         col.clear();
         col.addAll(Arrays.asList(getFullElements()));
-        assertTrue("Full collection should containAll full elements", getCollection().containsAll(col));
+        assertTrue("Full collection should containAll full elements",getCollection().containsAll(col));
     }
 
     public void testCollectionContainsAll_5_oe() {
@@ -1288,7 +1283,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         final int max = getFullElements().length == 1 ? 1 :
                 getFullElements().length <= 5 ? getFullElements().length - 1 : 5;
         col = Arrays.asList(getFullElements()).subList(min, max);
-        assertTrue("Full collection should containAll partial full elements", getCollection().containsAll(col));
+        assertTrue("Full collection should containAll partial full elements",getCollection().containsAll(col));
     }
 
     public void testCollectionContainsAll_6_oe() {
@@ -1347,7 +1342,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         col = new ArrayList<>();
         col.addAll(Arrays.asList(getFullElements()));
         col.addAll(Arrays.asList(getFullElements()));
-        assertTrue("Full collection should containAll duplicate full elements", getCollection().containsAll(col));
+        assertTrue("Full collection should containAll duplicate full elements",getCollection().containsAll(col));
     }
 
     public void testCollectionIsEmpty_1_oe() {
@@ -1438,7 +1433,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         it1 = getCollection().iterator();
         for (int i = 0; i < getCollection().size(); i++) {
             final E next = it1.next();
-            assertTrue("Collection should contain element returned by its iterator", getCollection().contains(next));
+            assertTrue("Collection should contain element returned by its iterator",getCollection().contains(next));
     }
     }
 
@@ -1492,7 +1487,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
             }
 
             size--;
-            assertEquals("Collection should shrink by one after iterator.remove", size, getCollection().size());
+            assertEquals("Collection should shrink by one after iterator.remove",size,getCollection().size());
     }
     }
 
@@ -1606,7 +1601,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         final int size = getCollection().size();
         for (final E element : elements) {
             resetFull();
-            assertTrue("Collection should remove extant element: " + element, getCollection().remove(element));
+            assertTrue("Collection should remove extant element: " + element,getCollection().remove(element));
     }
     }
 
@@ -1658,7 +1653,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         }
 
         resetEmpty();
-        assertTrue("Empty collection removeAll should return false for empty input", !getCollection().removeAll(Collections.EMPTY_SET));
+        assertTrue("Empty collection removeAll should return false for empty input",!getCollection().removeAll(Collections.EMPTY_SET));
     }
 
     public void testCollectionRemoveAll_2_oe() {
@@ -1670,7 +1665,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         // removed other assertion
         verify();
 
-        assertTrue("Empty collection removeAll should return false for nonempty input", !getCollection().removeAll(new ArrayList<>(getCollection())));
+        assertTrue("Empty collection removeAll should return false for nonempty input",!getCollection().removeAll(new ArrayList<>(getCollection())));
     }
 
     public void testCollectionRemoveAll_3_oe() {
@@ -1686,7 +1681,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         verify();
 
         resetFull();
-        assertTrue("Full collection removeAll should return false for empty input", !getCollection().removeAll(Collections.EMPTY_SET));
+        assertTrue("Full collection removeAll should return false for empty input",!getCollection().removeAll(Collections.EMPTY_SET));
     }
 
     public void testCollectionRemoveAll_4_oe() {
@@ -1705,7 +1700,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         // removed other assertion
         verify();
 
-        assertTrue("Full collection removeAll should return false for other elements", !getCollection().removeAll(Arrays.asList(getOtherElements())));
+        assertTrue("Full collection removeAll should return false for other elements",!getCollection().removeAll(Arrays.asList(getOtherElements())));
     }
 
     public void testCollectionRemoveAll_5_oe() {
@@ -1727,7 +1722,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         // removed other assertion
         verify();
 
-        assertTrue("Full collection removeAll should return true for full elements", getCollection().removeAll(new HashSet<>(getCollection())));
+        assertTrue("Full collection removeAll should return true for full elements",getCollection().removeAll(new HashSet<>(getCollection())));
     }
 
     public void testCollectionRemoveAll_6_oe() {
@@ -1843,7 +1838,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         }
 
         resetEmpty();
-        assertTrue("Empty collection removeIf should return false for a predicate that returns only false", !getCollection().removeIf(e -> false));
+        assertTrue("Empty collection removeIf should return false for a predicate that returns only false",!getCollection().removeIf(e -> false));
     }
 
     public void testCollectionRemoveIf_2_oe() {
@@ -1855,7 +1850,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         // removed other assertion
         verify();
 
-        assertTrue("Empty collection removeIf should return false for a predicate that returns only true", !getCollection().removeIf(e -> true));
+        assertTrue("Empty collection removeIf should return false for a predicate that returns only true",!getCollection().removeIf(e -> true));
     }
 
     public void testCollectionRemoveIf_3_oe() {
@@ -1871,7 +1866,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         verify();
 
         resetFull();
-        assertTrue("Full collection removeIf should return false for a predicate that returns only false", !getCollection().removeIf(e -> false));
+        assertTrue("Full collection removeIf should return false for a predicate that returns only false",!getCollection().removeIf(e -> false));
     }
 
     public void testCollectionRemoveIf_4_oe() {
@@ -1890,7 +1885,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         // removed other assertion
         verify();
 
-        assertTrue("Full collection removeIf should return true for a predicate that returns only true", getCollection().removeIf(e -> true));
+        assertTrue("Full collection removeIf should return true for a predicate that returns only true",getCollection().removeIf(e -> true));
     }
 
     public void testCollectionRemoveIf_5_oe() {
@@ -2013,7 +2008,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         final List<E> elements = Arrays.asList(getFullElements());
         final List<E> other = Arrays.asList(getOtherElements());
 
-        assertTrue("Empty retainAll() should return false", !getCollection().retainAll(Collections.EMPTY_SET));
+        assertTrue("Empty retainAll()should return false",!getCollection().retainAll(Collections.EMPTY_SET));
     }
 
     public void testCollectionRetainAll_2_oe() {
@@ -2047,7 +2042,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         verify();
 
         resetFull();
-        assertTrue("Collection should change from retainAll empty", getCollection().retainAll(Collections.EMPTY_SET));
+        assertTrue("Collection should change from retainAll empty",getCollection().retainAll(Collections.EMPTY_SET));
     }
 
     public void testCollectionRetainAll_4_oe() {
@@ -2101,7 +2096,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
 
         resetFull();
         int size = getCollection().size();
-        assertTrue("Collection shouldn't change from retainAll elements", !getCollection().retainAll(elements));
+        assertTrue("Collection shouldn't change from retainAll elements",!getCollection().retainAll(elements));
     }
 
     public void testCollectionRetainAll_6_oe() {
@@ -2172,7 +2167,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
             size = getCollection().size();
             final int min = getFullElements().length < 4 ? 0 : 2;
             final int max = getFullElements().length <= 5 ? getFullElements().length - 1 : 5;
-            assertTrue("Collection should changed by partial retainAll", getCollection().retainAll(elements.subList(min, max)));
+            assertTrue("Collection should changed by partial retainAll",getCollection().retainAll(elements.subList(min,max)));
     }
     }
 
@@ -2270,7 +2265,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         resetFull();
         final HashSet<E> set = new HashSet<>(elements);
         size = getCollection().size();
-        assertTrue("Collection shouldn't change from retainAll without " + "duplicate elements", !getCollection().retainAll(set));
+        assertTrue("Collection shouldn't change from retainAll without " + "duplicate elements",!getCollection().retainAll(set));
     }
 
     public void testCollectionRetainAll_10_oe() {
@@ -2323,7 +2318,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         size = getCollection().size();
         // removed other assertion
         verify();
-        assertEquals("Collection size didn't change from nonduplicate " + "retainAll", size, getCollection().size());
+        assertEquals("Collection size didn't change from nonduplicate " + "retainAll",size,getCollection().size());
     }
 
     public void testCollectionSize_1_oe() {
@@ -2341,7 +2336,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
 
     public void testCollectionToArray_1_oe() {
         resetEmpty();
-        assertEquals("Empty Collection should return empty array for toArray", 0, getCollection().toArray().length);
+        assertEquals("Empty Collection should return empty array for toArray",0,getCollection().toArray().length);
     }
 
     public void testCollectionToArray_2_oe() {
@@ -2350,7 +2345,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
 
         resetFull();
         final Object[] array = getCollection().toArray();
-        assertEquals("Full collection toArray should be same size as collection", array.length, getCollection().size());
+        assertEquals("Full collection toArray should be same size as collection",array.length,getCollection().size());
     }
 
     public void testCollectionToArray_3_oe() {
@@ -2361,7 +2356,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         final Object[] array = getCollection().toArray();
         // removed other assertion
         final Object[] confirmedArray = getConfirmed().toArray();
-        assertEquals("length of array from confirmed collection should " + "match the length of the collection's array", confirmedArray.length, array.length);
+        assertEquals("length of array from confirmed collection should " + "match the length of the collection's array",confirmedArray.length,array.length);
     }
 
     public void testCollectionToArray_4_oe() {
@@ -2376,7 +2371,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         final boolean[] matched = new boolean[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            assertTrue("Collection should contain element in toArray", getCollection().contains(array[i]));
+            assertTrue("Collection should contain element in toArray",getCollection().contains(array[i]));
     }
     }
 
@@ -2447,7 +2442,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
             }
         }
         for (final boolean element : matched) {
-            assertEquals("Collection should return all its elements in " + "toArray", true, element);
+            assertEquals("Collection should return all its elements in " + "toArray",true,element);
     }
     }
 
@@ -2494,7 +2489,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
 
         array = getCollection().toArray(new Object[0]);
         a = getCollection().toArray();
-        assertEquals("toArrays should be equal", Arrays.asList(array), Arrays.asList(a));
+        assertEquals("toArrays should be equal",Arrays.asList(array),Arrays.asList(a));
     }
 
     public void testCollectionToArray2_6_oe() {
@@ -2543,7 +2538,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         }
         a = (Object[]) Array.newInstance(cl, 0);
         array = getCollection().toArray(a);
-        assertEquals("toArray(Object[]) should return correct array type", a.getClass(), array.getClass());
+        assertEquals("toArray(Object[])should return correct array type",a.getClass(),array.getClass());
     }
 
     public void testCollectionToArray2_7_oe() {
@@ -2593,7 +2588,7 @@ public abstract class AbstractCollectionTest_OE25Dev<E> extends AbstractObjectTe
         a = (Object[]) Array.newInstance(cl, 0);
         array = getCollection().toArray(a);
         // removed other assertion
-        assertEquals("type-specific toArrays should be equal", Arrays.asList(array), Arrays.asList(getCollection().toArray()));
+        assertEquals("type-specific toArrays should be equal",Arrays.asList(array),Arrays.asList(getCollection().toArray()));
     }
 
     public void testCollectionToString_1_oe() {

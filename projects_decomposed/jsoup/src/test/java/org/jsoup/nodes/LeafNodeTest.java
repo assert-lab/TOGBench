@@ -14,8 +14,7 @@ public class LeafNodeTest {
         // test to make sure we're not setting attributes on all nodes right away
         String body = "<p>One <!-- Two --> Three<![CDATA[Four]]></p>";
         Document doc = Jsoup.parse(body);
-        assertTrue(hasAnyAttributes(doc)); // should have one - the base uri on the doc
-
+        assertTrue(hasAnyAttributes(doc));// should have one - the base uri on the doc 
         Element html = doc.child(0);
         assertFalse(hasAnyAttributes(html));
 

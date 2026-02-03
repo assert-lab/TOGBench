@@ -104,52 +104,52 @@ public class TestMutablePeriod_Basics extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testTest() {
-        assertEquals("2002-06-09T00:00:00.000Z", new Instant(TEST_TIME_NOW).toString());
-        assertEquals("2002-04-05T12:24:00.000Z", new Instant(TEST_TIME1).toString());
-        assertEquals("2003-05-06T14:28:00.000Z", new Instant(TEST_TIME2).toString());
+        assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
+        assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
+        assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
     //-----------------------------------------------------------------------
     public void testGetPeriodType() {
         MutablePeriod test = new MutablePeriod();
-        assertEquals(PeriodType.standard(), test.getPeriodType());
+        assertEquals(PeriodType.standard(),test.getPeriodType());
     }
 
     public void testGetMethods() {
         MutablePeriod test = new MutablePeriod();
-        assertEquals(0, test.getYears());
-        assertEquals(0, test.getMonths());
-        assertEquals(0, test.getDays());
-        assertEquals(0, test.getWeeks());
-        assertEquals(0, test.getDays());
-        assertEquals(0, test.getHours());
-        assertEquals(0, test.getMinutes());
-        assertEquals(0, test.getSeconds());
-        assertEquals(0, test.getMillis());
+        assertEquals(0,test.getYears());
+        assertEquals(0,test.getMonths());
+        assertEquals(0,test.getDays());
+        assertEquals(0,test.getWeeks());
+        assertEquals(0,test.getDays());
+        assertEquals(0,test.getHours());
+        assertEquals(0,test.getMinutes());
+        assertEquals(0,test.getSeconds());
+        assertEquals(0,test.getMillis());
     }
 
     public void testEqualsHashCode() {
         MutablePeriod test1 = new MutablePeriod(123L);
         MutablePeriod test2 = new MutablePeriod(123L);
-        assertEquals(true, test1.equals(test2));
-        assertEquals(true, test2.equals(test1));
-        assertEquals(true, test1.equals(test1));
-        assertEquals(true, test2.equals(test2));
-        assertEquals(true, test1.hashCode() == test2.hashCode());
-        assertEquals(true, test1.hashCode() == test1.hashCode());
-        assertEquals(true, test2.hashCode() == test2.hashCode());
+        assertEquals(true,test1.equals(test2));
+        assertEquals(true,test2.equals(test1));
+        assertEquals(true,test1.equals(test1));
+        assertEquals(true,test2.equals(test2));
+        assertEquals(true,test1.hashCode()== test2.hashCode());
+        assertEquals(true,test1.hashCode()== test1.hashCode());
+        assertEquals(true,test2.hashCode()== test2.hashCode());
         
         MutablePeriod test3 = new MutablePeriod(321L);
-        assertEquals(false, test1.equals(test3));
-        assertEquals(false, test2.equals(test3));
-        assertEquals(false, test3.equals(test1));
-        assertEquals(false, test3.equals(test2));
-        assertEquals(false, test1.hashCode() == test3.hashCode());
-        assertEquals(false, test2.hashCode() == test3.hashCode());
+        assertEquals(false,test1.equals(test3));
+        assertEquals(false,test2.equals(test3));
+        assertEquals(false,test3.equals(test1));
+        assertEquals(false,test3.equals(test2));
+        assertEquals(false,test1.hashCode()== test3.hashCode());
+        assertEquals(false,test2.hashCode()== test3.hashCode());
         
-        assertEquals(false, test1.equals("Hello"));
-        assertEquals(true, test1.equals(new MockMutablePeriod(123L)));
-        assertEquals(false, test1.equals(new Period(123L, PeriodType.dayTime())));
+        assertEquals(false,test1.equals("Hello"));
+        assertEquals(true,test1.equals(new MockMutablePeriod(123L)));
+        assertEquals(false,test1.equals(new Period(123L,PeriodType.dayTime())));
     }
     
     class MockMutablePeriod extends BasePeriod {
@@ -173,7 +173,7 @@ public class TestMutablePeriod_Basics extends TestCase {
         MutablePeriod result = (MutablePeriod) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertEquals(test,result);
     }
 
 //    //-----------------------------------------------------------------------
@@ -190,7 +190,7 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        long added = test.addTo(TEST_TIME_NOW, 1);
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    public void testAddTo2() {
@@ -206,21 +206,21 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        long added = test.addTo(TEST_TIME_NOW, -2);
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    public void testAddTo3() {
 //        long expected = TEST_TIME_NOW;
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        long added = test.addTo(TEST_TIME_NOW, 0);
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    public void testAddTo4() {
 //        long expected = TEST_TIME_NOW + 100L;
 //        MutablePeriod test = new MutablePeriod(100L);
 //        long added = test.addTo(TEST_TIME_NOW, 1);
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    //-----------------------------------------------------------------------
@@ -237,7 +237,7 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        long added = test.addTo(TEST_TIME_NOW, 1, ISOChronology.getInstance());
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    public void testAddToWithChronology2() {
@@ -253,7 +253,7 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        long added = test.addTo(TEST_TIME_NOW, -2, ISOChronology.getInstanceUTC());  // chrono specified so use it
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    public void testAddToWithChronology3() {
@@ -269,7 +269,7 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        long added = test.addTo(TEST_TIME_NOW, -2, null);  // no chrono so use default
-//        assertEquals(expected, added);
+//        assertEquals(expected,added);
 //    }
 //    
 //    //-----------------------------------------------------------------------
@@ -286,8 +286,8 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        DateTime added = test.addTo(new Instant(), 1);  // Instant has no time zone, use default
-//        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(), added.getChronology());
+//        assertEquals(expected,added.getMillis());
+//        assertEquals(ISOChronology.getInstance(),added.getChronology());
 //    }
 //    
 //    public void testAddToRI2() {
@@ -303,8 +303,8 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(new Instant(), -2);  // Instant has no time zone, use default
-//        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(), added.getChronology());
+//        assertEquals(expected,added.getMillis());
+//        assertEquals(ISOChronology.getInstance(),added.getChronology());
 //    }
 //    
 //    public void testAddToRI3() {
@@ -320,8 +320,8 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(new DateTime(ISOChronology.getInstanceUTC()), -2);  // DateTime has UTC time zone
-//        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstanceUTC(), added.getChronology());
+//        assertEquals(expected,added.getMillis());
+//        assertEquals(ISOChronology.getInstanceUTC(),added.getChronology());
 //    }
 //    
 //    public void testAddToRI4() {
@@ -337,8 +337,8 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(new DateTime(PARIS), -2);  // DateTime has PARIS time zone
-//        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(PARIS), added.getChronology());
+//        assertEquals(expected,added.getMillis());
+//        assertEquals(ISOChronology.getInstance(PARIS),added.getChronology());
 //    }
 //    
 //    public void testAddToRI5() {
@@ -354,8 +354,8 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        DateTime added = test.addTo(null, -2);  // null has no time zone, use default
-//        assertEquals(expected, added.getMillis());
-//        assertEquals(ISOChronology.getInstance(), added.getChronology());
+//        assertEquals(expected,added.getMillis());
+//        assertEquals(ISOChronology.getInstance(),added.getChronology());
 //    }
 //    
 //    //-----------------------------------------------------------------------
@@ -373,7 +373,7 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
 //        MutableDateTime mdt = new MutableDateTime();
 //        test.addInto(mdt, 1);
-//        assertEquals(expected, mdt.getMillis());
+//        assertEquals(expected,mdt.getMillis());
 //    }
 //    
 //    public void testAddIntoRWI2() {
@@ -390,7 +390,7 @@ public class TestMutablePeriod_Basics extends TestCase {
 //        MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8, PeriodType.standard());
 //        MutableDateTime mdt = new MutableDateTime();
 //        test.addInto(mdt, -2);  // MutableDateTime has a chronology, use it
-//        assertEquals(expected, mdt.getMillis());
+//        assertEquals(expected,mdt.getMillis());
 //    }
 //    
 //    public void testAddIntoRWI3() {
@@ -404,53 +404,53 @@ public class TestMutablePeriod_Basics extends TestCase {
     //-----------------------------------------------------------------------
     public void testToString() {
         MutablePeriod test = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals("P1Y2M3W4DT5H6M7.008S", test.toString());
+        assertEquals("P1Y2M3W4DT5H6M7.008S",test.toString());
         
         test = new MutablePeriod(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("PT0S", test.toString());
+        assertEquals("PT0S",test.toString());
         
         test = new MutablePeriod(12345L);
-        assertEquals("PT12.345S", test.toString());
+        assertEquals("PT12.345S",test.toString());
     }
 
     //-----------------------------------------------------------------------
     public void testToPeriod() {
         MutablePeriod test = new MutablePeriod(123L);
         Period result = test.toPeriod();
-        assertEquals(test, result);
+        assertEquals(test,result);
     }
 
     public void testToMutablePeriod() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod result = test.toMutablePeriod();
-        assertEquals(test, result);
+        assertEquals(test,result);
     }
 
     //-----------------------------------------------------------------------
 //    public void testToDurationMillisFrom() {
 //        MutablePeriod test = new MutablePeriod(123L);
-//        assertEquals(123L, test.toDurationMillisFrom(0L, null));
+//        assertEquals(123L,test.toDurationMillisFrom(0L,null));
 //    }
 
     public void testToDurationFrom() {
         MutablePeriod test = new MutablePeriod(123L);
-        assertEquals(new Duration(123L), test.toDurationFrom(new Instant(0L)));
+        assertEquals(new Duration(123L),test.toDurationFrom(new Instant(0L)));
     }
 
     //-----------------------------------------------------------------------
     public void testCopy() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod copy = test.copy();
-        assertEquals(test.getPeriodType(), copy.getPeriodType());
-        assertEquals(test, copy);
+        assertEquals(test.getPeriodType(),copy.getPeriodType());
+        assertEquals(test,copy);
     }
 
     //-----------------------------------------------------------------------
     public void testClone() {
         MutablePeriod test = new MutablePeriod(123L);
         MutablePeriod copy = (MutablePeriod) test.clone();
-        assertEquals(test.getPeriodType(), copy.getPeriodType());
-        assertEquals(test, copy);
+        assertEquals(test.getPeriodType(),copy.getPeriodType());
+        assertEquals(test,copy);
     }
     
 }

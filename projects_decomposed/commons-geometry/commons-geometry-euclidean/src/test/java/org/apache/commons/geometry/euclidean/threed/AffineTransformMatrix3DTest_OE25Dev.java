@@ -946,7 +946,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
     void testDeterminant_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(1.0, AffineTransformMatrix3D.of( 1, 0, 0, 10, 0, 1, 0, 11, 0, 0, 1, 12 ).determinant(), EPS);
+        Assertions.assertEquals(1.0,AffineTransformMatrix3D.of(1,0,0,10,0,1,0,11,0,0,1,12).determinant(),EPS);
     }
 
     @Test
@@ -954,7 +954,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(-1.0, AffineTransformMatrix3D.of( -1, 0, 0, 10, 0, 1, 0, 11, 0, 0, 1, 12 ).determinant(), EPS);
+        Assertions.assertEquals(-1.0,AffineTransformMatrix3D.of(-1,0,0,10,0,1,0,11,0,0,1,12).determinant(),EPS);
     }
 
     @Test
@@ -963,7 +963,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(1.0, AffineTransformMatrix3D.of( -1, 0, 0, 10, 0, -1, 0, 11, 0, 0, 1, 12 ).determinant(), EPS);
+        Assertions.assertEquals(1.0,AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,1,12).determinant(),EPS);
     }
 
     @Test
@@ -973,7 +973,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(-1.0, AffineTransformMatrix3D.of( -1, 0, 0, 10, 0, -1, 0, 11, 0, 0, -1, 12 ).determinant(), EPS);
+        Assertions.assertEquals(-1.0,AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,-1,12).determinant(),EPS);
     }
 
     @Test
@@ -984,7 +984,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(49.0, AffineTransformMatrix3D.of( 2, -3, 1, 10, 2, 0, -1, 11, 1, 4, 5, -12 ).determinant(), EPS);
+        Assertions.assertEquals(49.0,AffineTransformMatrix3D.of(2,-3,1,10,2,0,-1,11,1,4,5,-12).determinant(),EPS);
     }
 
     @Test
@@ -996,7 +996,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(0.0, AffineTransformMatrix3D.of( 1, 2, 3, 0, 4, 5, 6, 0, 7, 8, 9, 0 ).determinant(), EPS);
+        Assertions.assertEquals(0.0,AffineTransformMatrix3D.of(1,2,3,0,4,5,6,0,7,8,9,0).determinant(),EPS);
     }
 
     @Test
@@ -1009,7 +1009,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
     void testPreservesOrientation_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertTrue(AffineTransformMatrix3D.of( 1, 0, 0, 10, 0, 1, 0, 11, 0, 0, 1, 12 ).preservesOrientation());
+        Assertions.assertTrue(AffineTransformMatrix3D.of(1,0,0,10,0,1,0,11,0,0,1,12).preservesOrientation());
     }
 
     @Test
@@ -1017,7 +1017,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertTrue(AffineTransformMatrix3D.of( 2, -3, 1, 10, 2, 0, -1, 11, 1, 4, 5, -12 ).preservesOrientation());
+        Assertions.assertTrue(AffineTransformMatrix3D.of(2,-3,1,10,2,0,-1,11,1,4,5,-12).preservesOrientation());
     }
 
     @Test
@@ -1027,7 +1027,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertFalse(AffineTransformMatrix3D.of( -1, 0, 0, 10, 0, 1, 0, 11, 0, 0, 1, 12 ).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix3D.of(-1,0,0,10,0,1,0,11,0,0,1,12).preservesOrientation());
     }
 
     @Test
@@ -1039,7 +1039,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertTrue(AffineTransformMatrix3D.of( -1, 0, 0, 10, 0, -1, 0, 11, 0, 0, 1, 12 ).preservesOrientation());
+        Assertions.assertTrue(AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,1,12).preservesOrientation());
     }
 
     @Test
@@ -1053,7 +1053,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
 
         // removed other assertion
 
-        Assertions.assertFalse(AffineTransformMatrix3D.of( -1, 0, 0, 10, 0, -1, 0, 11, 0, 0, -1, 12 ).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,-1,12).preservesOrientation());
     }
 
     @Test
@@ -1068,7 +1068,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertFalse(AffineTransformMatrix3D.of( 1, 2, 3, 0, 4, 5, 6, 0, 7, 8, 9, 0 ).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix3D.of(1,2,3,0,4,5,6,0,7,8,9,0).preservesOrientation());
     }
 
     @Test
@@ -1463,7 +1463,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         final String result = a.toString();
 
         // assert
-        Assertions.assertEquals( "[ 1.0, 2.0, 3.0, 4.0; " + "5.0, 6.0, 7.0, 8.0; " + "9.0, 10.0, 11.0, 12.0 ]", result);
+        Assertions.assertEquals("[ 1.0,2.0,3.0,4.0;" + "5.0,6.0,7.0,8.0;" + "9.0,10.0,11.0,12.0 ]",result);
     }
 
 }

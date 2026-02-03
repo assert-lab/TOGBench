@@ -524,9 +524,7 @@ public class ObjectUtilsTest {
 
     @Test
     public void testIdentityToStringString() {
-        assertEquals(
-                "java.lang.String@" + Integer.toHexString(System.identityHashCode(FOO)),
-                ObjectUtils.identityToString(FOO));
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode(FOO)),ObjectUtils.identityToString(FOO));
     }
 
     @Test
@@ -640,14 +638,9 @@ public class ObjectUtilsTest {
         assertEquals("baz", ObjectUtils.median("foo", "bar", "baz"));
         assertEquals("baz", ObjectUtils.median("foo", "bar", "baz", "blah"));
         assertEquals("blah", ObjectUtils.median("foo", "bar", "baz", "blah", "wah"));
-        assertEquals(Integer.valueOf(5),
-            ObjectUtils.median(Integer.valueOf(1), Integer.valueOf(5), Integer.valueOf(10)));
-        assertEquals(
-            Integer.valueOf(7),
-            ObjectUtils.median(Integer.valueOf(5), Integer.valueOf(6), Integer.valueOf(7), Integer.valueOf(8),
-                Integer.valueOf(9)));
-        assertEquals(Integer.valueOf(6),
-            ObjectUtils.median(Integer.valueOf(5), Integer.valueOf(6), Integer.valueOf(7), Integer.valueOf(8)));
+        assertEquals(Integer.valueOf(5),ObjectUtils.median(Integer.valueOf(1),Integer.valueOf(5),Integer.valueOf(10)));
+        assertEquals(Integer.valueOf(7),ObjectUtils.median(Integer.valueOf(5),Integer.valueOf(6),Integer.valueOf(7),Integer.valueOf(8),Integer.valueOf(9)));
+        assertEquals(Integer.valueOf(6),ObjectUtils.median(Integer.valueOf(5),Integer.valueOf(6),Integer.valueOf(7),Integer.valueOf(8)));
     }
 
     @Test
@@ -693,8 +686,7 @@ public class ObjectUtilsTest {
         assertNull(ObjectUtils.mode("foo", "bar", "baz"));
         assertNull(ObjectUtils.mode("foo", "bar", "baz", "foo", "bar"));
         assertEquals("foo", ObjectUtils.mode("foo", "bar", "baz", "foo"));
-        assertEquals(Integer.valueOf(9),
-            ObjectUtils.mode("foo", "bar", "baz", Integer.valueOf(9), Integer.valueOf(10), Integer.valueOf(9)));
+        assertEquals(Integer.valueOf(9),ObjectUtils.mode("foo","bar","baz",Integer.valueOf(9),Integer.valueOf(10),Integer.valueOf(9)));
     }
 
     @Test

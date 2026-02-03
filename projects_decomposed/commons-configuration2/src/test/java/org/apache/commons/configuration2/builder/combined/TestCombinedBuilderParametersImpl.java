@@ -68,8 +68,7 @@ public class TestCombinedBuilderParametersImpl {
         final CombinedBuilderParametersImpl clone = params.clone();
         assertEquals("Wrong field value", params.getBasePath(), clone.getBasePath());
         assertNotSame("Parameters object not cloned", params.getDefinitionBuilderParameters(), clone.getDefinitionBuilderParameters());
-        assertEquals("Wrong field value in parameters object", params.getDefinitionBuilderParameters().getParameters().get("systemID"),
-            clone.getDefinitionBuilderParameters().getParameters().get("systemID"));
+        assertEquals("Wrong field value in parameters object",params.getDefinitionBuilderParameters().getParameters().get("systemID"),clone.getDefinitionBuilderParameters().getParameters().get("systemID"));
     }
 
     /**

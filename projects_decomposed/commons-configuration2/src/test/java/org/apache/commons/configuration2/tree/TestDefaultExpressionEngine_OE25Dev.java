@@ -598,7 +598,7 @@ public class TestDefaultExpressionEngine_OE25Dev {
     public void testNodeKeyWithEscapedDelimiters_2_oe() {
         final ImmutableNode node = root.getChildren().get(1);
         // removed other assertion
-        assertEquals("Wrong complex escaped key", "connection..settings.usr..name", engine.nodeKey(node.getChildren().get(0), engine.nodeKey(node, "", handler), handler));
+        assertEquals("Wrong complex escaped key","connection..settings.usr..name",engine.nodeKey(node.getChildren().get(0),engine.nodeKey(node,"",handler),handler));
     }
 
     @Test

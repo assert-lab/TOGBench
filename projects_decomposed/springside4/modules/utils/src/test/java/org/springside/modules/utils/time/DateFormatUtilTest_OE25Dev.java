@@ -77,14 +77,14 @@ public class DateFormatUtilTest_OE25Dev {
 	@Test
 	public void formatWithPattern_1_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
-		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT, date)) .isEqualTo("2016-11-01 12:23:44.000");
+		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date)).isEqualTo("2016-11-01 12:23:44.000");
 	}
 
 	@Test
 	public void formatWithPattern_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		// removed other assertion
-		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT, date.getTime())) .isEqualTo("2016-11-01 12:23:44.000");
+		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date.getTime())).isEqualTo("2016-11-01 12:23:44.000");
 	}
 
 	@Test
@@ -112,7 +112,7 @@ public class DateFormatUtilTest_OE25Dev {
 
 		// removed other assertion
 
-		assertThat(DateFormatUtil.formatDuration(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)) .isEqualTo("52:00:00.000");
+		assertThat(DateFormatUtil.formatDuration(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo("52:00:00.000");
 	}
 
 	@Test
@@ -151,7 +151,7 @@ public class DateFormatUtilTest_OE25Dev {
 
 		// removed other assertion
 
-		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)) .isEqualTo("52:00:00");
+		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo("52:00:00");
 	}
 
 }

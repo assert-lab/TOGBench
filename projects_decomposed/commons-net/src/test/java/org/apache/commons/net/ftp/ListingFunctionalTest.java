@@ -251,8 +251,7 @@ public class ListingFunctionalTest extends TestCase
         client.configure(config);
         final List<FTPFile> files = Arrays.asList(client.listFiles(validPath));
 
-        assertTrue(files.toString(),
-                   findByName(files, validFilename));
+        assertTrue(files.toString(),findByName(files,validFilename));
     }
 
     public void testListFilesWithAutodection()
@@ -262,8 +261,7 @@ public class ListingFunctionalTest extends TestCase
 
         final List<FTPFile> files = Arrays.asList(client.listFiles());
 
-        assertTrue(files.toString(),
-                   findByName(files, validFilename));
+        assertTrue(files.toString(),findByName(files,validFilename));
     }
 
     /*
@@ -302,8 +300,7 @@ public class ListingFunctionalTest extends TestCase
     {
         final List<FTPFile> files = Arrays.asList(client.listFiles(validPath));
 
-        assertTrue(files.toString(),
-                   findByName(files, validFilename));
+        assertTrue(files.toString(),findByName(files,validFilename));
     }
 
     /*

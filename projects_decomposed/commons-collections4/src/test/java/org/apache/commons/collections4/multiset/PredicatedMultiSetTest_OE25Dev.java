@@ -168,7 +168,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         // removed other assertion
         // removed other assertion
         set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
-        assertTrue("Unique set does not contain anymore the first element", set.contains(els[0]));
+        assertTrue("Unique set does not contain anymore the first element",set.contains(els[0]));
     }
 
     public void testIllegalAdd_2_oe() {
@@ -180,7 +180,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         } catch (final IllegalArgumentException e) {
             // expected
         }
-        assertTrue("Collection shouldn't contain illegal element", !multiset.contains(i));
+        assertTrue("Collection shouldn't contain illegal element",!multiset.contains(i));
     }
 
 }

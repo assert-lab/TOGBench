@@ -17,7 +17,7 @@ pool_3_15,commons-pool2,TestKeyedObjectPool,testBaseAddObject_15_oe,src/test/jav
 pool_3_16,commons-pool2,TestKeyedObjectPool,testBaseAddObject_16_oe,src/test/java/org/apache/commons/pool2/TestKeyedObjectPool.java,,,,assert,unknown,standard,assertEquals
 pool_3_17,commons-pool2,TestKeyedObjectPool,testBaseAddObject_17_oe,src/test/java/org/apache/commons/pool2/TestKeyedObjectPool.java,,,,assert,unknown,standard,assertEquals
 pool_12_2,commons-pool2,TestKeyedObjectPool,testKPOFBorrowObjectUsages_2_oe,src/test/java/org/apache/commons/pool2/TestKeyedObjectPool.java,,,,assert,unknown,standard,fail
-pool_14_8,commons-pool2,TestKeyedObjectPool,testKPOFReturnObjectUsages_8_oe,src/test/java/org/apache/commons/pool2/TestKeyedObjectPool.java,,,,assert,unknown,standard,fail
+pool_14_7,commons-pool2,TestKeyedObjectPool,testKPOFReturnObjectUsages_7_oe,src/test/java/org/apache/commons/pool2/TestKeyedObjectPool.java,,,,assert,unknown,standard,fail
 pool_17_7,commons-pool2,TestPoolUtils,testCheckMinIdleKeyedObjectPool_7_oe,src/test/java/org/apache/commons/pool2/TestPoolUtils.java,,,,assert,unknown,standard,assertEquals
 pool_18_1,commons-pool2,TestPoolUtils,testCheckMinIdleKeyedObjectPoolKeys_1_oe,src/test/java/org/apache/commons/pool2/TestPoolUtils.java,,,,assert,unknown,standard,assertEquals
 pool_20_5,commons-pool2,TestPoolUtils,testCheckMinIdleObjectPool_5_oe,src/test/java/org/apache/commons/pool2/TestPoolUtils.java,,,,assert,unknown,standard,assertEquals

@@ -451,7 +451,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // then
         // removed other assertion
         // removed other assertion
-        assertTrue(numRequestCustomizer.get() == 1); // request customizer must be always invoked.;
+        assertTrue(numRequestCustomizer.get()== 1);// request customizer must be always invoked. assertTrue(numStarted.get()== expectedStarted);
     }
 
     @Test(dataProvider = "second")
@@ -505,7 +505,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(numStarted.get() == expectedStarted);
+        assertTrue(numOk.get() == expectedOk);
     }
 
     @Test(dataProvider = "second")
@@ -560,7 +560,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(numOk.get() == expectedOk);
+        assertTrue(numFailed.get() == expectedFailed);
     }
 
     @Test(dataProvider = "second")
@@ -616,7 +616,18 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue(numFailed.get() == expectedFailed);
+
+        // try with non-blocking call
+        numStarted.set(0);
+        numOk.set(0);
+        numFailed.set(0);
+        val clonedCall = call.clone();
+
+        // when
+        clonedCall.enqueue(null);
+
+        // then
+        assertTrue(clonedCall.isExecuted());
     }
 
     @Test(dataProvider = "second")
@@ -672,7 +683,6 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // try with non-blocking call
         numStarted.set(0);
@@ -684,7 +694,8 @@ public class AsyncHttpClientCallTest_OE25Dev {
         clonedCall.enqueue(null);
 
         // then
-        assertTrue(clonedCall.isExecuted());
+        // removed other assertion
+        Assert.assertFalse(clonedCall.isCanceled());
     }
 
     @Test(dataProvider = "second")
@@ -740,7 +751,6 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // try with non-blocking call
         numStarted.set(0);
@@ -753,7 +763,8 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         // then
         // removed other assertion
-        Assert.assertFalse(clonedCall.isCanceled());
+        // removed other assertion
+        assertTrue(numRequestCustomizer.get()== 2);// request customizer must be always invoked. assertTrue(numStarted.get()== expectedStarted);
     }
 
     @Test(dataProvider = "second")
@@ -809,7 +820,6 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // try with non-blocking call
         numStarted.set(0);
@@ -823,7 +833,8 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // then
         // removed other assertion
         // removed other assertion
-        assertTrue(numRequestCustomizer.get() == 2); // request customizer must be always invoked.;
+        // removed other assertion
+        assertTrue(numOk.get() == expectedOk);
     }
 
     @Test(dataProvider = "second")
@@ -879,7 +890,6 @@ public class AsyncHttpClientCallTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
 
         // try with non-blocking call
         numStarted.set(0);
@@ -891,150 +901,6 @@ public class AsyncHttpClientCallTest_OE25Dev {
         clonedCall.enqueue(null);
 
         // then
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(numStarted.get() == expectedStarted);
-    }
-
-    @Test(dataProvider = "second")
-    void shouldInvokeConsumersOnEachExecution_13_oe(Consumer<AsyncCompletionHandler<?>> handlerConsumer,
-                                              int expectedStarted,
-                                              int expectedOk,
-                                              int expectedFailed) {
-        // given
-
-        // counters
-        val numStarted = new AtomicInteger();
-        val numOk = new AtomicInteger();
-        val numFailed = new AtomicInteger();
-        val numRequestCustomizer = new AtomicInteger();
-
-        // prepare http client mock
-        this.httpClient = mock(AsyncHttpClient.class);
-
-        val mockRequest = mock(org.asynchttpclient.Request.class);
-        when(mockRequest.getHeaders()).thenReturn(EmptyHttpHeaders.INSTANCE);
-
-        val brb = new BoundRequestBuilder(httpClient, mockRequest);
-        when(httpClient.prepareRequest((org.asynchttpclient.RequestBuilder) any())).thenReturn(brb);
-
-        when(httpClient.executeRequest((org.asynchttpclient.Request) any(), any())).then(invocationOnMock -> {
-            @SuppressWarnings("rawtypes")
-            AsyncCompletionHandler<?> handler = invocationOnMock.getArgument(1);
-            handlerConsumer.accept(handler);
-            return null;
-        });
-
-        // create call instance
-        val call = AsyncHttpClientCall.builder()
-                .httpClientSupplier(httpClientSupplier)
-                .request(REQUEST)
-                .onRequestStart(e -> numStarted.incrementAndGet())
-                .onRequestFailure(t -> numFailed.incrementAndGet())
-                .onRequestSuccess(r -> numOk.incrementAndGet())
-                .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
-                .build();
-
-        // when
-        // removed other assertion
-        // removed other assertion
-        try {
-            call.execute();
-        } catch (Exception e) {
-        }
-
-        // then
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // try with non-blocking call
-        numStarted.set(0);
-        numOk.set(0);
-        numFailed.set(0);
-        val clonedCall = call.clone();
-
-        // when
-        clonedCall.enqueue(null);
-
-        // then
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(numOk.get() == expectedOk);
-    }
-
-    @Test(dataProvider = "second")
-    void shouldInvokeConsumersOnEachExecution_14_oe(Consumer<AsyncCompletionHandler<?>> handlerConsumer,
-                                              int expectedStarted,
-                                              int expectedOk,
-                                              int expectedFailed) {
-        // given
-
-        // counters
-        val numStarted = new AtomicInteger();
-        val numOk = new AtomicInteger();
-        val numFailed = new AtomicInteger();
-        val numRequestCustomizer = new AtomicInteger();
-
-        // prepare http client mock
-        this.httpClient = mock(AsyncHttpClient.class);
-
-        val mockRequest = mock(org.asynchttpclient.Request.class);
-        when(mockRequest.getHeaders()).thenReturn(EmptyHttpHeaders.INSTANCE);
-
-        val brb = new BoundRequestBuilder(httpClient, mockRequest);
-        when(httpClient.prepareRequest((org.asynchttpclient.RequestBuilder) any())).thenReturn(brb);
-
-        when(httpClient.executeRequest((org.asynchttpclient.Request) any(), any())).then(invocationOnMock -> {
-            @SuppressWarnings("rawtypes")
-            AsyncCompletionHandler<?> handler = invocationOnMock.getArgument(1);
-            handlerConsumer.accept(handler);
-            return null;
-        });
-
-        // create call instance
-        val call = AsyncHttpClientCall.builder()
-                .httpClientSupplier(httpClientSupplier)
-                .request(REQUEST)
-                .onRequestStart(e -> numStarted.incrementAndGet())
-                .onRequestFailure(t -> numFailed.incrementAndGet())
-                .onRequestSuccess(r -> numOk.incrementAndGet())
-                .requestCustomizer(rb -> numRequestCustomizer.incrementAndGet())
-                .build();
-
-        // when
-        // removed other assertion
-        // removed other assertion
-        try {
-            call.execute();
-        } catch (Exception e) {
-        }
-
-        // then
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // try with non-blocking call
-        numStarted.set(0);
-        numOk.set(0);
-        numFailed.set(0);
-        val clonedCall = call.clone();
-
-        // when
-        clonedCall.enqueue(null);
-
-        // then
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1147,7 +1013,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
 
         org.asynchttpclient.Request ahcRequest = capture.getValue();
 
-        assertTrue(ahcRequest.getHeaders().containsValue("accept", "application/vnd.hal+json", true), "Accept header not found");
+        assertTrue(ahcRequest.getHeaders().containsValue("accept","application/vnd.hal+json",true),"Accept header not found");
     }
 
     @Test
@@ -1165,7 +1031,7 @@ public class AsyncHttpClientCallTest_OE25Dev {
         org.asynchttpclient.Request ahcRequest = capture.getValue();
 
         // removed other assertion
-        assertEquals(ahcRequest.getHeaders().get("content-type"), "application/json", "Content-Type header not found");
+        assertEquals(ahcRequest.getHeaders().get("content-type"),"application/json","Content-Type header not found");
     }
 
     @Test

@@ -236,8 +236,7 @@ class Line3DTest {
         final Vector3D u = l.getDirection().orthogonal();
         final Vector3D v = l.getDirection().cross(u);
         for (double alpha = 0; alpha < 2 * Math.PI; alpha += 0.3) {
-            Assertions.assertFalse(l.contains(p1.add(Vector3D.Sum.create().addScaled(Math.cos(alpha), u).addScaled(
-                    Math.sin(alpha), v).get())));
+            Assertions.assertFalse(l.contains(p1.add(Vector3D.Sum.create().addScaled(Math.cos(alpha),u).addScaled(Math.sin(alpha),v).get())));
         }
     }
 
@@ -261,53 +260,25 @@ class Line3DTest {
     @Test
     void testLineDistance() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
-        Assertions.assertEquals(1.0,
-                            l.distance(Lines3D.fromPoints(Vector3D.of(1, 0, 1), Vector3D.of(1, 0, 2), TEST_PRECISION)),
-                            1.0e-10);
-        Assertions.assertEquals(0.5,
-                            l.distance(Lines3D.fromPoints(Vector3D.of(-0.5, 0, 0), Vector3D.of(-0.5, -1, -1), TEST_PRECISION)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.distance(l),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.distance(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(0, -5, -5), TEST_PRECISION)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.distance(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(0, -3, -4), TEST_PRECISION)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.distance(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(1, -4, -4), TEST_PRECISION)),
-                            1.0e-10);
-        Assertions.assertEquals(Math.sqrt(8),
-                            l.distance(Lines3D.fromPoints(Vector3D.of(0, -4, 0), Vector3D.of(1, -4, 0), TEST_PRECISION)),
-                            1.0e-10);
+        Assertions.assertEquals(1.0,l.distance(Lines3D.fromPoints(Vector3D.of(1,0,1),Vector3D.of(1,0,2),TEST_PRECISION)),1.0e-10);
+        Assertions.assertEquals(0.5,l.distance(Lines3D.fromPoints(Vector3D.of(-0.5,0,0),Vector3D.of(-0.5,-1,-1),TEST_PRECISION)),1.0e-10);
+        Assertions.assertEquals(0.0,l.distance(l),1.0e-10);
+        Assertions.assertEquals(0.0,l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-5,-5),TEST_PRECISION)),1.0e-10);
+        Assertions.assertEquals(0.0,l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-3,-4),TEST_PRECISION)),1.0e-10);
+        Assertions.assertEquals(0.0,l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(1,-4,-4),TEST_PRECISION)),1.0e-10);
+        Assertions.assertEquals(Math.sqrt(8),l.distance(Lines3D.fromPoints(Vector3D.of(0,-4,0),Vector3D.of(1,-4,0),TEST_PRECISION)),1.0e-10);
     }
 
     @Test
     void testClosest() {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
-        Assertions.assertEquals(0.0,
-                            l.closest(Lines3D.fromPoints(Vector3D.of(1, 0, 1), Vector3D.of(1, 0, 2), TEST_PRECISION)).distance(Vector3D.of(0, 0, 0)),
-                            1.0e-10);
-        Assertions.assertEquals(0.5,
-                            l.closest(Lines3D.fromPoints(Vector3D.of(-0.5, 0, 0), Vector3D.of(-0.5, -1, -1), TEST_PRECISION)).distance(Vector3D.of(-0.5, 0, 0)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.closest(l).distance(Vector3D.of(0, 0, 0)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.closest(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(0, -5, -5), TEST_PRECISION)).distance(Vector3D.of(0, 0, 0)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.closest(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(0, -3, -4), TEST_PRECISION)).distance(Vector3D.of(0, -4, -4)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.closest(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(1, -4, -4), TEST_PRECISION)).distance(Vector3D.of(0, -4, -4)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.closest(Lines3D.fromPoints(Vector3D.of(0, -4, 0), Vector3D.of(1, -4, 0), TEST_PRECISION)).distance(Vector3D.of(0, -2, -2)),
-                            1.0e-10);
+        Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(1,0,1),Vector3D.of(1,0,2),TEST_PRECISION)).distance(Vector3D.of(0,0,0)),1.0e-10);
+        Assertions.assertEquals(0.5,l.closest(Lines3D.fromPoints(Vector3D.of(-0.5,0,0),Vector3D.of(-0.5,-1,-1),TEST_PRECISION)).distance(Vector3D.of(-0.5,0,0)),1.0e-10);
+        Assertions.assertEquals(0.0,l.closest(l).distance(Vector3D.of(0,0,0)),1.0e-10);
+        Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-5,-5),TEST_PRECISION)).distance(Vector3D.of(0,0,0)),1.0e-10);
+        Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-3,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
+        Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(1,-4,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
+        Assertions.assertEquals(0.0,l.closest(Lines3D.fromPoints(Vector3D.of(0,-4,0),Vector3D.of(1,-4,0),TEST_PRECISION)).distance(Vector3D.of(0,-2,-2)),1.0e-10);
     }
 
     @Test
@@ -315,18 +286,10 @@ class Line3DTest {
         final Line3D l = Lines3D.fromPoints(Vector3D.of(0, 1, 1), Vector3D.of(0, 2, 2), TEST_PRECISION);
         Assertions.assertNull(l.intersection(Lines3D.fromPoints(Vector3D.of(1, 0, 1), Vector3D.of(1, 0, 2), TEST_PRECISION)));
         Assertions.assertNull(l.intersection(Lines3D.fromPoints(Vector3D.of(-0.5, 0, 0), Vector3D.of(-0.5, -1, -1), TEST_PRECISION)));
-        Assertions.assertEquals(0.0,
-                            l.intersection(l).distance(Vector3D.of(0, 0, 0)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.intersection(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(0, -5, -5), TEST_PRECISION)).distance(Vector3D.of(0, 0, 0)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.intersection(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(0, -3, -4), TEST_PRECISION)).distance(Vector3D.of(0, -4, -4)),
-                            1.0e-10);
-        Assertions.assertEquals(0.0,
-                            l.intersection(Lines3D.fromPoints(Vector3D.of(0, -4, -4), Vector3D.of(1, -4, -4), TEST_PRECISION)).distance(Vector3D.of(0, -4, -4)),
-                            1.0e-10);
+        Assertions.assertEquals(0.0,l.intersection(l).distance(Vector3D.of(0,0,0)),1.0e-10);
+        Assertions.assertEquals(0.0,l.intersection(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-5,-5),TEST_PRECISION)).distance(Vector3D.of(0,0,0)),1.0e-10);
+        Assertions.assertEquals(0.0,l.intersection(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(0,-3,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
+        Assertions.assertEquals(0.0,l.intersection(Lines3D.fromPoints(Vector3D.of(0,-4,-4),Vector3D.of(1,-4,-4),TEST_PRECISION)).distance(Vector3D.of(0,-4,-4)),1.0e-10);
         Assertions.assertNull(l.intersection(Lines3D.fromPoints(Vector3D.of(0, -4, 0), Vector3D.of(1, -4, 0), TEST_PRECISION)));
     }
 

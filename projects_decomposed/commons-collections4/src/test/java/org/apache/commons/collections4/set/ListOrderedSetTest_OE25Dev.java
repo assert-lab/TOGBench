@@ -145,7 +145,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         }
 
         for (int i = 0; i < 10; i += 2) {
-            assertTrue("Must be able to remove int", set.remove(Integer.toString(i)));
+            assertTrue("Must be able to remove int",set.remove(Integer.toString(i)));
     }
     }
 
@@ -163,7 +163,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
         it = set.iterator();
         for (int i = 1; i < 10; i += 2) {
-            assertEquals("Sequence is wrong after remove ", Integer.toString(i), it.next());
+            assertEquals("Sequence is wrong after remove ",Integer.toString(i),it.next());
     }
     }
 

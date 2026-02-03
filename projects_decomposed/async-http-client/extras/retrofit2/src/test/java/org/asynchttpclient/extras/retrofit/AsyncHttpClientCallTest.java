@@ -128,8 +128,7 @@ public class AsyncHttpClientCallTest {
         // then
         assertTrue(call.isExecuted());
         Assert.assertFalse(call.isCanceled());
-        assertTrue(numRequestCustomizer.get() == 1); // request customizer must be always invoked.
-        assertTrue(numStarted.get() == expectedStarted);
+        assertTrue(numRequestCustomizer.get()== 1);// request customizer must be always invoked. assertTrue(numStarted.get()== expectedStarted);
         assertTrue(numOk.get() == expectedOk);
         assertTrue(numFailed.get() == expectedFailed);
 
@@ -145,8 +144,7 @@ public class AsyncHttpClientCallTest {
         // then
         assertTrue(clonedCall.isExecuted());
         Assert.assertFalse(clonedCall.isCanceled());
-        assertTrue(numRequestCustomizer.get() == 2); // request customizer must be always invoked.
-        assertTrue(numStarted.get() == expectedStarted);
+        assertTrue(numRequestCustomizer.get()== 2);// request customizer must be always invoked. assertTrue(numStarted.get()== expectedStarted);
         assertTrue(numOk.get() == expectedOk);
         assertTrue(numFailed.get() == expectedFailed);
     }
@@ -260,10 +258,8 @@ public class AsyncHttpClientCallTest {
 
         org.asynchttpclient.Request ahcRequest = capture.getValue();
 
-        assertTrue(ahcRequest.getHeaders().containsValue("accept", "application/vnd.hal+json", true),
-                "Accept header not found");
-        assertEquals(ahcRequest.getHeaders().get("content-type"), "application/json",
-                "Content-Type header not found");
+        assertTrue(ahcRequest.getHeaders().containsValue("accept","application/vnd.hal+json",true),"Accept header not found");
+        assertEquals(ahcRequest.getHeaders().get("content-type"),"application/json","Content-Type header not found");
     }
 
     @Test

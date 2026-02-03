@@ -91,8 +91,7 @@ public class RecursiveToStringStyleTest {
         p.job.title = "Manager";
         final String pBaseStr = p.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(p));
         final String pJobStr  = p.job.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(p.job));
-        assertEquals(pBaseStr + "[age=33,job=" + pJobStr + "[title=Manager],name=John Doe,smoker=false]",
-                     new ReflectionToStringBuilder(p, new RecursiveToStringStyle()).toString());
+        assertEquals(pBaseStr + "[age=33,job=" + pJobStr + "[title=Manager],name=John Doe,smoker=false]",new ReflectionToStringBuilder(p,new RecursiveToStringStyle()).toString());
     }
 
     @Test

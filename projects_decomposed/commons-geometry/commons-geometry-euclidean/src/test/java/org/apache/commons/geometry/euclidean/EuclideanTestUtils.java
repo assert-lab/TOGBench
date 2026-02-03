@@ -222,8 +222,7 @@ public final class EuclideanTestUtils {
                 actualVertex = actual.get((i + offset) % actual.size());
 
                 if (!expectedVertex.eq(actualVertex, precision)) {
-                    Assertions.fail("Unexpected vertex at index " + i + ": expected " + expectedVertex +
-                            " but was " + actualVertex);
+                    Assertions.fail("Unexpected vertex at index " + i + ": expected " + expectedVertex + " but was " + actualVertex);
                 }
             }
         }

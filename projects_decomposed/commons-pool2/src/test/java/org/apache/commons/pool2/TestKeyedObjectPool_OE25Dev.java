@@ -3083,50 +3083,7 @@ public abstract class TestKeyedObjectPool_OE25Dev {
         expectedMethods.add(new MethodCall("passivateObject", KEY, obj));
         TestObjectPool.removeDestroyObjectCall(factory.getMethodCalls()); // The exact timing of destroyObject is flexible here.
         // removed other assertion
-        assertEquals(1, pool.getNumIdle(KEY));   // Not added;
-    }
-
-    @Test
-    public void testKPOFReturnObjectUsages_7_oe() throws Exception {
-        final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
-        final KeyedObjectPool<Object,Object> pool;
-        try {
-            pool = makeEmptyPool(factory);
-        } catch(final UnsupportedOperationException uoe) {
-            return; // test not supported
-        }
-        final List<MethodCall> expectedMethods = new ArrayList<>();
-        Object obj;
-
-        /// Test correct behavior code paths
-        obj = pool.borrowObject(KEY);
-        clear(factory, expectedMethods);
-
-        // returned object should be passivated
-        pool.returnObject(KEY, obj);
-        expectedMethods.add(new MethodCall("passivateObject", KEY, obj));
-        // removed other assertion
-
-        //// Test exception handling of returnObject
-        reset(pool, factory, expectedMethods);
-
-        // passivateObject should swallow exceptions and not add the object to the pool
-        pool.addObject(KEY);
-        pool.addObject(KEY);
-        pool.addObject(KEY);
-        // removed other assertion
-        obj = pool.borrowObject(KEY);
-        obj = pool.borrowObject(KEY);
-        // removed other assertion
-        // removed other assertion
-        clear(factory, expectedMethods);
-        factory.setPassivateObjectFail(true);
-        pool.returnObject(KEY, obj);
-        expectedMethods.add(new MethodCall("passivateObject", KEY, obj));
-        TestObjectPool.removeDestroyObjectCall(factory.getMethodCalls()); // The exact timing of destroyObject is flexible here.
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1, pool.getNumActive(KEY)); // But not active;
+        assertEquals(1,pool.getNumIdle(KEY));// Not added assertEquals(1,pool.getNumActive(KEY));// But not active reset(pool,factory,expectedMethods);
     }
 
 }

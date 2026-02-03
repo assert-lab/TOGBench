@@ -440,8 +440,7 @@ class CircleTest {
 
     private static void checkContains(final Circle circle, final boolean contains, final Vector2D... pts) {
         for (final Vector2D pt : pts) {
-            Assertions.assertEquals(contains, circle.contains(pt),
-                    "Expected circle to " + (contains ? "" : "not") + "contain point " + pt);
+            Assertions.assertEquals(contains,circle.contains(pt),"Expected circle to " +(contains ? "" : "not")+ "contain point " + pt);
         }
     }
 

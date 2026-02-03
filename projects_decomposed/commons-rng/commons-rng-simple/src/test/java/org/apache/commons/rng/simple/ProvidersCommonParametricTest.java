@@ -144,8 +144,7 @@ class ProvidersCommonParametricTest {
             ++seedCount;
             if (originalSource.isNativeSeed(s)) {
                 Assertions.assertNotNull(s, "Identified native seed is null");
-                Assertions.assertEquals(s.getClass(), originalSeed.getClass(),
-                    "Incorrect identification of native seed type");
+                Assertions.assertEquals(s.getClass(),originalSeed.getClass(),"Incorrect identification of native seed type");
             } else {
                 ++nonNativeSeedCount;
             }
@@ -317,8 +316,7 @@ class ProvidersCommonParametricTest {
     @MethodSource("getProvidersTestData")
     void testUnrestorableToString(ProvidersList.Data data) {
         final UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
-        Assertions.assertEquals(generator.toString(),
-                                RandomSource.unrestorable(generator).toString());
+        Assertions.assertEquals(generator.toString(),RandomSource.unrestorable(generator).toString());
     }
 
     @ParameterizedTest
@@ -327,12 +325,8 @@ class ProvidersCommonParametricTest {
         final RandomSource originalSource = data.getSource();
         final Object[] originalArgs = data.getArgs();
         final UniformRandomProvider rng = originalSource.create(null, originalArgs);
-        Assertions.assertEquals(rng instanceof JumpableUniformRandomProvider,
-                                originalSource.isJumpable(),
-                                "isJumpable");
-        Assertions.assertEquals(rng instanceof LongJumpableUniformRandomProvider,
-                                originalSource.isLongJumpable(),
-                                "isLongJumpable");
+        Assertions.assertEquals(rng instanceof JumpableUniformRandomProvider,originalSource.isJumpable(),"isJumpable");
+        Assertions.assertEquals(rng instanceof LongJumpableUniformRandomProvider,originalSource.isLongJumpable(),"isLongJumpable");
     }
 
     ///// Support methods below.
@@ -483,8 +477,7 @@ class ProvidersCommonParametricTest {
         // 12    0.00190
 
         if (numFailures > 11) { // Test will fail with 0.5% probability
-            Assertions.fail(generator + ": Too many failures for n = " + n +
-                            " (" + numFailures + " out of " + numTests + " tests failed)");
+            Assertions.fail(generator + ": Too many failures for n = " + n + "(" + numFailures + " out of " + numTests + " tests failed)");
         }
     }
 

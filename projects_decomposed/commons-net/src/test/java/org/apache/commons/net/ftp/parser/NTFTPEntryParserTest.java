@@ -127,17 +127,14 @@ public class NTFTPEntryParserTest extends CompositeFTPParseTestFramework
     {
         FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
         assertNotNull("Could not parse entry.", dir);
-        assertEquals("Thu Dec 05 17:03:00 1996",
-                     df.format(dir.getTimestamp().getTime()));
-        assertTrue("Should have been a directory.",
-                   dir.isDirectory());
+        assertEquals("Thu Dec 05 17:03:00 1996",df.format(dir.getTimestamp().getTime()));
+        assertTrue("Should have been a directory.",dir.isDirectory());
         assertEquals("absoft2", dir.getName());
         assertEquals(0, dir.getSize());
 
         dir = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123456");
         assertNotNull("Could not parse entry.", dir);
-        assertTrue("Should have been a directory.",
-                dir.isDirectory());
+        assertTrue("Should have been a directory.",dir.isDirectory());
         assertEquals("123456", dir.getName());
         assertEquals(0, dir.getSize());
 
@@ -185,10 +182,8 @@ public class NTFTPEntryParserTest extends CompositeFTPParseTestFramework
     {
         FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
         assertNotNull("Could not parse entry.", f);
-        assertEquals("Thu May 22 00:08:00 1997",
-                     df.format(f.getTimestamp().getTime()));
-        assertTrue("Should have been a file.",
-                   f.isFile());
+        assertEquals("Thu May 22 00:08:00 1997",df.format(f.getTimestamp().getTime()));
+        assertTrue("Should have been a file.",f.isFile());
         assertEquals("AUTOEXEC.BAK", f.getName());
         assertEquals(5000000000L, f.getSize());
 
@@ -201,8 +196,7 @@ public class NTFTPEntryParserTest extends CompositeFTPParseTestFramework
         final Calendar cal = Calendar.getInstance();
         cal.setTime(f.getTimestamp().getTime());
         assertEquals("hour", 3, cal.get(Calendar.HOUR));
-        assertTrue("Should have been a file.",
-                f.isFile());
+        assertTrue("Should have been a file.",f.isFile());
         assertEquals(17707, f.getSize());
     }
 
@@ -212,8 +206,7 @@ public class NTFTPEntryParserTest extends CompositeFTPParseTestFramework
     {
         if (test.indexOf("<DIR>") >= 0)
         {
-                    assertEquals("directory.type",
-                            FTPFile.DIRECTORY_TYPE, f.getType());
+                    assertEquals("directory.type",FTPFile.DIRECTORY_TYPE,f.getType());
         }
     }
 

@@ -62,7 +62,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a", HttpRequest.encode("http://google.com/a"));
+    assertEquals("http://google.com/a",HttpRequest.encode("http://google.com/a"));
   }
 
   @Test
@@ -73,7 +73,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a/", HttpRequest.encode("http://google.com/a/"));
+    assertEquals("http://google.com/a/",HttpRequest.encode("http://google.com/a/"));
   }
 
   @Test
@@ -86,7 +86,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a/b", HttpRequest.encode("http://google.com/a/b"));
+    assertEquals("http://google.com/a/b",HttpRequest.encode("http://google.com/a/b"));
   }
 
   @Test
@@ -101,7 +101,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a?", HttpRequest.encode("http://google.com/a?"));
+    assertEquals("http://google.com/a?",HttpRequest.encode("http://google.com/a?"));
   }
 
   @Test
@@ -118,7 +118,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a?b=c", HttpRequest.encode("http://google.com/a?b=c"));
+    assertEquals("http://google.com/a?b=c",HttpRequest.encode("http://google.com/a?b=c"));
   }
 
   @Test
@@ -137,7 +137,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a?b=c%20d", HttpRequest.encode("http://google.com/a?b=c d"));
+    assertEquals("http://google.com/a?b=c%20d",HttpRequest.encode("http://google.com/a?b=c d"));
   }
 
   @Test
@@ -158,7 +158,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a%20b", HttpRequest.encode("http://google.com/a b"));
+    assertEquals("http://google.com/a%20b",HttpRequest.encode("http://google.com/a b"));
   }
 
   @Test
@@ -181,7 +181,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a.b", HttpRequest.encode("http://google.com/a.b"));
+    assertEquals("http://google.com/a.b",HttpRequest.encode("http://google.com/a.b"));
   }
 
   @Test
@@ -206,7 +206,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/%E2%9C%93?a=b", HttpRequest.encode("http://google.com/\u2713?a=b"));
+    assertEquals("http://google.com/%E2%9C%93?a=b",HttpRequest.encode("http://google.com/\u2713?a=b"));
   }
 
   @Test
@@ -233,7 +233,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a%5Eb", HttpRequest.encode("http://google.com/a^b"));
+    assertEquals("http://google.com/a%5Eb",HttpRequest.encode("http://google.com/a^b"));
   }
 
   @Test
@@ -262,7 +262,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/%25", HttpRequest.encode("http://google.com/%"));
+    assertEquals("http://google.com/%25",HttpRequest.encode("http://google.com/%"));
   }
 
   @Test
@@ -293,7 +293,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a.b?c=d.e", HttpRequest.encode("http://google.com/a.b?c=d.e"));
+    assertEquals("http://google.com/a.b?c=d.e",HttpRequest.encode("http://google.com/a.b?c=d.e"));
   }
 
   @Test
@@ -326,7 +326,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a.b?c=d/e", HttpRequest.encode("http://google.com/a.b?c=d/e"));
+    assertEquals("http://google.com/a.b?c=d/e",HttpRequest.encode("http://google.com/a.b?c=d/e"));
   }
 
   @Test
@@ -361,7 +361,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a?%E2%98%91", HttpRequest.encode("http://google.com/a?\u2611"));
+    assertEquals("http://google.com/a?%E2%98%91",HttpRequest.encode("http://google.com/a?\u2611"));
   }
 
   @Test
@@ -398,7 +398,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a?b=%E2%98%90", HttpRequest.encode("http://google.com/a?b=\u2610"));
+    assertEquals("http://google.com/a?b=%E2%98%90",HttpRequest.encode("http://google.com/a?b=\u2610"));
   }
 
   @Test
@@ -437,7 +437,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/a?b=c%2Bd&e=f%2Bg", HttpRequest.encode("http://google.com/a?b=c+d&e=f+g"));
+    assertEquals("http://google.com/a?b=c%2Bd&e=f%2Bg",HttpRequest.encode("http://google.com/a?b=c+d&e=f+g"));
   }
 
   @Test
@@ -478,7 +478,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/+", HttpRequest.encode("http://google.com/+"));
+    assertEquals("http://google.com/+",HttpRequest.encode("http://google.com/+"));
   }
 
   @Test
@@ -521,7 +521,7 @@ public class EncodeTest_OE25Dev {
 
     // removed other assertion
 
-    assertEquals("http://google.com/+?a=b%2Bc", HttpRequest.encode("http://google.com/+?a=b+c"));
+    assertEquals("http://google.com/+?a=b%2Bc",HttpRequest.encode("http://google.com/+?a=b+c"));
   }
 
 }

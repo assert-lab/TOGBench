@@ -342,34 +342,6 @@ vali_67_3,"   public void testIsValid_3_oe(Object[] testObjects, long options) {
    }
    }
 ",UrlValidatorTest::testIsValid_3_oe
-vali_74_9,"    @Test
-    public void testValidator276_9_oe() {
-        // file:// isn't allowed by default
-        UrlValidator validator = new UrlValidator();
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // removed other assertion
-
-        // Turn it on, and check
-        // Note - we need to enable local urls when working with file:
-        validator = new UrlValidator(new String[] {""http"",""file""}, UrlValidator.ALLOW_LOCAL_URLS);
-
-        // removed other assertion
-
-        // removed other assertion
-
-        assertFalse(""file:///c:\\ should not be allowed"", // Only allow forward slashes validator.isValid(""file:///C:\\some.file""));
-    }
-",UrlValidatorTest::testValidator276_9_oe
 vali_97_36,"    public void testCompare_36_oe() {
         int sameTime = 124522;
         int testDate = 20050823;

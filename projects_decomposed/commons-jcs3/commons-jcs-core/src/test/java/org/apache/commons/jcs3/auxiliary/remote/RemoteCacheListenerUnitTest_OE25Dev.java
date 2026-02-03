@@ -150,7 +150,7 @@ public class RemoteCacheListenerUnitTest_OE25Dev
 
         // removed other assertion
         // removed other assertion
-        assertEquals( "Attributes should be the same.", attr.getMaxLife(), after .getElementAttributes().getMaxLife() );
+        assertEquals("Attributes should be the same.",attr.getMaxLife(),after .getElementAttributes().getMaxLife());
     }
 
     public void testUpdate_PutOnPut_4_oe()

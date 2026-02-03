@@ -63,13 +63,8 @@ class BoundaryListTest {
     void testCount() {
         // act/assert
         Assertions.assertEquals(0, new BoundaryList<>(Collections.emptyList()).count());
-        Assertions.assertEquals(1, new BoundaryList<>(Collections.singletonList(
-                new TestLineSegment(0, 0, 1, 1)
-        )).count());
-        Assertions.assertEquals(2, new BoundaryList<>(Arrays.asList(
-                new TestLineSegment(0, 0, 1, 1),
-                new TestLineSegment(1, 1, 0, 2)
-            )).count());
+        Assertions.assertEquals(1,new BoundaryList<>(Collections.singletonList(new TestLineSegment(0,0,1,1))).count());
+        Assertions.assertEquals(2,new BoundaryList<>(Arrays.asList(new TestLineSegment(0,0,1,1),new TestLineSegment(1,1,0,2))).count());
     }
 
     @Test

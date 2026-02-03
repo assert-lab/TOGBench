@@ -119,10 +119,8 @@ public abstract class DateConverterTestBase extends TestCase {
         for (int i = 0; i < date.length; i++) {
             final Object val = makeConverter().convert(getExpectedType(), date[i]);
             assertNotNull("Convert " + message[i] + " should not be null", val);
-            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),
-                       getExpectedType().isInstance(val));
-            assertEquals("Convert " + message[i] + " should return a " + date[0],
-                         now, getTimeInMillis(val));
+            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),getExpectedType().isInstance(val));
+            assertEquals("Convert " + message[i] + " should return a " + date[0],now,getTimeInMillis(val));
         }
     }
 
@@ -469,8 +467,7 @@ public abstract class DateConverterTestBase extends TestCase {
             format.parse(value);
             calendar = format.getCalendar();
         } catch (final Exception e) {
-            fail("Error creating Calendar value ='"
-                    + value + ", pattern='" + pattern + "' " + e.toString());
+            fail("Error creating Calendar value ='" + value + ",pattern='" + pattern + "' " + e.toString());
         }
         return calendar;
     }

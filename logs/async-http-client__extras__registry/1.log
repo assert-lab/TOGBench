@@ -32,8 +32,8 @@
  T E S T S
 -------------------------------------------------------
 Running TestSuite
-Tests run: 25, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 1.353 sec <<< FAILURE! - in TestSuite
-testClearAllInstances_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.009 sec  <<< FAILURE!
+Tests run: 25, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 1.383 sec <<< FAILURE! - in TestSuite
+testClearAllInstances_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.007 sec  <<< FAILURE!
 java.lang.AssertionError: expected [0] but found [3]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testClearAllInstances_4_oe(AsyncHttpClientRegistryTest_OE25Dev.java:234)
 
@@ -49,11 +49,11 @@ testRegisterIfNew_2_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegist
 java.lang.AssertionError: expected [false] but found [true]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_2_oe(AsyncHttpClientRegistryTest_OE25Dev.java:120)
 
-testRegisterIfNew_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+testRegisterIfNew_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.008 sec  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_3_oe(AsyncHttpClientRegistryTest_OE25Dev.java:131)
 
-testRegisterIfNew_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.005 sec  <<< FAILURE!
+testRegisterIfNew_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected object to not be null
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_4_oe(AsyncHttpClientRegistryTest_OE25Dev.java:143)
 
@@ -61,7 +61,7 @@ testRegisterIfNew_5_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegist
 java.lang.AssertionError: expected [true] but found [false]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_5_oe(AsyncHttpClientRegistryTest_OE25Dev.java:156)
 
-testRegisterIfNew_7_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+testRegisterIfNew_7_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_7_oe(AsyncHttpClientRegistryTest_OE25Dev.java:185)
 
@@ -83,8 +83,8 @@ Tests run: 25, Failures: 8, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.751 s
-[INFO] Finished at: 2026-02-02T13:38:39-06:00
+[INFO] Total time:  10.466 s
+[INFO] Finished at: 2026-02-03T05:48:56-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-registry: There are test failures.
 [ERROR] 

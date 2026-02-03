@@ -108,9 +108,8 @@ jsoup_26_4,jsoup,SelectorTest,parse_4_oe,src/test/java/org/jsoup/select/Selector
 jsoup_26_5,jsoup,SelectorTest,parse_5_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_26_6,jsoup,SelectorTest,parse_6_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_26_7,jsoup,SelectorTest,parse_7_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_26_8,jsoup,SelectorTest,parse_8_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertFalse
+jsoup_26_8,jsoup,SelectorTest,parse_8_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_26_9,jsoup,SelectorTest,parse_9_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_26_10,jsoup,SelectorTest,parse_10_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_27_1,jsoup,SelectorTest,parse_1_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_27_2,jsoup,SelectorTest,parse_2_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_27_3,jsoup,SelectorTest,parse_3_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
@@ -207,8 +206,6 @@ jsoup_49_11,jsoup,SelectorTest,parse_11_oe,src/test/java/org/jsoup/select/Select
 jsoup_49_12,jsoup,SelectorTest,parse_12_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_49_13,jsoup,SelectorTest,parse_13_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_49_14,jsoup,SelectorTest,parse_14_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_49_15,jsoup,SelectorTest,parse_15_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_49_16,jsoup,SelectorTest,parse_16_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_50_1,jsoup,SelectorTest,parse_1_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_50_2,jsoup,SelectorTest,parse_2_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_50_3,jsoup,SelectorTest,parse_3_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
@@ -396,7 +393,6 @@ jsoup_99_5,jsoup,ElementsTest,parse_5_oe,src/test/java/org/jsoup/select/Elements
 jsoup_99_6,jsoup,ElementsTest,parse_6_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_99_7,jsoup,ElementsTest,parse_7_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_99_8,jsoup,ElementsTest,parse_8_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_99_9,jsoup,ElementsTest,parse_9_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_100_1,jsoup,ElementsTest,parse_1_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_100_2,jsoup,ElementsTest,parse_2_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_101_1,jsoup,ElementsTest,parse_1_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertFalse
@@ -507,7 +503,6 @@ jsoup_134_6,jsoup,ElementsTest,parse_6_oe,src/test/java/org/jsoup/select/Element
 jsoup_134_7,jsoup,ElementsTest,parse_7_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_134_8,jsoup,ElementsTest,parse_8_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_134_9,jsoup,ElementsTest,parse_9_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_134_10,jsoup,ElementsTest,parse_10_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_135_1,jsoup,ElementsTest,parse_1_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_135_2,jsoup,ElementsTest,parse_2_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_135_3,jsoup,ElementsTest,parse_3_oe,src/test/java/org/jsoup/select/ElementsTest.java,,,,assert,unknown,standard,assertEquals
@@ -550,7 +545,6 @@ jsoup_146_3,jsoup,XpathTest,parse_3_oe,src/test/java/org/jsoup/select/XpathTest.
 jsoup_146_4,jsoup,XpathTest,parse_4_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_146_5,jsoup,XpathTest,parse_5_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_146_6,jsoup,XpathTest,parse_6_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_146_7,jsoup,XpathTest,parse_7_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_147_1,jsoup,XpathTest,parse_1_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_148_1,jsoup,XpathTest,throwsSelectException_1_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_148_2,jsoup,XpathTest,throwsSelectException_2_oe,src/test/java/org/jsoup/select/XpathTest.java,,,,assert,unknown,standard,assertTrue
@@ -564,7 +558,6 @@ jsoup_149_7,jsoup,AttributeParseTest,parse_7_oe,src/test/java/org/jsoup/parser/A
 jsoup_149_8,jsoup,AttributeParseTest,parse_8_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_150_1,jsoup,AttributeParseTest,parse_1_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_150_2,jsoup,AttributeParseTest,parse_2_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_150_3,jsoup,AttributeParseTest,parse_3_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_151_1,jsoup,AttributeParseTest,parse_1_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_152_1,jsoup,AttributeParseTest,parse_1_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_152_2,jsoup,AttributeParseTest,parse_2_oe,src/test/java/org/jsoup/parser/AttributeParseTest.java,,,,assert,unknown,standard,assertTrue
@@ -641,7 +634,6 @@ jsoup_165_2,jsoup,CharacterReaderTest,CharacterReader_2_oe,src/test/java/org/jso
 jsoup_165_3,jsoup,CharacterReaderTest,CharacterReader_3_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_165_4,jsoup,CharacterReaderTest,CharacterReader_4_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_165_5,jsoup,CharacterReaderTest,CharacterReader_5_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_165_6,jsoup,CharacterReaderTest,CharacterReader_6_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_166_1,jsoup,CharacterReaderTest,CharacterReader_1_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_166_2,jsoup,CharacterReaderTest,CharacterReader_2_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_166_3,jsoup,CharacterReaderTest,CharacterReader_3_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
@@ -699,15 +691,13 @@ jsoup_174_4,jsoup,CharacterReaderTest,BufferBuster_4_oe,src/test/java/org/jsoup/
 jsoup_174_5,jsoup,CharacterReaderTest,BufferBuster_5_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_174_6,jsoup,CharacterReaderTest,BufferBuster_6_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_174_7,jsoup,CharacterReaderTest,BufferBuster_7_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_174_8,jsoup,CharacterReaderTest,BufferBuster_8_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
+jsoup_174_8,jsoup,CharacterReaderTest,BufferBuster_8_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_174_9,jsoup,CharacterReaderTest,BufferBuster_9_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
-jsoup_174_10,jsoup,CharacterReaderTest,BufferBuster_10_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
-jsoup_174_11,jsoup,CharacterReaderTest,BufferBuster_11_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
+jsoup_174_10,jsoup,CharacterReaderTest,BufferBuster_10_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
+jsoup_174_11,jsoup,CharacterReaderTest,BufferBuster_11_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_174_12,jsoup,CharacterReaderTest,BufferBuster_12_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
-jsoup_174_13,jsoup,CharacterReaderTest,BufferBuster_13_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
+jsoup_174_13,jsoup,CharacterReaderTest,BufferBuster_13_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_174_14,jsoup,CharacterReaderTest,BufferBuster_14_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_174_15,jsoup,CharacterReaderTest,BufferBuster_15_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_174_16,jsoup,CharacterReaderTest,BufferBuster_16_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_175_1,jsoup,CharacterReaderTest,CharacterReader_1_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_175_2,jsoup,CharacterReaderTest,CharacterReader_2_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_175_3,jsoup,CharacterReaderTest,CharacterReader_3_oe,src/test/java/org/jsoup/parser/CharacterReaderTest.java,,,,assert,unknown,standard,assertTrue
@@ -846,7 +836,6 @@ jsoup_211_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlP
 jsoup_211_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_212_1,jsoup,HtmlParserTest,htmlParser_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_212_2,jsoup,HtmlParserTest,htmlParser_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_212_3,jsoup,HtmlParserTest,htmlParser_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_213_1,jsoup,HtmlParserTest,htmlParser_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_214_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_214_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
@@ -875,8 +864,6 @@ jsoup_224_4,jsoup,HtmlParserTest,parse_4_oe,src/test/java/org/jsoup/parser/HtmlP
 jsoup_224_5,jsoup,HtmlParserTest,parse_5_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_224_6,jsoup,HtmlParserTest,parse_6_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_224_7,jsoup,HtmlParserTest,parse_7_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_224_8,jsoup,HtmlParserTest,parse_8_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_224_9,jsoup,HtmlParserTest,parse_9_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_225_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_226_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_226_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
@@ -925,12 +912,10 @@ jsoup_243_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlP
 jsoup_243_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_243_3,jsoup,HtmlParserTest,parse_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_243_4,jsoup,HtmlParserTest,parse_4_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_243_5,jsoup,HtmlParserTest,parse_5_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_244_1,jsoup,HtmlParserTest,StringBuilder_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_245_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_245_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_245_3,jsoup,HtmlParserTest,parse_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_245_4,jsoup,HtmlParserTest,parse_4_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_246_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_247_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_247_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
@@ -963,7 +948,6 @@ jsoup_261_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlP
 jsoup_262_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_262_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_262_3,jsoup,HtmlParserTest,parse_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_262_4,jsoup,HtmlParserTest,parse_4_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_263_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_263_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_263_3,jsoup,HtmlParserTest,parse_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
@@ -1058,7 +1042,6 @@ jsoup_308_1,jsoup,HtmlParserTest,parseBodyFragment_1_oe,src/test/java/org/jsoup/
 jsoup_309_1,jsoup,HtmlParserTest,parseBodyFragment_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_310_1,jsoup,HtmlParserTest,parseFragment_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_310_2,jsoup,HtmlParserTest,parseFragment_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_310_3,jsoup,HtmlParserTest,parseFragment_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_311_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_312_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_313_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
@@ -1155,8 +1138,6 @@ jsoup_361_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlP
 jsoup_361_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_361_3,jsoup,HtmlParserTest,parse_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_361_4,jsoup,HtmlParserTest,parse_4_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_361_5,jsoup,HtmlParserTest,parse_5_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_361_6,jsoup,HtmlParserTest,parse_6_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_362_1,jsoup,HtmlParserTest,parse_1_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertNotNull
 jsoup_362_2,jsoup,HtmlParserTest,parse_2_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_362_3,jsoup,HtmlParserTest,parse_3_oe,src/test/java/org/jsoup/parser/HtmlParserTest.java,,,,assert,unknown,standard,assertEquals
@@ -1275,7 +1256,6 @@ jsoup_422_1,jsoup,XmlTreeBuilderTest,parse_1_oe,src/test/java/org/jsoup/parser/X
 jsoup_422_2,jsoup,XmlTreeBuilderTest,parse_2_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_422_3,jsoup,XmlTreeBuilderTest,parse_3_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_422_4,jsoup,XmlTreeBuilderTest,parse_4_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_422_5,jsoup,XmlTreeBuilderTest,parse_5_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_423_1,jsoup,XmlTreeBuilderTest,parse_1_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_423_2,jsoup,XmlTreeBuilderTest,parse_2_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_424_1,jsoup,XmlTreeBuilderTest,handlesDodgyXmlDecl_1_oe,src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java,,,,assert,unknown,standard,assertEquals
@@ -1382,7 +1362,6 @@ jsoup_477_1,jsoup,CleanerTest,Safelist_1_oe,src/test/java/org/jsoup/safety/Clean
 jsoup_478_1,jsoup,CleanerTest,OutputSettings_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertNotSame
 jsoup_478_2,jsoup,CleanerTest,OutputSettings_2_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_478_3,jsoup,CleanerTest,OutputSettings_3_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_478_4,jsoup,CleanerTest,OutputSettings_4_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_479_1,jsoup,CleanerTest,clean_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_479_2,jsoup,CleanerTest,clean_2_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertNotNull
 jsoup_479_3,jsoup,CleanerTest,clean_3_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
@@ -1392,7 +1371,6 @@ jsoup_483_1,jsoup,CleanerTest,clean_1_oe,src/test/java/org/jsoup/safety/CleanerT
 jsoup_484_1,jsoup,CleanerTest,clean_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_485_1,jsoup,CleanerTest,relaxed_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_486_1,jsoup,CleanerTest,relaxed_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_486_2,jsoup,CleanerTest,relaxed_2_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_487_1,jsoup,CleanerTest,parse_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_487_2,jsoup,CleanerTest,parse_2_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_488_1,jsoup,CleanerTest,parse_1_oe,src/test/java/org/jsoup/safety/CleanerTest.java,,,,assert,unknown,standard,assertEquals
@@ -1418,7 +1396,6 @@ jsoup_490_14,jsoup,StringUtilTest,assertEquals_14_oe,src/test/java/org/jsoup/int
 jsoup_490_15,jsoup,StringUtilTest,assertEquals_15_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_490_16,jsoup,StringUtilTest,assertEquals_16_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_490_17,jsoup,StringUtilTest,assertEquals_17_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_490_18,jsoup,StringUtilTest,assertEquals_18_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_491_1,jsoup,StringUtilTest,assertEquals_1_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_491_2,jsoup,StringUtilTest,assertEquals_2_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_492_1,jsoup,StringUtilTest,assertTrue_1_oe,src/test/java/org/jsoup/internal/StringUtilTest.java,,,,assert,unknown,standard,assertTrue
@@ -1756,7 +1733,6 @@ jsoup_574_3,jsoup,ElementTest,getNamespacedElementsByTag_3_oe,src/test/java/org/
 jsoup_575_1,jsoup,ElementTest,testGetElementById_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_575_2,jsoup,ElementTest,testGetElementById_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNull
 jsoup_575_3,jsoup,ElementTest,testGetElementById_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_575_4,jsoup,ElementTest,testGetElementById_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_576_1,jsoup,ElementTest,testGetText_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_576_2,jsoup,ElementTest,testGetText_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_577_1,jsoup,ElementTest,testGetChildText_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
@@ -1870,7 +1846,6 @@ jsoup_612_3,jsoup,ElementTest,testContainerOutput_3_oe,src/test/java/org/jsoup/n
 jsoup_613_1,jsoup,ElementTest,testSetText_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_613_2,jsoup,ElementTest,testSetText_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_613_3,jsoup,ElementTest,testSetText_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_613_4,jsoup,ElementTest,testSetText_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_614_1,jsoup,ElementTest,testAddNewElement_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_614_2,jsoup,ElementTest,testAddNewElement_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_615_1,jsoup,ElementTest,testAddBooleanAttribute_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
@@ -1905,9 +1880,8 @@ jsoup_628_2,jsoup,ElementTest,testWrapNoop_2_oe,src/test/java/org/jsoup/nodes/El
 jsoup_629_1,jsoup,ElementTest,testWrapOnOrphan_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_629_2,jsoup,ElementTest,testWrapOnOrphan_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertSame
 jsoup_629_3,jsoup,ElementTest,testWrapOnOrphan_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_629_4,jsoup,ElementTest,testWrapOnOrphan_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNotNull
+jsoup_629_4,jsoup,ElementTest,testWrapOnOrphan_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_629_5,jsoup,ElementTest,testWrapOnOrphan_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_629_6,jsoup,ElementTest,testWrapOnOrphan_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_630_1,jsoup,ElementTest,testWrapArtificialStructure_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_630_2,jsoup,ElementTest,testWrapArtificialStructure_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_631_1,jsoup,ElementTest,before_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
@@ -1942,15 +1916,13 @@ jsoup_637_1,jsoup,ElementTest,parentlessToString_1_oe,src/test/java/org/jsoup/no
 jsoup_637_2,jsoup,ElementTest,parentlessToString_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_638_1,jsoup,ElementTest,orphanDivToString_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_639_1,jsoup,ElementTest,testClone_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNotNull
-jsoup_639_2,jsoup,ElementTest,testClone_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_639_3,jsoup,ElementTest,testClone_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertSame
+jsoup_639_2,jsoup,ElementTest,testClone_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertSame
+jsoup_639_3,jsoup,ElementTest,testClone_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_639_4,jsoup,ElementTest,testClone_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_639_5,jsoup,ElementTest,testClone_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_639_6,jsoup,ElementTest,testClone_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNotNull
+jsoup_639_5,jsoup,ElementTest,testClone_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNotNull
+jsoup_639_6,jsoup,ElementTest,testClone_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_639_7,jsoup,ElementTest,testClone_7_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_639_8,jsoup,ElementTest,testClone_8_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_639_9,jsoup,ElementTest,testClone_9_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNotNull
-jsoup_639_10,jsoup,ElementTest,testClone_10_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_640_1,jsoup,ElementTest,testClonesClassnames_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_640_2,jsoup,ElementTest,testClonesClassnames_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_640_3,jsoup,ElementTest,testClonesClassnames_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
@@ -2004,7 +1976,6 @@ jsoup_649_2,jsoup,ElementTest,moveByAppend_2_oe,src/test/java/org/jsoup/nodes/El
 jsoup_649_3,jsoup,ElementTest,moveByAppend_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_649_4,jsoup,ElementTest,moveByAppend_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_649_5,jsoup,ElementTest,moveByAppend_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_649_6,jsoup,ElementTest,moveByAppend_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_651_1,jsoup,ElementTest,insertChildrenAtPosition_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_651_2,jsoup,ElementTest,insertChildrenAtPosition_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_651_3,jsoup,ElementTest,insertChildrenAtPosition_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
@@ -2017,7 +1988,6 @@ jsoup_651_9,jsoup,ElementTest,insertChildrenAtPosition_9_oe,src/test/java/org/js
 jsoup_651_10,jsoup,ElementTest,insertChildrenAtPosition_10_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_652_1,jsoup,ElementTest,insertChildrenAsCopy_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_652_2,jsoup,ElementTest,insertChildrenAsCopy_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_652_3,jsoup,ElementTest,insertChildrenAsCopy_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_653_1,jsoup,ElementTest,testCssPath_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_653_2,jsoup,ElementTest,testCssPath_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_653_3,jsoup,ElementTest,testCssPath_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
@@ -2075,16 +2045,15 @@ jsoup_664_1,jsoup,ElementTest,testIs_1_oe,src/test/java/org/jsoup/nodes/ElementT
 jsoup_664_2,jsoup,ElementTest,testIs_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_664_3,jsoup,ElementTest,testIs_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_664_4,jsoup,ElementTest,testIs_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
-jsoup_664_5,jsoup,ElementTest,testIs_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_664_6,jsoup,ElementTest,testIs_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
+jsoup_664_5,jsoup,ElementTest,testIs_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
+jsoup_664_6,jsoup,ElementTest,testIs_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_664_7,jsoup,ElementTest,testIs_7_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_664_8,jsoup,ElementTest,testIs_8_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_664_9,jsoup,ElementTest,testIs_9_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_664_10,jsoup,ElementTest,testIs_10_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_664_11,jsoup,ElementTest,testIs_11_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_664_12,jsoup,ElementTest,testIs_12_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
+jsoup_664_12,jsoup,ElementTest,testIs_12_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_664_13,jsoup,ElementTest,testIs_13_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
-jsoup_664_14,jsoup,ElementTest,testIs_14_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
 jsoup_665_1,jsoup,ElementTest,testEvalMethods_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_665_2,jsoup,ElementTest,testEvalMethods_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_665_3,jsoup,ElementTest,testEvalMethods_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
@@ -2095,8 +2064,7 @@ jsoup_666_2,jsoup,ElementTest,testClosest_2_oe,src/test/java/org/jsoup/nodes/Ele
 jsoup_666_3,jsoup,ElementTest,testClosest_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_666_4,jsoup,ElementTest,testClosest_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_666_5,jsoup,ElementTest,testClosest_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_666_6,jsoup,ElementTest,testClosest_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_666_7,jsoup,ElementTest,testClosest_7_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNull
+jsoup_666_6,jsoup,ElementTest,testClosest_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNull
 jsoup_667_1,jsoup,ElementTest,elementByTagName_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_668_1,jsoup,ElementTest,testChildrenElements_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_668_2,jsoup,ElementTest,testChildrenElements_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
@@ -2148,13 +2116,11 @@ jsoup_672_1,jsoup,ElementTest,testNormalizesNbspInText_1_oe,src/test/java/org/js
 jsoup_672_2,jsoup,ElementTest,testNormalizesNbspInText_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_672_3,jsoup,ElementTest,testNormalizesNbspInText_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_672_4,jsoup,ElementTest,testNormalizesNbspInText_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_672_5,jsoup,ElementTest,testNormalizesNbspInText_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_672_6,jsoup,ElementTest,testNormalizesNbspInText_6_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
+jsoup_672_5,jsoup,ElementTest,testNormalizesNbspInText_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_673_1,jsoup,ElementTest,testNormalizesInvisiblesInText_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_673_2,jsoup,ElementTest,testNormalizesInvisiblesInText_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_673_3,jsoup,ElementTest,testNormalizesInvisiblesInText_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_673_4,jsoup,ElementTest,testNormalizesInvisiblesInText_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_673_5,jsoup,ElementTest,testNormalizesInvisiblesInText_5_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
+jsoup_673_4,jsoup,ElementTest,testNormalizesInvisiblesInText_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_674_1,jsoup,ElementTest,testRemoveBeforeIndex_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_675_1,jsoup,ElementTest,testRemoveAfterIndex_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_676_1,jsoup,ElementTest,whiteSpaceClassElement_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertFalse
@@ -2233,7 +2199,6 @@ jsoup_697_4,jsoup,ElementTest,testScriptTextHtmlSetAsData_4_oe,src/test/java/org
 jsoup_698_1,jsoup,ElementTest,testShallowCloneToString_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_698_2,jsoup,ElementTest,testShallowCloneToString_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_698_3,jsoup,ElementTest,testShallowCloneToString_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_698_4,jsoup,ElementTest,testShallowCloneToString_4_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_699_1,jsoup,ElementTest,styleHtmlRoundTrips_1_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertNotNull
 jsoup_699_2,jsoup,ElementTest,styleHtmlRoundTrips_2_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_699_3,jsoup,ElementTest,styleHtmlRoundTrips_3_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,assert,unknown,standard,assertEquals
@@ -2312,8 +2277,7 @@ jsoup_723_2,jsoup,ElementIT,testFastReparent_2_oe,src/test/java/org/jsoup/nodes/
 jsoup_723_3,jsoup,ElementIT,testFastReparent_3_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_723_4,jsoup,ElementIT,testFastReparent_4_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_723_5,jsoup,ElementIT,testFastReparent_5_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
-jsoup_723_6,jsoup,ElementIT,testFastReparent_6_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
-jsoup_723_7,jsoup,ElementIT,testFastReparent_7_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertTrue
+jsoup_723_6,jsoup,ElementIT,testFastReparent_6_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertTrue
 jsoup_724_1,jsoup,ElementIT,testFastReparentExistingContent_1_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_724_2,jsoup,ElementIT,testFastReparentExistingContent_2_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_724_3,jsoup,ElementIT,testFastReparentExistingContent_3_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
@@ -2322,8 +2286,7 @@ jsoup_724_5,jsoup,ElementIT,testFastReparentExistingContent_5_oe,src/test/java/o
 jsoup_724_6,jsoup,ElementIT,testFastReparentExistingContent_6_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_724_7,jsoup,ElementIT,testFastReparentExistingContent_7_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_724_8,jsoup,ElementIT,testFastReparentExistingContent_8_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
-jsoup_724_9,jsoup,ElementIT,testFastReparentExistingContent_9_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertEquals
-jsoup_724_10,jsoup,ElementIT,testFastReparentExistingContent_10_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertTrue
+jsoup_724_9,jsoup,ElementIT,testFastReparentExistingContent_9_oe,src/test/java/org/jsoup/nodes/ElementIT.java,,,,assert,unknown,standard,assertTrue
 jsoup_725_1,jsoup,DocumentTest,parse_1_oe,src/test/java/org/jsoup/nodes/DocumentTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_725_2,jsoup,DocumentTest,parse_2_oe,src/test/java/org/jsoup/nodes/DocumentTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_725_3,jsoup,DocumentTest,parse_3_oe,src/test/java/org/jsoup/nodes/DocumentTest.java,,,,assert,unknown,standard,assertEquals
@@ -2645,7 +2608,6 @@ jsoup_811_6,jsoup,ConnectTest,doesPost_6_oe,src/test/java/org/jsoup/integration/
 jsoup_812_1,jsoup,ConnectTest,doesPostMultipartWithoutInputstream_1_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_812_2,jsoup,ConnectTest,doesPostMultipartWithoutInputstream_2_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_812_3,jsoup,ConnectTest,doesPostMultipartWithoutInputstream_3_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_812_4,jsoup,ConnectTest,doesPostMultipartWithoutInputstream_4_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_813_1,jsoup,ConnectTest,canSendSecFetchHeaders_1_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_813_2,jsoup,ConnectTest,canSendSecFetchHeaders_2_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_813_3,jsoup,ConnectTest,canSendSecFetchHeaders_3_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
@@ -2731,7 +2693,6 @@ jsoup_842_2,jsoup,SessionTest,testCanChangeParsers_2_oe,src/test/java/org/jsoup/
 jsoup_842_3,jsoup,SessionTest,testCanChangeParsers_3_oe,src/test/java/org/jsoup/integration/SessionTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_843_1,jsoup,ParseTest,testSmhBizArticle_1_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_843_2,jsoup,ParseTest,testSmhBizArticle_2_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_843_3,jsoup,ParseTest,testSmhBizArticle_3_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_844_1,jsoup,ParseTest,testNewsHomepage_1_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_844_2,jsoup,ParseTest,testNewsHomepage_2_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_844_3,jsoup,ParseTest,testNewsHomepage_3_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
@@ -2744,7 +2705,6 @@ jsoup_845_3,jsoup,ParseTest,testGoogleSearchIpod_3_oe,src/test/java/org/jsoup/in
 jsoup_845_4,jsoup,ParseTest,testGoogleSearchIpod_4_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_846_1,jsoup,ParseTest,testYahooJp_1_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_846_2,jsoup,ParseTest,testYahooJp_2_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
-jsoup_846_3,jsoup,ParseTest,testYahooJp_3_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_847_1,jsoup,ParseTest,testBaidu_1_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_847_2,jsoup,ParseTest,testBaidu_2_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_847_3,jsoup,ParseTest,testBaidu_3_oe,src/test/java/org/jsoup/integration/ParseTest.java,,,,assert,unknown,standard,assertEquals
@@ -2957,8 +2917,7 @@ jsoup_924_27,jsoup,W3CDomTest,namespacePreservation_27_oe,src/test/java/org/jsou
 jsoup_924_28,jsoup,W3CDomTest,namespacePreservation_28_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_924_29,jsoup,W3CDomTest,namespacePreservation_29_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_925_1,jsoup,W3CDomTest,handlesInvalidAttributeNames_1_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_925_2,jsoup,W3CDomTest,handlesInvalidAttributeNames_2_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertTrue
-jsoup_925_3,jsoup,W3CDomTest,handlesInvalidAttributeNames_3_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals
+jsoup_925_2,jsoup,W3CDomTest,handlesInvalidAttributeNames_2_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_926_1,jsoup,W3CDomTest,htmlInputDocMaintainsHtmlAttributeNames_1_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_927_1,jsoup,W3CDomTest,xmlInputDocMaintainsHtmlAttributeNames_1_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_928_1,jsoup,W3CDomTest,handlesInvalidTagAsText_1_oe,src/test/java/org/jsoup/helper/W3CDomTest.java,,,,assert,unknown,standard,assertEquals

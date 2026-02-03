@@ -177,7 +177,7 @@ public class FlagsTest_OE25Dev extends TestCase {
         s = f.toString();
         // removed other assertion
 
-        assertEquals( "0000000000000000000000000000000000000000000000000000000000000100", s);
+        assertEquals("0000000000000000000000000000000000000000000000000000000000000100",s);
     }
 
 }

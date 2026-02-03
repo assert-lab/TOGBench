@@ -302,7 +302,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         iter.addIterator(evens.iterator());
         iter.addIterator(odds.iterator());
 
-        assertEquals(Integer.valueOf(0),iter.next());  // even   0;
+        assertEquals(Integer.valueOf(0),iter.next());// even 0 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_2_oe() {
@@ -312,7 +312,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         iter.addIterator(odds.iterator());
 
         // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(1),iter.next());// fib 1 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_3_oe() {
@@ -323,7 +323,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
 
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(1),iter.next());  // fib    1;
+        assertEquals(Integer.valueOf(1),iter.next());// fib 1 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_4_oe() {
@@ -335,7 +335,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(1),iter.next());// odd 1 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_5_oe() {
@@ -348,7 +348,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(1),iter.next());  // fib    1;
+        assertEquals(Integer.valueOf(2),iter.next());// fib 2 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_6_oe() {
@@ -362,7 +362,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(2),iter.next());// even 2 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_7_oe() {
@@ -377,7 +377,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(1),iter.next());  // odd    1;
+        assertEquals(Integer.valueOf(3),iter.next());// fib 3 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_8_oe() {
@@ -393,7 +393,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(3),iter.next());// odd 3 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_9_oe() {
@@ -410,7 +410,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(2),iter.next());  // fib    2;
+        assertEquals(Integer.valueOf(4),iter.next());// even 4 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_10_oe() {
@@ -428,7 +428,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(5),iter.next());// fib 5 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_11_oe() {
@@ -447,7 +447,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(2),iter.next());  // even   2;
+        assertEquals(Integer.valueOf(5),iter.next());// odd 5 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_12_oe() {
@@ -467,7 +467,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(6),iter.next());// even 6 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_13_oe() {
@@ -488,7 +488,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(3),iter.next());  // fib    3;
+        assertEquals(Integer.valueOf(7),iter.next());// odd 7 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_14_oe() {
@@ -510,7 +510,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(8),iter.next());// fib 8 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_15_oe() {
@@ -533,7 +533,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(3),iter.next());  // odd    3;
+        assertEquals(Integer.valueOf(8),iter.next());// even 8 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_16_oe() {
@@ -557,7 +557,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(9),iter.next());// odd 9 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_17_oe() {
@@ -582,7 +582,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(4),iter.next());  // even   4;
+        assertEquals(Integer.valueOf(10),iter.next());// even 10 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_18_oe() {
@@ -608,7 +608,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(11),iter.next());// odd 11 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_19_oe() {
@@ -635,7 +635,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(5),iter.next());  // fib    5;
+        assertEquals(Integer.valueOf(12),iter.next());// even 12 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_20_oe() {
@@ -663,7 +663,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(13),iter.next());// fib 13 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_21_oe() {
@@ -692,7 +692,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(5),iter.next());  // odd    5;
+        assertEquals(Integer.valueOf(13),iter.next());// odd 13 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_22_oe() {
@@ -722,7 +722,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(14),iter.next());// even 14 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_23_oe() {
@@ -753,7 +753,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(6),iter.next());  // even   6;
+        assertEquals(Integer.valueOf(15),iter.next());// odd 15 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_24_oe() {
@@ -785,7 +785,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(16),iter.next());// even 16 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_25_oe() {
@@ -818,7 +818,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(7),iter.next());  // odd    7;
+        assertEquals(Integer.valueOf(17),iter.next());// odd 17 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_26_oe() {
@@ -852,7 +852,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(18),iter.next());// even 18 assertEquals(1,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_27_oe() {
@@ -887,7 +887,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Integer.valueOf(8),iter.next());  // fib    8;
+        assertEquals(Integer.valueOf(19),iter.next());// odd 19 assertEquals(2,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_28_oe() {
@@ -923,7 +923,7 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
+        assertEquals(Integer.valueOf(21),iter.next());// fib 21 assertEquals(0,iter.getIteratorIndex());
     }
 
     public void testIterateFibEvenOdd_29_oe() {
@@ -932,1448 +932,6 @@ public class CollatingIteratorTest_OE25Dev extends AbstractIteratorTest<Integer>
         iter.addIterator(evens.iterator());
         iter.addIterator(odds.iterator());
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(8),iter.next());  // even   8;
-    }
-
-    public void testIterateFibEvenOdd_30_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_31_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(9),iter.next());  // odd    9;
-    }
-
-    public void testIterateFibEvenOdd_32_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_33_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(10),iter.next()); // even  10;
-    }
-
-    public void testIterateFibEvenOdd_34_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_35_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(11),iter.next()); // odd   11;
-    }
-
-    public void testIterateFibEvenOdd_36_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_37_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(12),iter.next()); // even  12;
-    }
-
-    public void testIterateFibEvenOdd_38_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_39_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(13),iter.next()); // fib   13;
-    }
-
-    public void testIterateFibEvenOdd_40_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_41_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(13),iter.next()); // odd   13;
-    }
-
-    public void testIterateFibEvenOdd_42_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_43_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(14),iter.next()); // even  14;
-    }
-
-    public void testIterateFibEvenOdd_44_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_45_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(15),iter.next()); // odd   15;
-    }
-
-    public void testIterateFibEvenOdd_46_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_47_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(16),iter.next()); // even  16;
-    }
-
-    public void testIterateFibEvenOdd_48_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_49_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(17),iter.next()); // odd   17;
-    }
-
-    public void testIterateFibEvenOdd_50_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_51_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(18),iter.next()); // even  18;
-    }
-
-    public void testIterateFibEvenOdd_52_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_53_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(19),iter.next()); // odd   19;
-    }
-
-    public void testIterateFibEvenOdd_54_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_55_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Integer.valueOf(21),iter.next()); // fib   21;
-    }
-
-    public void testIterateFibEvenOdd_56_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(0,iter.getIteratorIndex());
-    }
-
-    public void testIterateFibEvenOdd_57_oe() {
-        final CollatingIterator<Integer> iter = new CollatingIterator<>(comparator);
-        iter.addIterator(fib.iterator());
-        iter.addIterator(evens.iterator());
-        iter.addIterator(odds.iterator());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion

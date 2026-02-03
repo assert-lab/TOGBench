@@ -101,9 +101,9 @@ public class TestMutableDateTime_Constructors extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testTest() {
-        assertEquals("2002-06-09T00:00:00.000Z", new Instant(TEST_TIME_NOW).toString());
-        assertEquals("2002-04-05T12:24:00.000Z", new Instant(TEST_TIME1).toString());
-        assertEquals("2003-05-06T14:28:00.000Z", new Instant(TEST_TIME2).toString());
+        assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
+        assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
+        assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
     //-----------------------------------------------------------------------
@@ -112,8 +112,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void test_now() throws Throwable {
         MutableDateTime test = MutableDateTime.now();
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -121,8 +121,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void test_now_DateTimeZone() throws Throwable {
         MutableDateTime test = MutableDateTime.now(PARIS);
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -140,8 +140,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void test_now_Chronology() throws Throwable {
         MutableDateTime test = MutableDateTime.now(GregorianChronology.getInstance());
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -156,13 +156,13 @@ public class TestMutableDateTime_Constructors extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testParse_noFormatter() throws Throwable {
-        assertEquals(new MutableDateTime(2010, 6, 30, 1, 20, 0, 0, ISOChronology.getInstance(DateTimeZone.forOffsetHours(2))), MutableDateTime.parse("2010-06-30T01:20+02:00"));
-        assertEquals(new MutableDateTime(2010, 1, 2, 14, 50, 0, 0, ISOChronology.getInstance(LONDON)), MutableDateTime.parse("2010-002T14:50"));
+        assertEquals(new MutableDateTime(2010,6,30,1,20,0,0,ISOChronology.getInstance(DateTimeZone.forOffsetHours(2))),MutableDateTime.parse("2010-06-30T01:20+02:00"));
+        assertEquals(new MutableDateTime(2010,1,2,14,50,0,0,ISOChronology.getInstance(LONDON)),MutableDateTime.parse("2010-002T14:50"));
     }
 
     public void testParse_formatter() throws Throwable {
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy--dd MM HH").withChronology(ISOChronology.getInstance(PARIS));
-        assertEquals(new MutableDateTime(2010, 6, 30, 13, 0, 0, 0, ISOChronology.getInstance(PARIS)), MutableDateTime.parse("2010--30 06 13", f));
+        assertEquals(new MutableDateTime(2010,6,30,13,0,0,0,ISOChronology.getInstance(PARIS)),MutableDateTime.parse("2010--30 06 13",f));
     }
 
     //-----------------------------------------------------------------------
@@ -171,8 +171,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor() throws Throwable {
         MutableDateTime test = new MutableDateTime();
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -180,8 +180,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_DateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime(PARIS);
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -189,8 +189,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullDateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime((DateTimeZone) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -198,8 +198,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_Chronology() throws Throwable {
         MutableDateTime test = new MutableDateTime(GregorianChronology.getInstance());
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -207,8 +207,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullChronology() throws Throwable {
         MutableDateTime test = new MutableDateTime((Chronology) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -217,8 +217,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long1() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -226,8 +226,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long2() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME2);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME2, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME2,test.getMillis());
     }
 
     /**
@@ -235,8 +235,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long1_DateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -244,8 +244,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long2_DateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME2, PARIS);
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME2, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME2,test.getMillis());
     }
 
     /**
@@ -253,8 +253,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long_nullDateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, (DateTimeZone) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -262,8 +262,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long1_Chronology() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, GregorianChronology.getInstance());
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -271,8 +271,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long2_Chronology() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME2, GregorianChronology.getInstance());
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME2, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME2,test.getMillis());
     }
 
     /**
@@ -280,8 +280,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_long_nullChronology() throws Throwable {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, (Chronology) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -291,8 +291,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
     public void testConstructor_Object() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MutableDateTime test = new MutableDateTime(date);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -310,8 +310,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullObject() throws Throwable {
         MutableDateTime test = new MutableDateTime((Object) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -321,8 +321,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
         try {
             ConverterManager.getInstance().addInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
             MutableDateTime test = new MutableDateTime(new Integer(0));
-            assertEquals(ISOChronology.getInstance(), test.getChronology());
-            assertEquals(0L, test.getMillis());
+            assertEquals(ISOChronology.getInstance(),test.getChronology());
+            assertEquals(0L,test.getMillis());
         } finally {
             ConverterManager.getInstance().removeInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
         }
@@ -334,8 +334,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
     public void testConstructor_Object_DateTimeZone() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MutableDateTime test = new MutableDateTime(date, PARIS);
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -353,8 +353,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_DateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime((Object) null, PARIS);
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -363,8 +363,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
     public void testConstructor_Object_nullDateTimeZone() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MutableDateTime test = new MutableDateTime(date, (DateTimeZone) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -372,8 +372,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_nullDateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime((Object) null, (DateTimeZone) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -383,8 +383,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
         try {
             ConverterManager.getInstance().addInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
             MutableDateTime test = new MutableDateTime(new Integer(0), GregorianChronology.getInstance());
-            assertEquals(ISOChronology.getInstance(), test.getChronology());
-            assertEquals(0L, test.getMillis());
+            assertEquals(ISOChronology.getInstance(),test.getChronology());
+            assertEquals(0L,test.getMillis());
         } finally {
             ConverterManager.getInstance().removeInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
         }
@@ -396,8 +396,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
     public void testConstructor_Object_Chronology() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MutableDateTime test = new MutableDateTime(date, GregorianChronology.getInstance());
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -415,8 +415,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_Chronology() throws Throwable {
         MutableDateTime test = new MutableDateTime((Object) null, GregorianChronology.getInstance());
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -425,8 +425,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
     public void testConstructor_Object_nullChronology() throws Throwable {
         Date date = new Date(TEST_TIME1);
         MutableDateTime test = new MutableDateTime(date, (Chronology) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME1, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME1,test.getMillis());
     }
 
     /**
@@ -434,8 +434,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_nullObject_nullChronology() throws Throwable {
         MutableDateTime test = new MutableDateTime((Object) null, (Chronology) null);
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -445,8 +445,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
         try {
             ConverterManager.getInstance().addInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
             MutableDateTime test = new MutableDateTime(new Integer(0), GregorianChronology.getInstance());
-            assertEquals(ISOChronology.getInstance(), test.getChronology());
-            assertEquals(0L, test.getMillis());
+            assertEquals(ISOChronology.getInstance(),test.getChronology());
+            assertEquals(0L,test.getMillis());
         } finally {
             ConverterManager.getInstance().removeInstantConverter(MockZeroNullIntegerConverter.INSTANCE);
         }
@@ -458,9 +458,9 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_int_int_int() throws Throwable {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 1, 0, 0, 0);  // +01:00
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(LONDON, test.getZone());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(LONDON,test.getZone());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
         try {
             new MutableDateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0);
             fail();
@@ -497,8 +497,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_int_int_int_DateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 2, 0, 0, 0, PARIS);  // +02:00
-        assertEquals(ISOChronology.getInstance(PARIS), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(PARIS),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
         try {
             new MutableDateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0, PARIS);
             fail();
@@ -535,8 +535,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_int_int_int_nullDateTimeZone() throws Throwable {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 1, 0, 0, 0, (DateTimeZone) null);  // +01:00
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
     /**
@@ -544,8 +544,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_int_int_int_Chronology() throws Throwable {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 1, 0, 0, 0, GregorianChronology.getInstance());  // +01:00
-        assertEquals(GregorianChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(GregorianChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
         try {
             new MutableDateTime(Integer.MIN_VALUE, 6, 9, 0, 0, 0, 0, GregorianChronology.getInstance());
             fail();
@@ -582,8 +582,8 @@ public class TestMutableDateTime_Constructors extends TestCase {
      */
     public void testConstructor_int_int_int_int_int_int_int_nullChronology() throws Throwable {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 1, 0, 0, 0, (Chronology) null);  // +01:00
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(TEST_TIME_NOW, test.getMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(TEST_TIME_NOW,test.getMillis());
     }
 
 }

@@ -42,7 +42,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
 
         for (int n = 1; n < 10; n++) {
             for (int k = 0; k <= n; k++) {
-                Assertions.assertEquals( BinomialCoefficientTest.binomialCoefficient(n, k), BinomialCoefficientDouble.value(n, k), Double.MIN_VALUE, n + " choose " + k );
+                Assertions.assertEquals(BinomialCoefficientTest.binomialCoefficient(n,k),BinomialCoefficientDouble.value(n,k),Double.MIN_VALUE,n + " choose " + k);
     }
     }
     }
@@ -62,7 +62,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
         final int[] k = {17, 33, 10, 1500 - 4, 4};
         for (int i = 0; i < n.length; i++) {
             final long expected = BinomialCoefficientTest.binomialCoefficient(n[i], k[i]);
-            Assertions.assertEquals( expected, BinomialCoefficientDouble.value(n[i], k[i]), 0.0, n[i] + " choose " + k[i] );
+            Assertions.assertEquals(expected,BinomialCoefficientDouble.value(n[i],k[i]),0.0,n[i] + " choose " + k[i]);
     }
     }
 
@@ -102,7 +102,7 @@ class BinomialCoefficientDoubleTest_OE25Dev {
                 }
 
                 if (!shouldThrow && exactResult > 1) {
-                    Assertions.assertEquals( 1., BinomialCoefficientDouble.value(n, k) / exactResult, 1e-10, n + " choose " + k );
+                    Assertions.assertEquals(1.,BinomialCoefficientDouble.value(n,k)/ exactResult,1e-10,n + " choose " + k);
     }
     }
     }

@@ -127,8 +127,7 @@ public abstract class AbstractComparatorTest<T> extends AbstractObjectTest {
 
         final List<T> orderedList = getComparableObjectsOrdered();
 
-        assertTrue("Comparator did not reorder the List correctly",
-                   orderedList.equals(randomList));
+        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
     }
 
     /**
@@ -151,8 +150,7 @@ public abstract class AbstractComparatorTest<T> extends AbstractObjectTest {
         }
         */
 
-        assertTrue("Comparator did not reorder the List correctly",
-                   orderedList.equals(randomList));
+        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
 
     }
 
@@ -162,8 +160,7 @@ public abstract class AbstractComparatorTest<T> extends AbstractObjectTest {
     @Test
     public void testComparatorIsSerializable() {
         final Comparator<T> comparator = makeObject();
-        assertTrue("This comparator should be Serializable.",
-                   comparator instanceof Serializable);
+        assertTrue("This comparator should be Serializable.",comparator instanceof Serializable);
     }
 
     public String getCanonicalComparatorName(final Object object) {
@@ -199,11 +196,9 @@ public abstract class AbstractComparatorTest<T> extends AbstractObjectTest {
                     comparator = makeObject();
                     final String fileName = getCanonicalComparatorName(comparator);
                     writeExternalFormToDisk((Serializable) comparator, fileName);
-                    fail("Serialized form could not be found.  A serialized version "
-                            + "has now been written (and should be added to CVS): " + fileName);
+                    fail("Serialized form could not be found. A serialized version " + "has now been written(and should be added to CVS): " + fileName);
                 } else {
-                    fail("The Serialized form could be located to test serialization "
-                            + "compatibility: " + exception.getMessage());
+                    fail("The Serialized form could be located to test serialization " + "compatibility: " + exception.getMessage());
                 }
             }
 
@@ -216,8 +211,7 @@ public abstract class AbstractComparatorTest<T> extends AbstractObjectTest {
 
             final List<T> orderedList = getComparableObjectsOrdered();
 
-            assertTrue("Comparator did not reorder the List correctly",
-                       orderedList.equals(randomList));
+            assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
         }
     }
 

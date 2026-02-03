@@ -55,8 +55,7 @@ class SeedUtilsTest {
         Arrays.fill(expected, 1.0 / 16);
         // Pass if we cannot reject null hypothesis that distributions are the same.
         for (int j = 0; j < 8; j++) {
-            Assertions.assertFalse(chiSquareTest.chiSquareTest(expected, samples[j], 0.001),
-                "Not uniform in digit " + j);
+            Assertions.assertFalse(chiSquareTest.chiSquareTest(expected,samples[j],0.001),"Not uniform in digit " + j);
         }
     }
 
@@ -97,8 +96,7 @@ class SeedUtilsTest {
         Arrays.fill(expected, 1.0 / 16);
         // Pass if we cannot reject null hypothesis that distributions are the same.
         for (int j = 0; j < 16; j++) {
-            Assertions.assertFalse(chiSquareTest.chiSquareTest(expected, samples[j], 0.001),
-                "Not uniform in digit " + j);
+            Assertions.assertFalse(chiSquareTest.chiSquareTest(expected,samples[j],0.001),"Not uniform in digit " + j);
         }
     }
 }

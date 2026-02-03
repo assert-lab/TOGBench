@@ -1070,7 +1070,7 @@ class ConvexAreaTest_OE25Dev {
     void testGetBounds_infinite_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertNull(ConvexArea.fromBounds( Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION)).getBounds());
+        Assertions.assertNull(ConvexArea.fromBounds(Lines.fromPointAndAngle(Vector2D.ZERO,Angle.PI_OVER_TWO,TEST_PRECISION)).getBounds());
     }
 
     @Test

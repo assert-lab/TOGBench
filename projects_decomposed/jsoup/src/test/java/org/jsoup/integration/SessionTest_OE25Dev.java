@@ -33,8 +33,8 @@ public class SessionTest_OE25Dev {
 
     // validate that only cookies set by cookie servlet get to the cookie servlet path
     private void assertCookieServlet(Document doc) {
-        assertEquals(2, doc.select("table tr").size());  // two of three sent to servlet (/ and /CookieServlet)
-        Elements doc3Els = keyEls("One", doc);
+        assertEquals(2,doc.select("table tr").size());// two of three sent to servlet(/ and /CookieServlet)
+        Elements doc3Els = keyEls("One",doc);
         assertEquals(2, doc3Els.size());
         assertEquals("CookieServlet", doc3Els.get(0).text()); // ordered by most specific path
         assertEquals("Root", doc3Els.get(1).text()); // ordered by most specific path
@@ -59,7 +59,7 @@ public class SessionTest_OE25Dev {
         // should have no cookies:
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
-        assertEquals(0, doc1.select("table tr").size()); // none sent to servlet;
+        assertEquals(0,doc1.select("table tr").size());// none sent to servlet;
     }
 
     @Test
@@ -74,11 +74,9 @@ public class SessionTest_OE25Dev {
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
-        assertEquals(0, doc2.select("table tr").size());  // none sent to servlet - we just got them!;
+        assertEquals(0,doc2.select("table tr").size());// none sent to servlet - we just got them!;
     }
 
     @Test
@@ -93,13 +91,11 @@ public class SessionTest_OE25Dev {
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
-        assertEquals(1, cookies.size());
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
+        assertEquals(1,cookies.size());
     }
 
     @Test
@@ -114,12 +110,10 @@ public class SessionTest_OE25Dev {
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
         // removed other assertion
         assertEquals("Root", cookies.get("One"));
     }
@@ -136,12 +130,10 @@ public class SessionTest_OE25Dev {
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
         // removed other assertion
         // removed other assertion
 
@@ -154,7 +146,7 @@ public class SessionTest_OE25Dev {
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
         // removed other assertion
-        assertEquals(userAgent, keyText("User-Agent", echo)); // check that customer user agent sent on session arrived;
+        assertEquals(userAgent,keyText("User-Agent",echo));// check that customer user agent sent on session arrived;
     }
 
     @Test
@@ -169,12 +161,10 @@ public class SessionTest_OE25Dev {
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
         // removed other assertion
         // removed other assertion
 
@@ -188,10 +178,8 @@ public class SessionTest_OE25Dev {
         Document echo = session.newRequest().url(EchoServlet.Url).get();
         // removed other assertion
         // removed other assertion
-
-        // check that cookies aren't set out of the session
         Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
-        assertEquals(0, doc4.select("table tr").size()); // none sent to servlet;
+        assertEquals(0,doc4.select("table tr").size());// none sent to servlet;
     }
 
     @Test
@@ -206,12 +194,10 @@ public class SessionTest_OE25Dev {
         Connection con1 = session.newRequest();
         Document doc1 = con1.get();
         // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam,"1");
         Document doc2 = con2.get();
         // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
+        Map<String,String> cookies = con2.response().cookies();// simple cookie response,all named "One",so should be first sent 
         // removed other assertion
         // removed other assertion
 
@@ -225,13 +211,9 @@ public class SessionTest_OE25Dev {
         Document echo = session.newRequest().url(EchoServlet.Url).get();
         // removed other assertion
         // removed other assertion
-
-        // check that cookies aren't set out of the session
         Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
         // removed other assertion
-
-        // check can add local ones also
-        Document doc5 = session.newRequest().cookie("Bar", "Qux").get();
+        Document doc5 = session.newRequest().cookie("Bar","Qux").get();
         Elements doc5Bar = keyEls("Bar", doc5);
         assertEquals("Qux", doc5Bar.first().text());
     }
@@ -258,7 +240,7 @@ public class SessionTest_OE25Dev {
         String xmlVal = "<doc><val>One<val>Two</val>Three</val></doc>\n";
 
         Document doc1 = session.newRequest().url(xmlUrl).get();
-        assertEquals(xmlVal, doc1.html()); // not HTML normed, used XML parser;
+        assertEquals(xmlVal,doc1.html());// not HTML normed,used XML parser;
     }
 
     @Test
@@ -270,7 +252,6 @@ public class SessionTest_OE25Dev {
 
         Document doc1 = session.newRequest().url(xmlUrl).get();
         // removed other assertion
-
         Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
         assertTrue(doc2.html().startsWith("<html>"));
     }
@@ -284,7 +265,6 @@ public class SessionTest_OE25Dev {
 
         Document doc1 = session.newRequest().url(xmlUrl).get();
         // removed other assertion
-
         Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
         // removed other assertion
 

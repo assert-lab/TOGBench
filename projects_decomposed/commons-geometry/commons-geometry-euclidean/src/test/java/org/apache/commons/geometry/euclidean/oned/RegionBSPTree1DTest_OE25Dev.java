@@ -494,7 +494,7 @@ class RegionBSPTree1DTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(0.0, RegionBSPTree1D.from( Interval.of(1, 2, TEST_PRECISION), Interval.of(4, 5, TEST_PRECISION) ).getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(0.0,RegionBSPTree1D.from(Interval.of(1,2,TEST_PRECISION),Interval.of(4,5,TEST_PRECISION)).getBoundarySize(),TEST_EPS);
     }
 
     @Test

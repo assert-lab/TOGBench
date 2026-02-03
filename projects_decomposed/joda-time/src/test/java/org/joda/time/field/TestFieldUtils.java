@@ -39,18 +39,18 @@ public class TestFieldUtils extends TestCase {
     }
 
     public void testSafeAddInt() {
-        assertEquals(0, FieldUtils.safeAdd(0, 0));
+        assertEquals(0,FieldUtils.safeAdd(0,0));
 
-        assertEquals(5, FieldUtils.safeAdd(2, 3));
-        assertEquals(-1, FieldUtils.safeAdd(2, -3));
-        assertEquals(1, FieldUtils.safeAdd(-2, 3));
-        assertEquals(-5, FieldUtils.safeAdd(-2, -3));
+        assertEquals(5,FieldUtils.safeAdd(2,3));
+        assertEquals(-1,FieldUtils.safeAdd(2,-3));
+        assertEquals(1,FieldUtils.safeAdd(-2,3));
+        assertEquals(-5,FieldUtils.safeAdd(-2,-3));
 
-        assertEquals(Integer.MAX_VALUE - 1, FieldUtils.safeAdd(Integer.MAX_VALUE, -1));
-        assertEquals(Integer.MIN_VALUE + 1, FieldUtils.safeAdd(Integer.MIN_VALUE, 1));
+        assertEquals(Integer.MAX_VALUE - 1,FieldUtils.safeAdd(Integer.MAX_VALUE,-1));
+        assertEquals(Integer.MIN_VALUE + 1,FieldUtils.safeAdd(Integer.MIN_VALUE,1));
 
-        assertEquals(-1, FieldUtils.safeAdd(Integer.MIN_VALUE, Integer.MAX_VALUE));
-        assertEquals(-1, FieldUtils.safeAdd(Integer.MAX_VALUE, Integer.MIN_VALUE));
+        assertEquals(-1,FieldUtils.safeAdd(Integer.MIN_VALUE,Integer.MAX_VALUE));
+        assertEquals(-1,FieldUtils.safeAdd(Integer.MAX_VALUE,Integer.MIN_VALUE));
 
         try {
             FieldUtils.safeAdd(Integer.MAX_VALUE, 1);
@@ -90,18 +90,18 @@ public class TestFieldUtils extends TestCase {
     }
 
     public void testSafeAddLong() {
-        assertEquals(0L, FieldUtils.safeAdd(0L, 0L));
+        assertEquals(0L,FieldUtils.safeAdd(0L,0L));
 
-        assertEquals(5L, FieldUtils.safeAdd(2L, 3L));
-        assertEquals(-1L, FieldUtils.safeAdd(2L, -3L));
-        assertEquals(1L, FieldUtils.safeAdd(-2L, 3L));
-        assertEquals(-5L, FieldUtils.safeAdd(-2L, -3L));
+        assertEquals(5L,FieldUtils.safeAdd(2L,3L));
+        assertEquals(-1L,FieldUtils.safeAdd(2L,-3L));
+        assertEquals(1L,FieldUtils.safeAdd(-2L,3L));
+        assertEquals(-5L,FieldUtils.safeAdd(-2L,-3L));
 
-        assertEquals(Long.MAX_VALUE - 1, FieldUtils.safeAdd(Long.MAX_VALUE, -1L));
-        assertEquals(Long.MIN_VALUE + 1, FieldUtils.safeAdd(Long.MIN_VALUE, 1L));
+        assertEquals(Long.MAX_VALUE - 1,FieldUtils.safeAdd(Long.MAX_VALUE,-1L));
+        assertEquals(Long.MIN_VALUE + 1,FieldUtils.safeAdd(Long.MIN_VALUE,1L));
 
-        assertEquals(-1, FieldUtils.safeAdd(Long.MIN_VALUE, Long.MAX_VALUE));
-        assertEquals(-1, FieldUtils.safeAdd(Long.MAX_VALUE, Long.MIN_VALUE));
+        assertEquals(-1,FieldUtils.safeAdd(Long.MIN_VALUE,Long.MAX_VALUE));
+        assertEquals(-1,FieldUtils.safeAdd(Long.MAX_VALUE,Long.MIN_VALUE));
 
         try {
             FieldUtils.safeAdd(Long.MAX_VALUE, 1L);
@@ -141,18 +141,18 @@ public class TestFieldUtils extends TestCase {
     }
 
     public void testSafeSubtractLong() {
-        assertEquals(0L, FieldUtils.safeSubtract(0L, 0L));
+        assertEquals(0L,FieldUtils.safeSubtract(0L,0L));
 
-        assertEquals(-1L, FieldUtils.safeSubtract(2L, 3L));
-        assertEquals(5L, FieldUtils.safeSubtract(2L, -3L));
-        assertEquals(-5L, FieldUtils.safeSubtract(-2L, 3L));
-        assertEquals(1L, FieldUtils.safeSubtract(-2L, -3L));
+        assertEquals(-1L,FieldUtils.safeSubtract(2L,3L));
+        assertEquals(5L,FieldUtils.safeSubtract(2L,-3L));
+        assertEquals(-5L,FieldUtils.safeSubtract(-2L,3L));
+        assertEquals(1L,FieldUtils.safeSubtract(-2L,-3L));
 
-        assertEquals(Long.MAX_VALUE - 1, FieldUtils.safeSubtract(Long.MAX_VALUE, 1L));
-        assertEquals(Long.MIN_VALUE + 1, FieldUtils.safeSubtract(Long.MIN_VALUE, -1L));
+        assertEquals(Long.MAX_VALUE - 1,FieldUtils.safeSubtract(Long.MAX_VALUE,1L));
+        assertEquals(Long.MIN_VALUE + 1,FieldUtils.safeSubtract(Long.MIN_VALUE,-1L));
 
-        assertEquals(0, FieldUtils.safeSubtract(Long.MIN_VALUE, Long.MIN_VALUE));
-        assertEquals(0, FieldUtils.safeSubtract(Long.MAX_VALUE, Long.MAX_VALUE));
+        assertEquals(0,FieldUtils.safeSubtract(Long.MIN_VALUE,Long.MIN_VALUE));
+        assertEquals(0,FieldUtils.safeSubtract(Long.MAX_VALUE,Long.MAX_VALUE));
 
         try {
             FieldUtils.safeSubtract(Long.MIN_VALUE, 1L);
@@ -193,20 +193,20 @@ public class TestFieldUtils extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testSafeMultiplyLongLong() {
-        assertEquals(0L, FieldUtils.safeMultiply(0L, 0L));
+        assertEquals(0L,FieldUtils.safeMultiply(0L,0L));
         
-        assertEquals(1L, FieldUtils.safeMultiply(1L, 1L));
-        assertEquals(3L, FieldUtils.safeMultiply(1L, 3L));
-        assertEquals(3L, FieldUtils.safeMultiply(3L, 1L));
+        assertEquals(1L,FieldUtils.safeMultiply(1L,1L));
+        assertEquals(3L,FieldUtils.safeMultiply(1L,3L));
+        assertEquals(3L,FieldUtils.safeMultiply(3L,1L));
         
-        assertEquals(6L, FieldUtils.safeMultiply(2L, 3L));
-        assertEquals(-6L, FieldUtils.safeMultiply(2L, -3L));
-        assertEquals(-6L, FieldUtils.safeMultiply(-2L, 3L));
-        assertEquals(6L, FieldUtils.safeMultiply(-2L, -3L));
+        assertEquals(6L,FieldUtils.safeMultiply(2L,3L));
+        assertEquals(-6L,FieldUtils.safeMultiply(2L,-3L));
+        assertEquals(-6L,FieldUtils.safeMultiply(-2L,3L));
+        assertEquals(6L,FieldUtils.safeMultiply(-2L,-3L));
         
-        assertEquals(Long.MAX_VALUE, FieldUtils.safeMultiply(Long.MAX_VALUE, 1L));
-        assertEquals(Long.MIN_VALUE, FieldUtils.safeMultiply(Long.MIN_VALUE, 1L));
-        assertEquals(-Long.MAX_VALUE, FieldUtils.safeMultiply(Long.MAX_VALUE, -1L));
+        assertEquals(Long.MAX_VALUE,FieldUtils.safeMultiply(Long.MAX_VALUE,1L));
+        assertEquals(Long.MIN_VALUE,FieldUtils.safeMultiply(Long.MIN_VALUE,1L));
+        assertEquals(-Long.MAX_VALUE,FieldUtils.safeMultiply(Long.MAX_VALUE,-1L));
         
         try {
             FieldUtils.safeMultiply(Long.MIN_VALUE, -1L);
@@ -241,22 +241,22 @@ public class TestFieldUtils extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testSafeMultiplyLongInt() {
-        assertEquals(0L, FieldUtils.safeMultiply(0L, 0));
+        assertEquals(0L,FieldUtils.safeMultiply(0L,0));
         
-        assertEquals(1L, FieldUtils.safeMultiply(1L, 1));
-        assertEquals(3L, FieldUtils.safeMultiply(1L, 3));
-        assertEquals(3L, FieldUtils.safeMultiply(3L, 1));
+        assertEquals(1L,FieldUtils.safeMultiply(1L,1));
+        assertEquals(3L,FieldUtils.safeMultiply(1L,3));
+        assertEquals(3L,FieldUtils.safeMultiply(3L,1));
         
-        assertEquals(6L, FieldUtils.safeMultiply(2L, 3));
-        assertEquals(-6L, FieldUtils.safeMultiply(2L, -3));
-        assertEquals(-6L, FieldUtils.safeMultiply(-2L, 3));
-        assertEquals(6L, FieldUtils.safeMultiply(-2L, -3));
+        assertEquals(6L,FieldUtils.safeMultiply(2L,3));
+        assertEquals(-6L,FieldUtils.safeMultiply(2L,-3));
+        assertEquals(-6L,FieldUtils.safeMultiply(-2L,3));
+        assertEquals(6L,FieldUtils.safeMultiply(-2L,-3));
         
-        assertEquals(-1L * Integer.MIN_VALUE, FieldUtils.safeMultiply(-1L, Integer.MIN_VALUE));
+        assertEquals(-1L * Integer.MIN_VALUE,FieldUtils.safeMultiply(-1L,Integer.MIN_VALUE));
         
-        assertEquals(Long.MAX_VALUE, FieldUtils.safeMultiply(Long.MAX_VALUE, 1));
-        assertEquals(Long.MIN_VALUE, FieldUtils.safeMultiply(Long.MIN_VALUE, 1));
-        assertEquals(-Long.MAX_VALUE, FieldUtils.safeMultiply(Long.MAX_VALUE, -1));
+        assertEquals(Long.MAX_VALUE,FieldUtils.safeMultiply(Long.MAX_VALUE,1));
+        assertEquals(Long.MIN_VALUE,FieldUtils.safeMultiply(Long.MIN_VALUE,1));
+        assertEquals(-Long.MAX_VALUE,FieldUtils.safeMultiply(Long.MAX_VALUE,-1));
         
         try {
             FieldUtils.safeMultiply(Long.MIN_VALUE, -1);
@@ -285,30 +285,30 @@ public class TestFieldUtils extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testSafeDivideLongLong() {
-        assertEquals(1L, FieldUtils.safeDivide(1L, 1L));
+        assertEquals(1L,FieldUtils.safeDivide(1L,1L));
         
-        assertEquals(1L, FieldUtils.safeDivide(3L, 3L));
-        assertEquals(0L, FieldUtils.safeDivide(1L, 3L));
-        assertEquals(3L, FieldUtils.safeDivide(3L, 1L));
+        assertEquals(1L,FieldUtils.safeDivide(3L,3L));
+        assertEquals(0L,FieldUtils.safeDivide(1L,3L));
+        assertEquals(3L,FieldUtils.safeDivide(3L,1L));
         
-        assertEquals(1L, FieldUtils.safeDivide(5L, 3L));
-        assertEquals(-1L, FieldUtils.safeDivide(5L, -3L));
-        assertEquals(-1L, FieldUtils.safeDivide(-5L, 3L));
-        assertEquals(1L, FieldUtils.safeDivide(-5L, -3L));
+        assertEquals(1L,FieldUtils.safeDivide(5L,3L));
+        assertEquals(-1L,FieldUtils.safeDivide(5L,-3L));
+        assertEquals(-1L,FieldUtils.safeDivide(-5L,3L));
+        assertEquals(1L,FieldUtils.safeDivide(-5L,-3L));
         
-        assertEquals(2L, FieldUtils.safeDivide(6L, 3L));
-        assertEquals(-2L, FieldUtils.safeDivide(6L, -3L));
-        assertEquals(-2L, FieldUtils.safeDivide(-6L, 3L));
-        assertEquals(2L, FieldUtils.safeDivide(-6L, -3L));
+        assertEquals(2L,FieldUtils.safeDivide(6L,3L));
+        assertEquals(-2L,FieldUtils.safeDivide(6L,-3L));
+        assertEquals(-2L,FieldUtils.safeDivide(-6L,3L));
+        assertEquals(2L,FieldUtils.safeDivide(-6L,-3L));
         
-        assertEquals(2L, FieldUtils.safeDivide(7L, 3L));
-        assertEquals(-2L, FieldUtils.safeDivide(7L, -3L));
-        assertEquals(-2L, FieldUtils.safeDivide(-7L, 3L));
-        assertEquals(2L, FieldUtils.safeDivide(-7L, -3L));
+        assertEquals(2L,FieldUtils.safeDivide(7L,3L));
+        assertEquals(-2L,FieldUtils.safeDivide(7L,-3L));
+        assertEquals(-2L,FieldUtils.safeDivide(-7L,3L));
+        assertEquals(2L,FieldUtils.safeDivide(-7L,-3L));
         
-        assertEquals(Long.MAX_VALUE, FieldUtils.safeDivide(Long.MAX_VALUE, 1L));
-        assertEquals(Long.MIN_VALUE, FieldUtils.safeDivide(Long.MIN_VALUE, 1L));
-        assertEquals(-Long.MAX_VALUE, FieldUtils.safeDivide(Long.MAX_VALUE, -1L));
+        assertEquals(Long.MAX_VALUE,FieldUtils.safeDivide(Long.MAX_VALUE,1L));
+        assertEquals(Long.MIN_VALUE,FieldUtils.safeDivide(Long.MIN_VALUE,1L));
+        assertEquals(-Long.MAX_VALUE,FieldUtils.safeDivide(Long.MAX_VALUE,-1L));
         
         try {
             FieldUtils.safeDivide(Long.MIN_VALUE, -1L);
@@ -325,17 +325,17 @@ public class TestFieldUtils extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testSafeDivideRoundingModeLong() {
-        assertEquals(3L, FieldUtils.safeDivide(15L, 5L, RoundingMode.UNNECESSARY));
-        assertEquals(59L, FieldUtils.safeDivide(179L, 3L, RoundingMode.FLOOR));
-        assertEquals(60L, FieldUtils.safeDivide(179L, 3L, RoundingMode.CEILING));
-        assertEquals(60L, FieldUtils.safeDivide(179L, 3L, RoundingMode.HALF_UP));
-        assertEquals(-60L, FieldUtils.safeDivide(-179L, 3L, RoundingMode.HALF_UP));
-        assertEquals(60L, FieldUtils.safeDivide(179L, 3L, RoundingMode.HALF_DOWN));
-        assertEquals(-60L, FieldUtils.safeDivide(-179L, 3L, RoundingMode.HALF_DOWN));
+        assertEquals(3L,FieldUtils.safeDivide(15L,5L,RoundingMode.UNNECESSARY));
+        assertEquals(59L,FieldUtils.safeDivide(179L,3L,RoundingMode.FLOOR));
+        assertEquals(60L,FieldUtils.safeDivide(179L,3L,RoundingMode.CEILING));
+        assertEquals(60L,FieldUtils.safeDivide(179L,3L,RoundingMode.HALF_UP));
+        assertEquals(-60L,FieldUtils.safeDivide(-179L,3L,RoundingMode.HALF_UP));
+        assertEquals(60L,FieldUtils.safeDivide(179L,3L,RoundingMode.HALF_DOWN));
+        assertEquals(-60L,FieldUtils.safeDivide(-179L,3L,RoundingMode.HALF_DOWN));
 
-        assertEquals(Long.MAX_VALUE, FieldUtils.safeDivide(Long.MAX_VALUE, 1L, RoundingMode.UNNECESSARY));
-        assertEquals(Long.MIN_VALUE, FieldUtils.safeDivide(Long.MIN_VALUE, 1L, RoundingMode.UNNECESSARY));
-        assertEquals(-Long.MAX_VALUE, FieldUtils.safeDivide(Long.MAX_VALUE, -1L, RoundingMode.UNNECESSARY));
+        assertEquals(Long.MAX_VALUE,FieldUtils.safeDivide(Long.MAX_VALUE,1L,RoundingMode.UNNECESSARY));
+        assertEquals(Long.MIN_VALUE,FieldUtils.safeDivide(Long.MIN_VALUE,1L,RoundingMode.UNNECESSARY));
+        assertEquals(-Long.MAX_VALUE,FieldUtils.safeDivide(Long.MAX_VALUE,-1L,RoundingMode.UNNECESSARY));
 
         try {
             FieldUtils.safeDivide(Long.MIN_VALUE, -1L, RoundingMode.UNNECESSARY);

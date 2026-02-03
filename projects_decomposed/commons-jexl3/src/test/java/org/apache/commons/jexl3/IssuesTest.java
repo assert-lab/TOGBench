@@ -244,22 +244,17 @@ public class IssuesTest extends JexlTestCase {
         JexlScript jscript;
 
         jscript = jexl.createScript("dummy.hashCode()");
-        Assert.assertNull(jscript.getSourceText(), jscript.execute(ctxt)); // OK
-
-        ctxt.set("dummy", "abcd");
-        Assert.assertEquals(jscript.getSourceText(), Integer.valueOf("abcd".hashCode()), jscript.execute(ctxt)); // OK
-
+        Assert.assertNull(jscript.getSourceText(),jscript.execute(ctxt));// OK 
+        ctxt.set("dummy","abcd");
+        Assert.assertEquals(jscript.getSourceText(),Integer.valueOf("abcd".hashCode()),jscript.execute(ctxt));// OK 
         jscript = jexl.createScript("dummy.hashCode");
-        Assert.assertNull(jscript.getSourceText(), jscript.execute(ctxt)); // OK
-
+        Assert.assertNull(jscript.getSourceText(),jscript.execute(ctxt));// OK 
         JexlExpression jexpr;
         vars.clear();
         jexpr = jexl.createExpression("dummy.hashCode()");
-        Assert.assertNull(jexpr.toString(), jexpr.evaluate(ctxt)); // OK
-
-        ctxt.set("dummy", "abcd");
-        Assert.assertEquals(jexpr.toString(), Integer.valueOf("abcd".hashCode()), jexpr.evaluate(ctxt)); // OK
-
+        Assert.assertNull(jexpr.toString(),jexpr.evaluate(ctxt));// OK 
+        ctxt.set("dummy","abcd");
+        Assert.assertEquals(jexpr.toString(),Integer.valueOf("abcd".hashCode()),jexpr.evaluate(ctxt));// OK 
         jexpr = jexl.createExpression("dummy.hashCode");
         Assert.assertNull(jexpr.toString(), jexpr.evaluate(ctxt)); // OK
     }

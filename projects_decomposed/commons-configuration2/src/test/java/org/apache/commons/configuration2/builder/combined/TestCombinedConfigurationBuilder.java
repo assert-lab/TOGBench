@@ -364,8 +364,7 @@ public class TestCombinedConfigurationBuilder {
         builder.getConfiguration();
         final FileBasedConfigurationBuilder<? extends Configuration> xmlBuilder = (FileBasedConfigurationBuilder<? extends Configuration>) builder
             .getNamedBuilder("xml");
-        assertTrue("Wrong file system: " + xmlBuilder.getFileHandler().getFileSystem(),
-            xmlBuilder.getFileHandler().getFileSystem() instanceof FileSystemTestImpl);
+        assertTrue("Wrong file system: " + xmlBuilder.getFileHandler().getFileSystem(),xmlBuilder.getFileHandler().getFileSystem()instanceof FileSystemTestImpl);
     }
 
     /**

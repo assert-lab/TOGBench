@@ -401,7 +401,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test
@@ -428,7 +428,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test
@@ -462,7 +462,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test
@@ -543,7 +543,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test
@@ -570,7 +570,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test
@@ -604,7 +604,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test
@@ -631,7 +631,7 @@ class PoissonSamplerCacheTest_OE25Dev {
         final PoissonSamplerCache cache = createPoissonSamplerCache(0, 0).withRange(min, max);
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(Math.nextDown(Math.floor(max) + 1), cache.getMaxMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
     }
 
     @Test

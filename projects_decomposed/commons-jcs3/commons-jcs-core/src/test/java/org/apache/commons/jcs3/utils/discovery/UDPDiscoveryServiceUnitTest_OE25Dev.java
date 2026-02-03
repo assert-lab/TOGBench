@@ -75,7 +75,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         service.addOrUpdateService( discoveredService );
 
         // VERIFY
-        assertTrue( "Service should be in the service list.", service.getDiscoveredServices() .contains( discoveredService ) );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
     }
 
     public void testAddOrUpdateService_NotInList_2_oe()
@@ -91,7 +91,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
 
         // VERIFY
         // removed other assertion
-        assertTrue( "Service should be in the listener list.", discoveryListener.discoveredServices .contains( discoveredService ) );
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
     }
 
     public void testAddOrUpdateService_InList_NamesDoNotChange_1_oe()
@@ -146,7 +146,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
 
         // VERIFY
         // removed other assertion
-        assertTrue( "Service should be in the service list.", service.getDiscoveredServices() .contains( discoveredService ) );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
     }
 
     public void testAddOrUpdateService_InList_NamesDoNotChange_3_oe()
@@ -175,7 +175,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         // VERIFY
         // removed other assertion
         // removed other assertion
-        assertTrue( "Service should be in the listener list.", discoveryListener.discoveredServices .contains( discoveredService ) );
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
     }
 
     public void testAddOrUpdateService_InList_NamesDoNotChange_4_oe()
@@ -211,7 +211,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         {
             if ( discoveredService.equals( service1 ) )
             {
-                assertEquals( "The match should have the new last heard from time.", service1.getLastHearFromTime(), discoveredService2.getLastHearFromTime() );
+                assertEquals("The match should have the new last heard from time.",service1.getLastHearFromTime(),discoveredService2.getLastHearFromTime());
     }
     }
     }
@@ -307,7 +307,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
 
         // VERIFY
         // removed other assertion
-        assertTrue( "Service should be in the service list.", service.getDiscoveredServices() .contains( discoveredService ) );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
     }
 
     public void testAddOrUpdateService_InList_NamesChange_3_oe()
@@ -334,7 +334,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         // VERIFY
         // removed other assertion
         // removed other assertion
-        assertTrue( "Service should be in the listener list.", discoveryListener.discoveredServices .contains( discoveredService ) );
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
     }
 
     public void testAddOrUpdateService_InList_NamesChange_4_oe()
@@ -368,7 +368,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         {
             if ( discoveredService.equals( service1 ) )
             {
-                assertEquals( "The match should have the new last heard from time.", service1.getLastHearFromTime(), discoveredService2.getLastHearFromTime() );
+                assertEquals("The match should have the new last heard from time.",service1.getLastHearFromTime(),discoveredService2.getLastHearFromTime());
     }
     }
     }
@@ -488,7 +488,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         // the mock has a list from all add calls.
         // it should have been called when the list changed.
         // removed other assertion
-        assertEquals( "The second mock listener add should be discoveredService2", discoveredService2, discoveryListener.discoveredServices.get( 1 ) );
+        assertEquals("The second mock listener add should be discoveredService2",discoveredService2,discoveryListener.discoveredServices.get(1));
     }
 
     public void testRemoveDiscoveredService_1_oe()
@@ -505,7 +505,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
         service.removeDiscoveredService( discoveredService );
 
         // VERIFY
-        assertFalse( "Service should not be in the service list.", service.getDiscoveredServices() .contains( discoveredService ) );
+        assertFalse("Service should not be in the service list.",service.getDiscoveredServices().contains(discoveredService));
     }
 
     public void testRemoveDiscoveredService_2_oe()
@@ -523,7 +523,7 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
 
         // VERIFY
         // removed other assertion
-        assertFalse( "Service should not be in the listener list.", discoveryListener.discoveredServices .contains( discoveredService ) );
+        assertFalse("Service should not be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
     }
 
 }

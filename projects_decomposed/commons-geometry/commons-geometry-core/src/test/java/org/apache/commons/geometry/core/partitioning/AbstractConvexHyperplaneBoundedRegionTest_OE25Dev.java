@@ -167,7 +167,7 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(2 + Math.sqrt(2), new StubRegion(Arrays.asList( new TestLineSegment(p1, p2), new TestLineSegment(p2, p3), new TestLineSegment(p3, p1) )).getBoundarySize(), PartitionTestUtils.EPS);
+        Assertions.assertEquals(2 + Math.sqrt(2),new StubRegion(Arrays.asList(new TestLineSegment(p1,p2),new TestLineSegment(p2,p3),new TestLineSegment(p3,p1))).getBoundarySize(),PartitionTestUtils.EPS);
     }
 
     @Test

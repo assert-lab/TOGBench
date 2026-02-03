@@ -311,9 +311,7 @@ class ZigguratSamplerTest {
         final ChiSquareTest chiSquareTest = new ChiSquareTest();
         // Pass if we cannot reject null hypothesis that the distributions are the same.
         final double pValue = chiSquareTest.chiSquareTest(expected, observed);
-        Assertions.assertFalse(pValue < 0.001,
-            () -> String.format("(%s <= x < %s) Chi-square p-value = %s",
-                                lowerBound, values[bins - 1], pValue));
+        Assertions.assertFalse(pValue < 0.001,()-> String.format("(%s <= x < %s)Chi-square p-value = %s",lowerBound,values[bins - 1],pValue));
 
         // Test regions of the ziggurat.
         for (final double[] range : ranges) {
@@ -329,9 +327,7 @@ class ZigguratSamplerTest {
             final long[] observed2 = Arrays.copyOfRange(observed, min, max + 1);
             final double[] expected2 = Arrays.copyOfRange(expected, min, max + 1);
             final double pValueB = chiSquareTest.chiSquareTest(expected2, observed2);
-            Assertions.assertFalse(pValueB < significanceLevel,
-                () -> String.format("(%s <= x < %s) Chi-square p-value = %s",
-                                    min == 0 ? lowerBound : values[min - 1], values[max], pValueB));
+            Assertions.assertFalse(pValueB < significanceLevel,()-> String.format("(%s <= x < %s)Chi-square p-value = %s",min == 0 ? lowerBound : values[min - 1],values[max],pValueB));
         }
     }
 

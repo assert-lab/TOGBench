@@ -87,7 +87,7 @@ public static Test suite() {
         stack.push((E) "First Item");
         // removed other assertion
         // removed other assertion
-        assertEquals("Top item is 'First Item'", "First Item", (String) stack.peek());
+        assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
     }
 
     public void testPushPeekPop_4_oe() {
@@ -124,7 +124,7 @@ public static Test suite() {
 
         stack.push((E) "Second Item");
         // removed other assertion
-        assertEquals("Top item is 'Second Item'", "Second Item", (String) stack.peek());
+        assertEquals("Top item is 'Second Item'","Second Item",(String)stack.peek());
     }
 
     public void testPushPeekPop_7_oe() {
@@ -156,7 +156,7 @@ public static Test suite() {
         // removed other assertion
         // removed other assertion
 
-        assertEquals("Popped item is 'Second Item'", "Second Item", (String) stack.pop());
+        assertEquals("Popped item is 'Second Item'","Second Item",(String)stack.pop());
     }
 
     public void testPushPeekPop_9_oe() {
@@ -174,7 +174,7 @@ public static Test suite() {
         // removed other assertion
 
         // removed other assertion
-        assertEquals("Top item is 'First Item'", "First Item", (String) stack.peek());
+        assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
     }
 
     public void testPushPeekPop_10_oe() {
@@ -214,7 +214,7 @@ public static Test suite() {
         // removed other assertion
         // removed other assertion
 
-        assertEquals("Popped item is 'First Item'", "First Item", (String) stack.pop());
+        assertEquals("Popped item is 'First Item'","First Item",(String)stack.pop());
     }
 
     public void testPushPeekPop_12_oe() {
@@ -244,7 +244,7 @@ public static Test suite() {
 
         stack.push((E) "First Item");
         stack.push((E) "Second Item");
-        assertEquals("Top item is 'Second Item'", 1, stack.search("Second Item"));
+        assertEquals("Top item is 'Second Item'",1,stack.search("Second Item"));
     }
 
     public void testSearch_2_oe() {
@@ -253,7 +253,7 @@ public static Test suite() {
         stack.push((E) "First Item");
         stack.push((E) "Second Item");
         // removed other assertion
-        assertEquals("Next Item is 'First Item'", 2, stack.search("First Item"));
+        assertEquals("Next Item is 'First Item'",2,stack.search("First Item"));
     }
 
     public void testSearch_3_oe() {
@@ -263,7 +263,7 @@ public static Test suite() {
         stack.push((E) "Second Item");
         // removed other assertion
         // removed other assertion
-        assertEquals("Cannot find 'Missing Item'", -1, stack.search("Missing Item"));
+        assertEquals("Cannot find 'Missing Item'",-1,stack.search("Missing Item"));
     }
 
 }

@@ -131,8 +131,7 @@ public class BasicRowProcessorTest extends BaseTestCase {
         m = processor.toMap(this.rs);
         assertEquals(COLS, m.keySet().size());
 
-        assertEquals("4", m.get("One")); // case shouldn't matter
-        assertEquals("5", m.get("two"));
+        assertEquals("4",m.get("One"));// case shouldn't matter assertEquals("5",m.get("two"));
         assertEquals("SIX", m.get("THREE"));
 
         assertFalse(this.rs.next());

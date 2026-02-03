@@ -79,7 +79,7 @@ public class JSONStringerTest_OE25Dev {
             jsonStringer.key(null);
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Null key.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Null key.". equals(e.getMessage()));
     }
     }
 
@@ -90,7 +90,7 @@ public class JSONStringerTest_OE25Dev {
             jsonStringer.key("hi");
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Misplaced key.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Misplaced key.". equals(e.getMessage()));
     }
     }
 
@@ -102,7 +102,7 @@ public class JSONStringerTest_OE25Dev {
             jsonStringer.array();
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Misplaced array.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Misplaced array.". equals(e.getMessage()));
     }
     }
 
@@ -114,7 +114,7 @@ public class JSONStringerTest_OE25Dev {
             jsonStringer.endArray();
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Misplaced endArray.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Misplaced endArray.". equals(e.getMessage()));
     }
     }
 
@@ -126,7 +126,7 @@ public class JSONStringerTest_OE25Dev {
             jsonStringer.endObject();
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Misplaced endObject.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Misplaced endObject.". equals(e.getMessage()));
     }
     }
 
@@ -138,7 +138,7 @@ public class JSONStringerTest_OE25Dev {
             jsonStringer.object();
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Misplaced object.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Misplaced object.". equals(e.getMessage()));
     }
     }
 
@@ -227,7 +227,7 @@ public class JSONStringerTest_OE25Dev {
             key("k").object().key("k").object().key("k").object().key("k").object().key("k").object();
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expected an exception message", "Nesting too deep.". equals(e.getMessage()));
+            assertTrue("Expected an exception message","Nesting too deep.". equals(e.getMessage()));
     }
     }
 

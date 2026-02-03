@@ -100,7 +100,7 @@ public class AllPredicateTest_OE25Dev extends AbstractAnyAllOnePredicateTest<Int
         // an array of size one.
         final Predicate<Integer> predicate = createMockPredicate(true);
 
-        assertTrue("single true predicate evaluated to false", allPredicate(predicate).evaluate(getTestValue()));
+        assertTrue("single true predicate evaluated to false",allPredicate(predicate).evaluate(getTestValue()));
     }
 
     @Test
@@ -108,36 +108,36 @@ public class AllPredicateTest_OE25Dev extends AbstractAnyAllOnePredicateTest<Int
         // use the constructor directly, as getInstance() returns the original predicate when passed
         // an array of size one.
         final Predicate<Integer> predicate = createMockPredicate(false);
-        assertFalse("single false predicate evaluated to true", allPredicate(predicate).evaluate(getTestValue()));
+        assertFalse("single false predicate evaluated to true",allPredicate(predicate).evaluate(getTestValue()));
     }
 
     @Test
     public void allTrue_1_oe() {
-        assertTrue("multiple true predicates evaluated to false", getPredicateInstance(true, true).evaluate(getTestValue()));
+        assertTrue("multiple true predicates evaluated to false",getPredicateInstance(true,true).evaluate(getTestValue()));
     }
 
     @Test
     public void allTrue_2_oe() {
         // removed other assertion
-        assertTrue("multiple true predicates evaluated to false", getPredicateInstance(true, true, true).evaluate(getTestValue()));
+        assertTrue("multiple true predicates evaluated to false",getPredicateInstance(true,true,true).evaluate(getTestValue()));
     }
 
     @Test
     public void trueAndFalseCombined_1_oe() {
-        assertFalse("false predicate evaluated to true", getPredicateInstance(false, null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(false,null).evaluate(getTestValue()));
     }
 
     @Test
     public void trueAndFalseCombined_2_oe() {
         // removed other assertion
-        assertFalse("false predicate evaluated to true", getPredicateInstance(false, null, null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(false,null,null).evaluate(getTestValue()));
     }
 
     @Test
     public void trueAndFalseCombined_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertFalse("false predicate evaluated to true", getPredicateInstance(true, false, null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(true,false,null).evaluate(getTestValue()));
     }
 
     @Test
@@ -145,7 +145,7 @@ public class AllPredicateTest_OE25Dev extends AbstractAnyAllOnePredicateTest<Int
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("false predicate evaluated to true", getPredicateInstance(true, true, false).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(true,true,false).evaluate(getTestValue()));
     }
 
     @Test
@@ -154,7 +154,7 @@ public class AllPredicateTest_OE25Dev extends AbstractAnyAllOnePredicateTest<Int
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertFalse("false predicate evaluated to true", getPredicateInstance(true, true, false, null).evaluate(getTestValue()));
+        assertFalse("false predicate evaluated to true",getPredicateInstance(true,true,false,null).evaluate(getTestValue()));
     }
 
 }

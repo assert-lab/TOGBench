@@ -343,12 +343,10 @@ public class BeanMapTestCase extends AbstractTestMap {
             // ok, and the read methods were properly initialized
             final Object[] keys = getSampleKeys();
             for (Object key : keys) {
-                assertTrue("Cloned BeanMap should contain the same keys",
-                           map2.containsKey(key));
+                assertTrue("Cloned BeanMap should contain the same keys",map2.containsKey(key));
             }
         } catch (final CloneNotSupportedException exception) {
-            fail("BeanMap.clone() should not throw a " +
-                 "CloneNotSupportedException when clone should succeed.");
+            fail("BeanMap.clone()should not throw a " + "CloneNotSupportedException when clone should succeed.");
         }
     }
 

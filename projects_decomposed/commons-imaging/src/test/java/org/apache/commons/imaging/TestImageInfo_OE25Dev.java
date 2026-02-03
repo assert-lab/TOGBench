@@ -135,7 +135,7 @@ public class TestImageInfo_OE25Dev {
                 width, progressive, transparent, usesPalette, colorType, compressionAlgorithm);
         // removed other assertion
         // removed other assertion
-        assertEquals(comments.toString(), imageInfo.getComments() .toString());
+        assertEquals(comments.toString(),imageInfo.getComments().toString());
     }
 
     @Test

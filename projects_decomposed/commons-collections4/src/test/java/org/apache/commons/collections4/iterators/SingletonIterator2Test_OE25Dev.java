@@ -98,7 +98,7 @@ public class SingletonIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         try {
             iter.next();
         } catch (final Exception e) {
-            assertTrue( "NoSuchElementException must be thrown", e.getClass().equals(new NoSuchElementException().getClass()));
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
     }
     }
 

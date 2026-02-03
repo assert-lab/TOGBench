@@ -108,231 +108,231 @@ public class TestPeriodFormatterBuilder extends TestCase {
     //-----------------------------------------------------------------------
     public void testFormatYears() {
         PeriodFormatter f = builder.appendYears().toFormatter();
-        assertEquals("1", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatMonths() {
         PeriodFormatter f = builder.appendMonths().toFormatter();
-        assertEquals("2", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("2",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatWeeks() {
         PeriodFormatter f = builder.appendWeeks().toFormatter();
-        assertEquals("3", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("3",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatDays() {
         PeriodFormatter f = builder.appendDays().toFormatter();
-        assertEquals("4", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("4",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatHours() {
         PeriodFormatter f = builder.appendHours().toFormatter();
-        assertEquals("5", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatMinutes() {
         PeriodFormatter f = builder.appendMinutes().toFormatter();
-        assertEquals("6", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("6",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSeconds() {
         PeriodFormatter f = builder.appendSeconds().toFormatter();
-        assertEquals("7", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("7",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSecondsWithMillis() {
         PeriodFormatter f = builder.appendSecondsWithMillis().toFormatter();
         Period p = new Period(0, 0, 0, 0, 0, 0, 7, 0);
-        assertEquals("7.000", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("7.000",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 1);
-        assertEquals("7.001", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("7.001",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 999);
-        assertEquals("7.999", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("7.999",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 1000);
-        assertEquals("8.000", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("8.000",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 1001);
-        assertEquals("8.001", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("8.001",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, -1);
-        assertEquals("6.999", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("6.999",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, -7, 1);
-        assertEquals("-6.999", f.print(p));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("-6.999",f.print(p));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, -7, -1);
-        assertEquals("-7.001", f.print(p));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("-7.001",f.print(p));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0.000", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0.000",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSecondsWithOptionalMillis() {
         PeriodFormatter f = builder.appendSecondsWithOptionalMillis().toFormatter();
         Period p = new Period(0, 0, 0, 0, 0, 0, 7, 0);
-        assertEquals("7", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("7",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 1);
-        assertEquals("7.001", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("7.001",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 999);
-        assertEquals("7.999", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("7.999",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 1000);
-        assertEquals("8", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("8",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, 1001);
-        assertEquals("8.001", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("8.001",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 7, -1);
-        assertEquals("6.999", f.print(p));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("6.999",f.print(p));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, -7, 1);
-        assertEquals("-6.999", f.print(p));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("-6.999",f.print(p));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, -7, -1);
-        assertEquals("-7.001", f.print(p));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("-7.001",f.print(p));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
         
         p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatMillis() {
         PeriodFormatter f = builder.appendMillis().toFormatter();
-        assertEquals("8", f.print(PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("8",f.print(PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0", f.print(p));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0",f.print(p));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatMillis3Digit() {
         PeriodFormatter f = builder.appendMillis3Digit().toFormatter();
-        assertEquals("008", f.print(PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("008",f.print(PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("000", f.print(p));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("000",f.print(p));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     //-----------------------------------------------------------------------
     public void testFormatPrefixSimple1() {
         PeriodFormatter f = builder.appendPrefix("Years:").appendYears().toFormatter();
-        assertEquals("Years:1", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("Years:1",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("Years:0", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("Years:0",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrefixSimple2() {
         PeriodFormatter f = builder.appendPrefix("Hours:").appendHours().toFormatter();
-        assertEquals("Hours:5", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("Hours:5",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("Hours:0", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("Hours:0",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrefixSimple3() {
@@ -346,44 +346,44 @@ public class TestPeriodFormatterBuilder extends TestCase {
         PeriodFormatter f = builder.appendPrefix("m").appendMinutes()
                 .appendSeparator(" ").appendPrefix("ms").appendMillis().toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("ms1", oneMS);
+        assertEquals("ms1",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
     }
 
     public void testPluralAffixParseOrder() {
         PeriodFormatter f = builder.appendDays().appendSuffix("day", "days").toFormatter();
         String twoDays = Period.days(2).toString(f);
         Period period = f.parsePeriod(twoDays);
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
         period = f.parsePeriod(twoDays.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
     }
 
     public void testFormatPrefixPlural1() {
         PeriodFormatter f = builder.appendPrefix("Year:", "Years:").appendYears().toFormatter();
-        assertEquals("Year:1", f.print(PERIOD));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("Year:1",f.print(PERIOD));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("Years:0", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("Years:0",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrefixPlural2() {
         PeriodFormatter f = builder.appendPrefix("Hour:", "Hours:").appendHours().toFormatter();
-        assertEquals("Hours:5", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("Hours:5",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("Hours:0", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("Hours:0",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrefixPlural3() {
@@ -405,18 +405,18 @@ public class TestPeriodFormatterBuilder extends TestCase {
         PeriodFormatter f = builder.appendPrefix("m", "ms").appendMinutes()
                 .appendSeparator(" ").appendPrefix("mss", "msss").appendMillis().toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("mss1", oneMS);
+        assertEquals("mss1",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         
         String twoMS = Period.millis(2).toString(f);
-        assertEquals("msss2", twoMS);
+        assertEquals("msss2",twoMS);
         Period period2 = f.parsePeriod(twoMS);
-        assertEquals(Period.millis(2), period2);
+        assertEquals(Period.millis(2),period2);
         period = f.parsePeriod(twoMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(2), period2);
+        assertEquals(Period.millis(2),period2);
     }
     
     public void testRegExAffixParseOrder() {
@@ -424,35 +424,35 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendSuffix(new String[]{"^1$","[0-9]*"}, new String[]{"day", "days"}).toFormatter();
         String twoDays = Period.days(2).toString(f);
         Period period = f.parsePeriod(twoDays);
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
         period = f.parsePeriod(twoDays.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
     }
 
     public void testFormatPrefixRegEx1() {
         PeriodFormatter f = builder.appendPrefix(new String[] { "^1$", "^.*$" }, new String[] { "Year:", "Years:" }).appendYears()
                 .toFormatter();
-        assertEquals("Year:1", f.print(PERIOD));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("Year:1",f.print(PERIOD));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
 
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("Years:0", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("Years:0",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrefixRegEx2() {
         PeriodFormatter f = builder.appendPrefix(new String[] { "^1$", "^.*$" }, new String[] { "Hour:", "Hours:" }).appendHours()
                 .toFormatter();
-        assertEquals("Hours:5", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("Hours:5",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
 
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("Hours:0", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("Hours:0",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrefixRegEx3() {
@@ -490,18 +490,18 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendPrefix(new String[]{"^1$","[0-9]*"}, new String[]{"mss", "msss"}).appendMillis()
                 .toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("mss1", oneMS);
+        assertEquals("mss1",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         
         String twoMS = Period.millis(2).toString(f);
-        assertEquals("msss2", twoMS);
+        assertEquals("msss2",twoMS);
         Period period2 = f.parsePeriod(twoMS);
-        assertEquals(Period.millis(2), period2);
+        assertEquals(Period.millis(2),period2);
         period = f.parsePeriod(twoMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(2), period2);
+        assertEquals(Period.millis(2),period2);
     }
 
     //-----------------------------------------------------------------------
@@ -511,36 +511,36 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendPrefix(new String[] { "^1$", "^.*$" }, new String[] { "y:", "s:" })
                 .appendDays().toFormatter();
         String oneMS = Period.days(2).toString(f);
-        assertEquals("days:2", oneMS);
+        assertEquals("days:2",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
     }
 
     //-----------------------------------------------------------------------
     public void testFormatSuffixSimple1() {
         PeriodFormatter f = builder.appendYears().appendSuffix(" years").toFormatter();
-        assertEquals("1 years", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1 years",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0 years", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0 years",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSuffixSimple2() {
         PeriodFormatter f = builder.appendHours().appendSuffix(" hours").toFormatter();
-        assertEquals("5 hours", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5 hours",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0 hours", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0 hours",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSuffixSimple3() {
@@ -561,46 +561,46 @@ public class TestPeriodFormatterBuilder extends TestCase {
         PeriodFormatter f = builder.appendMinutes().appendSuffix("m")
                 .appendSeparator(" ").appendMillis().appendSuffix("ms").toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("1ms", oneMS);
+        assertEquals("1ms",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
     }
 
     public void testFormatPrefixSimple6IgnoringPrefix() {
         PeriodFormatter f = builder.appendMinutes().appendSuffix("M")
                 .appendSeparator(" ").appendMillis().appendSuffix("ms").toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("1ms", oneMS);
+        assertEquals("1ms",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
     }
 
     public void testFormatSuffixPlural1() {
         PeriodFormatter f = builder.appendYears().appendSuffix(" year", " years").toFormatter();
-        assertEquals("1 year", f.print(PERIOD));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1 year",f.print(PERIOD));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0 years", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0 years",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSuffixPlural2() {
         PeriodFormatter f = builder.appendHours().appendSuffix(" hour", " hours").toFormatter();
-        assertEquals("5 hours", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5 hours",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0 hours", f.print(p));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("0 hours",f.print(p));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSuffixPlural3() {
@@ -629,53 +629,53 @@ public class TestPeriodFormatterBuilder extends TestCase {
         PeriodFormatter f = builder.appendMinutes().appendSuffix("m", "ms")
                 .appendSeparator(" ").appendMillis().appendSuffix("mss", "msss").toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("1mss", oneMS);
+        assertEquals("1mss",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         
         String twoMS = Period.millis(2).toString(f);
-        assertEquals("2msss", twoMS);
+        assertEquals("2msss",twoMS);
         Period period2 = f.parsePeriod(twoMS);
-        assertEquals(Period.millis(2), period2);
+        assertEquals(Period.millis(2),period2);
         period = f.parsePeriod(twoMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(2), period);
+        assertEquals(Period.millis(2),period);
     }
 
     public void testFormatSuffixRegEx1() {
         PeriodFormatter f = builder.appendYears().appendSuffix(new String[] { "^1$", "^2$" }, new String[] { " year", " years" })
                 .toFormatter();
-        assertEquals("1 year", f.print(PERIOD));
-        assertEquals(6, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1 year",f.print(PERIOD));
+        assertEquals(6,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p2 = new Period(2, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("2 years", f.print(p2));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p2, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p2, Integer.MAX_VALUE, null));
+        assertEquals("2 years",f.print(p2));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p2,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p2,Integer.MAX_VALUE,null));
         
         Period p0 = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0 years", f.print(p0));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p0, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p0, Integer.MAX_VALUE, null));
+        assertEquals("0 years",f.print(p0));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p0,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p0,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSuffixRegEx2() {
         PeriodFormatter f = builder.appendHours().appendSuffix(new String[] { "^1$", "^2$" }, new String[] { " hour", " hours" }).toFormatter();
-        assertEquals("5 hours", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5 hours",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
 
         Period p2 = new Period(0, 0, 0, 0, 2, 0, 0, 0);
-        assertEquals("2 hours", f.print(p2));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p2, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p2, Integer.MAX_VALUE, null));
+        assertEquals("2 hours",f.print(p2));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p2,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p2,Integer.MAX_VALUE,null));
 
         Period p0 = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("0 hours", f.print(p0));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(p0, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p0, Integer.MAX_VALUE, null));
+        assertEquals("0 hours",f.print(p0));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(p0,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p0,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSuffixRegEx3() {
@@ -721,18 +721,18 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMillis().appendSuffix(new String[]{"^1$","[0-9]*"}, new String[]{"mss", "msss"})
                 .toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("1mss", oneMS);
+        assertEquals("1mss",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         
         String twoMS = Period.millis(2).toString(f);
-        assertEquals("2msss", twoMS);
+        assertEquals("2msss",twoMS);
         Period period2 = f.parsePeriod(twoMS);
-        assertEquals(Period.millis(2), period2);
+        assertEquals(Period.millis(2),period2);
         period = f.parsePeriod(twoMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(2), period);
+        assertEquals(Period.millis(2),period);
     }
     //-----------------------------------------------------------------------
     public void testFormatSuffixComposite1() {
@@ -741,11 +741,11 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendSuffix(new String[] { "^1$", "^.*$" }, new String[] { "y", "s" })
                 .toFormatter();
         String oneMS = Period.days(2).toString(f);
-        assertEquals("2days", oneMS);
+        assertEquals("2days",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.days(2), period);
+        assertEquals(Period.days(2),period);
     }
 
     public void testFormatSuffixComposite5IgnoringAffix() {
@@ -755,40 +755,40 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMillis().appendSuffix("m").appendSuffix("s")
                 .toFormatter();
         String oneMS = Period.millis(1).toString(f);
-        assertEquals("1ms", oneMS);
+        assertEquals("1ms",oneMS);
         Period period = f.parsePeriod(oneMS);
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
         period = f.parsePeriod(oneMS.toUpperCase(Locale.ENGLISH));
-        assertEquals(Period.millis(1), period);
+        assertEquals(Period.millis(1),period);
     }
     
     //-----------------------------------------------------------------------
     public void testFormatPrefixSuffix() {
         PeriodFormatter f = builder.appendPrefix("P").appendYears().appendSuffix("Y").toFormatter();
-        assertEquals("P1Y", f.print(PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("P1Y",f.print(PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
         Period p = new Period(0, 0, 0, 0, 0, 0, 0, 0);
-        assertEquals("P0Y", f.print(p));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(p, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(p, Integer.MAX_VALUE, null));
+        assertEquals("P0Y",f.print(p));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(p,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(p,Integer.MAX_VALUE,null));
     }
 
     //-----------------------------------------------------------------------
     public void testFormatSeparatorSimple() {
         PeriodFormatter f = builder.appendYears().appendSeparator("T").appendHours().toFormatter();
-        assertEquals("1T5", f.print(PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1T5",f.print(PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("5", f.print(TIME_PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(TIME_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(TIME_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5",f.print(TIME_PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(TIME_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(TIME_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1", f.print(DATE_PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(DATE_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(DATE_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1",f.print(DATE_PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(DATE_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(DATE_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSeparatorComplex() {
@@ -797,70 +797,70 @@ public class TestPeriodFormatterBuilder extends TestCase {
             .appendHours().appendSeparator(", ", " and ")
             .appendMinutes().appendSeparator(", ", " and ")
             .toFormatter();
-        assertEquals("1, 5 and 6", f.print(PERIOD));
-        assertEquals(10, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(3, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1,5 and 6",f.print(PERIOD));
+        assertEquals(10,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(3,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("5 and 6", f.print(TIME_PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(TIME_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(TIME_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5 and 6",f.print(TIME_PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(TIME_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(TIME_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1", f.print(DATE_PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(DATE_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(DATE_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1",f.print(DATE_PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(DATE_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(DATE_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSeparatorIfFieldsAfter() {
         PeriodFormatter f = builder.appendYears().appendSeparatorIfFieldsAfter("T").appendHours().toFormatter();
-        assertEquals("1T5", f.print(PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1T5",f.print(PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("T5", f.print(TIME_PERIOD));
-        assertEquals(2, f.getPrinter().calculatePrintedLength(TIME_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(TIME_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("T5",f.print(TIME_PERIOD));
+        assertEquals(2,f.getPrinter().calculatePrintedLength(TIME_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(TIME_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1", f.print(DATE_PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(DATE_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(DATE_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1",f.print(DATE_PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(DATE_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(DATE_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatSeparatorIfFieldsBefore() {
         PeriodFormatter f = builder.appendYears().appendSeparatorIfFieldsBefore("T").appendHours().toFormatter();
-        assertEquals("1T5", f.print(PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1T5",f.print(PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("5", f.print(TIME_PERIOD));
-        assertEquals(1, f.getPrinter().calculatePrintedLength(TIME_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(TIME_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("5",f.print(TIME_PERIOD));
+        assertEquals(1,f.getPrinter().calculatePrintedLength(TIME_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(TIME_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1T", f.print(DATE_PERIOD));
-        assertEquals(2, f.getPrinter().calculatePrintedLength(DATE_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(DATE_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1T",f.print(DATE_PERIOD));
+        assertEquals(2,f.getPrinter().calculatePrintedLength(DATE_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(DATE_PERIOD,Integer.MAX_VALUE,null));
     }
 
     //-----------------------------------------------------------------------
     public void testFormatLiteral() {
         PeriodFormatter f = builder.appendLiteral("HELLO").toFormatter();
-        assertEquals("HELLO", f.print(PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(0, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("HELLO",f.print(PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(0,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatAppendFormatter() {
         PeriodFormatter base = builder.appendYears().appendLiteral("-").toFormatter();
         PeriodFormatter f = new PeriodFormatterBuilder().append(base).appendYears().toFormatter();
-        assertEquals("1-1", f.print(PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-1",f.print(PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatMinDigits() {
         PeriodFormatter f = new PeriodFormatterBuilder().minimumPrintedDigits(4).appendYears().toFormatter();
-        assertEquals("0001", f.print(PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0001",f.print(PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
     }
 
     //-----------------------------------------------------------------------
@@ -871,29 +871,29 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMonths().appendLiteral("-")
                 .appendWeeks().appendLiteral("-")
                 .appendDays().toFormatter();
-        assertEquals("1-2-3-4", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-2-3-4",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("---0", f.print(EMPTY_YEAR_DAY_PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("---0",f.print(EMPTY_YEAR_DAY_PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1---4", f.print(YEAR_DAY_PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1---4",f.print(YEAR_DAY_PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("---0", f.print(EMPTY_PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("---0",f.print(EMPTY_PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
         
         // test only last instance of same field is output
         f = new PeriodFormatterBuilder()
                 .appendYears().appendLiteral("-")
                 .appendYears().toFormatter();
-        assertEquals("-0", f.print(EMPTY_PERIOD));
-        assertEquals(2, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("-0",f.print(EMPTY_PERIOD));
+        assertEquals(2,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrintZeroRarelyLast() {
@@ -904,21 +904,21 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMonths().appendLiteral("-")
                 .appendWeeks().appendLiteral("-")
                 .appendDays().toFormatter();
-        assertEquals("1-2-3-4", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-2-3-4",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("---0", f.print(EMPTY_YEAR_DAY_PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("---0",f.print(EMPTY_YEAR_DAY_PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1---4", f.print(YEAR_DAY_PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1---4",f.print(YEAR_DAY_PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("---0", f.print(EMPTY_PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("---0",f.print(EMPTY_PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrintZeroRarelyFirst() {
@@ -929,70 +929,70 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMonths().appendLiteral("-")
                 .appendWeeks().appendLiteral("-")
                 .appendDays().toFormatter();
-        assertEquals("1-2-3-4", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-2-3-4",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("0---", f.print(EMPTY_YEAR_DAY_PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0---",f.print(EMPTY_YEAR_DAY_PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1---4", f.print(YEAR_DAY_PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1---4",f.print(YEAR_DAY_PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("0---", f.print(EMPTY_PERIOD));
-        assertEquals(4, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(1, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0---",f.print(EMPTY_PERIOD));
+        assertEquals(4,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(1,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrintZeroRarelyFirstYears() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendYears().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroRarelyFirstMonths() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendMonths().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroRarelyFirstWeeks() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendWeeks().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroRarelyFirstDays() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendDays().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroRarelyFirstHours() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendHours().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroRarelyFirstMinutes() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendMinutes().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroRarelyFirstSeconds() {
         PeriodFormatter f = new PeriodFormatterBuilder()
             .printZeroRarelyFirst()
             .appendSeconds().toFormatter();
-        assertEquals("0", f.print(EMPTY_PERIOD));
+        assertEquals("0",f.print(EMPTY_PERIOD));
     }
 
     public void testFormatPrintZeroIfSupported() {
@@ -1003,21 +1003,21 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMonths().appendLiteral("-")
                 .appendWeeks().appendLiteral("-")
                 .appendDays().toFormatter();
-        assertEquals("1-2-3-4", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-2-3-4",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("0---0", f.print(EMPTY_YEAR_DAY_PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0---0",f.print(EMPTY_YEAR_DAY_PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1---4", f.print(YEAR_DAY_PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1---4",f.print(YEAR_DAY_PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("0-0-0-0", f.print(EMPTY_PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0-0-0-0",f.print(EMPTY_PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrintZeroAlways() {
@@ -1028,21 +1028,21 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMonths().appendLiteral("-")
                 .appendWeeks().appendLiteral("-")
                 .appendDays().toFormatter();
-        assertEquals("1-2-3-4", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-2-3-4",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("0-0-0-0", f.print(EMPTY_YEAR_DAY_PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0-0-0-0",f.print(EMPTY_YEAR_DAY_PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1-0-0-4", f.print(YEAR_DAY_PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-0-0-4",f.print(YEAR_DAY_PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("0-0-0-0", f.print(EMPTY_PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("0-0-0-0",f.print(EMPTY_PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
     }
 
     public void testFormatPrintZeroNever() {
@@ -1053,21 +1053,21 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .appendMonths().appendLiteral("-")
                 .appendWeeks().appendLiteral("-")
                 .appendDays().toFormatter();
-        assertEquals("1-2-3-4", f.print(PERIOD));
-        assertEquals(7, f.getPrinter().calculatePrintedLength(PERIOD, null));
-        assertEquals(4, f.getPrinter().countFieldsToPrint(PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1-2-3-4",f.print(PERIOD));
+        assertEquals(7,f.getPrinter().calculatePrintedLength(PERIOD,null));
+        assertEquals(4,f.getPrinter().countFieldsToPrint(PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("---", f.print(EMPTY_YEAR_DAY_PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD, null));
-        assertEquals(0, f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("---",f.print(EMPTY_YEAR_DAY_PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(EMPTY_YEAR_DAY_PERIOD,null));
+        assertEquals(0,f.getPrinter().countFieldsToPrint(EMPTY_YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("1---4", f.print(YEAR_DAY_PERIOD));
-        assertEquals(5, f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD, null));
-        assertEquals(2, f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("1---4",f.print(YEAR_DAY_PERIOD));
+        assertEquals(5,f.getPrinter().calculatePrintedLength(YEAR_DAY_PERIOD,null));
+        assertEquals(2,f.getPrinter().countFieldsToPrint(YEAR_DAY_PERIOD,Integer.MAX_VALUE,null));
         
-        assertEquals("---", f.print(EMPTY_PERIOD));
-        assertEquals(3, f.getPrinter().calculatePrintedLength(EMPTY_PERIOD, null));
-        assertEquals(0, f.getPrinter().countFieldsToPrint(EMPTY_PERIOD, Integer.MAX_VALUE, null));
+        assertEquals("---",f.print(EMPTY_PERIOD));
+        assertEquals(3,f.getPrinter().calculatePrintedLength(EMPTY_PERIOD,null));
+        assertEquals(0,f.getPrinter().countFieldsToPrint(EMPTY_PERIOD,Integer.MAX_VALUE,null));
     }
 
     //-----------------------------------------------------------------------
@@ -1085,7 +1085,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
         assertNull(bld.toParser());
         
         PeriodFormatter f = bld.toFormatter();
-        assertEquals("1-2", f.print(PERIOD));
+        assertEquals("1-2",f.print(PERIOD));
         try {
             f.parsePeriod("1-2");
             fail();
@@ -1103,7 +1103,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             f.print(PERIOD);
             fail();
         } catch (UnsupportedOperationException ex) {}
-        assertEquals(new Period(0, 2, 1, 0, 0, 0, 0, 0), f.parsePeriod("1-2"));
+        assertEquals(new Period(0,2,1,0,0,0,0,0),f.parsePeriod("1-2"));
     }
 
     public void testFormatAppend_PrinterParser_PrinterParser() {
@@ -1114,8 +1114,8 @@ public class TestPeriodFormatterBuilder extends TestCase {
         assertNotNull(bld.toParser());
         
         PeriodFormatter f = bld.toFormatter();
-        assertEquals("1-2", f.print(PERIOD));
-        assertEquals(new Period(0, 2, 1, 0, 0, 0, 0, 0), f.parsePeriod("1-2"));
+        assertEquals("1-2",f.print(PERIOD));
+        assertEquals(new Period(0,2,1,0,0,0,0,0),f.parsePeriod("1-2"));
     }
 
     public void testFormatAppend_PrinterParser_Printer_null_null_Parser() {
@@ -1177,13 +1177,13 @@ public class TestPeriodFormatterBuilder extends TestCase {
                 .toFormatter();
 
         String oneMonth = Period.months(1).toString(formatter);
-        assertEquals("1M", oneMonth);
+        assertEquals("1M",oneMonth);
         Period period = formatter.parsePeriod(oneMonth);
-        assertEquals(Period.months(1), period);
+        assertEquals(Period.months(1),period);
         String oneMinute = Period.minutes(1).toString(formatter);
-        assertEquals("1m", oneMinute);
+        assertEquals("1m",oneMinute);
         period = formatter.parsePeriod(oneMinute);
-        assertEquals(Period.minutes(1), period);
+        assertEquals(Period.minutes(1),period);
     }
 
     public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendPrefixTakingString() {
@@ -1194,7 +1194,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.appendSeparatorIfFieldsBefore("=9Z/])WG");
             fail("Expecting exception: IllegalStateException");
         } catch (IllegalStateException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 
@@ -1206,7 +1206,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.appendSeparatorIfFieldsBefore("3xmZ\"*'Q={=");
             fail("Expecting exception: IllegalStateException");
         } catch (IllegalStateException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 
@@ -1217,7 +1217,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.appendSeparator("", null, null);
             fail("Expecting exception: IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 
@@ -1229,7 +1229,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.appendSeparator(null, null, stringArray);
             fail("Expecting exception: IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 
@@ -1244,7 +1244,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.appendSuffix(stringArray, stringArray);
             fail("Expecting exception: IllegalStateException");
         } catch (IllegalStateException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 
@@ -1255,7 +1255,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.appendLiteral(null);
             fail("Expecting exception: IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 
@@ -1266,7 +1266,7 @@ public class TestPeriodFormatterBuilder extends TestCase {
             periodFormatterBuilder.append(null);
             fail("Expecting exception: IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+            assertEquals(PeriodFormatterBuilder.class.getName(),e.getStackTrace()[0].getClassName());
         }
     }
 

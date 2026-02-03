@@ -336,7 +336,7 @@ class SumTest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(exactSum(a, a, b, c, d, e, f), Sum.of(a, b) .add(Sum.of(a, c)) .add(Sum.of(d, e, f)).getAsDouble());
+        Assertions.assertEquals(exactSum(a,a,b,c,d,e,f),Sum.of(a,b).add(Sum.of(a,c)).add(Sum.of(d,e,f)).getAsDouble());
     }
 
     @Test
@@ -1107,7 +1107,7 @@ class SumTest_OE25Dev {
         final double d = Math.scalb(a, -27);
 
         // act/assert
-        Assertions.assertEquals(exactLinearCombination(1, a, -1, b, 2, c, 4, d), Sum.create() .add(a) .add(-b) .addProduct(2, c) .addProduct(d, 4).getAsDouble());
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().add(a).add(-b).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
     @Test
@@ -1121,7 +1121,7 @@ class SumTest_OE25Dev {
         // act/assert
         // removed other assertion
 
-        Assertions.assertEquals(exactLinearCombination(1, a, -1, b, 2, c, 4, d), Sum.create() .addProduct(d, 4) .add(a) .addProduct(2, c) .add(-b).getAsDouble());
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(d,4).add(a).addProduct(2,c).add(-b).getAsDouble());
     }
 
     @Test
@@ -1133,7 +1133,7 @@ class SumTest_OE25Dev {
         final double d = Math.scalb(a, -27);
 
         // act/assert
-        Assertions.assertEquals(exactLinearCombination(1, a, -1, b, 2, c, 4, d), Sum.create() .addProduct(1, a) .addProduct(-1, b) .addProduct(2, c) .addProduct(d, 4).getAsDouble());
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(1,a).addProduct(-1,b).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
     @Test
@@ -1147,7 +1147,7 @@ class SumTest_OE25Dev {
         // act/assert
         // removed other assertion
 
-        Assertions.assertEquals(exactLinearCombination(1, a, -1, b, 2, c, 4, d), Sum.create() .addProduct(a, 1) .addProduct(b, -1) .addProduct(2, c) .addProduct(d, 4).getAsDouble());
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(a,1).addProduct(b,-1).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
 }

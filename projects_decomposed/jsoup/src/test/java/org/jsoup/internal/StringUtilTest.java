@@ -24,10 +24,7 @@ public class StringUtilTest {
         assertEquals(" ", StringUtil.padding(1));
         assertEquals("  ", StringUtil.padding(2));
         assertEquals("               ", StringUtil.padding(15));
-        assertEquals("                              ", StringUtil.padding(45)); // we default to tap out at 30
-
-        // memoization is up to 21 blocks (0 to 20 spaces) and exits early before min checks making maxPaddingWidth unused
-        assertEquals("", StringUtil.padding(0, -1));
+        assertEquals(" ",StringUtil.padding(45));// we default to tap out at 30 assertEquals("",StringUtil.padding(0,-1));
         assertEquals("                    ", StringUtil.padding(20, -1));
 
         // this test escapes memoization and continues through

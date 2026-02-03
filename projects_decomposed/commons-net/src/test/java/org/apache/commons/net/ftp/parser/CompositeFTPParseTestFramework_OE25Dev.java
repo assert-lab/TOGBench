@@ -79,7 +79,7 @@ public abstract class CompositeFTPParseTestFramework_OE25Dev extends FTPParseTes
             final FTPFileEntryParser parser = getParser();
             for (final String test : goodsample) {
                 final FTPFile f = parser.parseFTPEntry(test);
-                assertNotNull("Failed to parse " + test, f);
+                assertNotNull("Failed to parse " + test,f);
     }
     }
     }
@@ -93,7 +93,7 @@ public abstract class CompositeFTPParseTestFramework_OE25Dev extends FTPParseTes
             final FTPFileEntryParser parser = getParser();
             for (final String test : badsample) {
                 final FTPFile f = parser.parseFTPEntry(test);
-                assertNull("Should have Failed to parse " + test, nullFileOrNullDate(f));
+                assertNull("Should have Failed to parse " + test,nullFileOrNullDate(f));
     }
     }
     }

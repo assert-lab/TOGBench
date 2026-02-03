@@ -103,7 +103,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         handler.writeFacets(FACETS, new StreamGeometryOutput(out));
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n", new String(out.toByteArray(), StandardCharsets.UTF_8));
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
     @Test
@@ -117,7 +117,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         handler.writeFacets(FACETS, new StreamGeometryOutput(out, null, StandardCharsets.UTF_16));
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n", new String(out.toByteArray(), StandardCharsets.UTF_16));
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
     @Test
@@ -136,7 +136,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         handler.writeFacets(FACETS, new StreamGeometryOutput(out));
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n", new String(out.toByteArray(), StandardCharsets.UTF_16));
+        Assertions.assertEquals("v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
     @Test
@@ -150,7 +150,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         handler.write(src, new StreamGeometryOutput(out));
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 0.3333333333333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n", new String(out.toByteArray(), StandardCharsets.UTF_8));
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.3333333333333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
     @Test
@@ -173,7 +173,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         handler.write(src, new StreamGeometryOutput(out));
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n", new String(out.toByteArray(), StandardCharsets.UTF_16));
+        Assertions.assertEquals("v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
     }
 
     @Test
@@ -189,7 +189,7 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
         handler.write(src, new StreamGeometryOutput(out));
 
         // assert
-        Assertions.assertEquals( "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 2.0 3.0 4.0\n" + "f 1 2 3\n", new String(out.toByteArray(), StandardCharsets.UTF_8));
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 2.0 3.0 4.0\n" + "f 1 2 3\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
     }
 
 }

@@ -37,17 +37,13 @@ public class ServiceTest {
 
     @Test
     public void testEmbeddedServerIdentifier_defaultAndSet() {
-        assertEquals("Should return defaultIdentifier()",
-            EmbeddedServers.defaultIdentifier(),
-            service.embeddedServerIdentifier());
+        assertEquals("Should return defaultIdentifier()",EmbeddedServers.defaultIdentifier(),service.embeddedServerIdentifier());
 
         Object obj = new Object();
 
         service.embeddedServerIdentifier(obj);
 
-        assertEquals("Should return expected obj",
-            obj,
-            service.embeddedServerIdentifier());
+        assertEquals("Should return expected obj",obj,service.embeddedServerIdentifier());
     }
 
     @Test

@@ -98,31 +98,31 @@ public class TestPartial_Match extends TestCase {
         // Year=2005, Month=7 (July), DayOfWeek=2 (Tuesday)
         Partial test = createYMDwPartial(ISO_UTC, 2005, 7, 2);
         DateTime instant = new DateTime(2005, 7, 5, 0, 0, 0, 0);
-        assertEquals(true, test.isMatch(instant));
+        assertEquals(true,test.isMatch(instant));
         
         instant = new DateTime(2005, 7, 4, 0, 0, 0, 0);
-        assertEquals(false, test.isMatch(instant));
+        assertEquals(false,test.isMatch(instant));
         
         instant = new DateTime(2005, 7, 6, 0, 0, 0, 0);
-        assertEquals(false, test.isMatch(instant));
+        assertEquals(false,test.isMatch(instant));
         
         instant = new DateTime(2005, 7, 12, 0, 0, 0, 0);
-        assertEquals(true, test.isMatch(instant));
+        assertEquals(true,test.isMatch(instant));
         
         instant = new DateTime(2005, 7, 19, 0, 0, 0, 0);
-        assertEquals(true, test.isMatch(instant));
+        assertEquals(true,test.isMatch(instant));
         
         instant = new DateTime(2005, 7, 26, 0, 0, 0, 0);
-        assertEquals(true, test.isMatch(instant));
+        assertEquals(true,test.isMatch(instant));
         
         instant = new DateTime(2005, 8, 2, 0, 0, 0, 0);
-        assertEquals(false, test.isMatch(instant));
+        assertEquals(false,test.isMatch(instant));
         
         instant = new DateTime(2006, 7, 5, 0, 0, 0, 0);
-        assertEquals(false, test.isMatch(instant));
+        assertEquals(false,test.isMatch(instant));
         
         instant = new DateTime(2005, 6, 5, 0, 0, 0, 0);
-        assertEquals(false, test.isMatch(instant));
+        assertEquals(false,test.isMatch(instant));
     }
 
     //-----------------------------------------------------------------------
@@ -130,31 +130,31 @@ public class TestPartial_Match extends TestCase {
         // Year=2005, Month=7 (July), DayOfWeek=2 (Tuesday)
         Partial test = createYMDwPartial(ISO_UTC, 2005, 7, 2);
         LocalDate partial = new LocalDate(2005, 7, 5);
-        assertEquals(true, test.isMatch(partial));
+        assertEquals(true,test.isMatch(partial));
         
         partial = new LocalDate(2005, 7, 4);
-        assertEquals(false, test.isMatch(partial));
+        assertEquals(false,test.isMatch(partial));
         
         partial = new LocalDate(2005, 7, 6);
-        assertEquals(false, test.isMatch(partial));
+        assertEquals(false,test.isMatch(partial));
         
         partial = new LocalDate(2005, 7, 12);
-        assertEquals(true, test.isMatch(partial));
+        assertEquals(true,test.isMatch(partial));
         
         partial = new LocalDate(2005, 7, 19);
-        assertEquals(true, test.isMatch(partial));
+        assertEquals(true,test.isMatch(partial));
         
         partial = new LocalDate(2005, 7, 26);
-        assertEquals(true, test.isMatch(partial));
+        assertEquals(true,test.isMatch(partial));
         
         partial = new LocalDate(2005, 8, 2);
-        assertEquals(false, test.isMatch(partial));
+        assertEquals(false,test.isMatch(partial));
         
         partial = new LocalDate(2006, 7, 5);
-        assertEquals(false, test.isMatch(partial));
+        assertEquals(false,test.isMatch(partial));
         
         partial = new LocalDate(2005, 6, 5);
-        assertEquals(false, test.isMatch(partial));
+        assertEquals(false,test.isMatch(partial));
         
         try {
             test.isMatch((ReadablePartial) null);

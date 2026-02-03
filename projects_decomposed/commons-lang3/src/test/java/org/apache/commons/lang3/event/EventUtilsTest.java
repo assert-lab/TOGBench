@@ -71,8 +71,7 @@ public class EventUtilsTest {
         final ObjectChangeListener listener = handler.createListener(ObjectChangeListener.class);
         final IllegalArgumentException e =
                 assertThrows(IllegalArgumentException.class, () -> EventUtils.addEventListener(src, ObjectChangeListener.class, listener));
-        assertEquals("Class " + src.getClass().getName() + " does not have a public add" + ObjectChangeListener.class.getSimpleName() + " method which takes a parameter of type " + ObjectChangeListener.class.getName() + ".",
-                e.getMessage());
+        assertEquals("Class " + src.getClass().getName()+ " does not have a public add" + ObjectChangeListener.class.getSimpleName()+ " method which takes a parameter of type " + ObjectChangeListener.class.getName()+ ".",e.getMessage());
     }
 
     @Test
@@ -92,8 +91,7 @@ public class EventUtilsTest {
         final VetoableChangeListener listener = handler.createListener(VetoableChangeListener.class);
         final IllegalArgumentException e =
                 assertThrows(IllegalArgumentException.class, () -> EventUtils.addEventListener(src, VetoableChangeListener.class, listener));
-        assertEquals("Class " + src.getClass().getName() + " does not have a public add" + VetoableChangeListener.class.getSimpleName() + " method which takes a parameter of type " + VetoableChangeListener.class.getName() + ".",
-                e.getMessage());
+        assertEquals("Class " + src.getClass().getName()+ " does not have a public add" + VetoableChangeListener.class.getSimpleName()+ " method which takes a parameter of type " + VetoableChangeListener.class.getName()+ ".",e.getMessage());
     }
 
     @Test

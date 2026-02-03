@@ -369,7 +369,7 @@ public abstract class AbstractImmutableNodeHandlerTest_OE25Dev {
     @Test
     public void testNodeHandlerGetMatchingChildrenCount_1_oe() {
         final NodeHandler<ImmutableNode> handler = createHandler(ROOT_AUTHORS_TREE);
-        assertEquals("Wrong result", NodeStructureHelper.authorsLength(), handler.getMatchingChildrenCount(handler.getRootNode(), new DummyNodeMatcher(), this));
+        assertEquals("Wrong result",NodeStructureHelper.authorsLength(),handler.getMatchingChildrenCount(handler.getRootNode(),new DummyNodeMatcher(),this));
     }
 
     @Test

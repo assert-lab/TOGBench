@@ -52,10 +52,8 @@ public abstract class AbstractTreeMapTest<K, V> extends AbstractMapTest<K, V> {
         final TreeMap<K, V> map = makeObject();
         map.put((K) "first", (V) "First Item");
         map.put((K) "second", (V) "Second Item");
-        assertEquals("Top item is 'Second Item'",
-            "First Item", map.get("first"));
-        assertEquals("Next Item is 'First Item'",
-            "Second Item", map.get("second"));
+        assertEquals("Top item is 'Second Item'","First Item",map.get("first"));
+        assertEquals("Next Item is 'First Item'","Second Item",map.get("second"));
     }
 
 }

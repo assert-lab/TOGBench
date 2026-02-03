@@ -120,7 +120,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
     public void testGetName_1_oe() {
 
-        assertEquals("DynaClass name", "org.apache.commons.beanutils.ResultSetDynaClass", dynaClass.getName());
+        assertEquals("DynaClass name","org.apache.commons.beanutils.ResultSetDynaClass",dynaClass.getName());
     }
 
     public void testGetDynaProperty_2_oe() {
@@ -135,7 +135,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         // Negative test
         DynaProperty dynaProp = dynaClass.getDynaProperty("unknownProperty");
-        assertTrue("unknown property returns null", (dynaProp == null));
+        assertTrue("unknown property returns null",(dynaProp == null));
     }
 
     public void testGetDynaProperty_3_oe() {
@@ -174,7 +174,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         // Positive test
         dynaProp = dynaClass.getDynaProperty("stringproperty");
         // removed other assertion
-        assertEquals("string property name", "stringproperty", dynaProp.getName());
+        assertEquals("string property name","stringproperty",dynaProp.getName());
     }
 
     public void testGetDynaProperty_5_oe() {
@@ -195,7 +195,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         dynaProp = dynaClass.getDynaProperty("stringproperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("string property class", String.class, dynaProp.getType());
+        assertEquals("string property class",String.class,dynaProp.getType());
     }
 
     public void testGetDynaProperties_1_oe() {
@@ -217,7 +217,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         for (int i = 0; i < columns.length; i++) {
-            assertEquals("Property " + columns[i], columns[i], dynaProps[i].getName());
+            assertEquals("Property " + columns[i],columns[i],dynaProps[i].getName());
     }
     }
 
@@ -310,7 +310,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         final Object bigDecimalProperty = row.get("bigdecimalproperty");
         // removed other assertion
-        assertTrue("bigDecimalProperty type", bigDecimalProperty instanceof BigDecimal);
+        assertTrue("bigDecimalProperty type",bigDecimalProperty instanceof BigDecimal);
     }
 
     public void testIteratorResults_4_oe() {
@@ -334,7 +334,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         final Object bigDecimalProperty = row.get("bigdecimalproperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("bigDecimalProperty value", 123.45, ((BigDecimal) bigDecimalProperty).doubleValue(), 0.005);
+        assertEquals("bigDecimalProperty value",123.45,((BigDecimal)bigDecimalProperty).doubleValue(),0.005);
     }
 
     public void testIteratorResults_5_oe() {
@@ -389,7 +389,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         final Object intProperty = row.get("intproperty");
         // removed other assertion
-        assertTrue("intProperty type", intProperty instanceof Integer);
+        assertTrue("intProperty type",intProperty instanceof Integer);
     }
 
     public void testIteratorResults_7_oe() {
@@ -418,7 +418,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         final Object intProperty = row.get("intproperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("intProperty value", 103, ((Integer) intProperty).intValue());
+        assertEquals("intProperty value",103,((Integer)intProperty).intValue());
     }
 
     public void testIteratorResults_8_oe() {
@@ -521,7 +521,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         final Object stringProperty = row.get("stringproperty");
         // removed other assertion
-        assertTrue("stringProperty type", stringProperty instanceof String);
+        assertTrue("stringProperty type",stringProperty instanceof String);
     }
 
     public void testIteratorResults_11_oe() {
@@ -558,7 +558,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         final Object stringProperty = row.get("stringproperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("stringProperty value", "This is a string", (String) stringProperty);
+        assertEquals("stringProperty value","This is a string",(String)stringProperty);
     }
 
     public void testIteratorResultsNormalCase_1_oe() {
@@ -624,7 +624,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         final Object bigDecimalProperty = row.get("bigDecimalProperty");
         // removed other assertion
-        assertTrue("bigDecimalProperty type", bigDecimalProperty instanceof BigDecimal);
+        assertTrue("bigDecimalProperty type",bigDecimalProperty instanceof BigDecimal);
     }
 
     public void testIteratorResultsNormalCase_5_oe() {
@@ -654,7 +654,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         final Object bigDecimalProperty = row.get("bigDecimalProperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("bigDecimalProperty value", 123.45, ((BigDecimal) bigDecimalProperty).doubleValue(), 0.005);
+        assertEquals("bigDecimalProperty value",123.45,((BigDecimal)bigDecimalProperty).doubleValue(),0.005);
     }
 
     public void testIteratorResultsNormalCase_6_oe() {
@@ -721,7 +721,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         final Object intProperty = row.get("intProperty");
         // removed other assertion
-        assertTrue("intProperty type", intProperty instanceof Integer);
+        assertTrue("intProperty type",intProperty instanceof Integer);
     }
 
     public void testIteratorResultsNormalCase_8_oe() {
@@ -756,7 +756,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         final Object intProperty = row.get("intProperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("intProperty value", 103, ((Integer) intProperty).intValue());
+        assertEquals("intProperty value",103,((Integer)intProperty).intValue());
     }
 
     public void testIteratorResultsNormalCase_9_oe() {
@@ -877,7 +877,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
 
         final Object stringProperty = row.get("stringProperty");
         // removed other assertion
-        assertTrue("stringProperty type", stringProperty instanceof String);
+        assertTrue("stringProperty type",stringProperty instanceof String);
     }
 
     public void testIteratorResultsNormalCase_12_oe() {
@@ -920,7 +920,7 @@ public class DynaResultSetTestCase_OE25Dev extends TestCase {
         final Object stringProperty = row.get("stringProperty");
         // removed other assertion
         // removed other assertion
-        assertEquals("stringProperty value", "This is a string", (String) stringProperty);
+        assertEquals("stringProperty value","This is a string",(String)stringProperty);
     }
 
 }

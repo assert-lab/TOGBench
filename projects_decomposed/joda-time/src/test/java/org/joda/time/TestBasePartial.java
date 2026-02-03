@@ -73,34 +73,34 @@ public class TestBasePartial extends TestCase {
     //-----------------------------------------------------------------------
     public void testSetMethods() throws Throwable {
         MockPartial mock = new MockPartial();
-        assertEquals(1970, mock.getYear());
-        assertEquals(1, mock.getMonthOfYear());
+        assertEquals(1970,mock.getYear());
+        assertEquals(1,mock.getMonthOfYear());
         
         mock.setYear(2004);
-        assertEquals(2004, mock.getYear());
-        assertEquals(1, mock.getMonthOfYear());
+        assertEquals(2004,mock.getYear());
+        assertEquals(1,mock.getMonthOfYear());
         
         mock.setMonthOfYear(6);
-        assertEquals(2004, mock.getYear());
-        assertEquals(6, mock.getMonthOfYear());
+        assertEquals(2004,mock.getYear());
+        assertEquals(6,mock.getMonthOfYear());
         
         mock.set(2005, 5);
-        assertEquals(2005, mock.getYear());
-        assertEquals(5, mock.getMonthOfYear());
+        assertEquals(2005,mock.getYear());
+        assertEquals(5,mock.getMonthOfYear());
         
         try {
             mock.setMonthOfYear(0);
             fail();
         } catch (IllegalArgumentException ex) {}
-        assertEquals(2005, mock.getYear());
-        assertEquals(5, mock.getMonthOfYear());
+        assertEquals(2005,mock.getYear());
+        assertEquals(5,mock.getMonthOfYear());
         
         try {
             mock.setMonthOfYear(13);
             fail();
         } catch (IllegalArgumentException ex) {}
-        assertEquals(2005, mock.getYear());
-        assertEquals(5, mock.getMonthOfYear());
+        assertEquals(2005,mock.getYear());
+        assertEquals(5,mock.getMonthOfYear());
     }
 
     static class MockPartial extends BasePartial {

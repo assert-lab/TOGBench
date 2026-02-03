@@ -278,24 +278,15 @@ public class UnixFTPEntryParserTest extends FTPParseTestFramework {
     }
 
     private void checkPermissions(final FTPFile f) {
-        assertTrue("Should have user read permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should have user write permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have user execute permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have group read permission.", f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should NOT have group write permission.", !f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have group execute permission.", f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have world read permission.", f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should NOT have world write permission.", !f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have world execute permission.", f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have user execute permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should NOT have group write permission.",!f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should NOT have world write permission.",!f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
     }
 
     @Override
@@ -420,9 +411,7 @@ public class UnixFTPEntryParserTest extends FTPParseTestFramework {
             {
                 final int pos = 3*access + perm + 1;
                 final char permchar = test.charAt(pos);
-                assertEquals("Permission " + test.substring(1,10),
-                        Boolean.valueOf(f.hasPermission(access, perm)),
-                        Boolean.valueOf(permchar != '-' && !Character.isUpperCase(permchar)));
+                assertEquals("Permission " + test.substring(1,10),Boolean.valueOf(f.hasPermission(access,perm)),Boolean.valueOf(permchar != '-' && !Character.isUpperCase(permchar)));
             }
         }
 

@@ -89,7 +89,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
             // removed other assertion
         } catch (final FileSystemException e) {
             // removed other assertion
-            assertSame(((InvocationTargetException) e.getCause()).getTargetException().getClass(), NumberFormatException.class);
+            assertSame(((InvocationTargetException)e.getCause()).getTargetException().getClass(),NumberFormatException.class);
     }
     }
 
@@ -159,7 +159,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        assertSame("sftp.userInfo", SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(), TrustEveryoneUserInfo.class);
+        assertSame("sftp.userInfo",SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),TrustEveryoneUserInfo.class);
     }
 
     @Test
@@ -223,7 +223,7 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         for (int iterIdentities = 0; iterIdentities < identities.length; iterIdentities++) {
-            assertEquals("sftp.identities #" + iterIdentities, identities[iterIdentities].getAbsolutePath(), new File(identityPaths[iterIdentities]).getAbsolutePath());
+            assertEquals("sftp.identities #" + iterIdentities,identities[iterIdentities].getAbsolutePath(),new File(identityPaths[iterIdentities]).getAbsolutePath());
     }
     }
 

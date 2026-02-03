@@ -82,16 +82,11 @@ public class OS400FTPEntryParserAdditionalTest extends CompositeFTPParseTestFram
     public void testParseFieldsOnDirectory() throws Exception
     {
         final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        assertNotNull("Could not parse entry.",
-                      f);
-        assertTrue("Should have been a directory.",
-                   f.isDirectory());
-        assertEquals("PEP",
-                     f.getUser());
-        assertEquals("dir1",
-                     f.getName());
-        assertEquals(36864,
-                     f.getSize());
+        assertNotNull("Could not parse entry.",f);
+        assertTrue("Should have been a directory.",f.isDirectory());
+        assertEquals("PEP",f.getUser());
+        assertEquals("dir1",f.getName());
+        assertEquals(36864,f.getSize());
 
         final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, Calendar.MARCH);
@@ -102,8 +97,7 @@ public class OS400FTPEntryParserAdditionalTest extends CompositeFTPParseTestFram
         cal.set(Calendar.MINUTE, 6);
         cal.set(Calendar.SECOND, 34);
 
-        assertEquals(df.format(cal.getTime()),
-                     df.format(f.getTimestamp().getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
     }
 
     @Override
@@ -111,8 +105,7 @@ public class OS400FTPEntryParserAdditionalTest extends CompositeFTPParseTestFram
     {
         if (test.startsWith("d"))
         {
-            assertEquals("directory.type",
-                FTPFile.DIRECTORY_TYPE, f.getType());
+            assertEquals("directory.type",FTPFile.DIRECTORY_TYPE,f.getType());
         }
     }
 
@@ -120,16 +113,11 @@ public class OS400FTPEntryParserAdditionalTest extends CompositeFTPParseTestFram
     public void testParseFieldsOnFile() throws Exception
     {
         final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        assertNotNull("Could not parse entry.",
-                      f);
-        assertTrue("Should have been a file.",
-                   f.isFile());
-        assertEquals("PEP",
-                     f.getUser());
-        assertEquals("build.xml",
-                     f.getName());
-        assertEquals(5000000000L,
-                     f.getSize());
+        assertNotNull("Could not parse entry.",f);
+        assertTrue("Should have been a file.",f.isFile());
+        assertEquals("PEP",f.getUser());
+        assertEquals("build.xml",f.getName());
+        assertEquals(5000000000L,f.getSize());
 
         final Calendar cal = Calendar.getInstance();
 
@@ -139,8 +127,7 @@ public class OS400FTPEntryParserAdditionalTest extends CompositeFTPParseTestFram
         cal.set(Calendar.HOUR_OF_DAY, 14);
         cal.set(Calendar.MINUTE, 6);
         cal.set(Calendar.SECOND, 29);
-        assertEquals(df.format(cal.getTime()),
-                     df.format(f.getTimestamp().getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
     }
 
     @Override

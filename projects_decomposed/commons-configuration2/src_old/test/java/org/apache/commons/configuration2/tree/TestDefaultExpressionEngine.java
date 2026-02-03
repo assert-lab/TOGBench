@@ -388,8 +388,7 @@ public class TestDefaultExpressionEngine {
     public void testNodeKeyWithEscapedDelimiters() {
         final ImmutableNode node = root.getChildren().get(1);
         assertEquals("Wrong escaped key", "connection..settings", engine.nodeKey(node, "", handler));
-        assertEquals("Wrong complex escaped key", "connection..settings.usr..name",
-            engine.nodeKey(node.getChildren().get(0), engine.nodeKey(node, "", handler), handler));
+        assertEquals("Wrong complex escaped key","connection..settings.usr..name",engine.nodeKey(node.getChildren().get(0),engine.nodeKey(node,"",handler),handler));
     }
 
     /**

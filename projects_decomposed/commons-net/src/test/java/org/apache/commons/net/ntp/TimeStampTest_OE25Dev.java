@@ -255,7 +255,7 @@ public class TimeStampTest_OE25Dev extends TestCase {
         // removed other assertion
         final long time1 = ts1.getTime();
         final long time3 = ts3.getTime();
-        assertEquals("equals(time1,3)", time1, time3); // ntpTime1 != ntpTime3 but JavaTime(t1) == JavaTime(t3)...;
+        assertEquals("equals(time1,3)",time1,time3);// ntpTime1 != ntpTime3 but JavaTime(t1)== JavaTime(t3)... assertTrue("ts3 != ts4",!ts3.equals(ts4));
     }
 
     public void testCompare_13_oe() {
@@ -283,38 +283,6 @@ public class TimeStampTest_OE25Dev extends TestCase {
         // removed other assertion
         final long time1 = ts1.getTime();
         final long time3 = ts3.getTime();
-        // removed other assertion
-
-        assertTrue("ts3 != ts4", !ts3.equals(ts4));
-    }
-
-    public void testCompare_14_oe() {
-
-        final TimeStamp ts1 = new TimeStamp(TIME1); // Tue, Dec 17 2002 14:07:24.810 UTC
-        final TimeStamp ts2 = new TimeStamp(TIME1);
-        final TimeStamp ts3 = new TimeStamp(TIME2); // Tue, Dec 17 2002 14:07:24.810 UTC
-        final TimeStamp ts4 = new TimeStamp(TIME3); // Tue, Dec 17 2002 14:07:25.810 UTC
-
-        // do assertion tests on TimeStamp class
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // timestamps in ts1 (TIME1) and ts3 (TIME2) are only off by the smallest
-        // fraction of a second (~200 picoseconds) so the times are not equal but
-        // when converted to Java dates (in milliseconds) they will be equal.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final long time1 = ts1.getTime();
-        final long time3 = ts3.getTime();
-        // removed other assertion
-
         // removed other assertion
         assertTrue("time3 != ts4.time", time3 != ts4.getTime());
     }

@@ -126,8 +126,7 @@ public class UrlTests extends AbstractProviderTestCase {
         final FileObject f2 = getManager().resolveFile(uri, options);
 
         assertEquals("Two files resolved by URI must be equals on " + uri, f1, f2);
-        assertSame("Resolving two times should not produce new filesystem on " + uri, f1.getFileSystem(),
-            f2.getFileSystem());
+        assertSame("Resolving two times should not produce new filesystem on " + uri,f1.getFileSystem(),f2.getFileSystem());
     }
 
 }

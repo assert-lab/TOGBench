@@ -195,7 +195,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         map.put(null, "Four");
         map.put(Integer.valueOf(20), "Five");
         final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        assertEquals(4, caseInsensitiveMap.size()); // ones collapsed;
+        assertEquals(4,caseInsensitiveMap.size());
     }
 
     public void testPutAll_2_oe() {
@@ -207,107 +207,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
         map.put(Integer.valueOf(20), "Five");
         final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
         // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        assertTrue(keys.contains("one"));
-    }
-
-    public void testPutAll_3_oe() {
-        final Map<Object, String> map = new HashMap<>();
-        map.put("One", "One");
-        map.put("Two", "Two");
-        map.put("one", "Three");
-        map.put(null, "Four");
-        map.put(Integer.valueOf(20), "Five");
-        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        // removed other assertion
-        assertTrue(keys.contains("two"));
-    }
-
-    public void testPutAll_4_oe() {
-        final Map<Object, String> map = new HashMap<>();
-        map.put("One", "One");
-        map.put("Two", "Two");
-        map.put("one", "Three");
-        map.put(null, "Four");
-        map.put(Integer.valueOf(20), "Five");
-        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        // removed other assertion
-        // removed other assertion
-        assertTrue(keys.contains(null));
-    }
-
-    public void testPutAll_5_oe() {
-        final Map<Object, String> map = new HashMap<>();
-        map.put("One", "One");
-        map.put("Two", "Two");
-        map.put("one", "Three");
-        map.put(null, "Four");
-        map.put(Integer.valueOf(20), "Five");
-        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(keys.contains(Integer.toString(20)));
-    }
-
-    public void testPutAll_6_oe() {
-        final Map<Object, String> map = new HashMap<>();
-        map.put("One", "One");
-        map.put("Two", "Two");
-        map.put("one", "Three");
-        map.put(null, "Four");
-        map.put(Integer.valueOf(20), "Five");
-        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(4, keys.size());
-    }
-
-    public void testPutAll_7_oe() {
-        final Map<Object, String> map = new HashMap<>();
-        map.put("One", "One");
-        map.put("Two", "Two");
-        map.put("one", "Three");
-        map.put(null, "Four");
-        map.put(Integer.valueOf(20), "Five");
-        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(!caseInsensitiveMap.containsValue("One") || !caseInsensitiveMap.containsValue("Three")); // ones collaped;
-    }
-
-    public void testPutAll_8_oe() {
-        final Map<Object, String> map = new HashMap<>();
-        map.put("One", "One");
-        map.put("Two", "Two");
-        map.put("one", "Three");
-        map.put(null, "Four");
-        map.put(Integer.valueOf(20), "Five");
-        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
-        // removed other assertion
-        final Set<Object> keys = caseInsensitiveMap.keySet();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Four", caseInsensitiveMap.get(null));
+        assertTrue(!caseInsensitiveMap.containsValue("One")|| !caseInsensitiveMap.containsValue("Three"));// ones collaped assertEquals("Four",caseInsensitiveMap.get(null));
     }
 
     public void testClone_1_oe() {

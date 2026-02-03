@@ -224,7 +224,7 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         final CombinedBuilderParametersImpl clone = params.clone();
         // removed other assertion
         // removed other assertion
-        assertEquals("Wrong field value in parameters object", params.getDefinitionBuilderParameters().getParameters().get("systemID"), clone.getDefinitionBuilderParameters().getParameters().get("systemID"));
+        assertEquals("Wrong field value in parameters object",params.getDefinitionBuilderParameters().getParameters().get("systemID"),clone.getDefinitionBuilderParameters().getParameters().get("systemID"));
     }
 
     @Test

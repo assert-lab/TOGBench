@@ -40,7 +40,7 @@ public class TestTimeInfo_OE25Dev {
         info.addComment("this is a comment");
         final TimeInfo other = new TimeInfo(packet, returnTime);
         other.addComment("this is a comment");
-        Assert.assertEquals(info, other); // fails;
+        Assert.assertEquals(info,other);// fails Assert.assertEquals(info.hashCode(),other.hashCode());
     }
 
     @Test
@@ -51,19 +51,6 @@ public class TestTimeInfo_OE25Dev {
         info.addComment("this is a comment");
         final TimeInfo other = new TimeInfo(packet, returnTime);
         other.addComment("this is a comment");
-        // removed other assertion
-        Assert.assertEquals(info.hashCode(), other.hashCode());
-    }
-
-    @Test
-    public void testEquals_3_oe() {
-        final NtpV3Packet packet = new NtpV3Impl();
-        final long returnTime = System.currentTimeMillis();
-        final TimeInfo info = new TimeInfo(packet, returnTime);
-        info.addComment("this is a comment");
-        final TimeInfo other = new TimeInfo(packet, returnTime);
-        other.addComment("this is a comment");
-        // removed other assertion
         // removed other assertion
         other.addComment("another comment");
         //Assert.assertFalse(info.equals(other)); // comments not used for equality

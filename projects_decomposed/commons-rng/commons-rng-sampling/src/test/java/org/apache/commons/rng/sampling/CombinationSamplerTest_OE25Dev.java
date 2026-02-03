@@ -105,8 +105,7 @@ class CombinationSamplerTest_OE25Dev {
         }
 
         // The number of combinations C(n, k) is the binomial coefficient
-        Assertions.assertEquals(CombinatoricsUtils.binomialCoefficient(n, k), codes,
-            "Incorrect number of combination codes");
+        Assertions.assertEquals(CombinatoricsUtils.binomialCoefficient(n,k),codes,"Incorrect number of combination codes");
 
         final long[] observed = new long[codes];
         final int numSamples = 6000;

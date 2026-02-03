@@ -293,8 +293,7 @@ class NumberFactoryTest {
      */
     private static void assertCloseToNotAbove1(float value, int maxUlps) {
         Assertions.assertTrue(value <= 1.0f, "Not <= 1.0f");
-        Assertions.assertTrue(Precision.equals(1.0f, value, maxUlps),
-            () -> "Not equal to 1.0f within units of least precision: " + maxUlps);
+        Assertions.assertTrue(Precision.equals(1.0f,value,maxUlps),()-> "Not equal to 1.0f within units of least precision: " + maxUlps);
     }
 
     /**
@@ -308,7 +307,6 @@ class NumberFactoryTest {
      */
     private static void assertCloseToNotAbove1(double value, int maxUlps) {
         Assertions.assertTrue(value <= 1.0, "Not <= 1.0");
-        Assertions.assertTrue(Precision.equals(1.0, value, maxUlps),
-            () -> "Not equal to 1.0 within units of least precision: " + maxUlps);
+        Assertions.assertTrue(Precision.equals(1.0,value,maxUlps),()-> "Not equal to 1.0 within units of least precision: " + maxUlps);
     }
 }

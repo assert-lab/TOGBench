@@ -108,33 +108,33 @@ public class TestInterval_Constructors extends TestCase {
     public void testParse_noOffsetInString() throws Throwable {
         DateTime start = new DateTime(2010, 6, 30, 12, 30, ISOChronology.getInstance(PARIS));
         DateTime end = new DateTime(2010, 7, 1, 14, 30, ISOChronology.getInstance(PARIS));
-        assertEquals(new Interval(start, end), Interval.parse("2010-06-30T12:30/2010-07-01T14:30"));
-        assertEquals(new Interval(start, end), Interval.parse("2010-06-30T12:30/P1DT2H"));
-        assertEquals(new Interval(start, end), Interval.parse("P1DT2H/2010-07-01T14:30"));
+        assertEquals(new Interval(start,end),Interval.parse("2010-06-30T12:30/2010-07-01T14:30"));
+        assertEquals(new Interval(start,end),Interval.parse("2010-06-30T12:30/P1DT2H"));
+        assertEquals(new Interval(start,end),Interval.parse("P1DT2H/2010-07-01T14:30"));
     }
 
     public void testParse_offsetInString() throws Throwable {
         DateTime start = new DateTime(2010, 6, 30, 10, 30, ISOChronology.getInstance(PARIS));
         DateTime end = new DateTime(2010, 7, 1, 12, 30, ISOChronology.getInstance(PARIS));
-        assertEquals(new Interval(start, end), Interval.parse("2010-06-30T12:30+04:00/2010-07-01T14:30+04:00"));
-        assertEquals(new Interval(start, end), Interval.parse("2010-06-30T12:30+04:00/P1DT2H"));
-        assertEquals(new Interval(start, end), Interval.parse("P1DT2H/2010-07-01T14:30+04:00"));
+        assertEquals(new Interval(start,end),Interval.parse("2010-06-30T12:30+04:00/2010-07-01T14:30+04:00"));
+        assertEquals(new Interval(start,end),Interval.parse("2010-06-30T12:30+04:00/P1DT2H"));
+        assertEquals(new Interval(start,end),Interval.parse("P1DT2H/2010-07-01T14:30+04:00"));
     }
 
     public void testParseWithOffset_noOffsetInString() throws Throwable {
         DateTime start = new DateTime(2010, 6, 30, 12, 30, ISOChronology.getInstance(PARIS));
         DateTime end = new DateTime(2010, 7, 1, 14, 30, ISOChronology.getInstance(PARIS));
-        assertEquals(new Interval(start, end), Interval.parseWithOffset("2010-06-30T12:30/2010-07-01T14:30"));
-        assertEquals(new Interval(start, end), Interval.parseWithOffset("2010-06-30T12:30/P1DT2H"));
-        assertEquals(new Interval(start, end), Interval.parseWithOffset("P1DT2H/2010-07-01T14:30"));
+        assertEquals(new Interval(start,end),Interval.parseWithOffset("2010-06-30T12:30/2010-07-01T14:30"));
+        assertEquals(new Interval(start,end),Interval.parseWithOffset("2010-06-30T12:30/P1DT2H"));
+        assertEquals(new Interval(start,end),Interval.parseWithOffset("P1DT2H/2010-07-01T14:30"));
     }
 
     public void testParseWithOffset_offsetInString() throws Throwable {
         DateTime start = new DateTime(2010, 6, 30, 12, 30, ISOChronology.getInstance(OFFSET_04_00));
         DateTime end = new DateTime(2010, 7, 1, 14, 30, ISOChronology.getInstance(OFFSET_04_00));
-        assertEquals(new Interval(start, end), Interval.parseWithOffset("2010-06-30T12:30+04:00/2010-07-01T14:30+04:00"));
-        assertEquals(new Interval(start, end), Interval.parseWithOffset("2010-06-30T12:30+04:00/p1DT2H"));
-        assertEquals(new Interval(start, end), Interval.parseWithOffset("p1DT2H/2010-07-01T14:30+04:00"));
+        assertEquals(new Interval(start,end),Interval.parseWithOffset("2010-06-30T12:30+04:00/2010-07-01T14:30+04:00"));
+        assertEquals(new Interval(start,end),Interval.parseWithOffset("2010-06-30T12:30+04:00/p1DT2H"));
+        assertEquals(new Interval(start,end),Interval.parseWithOffset("p1DT2H/2010-07-01T14:30+04:00"));
     }
 
     public void testParseWithOffset_invalid() throws Throwable {
@@ -157,17 +157,17 @@ public class TestInterval_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1.getMillis(), dt2.getMillis());
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
     public void testConstructor_long_long2() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Interval test = new Interval(dt1.getMillis(), dt1.getMillis());
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt1.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt1.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
     public void testConstructor_long_long3() throws Throwable {
@@ -181,13 +181,13 @@ public class TestInterval_Constructors extends TestCase {
 
     public void testConstructor_long_long_minMax() throws Throwable {
         Interval test = new Interval(Long.MIN_VALUE, Long.MAX_VALUE);
-        assertEquals(Long.MIN_VALUE, test.getStartMillis());
-        assertEquals(Long.MAX_VALUE, test.getEndMillis());
-        assertEquals(new DateTime(Long.MIN_VALUE), test.getStart());
-        assertEquals(new DateTime(Long.MAX_VALUE), test.getEnd());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(test, test.toInterval());
-        assertEquals("-292275055-05-16T16:56:25.192+00:09:21/292278994-08-17T07:12:55.807Z", test.toString());
+        assertEquals(Long.MIN_VALUE,test.getStartMillis());
+        assertEquals(Long.MAX_VALUE,test.getEndMillis());
+        assertEquals(new DateTime(Long.MIN_VALUE),test.getStart());
+        assertEquals(new DateTime(Long.MAX_VALUE),test.getEnd());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(test,test.toInterval());
+        assertEquals("-292275055-05-16T16:56:25.192+00:09:21/292278994-08-17T07:12:55.807Z",test.toString());
         try {
             test.toDuration();
             fail();
@@ -204,29 +204,29 @@ public class TestInterval_Constructors extends TestCase {
 
     public void testConstructor_long_long_min() throws Throwable {
         Interval test = new Interval(Long.MIN_VALUE, Long.MIN_VALUE + 9);
-        assertEquals(Long.MIN_VALUE, test.getStartMillis());
-        assertEquals(Long.MIN_VALUE + 9, test.getEndMillis());
-        assertEquals(new DateTime(Long.MIN_VALUE), test.getStart());
-        assertEquals(new DateTime(Long.MIN_VALUE + 9), test.getEnd());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(test, test.toInterval());
-        assertEquals("-292275055-05-16T16:56:25.192+00:09:21/-292275055-05-16T16:56:25.201+00:09:21", test.toString());
-        assertEquals(9, test.toDurationMillis());
-        assertEquals(new Duration(9), test.toDuration());
-        assertEquals(new Period(9), test.toPeriod());
+        assertEquals(Long.MIN_VALUE,test.getStartMillis());
+        assertEquals(Long.MIN_VALUE + 9,test.getEndMillis());
+        assertEquals(new DateTime(Long.MIN_VALUE),test.getStart());
+        assertEquals(new DateTime(Long.MIN_VALUE + 9),test.getEnd());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(test,test.toInterval());
+        assertEquals("-292275055-05-16T16:56:25.192+00:09:21/-292275055-05-16T16:56:25.201+00:09:21",test.toString());
+        assertEquals(9,test.toDurationMillis());
+        assertEquals(new Duration(9),test.toDuration());
+        assertEquals(new Period(9),test.toPeriod());
     }
 
     public void testConstructor_long_long_max() throws Throwable {
         Interval test = new Interval(Long.MAX_VALUE - 9, Long.MAX_VALUE);
-        assertEquals(Long.MAX_VALUE - 9, test.getStartMillis());
-        assertEquals(Long.MAX_VALUE, test.getEndMillis());
-        assertEquals(new DateTime(Long.MAX_VALUE - 9), test.getStart());
-        assertEquals(new DateTime(Long.MAX_VALUE), test.getEnd());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
-        assertEquals(test, test.toInterval());
-        assertEquals("292278994-08-17T07:12:55.798Z/292278994-08-17T07:12:55.807Z", test.toString());
-        assertEquals(9, test.toDurationMillis());
-        assertEquals(new Duration(9), test.toDuration());
+        assertEquals(Long.MAX_VALUE - 9,test.getStartMillis());
+        assertEquals(Long.MAX_VALUE,test.getEndMillis());
+        assertEquals(new DateTime(Long.MAX_VALUE - 9),test.getStart());
+        assertEquals(new DateTime(Long.MAX_VALUE),test.getEnd());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
+        assertEquals(test,test.toInterval());
+        assertEquals("292278994-08-17T07:12:55.798Z/292278994-08-17T07:12:55.807Z",test.toString());
+        assertEquals(9,test.toDurationMillis());
+        assertEquals(new Duration(9),test.toDuration());
     }
 
     //-----------------------------------------------------------------------
@@ -234,18 +234,18 @@ public class TestInterval_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1.getMillis(), dt2.getMillis(), LONDON);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(LONDON), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(LONDON),test.getChronology());
     }
 
     public void testConstructor_long_long_nullZone() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1.getMillis(), dt2.getMillis(), (DateTimeZone) null);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
     //-----------------------------------------------------------------------
@@ -253,18 +253,18 @@ public class TestInterval_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1.getMillis(), dt2.getMillis(), GJChronology.getInstance());
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(GJChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(GJChronology.getInstance(),test.getChronology());
     }
 
     public void testConstructor_long_long_nullChronology() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1.getMillis(), dt2.getMillis(), (Chronology) null);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
     //-----------------------------------------------------------------------
@@ -272,43 +272,43 @@ public class TestInterval_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1, dt2);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RI_RI2() throws Throwable {
         Instant dt1 = new Instant(new DateTime(2004, 6, 9, 0, 0, 0, 0));
         Instant dt2 = new Instant(new DateTime(2005, 7, 10, 1, 1, 1, 1));
         Interval test = new Interval(dt1, dt2);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RI_RI3() throws Throwable {
         Interval test = new Interval((ReadableInstant) null, (ReadableInstant) null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RI_RI4() throws Throwable {
         DateTime dt1 = new DateTime(2000, 6, 9, 0, 0, 0, 0);
         Interval test = new Interval(dt1, (ReadableInstant) null);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RI_RI5() throws Throwable {
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval((ReadableInstant) null, dt2);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RI_RI6() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         Interval test = new Interval(dt1, dt1);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt1.getMillis(), test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt1.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RI_RI7() throws Throwable {
@@ -324,36 +324,36 @@ public class TestInterval_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0, GJChronology.getInstance());
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1, dt2);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(GJChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(GJChronology.getInstance(),test.getChronology());
     }
 
     public void testConstructor_RI_RI_chronoEnd() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1, GJChronology.getInstance());
         Interval test = new Interval(dt1, dt2);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
     public void testConstructor_RI_RI_zones() throws Throwable {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0, LONDON);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1, PARIS);
         Interval test = new Interval(dt1, dt2);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(LONDON), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(LONDON),test.getChronology());
     }
 
     public void testConstructor_RI_RI_instant() throws Throwable {
         Instant dt1 = new Instant(12345678L);
         Instant dt2 = new Instant(22345678L);
         Interval test = new Interval(dt1, dt2);
-        assertEquals(12345678L, test.getStartMillis());
-        assertEquals(22345678L, test.getEndMillis());
-        assertEquals(ISOChronology.getInstanceUTC(), test.getChronology());
+        assertEquals(12345678L,test.getStartMillis());
+        assertEquals(22345678L,test.getEndMillis());
+        assertEquals(ISOChronology.getInstanceUTC(),test.getChronology());
     }
 
     //-----------------------------------------------------------------------
@@ -365,8 +365,8 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstance().hours().add(result, 1);
         
         Interval test = new Interval(dt, dur);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RP2() throws Throwable {
@@ -378,8 +378,8 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstanceUTC().hours().add(result, 1);
         
         Interval test = new Interval(dt, dur);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RP3() throws Throwable {
@@ -391,8 +391,8 @@ public class TestInterval_Constructors extends TestCase {
         result = CopticChronology.getInstanceUTC().hours().add(result, 1);
         
         Interval test = new Interval(dt, dur);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RP4() throws Throwable {
@@ -403,21 +403,21 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstance().millis().add(result, 23);
         
         Interval test = new Interval(dt, dur);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RP5() throws Throwable {
         Interval test = new Interval((ReadableInstant) null, (ReadablePeriod) null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RI_RP6() throws Throwable {
         DateTime dt = new DateTime(TEST_TIME_NOW);
         Interval test = new Interval(dt, (ReadablePeriod) null);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RI_RP7() throws Throwable {
@@ -427,8 +427,8 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstance().hourOfDay().add(result, 1);
         
         Interval test = new Interval((ReadableInstant) null, dur);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RP8() throws Throwable {
@@ -449,8 +449,8 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstance().hours().add(result, -1);
         
         Interval test = new Interval(dur, dt);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RP_RI2() throws Throwable {
@@ -462,8 +462,8 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstanceUTC().hours().add(result, -1);
         
         Interval test = new Interval(dur, dt);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RP_RI3() throws Throwable {
@@ -475,8 +475,8 @@ public class TestInterval_Constructors extends TestCase {
         result = CopticChronology.getInstanceUTC().hours().add(result, -1);
         
         Interval test = new Interval(dur, dt);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RP_RI4() throws Throwable {
@@ -487,21 +487,21 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstance().millis().add(result, -23);
         
         Interval test = new Interval(dur, dt);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RP_RI5() throws Throwable {
         Interval test = new Interval((ReadablePeriod) null, (ReadableInstant) null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RP_RI6() throws Throwable {
         DateTime dt = new DateTime(TEST_TIME_NOW);
         Interval test = new Interval((ReadablePeriod) null, dt);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RP_RI7() throws Throwable {
@@ -511,8 +511,8 @@ public class TestInterval_Constructors extends TestCase {
         result = ISOChronology.getInstance().hourOfDay().add(result, -1);
         
         Interval test = new Interval(dur, (ReadableInstant) null);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RP_RI8() throws Throwable {
@@ -534,21 +534,21 @@ public class TestInterval_Constructors extends TestCase {
         Duration dur = new Duration(result - TEST_TIME_NOW);
         
         Interval test = new Interval(dt, dur);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RD2() throws Throwable {
         Interval test = new Interval((ReadableInstant) null, (ReadableDuration) null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RI_RD3() throws Throwable {
         DateTime dt = new DateTime(TEST_TIME_NOW);
         Interval test = new Interval(dt, (ReadableDuration) null);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RI_RD4() throws Throwable {
@@ -559,8 +559,8 @@ public class TestInterval_Constructors extends TestCase {
         Duration dur = new Duration(result - TEST_TIME_NOW);
         
         Interval test = new Interval((ReadableInstant) null, dur);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(result, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(result,test.getEndMillis());
     }
 
     public void testConstructor_RI_RD5() throws Throwable {
@@ -582,21 +582,21 @@ public class TestInterval_Constructors extends TestCase {
         Duration dur = new Duration(TEST_TIME_NOW - result);
         
         Interval test = new Interval(dur, dt);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RD_RI2() throws Throwable {
         Interval test = new Interval((ReadableDuration) null, (ReadableInstant) null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RD_RI3() throws Throwable {
         DateTime dt = new DateTime(TEST_TIME_NOW);
         Interval test = new Interval((ReadableDuration) null, dt);
-        assertEquals(dt.getMillis(), test.getStartMillis());
-        assertEquals(dt.getMillis(), test.getEndMillis());
+        assertEquals(dt.getMillis(),test.getStartMillis());
+        assertEquals(dt.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_RD_RI4() throws Throwable {
@@ -607,8 +607,8 @@ public class TestInterval_Constructors extends TestCase {
         Duration dur = new Duration(TEST_TIME_NOW - result);
         
         Interval test = new Interval(dur, (ReadableInstant) null);
-        assertEquals(result, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(result,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testConstructor_RD_RI5() throws Throwable {
@@ -625,8 +625,8 @@ public class TestInterval_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval test = new Interval(dt1.toString() + '/' + dt2.toString());
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_Object2() throws Throwable {
@@ -635,8 +635,8 @@ public class TestInterval_Constructors extends TestCase {
         Interval base = new Interval(dt1, dt2);
         
         Interval test = new Interval(base);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_Object3() throws Throwable {
@@ -645,15 +645,15 @@ public class TestInterval_Constructors extends TestCase {
         MutableInterval base = new MutableInterval(dt1, dt2);
         
         Interval test = new Interval(base);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
     }
 
     public void testConstructor_Object4() throws Throwable {
         MockInterval base = new MockInterval();
         Interval test = new Interval(base);
-        assertEquals(base.getStartMillis(), test.getStartMillis());
-        assertEquals(base.getEndMillis(), test.getEndMillis());
+        assertEquals(base.getStartMillis(),test.getStartMillis());
+        assertEquals(base.getEndMillis(),test.getEndMillis());
     }
 
     public void testConstructor_Object5() throws Throwable {
@@ -675,8 +675,8 @@ public class TestInterval_Constructors extends TestCase {
             DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
             DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
             Interval test = new Interval(dt1.toString() + '/' + dt2.toString());
-            assertEquals(1234L, test.getStartMillis());
-            assertEquals(5678L, test.getEndMillis());
+            assertEquals(1234L,test.getStartMillis());
+            assertEquals(5678L,test.getEndMillis());
         } finally {
             ConverterManager.getInstance().addIntervalConverter(oldConv);
         }
@@ -700,8 +700,8 @@ public class TestInterval_Constructors extends TestCase {
             ConverterManager.getInstance().addIntervalConverter(conv);
             Interval base = new Interval(-1000L, 1000L);
             Interval test = new Interval(base);
-            assertEquals(1234L, test.getStartMillis());
-            assertEquals(5678L, test.getEndMillis());
+            assertEquals(1234L,test.getStartMillis());
+            assertEquals(5678L,test.getEndMillis());
         } finally {
             ConverterManager.getInstance().addIntervalConverter(oldConv);
         }
@@ -777,9 +777,9 @@ public class TestInterval_Constructors extends TestCase {
         Interval base = new Interval(dt1, dt2);
         
         Interval test = new Interval(base, BuddhistChronology.getInstance());
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(BuddhistChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(BuddhistChronology.getInstance(),test.getChronology());
     }
 
     public void testConstructor_Object_Chronology2() throws Throwable {
@@ -788,9 +788,9 @@ public class TestInterval_Constructors extends TestCase {
         Interval base = new Interval(dt1, dt2);
         
         Interval test = new Interval(base, null);
-        assertEquals(dt1.getMillis(), test.getStartMillis());
-        assertEquals(dt2.getMillis(), test.getEndMillis());
-        assertEquals(ISOChronology.getInstance(), test.getChronology());
+        assertEquals(dt1.getMillis(),test.getStartMillis());
+        assertEquals(dt2.getMillis(),test.getEndMillis());
+        assertEquals(ISOChronology.getInstance(),test.getChronology());
     }
 
 }

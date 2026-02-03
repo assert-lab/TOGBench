@@ -1660,8 +1660,7 @@ class StableSamplerTest {
         for (int i = 0; i < 100; i++) {
             final double x = sampler.sample();
             if (!(lower <= x && x <= upper)) {
-                Assertions.fail(String.format("Invalid sample. alpha=%s, beta=%s, gamma=%s, delta=%s [%s, %s] x=%s",
-                    alpha, beta, gamma, delta, lower, upper, x));
+                Assertions.fail(String.format("Invalid sample. alpha=%s,beta=%s,gamma=%s,delta=%s [%s,%s] x=%s",alpha,beta,gamma,delta,lower,upper,x));
             }
         }
     }
@@ -1735,22 +1734,14 @@ class StableSamplerTest {
         Assertions.assertEquals(PI_4 - d, getU(createRngWithSequence(Long.MAX_VALUE)));
 
         // Extremes of the exponential sampler
-        Assertions.assertEquals(0, ZigguratSampler.Exponential.of(
-                createRngWithSequence(0L)).sample());
-        Assertions.assertEquals(SMALL_W, ZigguratSampler.Exponential.of(
-                createRngWithSequence(3)).sample());
-        Assertions.assertEquals(0.5, ZigguratSampler.Exponential.of(
-                createRngWithSequence(1446480648965178882L)).sample());
-        Assertions.assertEquals(1.0, ZigguratSampler.Exponential.of(
-            createRngWithSequence(2703662416942444033L)).sample());
-        Assertions.assertEquals(2.5, ZigguratSampler.Exponential.of(
-                createRngWithSequence(6092639261715210240L)).sample());
-        Assertions.assertEquals(5.0, ZigguratSampler.Exponential.of(
-            createRngWithSequence(-6261465550279131136L)).sample());
-        Assertions.assertEquals(TAIL_W, ZigguratSampler.Exponential.of(
-                createRngWithSequence(-1, -1, 0)).sample());
-        Assertions.assertEquals(3 * TAIL_W, ZigguratSampler.Exponential.of(
-                createRngWithSequence(-1, -1, -1, -1, -1, -1, 0)).sample(), 1e-14);
+        Assertions.assertEquals(0,ZigguratSampler.Exponential.of(createRngWithSequence(0L)).sample());
+        Assertions.assertEquals(SMALL_W,ZigguratSampler.Exponential.of(createRngWithSequence(3)).sample());
+        Assertions.assertEquals(0.5,ZigguratSampler.Exponential.of(createRngWithSequence(1446480648965178882L)).sample());
+        Assertions.assertEquals(1.0,ZigguratSampler.Exponential.of(createRngWithSequence(2703662416942444033L)).sample());
+        Assertions.assertEquals(2.5,ZigguratSampler.Exponential.of(createRngWithSequence(6092639261715210240L)).sample());
+        Assertions.assertEquals(5.0,ZigguratSampler.Exponential.of(createRngWithSequence(-6261465550279131136L)).sample());
+        Assertions.assertEquals(TAIL_W,ZigguratSampler.Exponential.of(createRngWithSequence(-1,-1,0)).sample());
+        Assertions.assertEquals(3 * TAIL_W,ZigguratSampler.Exponential.of(createRngWithSequence(-1,-1,-1,-1,-1,-1,0)).sample(),1e-14);
     }
 
     /**

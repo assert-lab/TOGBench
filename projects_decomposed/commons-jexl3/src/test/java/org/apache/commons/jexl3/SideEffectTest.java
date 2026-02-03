@@ -362,8 +362,7 @@ public class SideEffectTest extends JexlTestCase {
         Assert.assertEquals(3115 - 15,  result);
         final Var v1 = new Var(3115);
         result = script.execute(jc, v1, new Var(15));
-        Assert.assertNotEquals(result, v1); // not a real side effect
-        Assert.assertEquals(3115 - 15,  ((Var) result).value);
+        Assert.assertNotEquals(result,v1);// not a real side effect Assert.assertEquals(3115 - 15,((Var)result).value);
 
         script = jexl.createScript("(x, y)->{ x *= y }");
         result = script.execute(jc, 3115, 15);

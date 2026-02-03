@@ -140,25 +140,16 @@ public class ConstructorUtilsTest {
 
     @Test
     public void testInvokeConstructor() throws Exception {
-        assertEquals("()", ConstructorUtils.invokeConstructor(TestBean.class,
-                (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY).toString());
-        assertEquals("()", ConstructorUtils.invokeConstructor(TestBean.class,
-                (Object[]) null).toString());
+        assertEquals("()",ConstructorUtils.invokeConstructor(TestBean.class,(Object[])ArrayUtils.EMPTY_CLASS_ARRAY).toString());
+        assertEquals("()",ConstructorUtils.invokeConstructor(TestBean.class,(Object[])null).toString());
         assertEquals("()", ConstructorUtils.invokeConstructor(TestBean.class).toString());
-        assertEquals("(String)", ConstructorUtils.invokeConstructor(
-                TestBean.class, "").toString());
-        assertEquals("(Object)", ConstructorUtils.invokeConstructor(
-                TestBean.class, new Object()).toString());
-        assertEquals("(Object)", ConstructorUtils.invokeConstructor(
-                TestBean.class, Boolean.TRUE).toString());
-        assertEquals("(Integer)", ConstructorUtils.invokeConstructor(
-                TestBean.class, NumberUtils.INTEGER_ONE).toString());
-        assertEquals("(int)", ConstructorUtils.invokeConstructor(
-                TestBean.class, NumberUtils.BYTE_ONE).toString());
-        assertEquals("(double)", ConstructorUtils.invokeConstructor(
-                TestBean.class, NumberUtils.LONG_ONE).toString());
-        assertEquals("(double)", ConstructorUtils.invokeConstructor(
-                TestBean.class, NumberUtils.DOUBLE_ONE).toString());
+        assertEquals("(String)",ConstructorUtils.invokeConstructor(TestBean.class,"").toString());
+        assertEquals("(Object)",ConstructorUtils.invokeConstructor(TestBean.class,new Object()).toString());
+        assertEquals("(Object)",ConstructorUtils.invokeConstructor(TestBean.class,Boolean.TRUE).toString());
+        assertEquals("(Integer)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.INTEGER_ONE).toString());
+        assertEquals("(int)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.BYTE_ONE).toString());
+        assertEquals("(double)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.LONG_ONE).toString());
+        assertEquals("(double)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.DOUBLE_ONE).toString());
         ConstructorUtils.invokeConstructor(TestBean.class, NumberUtils.INTEGER_ONE)
           .verify("(Integer)", null);
         ConstructorUtils.invokeConstructor(TestBean.class, "a", "b")
@@ -171,16 +162,11 @@ public class ConstructorUtilsTest {
 
     @Test
     public void testInvokeExactConstructor() throws Exception {
-        assertEquals("()", ConstructorUtils.invokeExactConstructor(
-                TestBean.class, (Object[]) ArrayUtils.EMPTY_CLASS_ARRAY).toString());
-        assertEquals("()", ConstructorUtils.invokeExactConstructor(
-                TestBean.class, (Object[]) null).toString());
-        assertEquals("(String)", ConstructorUtils.invokeExactConstructor(
-                TestBean.class, "").toString());
-        assertEquals("(Object)", ConstructorUtils.invokeExactConstructor(
-                TestBean.class, new Object()).toString());
-        assertEquals("(Integer)", ConstructorUtils.invokeExactConstructor(
-                TestBean.class, NumberUtils.INTEGER_ONE).toString());
+        assertEquals("()",ConstructorUtils.invokeExactConstructor(TestBean.class,(Object[])ArrayUtils.EMPTY_CLASS_ARRAY).toString());
+        assertEquals("()",ConstructorUtils.invokeExactConstructor(TestBean.class,(Object[])null).toString());
+        assertEquals("(String)",ConstructorUtils.invokeExactConstructor(TestBean.class,"").toString());
+        assertEquals("(Object)",ConstructorUtils.invokeExactConstructor(TestBean.class,new Object()).toString());
+        assertEquals("(Integer)",ConstructorUtils.invokeExactConstructor(TestBean.class,NumberUtils.INTEGER_ONE).toString());
         assertEquals("(double)", ConstructorUtils.invokeExactConstructor(
                 TestBean.class, new Object[] { NumberUtils.DOUBLE_ONE },
                 new Class[] { Double.TYPE }).toString());
@@ -198,19 +184,15 @@ public class ConstructorUtilsTest {
 
     @Test
     public void testGetAccessibleConstructor() throws Exception {
-        assertNotNull(ConstructorUtils.getAccessibleConstructor(Object.class
-                .getConstructor(ArrayUtils.EMPTY_CLASS_ARRAY)));
-        assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.class
-                .getConstructor(ArrayUtils.EMPTY_CLASS_ARRAY)));
+        assertNotNull(ConstructorUtils.getAccessibleConstructor(Object.class .getConstructor(ArrayUtils.EMPTY_CLASS_ARRAY)));
+        assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.class .getConstructor(ArrayUtils.EMPTY_CLASS_ARRAY)));
         assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.PublicInnerClass.class));
     }
 
     @Test
     public void testGetAccessibleConstructorFromDescription() {
-        assertNotNull(ConstructorUtils.getAccessibleConstructor(Object.class,
-                ArrayUtils.EMPTY_CLASS_ARRAY));
-        assertNull(ConstructorUtils.getAccessibleConstructor(
-                PrivateClass.class, ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertNotNull(ConstructorUtils.getAccessibleConstructor(Object.class,ArrayUtils.EMPTY_CLASS_ARRAY));
+        assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.class,ArrayUtils.EMPTY_CLASS_ARRAY));
     }
 
     @Test

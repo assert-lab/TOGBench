@@ -888,7 +888,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         m = processor.toMap(this.rs);
         // removed other assertion
 
-        assertEquals("4", m.get("One")); // case shouldn't matter;
+        assertEquals("4",m.get("One"));// case shouldn't matter assertEquals("5",m.get("two"));
     }
 
     public void testToMap_9_oe() throws SQLException {
@@ -905,7 +905,7 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         // removed other assertion
 
         // removed other assertion
-        assertEquals("5", m.get("two"));
+        assertEquals("SIX", m.get("THREE"));
     }
 
     public void testToMap_10_oe() throws SQLException {
@@ -921,25 +921,6 @@ public class BasicRowProcessorTest_OE25Dev extends BaseTestCase {
         m = processor.toMap(this.rs);
         // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
-        assertEquals("SIX", m.get("THREE"));
-    }
-
-    public void testToMap_11_oe() throws SQLException {
-
-        // removed other assertion
-        Map<String, Object> m = processor.toMap(this.rs);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        m = processor.toMap(this.rs);
-        // removed other assertion
-
-        // removed other assertion
         // removed other assertion
         // removed other assertion
 

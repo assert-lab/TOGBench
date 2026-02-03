@@ -60,8 +60,7 @@ public class WebSocketServletContextHandlerFactoryTest {
         MappedResource<WebSocketCreator> mappedResource = webSocketConfiguration.getMatch("/websocket");
         PathSpec pathSpec = mappedResource.getPathSpec();
 
-        assertEquals("Should return the WebSocket path specified when context handler was created",
-                webSocketPath, pathSpec.getDeclaration());
+        assertEquals("Should return the WebSocket path specified when context handler was created",webSocketPath,pathSpec.getDeclaration());
         
         // Because spark works on a non-initialized / non-started ServletContextHandler and WebSocketUpgradeFilter
         // the stored WebSocketCreator is wrapped for persistence through the start/stop of those contexts.
@@ -94,14 +93,12 @@ public class WebSocketServletContextHandlerFactoryTest {
             (NativeWebSocketConfiguration) servletContext.getAttribute(NativeWebSocketConfiguration.class.getName());
 
         WebSocketServerFactory webSocketServerFactory = webSocketConfiguration.getFactory();
-        assertEquals("Timeout value should be the same as the timeout specified when context handler was created",
-                timeout.longValue(), webSocketServerFactory.getPolicy().getIdleTimeout());
+        assertEquals("Timeout value should be the same as the timeout specified when context handler was created",timeout.longValue(),webSocketServerFactory.getPolicy().getIdleTimeout());
 
         MappedResource<WebSocketCreator> mappedResource = webSocketConfiguration.getMatch("/websocket");
         PathSpec pathSpec = mappedResource.getPathSpec();
 
-        assertEquals("Should return the WebSocket path specified when context handler was created",
-                webSocketPath, pathSpec.getDeclaration());
+        assertEquals("Should return the WebSocket path specified when context handler was created",webSocketPath,pathSpec.getDeclaration());
 
         // Because spark works on a non-initialized / non-started ServletContextHandler and WebSocketUpgradeFilter
         // the stored WebSocketCreator is wrapped for persistence through the start/stop of those contexts.

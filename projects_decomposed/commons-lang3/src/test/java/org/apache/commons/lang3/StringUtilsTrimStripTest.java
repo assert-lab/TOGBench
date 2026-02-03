@@ -74,8 +74,7 @@ public class StringUtilsTrimStripTest  {
         assertEquals("", StringUtils.strip(""));
         assertEquals("", StringUtils.strip("        "));
         assertEquals("abc", StringUtils.strip("  abc  "));
-        assertEquals(StringUtilsTest.NON_WHITESPACE,
-            StringUtils.strip(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE));
+        assertEquals(StringUtilsTest.NON_WHITESPACE,StringUtils.strip(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE));
     }
 
     @Test
@@ -85,8 +84,7 @@ public class StringUtilsTrimStripTest  {
         assertNull(StringUtils.stripToNull("        "));
         assertNull(StringUtils.stripToNull(StringUtilsTest.WHITESPACE));
         assertEquals("ab c", StringUtils.stripToNull("  ab c  "));
-        assertEquals(StringUtilsTest.NON_WHITESPACE,
-            StringUtils.stripToNull(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE));
+        assertEquals(StringUtilsTest.NON_WHITESPACE,StringUtils.stripToNull(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE));
     }
 
     @Test
@@ -96,8 +94,7 @@ public class StringUtilsTrimStripTest  {
         assertEquals("", StringUtils.stripToEmpty("        "));
         assertEquals("", StringUtils.stripToEmpty(StringUtilsTest.WHITESPACE));
         assertEquals("ab c", StringUtils.stripToEmpty("  ab c  "));
-        assertEquals(StringUtilsTest.NON_WHITESPACE,
-            StringUtils.stripToEmpty(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE));
+        assertEquals(StringUtilsTest.NON_WHITESPACE,StringUtils.stripToEmpty(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE));
     }
 
     @Test
@@ -107,8 +104,7 @@ public class StringUtilsTrimStripTest  {
         assertEquals("", StringUtils.strip("", null));
         assertEquals("", StringUtils.strip("        ", null));
         assertEquals("abc", StringUtils.strip("  abc  ", null));
-        assertEquals(StringUtilsTest.NON_WHITESPACE,
-            StringUtils.strip(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE, null));
+        assertEquals(StringUtilsTest.NON_WHITESPACE,StringUtils.strip(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE,null));
 
         // "" strip
         assertNull(StringUtils.strip(null, ""));
@@ -139,8 +135,7 @@ public class StringUtilsTrimStripTest  {
         assertEquals("", StringUtils.stripStart("", null));
         assertEquals("", StringUtils.stripStart("        ", null));
         assertEquals("abc  ", StringUtils.stripStart("  abc  ", null));
-        assertEquals(StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE,
-            StringUtils.stripStart(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE, null));
+        assertEquals(StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE,StringUtils.stripStart(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE,null));
 
         // "" stripStart
         assertNull(StringUtils.stripStart(null, ""));
@@ -171,8 +166,7 @@ public class StringUtilsTrimStripTest  {
         assertEquals("", StringUtils.stripEnd("", null));
         assertEquals("", StringUtils.stripEnd("        ", null));
         assertEquals("  abc", StringUtils.stripEnd("  abc  ", null));
-        assertEquals(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE,
-            StringUtils.stripEnd(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE, null));
+        assertEquals(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE,StringUtils.stripEnd(StringUtilsTest.WHITESPACE + StringUtilsTest.NON_WHITESPACE + StringUtilsTest.WHITESPACE,null));
 
         // "" stripEnd
         assertNull(StringUtils.stripEnd(null, ""));
@@ -225,15 +219,12 @@ public class StringUtilsTrimStripTest  {
         final String lots = "\u00C0\u00C1\u00C2\u00C3\u00C4\u00C5\u00C7\u00C8\u00C9" +
                       "\u00CA\u00CB\u00CC\u00CD\u00CE\u00CF\u00D1\u00D2\u00D3" +
                       "\u00D4\u00D5\u00D6\u00D9\u00DA\u00DB\u00DC\u00DD";
-        assertEquals("AAAAAACEEEEIIIINOOOOOUUUUY",
-                StringUtils.stripAccents(lots),
-                "Failed to strip accents from " + lots);
+        assertEquals("AAAAAACEEEEIIIINOOOOOUUUUY",StringUtils.stripAccents(lots),"Failed to strip accents from " + lots);
 
         assertNull(StringUtils.stripAccents(null), "Failed null safety");
         assertEquals("", StringUtils.stripAccents(""), "Failed empty String");
         assertEquals("control", StringUtils.stripAccents("control"), "Failed to handle non-accented text");
         assertEquals("eclair", StringUtils.stripAccents("\u00E9clair"), "Failed to handle easy example");
-        assertEquals("ALOSZZCN aloszzcn", StringUtils.stripAccents("\u0104\u0141\u00D3\u015A\u017B\u0179\u0106\u0143 "
-                + "\u0105\u0142\u00F3\u015B\u017C\u017A\u0107\u0144"));
+        assertEquals("ALOSZZCN aloszzcn",StringUtils.stripAccents("\u0104\u0141\u00D3\u015A\u017B\u0179\u0106\u0143 " + "\u0105\u0142\u00F3\u015B\u017C\u017A\u0107\u0144"));
     }
 }

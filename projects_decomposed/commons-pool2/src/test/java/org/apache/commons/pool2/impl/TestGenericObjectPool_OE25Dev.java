@@ -685,8 +685,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
                 if (tracker.getId() >= 4) {
                     assertEquals( 0, tracker.getValidateCount(),"Unexpected instance visited " + tracker.getId());
                 } else {
-                    assertEquals( 1, tracker.getValidateCount(),
-                            "Instance " + tracker.getId() + " visited wrong number of times.");
+                    assertEquals(1,tracker.getValidateCount(),"Instance " + tracker.getId()+ " visited wrong number of times.");
                 }
             }
         }
@@ -719,11 +718,9 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             for (int i = 0; i < 8; i++) {
                 final VisitTracker<Object> tracker = trackerPool.borrowObject();
                 if (tracker.getId() != 0) {
-                    assertEquals( 1, tracker.getValidateCount(),
-                            "Instance " + tracker.getId() + " visited wrong number of times.");
+                    assertEquals(1,tracker.getValidateCount(),"Instance " + tracker.getId()+ " visited wrong number of times.");
                 } else {
-                    assertEquals( 2, tracker.getValidateCount(),
-                            "Instance " + tracker.getId() + " visited wrong number of times.");
+                    assertEquals(2,tracker.getValidateCount(),"Instance " + tracker.getId()+ " visited wrong number of times.");
                 }
             }
         }
@@ -1277,40 +1274,25 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @SuppressWarnings("deprecation")
     private void assertConfiguration(final GenericObjectPoolConfig<?> expected, final GenericObjectPool<?> actual) {
-        assertEquals(Boolean.valueOf(expected.getTestOnCreate()), Boolean.valueOf(actual.getTestOnCreate()),
-                "testOnCreate");
-        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()), Boolean.valueOf(actual.getTestOnBorrow()),
-                "testOnBorrow");
-        assertEquals(Boolean.valueOf(expected.getTestOnReturn()), Boolean.valueOf(actual.getTestOnReturn()),
-                "testOnReturn");
-        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()), Boolean.valueOf(actual.getTestWhileIdle()),
-                "testWhileIdle");
-        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()), Boolean.valueOf(actual.getBlockWhenExhausted()),
-                "whenExhaustedAction");
+        assertEquals(Boolean.valueOf(expected.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),"testOnCreate");
+        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),"testOnBorrow");
+        assertEquals(Boolean.valueOf(expected.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),"testOnReturn");
+        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),"testWhileIdle");
+        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),"whenExhaustedAction");
         assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
         assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
         assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
         assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
-        assertEquals(expected.getMinEvictableIdleTimeMillis(), actual.getMinEvictableIdleTimeMillis(),
-                "minEvictableIdleTimeMillis");
-        assertEquals(expected.getMinEvictableIdleTime(), actual.getMinEvictableIdleTime(),
-                "minEvictableIdleTime");
-        assertEquals(expected.getMinEvictableIdleDuration(), actual.getMinEvictableIdleDuration(),
-                "minEvictableIdleDuration");
-        assertEquals(expected.getNumTestsPerEvictionRun(), actual.getNumTestsPerEvictionRun(),
-                "numTestsPerEvictionRun");
-        assertEquals(expected.getEvictorShutdownTimeoutDuration(), actual.getEvictorShutdownTimeoutDuration(),
-                "evictorShutdownTimeoutDuration");
-        assertEquals(expected.getEvictorShutdownTimeoutMillis(), actual.getEvictorShutdownTimeoutMillis(),
-                "evictorShutdownTimeoutMillis");
-        assertEquals(expected.getEvictorShutdownTimeout(), actual.getEvictorShutdownTimeout(),
-                "evictorShutdownTimeout");
-        assertEquals(expected.getTimeBetweenEvictionRunsMillis(), actual.getTimeBetweenEvictionRunsMillis(),
-                "timeBetweenEvictionRunsMillis");
-        assertEquals(expected.getDurationBetweenEvictionRuns(), actual.getTimeBetweenEvictionRuns(),
-                "timeBetweenEvictionRuns");
-        assertEquals(expected.getTimeBetweenEvictionRuns(), actual.getTimeBetweenEvictionRuns(),
-                "timeBetweenEvictionRuns");
+        assertEquals(expected.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
+        assertEquals(expected.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
+        assertEquals(expected.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
+        assertEquals(expected.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
+        assertEquals(expected.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
+        assertEquals(expected.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
+        assertEquals(expected.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
+        assertEquals(expected.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
+        assertEquals(expected.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
+        assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
     // custom assertion
@@ -1639,7 +1621,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        assertThat(1L, lessThanOrEqualTo(2L)); // sanity check;
+        assertThat(1L,lessThanOrEqualTo(2L));// sanity check assertThat(Duration.ZERO,lessThanOrEqualTo(Duration.ZERO.plusNanos(1)));// sanity check assertThat(po.getActiveDuration(),lessThanOrEqualTo(po.getIdleDuration()));
     }
 
     @Test
@@ -1671,7 +1653,8 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        assertThat(Duration.ZERO, lessThanOrEqualTo(Duration.ZERO.plusNanos(1))); // sanity check;
+        // Deprecated
+        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
     }
 
     @Test
@@ -1703,8 +1686,9 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
+        // Deprecated
         // removed other assertion
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getIdleDuration()));
+        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
     }
 
     @Test
@@ -1736,10 +1720,12 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
-        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
+        // removed other assertion
+        // removed other assertion
+        //
+        // TODO How to compare ID with AD since other tests may have touched the PO?
+        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getIdleTime()));
     }
 
     @Test
@@ -1771,11 +1757,13 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
+        // removed other assertion
+        //
+        // TODO How to compare ID with AD since other tests may have touched the PO?
+        // removed other assertion
+        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getIdleTimeMillis()));
     }
 
     @Test
@@ -1807,14 +1795,15 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
         //
         // TODO How to compare ID with AD since other tests may have touched the PO?
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getIdleTime()));
+        // removed other assertion
+        // removed other assertion
+        //
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastBorrowInstant()));
     }
 
     @Test
@@ -1846,15 +1835,16 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
         //
         // TODO How to compare ID with AD since other tests may have touched the PO?
         // removed other assertion
-        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getIdleTimeMillis()));
+        // removed other assertion
+        //
+        // removed other assertion
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastReturnInstant()));
     }
 
     @Test
@@ -1886,8 +1876,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -1896,7 +1884,9 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         //
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastBorrowInstant()));
+        // removed other assertion
+        // removed other assertion
+        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastUsedInstant()));
     }
 
     @Test
@@ -1928,8 +1918,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -1939,7 +1927,10 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         //
         // removed other assertion
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastReturnInstant()));
+        // removed other assertion
+        // removed other assertion
+
+        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
     }
 
     @Test
@@ -1971,8 +1962,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -1983,7 +1972,10 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         //
         // removed other assertion
         // removed other assertion
-        assertThat(po.getCreateInstant(), lessThanOrEqualTo(po.getLastUsedInstant()));
+        // removed other assertion
+
+        // removed other assertion
+        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
     }
 
     @Test
@@ -2015,8 +2007,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2029,7 +2019,9 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
 
-        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
+        // removed other assertion
+        // removed other assertion
+        assertThat(lastUsedInstant1, lessThanOrEqualTo(po.getLastUsedInstant()));
     }
 
     @Test
@@ -2061,8 +2053,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2076,7 +2066,12 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
 
         // removed other assertion
-        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
+        // removed other assertion
+        // removed other assertion
+
+        genericObjectPool.returnObject(object);
+
+        assertFalse(po.getActiveDuration().isNegative());
     }
 
     @Test
@@ -2108,8 +2103,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2124,7 +2117,12 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         // removed other assertion
         // removed other assertion
-        assertThat(lastUsedInstant1, lessThanOrEqualTo(po.getLastUsedInstant()));
+        // removed other assertion
+
+        genericObjectPool.returnObject(object);
+
+        // removed other assertion
+        assertFalse(po.getActiveDuration().isZero());
     }
 
     @Test
@@ -2156,8 +2154,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2176,7 +2172,9 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         genericObjectPool.returnObject(object);
 
-        assertFalse(po.getActiveDuration().isNegative());
+        // removed other assertion
+        // removed other assertion
+        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
     }
 
     @Test
@@ -2208,8 +2206,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2229,7 +2225,9 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.returnObject(object);
 
         // removed other assertion
-        assertFalse(po.getActiveDuration().isZero());
+        // removed other assertion
+        // removed other assertion
+        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
     }
 
     @Test
@@ -2261,8 +2259,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2283,7 +2279,10 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
         // removed other assertion
         // removed other assertion
-        assertThat(po.getActiveDuration().toMillis(), lessThanOrEqualTo(po.getActiveTimeMillis()));
+        // removed other assertion
+        // removed other assertion
+
+        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
     }
 
     @Test
@@ -2315,8 +2314,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // Deprecated
         // removed other assertion
         // removed other assertion
@@ -2338,7 +2335,10 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertThat(po.getActiveDuration(), lessThanOrEqualTo(po.getActiveTime()));
+        // removed other assertion
+
+        // removed other assertion
+        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
     }
 
     @Test
@@ -2369,123 +2369,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertThat(lastBorrowInstant1, lessThanOrEqualTo(po.getLastBorrowInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_27_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // Deprecated
-        // removed other assertion
-        // removed other assertion
-        //
-        // TODO How to compare ID with AD since other tests may have touched the PO?
-        // removed other assertion
-        // removed other assertion
-        //
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        genericObjectPool.returnObject(object);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertThat(lastReturnInstant1, lessThanOrEqualTo(po.getLastReturnInstant()));
-    }
-
-    @Test
-    public void testBorrowTimings_28_oe() throws Exception {
-        // Borrow
-        final String object = genericObjectPool.borrowObject();
-        final PooledObject<String> po = genericObjectPool.getPooledObject(object);
-        // In the initial state, all instants are the creation instant: last borrow, last use, last return.
-        // In the initial state, the active duration is the time between "now" and the creation time.
-        // In the initial state, the idle duration is the time between "now" and the last return, which is the creation time.
-        // But... this PO might have already been used in other tests in this class.
-
-        final Instant lastBorrowInstant1 = po.getLastBorrowInstant();
-        final Instant lastReturnInstant1 = po.getLastReturnInstant();
-        final Instant lastUsedInstant1 = po.getLastUsedInstant();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Sleep MUST be "long enough" to detect that more than 0 milliseconds have elapsed.
-        // Need an API in Java 8 to get the clock granularity.
-        Thread.sleep(200);
-
-        // removed other assertion
-        // removed other assertion
-        // We use greaterThanOrEqualTo instead of equal because "now" many be different when each argument is evaluated.
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // Deprecated
         // removed other assertion
@@ -2978,7 +2861,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS, dummyPool.getMinEvictableIdleTimeMillis());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS,dummyPool.getMinEvictableIdleTimeMillis());
     }
     }
 
@@ -3008,7 +2891,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME, dummyPool.getMinEvictableIdleTime());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME,dummyPool.getMinEvictableIdleTime());
     }
     }
 
@@ -3039,7 +2922,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME, dummyPool.getMinEvictableIdleDuration());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME,dummyPool.getMinEvictableIdleDuration());
     }
     }
 
@@ -3071,7 +2954,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_NUM_TESTS_PER_EVICTION_RUN, dummyPool.getNumTestsPerEvictionRun());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_NUM_TESTS_PER_EVICTION_RUN,dummyPool.getNumTestsPerEvictionRun());
     }
     }
 
@@ -3104,7 +2987,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_BORROW), Boolean.valueOf(dummyPool.getTestOnBorrow()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_BORROW),Boolean.valueOf(dummyPool.getTestOnBorrow()));
     }
     }
 
@@ -3138,7 +3021,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_RETURN), Boolean.valueOf(dummyPool.getTestOnReturn()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_RETURN),Boolean.valueOf(dummyPool.getTestOnReturn()));
     }
     }
 
@@ -3173,7 +3056,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_WHILE_IDLE), Boolean.valueOf(dummyPool.getTestWhileIdle()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_WHILE_IDLE),Boolean.valueOf(dummyPool.getTestWhileIdle()));
     }
     }
 
@@ -3209,7 +3092,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, dummyPool.getDurationBetweenEvictionRuns());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS,dummyPool.getDurationBetweenEvictionRuns());
     }
     }
 
@@ -3246,7 +3129,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS_MILLIS, dummyPool.getTimeBetweenEvictionRunsMillis());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS_MILLIS,dummyPool.getTimeBetweenEvictionRunsMillis());
     }
     }
 
@@ -3284,7 +3167,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, dummyPool.getTimeBetweenEvictionRuns());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS,dummyPool.getTimeBetweenEvictionRuns());
     }
     }
 
@@ -3323,7 +3206,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_BLOCK_WHEN_EXHAUSTED), Boolean.valueOf(dummyPool.getBlockWhenExhausted()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_BLOCK_WHEN_EXHAUSTED),Boolean.valueOf(dummyPool.getBlockWhenExhausted()));
     }
     }
 
@@ -9611,7 +9494,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         
         final GenericObjectPoolConfig<?> expected_alias_1 = expected;
         final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
-        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnCreate()), Boolean.valueOf(actual_alias_1.getTestOnCreate()), "testOnCreate");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnCreate()),Boolean.valueOf(actual_alias_1.getTestOnCreate()),"testOnCreate");
     }
 
     @Test
@@ -9622,7 +9505,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<?> expected_alias_1 = expected;
         final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
         // removed other assertion
-        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnBorrow()), Boolean.valueOf(actual_alias_1.getTestOnBorrow()), "testOnBorrow");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnBorrow()),Boolean.valueOf(actual_alias_1.getTestOnBorrow()),"testOnBorrow");
     }
 
     @Test
@@ -9634,7 +9517,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
         // removed other assertion
         // removed other assertion
-        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnReturn()), Boolean.valueOf(actual_alias_1.getTestOnReturn()), "testOnReturn");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnReturn()),Boolean.valueOf(actual_alias_1.getTestOnReturn()),"testOnReturn");
     }
 
     @Test
@@ -9647,7 +9530,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Boolean.valueOf(expected_alias_1.getTestWhileIdle()), Boolean.valueOf(actual_alias_1.getTestWhileIdle()), "testWhileIdle");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestWhileIdle()),Boolean.valueOf(actual_alias_1.getTestWhileIdle()),"testWhileIdle");
     }
 
     @Test
@@ -9661,7 +9544,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Boolean.valueOf(expected_alias_1.getBlockWhenExhausted()), Boolean.valueOf(actual_alias_1.getBlockWhenExhausted()), "whenExhaustedAction");
+        assertEquals(Boolean.valueOf(expected_alias_1.getBlockWhenExhausted()),Boolean.valueOf(actual_alias_1.getBlockWhenExhausted()),"whenExhaustedAction");
     }
 
     @Test
@@ -9746,7 +9629,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getMinEvictableIdleTimeMillis(), actual_alias_1.getMinEvictableIdleTimeMillis(), "minEvictableIdleTimeMillis");
+        assertEquals(expected_alias_1.getMinEvictableIdleTimeMillis(),actual_alias_1.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
     }
 
     @Test
@@ -9766,7 +9649,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getMinEvictableIdleTime(), actual_alias_1.getMinEvictableIdleTime(), "minEvictableIdleTime");
+        assertEquals(expected_alias_1.getMinEvictableIdleTime(),actual_alias_1.getMinEvictableIdleTime(),"minEvictableIdleTime");
     }
 
     @Test
@@ -9787,7 +9670,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getMinEvictableIdleDuration(), actual_alias_1.getMinEvictableIdleDuration(), "minEvictableIdleDuration");
+        assertEquals(expected_alias_1.getMinEvictableIdleDuration(),actual_alias_1.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
     }
 
     @Test
@@ -9809,7 +9692,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getNumTestsPerEvictionRun(), actual_alias_1.getNumTestsPerEvictionRun(), "numTestsPerEvictionRun");
+        assertEquals(expected_alias_1.getNumTestsPerEvictionRun(),actual_alias_1.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
     }
 
     @Test
@@ -9832,7 +9715,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getEvictorShutdownTimeoutDuration(), actual_alias_1.getEvictorShutdownTimeoutDuration(), "evictorShutdownTimeoutDuration");
+        assertEquals(expected_alias_1.getEvictorShutdownTimeoutDuration(),actual_alias_1.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
     }
 
     @Test
@@ -9856,7 +9739,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getEvictorShutdownTimeoutMillis(), actual_alias_1.getEvictorShutdownTimeoutMillis(), "evictorShutdownTimeoutMillis");
+        assertEquals(expected_alias_1.getEvictorShutdownTimeoutMillis(),actual_alias_1.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
     }
 
     @Test
@@ -9881,7 +9764,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getEvictorShutdownTimeout(), actual_alias_1.getEvictorShutdownTimeout(), "evictorShutdownTimeout");
+        assertEquals(expected_alias_1.getEvictorShutdownTimeout(),actual_alias_1.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
     }
 
     @Test
@@ -9907,7 +9790,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getTimeBetweenEvictionRunsMillis(), actual_alias_1.getTimeBetweenEvictionRunsMillis(), "timeBetweenEvictionRunsMillis");
+        assertEquals(expected_alias_1.getTimeBetweenEvictionRunsMillis(),actual_alias_1.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
     }
 
     @Test
@@ -9934,7 +9817,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getDurationBetweenEvictionRuns(), actual_alias_1.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+        assertEquals(expected_alias_1.getDurationBetweenEvictionRuns(),actual_alias_1.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
     @Test
@@ -9962,7 +9845,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(expected_alias_1.getTimeBetweenEvictionRuns(), actual_alias_1.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+        assertEquals(expected_alias_1.getTimeBetweenEvictionRuns(),actual_alias_1.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
     @Test
@@ -9970,7 +9853,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_1_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl1_expected.getTestOnCreate()), Boolean.valueOf(inl1_actual.getTestOnCreate()), "testOnCreate");
+                assertEquals(Boolean.valueOf(inl1_expected.getTestOnCreate()),Boolean.valueOf(inl1_actual.getTestOnCreate()),"testOnCreate");
     }
 
 @Test
@@ -9978,7 +9861,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_2_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl1_expected.getTestOnBorrow()), Boolean.valueOf(inl1_actual.getTestOnBorrow()), "testOnBorrow");
+                assertEquals(Boolean.valueOf(inl1_expected.getTestOnBorrow()),Boolean.valueOf(inl1_actual.getTestOnBorrow()),"testOnBorrow");
     }
 
 @Test
@@ -9986,7 +9869,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_3_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl1_expected.getTestOnReturn()), Boolean.valueOf(inl1_actual.getTestOnReturn()), "testOnReturn");
+                assertEquals(Boolean.valueOf(inl1_expected.getTestOnReturn()),Boolean.valueOf(inl1_actual.getTestOnReturn()),"testOnReturn");
     }
 
 @Test
@@ -9994,7 +9877,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_4_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl1_expected.getTestWhileIdle()), Boolean.valueOf(inl1_actual.getTestWhileIdle()), "testWhileIdle");
+                assertEquals(Boolean.valueOf(inl1_expected.getTestWhileIdle()),Boolean.valueOf(inl1_actual.getTestWhileIdle()),"testWhileIdle");
     }
 
 @Test
@@ -10002,7 +9885,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_5_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl1_expected.getBlockWhenExhausted()), Boolean.valueOf(inl1_actual.getBlockWhenExhausted()), "whenExhaustedAction");
+                assertEquals(Boolean.valueOf(inl1_expected.getBlockWhenExhausted()),Boolean.valueOf(inl1_actual.getBlockWhenExhausted()),"whenExhaustedAction");
     }
 
 @Test
@@ -10042,7 +9925,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_10_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getMinEvictableIdleTimeMillis(), inl1_actual.getMinEvictableIdleTimeMillis(), "minEvictableIdleTimeMillis");
+                assertEquals(inl1_expected.getMinEvictableIdleTimeMillis(),inl1_actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
     }
 
 @Test
@@ -10050,7 +9933,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_11_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getMinEvictableIdleTime(), inl1_actual.getMinEvictableIdleTime(), "minEvictableIdleTime");
+                assertEquals(inl1_expected.getMinEvictableIdleTime(),inl1_actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
     }
 
 @Test
@@ -10058,7 +9941,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_12_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getMinEvictableIdleDuration(), inl1_actual.getMinEvictableIdleDuration(), "minEvictableIdleDuration");
+                assertEquals(inl1_expected.getMinEvictableIdleDuration(),inl1_actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
     }
 
 @Test
@@ -10066,7 +9949,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_13_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getNumTestsPerEvictionRun(), inl1_actual.getNumTestsPerEvictionRun(), "numTestsPerEvictionRun");
+                assertEquals(inl1_expected.getNumTestsPerEvictionRun(),inl1_actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
     }
 
 @Test
@@ -10074,7 +9957,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_14_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getEvictorShutdownTimeoutDuration(), inl1_actual.getEvictorShutdownTimeoutDuration(), "evictorShutdownTimeoutDuration");
+                assertEquals(inl1_expected.getEvictorShutdownTimeoutDuration(),inl1_actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
     }
 
 @Test
@@ -10082,7 +9965,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_15_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getEvictorShutdownTimeoutMillis(), inl1_actual.getEvictorShutdownTimeoutMillis(), "evictorShutdownTimeoutMillis");
+                assertEquals(inl1_expected.getEvictorShutdownTimeoutMillis(),inl1_actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
     }
 
 @Test
@@ -10090,7 +9973,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_16_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getEvictorShutdownTimeout(), inl1_actual.getEvictorShutdownTimeout(), "evictorShutdownTimeout");
+                assertEquals(inl1_expected.getEvictorShutdownTimeout(),inl1_actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
     }
 
 @Test
@@ -10098,7 +9981,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_17_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getTimeBetweenEvictionRunsMillis(), inl1_actual.getTimeBetweenEvictionRunsMillis(), "timeBetweenEvictionRunsMillis");
+                assertEquals(inl1_expected.getTimeBetweenEvictionRunsMillis(),inl1_actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
     }
 
 @Test
@@ -10106,7 +9989,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_18_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getDurationBetweenEvictionRuns(), inl1_actual.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+                assertEquals(inl1_expected.getDurationBetweenEvictionRuns(),inl1_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 @Test
@@ -10114,7 +9997,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
     public void testDefaultConfiguration_1_serial_19_oe_1_oe() {
         GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
         GenericObjectPool<?> inl1_actual = genericObjectPool;
-                assertEquals(inl1_expected.getTimeBetweenEvictionRuns(), inl1_actual.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+                assertEquals(inl1_expected.getTimeBetweenEvictionRuns(),inl1_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 @Test
@@ -10123,7 +10006,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl2_expected.getTestOnCreate()), Boolean.valueOf(inl2_actual.getTestOnCreate()), "testOnCreate");
+                assertEquals(Boolean.valueOf(inl2_expected.getTestOnCreate()),Boolean.valueOf(inl2_actual.getTestOnCreate()),"testOnCreate");
     }
 
 @Test
@@ -10132,7 +10015,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl2_expected.getTestOnBorrow()), Boolean.valueOf(inl2_actual.getTestOnBorrow()), "testOnBorrow");
+                assertEquals(Boolean.valueOf(inl2_expected.getTestOnBorrow()),Boolean.valueOf(inl2_actual.getTestOnBorrow()),"testOnBorrow");
     }
 
 @Test
@@ -10141,7 +10024,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl2_expected.getTestOnReturn()), Boolean.valueOf(inl2_actual.getTestOnReturn()), "testOnReturn");
+                assertEquals(Boolean.valueOf(inl2_expected.getTestOnReturn()),Boolean.valueOf(inl2_actual.getTestOnReturn()),"testOnReturn");
     }
 
 @Test
@@ -10150,7 +10033,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl2_expected.getTestWhileIdle()), Boolean.valueOf(inl2_actual.getTestWhileIdle()), "testWhileIdle");
+                assertEquals(Boolean.valueOf(inl2_expected.getTestWhileIdle()),Boolean.valueOf(inl2_actual.getTestWhileIdle()),"testWhileIdle");
     }
 
 @Test
@@ -10159,7 +10042,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl2_expected.getBlockWhenExhausted()), Boolean.valueOf(inl2_actual.getBlockWhenExhausted()), "whenExhaustedAction");
+                assertEquals(Boolean.valueOf(inl2_expected.getBlockWhenExhausted()),Boolean.valueOf(inl2_actual.getBlockWhenExhausted()),"whenExhaustedAction");
     }
 
 @Test
@@ -10204,7 +10087,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getMinEvictableIdleTimeMillis(), inl2_actual.getMinEvictableIdleTimeMillis(), "minEvictableIdleTimeMillis");
+                assertEquals(inl2_expected.getMinEvictableIdleTimeMillis(),inl2_actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
     }
 
 @Test
@@ -10213,7 +10096,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getMinEvictableIdleTime(), inl2_actual.getMinEvictableIdleTime(), "minEvictableIdleTime");
+                assertEquals(inl2_expected.getMinEvictableIdleTime(),inl2_actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
     }
 
 @Test
@@ -10222,7 +10105,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getMinEvictableIdleDuration(), inl2_actual.getMinEvictableIdleDuration(), "minEvictableIdleDuration");
+                assertEquals(inl2_expected.getMinEvictableIdleDuration(),inl2_actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
     }
 
 @Test
@@ -10231,7 +10114,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getNumTestsPerEvictionRun(), inl2_actual.getNumTestsPerEvictionRun(), "numTestsPerEvictionRun");
+                assertEquals(inl2_expected.getNumTestsPerEvictionRun(),inl2_actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
     }
 
 @Test
@@ -10240,7 +10123,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getEvictorShutdownTimeoutDuration(), inl2_actual.getEvictorShutdownTimeoutDuration(), "evictorShutdownTimeoutDuration");
+                assertEquals(inl2_expected.getEvictorShutdownTimeoutDuration(),inl2_actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
     }
 
 @Test
@@ -10249,7 +10132,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getEvictorShutdownTimeoutMillis(), inl2_actual.getEvictorShutdownTimeoutMillis(), "evictorShutdownTimeoutMillis");
+                assertEquals(inl2_expected.getEvictorShutdownTimeoutMillis(),inl2_actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
     }
 
 @Test
@@ -10258,7 +10141,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getEvictorShutdownTimeout(), inl2_actual.getEvictorShutdownTimeout(), "evictorShutdownTimeout");
+                assertEquals(inl2_expected.getEvictorShutdownTimeout(),inl2_actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
     }
 
 @Test
@@ -10267,7 +10150,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getTimeBetweenEvictionRunsMillis(), inl2_actual.getTimeBetweenEvictionRunsMillis(), "timeBetweenEvictionRunsMillis");
+                assertEquals(inl2_expected.getTimeBetweenEvictionRunsMillis(),inl2_actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
     }
 
 @Test
@@ -10276,7 +10159,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getDurationBetweenEvictionRuns(), inl2_actual.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+                assertEquals(inl2_expected.getDurationBetweenEvictionRuns(),inl2_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 @Test
@@ -10285,7 +10168,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         GenericObjectPoolConfig<?> inl2_expected = expected;
         GenericObjectPool<?> inl2_actual = genericObjectPool;
-                assertEquals(inl2_expected.getTimeBetweenEvictionRuns(), inl2_actual.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+                assertEquals(inl2_expected.getTimeBetweenEvictionRuns(),inl2_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 @Test
@@ -10307,7 +10190,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl3_expected.getTestOnCreate()), Boolean.valueOf(inl3_actual.getTestOnCreate()), "testOnCreate");
+                assertEquals(Boolean.valueOf(inl3_expected.getTestOnCreate()),Boolean.valueOf(inl3_actual.getTestOnCreate()),"testOnCreate");
     }
 
 @Test
@@ -10329,7 +10212,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl3_expected.getTestOnBorrow()), Boolean.valueOf(inl3_actual.getTestOnBorrow()), "testOnBorrow");
+                assertEquals(Boolean.valueOf(inl3_expected.getTestOnBorrow()),Boolean.valueOf(inl3_actual.getTestOnBorrow()),"testOnBorrow");
     }
 
 @Test
@@ -10351,7 +10234,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl3_expected.getTestOnReturn()), Boolean.valueOf(inl3_actual.getTestOnReturn()), "testOnReturn");
+                assertEquals(Boolean.valueOf(inl3_expected.getTestOnReturn()),Boolean.valueOf(inl3_actual.getTestOnReturn()),"testOnReturn");
     }
 
 @Test
@@ -10373,7 +10256,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl3_expected.getTestWhileIdle()), Boolean.valueOf(inl3_actual.getTestWhileIdle()), "testWhileIdle");
+                assertEquals(Boolean.valueOf(inl3_expected.getTestWhileIdle()),Boolean.valueOf(inl3_actual.getTestWhileIdle()),"testWhileIdle");
     }
 
 @Test
@@ -10395,7 +10278,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(Boolean.valueOf(inl3_expected.getBlockWhenExhausted()), Boolean.valueOf(inl3_actual.getBlockWhenExhausted()), "whenExhaustedAction");
+                assertEquals(Boolean.valueOf(inl3_expected.getBlockWhenExhausted()),Boolean.valueOf(inl3_actual.getBlockWhenExhausted()),"whenExhaustedAction");
     }
 
 @Test
@@ -10505,7 +10388,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getMinEvictableIdleTimeMillis(), inl3_actual.getMinEvictableIdleTimeMillis(), "minEvictableIdleTimeMillis");
+                assertEquals(inl3_expected.getMinEvictableIdleTimeMillis(),inl3_actual.getMinEvictableIdleTimeMillis(),"minEvictableIdleTimeMillis");
     }
 
 @Test
@@ -10527,7 +10410,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getMinEvictableIdleTime(), inl3_actual.getMinEvictableIdleTime(), "minEvictableIdleTime");
+                assertEquals(inl3_expected.getMinEvictableIdleTime(),inl3_actual.getMinEvictableIdleTime(),"minEvictableIdleTime");
     }
 
 @Test
@@ -10549,7 +10432,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getMinEvictableIdleDuration(), inl3_actual.getMinEvictableIdleDuration(), "minEvictableIdleDuration");
+                assertEquals(inl3_expected.getMinEvictableIdleDuration(),inl3_actual.getMinEvictableIdleDuration(),"minEvictableIdleDuration");
     }
 
 @Test
@@ -10571,7 +10454,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getNumTestsPerEvictionRun(), inl3_actual.getNumTestsPerEvictionRun(), "numTestsPerEvictionRun");
+                assertEquals(inl3_expected.getNumTestsPerEvictionRun(),inl3_actual.getNumTestsPerEvictionRun(),"numTestsPerEvictionRun");
     }
 
 @Test
@@ -10593,7 +10476,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getEvictorShutdownTimeoutDuration(), inl3_actual.getEvictorShutdownTimeoutDuration(), "evictorShutdownTimeoutDuration");
+                assertEquals(inl3_expected.getEvictorShutdownTimeoutDuration(),inl3_actual.getEvictorShutdownTimeoutDuration(),"evictorShutdownTimeoutDuration");
     }
 
 @Test
@@ -10615,7 +10498,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getEvictorShutdownTimeoutMillis(), inl3_actual.getEvictorShutdownTimeoutMillis(), "evictorShutdownTimeoutMillis");
+                assertEquals(inl3_expected.getEvictorShutdownTimeoutMillis(),inl3_actual.getEvictorShutdownTimeoutMillis(),"evictorShutdownTimeoutMillis");
     }
 
 @Test
@@ -10637,7 +10520,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getEvictorShutdownTimeout(), inl3_actual.getEvictorShutdownTimeout(), "evictorShutdownTimeout");
+                assertEquals(inl3_expected.getEvictorShutdownTimeout(),inl3_actual.getEvictorShutdownTimeout(),"evictorShutdownTimeout");
     }
 
 @Test
@@ -10659,7 +10542,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getTimeBetweenEvictionRunsMillis(), inl3_actual.getTimeBetweenEvictionRunsMillis(), "timeBetweenEvictionRunsMillis");
+                assertEquals(inl3_expected.getTimeBetweenEvictionRunsMillis(),inl3_actual.getTimeBetweenEvictionRunsMillis(),"timeBetweenEvictionRunsMillis");
     }
 
 @Test
@@ -10681,7 +10564,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getDurationBetweenEvictionRuns(), inl3_actual.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+                assertEquals(inl3_expected.getDurationBetweenEvictionRuns(),inl3_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 @Test
@@ -10703,7 +10586,7 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         GenericObjectPoolConfig<?> inl3_expected = expected;
         GenericObjectPool<?> inl3_actual = genericObjectPool;
-                assertEquals(inl3_expected.getTimeBetweenEvictionRuns(), inl3_actual.getTimeBetweenEvictionRuns(), "timeBetweenEvictionRuns");
+                assertEquals(inl3_expected.getTimeBetweenEvictionRuns(),inl3_actual.getTimeBetweenEvictionRuns(),"timeBetweenEvictionRuns");
     }
 
 }

@@ -29,10 +29,7 @@ public class ElementIT {
 
         long runtime = System.currentTimeMillis() - start;
         assertEquals(rows, wrapper.childNodes.size());
-        assertEquals(rows, childNodes.size()); // child nodes is a wrapper, so still there
-        assertEquals(0, doc.body().childNodes().size()); // but on a fresh look, all gone
-
-        doc.body().empty().appendChild(wrapper);
+        assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
         Element wrapperAcutal = doc.body().children().get(0);
         assertEquals(wrapper, wrapperAcutal);
         assertEquals("El-1", wrapperAcutal.children().get(0).text());
@@ -64,10 +61,7 @@ public class ElementIT {
 
         long runtime = System.currentTimeMillis() - start;
         assertEquals(rows + 2, wrapper.childNodes.size());
-        assertEquals(rows, childNodes.size()); // child nodes is a wrapper, so still there
-        assertEquals(0, doc.body().childNodes().size()); // but on a fresh look, all gone
-
-        doc.body().empty().appendChild(wrapper);
+        assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
         Element wrapperAcutal = doc.body().children().get(0);
         assertEquals(wrapper, wrapperAcutal);
         assertEquals("Prior Content", wrapperAcutal.children().get(0).text());

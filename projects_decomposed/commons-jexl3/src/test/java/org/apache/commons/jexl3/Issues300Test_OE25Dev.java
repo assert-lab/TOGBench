@@ -170,7 +170,7 @@ public class Issues300Test_OE25Dev {
 
         final JexlContext context = new MapContext(map);
         Object value = e304.evaluate(context);
-        assertEquals("4711", value); // fails;
+        assertEquals("4711",value);// fails map.clear();
     }
 
     @Test
@@ -188,8 +188,6 @@ public class Issues300Test_OE25Dev {
         final JexlContext context = new MapContext(map);
         Object value = e304.evaluate(context);
         // removed other assertion
-
-        map.clear();
         map.put("overview.limit.var", 42);
         value = e304.evaluate(context);
         assertEquals(42, value);
@@ -210,8 +208,6 @@ public class Issues300Test_OE25Dev {
         final JexlContext context = new MapContext(map);
         Object value = e304.evaluate(context);
         // removed other assertion
-
-        map.clear();
         map.put("overview.limit.var", 42);
         value = e304.evaluate(context);
         // removed other assertion

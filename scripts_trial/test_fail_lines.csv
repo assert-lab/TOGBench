@@ -1,9 +1,37 @@
 folder,line
+JSON-java,CDLTest_OE25Dev.badEscapedQuote_2_oe:301 Expecting an exception message expected:<Bad character 'V'[](86). at 20 [charact...> but was:<Bad character 'V'[ ](86). at 20 [charact...>
+JSON-java,CDLTest_OE25Dev.nullInName_2_oe:193 Expecting an exception message expected:<Bad character 'o'[](111). at 2 [charact...> but was:<Bad character 'o'[ ](111). at 2 [charact...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_10_oe:1202 Expected an exception message expected:<...] is not a JSONArray[](class java.lang.Str...> but was:<...] is not a JSONArray[ ](class java.lang.Str...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_12_oe:1243 Expected an exception message expected:<... is not a JSONObject[](class java.lang.Str...> but was:<... is not a JSONObject[ ](class java.lang.Str...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_14_oe:1290 Expected an exception message expected:<...ray[4] is not a long[](class java.lang.Str...> but was:<...ray[4] is not a long[ ](class java.lang.Str...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_16_oe:1343 Expected an exception message expected:<...y[5] is not a String[](class java.math.Big...> but was:<...y[5] is not a String[ ](class java.math.Big...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_2_oe:1098 Expected an exception message expected:<...[4] is not a boolean[](class java.lang.Str...> but was:<...[4] is not a boolean[ ](class java.lang.Str...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_6_oe:1138 Expected an exception message expected:<...y[4] is not a double[](class java.lang.Str...> but was:<...y[4] is not a double[ ](class java.lang.Str...>
+JSON-java,JSONArrayTest_OE25Dev.failedGetArrayValues_8_oe:1167 Expected an exception message expected:<...rray[4] is not a int[](class java.lang.Str...> but was:<...rray[4] is not a int[ ](class java.lang.Str...>
+JSON-java,JSONMLTest_OE25Dev.emptyTagException_2_oe:496 Expecting an exception message expected:<...y[0] is not a String[](class org.json.JSON...> but was:<...y[0] is not a String[ ](class org.json.JSON...>
+JSON-java,"JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_12_oe:6083 Expecting an exception message expected:<...ey""] is not a double[](class java.lang.Str...> but was:<...ey""] is not a double[ ](class java.lang.Str...>"
+JSON-java,"JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_16_oe:6215 Expecting an exception message expected:<...Key""] is not a float[](class java.lang.Str...> but was:<...Key""] is not a float[ ](class java.lang.Str...>"
+JSON-java,"JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_20_oe:6371 Expecting an exception message expected:<...ngKey""] is not a int[](class java.lang.Str...> but was:<...ngKey""] is not a int[ ](class java.lang.Str...>"
+JSON-java,"JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_24_oe:6551 Expecting an exception message expected:<...gKey""] is not a long[](class java.lang.Str...> but was:<...gKey""] is not a long[ ](class java.lang.Str...>"
+JSON-java,JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_28_oe:6755 Expecting an exception message expected:<...] is not a JSONArray[](class java.lang.Str...> but was:<...] is not a JSONArray[ ](class java.lang.Str...>
+JSON-java,JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_32_oe:6983 Expecting an exception message expected:<... is not a JSONObject[](class java.lang.Str...> but was:<... is not a JSONObject[ ](class java.lang.Str...>
+JSON-java,"JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_4_oe:5891 Expecting an exception message expected:<...y""] is not a Boolean[](class java.lang.Str...> but was:<...y""] is not a Boolean[ ](class java.lang.Str...>"
+JSON-java,"JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_8_oe:5975 Expecting an exception message expected:<...ey""] is not a string[](class java.lang.Boo...> but was:<...ey""] is not a string[ ](class java.lang.Boo...>"
+JSON-java,"Tests run: 1185, Failures: 18, Errors: 0, Skipped: 0"
 bcel,BranchHandleTestCase_OE25Dev.testsetInstructionNull_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
 bcel,BranchHandleTestCase_OE25Dev.testsetInstructionnotBI_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
 bcel,InstructionHandleTestCase_OE25Dev.testsetInstructionNull_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
 bcel,InstructionHandleTestCase_OE25Dev.testsetInstructionnotI_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-bcel,"Tests run: 208, Failures: 4, Errors: 0, Skipped: 0"
+bcel,"Tests run: 206, Failures: 13, Errors: 0, Skipped: 0"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_10_oe:138 type parameters signature expected:<<K1 extends K,[V1 extends V>()com.google.common.cache.Weigher<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>()com.google.common.cache.Weigher<K1, ]V1>>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_11_oe:157 type parameters signature expected:<<K1 extends K,[V1 extends V>(com.google.common.cache.Weigher<? super K1,? super V1>)com.google.common.cache.CacheBuilder<K1,]V1>> but was:<<K1 extends K,[ V1 extends V>(com.google.common.cache.Weigher<? super K1, ? super V1>)com.google.common.cache.CacheBuilder<K1, ]V1>>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_12_oe:177 class signature expected:<...ds java.lang.Object,[E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N,]E>> but was:<...ds java.lang.Object,[ E extends java.lang.Object> extends java.lang.Object implements com.google.common.graph.Network<N, ]E>>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_13_oe:198 class signature expected:<<K extends Object,[]V extends Object> ex...> but was:<<K extends Object,[ ]V extends Object> ex...>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_1_oe:26 generic signature expected:<java.util.Map<X,[]java.util.List<Y>>> but was:<java.util.Map<X,[ ]java.util.List<Y>>>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_4_oe:49 generic signature expected:<...truct.image.GrayU8>,[]boofcv.struct.image....> but was:<...truct.image.GrayU8>,[ ]boofcv.struct.image....>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_5_oe:60 generic signature expected:<java.util.Map<?,[]?>> but was:<java.util.Map<?,[ ]?>>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_7_oe:87 type parameters signature expected:<...io.ByteProcessor<T>,[]int)T> but was:<...io.ByteProcessor<T>,[ ]int)T>"
+bcel,"UtilityTestCase_OE25Dev.testSignatureToStringWithGenerics_8_oe:103 type parameters signature expected:<...io.ByteProcessor<T>,[]int)T> but was:<...io.ByteProcessor<T>,[ ]int)T>"
 commons-beanutils,BeanIntrospectionDataTestCase_OE25Dev.testGetWriteMethodUndefined_2_oe:114 Method not set in descriptor expected:<public org.apache.commons.beanutils.FluentIntrospectionTestBean org.apache.commons.beanutils.FluentIntrospectionTestBean.setFluentGetProperty(java.lang.String)> but was:<null>
 commons-beanutils,DynaBeanMapDecoratorTestCase_OE25Dev.testPut_3_oe:412 dynaBean get expected:<ABC> but was:<somevalue>
 commons-beanutils,DynaBeanMapDecoratorTestCase_OE25Dev.testPut_4_oe:430 modifiableMap get expected:<ABC> but was:<somevalue>
@@ -12,8 +40,8 @@ commons-beanutils,Jira368TestCase_OE25Dev.testBeanUtilsSetProperty_NullBean_1_oe
 commons-beanutils,LazyDynaListTestCase_OE25Dev.testToArrayDynaBeans_2_oe:987 Wrong element expected same:<org.apache.commons.beanutils.LazyDynaBean@1534f01b> was not:<null>
 commons-beanutils,LazyDynaListTestCase_OE25Dev.testToArrayMapType_2_oe:1004 Wrong element expected:<{}> but was:<null>
 commons-beanutils,LazyDynaListTestCase_OE25Dev.testToArrayOtherType_2_oe:1021 Wrong element expected:<org.apache.commons.beanutils.TestBean@78e117e3> but was:<null>
-commons-beanutils,MethodUtilsTestCase_OE25Dev.testClearCache_2_oe:924 expected:<0> but was:<1>
-commons-beanutils,MethodUtilsTestCase_OE25Dev.testSetCacheMethods_2_oe:943 expected:<0> but was:<1>
+commons-beanutils,MethodUtilsTestCase_OE25Dev.testClearCache_2_oe:922 expected:<0> but was:<1>
+commons-beanutils,MethodUtilsTestCase_OE25Dev.testSetCacheMethods_2_oe:941 expected:<0> but was:<1>
 commons-beanutils,"Tests run: 1213, Failures: 9, Errors: 1, Skipped: 3"
 commons-collections4,ArrayListValuedHashMapTest_OE25Dev.testListValuedMapRemove_3_oe:147 expected:<2> but was:<3>
 commons-collections4,ArrayListValuedHashMapTest_OE25Dev.testListValuedMapRemove_4_oe:159 expected:<a2> but was:<a1>
@@ -79,62 +107,34 @@ commons-collections4,CollatingIteratorTest_OE25Dev.testIterateEvenOdd_3_oe:167 �
 commons-collections4,CollatingIteratorTest_OE25Dev.testIterateEvenOdd_4_oe:178
 commons-collections4,CollatingIteratorTest_OE25Dev.testIterateEven_3_oe:132 » IllegalState No value...
 commons-collections4,CollatingIteratorTest_OE25Dev.testIterateEven_4_oe:144
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_10_oe:431 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_11_oe:450 expected:<2> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_12_oe:470 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_13_oe:491 expected:<3> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_14_oe:513 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_15_oe:536 expected:<3> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_16_oe:560 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_17_oe:585 expected:<4> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_18_oe:611 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_19_oe:638 expected:<5> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_20_oe:666 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_21_oe:695 expected:<5> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_22_oe:725 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_23_oe:756 expected:<6> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_24_oe:788 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_25_oe:821 expected:<7> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_26_oe:855 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_27_oe:890 expected:<8> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_28_oe:926 » IllegalState N...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_29_oe:963 expected:<8> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_2_oe:315 » IllegalState No...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_30_oe:1001 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_31_oe:1040 expected:<9> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_32_oe:1080 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_33_oe:1121 expected:<10> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_34_oe:1163 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_35_oe:1206 expected:<11> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_36_oe:1250 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_37_oe:1295 expected:<12> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_38_oe:1341 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_39_oe:1388 expected:<13> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_10_oe:431 expected:<5> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_11_oe:450 expected:<5> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_12_oe:470 expected:<6> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_13_oe:491 expected:<7> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_14_oe:513 expected:<8> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_15_oe:536 expected:<8> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_16_oe:560 expected:<9> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_17_oe:585 expected:<10> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_18_oe:611 expected:<11> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_19_oe:638 expected:<12> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_20_oe:666 expected:<13> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_21_oe:695 expected:<13> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_22_oe:725 expected:<14> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_23_oe:756 expected:<15> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_24_oe:788 expected:<16> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_25_oe:821 expected:<17> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_26_oe:855 expected:<18> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_27_oe:890 expected:<19> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_28_oe:926 expected:<21> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_29_oe:964
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_2_oe:315 expected:<1> but was:<0>
 commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_3_oe:326 expected:<1> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_40_oe:1436 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_41_oe:1485 expected:<13> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_42_oe:1535 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_43_oe:1586 expected:<14> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_44_oe:1638 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_45_oe:1691 expected:<15> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_46_oe:1745 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_47_oe:1800 expected:<16> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_48_oe:1856 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_49_oe:1913 expected:<17> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_4_oe:338 » IllegalState No...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_50_oe:1971 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_51_oe:2030 expected:<18> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_52_oe:2090 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_53_oe:2151 expected:<19> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_54_oe:2213 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_55_oe:2276 expected:<21> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_56_oe:2340 » IllegalState ...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_57_oe:2406
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_5_oe:351 expected:<1> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_6_oe:365 » IllegalState No...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_7_oe:380 expected:<1> but was:<0>
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_8_oe:396 » IllegalState No...
-commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_9_oe:413 expected:<2> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_4_oe:338 expected:<1> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_5_oe:351 expected:<2> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_6_oe:365 expected:<2> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_7_oe:380 expected:<3> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_8_oe:396 expected:<3> but was:<0>
+commons-collections4,CollatingIteratorTest_OE25Dev.testIterateFibEvenOdd_9_oe:413 expected:<4> but was:<0>
 commons-collections4,CollatingIteratorTest_OE25Dev.testIterateOddEven_3_oe:201 » IllegalState No va...
 commons-collections4,CollatingIteratorTest_OE25Dev.testIterateOddEven_4_oe:212
 commons-collections4,CollectionUtilsTest_OE25Dev.addAllForIterable_3_oe:7311
@@ -458,46 +458,46 @@ commons-collections4,CursorableLinkedListTest_OE25Dev.testToArray_16_oe:13715 ex
 commons-collections4,CursorableLinkedListTest_OE25Dev.testToArray_17_oe:13746 expected:<4> but was:<null>
 commons-collections4,CursorableLinkedListTest_OE25Dev.testToArray_18_oe:13778 expected:<5> but was:<null>
 commons-collections4,FactoryUtilsTest_OE25Dev.instantiateFactorySimple_3_oe:370 expected:<1> but was:<2>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_10_oe:490 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_11_oe:509 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_12_oe:529 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_13_oe:550 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_14_oe:572 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_17_oe:649 expected:<3> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_18_oe:677 expected:<6> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_19_oe:706 expected:<9> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_20_oe:736 expected:<12> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_21_oe:767 expected:<15> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_22_oe:799 expected:<18> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_23_oe:833
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_24_oe:869 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_25_oe:906 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_26_oe:944 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_27_oe:983 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_28_oe:1023 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_29_oe:1064 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_2_oe:379 expected:<3> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_30_oe:1106 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_32_oe:1195 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_34_oe:1289 expected:<3> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_35_oe:1338 expected:<6> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_36_oe:1388 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_37_oe:1439 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_38_oe:1491 expected:<3> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_39_oe:1544 expected:<6> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_3_oe:389 expected:<6> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_40_oe:1599 expected:<9> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_41_oe:1655 expected:<12> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_42_oe:1712 expected:<15> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_43_oe:1770 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_44_oe:1829 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_45_oe:1889 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_4_oe:400 expected:<9> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_5_oe:412 expected:<12> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_6_oe:425 expected:<15> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_7_oe:439 expected:<18> but was:<0>
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_8_oe:455 » NoSuchElement
-commons-collections4,FilterListIteratorTest_OE25Dev.testManual_9_oe:472 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_10_oe:486 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_11_oe:505 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_12_oe:525 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_13_oe:546 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_14_oe:568 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_17_oe:645 expected:<3> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_18_oe:673 expected:<6> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_19_oe:702 expected:<9> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_20_oe:732 expected:<12> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_21_oe:763 expected:<15> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_22_oe:795 expected:<18> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_23_oe:829
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_24_oe:865 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_25_oe:902 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_26_oe:940 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_27_oe:979 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_28_oe:1019 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_29_oe:1060 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_2_oe:375 expected:<3> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_30_oe:1102 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_32_oe:1191 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_34_oe:1285 expected:<3> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_35_oe:1334 expected:<6> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_36_oe:1384 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_37_oe:1435 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_38_oe:1487 expected:<3> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_39_oe:1540 expected:<6> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_3_oe:385 expected:<6> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_40_oe:1595 expected:<9> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_41_oe:1651 expected:<12> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_42_oe:1708 expected:<15> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_43_oe:1766 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_44_oe:1825 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_45_oe:1885 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_4_oe:396 expected:<9> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_5_oe:408 expected:<12> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_6_oe:421 expected:<15> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_7_oe:435 expected:<18> but was:<0>
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_8_oe:451 » NoSuchElement
+commons-collections4,FilterListIteratorTest_OE25Dev.testManual_9_oe:468 » NoSuchElement
 commons-collections4,HashSetValuedHashMapTest_OE25Dev.testSetValuedMapAdd_4_oe:92
 commons-collections4,HashSetValuedHashMapTest_OE25Dev.testSetValuedMapAdd_5_oe:103 expected:<2> but was:<0>
 commons-collections4,HashSetValuedHashMapTest_OE25Dev.testSetValuedMapAdd_6_oe:115
@@ -517,55 +517,54 @@ commons-collections4,IteratorUtilsTest_OE25Dev.testArrayIterator_2_oe:333
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_10_oe:1061
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_11_oe:1078
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_12_oe:1096
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_13_oe:1115
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_20_oe:1305
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_33_oe:1886
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_34_oe:1982
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_35_oe:2079
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_36_oe:2177
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_37_oe:2276
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_38_oe:2376 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_39_oe:2477
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_44_oe:3007 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_46_oe:3226
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_47_oe:3337
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_48_oe:3449
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_49_oe:3562
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_50_oe:3676
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_51_oe:3791 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_52_oe:3907
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_53_oe:4024
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_19_oe:1281
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_32_oe:1855
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_33_oe:1950
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_34_oe:2046
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_35_oe:2143
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_36_oe:2241
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_37_oe:2340 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_38_oe:2440
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_43_oe:2965 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_45_oe:3182
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_46_oe:3292
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_47_oe:3403
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_48_oe:3515
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_49_oe:3628
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_50_oe:3742 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_51_oe:3857
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_52_oe:3973
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_59_oe:4649
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_5_oe:991 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_60_oe:4705
-commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_61_oe:4846
+commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_60_oe:4789
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_7_oe:1016
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_8_oe:1030
 commons-collections4,IteratorUtilsTest_OE25Dev.testArrayListIterator_9_oe:1045
-commons-collections4,IteratorUtilsTest_OE25Dev.testAsIterable_1_oe:4860 expected:<0> but was:<1>
-commons-collections4,IteratorUtilsTest_OE25Dev.testAsMultipleIterable_1_oe:4914 expected:<0> but was:<1>
-commons-collections4,IteratorUtilsTest_OE25Dev.testAsMultipleIterable_3_oe:4956 expected:<0> but was:<1>
-commons-collections4,IteratorUtilsTest_OE25Dev.testNodeIterator_1_oe:5951 expected: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node> but was: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node>
-commons-collections4,IteratorUtilsTest_OE25Dev.testNodeListIterator_1_oe:6004 expected: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node> but was: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node>
-commons-collections4,IteratorUtilsTest_OE25Dev.testToListIterator_1_oe:6084 expected:<0> but was:<1>
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_4_oe:6125 expected:<[b]> but was:<[a]>
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_6_oe:6157 expected:<[c]> but was:<[a]>
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_8_oe:6197 expected:<[d]> but was:<[a]>
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_9_oe:6220
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_10_oe:6362
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_12_oe:6410 expected:<[d]> but was:<[a]>
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_13_oe:6437
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_14_oe:6465
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_15_oe:6495 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_16_oe:6527
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_18_oe:6595 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_19_oe:6632
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_21_oe:6710 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_22_oe:6752
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_24_oe:6840 » NoSuchElement
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_4_oe:6257
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_6_oe:6285 expected:<[b]> but was:<[a]>
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_7_oe:6302
-commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_9_oe:6340 expected:<[c]> but was:<[a]>
+commons-collections4,IteratorUtilsTest_OE25Dev.testAsIterable_1_oe:4803 expected:<0> but was:<1>
+commons-collections4,IteratorUtilsTest_OE25Dev.testAsMultipleIterable_1_oe:4857 expected:<0> but was:<1>
+commons-collections4,IteratorUtilsTest_OE25Dev.testAsMultipleIterable_3_oe:4899 expected:<0> but was:<1>
+commons-collections4,IteratorUtilsTest_OE25Dev.testNodeIterator_1_oe:5894 expected: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node> but was: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node>
+commons-collections4,IteratorUtilsTest_OE25Dev.testNodeListIterator_1_oe:5947 expected: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node> but was: jdk.proxy1.$Proxy20<EasyMock for interface org.w3c.dom.Node>
+commons-collections4,IteratorUtilsTest_OE25Dev.testToListIterator_1_oe:6027 expected:<0> but was:<1>
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_4_oe:6068 expected:<[b]> but was:<[a]>
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_6_oe:6100 expected:<[c]> but was:<[a]>
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_8_oe:6140 expected:<[d]> but was:<[a]>
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableIteratorIteration_9_oe:6163
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_10_oe:6305
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_12_oe:6353 expected:<[d]> but was:<[a]>
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_13_oe:6380
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_14_oe:6408
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_15_oe:6438 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_16_oe:6470
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_18_oe:6538 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_19_oe:6575
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_21_oe:6653 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_22_oe:6695
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_24_oe:6783 » NoSuchElement
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_4_oe:6200
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_6_oe:6228 expected:<[b]> but was:<[a]>
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_7_oe:6245
+commons-collections4,IteratorUtilsTest_OE25Dev.testUnmodifiableListIteratorIteration_9_oe:6283 expected:<[c]> but was:<[a]>
 commons-collections4,LRUMapTest_OE25Dev.testAccessOrder2_10_oe:3087 expected same:<all> was not:<again>
 commons-collections4,LRUMapTest_OE25Dev.testAccessOrder2_12_oe:3166 expected same:<foov> was not:<blahv>
 commons-collections4,LRUMapTest_OE25Dev.testAccessOrder2_14_oe:3257 expected same:<again> was not:<all>
@@ -697,67 +696,42 @@ commons-collections4,LoopingIteratorTest_OE25Dev.testReset_5_oe:551 expected:<[b
 commons-collections4,LoopingIteratorTest_OE25Dev.testReset_6_oe:566 expected:<[c]> but was:<[a]>
 commons-collections4,LoopingIteratorTest_OE25Dev.testReset_8_oe:601 expected:<[b]> but was:<[a]>
 commons-collections4,LoopingIteratorTest_OE25Dev.testReset_9_oe:620 expected:<[c]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_11_oe:1365 expected:<[d]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_12_oe:1391 expected:<[e]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_13_oe:1418 expected:<[f]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_14_oe:1446 expected:<[a]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_17_oe:1553 expected:<[e]> but was:<[f]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_20_oe:1682 expected:<[a]> but was:<[d]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_21_oe:1729 expected:<[b]> but was:<[d]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_22_oe:1777 expected:<[c]> but was:<[d]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_24_oe:1876 expected:<[e]> but was:<[d]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_25_oe:1927 expected:<[f]> but was:<[d]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_26_oe:1979 expected:<[a]> but was:<[d]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_3_oe:1205 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_4_oe:1220 expected:<[e]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_5_oe:1236 expected:<[e]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_7_oe:1271 expected:<[c]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_8_oe:1293 expected:<[a]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_9_oe:1316 expected:<[b]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_2_oe:530 expected:<[a]> but was:<[b]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_4_oe:558 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_6_oe:591 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_2_oe:612 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_4_oe:638 expected:<[a]> but was:<[b]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_6_oe:669 expected:<[a]> but was:<[b]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testLooping2_10_oe:454 expected:<[a]> but was:<[b]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testLooping2_4_oe:337 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_10_oe:2119 expected:<2> but was:<0>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_11_oe:2140 expected:<1> but was:<2>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_12_oe:2163 expected:<[b]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_13_oe:2187 expected:<1> but was:<0>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_14_oe:2212 expected:<0> but was:<2>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_15_oe:2239 expected:<[a]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_4_oe:2019 expected:<1> but was:<0>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_5_oe:2032 expected:<0> but was:<2>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_6_oe:2047 expected:<[a]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_10_oe:960 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_3_oe:848 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_4_oe:859 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_5_oe:872 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_6_oe:886 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_7_oe:902 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_8_oe:920 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_9_oe:939 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_10_oe:808 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_3_oe:696 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_4_oe:707 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_5_oe:720 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_6_oe:734 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_7_oe:750 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_8_oe:768 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_9_oe:787 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_11_oe:1148 expected:<[b]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_12_oe:1173 expected:<[a]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_2_oe:990 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_5_oe:1028 expected:<[b]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_6_oe:1043 expected:<[c]> but was:<[a]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_8_oe:1080 expected:<[b]> but was:<[c]>
-commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_2_oe:2313 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_3_oe:2325 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_4_oe:2340 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_5_oe:2359 » IllegalState
-commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_6_oe:2379 » IllegalState
+commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_4_oe:844 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_5_oe:860 expected:<[c]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_6_oe:877 expected:<[d]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_7_oe:895 expected:<[e]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testAdd_8_oe:914 expected:<[f]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_2_oe:282 expected:<[a]> but was:<[b]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_4_oe:310 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingNotOverBoundary_6_oe:343 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_2_oe:364 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_4_oe:390 expected:<[a]> but was:<[b]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testJoggingOverBoundary_6_oe:421 expected:<[a]> but was:<[b]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testLooping2_3_oe:209 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testLooping2_6_oe:245 expected:<[a]> but was:<[b]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_10_oe:1079 expected:<0> but was:<2>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_11_oe:1102 expected:<[a]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_4_oe:974 expected:<0> but was:<2>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_5_oe:988 expected:<[a]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_8_oe:1038 expected:<1> but was:<2>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testNextAndPreviousIndex_9_oe:1058 expected:<[b]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_4_oe:547 expected:<[b]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_6_oe:576 expected:<[a]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_7_oe:593
+commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_4_oe:461 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_6_oe:490 expected:<[c]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_7_oe:507
+commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_11_oe:768 expected:<[b]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_12_oe:793 expected:<[a]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_2_oe:610 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_5_oe:648 expected:<[b]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_6_oe:663 expected:<[c]> but was:<[a]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testReset_8_oe:700 expected:<[b]> but was:<[c]>
+commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_2_oe:1143 » IllegalState
+commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_3_oe:1155 » IllegalState
+commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_4_oe:1170 » IllegalState
+commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_5_oe:1189 » IllegalState
+commons-collections4,LoopingListIteratorTest_OE25Dev.testSet_6_oe:1209 » IllegalState
 commons-collections4,MapBackedSet2Test_OE25Dev.testOrdering_3_oe:94 Sequence is wrong after remove  expected:<1> but was:<0>
 commons-collections4,MapBackedSet2Test_OE25Dev.testOrdering_5_oe:147 Sequence is wrong expected:<1> but was:<0>
 commons-collections4,MapBackedSet2Test_OE25Dev.testOrdering_6_oe:179 Sequence is wrong expected:<2> but was:<1>
@@ -835,16 +809,16 @@ commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_IteratorOfIte
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_IteratorOfIterators_3_oe:408 expected:<false> but was:<true>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_RootNoTransformer_3_oe:489 expected:<false> but was:<true>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed1_3_oe:516 expected:<false> but was:<true>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_10_oe:771 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@6d5f4900> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@1e40fbb3>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_10_oe:771 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@4b195203> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@28a6e171>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_11_oe:802 expected:<false> but was:<true>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_4_oe:606 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@1b560eb0> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@9e02f84>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_6_oe:657 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@1e6060f1> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@7e49ded>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_8_oe:712 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@2c6c302f> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@2478b629>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_10_oe:1057 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@563ccd31> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@72465eb2>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_4_oe:606 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@23444a36> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@31a136a6>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_6_oe:657 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@30a9e3db> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@2f9b21d6>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed2_8_oe:712 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@2e0fdbe9> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@16a3cc88>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_10_oe:1057 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@265c1a7c> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@5b2b8d86>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_11_oe:1088 expected:<false> but was:<true>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_4_oe:892 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@39023dbf> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@1a2ac487>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_6_oe:943 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@570a62a5> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@36224f93>
-commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_8_oe:998 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@1ee5632d> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@52a7928a>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_4_oe:892 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@696b52bc> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@1f884bd6>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_6_oe:943 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@4f081b5d> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@474749b8>
+commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteration_Transformed3_8_oe:998 expected same:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@740a0d5e> was not:<org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev$Leaf@29013ef2>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteratorConstructorIteration_Simple_3_oe:232 expected:<false> but was:<true>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteratorConstructorIteration_WithEmptyIterators_3_oe:295 expected:<false> but was:<true>
 commons-collections4,ObjectGraphIteratorTest_OE25Dev.testIteratorConstructorRemove_2_oe:319 » IllegalState
@@ -901,8 +875,8 @@ commons-collections4,PeekingIteratorTest_OE25Dev.testMultiplePeek_6_oe:147 expec
 commons-collections4,PeekingIteratorTest_OE25Dev.testMultiplePeek_7_oe:159 expected:<b> but was:<a>
 commons-collections4,PeekingIteratorTest_OE25Dev.testMultiplePeek_9_oe:186 expected:<c> but was:<a>
 commons-collections4,PredicateUtilsTest_OE25Dev.testNullIsExceptionPredicate_1_oe Expected exception: org.apache.commons.collections4.FunctorException
-commons-collections4,PredicateUtilsTest_OE25Dev.testUniquePredicate_5_oe:1744 expected:<false> but was:<true>
-commons-collections4,PredicateUtilsTest_OE25Dev.testUniquePredicate_6_oe:1755 expected:<false> but was:<true>
+commons-collections4,PredicateUtilsTest_OE25Dev.testUniquePredicate_5_oe:1733 expected:<false> but was:<true>
+commons-collections4,PredicateUtilsTest_OE25Dev.testUniquePredicate_6_oe:1744 expected:<false> but was:<true>
 commons-collections4,PredicatedBagTest_OE25Dev.testlegalAddRemove_6_oe:171 Unique set now does not contain the first element
 commons-collections4,PredicatedQueueTest_OE25Dev.testRemove_2_oe:126 Expected: <null> but was: one
 commons-collections4,PushbackIteratorTest_OE25Dev.testDelayedPushback_3_oe:147 expected:<b> but was:<x>
@@ -915,45 +889,6 @@ commons-collections4,PushbackIteratorTest_OE25Dev.testNormalIteration_4_oe:104
 commons-collections4,ReferenceIdentityMapTest_OE25Dev.testPurgeValues_1_oe:772 Max iterations reached before resource released.
 commons-collections4,ReferenceMapTest_OE25Dev.testCustomPurge_1_oe:343 Max iterations reached before resource released.
 commons-collections4,ReferenceMapTest_OE25Dev.testPurgeValues_1_oe:318 Max iterations reached before resource released.
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_10_oe:351 expected:<Three> but was:<Four>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_12_oe:382 expected:<1> but was:<3>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_13_oe:399 expected:<true> but was:<false>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_14_oe:417 expected:<2> but was:<4>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_15_oe:436 expected:<Two> but was:<Four>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_17_oe:477 expected:<0> but was:<3>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_18_oe:499 expected:<true> but was:<false>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_19_oe:522 expected:<1> but was:<4>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_20_oe:546 expected:<One> but was:<Four>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_21_oe:571 expected:<false> but was:<true>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_22_oe:597 expected:<-1> but was:<3>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_23_oe:624 expected:<true> but was:<false>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_24_oe:652 expected:<0> but was:<4>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_25_oe:681 » NoSuchElement
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_26_oe:711 » NoSuchElement
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_27_oe:742 » NoSuchElement
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_28_oe:774 » NoSuchElement
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_6_oe:301 expected:<2> but was:<3>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_8_oe:324 expected:<3> but was:<4>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testReverse_9_oe:337 expected:<true> but was:<false>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testWalkForwardAndBack_3_oe:131 2 expected:<0> but was:<-1>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testWalkForwardAndBack_4_oe:158 expected:<1> but was:<0>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testWalkForwardAndBack_6_oe:222 expected:<true> but was:<false>
-commons-collections4,ReverseListIteratorTest_OE25Dev.testWalkForwardAndBack_7_oe:256 expected:<false> but was:<true>
-commons-collections4,SetUniqueListTest_OE25Dev.testRetainAllWithInitialList_2_oe:1061 expected:<5> but was:<10>
-commons-collections4,SetUniqueListTest_OE25Dev.testRetainAll_2_oe:927 expected:<5> but was:<10>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetDownwardsInList_10_oe:1739
-commons-collections4,SetUniqueListTest_OE25Dev.testSetDownwardsInList_6_oe:1633 expected:<1> but was:<2>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetDownwardsInList_7_oe:1658 expected:<1> but was:<2>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetDownwardsInList_8_oe:1684 expected:<java.lang.Object@69f9b561> but was:<java.lang.Object@38022758>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetInBiggerList_10_oe:1998 expected:<java.lang.Object@640a8f93> but was:<java.lang.Object@329b331f>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetInBiggerList_11_oe:2030 expected:<java.lang.Object@2f60cbf2> but was:<java.lang.Object@1f26b992>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetInBiggerList_12_oe:2063
-commons-collections4,SetUniqueListTest_OE25Dev.testSetInBiggerList_8_oe:1937 expected:<2> but was:<3>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetInBiggerList_9_oe:1967 expected:<2> but was:<3>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetUpwardsInList_11_oe:2423 expected:<C> but was:<B>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetUpwardsInList_13_oe:2490
-commons-collections4,SetUniqueListTest_OE25Dev.testSetUpwardsInList_8_oe:2330 expected:<2> but was:<3>
-commons-collections4,SetUniqueListTest_OE25Dev.testSetUpwardsInList_9_oe:2360 expected:<2> but was:<3>
 commons-collections4,SingletonIterator2Test_OE25Dev.testReset_3_oe:123 expected:<false> but was:<true>
 commons-collections4,SingletonIterator2Test_OE25Dev.testReset_6_oe:162 expected:<false> but was:<true>
 commons-collections4,SingletonIteratorTest_OE25Dev.testReset_3_oe:143 expected:<false> but was:<true>
@@ -996,7 +931,7 @@ commons-collections4,SkippingIteratorTest_OE25Dev.testSkipping_8_oe:215 expected
 commons-collections4,SplitMapUtilsTest_OE25Dev.testReadableMap_10_oe:427 expected:<9> but was:<10>
 commons-collections4,SplitMapUtilsTest_OE25Dev.testReadableMap_11_oe:492
 commons-collections4,SplitMapUtilsTest_OE25Dev.testWritableMap_5_oe:911 expected:<13> but was:<14>
-commons-collections4,"Tests run: 4619, Failures: 712, Errors: 338, Skipped: 0"
+commons-collections4,"Tests run: 4461, Failures: 641, Errors: 290, Skipped: 0"
 commons-collections4,TiedMapEntryTest_OE25Dev.testSetValue_10_oe:209 expected same:<y> was not:<b>
 commons-collections4,TiedMapEntryTest_OE25Dev.testSetValue_15_oe:339 expected same:<z> was not:<c>
 commons-collections4,TiedMapEntryTest_OE25Dev.testSetValue_5_oe:114 expected same:<x> was not:<a>
@@ -1038,36 +973,9 @@ commons-collections4,ZippingIteratorTest_OE25Dev.testIterateEvenEven_4_oe:207 ex
 commons-collections4,ZippingIteratorTest_OE25Dev.testIterateEvenEven_5_oe:219
 commons-collections4,ZippingIteratorTest_OE25Dev.testIterateEvenOdd_3_oe:128
 commons-collections4,ZippingIteratorTest_OE25Dev.testIterateEven_3_oe:104
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_10_oe:324 expected:<3> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_11_oe:340 expected:<6> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_12_oe:357 expected:<7> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_13_oe:375 expected:<5> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_14_oe:394 expected:<8> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_15_oe:414 expected:<9> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_16_oe:435 expected:<8> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_17_oe:457 expected:<10> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_18_oe:480 expected:<11> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_19_oe:504 expected:<13> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_20_oe:529 expected:<12> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_21_oe:555 expected:<13> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_22_oe:582 expected:<21> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_23_oe:610 expected:<14> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_24_oe:639 expected:<15> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_25_oe:669 expected:<16> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_26_oe:700 expected:<17> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_27_oe:732 expected:<18> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_28_oe:765 expected:<19> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_29_oe:800
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_2_oe:232 expected:<0> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_5_oe:259 expected:<2> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_6_oe:270 expected:<3> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_7_oe:282 expected:<2> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_8_oe:295 expected:<4> but was:<1>
-commons-collections4,ZippingIteratorTest_OE25Dev.testIterateFibEvenOdd_9_oe:309 expected:<5> but was:<1>
 commons-collections4,ZippingIteratorTest_OE25Dev.testIterateOddEven_2_oe:144 expected:<1> but was:<3>
 commons-collections4,ZippingIteratorTest_OE25Dev.testIterateOddEven_3_oe:157 expected:<0> but was:<2>
-commons-configuration2,TestBasicConfigurationBuilder_OE25Dev.testGetConfigurationConcurrently_2_oe:645 Wrong number of result objects expected:<1> but was:<2>
-commons-configuration2,TestCombinedConfigurationBuilder_OE25Dev.testMultiTenentConfigurationReloading_7_oe:1690 Too few events received
+commons-configuration2,TestCombinedConfigurationBuilder_OE25Dev.testMultiTenentConfigurationReloading_7_oe:1689 Too few events received
 commons-configuration2,TestDatabaseConfiguration_OE25Dev.tearDown:151 Too many events received
 commons-configuration2,TestDatabaseConfiguration_OE25Dev.tearDown:151 Too many events received
 commons-configuration2,TestJNDIConfiguration_OE25Dev.tearDown:145 Too many events received
@@ -1075,7 +983,7 @@ commons-configuration2,TestJNDIConfiguration_OE25Dev.tearDown:145 Too many event
 commons-configuration2,TestJNDIConfiguration_OE25Dev.tearDown:145 Too many events received
 commons-configuration2,TestJNDIConfiguration_OE25Dev.tearDown:145 Too many events received
 commons-configuration2,TestReloadingController_OE25Dev.testCheckForReloadingTrue_2_oe:189
-commons-configuration2,"Tests run: 3798, Failures: 9, Errors: 0, Skipped: 1"
+commons-configuration2,"Tests run: 3798, Failures: 8, Errors: 0, Skipped: 1"
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToArray_10_oe:153 » NullPointer Cannot load ...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToArray_11_oe:172 » NullPointer Cannot load ...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToArray_2_oe:52 » NullPointer Cannot load fr...
@@ -1103,19 +1011,18 @@ commons-dbutils,BasicRowProcessorTest_OE25Dev.testToBean_6_oe:237 » NullPointer
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToBean_7_oe:250 » NullPointer Cannot load fr...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToBean_8_oe:266 » NullPointer Cannot load fr...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToBean_9_oe:283 » NullPointer Cannot load fr...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_10_oe:1057 » NullPointer Canno...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_11_oe:1074 » NullPointer Canno...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_12_oe:1092 » NullPointer Canno...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_2_oe:957 » NullPointer Cannot ...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_3_oe:966 » NullPointer Cannot ...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_4_oe:976 » NullPointer Cannot ...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_5_oe:987 » NullPointer Cannot ...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_6_oe:999 » NullPointer Cannot ...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_7_oe:1012 » NullPointer Cannot...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_8_oe:1026 » NullPointer Cannot...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_9_oe:1041 » NullPointer Cannot...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_10_oe:1038 » NullPointer Canno...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_11_oe:1055 » NullPointer Canno...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_12_oe:1073 » NullPointer Canno...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_2_oe:938 » NullPointer Cannot ...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_3_oe:947 » NullPointer Cannot ...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_4_oe:957 » NullPointer Cannot ...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_5_oe:968 » NullPointer Cannot ...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_6_oe:980 » NullPointer Cannot ...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_7_oe:993 » NullPointer Cannot ...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_8_oe:1007 » NullPointer Cannot...
+commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMapOrdering_9_oe:1022 » NullPointer Cannot...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMap_10_oe:914 » NullPointer Cannot load fr...
-commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMap_11_oe:932 » NullPointer Cannot load fr...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMap_2_oe:821 » NullPointer Cannot load fro...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMap_3_oe:828 » NullPointer Cannot load fro...
 commons-dbutils,BasicRowProcessorTest_OE25Dev.testToMap_4_oe:836 » NullPointer Cannot load fro...
@@ -1136,10 +1043,12 @@ commons-dbutils,BeanProcessorTest_OE25Dev.testProcessWithToBean_4_oe:95 » NullP
 commons-dbutils,BeanProcessorTest_OE25Dev.testProcessWithToBean_5_oe:105 » NullPointer Cannot ...
 commons-dbutils,BeanProcessorTest_OE25Dev.testProcessWithToBean_6_oe:117 » NullPointer Cannot ...
 commons-dbutils,BeanProcessorTest_OE25Dev.testProcessWithToBean_7_oe:130 » NullPointer Cannot ...
-commons-dbutils,"Tests run: 618, Failures: 0, Errors: 60, Skipped: 0"
+commons-dbutils,"Tests run: 616, Failures: 0, Errors: 59, Skipped: 0"
+commons-geometry__commons-geometry-euclidean,"AffineTransformMatrix2DTest_OE25Dev.testToString_1_oe:1590 expected: <[ 1.0,2.0,3.0;5.0,6.0,7.0 ]> but was: <[ 1.0, 2.0, 3.0; 5.0, 6.0, 7.0 ]>"
+commons-geometry__commons-geometry-euclidean,"AffineTransformMatrix3DTest_OE25Dev.testToString_1_oe:1466 expected: <[ 1.0,2.0,3.0,4.0;5.0,6.0,7.0,8.0;9.0,10.0,11.0,12.0 ]> but was: <[ 1.0, 2.0, 3.0, 4.0; 5.0, 6.0, 7.0, 8.0; 9.0, 10.0, 11.0, 12.0 ]>"
 commons-geometry__commons-geometry-euclidean,SimpleTriangleMeshTest_OE25Dev.testFaces_iterator_3_oe:2156 expected: <false> but was: <true>
 commons-geometry__commons-geometry-euclidean,"SimpleTriangleMeshTest_OE25Dev.testFaces_iterator_4_oe:2180 Expected java.util.NoSuchElementException to be thrown, but nothing was thrown."
-commons-geometry__commons-geometry-euclidean,"Tests run: 3934, Failures: 2, Errors: 0, Skipped: 0"
+commons-geometry__commons-geometry-euclidean,"Tests run: 3934, Failures: 4, Errors: 0, Skipped: 0"
 commons-geometry__commons-geometry-io-core,CharReadBufferTest_OE25Dev.testReadPeek_string_5_oe:545 expected: <defgh> but was: <abcdefgh>
 commons-geometry__commons-geometry-io-core,CharReadBufferTest_OE25Dev.testReadPeek_string_6_oe:562 expected: <defgh> but was: <abcdefgh>
 commons-geometry__commons-geometry-io-core,CharReadBufferTest_OE25Dev.testReadPeek_string_7_oe:581 expected: <null> but was: <a>
@@ -1155,6 +1064,7 @@ commons-geometry__commons-geometry-io-core,"Tests run: 207, Failures: 11, Errors
 commons-geometry__commons-geometry-io-euclidean,"AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_4_oe:458 expected: <SimpleFacetDefinition[vertices= [(0.0, 0.0, 0.0), (0.0, 1.0, 0.0), (-1.0, 1.0, 0.0), (-1.0, 0.0, 0.0)], normal= null]> but was: <SimpleFacetDefinition[vertices= [(0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (1.0, 1.0, 0.0), (0.0, 1.0, 0.0)], normal= null]>"
 commons-geometry__commons-geometry-io-euclidean,AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_5_oe:474 expected: <false> but was: <true>
 commons-geometry__commons-geometry-io-euclidean,"AbstractBoundaryReadHandler3DTest_OE25Dev.testFacetIterator_6_oe:491 Expected java.util.NoSuchElementException to be thrown, but nothing was thrown."
+commons-geometry__commons-geometry-io-euclidean,ObjWriterTest_OE25Dev.testWriteComment_1_oe:254 expected: <# test
 commons-geometry__commons-geometry-io-euclidean,PolygonObjParserTest_OE25Dev.testParse_10_oe:1131 expected: <mymaterial> but was: <# test content>
 commons-geometry__commons-geometry-io-euclidean,"PolygonObjParserTest_OE25Dev.testParse_20_oe:1192 » IllegalState Parsing failed at line 1, column 1: expected double but found [#]"
 commons-geometry__commons-geometry-io-euclidean,"PolygonObjParserTest_OE25Dev.testParse_22_oe:1256 » IllegalState Parsing failed at line 1, column 1: expected double but found [#]"
@@ -1176,7 +1086,16 @@ commons-geometry__commons-geometry-io-euclidean,"StlBoundaryReadHandler3DTest_OE
 commons-geometry__commons-geometry-io-euclidean,"StlBoundaryReadHandler3DTest_OE25Dev.testRead_usesInputCharset_2_oe:156 expected: <null> but was: <SimpleFacetDefinition[vertices= [(4.0, 5.0, 6.0), (7.0, 8.0, 9.0), (10.0, 11.0, 12.0)], normal= (1.0, 2.0, 3.0)]>"
 commons-geometry__commons-geometry-io-euclidean,"StlFacetDefinitionReadersTest_OE25Dev.testCreate_nonStandardCharset_charsetGiven_3_oe:150 expected: <null> but was: <SimpleFacetDefinition[vertices= [(4.0, 5.0, 6.0), (7.0, 8.0, 9.0), (10.0, 11.0, 12.0)], normal= (1.0, 2.0, 3.0)]>"
 commons-geometry__commons-geometry-io-euclidean,"StlFacetDefinitionReadersTest_OE25Dev.testCreate_nonStandardCharset_noCharsetGiven_4_oe:251 Expected java.lang.IllegalStateException to be thrown, but nothing was thrown."
-commons-geometry__commons-geometry-io-euclidean,"Tests run: 361, Failures: 21, Errors: 3, Skipped: 0"
+commons-geometry__commons-geometry-io-euclidean,"Tests run: 361, Failures: 31, Errors: 3, Skipped: 0"
+commons-geometry__commons-geometry-io-euclidean,TextBoundaryWriteHandler3DTest_OE25Dev.testWriteBoundarySource_2_oe:268 expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0
+commons-geometry__commons-geometry-io-euclidean,TextBoundaryWriteHandler3DTest_OE25Dev.testWriteFacets_2_oe:167 expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0
+commons-geometry__commons-geometry-io-euclidean,TextBoundaryWriteHandler3DTest_OE25Dev.testWriteFacets_usesOutputCharset_2_oe:194 expected: <0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0
+commons-geometry__commons-geometry-io-euclidean,TextFacetDefinitionWriterTest_OE25Dev.testWriteBoundarySource_1_oe:317 expected: <0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0
+commons-geometry__commons-geometry-io-euclidean,TextFacetDefinitionWriterTest_OE25Dev.testWriteComment_1_oe:218 expected: <-- first line
+commons-geometry__commons-geometry-io-euclidean,TextFacetDefinitionWriterTest_OE25Dev.testWriteFacetDefinition_1_oe:266 expected: <0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0
+commons-geometry__commons-geometry-io-euclidean,TextFacetDefinitionWriterTest_OE25Dev.testWritePlaneConvexSubset_1_oe:284 expected: <0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0
+commons-geometry__commons-geometry-io-euclidean,TextFacetDefinitionWriterTest_OE25Dev.testWritePlaneConvexSubset_convertsToTriangles_1_oe:300 expected: <0.0 0.0 0.0;0.0 1.0 0.0;0.0 1.0 1.0
+commons-geometry__commons-geometry-io-euclidean,TextFacetDefinitionWriterTest_OE25Dev.testWriteVertices_1_oe:245 expected: <0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0
 commons-imaging,"BmpReadTest_OE25Dev.testMetaData_1_oe:68 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown."
 commons-imaging,"BmpReadTest_OE25Dev.testMetaData_1_oe:68 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown."
 commons-imaging,"BmpReadTest_OE25Dev.testMetaData_1_oe:68 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown."
@@ -1192,9 +1111,12 @@ commons-imaging,"IcnsReadTest_OE25Dev.testImageMetadata_1_oe:72 Expected java.la
 commons-imaging,"IcnsReadTest_OE25Dev.testImageMetadata_1_oe:72 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown."
 commons-imaging,"IcoReadTest_OE25Dev.testImageInfo_1_oe:47 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown."
 commons-imaging,"IcoReadTest_OE25Dev.testMetadata_1_oe:41 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown."
+commons-imaging,"JpegReadTest_OE25Dev.test_3_oe:88 expected: <Only sequential,baseline JPEGs are supported at the moment> but was: <Only sequential, baseline JPEGs are supported at the moment>"
+commons-imaging,"JpegReadTest_OE25Dev.test_3_oe:88 expected: <Only sequential,baseline JPEGs are supported at the moment> but was: <Only sequential, baseline JPEGs are supported at the moment>"
+commons-imaging,"JpegReadTest_OE25Dev.test_3_oe:88 expected: <Only sequential,baseline JPEGs are supported at the moment> but was: <Only sequential, baseline JPEGs are supported at the moment>"
 commons-imaging,PixelDensityRoundtrip_OE25Dev.testPixelDensityRoundtrip_1_oe » JUnit Could not...
 commons-imaging,PixelDensityRoundtrip_OE25Dev.testPixelDensityRoundtrip_2_oe » JUnit Could not...
-commons-imaging,"Tests run: 1096, Failures: 15, Errors: 2, Skipped: 0"
+commons-imaging,"Tests run: 1096, Failures: 18, Errors: 2, Skipped: 0"
 commons-jcs3__commons-jcs-jcache,CacheTest_OE25Dev.getPut_1_oe:94 » Cache cache default already exists
 commons-jcs3__commons-jcs-jcache,CacheTest_OE25Dev.getPut_2_oe:103 » Cache cache default already exists
 commons-jcs3__commons-jcs-jcache,CacheTest_OE25Dev.getPut_3_oe:114 » Cache cache default already exists
@@ -1243,6 +1165,7 @@ commons-jexl3,ContextNamespaceTest_OE25Dev.testNamespacePragma_1_oe:253 Jexl org
 commons-jexl3,Issues200Test_OE25Dev.test279_3_oe:1232 Property org.apache.commons.jexl3.Issu...
 commons-jexl3,Issues200Test_OE25Dev.test279_4_oe:1287 Property org.apache.commons.jexl3.Issu...
 commons-jexl3,Issues200Test_OE25Dev.test286_1_oe:1619 expected:<2> but was:<0>
+commons-jexl3,Issues300Test_OE25Dev.testIssue304_2_oe:193 expected:<42> but was:<4711>
 commons-jexl3,JexlScriptEngineTest_OE25Dev.testScripting_7_oe:292 expected:<123> but was:<null>
 commons-jexl3,JexlScriptEngineTest_OE25Dev.testScripting_8_oe:314 expected:<124> but was:<123>
 commons-jexl3,JexlTest_OE25Dev.testAssignment_2_oe:838 hello variable not changed expected:<world> but was:<null>
@@ -1255,205 +1178,174 @@ commons-jexl3,PublicFieldsTest_OE25Dev.testSetInt_2_oe:93 expected:<-42> but was
 commons-jexl3,PublicFieldsTest_OE25Dev.testSetString_2_oe:143 expected:<[FOURTY-TWO]> but was:<[fourty-two]>
 commons-jexl3,RangeTest_OE25Dev.testRanges_27_oe:717 expected:<20> but was:<19>
 commons-jexl3,RangeTest_OE25Dev.testRanges_30_oe:852 expected:<20> but was:<19>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_10_oe:1286 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_12_oe:1315 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_14_oe:1347 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_16_oe:1382 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_2_oe:1200 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_4_oe:1217 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_6_oe:1237 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_8_oe:1260 expected:<4141> but was:<2070>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_10_oe:872 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_12_oe:903 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_14_oe:937 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_16_oe:974 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_2_oe:778 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_4_oe:797 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_6_oe:819 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_8_oe:844 expected:<4141> but was:<2070>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_10_oe:1626 expected:<4141> but was:<2070>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_12_oe:1651 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_14_oe:1679 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_16_oe:1710 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_18_oe:1744 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_2_oe:1556 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_4_oe:1569 expected:<4141> but was:<4145>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_6_oe:1585 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_8_oe:1604 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_10_oe:1462 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_12_oe:1487 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_14_oe:1515 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_16_oe:1546 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_2_oe:1392 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_4_oe:1405 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_6_oe:1421 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_8_oe:1440 expected:<4141> but was:<2070>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_10_oe:1084 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_12_oe:1115 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_14_oe:1149 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_16_oe:1186 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_2_oe:990 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_4_oe:1009 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_6_oe:1031 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_8_oe:1056 expected:<4141> but was:<2070>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_10_oe:657 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_12_oe:688 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_14_oe:723 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_16_oe:762 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_2_oe:573 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_4_oe:588 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_6_oe:607 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_8_oe:630 expected:<4141> but was:<2070>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_10_oe:457 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_12_oe:488 expected:<4141> but was:<1>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_14_oe:523 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_16_oe:562 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_2_oe:373 expected:<4141> but was:<4143>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_4_oe:388 expected:<4141> but was:<4139>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_6_oe:407 expected:<4141> but was:<8282>
-commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_8_oe:430 expected:<4141> but was:<2070>
-commons-jexl3,"Tests run: 1500, Failures: 77, Errors: 10, Skipped: 0"
-commons-numbers__commons-numbers-fraction,BigFractionTest_OE25Dev.testParse_1_oe:2178 expected: <-1 / 2> but was: <1 / 2>
-commons-numbers__commons-numbers-fraction,FractionTest_OE25Dev.testParse_1_oe:2310 expected: <-1 / 2> but was: <1 / 2>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_10_oe:1285 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_12_oe:1314 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_14_oe:1346 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_16_oe:1381 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_2_oe:1199 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_4_oe:1216 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_6_oe:1236 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectAntishArray_8_oe:1259 expected:<4141> but was:<2070>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_10_oe:871 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_12_oe:902 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_14_oe:936 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_16_oe:973 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_2_oe:777 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_4_oe:796 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_6_oe:818 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectArray_8_oe:843 expected:<4141> but was:<2070>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_10_oe:1625 expected:<4141> but was:<2070>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_12_oe:1650 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_14_oe:1678 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_16_oe:1709 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_18_oe:1743 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_2_oe:1555 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_4_oe:1568 expected:<4141> but was:<4145>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_6_oe:1584 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBeanContainer_8_oe:1603 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_10_oe:1461 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_12_oe:1486 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_14_oe:1514 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_16_oe:1545 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_2_oe:1391 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_4_oe:1404 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_6_oe:1420 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectBean_8_oe:1439 expected:<4141> but was:<2070>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_10_oe:1083 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_12_oe:1114 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_14_oe:1148 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_16_oe:1185 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_2_oe:989 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_4_oe:1008 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_6_oe:1030 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectDotArray_8_oe:1055 expected:<4141> but was:<2070>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_10_oe:656 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_12_oe:687 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_14_oe:722 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_16_oe:761 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_2_oe:572 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_4_oe:587 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_6_oe:606 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVarDots_8_oe:629 expected:<4141> but was:<2070>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_10_oe:456 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_12_oe:487 expected:<4141> but was:<1>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_14_oe:522 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_16_oe:561 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_2_oe:372 expected:<4141> but was:<4143>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_4_oe:387 expected:<4141> but was:<4139>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_6_oe:406 expected:<4141> but was:<8282>
+commons-jexl3,SideEffectTest_OE25Dev.testSideEffectVar_8_oe:429 expected:<4141> but was:<2070>
+commons-jexl3,"Tests run: 1500, Failures: 78, Errors: 10, Skipped: 0"
+commons-numbers__commons-numbers-fraction,BigFractionTest_OE25Dev.testParse_1_oe:2172 expected: <-1 / 2> but was: <1 / 2>
+commons-numbers__commons-numbers-fraction,FractionTest_OE25Dev.testParse_1_oe:2308 expected: <-1 / 2> but was: <1 / 2>
 commons-numbers__commons-numbers-fraction,"Tests run: 526, Failures: 2, Errors: 0, Skipped: 0"
 commons-numbers__commons-numbers-gamma,ErfTest_OE25Dev.testErfGnu_1_oe:272 expected: <-0.9999999999999927> but was: <-1.0>
 commons-numbers__commons-numbers-gamma,ErfcTest_OE25Dev.testErfcGnu_1_oe:55 expected: <1.9999999999999927> but was: <2.0>
 commons-numbers__commons-numbers-gamma,GammaTest_OE25Dev.testGammaNegativeDouble_1_oe:549 expected: <-1> but was: <1>
 commons-numbers__commons-numbers-gamma,"Tests run: 76, Failures: 3, Errors: 0, Skipped: 0"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 0]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 0]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 0]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 104]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 108]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 134]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 136]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 162]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 192]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 196]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 200]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 204]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 30]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 357]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 519]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 694]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 698]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 707]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 720]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 737]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 737]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 737]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 737]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 738]>"
-commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:916 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@3d620a1[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 99]>"
-commons-pool2,TestGenericObjectPool_OE25Dev.testExceptionInValidationDuringEviction_3_oe:5517 expected: <0> but was: <1>
-commons-pool2,TestGenericObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_5_oe:5617 expected: <0> but was: <1>
-commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_2_oe:5893 Middle ==> expected: <1> but was: <0>
-commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_3_oe:5905 Youngest ==> expected: <2> but was: <0>
-commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_4_oe:5919 new-3 ==> expected: <3> but was: <0>
-commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_5_oe:5935 returned-3 ==> expected: <0> but was: <1>
-commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_6_oe:5952 new-4 ==> expected: <4> but was: <1>
-commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_2_oe:6101 Middle ==> expected: <1> but was: <2>
-commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_3_oe:6114 Oldest ==> expected: <0> but was: <2>
-commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_4_oe:6129 new-3 ==> expected: <3> but was: <2>
-commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_6_oe:6164 new-4 ==> expected: <4> but was: <2>
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 0]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 0]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 0]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 100]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 104]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 108]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 112]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 134]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 136]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 162]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 188]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 192]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 196]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 200]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 204]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 208]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 30]>"
+commons-pool2,"TestGenericObjectPool_OE25Dev.tearDown:913 expected: <null> but was: <java.util.concurrent.ScheduledThreadPoolExecutor@494c8f29[Running, pool size = 1, active threads = 0, queued tasks = 2, completed tasks = 357]>"
+commons-pool2,TestGenericObjectPool_OE25Dev.testExceptionInValidationDuringEviction_3_oe:5400 expected: <0> but was: <1>
+commons-pool2,TestGenericObjectPool_OE25Dev.testExceptionOnActivateDuringBorrow_5_oe:5500 expected: <0> but was: <1>
+commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_2_oe:5776 Middle ==> expected: <1> but was: <0>
+commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_3_oe:5788 Youngest ==> expected: <2> but was: <0>
+commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_4_oe:5802 new-3 ==> expected: <3> but was: <0>
+commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_5_oe:5818 returned-3 ==> expected: <0> but was: <1>
+commons-pool2,TestGenericObjectPool_OE25Dev.testFIFO_6_oe:5835 new-4 ==> expected: <4> but was: <1>
+commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_2_oe:5984 Middle ==> expected: <1> but was: <2>
+commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_3_oe:5997 Oldest ==> expected: <0> but was: <2>
+commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_4_oe:6012 new-3 ==> expected: <3> but was: <2>
+commons-pool2,TestGenericObjectPool_OE25Dev.testLIFO_6_oe:6047 new-4 ==> expected: <4> but was: <2>
 commons-pool2,TestGenericObjectPool_OE25Dev.testMaxIdleZeroUnderLoad_1_oe » Timeout testMaxI...
 commons-pool2,TestGenericObjectPool_OE25Dev.testMaxTotalUnderLoad_1_oe » Timeout testMaxTota...
 commons-pool2,"TestPoolUtils_OE25Dev.testErodingPoolKeyedObjectPool_11_oe:1150 expected: <[addObject, borrowObject, returnObject, getNumActive, getNumIdle, borrowObject, returnObject]> but was: <[addObject, borrowObject, returnObject, borrowObject, returnObject]>"
 commons-pool2,"TestPoolUtils_OE25Dev.testErodingPoolObjectPool_9_oe:1548 expected: <[addObject, borrowObject, returnObject, getNumActive, getNumIdle, borrowObject, returnObject]> but was: <[addObject, borrowObject, returnObject, borrowObject, returnObject]>"
-commons-pool2,"Tests run: 436, Failures: 115, Errors: 2, Skipped: 1"
+commons-pool2,"Tests run: 432, Failures: 81, Errors: 2, Skipped: 1"
 commons-rng__commons-rng-core,"IntProviderTest_OE25Dev.testNextBoolean_2_oe:90 Pass 2, bit 0 ==> expected: <false> but was: <true>"
 commons-rng__commons-rng-core,"LongProviderTest_OE25Dev.testNextBoolean_2_oe:174 Pass 2, bit 0 ==> expected: <false> but was: <true>"
 commons-rng__commons-rng-core,LongProviderTest_OE25Dev.testNextInt_2_oe:107 2nd call not the lower 32-bits ==> expected: <1> but was: <0>
 commons-rng__commons-rng-core,LongProviderTest_OE25Dev.testNextInt_4_oe:138 4th call not the lower 32-bits ==> expected: <1> but was: <0>
-commons-rng__commons-rng-core,NumberFactoryTest_OE25Dev.testIntToByteArraySignificanceOrder_1_oe:238 expected: <true> but was: <false>
-commons-rng__commons-rng-core,NumberFactoryTest_OE25Dev.testLongToByteArraySignificanceOrder_1_oe:201 expected: <true> but was: <false>
-commons-rng__commons-rng-core,ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesFullBuffer_1_oe:572 org.apache.commons.rng.core.source64.MersenneTwister64 ==> expected: <true> but was: <false>
-commons-rng__commons-rng-core,"Tests run: 913, Failures: 7, Errors: 0, Skipped: 0"
+commons-rng__commons-rng-core,NumberFactoryTest_OE25Dev.testIntToByteArraySignificanceOrder_1_oe:236 expected: <true> but was: <false>
+commons-rng__commons-rng-core,NumberFactoryTest_OE25Dev.testLongToByteArraySignificanceOrder_1_oe:199 expected: <true> but was: <false>
+commons-rng__commons-rng-core,"ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesPartialBuffer_1_oe:588 org.apache.commons.rng.core.source64.TwoCmres (Cmres: [0xd8d98c13bebe26c9L, 33, 21922933] + Cmres: [0x4c8be96bfc23b127L, 33, 191570124]) ==> expected: <true> but was: <false>"
+commons-rng__commons-rng-core,ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesPartialBuffer_1_oe:588 org.apache.commons.rng.core.source64.XoShiRo256StarStar ==> expected: <true> but was: <false>
+commons-rng__commons-rng-core,"Tests run: 913, Failures: 8, Errors: 0, Skipped: 0"
 commons-rng__commons-rng-sampling,AhrensDieterExponentialSamplerTest_OE25Dev.testSamplerWithZeroFromRandomGenerator_2_oe:96 expected: <true> but was: <false>
 commons-rng__commons-rng-sampling,CompositeSamplersTest_OE25Dev.testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe:996 Factory should be used to create the shared state sampler ==> expected: <2> but was: <0>
 commons-rng__commons-rng-sampling,CompositeSamplersTest_OE25Dev.testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe:961 Factory should not be used to create the shared state sampler ==> expected: <1> but was: <0>
 commons-rng__commons-rng-sampling,"Tests run: 478, Failures: 3, Errors: 0, Skipped: 0"
+commons-validator,DomainValidatorStartupTest_OE25Dev.testInstanceOverride_11_oe:479
+commons-validator,DomainValidatorStartupTest_OE25Dev.testInstanceOverride_9_oe:428
 commons-validator,EmailTest_OE25Dev.setUp:55->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,EmailTest_OE25Dev.setUp:55->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,EmailTest_OE25Dev.setUp:55->AbstractCommonTest.loadResources:52 » IllegalArgument
-commons-validator,EmailValidatorTest_OE25Dev.testEmailFromPerl_1_oe:5017 Expected 0 errors expected:<0> but was:<43>
+commons-validator,EmailValidatorTest_OE25Dev.testEmailFromPerl_1_oe:1942 Expected 0 errors expected:<0> but was:<43>
 commons-validator,ExceptionTest_OE25Dev.setUp:51->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,ExtensionTest_OE25Dev.setUp:80 » IllegalArgument Stream[0] is null
 commons-validator,ExtensionTest_OE25Dev.setUp:80 » IllegalArgument Stream[0] is null
@@ -1519,7 +1411,7 @@ commons-validator,GenericTypeValidatorTest_OE25Dev.setUp:56->AbstractCommonTest.
 commons-validator,GenericTypeValidatorTest_OE25Dev.setUp:56->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,GenericTypeValidatorTest_OE25Dev.setUp:56->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,GenericTypeValidatorTest_OE25Dev.setUp:56->AbstractCommonTest.loadResources:52 » IllegalArgument
-commons-validator,"IBANValidatorTest_OE25Dev.testSetValidatorLen_1_2_oe:395 no longer present expected null, but was:<org.apache.commons.validator.routines.IBANValidator$Validator@1e800aaa>"
+commons-validator,"IBANValidatorTest_OE25Dev.testSetValidatorLen_1_2_oe:395 no longer present expected null, but was:<org.apache.commons.validator.routines.IBANValidator$Validator@dd05255>"
 commons-validator,MultipleConfigFilesTest_OE25Dev.setUp:70 » IllegalArgument Stream[0] is null
 commons-validator,MultipleConfigFilesTest_OE25Dev.setUp:70 » IllegalArgument Stream[0] is null
 commons-validator,MultipleConfigFilesTest_OE25Dev.setUp:70 » IllegalArgument Stream[0] is null
@@ -1639,7 +1531,7 @@ commons-validator,RequiredNameTest_OE25Dev.setUp:53->AbstractCommonTest.loadReso
 commons-validator,RequiredNameTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,RequiredNameTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,RequiredNameTest_OE25Dev.setUp:53->AbstractCommonTest.loadResources:52 » IllegalArgument
-commons-validator,"Tests run: 2425, Failures: 2, Errors: 209, Skipped: 0"
+commons-validator,"Tests run: 2347, Failures: 4, Errors: 209, Skipped: 0"
 commons-validator,VarTest_OE25Dev.setUp:56->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,VarTest_OE25Dev.setUp:56->AbstractCommonTest.loadResources:52 » IllegalArgument
 commons-validator,VarTest_OE25Dev.setUp:56->AbstractCommonTest.loadResources:52 » IllegalArgument
@@ -1773,11 +1665,10 @@ commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.r
 commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_3_oe:58 NullPointer
 commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_4_oe:75 NullPointer
 commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_5_oe:94 NullPointer
-commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testBasicCacheOps_6_oe:114 NullPointer
-commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_1_oe:135 This test should not have a null DefaultFileSystemManager
-commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_2_oe:142 NullPointer
-commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:148 This test should not have a null FileObject scratch folder
-commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_2_oe:156 NullPointer
+commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_1_oe:114 This test should not have a null DefaultFileSystemManager
+commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testClass_2_oe:121 NullPointer
+commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:127 This test should not have a null FileObject scratch folder
+commons-vfs__commons-vfs2,NullFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_2_oe:135 NullPointer
 commons-vfs__commons-vfs2,PathTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
 commons-vfs__commons-vfs2,PathTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
 commons-vfs__commons-vfs2,PathTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
@@ -1985,7 +1876,7 @@ commons-vfs__commons-vfs2,ProviderWriteTests_OE25Dev>AbstractProviderTestCase.ru
 commons-vfs__commons-vfs2,SoftRefFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCacheClass_1_oe:40 NullPointer
 commons-vfs__commons-vfs2,SoftRefFilesCacheTests_OE25Dev>AbstractProviderTestCase.runTest:309->testFilesCache_1_oe:31 NullPointer
 commons-vfs__commons-vfs2,TempFileTests_OE25Dev>AbstractProviderTestCase.runTest:309->testLocalFile_2_oe:51 NullPointer
-commons-vfs__commons-vfs2,"Tests run: 1452, Failures: 269, Errors: 113, Skipped: 8"
+commons-vfs__commons-vfs2,"Tests run: 1451, Failures: 269, Errors: 112, Skipped: 8"
 commons-vfs__commons-vfs2,UriTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
 commons-vfs__commons-vfs2,UriTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
 commons-vfs__commons-vfs2,UriTests_OE25Dev>AbstractProviderTestCase.runTest:289->AbstractProviderTestCase.getFileSystem:230 This test's read folder should not be null
@@ -2249,8 +2140,38 @@ commons-weaver__processor,FinderTest_OE25Dev.testObjectMethods_3_oe:15672->finde
 commons-weaver__processor,"Tests run: 188, Failures: 2, Errors: 160, Skipped: 0"
 commons-weaver__processor,WeaveProcessorTest_OE25Dev.testWeaveVisiting_5_oe:138 expected:<1> but was:<5>
 commons-weaver__processor,WeaveProcessorTest_OE25Dev.testWeaveVisiting_7_oe:190 expected:<2> but was:<14>
+jsoup,ElementIT_OE25Dev.testFastReparentExistingContent_4_oe:262 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparentExistingContent_5_oe:291 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparentExistingContent_6_oe:321 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparentExistingContent_7_oe:352 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparentExistingContent_8_oe:385 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparentExistingContent_9_oe:419 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparent_3_oe:79 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparent_4_oe:104 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparent_5_oe:130 » IndexOutOfBounds Index 0 out of bounds for length 0
+jsoup,ElementIT_OE25Dev.testFastReparent_6_oe:157 » IndexOutOfBounds Index 0 out of bounds for length 0
 jsoup,SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe:120 expected: <19> but was: <18>
-jsoup,"Tests run: 406, Failures: 1, Errors: 0, Skipped: 1"
+jsoup,"Tests run: 403, Failures: 1, Errors: 10, Skipped: 1"
+scribejava__scribejava-core,"HeaderExtractorTest_OE25Dev.shouldExtractStandardHeader_6_oe:129 expected:<,[,,]> but was:<,[ , , ]>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testComplexMultipartPayload_2_oe:347 expected:<...e reading this text,[you might want to"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testEmptyMultipartPayload_1_oe:72 expected:<...multipart/form-data;[]boundary=""----Scribe...> but was:<...multipart/form-data;[ ]boundary=""----Scribe...>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testFileByteArrayBodyPartPayloadMultipartPayload_1_oe:213 expected:<...multipart/form-data;[]boundary=""testFileBy...> but was:<...multipart/form-data;[ ]boundary=""testFileBy...>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testFileByteArrayBodyPartPayloadMultipartPayload_2_oe:231 expected:<...position: form-data;[name=""name"";]filename=""filename.e...> but was:<...position: form-data;[ name=""name""; ]filename=""filename.e...>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_14_oe:585 expected:<0aA'()+_,> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_15_oe:614 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_16_oe:645 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_17_oe:678 expected:<1234567890123456789012345678901234567890123456789012345678901234567890> but was:<null>
+scribejava__scribejava-core,MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_18_oe:713 expected:<1234567890123456789012345678901234567890123456789012345678901234567890> but was:<null>
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_2_oe:359 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_3_oe:368 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_4_oe:379 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_5_oe:392 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_6_oe:407 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_7_oe:424 expected:<0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_8_oe:443 expected:< 0aA'()+_,-./:=?> but was:<null>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_1_oe:121 expected:<...pe: multipart/mixed;[]boundary=""simple bou...> but was:<...pe: multipart/mixed;[ ]boundary=""simple bou...>"
+scribejava__scribejava-core,"MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_2_oe:155 expected:<...is is the preamble. [It is to be ignored,though it"
+scribejava__scribejava-core,"Tests run: 199, Failures: 19, Errors: 0, Skipped: 0"
 spark,EmbeddedJettyFactoryTest_OE25Dev.create_1_oe:71 » NoClassDefFound Could not in...
 spark,EmbeddedJettyFactoryTest_OE25Dev.create_withoutHttpOnly_1_oe:91 » ExceptionInInitializer
 spark,EmbeddedServersTest_OE25Dev.testAddAndCreate_whenCreate_createsCustomServer_1_oe:41 » ExceptionInInitializer

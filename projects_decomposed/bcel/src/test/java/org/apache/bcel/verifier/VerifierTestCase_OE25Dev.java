@@ -30,7 +30,7 @@ public class VerifierTestCase_OE25Dev extends TestCase {
         final Verifier verifier = VerifierFactory.getVerifier(classname);
         VerificationResult result = verifier.doPass1();
 
-        assertEquals("Pass 1 verification of " + classname + " failed: " + result.getMessage(), VerificationResult.VERIFIED_OK, result.getStatus());
+        assertEquals("Pass 1 verification of " + classname + " failed: " + result.getMessage(),VerificationResult.VERIFIED_OK,result.getStatus());
     }
 
     public void testDefaultMethodValidation_2_oe() {
@@ -43,7 +43,7 @@ public class VerifierTestCase_OE25Dev extends TestCase {
 
         result = verifier.doPass2();
 
-        assertEquals("Pass 2 verification of " + classname + " failed: " + result.getMessage(), VerificationResult.VERIFIED_OK, result.getStatus());
+        assertEquals("Pass 2 verification of " + classname + " failed: " + result.getMessage(),VerificationResult.VERIFIED_OK,result.getStatus());
     }
 
 }

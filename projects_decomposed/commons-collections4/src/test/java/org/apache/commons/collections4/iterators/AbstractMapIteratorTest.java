@@ -214,8 +214,7 @@ public abstract class AbstractMapIteratorTest<K, V> extends AbstractIteratorTest
         assertSame("setValue must return old value", value, old);
         assertEquals("Map must contain key", true, map.containsKey(key));
         // test against confirmed, as map may contain value twice
-        assertEquals("Map must not contain old value",
-            confirmed.containsValue(old), map.containsValue(old));
+        assertEquals("Map must not contain old value",confirmed.containsValue(old),map.containsValue(old));
         assertEquals("Map must contain new value", true, map.containsValue(newValue));
         verify();
 

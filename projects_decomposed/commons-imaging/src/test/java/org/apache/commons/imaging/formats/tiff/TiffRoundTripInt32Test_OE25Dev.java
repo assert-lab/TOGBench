@@ -222,7 +222,7 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
             TiffRasterData rdInt = directory.getRasterData(null);
             int []test = rdInt.getIntData();
             for(int j=0; j<sample.length; j++){
-                  assertEquals(sample[j], test[j], "Extracted data does not match original, test "+name+": " + i + ", index " + j);
+                  assertEquals(sample[j],test[j],"Extracted data does not match original,test "+name+": " + i + ",index " + j);
     }
     }
     }

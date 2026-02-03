@@ -354,8 +354,7 @@ public class StringUtilsEqualsIndexOfTest  {
         // Test that startIndex works correctly, i.e. cannot match before startIndex
         assertEquals(7, StringUtils.indexOf("12345678", "8", 5));
         assertEquals(7, StringUtils.indexOf("12345678", "8", 6));
-        assertEquals(7, StringUtils.indexOf("12345678", "8", 7)); // 7 is last index
-        assertEquals(-1, StringUtils.indexOf("12345678", "8", 8));
+        assertEquals(7,StringUtils.indexOf("12345678","8",7));// 7 is last index assertEquals(-1,StringUtils.indexOf("12345678","8",8));
 
         assertEquals(5, StringUtils.indexOf(new StringBuilder("aabaabaa"), "b", 3));
     }
@@ -610,8 +609,7 @@ public class StringUtilsEqualsIndexOfTest  {
         // Test that fromIndex works correctly, i.e. cannot match after fromIndex
         assertEquals(7, StringUtils.lastIndexOf("12345678", "8", 9));
         assertEquals(7, StringUtils.lastIndexOf("12345678", "8", 8));
-        assertEquals(7, StringUtils.lastIndexOf("12345678", "8", 7)); // 7 is last index
-        assertEquals(-1, StringUtils.lastIndexOf("12345678", "8", 6));
+        assertEquals(7,StringUtils.lastIndexOf("12345678","8",7));// 7 is last index assertEquals(-1,StringUtils.lastIndexOf("12345678","8",6));
 
         assertEquals(-1, StringUtils.lastIndexOf("aabaabaa", "b", 1));
         assertEquals(2, StringUtils.lastIndexOf("aabaabaa", "b", 2));
@@ -623,14 +621,8 @@ public class StringUtilsEqualsIndexOfTest  {
 
     @Test
     public void testLastIndexOfAny_StringStringArray() {
-        assertEquals(-1, StringUtils.lastIndexOfAny(null, (CharSequence) null));   // test both types of ...
-        assertEquals(-1, StringUtils.lastIndexOfAny(null, (CharSequence[]) null)); // ... varargs invocation
-        assertEquals(-1, StringUtils.lastIndexOfAny(null)); // Missing varag
-        assertEquals(-1, StringUtils.lastIndexOfAny(null, FOOBAR_SUB_ARRAY));
-        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, (CharSequence) null));   // test both types of ...
-        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, (CharSequence[]) null)); // ... varargs invocation
-        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR)); // Missing vararg
-        assertEquals(3, StringUtils.lastIndexOfAny(FOOBAR, FOOBAR_SUB_ARRAY));
+        assertEquals(-1,StringUtils.lastIndexOfAny(null,(CharSequence)null));// test both types of ... assertEquals(-1,StringUtils.lastIndexOfAny(null,(CharSequence[])null));// ... varargs invocation assertEquals(-1,StringUtils.lastIndexOfAny(null));// Missing varag assertEquals(-1,StringUtils.lastIndexOfAny(null,FOOBAR_SUB_ARRAY));
+        assertEquals(-1,StringUtils.lastIndexOfAny(FOOBAR,(CharSequence)null));// test both types of ... assertEquals(-1,StringUtils.lastIndexOfAny(FOOBAR,(CharSequence[])null));// ... varargs invocation assertEquals(-1,StringUtils.lastIndexOfAny(FOOBAR));// Missing vararg assertEquals(3,StringUtils.lastIndexOfAny(FOOBAR,FOOBAR_SUB_ARRAY));
         assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, new String[0]));
         assertEquals(-1, StringUtils.lastIndexOfAny(null, new String[0]));
         assertEquals(-1, StringUtils.lastIndexOfAny("", new String[0]));

@@ -18,8 +18,6 @@ bcel_9_2,bcel,EnclosingMethodAttributeTestCase,testCheckClassLevelNamedInnerClas
 bcel_9_3,bcel,EnclosingMethodAttributeTestCase,testCheckClassLevelNamedInnerClass_3_oe,src/test/java/org/apache/bcel/EnclosingMethodAttributeTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_10_1,bcel,EnclosingMethodAttributeTestCase,testAttributeSerializtion_1_oe,src/test/java/org/apache/bcel/EnclosingMethodAttributeTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_10_2,bcel,EnclosingMethodAttributeTestCase,testAttributeSerializtion_2_oe,src/test/java/org/apache/bcel/EnclosingMethodAttributeTestCase.java,,,,assert,unknown,standard,assertNotNull
-bcel_10_3,bcel,EnclosingMethodAttributeTestCase,testAttributeSerializtion_3_oe,src/test/java/org/apache/bcel/EnclosingMethodAttributeTestCase.java,,,,assert,unknown,standard,assertTrue
-bcel_10_4,bcel,EnclosingMethodAttributeTestCase,testAttributeSerializtion_4_oe,src/test/java/org/apache/bcel/EnclosingMethodAttributeTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_11_1,bcel,AnnotationDefaultAttributeTestCase,testMethodAnnotations_1_oe,src/test/java/org/apache/bcel/AnnotationDefaultAttributeTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_11_2,bcel,AnnotationDefaultAttributeTestCase,testMethodAnnotations_2_oe,src/test/java/org/apache/bcel/AnnotationDefaultAttributeTestCase.java,,,,assert,unknown,standard,assertTrue
 bcel_12_1,bcel,EnumAccessFlagTestCase,testEnumClassSaysItIs_1_oe,src/test/java/org/apache/bcel/EnumAccessFlagTestCase.java,,,,assert,unknown,standard,assertTrue

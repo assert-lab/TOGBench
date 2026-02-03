@@ -47,9 +47,7 @@ public class CookieTest {
             Cookie.toJSONObject(cookieStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                    "Expected '=' and instead saw '' at 25 [character 26 line 1]",
-                    e.getMessage());
+            assertEquals("Expecting an exception message","Expected '=' and instead saw '' at 25 [character 26 line 1]",e.getMessage());
         }
     }
 
@@ -79,9 +77,7 @@ public class CookieTest {
             Cookie.toJSONObject(cookieStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                    "Cookies must have a 'name'",
-                    e.getMessage());
+            assertEquals("Expecting an exception message","Cookies must have a 'name'",e.getMessage());
         }
     }
     /**
@@ -97,9 +93,7 @@ public class CookieTest {
             Cookie.toJSONObject(cookieStr);
             fail("Expecting an exception");
         } catch (JSONException e) {
-            assertEquals("Expecting an exception message",
-                    "Cookies must have a 'name'",
-                    e.getMessage());
+            assertEquals("Expecting an exception message","Cookies must have a 'name'",e.getMessage());
         }
     }
 
@@ -221,8 +215,7 @@ public class CookieTest {
         String str = "   +%\r\n\t\b%=;;;   ";
         String expectedStr = "%2b%25%0d%0a%09%08%25%3d%3b%3b%3b";
         String actualStr = Cookie.escape(str);
-        assertTrue("expect escape() to encode correctly. Actual: " +actualStr+
-                " expected: " +expectedStr, expectedStr.equals(actualStr));
+        assertTrue("expect escape()to encode correctly. Actual: " +actualStr+ " expected: " +expectedStr,expectedStr.equals(actualStr));
     }
 
     /**
@@ -236,7 +229,6 @@ public class CookieTest {
         String str = " +%2b%25%0d%0a%09%08%25%3d%3b%3b%3b+ ";
         String expectedStr = "  +%\r\n\t\b%=;;;  ";
         String actualStr = Cookie.unescape(str);
-        assertTrue("expect unescape() to decode correctly. Actual: " +actualStr+
-                " expected: " +expectedStr, expectedStr.equals(actualStr));
+        assertTrue("expect unescape()to decode correctly. Actual: " +actualStr+ " expected: " +expectedStr,expectedStr.equals(actualStr));
     }
 }

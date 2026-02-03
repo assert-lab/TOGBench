@@ -299,8 +299,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         // 12    0.00190
 
         if (numFailures > 11) { // Test will fail with 0.5% probability
-            Assertions.fail(generator + ": Too many failures for n = " + n +
-                            " (" + numFailures + " out of " + numTests + " tests failed)");
+            Assertions.fail(generator + ": Too many failures for n = " + n + "(" + numFailures + " out of " + numTests + " tests failed)");
         }
     }
 
@@ -456,7 +455,7 @@ class ProvidersCommonParametricTest_OE25Dev {
             ++seedCount;
             if (originalSource.isNativeSeed(s)) {
                 // removed other assertion
-                Assertions.assertEquals(s.getClass(), originalSeed.getClass(), "Incorrect identification of native seed type");
+                Assertions.assertEquals(s.getClass(),originalSeed.getClass(),"Incorrect identification of native seed type");
     }
     }
     }
@@ -739,7 +738,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     @MethodSource("getProvidersTestData")
     void testUnrestorableToString_1_oe(ProvidersList.Data data) {
         final UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
-        Assertions.assertEquals(generator.toString(), RandomSource.unrestorable(generator).toString());
+        Assertions.assertEquals(generator.toString(),RandomSource.unrestorable(generator).toString());
     }
 
     @ParameterizedTest
@@ -748,7 +747,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         final RandomSource originalSource = data.getSource();
         final Object[] originalArgs = data.getArgs();
         final UniformRandomProvider rng = originalSource.create(null, originalArgs);
-        Assertions.assertEquals(rng instanceof JumpableUniformRandomProvider, originalSource.isJumpable(), "isJumpable");
+        Assertions.assertEquals(rng instanceof JumpableUniformRandomProvider,originalSource.isJumpable(),"isJumpable");
     }
 
     @ParameterizedTest
@@ -758,7 +757,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         final Object[] originalArgs = data.getArgs();
         final UniformRandomProvider rng = originalSource.create(null, originalArgs);
         // removed other assertion
-        Assertions.assertEquals(rng instanceof LongJumpableUniformRandomProvider, originalSource.isLongJumpable(), "isLongJumpable");
+        Assertions.assertEquals(rng instanceof LongJumpableUniformRandomProvider,originalSource.isLongJumpable(),"isLongJumpable");
     }
 
 }

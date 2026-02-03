@@ -109,8 +109,7 @@ class LineTest {
             final Line line = Lines.fromPointAndAngle(vec, theta, TEST_PRECISION);
 
             // act/assert
-            Assertions.assertEquals(Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(theta),
-                    line.getAngle(), TEST_EPS);
+            Assertions.assertEquals(Angle.Rad.WITHIN_0_AND_2PI.applyAsDouble(theta),line.getAngle(),TEST_EPS);
         }
     }
 
@@ -207,20 +206,14 @@ class LineTest {
         final double sqrt2 = Math.sqrt(2);
 
         // act/assert
-        Assertions.assertEquals(0.0,
-                Lines.fromPoints(Vector2D.of(0, 0), Vector2D.of(1, 1), TEST_PRECISION).getOriginOffset(), TEST_EPS);
-        Assertions.assertEquals(0.0,
-                Lines.fromPoints(Vector2D.of(0, 0), Vector2D.of(-1, -1), TEST_PRECISION).getOriginOffset(), TEST_EPS);
+        Assertions.assertEquals(0.0,Lines.fromPoints(Vector2D.of(0,0),Vector2D.of(1,1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
+        Assertions.assertEquals(0.0,Lines.fromPoints(Vector2D.of(0,0),Vector2D.of(-1,-1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
 
-        Assertions.assertEquals(sqrt2,
-                Lines.fromPoints(Vector2D.of(-1, 1), Vector2D.of(0, 2), TEST_PRECISION).getOriginOffset(), TEST_EPS);
-        Assertions.assertEquals(-sqrt2,
-                Lines.fromPoints(Vector2D.of(0, -2), Vector2D.of(1, -1), TEST_PRECISION).getOriginOffset(), TEST_EPS);
+        Assertions.assertEquals(sqrt2,Lines.fromPoints(Vector2D.of(-1,1),Vector2D.of(0,2),TEST_PRECISION).getOriginOffset(),TEST_EPS);
+        Assertions.assertEquals(-sqrt2,Lines.fromPoints(Vector2D.of(0,-2),Vector2D.of(1,-1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
 
-        Assertions.assertEquals(-sqrt2,
-                Lines.fromPoints(Vector2D.of(0, 2), Vector2D.of(-1, 1), TEST_PRECISION).getOriginOffset(), TEST_EPS);
-        Assertions.assertEquals(sqrt2,
-                Lines.fromPoints(Vector2D.of(1, -1), Vector2D.of(0, -2), TEST_PRECISION).getOriginOffset(), TEST_EPS);
+        Assertions.assertEquals(-sqrt2,Lines.fromPoints(Vector2D.of(0,2),Vector2D.of(-1,1),TEST_PRECISION).getOriginOffset(),TEST_EPS);
+        Assertions.assertEquals(sqrt2,Lines.fromPoints(Vector2D.of(1,-1),Vector2D.of(0,-2),TEST_PRECISION).getOriginOffset(),TEST_EPS);
     }
 
     @Test
@@ -423,8 +416,7 @@ class LineTest {
             Assertions.assertEquals(diagonal.distance(pt), pt.distance(diagonalPt), TEST_EPS);
 
             // check that y = mx + b is true
-            Assertions.assertEquals(diagonalPt.getY(),
-                    (diagonalDir.getY() * diagonalPt.getX() / diagonalDir.getX()) + diagonalYIntercept, TEST_EPS);
+            Assertions.assertEquals(diagonalPt.getY(),(diagonalDir.getY()* diagonalPt.getX()/ diagonalDir.getX())+ diagonalYIntercept,TEST_EPS);
         });
     }
 

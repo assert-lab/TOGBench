@@ -95,7 +95,7 @@ class MiddleSquareWeylSequenceTest_OE25Dev {
         final MiddleSquareWeylSequence rng1 = new MiddleSquareWeylSequence(seed);
         final MiddleSquareWeylSequence rng2 = new MiddleSquareWeylSequence(seed);
         for (int i = 0; i < 50; i++) {
-            Assertions.assertEquals(NumberFactory.makeLong(rng1.nextInt(), rng1.nextInt()), rng2.nextLong());
+            Assertions.assertEquals(NumberFactory.makeLong(rng1.nextInt(),rng1.nextInt()),rng2.nextLong());
     }
     }
 

@@ -298,7 +298,7 @@ geom_1194_5,"    @Test
             // removed other assertion
 
             // check that y = mx + b is true
-            Assertions.assertEquals(diagonalPt.getY(), (diagonalDir.getY() * diagonalPt.getX() / diagonalDir.getX()) + diagonalYIntercept, TEST_EPS);
+            Assertions.assertEquals(diagonalPt.getY(),(diagonalDir.getY()* diagonalPt.getX()/ diagonalDir.getX())+ diagonalYIntercept,TEST_EPS);
     }
     }
 ",LineTest::testProject_5_oe

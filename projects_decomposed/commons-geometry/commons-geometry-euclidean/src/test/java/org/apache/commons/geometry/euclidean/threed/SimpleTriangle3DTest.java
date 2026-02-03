@@ -108,19 +108,13 @@ class SimpleTriangle3DTest {
         final QuaternionRotation rot = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.2);
 
         // act/assert
-        Assertions.assertEquals(0.5, new SimpleTriangle3D(XY_PLANE_Z1,
-                Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1)).getSize(), TEST_EPS);
+        Assertions.assertEquals(0.5,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(0,0,1),Vector3D.of(1,0,1),Vector3D.of(0,1,1)).getSize(),TEST_EPS);
 
-        Assertions.assertEquals(1, new SimpleTriangle3D(XY_PLANE_Z1,
-                Vector3D.of(0, 0, 1), Vector3D.of(2, 0, 1), Vector3D.of(0, 1, 1)).getSize(), TEST_EPS);
+        Assertions.assertEquals(1,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(0,0,1),Vector3D.of(2,0,1),Vector3D.of(0,1,1)).getSize(),TEST_EPS);
 
-        Assertions.assertEquals(1.5, new SimpleTriangle3D(XY_PLANE_Z1,
-                Vector3D.of(1, 2, 1), Vector3D.of(4, 2, 1), Vector3D.of(2, 3, 1)).getSize(), TEST_EPS);
+        Assertions.assertEquals(1.5,new SimpleTriangle3D(XY_PLANE_Z1,Vector3D.of(1,2,1),Vector3D.of(4,2,1),Vector3D.of(2,3,1)).getSize(),TEST_EPS);
 
-        Assertions.assertEquals(1.5, new SimpleTriangle3D(XY_PLANE_Z1,
-                rot.applyVector(Vector3D.of(1, 2, 1)),
-                rot.apply(Vector3D.of(4, 2, 1)),
-                rot.applyVector(Vector3D.of(2, 3, 1))).getSize(), TEST_EPS);
+        Assertions.assertEquals(1.5,new SimpleTriangle3D(XY_PLANE_Z1,rot.applyVector(Vector3D.of(1,2,1)),rot.apply(Vector3D.of(4,2,1)),rot.applyVector(Vector3D.of(2,3,1))).getSize(),TEST_EPS);
     }
 
     @Test

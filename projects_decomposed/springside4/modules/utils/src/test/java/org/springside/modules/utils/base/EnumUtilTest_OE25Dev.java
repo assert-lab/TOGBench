@@ -59,7 +59,7 @@ public class EnumUtilTest_OE25Dev {
 		// removed other assertion
 
 		// removed other assertion
-		assertThat(EnumUtil.processBits(Options.class, EnumUtil.generateBits(Options.class, Options.A, Options.C, Options.D))).hasSize(3) .containsExactly(Options.A, Options.C, Options.D);
+		assertThat(EnumUtil.processBits(Options.class,EnumUtil.generateBits(Options.class,Options.A,Options.C,Options.D))).hasSize(3).containsExactly(Options.A,Options.C,Options.D);
 	}
 
 }

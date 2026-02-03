@@ -55,7 +55,7 @@ public class ThreadContention {
                         for (int j = 0; j < 100; j++) { 
                             for (Locale locale : shuffled) {
                                 GJLocaleSymbols symbols = GJLocaleSymbols.forLocale(locale);
-                                Assert.assertEquals(GJLocaleSymbols.class, symbols.getClass());
+                                Assert.assertEquals(GJLocaleSymbols.class,symbols.getClass());
                             }
                         }
                       System.out.println("Finished: " + name);
@@ -122,7 +122,7 @@ public class ThreadContention {
                         for (int j = 0; j < 100; j++) { 
                             for (DateTimeZone zn : shuffled) {
                                 ISOChronology chrono = ISOChronology.getInstance(zn);
-                                Assert.assertEquals(zn, chrono.getZone());
+                                Assert.assertEquals(zn,chrono.getZone());
                             }
                         }
                       System.out.println("Finished: " + name);

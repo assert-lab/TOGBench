@@ -60,8 +60,7 @@ public class DefaultIntrospectionContextTestCase extends TestCase {
      * Tests a newly created instance.
      */
     public void testInit() {
-        assertEquals("Wrong current class", getClass(),
-                context.getTargetClass());
+        assertEquals("Wrong current class",getClass(),context.getTargetClass());
         assertTrue("Got property names", context.propertyNames().isEmpty());
     }
 
@@ -72,8 +71,7 @@ public class DefaultIntrospectionContextTestCase extends TestCase {
         final PropertyDescriptor desc = createDescriptor(PROP);
         context.addPropertyDescriptor(desc);
         assertTrue("Property not found", context.hasProperty(PROP));
-        assertSame("Wrong descriptor", desc,
-                context.getPropertyDescriptor(PROP));
+        assertSame("Wrong descriptor",desc,context.getPropertyDescriptor(PROP));
     }
 
     /**
@@ -107,12 +105,10 @@ public class DefaultIntrospectionContextTestCase extends TestCase {
         assertEquals("Wrong number of property names", count + 1, names.size());
         assertTrue("Property not found: " + PROP, names.contains(PROP));
         for (int i = 0; i < count; i++) {
-            assertTrue("Property not found: " + (PROP + i),
-                    names.contains(PROP + i));
+            assertTrue("Property not found: " +(PROP + i),names.contains(PROP + i));
         }
         final PropertyDescriptor[] addedDescs = context.getPropertyDescriptors();
-        assertEquals("Wrong number of added descriptors", count + 1,
-                addedDescs.length);
+        assertEquals("Wrong number of added descriptors",count + 1,addedDescs.length);
         for (final PropertyDescriptor pd : addedDescs) {
             assertTrue("Unexpected descriptor: " + pd, descSet.remove(pd));
         }
@@ -168,7 +164,6 @@ public class DefaultIntrospectionContextTestCase extends TestCase {
         context.addPropertyDescriptor(createDescriptor(PROP));
         context.removePropertyDescriptor(PROP);
         assertTrue("Got property names", context.propertyNames().isEmpty());
-        assertEquals("Got descriptors", 0,
-                context.getPropertyDescriptors().length);
+        assertEquals("Got descriptors",0,context.getPropertyDescriptors().length);
     }
 }

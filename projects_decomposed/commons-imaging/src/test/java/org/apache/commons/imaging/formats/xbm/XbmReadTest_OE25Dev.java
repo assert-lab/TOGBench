@@ -39,7 +39,7 @@ public class XbmReadTest_OE25Dev extends XbmBaseTest {
             Debug.debug("imageFile", imageFile);
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            Assertions.assertFalse(metadata instanceof File); // Dummy check to avoid unused warning (it may be null);
+            Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null);
     }
     }
 
@@ -54,7 +54,6 @@ public class XbmReadTest_OE25Dev extends XbmBaseTest {
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
             // removed other assertion
-
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             assertNotNull(imageInfo);
     }
@@ -71,7 +70,6 @@ public class XbmReadTest_OE25Dev extends XbmBaseTest {
 
             final ImageMetadata metadata = Imaging.getMetadata(imageFile);
             // removed other assertion
-
             final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
             // removed other assertion
 

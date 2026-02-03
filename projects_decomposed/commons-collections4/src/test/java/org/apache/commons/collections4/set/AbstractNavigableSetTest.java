@@ -88,17 +88,13 @@ public abstract class AbstractNavigableSetTest<E> extends AbstractSortedSetTest<
             final E confelement = confiter.next();
             assertEquals("Element appears to be out of order.", confelement, element);
 
-            assertEquals("Incorrect element returned by higher().", getConfirmed().higher(element),
-                                                                    getCollection().higher(element));
+            assertEquals("Incorrect element returned by higher().",getConfirmed().higher(element),getCollection().higher(element));
 
-            assertEquals("Incorrect element returned by lower().", getConfirmed().lower(element),
-                                                                   getCollection().lower(element));
+            assertEquals("Incorrect element returned by lower().",getConfirmed().lower(element),getCollection().lower(element));
 
-            assertEquals("Incorrect element returned by floor().", getConfirmed().floor(element),
-                                                                   getCollection().floor(element));
+            assertEquals("Incorrect element returned by floor().",getConfirmed().floor(element),getCollection().floor(element));
 
-            assertEquals("Incorrect element returned by ceiling().", getConfirmed().ceiling(element),
-                                                                     getCollection().ceiling(element));
+            assertEquals("Incorrect element returned by ceiling().",getConfirmed().ceiling(element),getCollection().ceiling(element));
         }
     }
 

@@ -34,8 +34,7 @@ public class TestTimeInfo {
         info.addComment("this is a comment");
         final TimeInfo other = new TimeInfo(packet, returnTime);
         other.addComment("this is a comment");
-        Assert.assertEquals(info, other); // fails
-        Assert.assertEquals(info.hashCode(), other.hashCode());
+        Assert.assertEquals(info,other);// fails Assert.assertEquals(info.hashCode(),other.hashCode());
         other.addComment("another comment");
         //Assert.assertFalse(info.equals(other)); // comments not used for equality
 

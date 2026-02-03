@@ -23,11 +23,9 @@ public class FilePathUtilTest {
 		assertThat(FilePathUtil.simplifyPath("../../dd/../abc")).isEqualTo("../../abc");
 		assertThat(FilePathUtil.simplifyPath("./abc")).isEqualTo("abc");
 
-		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg/")))
-				.isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg/"))).isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
 
-		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg.txt")))
-				.isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath("/abc/dd/efg.txt"))).isEqualTo(FilePathUtil.normalizePath("/abc/dd/"));
 	}
 
 	@Test

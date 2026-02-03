@@ -100,12 +100,9 @@ class TetrahedronSamplerTest {
             }
         }
         // Show the tetrahedron is too big to compute vectors between points.
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, c2[2][0] - c2[0][0],
-            "Expect vector c - a to be infinite in the x dimension");
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, c2[2][1] - c2[3][1],
-            "Expect vector c - d to be infinite in the y dimension");
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, c2[2][2] - c2[1][2],
-            "Expect vector c - b to be infinite in the z dimension");
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,c2[2][0] - c2[0][0],"Expect vector c - a to be infinite in the x dimension");
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,c2[2][1] - c2[3][1],"Expect vector c - d to be infinite in the y dimension");
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,c2[2][2] - c2[1][2],"Expect vector c - b to be infinite in the z dimension");
 
         final TetrahedronSampler sampler1 = TetrahedronSampler.of(
                 RandomSource.XO_RO_SHI_RO_128_PP.create(seed), c1[0], c1[1], c1[2], c1[3]);

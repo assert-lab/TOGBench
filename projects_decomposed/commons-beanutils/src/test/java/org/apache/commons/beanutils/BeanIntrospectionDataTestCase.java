@@ -73,8 +73,7 @@ public class BeanIntrospectionDataTestCase extends TestCase {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         assertNotNull("No write method", pd.getWriteMethod());
-        assertEquals("Wrong write method", pd.getWriteMethod(),
-                data.getWriteMethod(BEAN_CLASS, pd));
+        assertEquals("Wrong write method",pd.getWriteMethod(),data.getWriteMethod(BEAN_CLASS,pd));
     }
 
     /**
@@ -86,8 +85,7 @@ public class BeanIntrospectionDataTestCase extends TestCase {
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         final Method writeMethod = pd.getWriteMethod();
         pd.setWriteMethod(null);
-        assertEquals("Wrong write method", writeMethod,
-                data.getWriteMethod(BEAN_CLASS, pd));
+        assertEquals("Wrong write method",writeMethod,data.getWriteMethod(BEAN_CLASS,pd));
         assertEquals("Method not set in descriptor", writeMethod, pd.getWriteMethod());
     }
 

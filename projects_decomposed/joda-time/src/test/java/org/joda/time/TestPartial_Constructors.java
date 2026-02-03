@@ -76,8 +76,8 @@ public class TestPartial_Constructors extends TestCase {
      */
     public void testConstructor() throws Throwable {
         Partial test = new Partial();
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(0, test.size());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(0,test.size());
     }
 
     //-----------------------------------------------------------------------
@@ -86,12 +86,12 @@ public class TestPartial_Constructors extends TestCase {
      */
     public void testConstructor_Chrono() throws Throwable {
         Partial test = new Partial((Chronology) null);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(0, test.size());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(0,test.size());
         
         test = new Partial(GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(0, test.size());
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(0,test.size());
     }
 
     //-----------------------------------------------------------------------
@@ -100,11 +100,11 @@ public class TestPartial_Constructors extends TestCase {
      */
     public void testConstructor_Type_int() throws Throwable {
         Partial test = new Partial(DateTimeFieldType.dayOfYear(), 4);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(1, test.size());
-        assertEquals(4, test.getValue(0));
-        assertEquals(4, test.get(DateTimeFieldType.dayOfYear()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.dayOfYear()));
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(1,test.size());
+        assertEquals(4,test.getValue(0));
+        assertEquals(4,test.get(DateTimeFieldType.dayOfYear()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.dayOfYear()));
     }
 
     /**
@@ -115,7 +115,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(null, 4);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not be null");
+            assertMessageContains(ex,"must not be null");
         }
     }
 
@@ -137,11 +137,11 @@ public class TestPartial_Constructors extends TestCase {
      */
     public void testConstructor_Type_int_Chrono() throws Throwable {
         Partial test = new Partial(DateTimeFieldType.dayOfYear(), 4, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(1, test.size());
-        assertEquals(4, test.getValue(0));
-        assertEquals(4, test.get(DateTimeFieldType.dayOfYear()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.dayOfYear()));
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(1,test.size());
+        assertEquals(4,test.getValue(0));
+        assertEquals(4,test.get(DateTimeFieldType.dayOfYear()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.dayOfYear()));
     }
 
     /**
@@ -152,7 +152,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(null, 4, ISO_UTC);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not be null");
+            assertMessageContains(ex,"must not be null");
         }
     }
 
@@ -179,16 +179,16 @@ public class TestPartial_Constructors extends TestCase {
         };
         int[] values = new int[] {2005, 33};
         Partial test = new Partial(types, values);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(2, test.size());
-        assertEquals(2005, test.getValue(0));
-        assertEquals(2005, test.get(DateTimeFieldType.year()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.year()));
-        assertEquals(33, test.getValue(1));
-        assertEquals(33, test.get(DateTimeFieldType.dayOfYear()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.dayOfYear()));
-        assertEquals(true, Arrays.equals(test.getFieldTypes(), types));
-        assertEquals(true, Arrays.equals(test.getValues(), values));
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(2,test.size());
+        assertEquals(2005,test.getValue(0));
+        assertEquals(2005,test.get(DateTimeFieldType.year()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.year()));
+        assertEquals(33,test.getValue(1));
+        assertEquals(33,test.get(DateTimeFieldType.dayOfYear()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.dayOfYear()));
+        assertEquals(true,Arrays.equals(test.getFieldTypes(),types));
+        assertEquals(true,Arrays.equals(test.getValues(),values));
     }
 
     /**
@@ -201,16 +201,16 @@ public class TestPartial_Constructors extends TestCase {
         };
         int[] values = new int[] {2005, 2006};
         Partial test = new Partial(types, values);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(2, test.size());
-        assertEquals(2005, test.getValue(0));
-        assertEquals(2005, test.get(DateTimeFieldType.year()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.year()));
-        assertEquals(2006, test.getValue(1));
-        assertEquals(2006, test.get(DateTimeFieldType.weekyear()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.weekyear()));
-        assertEquals(true, Arrays.equals(test.getFieldTypes(), types));
-        assertEquals(true, Arrays.equals(test.getValues(), values));
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(2,test.size());
+        assertEquals(2005,test.getValue(0));
+        assertEquals(2005,test.get(DateTimeFieldType.year()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.year()));
+        assertEquals(2006,test.getValue(1));
+        assertEquals(2006,test.get(DateTimeFieldType.weekyear()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.weekyear()));
+        assertEquals(true,Arrays.equals(test.getFieldTypes(),types));
+        assertEquals(true,Arrays.equals(test.getValues(),values));
     }
 
     /**
@@ -220,8 +220,8 @@ public class TestPartial_Constructors extends TestCase {
         DateTimeFieldType[] types = new DateTimeFieldType[0];
         int[] values = new int[0];
         Partial test = new Partial(types, values);
-        assertEquals(ISO_UTC, test.getChronology());
-        assertEquals(0, test.size());
+        assertEquals(ISO_UTC,test.getChronology());
+        assertEquals(0,test.size());
     }
 
     /**
@@ -232,7 +232,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial((DateTimeFieldType[]) null, new int[] {1});
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not be null");
+            assertMessageContains(ex,"must not be null");
         }
     }
 
@@ -244,7 +244,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear()}, null);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not be null");
+            assertMessageContains(ex,"must not be null");
         }
     }
 
@@ -256,7 +256,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear()}, new int[2]);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "same length");
+            assertMessageContains(ex,"same length");
         }
     }
 
@@ -268,13 +268,13 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(new DateTimeFieldType[] {null, DateTimeFieldType.dayOfYear()}, new int[2]);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "contain null");
+            assertMessageContains(ex,"contain null");
         }
         try {
             new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear(), null}, new int[2]);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "contain null");
+            assertMessageContains(ex,"contain null");
         }
     }
 
@@ -289,7 +289,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -298,7 +298,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -307,7 +307,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -316,7 +316,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -325,7 +325,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -334,7 +334,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -343,7 +343,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
         
         types = new DateTimeFieldType[] {
@@ -352,7 +352,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must be in order", "largest-smallest");
+            assertMessageContains(ex,"must be in order","largest-smallest");
         }
     }
 
@@ -367,7 +367,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not", "duplicate");
+            assertMessageContains(ex,"must not","duplicate");
         }
         
         types = new DateTimeFieldType[] {
@@ -376,7 +376,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not", "duplicate");
+            assertMessageContains(ex,"must not","duplicate");
         }
         
         types = new DateTimeFieldType[] {
@@ -385,7 +385,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not", "duplicate");
+            assertMessageContains(ex,"must not","duplicate");
         }
         
         types = new DateTimeFieldType[] {
@@ -394,7 +394,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not", "duplicate");
+            assertMessageContains(ex,"must not","duplicate");
         }
     }
 
@@ -409,7 +409,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial(types, values);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "Value 0");
+            assertMessageContains(ex,"Value 0");
         }
     }
 
@@ -424,16 +424,16 @@ public class TestPartial_Constructors extends TestCase {
         };
         int[] values = new int[] {2005, 33};
         Partial test = new Partial(types, values, GREGORIAN_PARIS);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(2, test.size());
-        assertEquals(2005, test.getValue(0));
-        assertEquals(2005, test.get(DateTimeFieldType.year()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.year()));
-        assertEquals(33, test.getValue(1));
-        assertEquals(33, test.get(DateTimeFieldType.dayOfYear()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.dayOfYear()));
-        assertEquals(true, Arrays.equals(test.getFieldTypes(), types));
-        assertEquals(true, Arrays.equals(test.getValues(), values));
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(2,test.size());
+        assertEquals(2005,test.getValue(0));
+        assertEquals(2005,test.get(DateTimeFieldType.year()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.year()));
+        assertEquals(33,test.getValue(1));
+        assertEquals(33,test.get(DateTimeFieldType.dayOfYear()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.dayOfYear()));
+        assertEquals(true,Arrays.equals(test.getFieldTypes(),types));
+        assertEquals(true,Arrays.equals(test.getValues(),values));
     }
 
     //-----------------------------------------------------------------------
@@ -444,17 +444,17 @@ public class TestPartial_Constructors extends TestCase {
     public void testConstructor_Partial() throws Throwable {
         YearMonthDay ymd = new YearMonthDay(2005, 6, 25, GREGORIAN_PARIS);
         Partial test = new Partial(ymd);
-        assertEquals(GREGORIAN_UTC, test.getChronology());
-        assertEquals(3, test.size());
-        assertEquals(2005, test.getValue(0));
-        assertEquals(2005, test.get(DateTimeFieldType.year()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.year()));
-        assertEquals(6, test.getValue(1));
-        assertEquals(6, test.get(DateTimeFieldType.monthOfYear()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.monthOfYear()));
-        assertEquals(25, test.getValue(2));
-        assertEquals(25, test.get(DateTimeFieldType.dayOfMonth()));
-        assertEquals(true, test.isSupported(DateTimeFieldType.dayOfMonth()));
+        assertEquals(GREGORIAN_UTC,test.getChronology());
+        assertEquals(3,test.size());
+        assertEquals(2005,test.getValue(0));
+        assertEquals(2005,test.get(DateTimeFieldType.year()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.year()));
+        assertEquals(6,test.getValue(1));
+        assertEquals(6,test.get(DateTimeFieldType.monthOfYear()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.monthOfYear()));
+        assertEquals(25,test.getValue(2));
+        assertEquals(25,test.get(DateTimeFieldType.dayOfMonth()));
+        assertEquals(true,test.isSupported(DateTimeFieldType.dayOfMonth()));
     }
 
     /**
@@ -465,7 +465,7 @@ public class TestPartial_Constructors extends TestCase {
             new Partial((ReadablePartial) null);
             fail();
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, "must not be null");
+            assertMessageContains(ex,"must not be null");
         }
     }
 
@@ -477,7 +477,7 @@ public class TestPartial_Constructors extends TestCase {
      * @param str  the string to check
      */
     private void assertMessageContains(Exception ex, String str) {
-        assertEquals(ex.getMessage() + ": " + str, true, ex.getMessage().indexOf(str) >= 0);
+        assertEquals(ex.getMessage()+ ": " + str,true,ex.getMessage().indexOf(str)>= 0);
     }
 
     /**
@@ -488,10 +488,7 @@ public class TestPartial_Constructors extends TestCase {
      * @param str2  the string to check
      */
     private void assertMessageContains(Exception ex, String str1, String str2) {
-        assertEquals(ex.getMessage() + ": " + str1 + "/" + str2, true,
-            ex.getMessage().indexOf(str1) >= 0 &&
-            ex.getMessage().indexOf(str2) >= 0 &&
-            ex.getMessage().indexOf(str1) < ex.getMessage().indexOf(str2));
+        assertEquals(ex.getMessage()+ ": " + str1 + "/" + str2,true,ex.getMessage().indexOf(str1)>= 0 && ex.getMessage().indexOf(str2)>= 0 && ex.getMessage().indexOf(str1)< ex.getMessage().indexOf(str2));
     }
 
 }

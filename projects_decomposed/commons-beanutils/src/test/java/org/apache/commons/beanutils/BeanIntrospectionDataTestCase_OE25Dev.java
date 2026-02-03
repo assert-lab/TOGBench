@@ -94,7 +94,7 @@ public class BeanIntrospectionDataTestCase_OE25Dev extends TestCase {
         final BeanIntrospectionData data = setUpData();
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         // removed other assertion
-        assertEquals("Wrong write method", pd.getWriteMethod(), data.getWriteMethod(BEAN_CLASS, pd));
+        assertEquals("Wrong write method",pd.getWriteMethod(),data.getWriteMethod(BEAN_CLASS,pd));
     }
 
     public void testGetWriteMethodUndefined_1_oe() throws Exception {
@@ -102,7 +102,7 @@ public class BeanIntrospectionDataTestCase_OE25Dev extends TestCase {
         final PropertyDescriptor pd = fetchTestDescriptor(data);
         final Method writeMethod = pd.getWriteMethod();
         pd.setWriteMethod(null);
-        assertEquals("Wrong write method", writeMethod, data.getWriteMethod(BEAN_CLASS, pd));
+        assertEquals("Wrong write method",writeMethod,data.getWriteMethod(BEAN_CLASS,pd));
     }
 
     public void testGetWriteMethodUndefined_2_oe() throws Exception {

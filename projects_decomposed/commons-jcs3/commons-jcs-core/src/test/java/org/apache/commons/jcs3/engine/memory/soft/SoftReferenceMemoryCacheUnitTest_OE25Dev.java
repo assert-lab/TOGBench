@@ -99,7 +99,7 @@ public class SoftReferenceMemoryCacheUnitTest_OE25Dev
     {
         final CacheAccess<String, String> cache = JCS.getInstance( "testPutGet" );
         final String memoryCacheName = cache.getCacheAttributes().getMemoryCacheName();
-        assertTrue( "Cache name should have SoftReference in it.", memoryCacheName.indexOf( "SoftReferenceMemoryCache" ) != -1 );
+        assertTrue("Cache name should have SoftReference in it.",memoryCacheName.indexOf("SoftReferenceMemoryCache")!= -1);
     }
 
     public void testPutGetThroughHub_1_oe()

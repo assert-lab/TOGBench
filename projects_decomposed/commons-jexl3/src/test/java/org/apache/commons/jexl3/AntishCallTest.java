@@ -200,9 +200,7 @@ public class AntishCallTest extends JexlTestCase {
         result = null;
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
-        Assert.assertNull(result); // safe navigation, null
-
-        result = null;
+        Assert.assertNull(result);// safe navigation,null result = null;
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);

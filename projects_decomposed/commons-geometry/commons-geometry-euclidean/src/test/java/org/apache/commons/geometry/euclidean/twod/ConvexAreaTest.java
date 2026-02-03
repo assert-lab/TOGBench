@@ -370,8 +370,7 @@ class ConvexAreaTest {
     void testGetBounds_infinite() {
         // act/assert
         Assertions.assertNull(ConvexArea.full().getBounds());
-        Assertions.assertNull(ConvexArea.fromBounds(
-                Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION)).getBounds());
+        Assertions.assertNull(ConvexArea.fromBounds(Lines.fromPointAndAngle(Vector2D.ZERO,Angle.PI_OVER_TWO,TEST_PRECISION)).getBounds());
     }
 
     @Test

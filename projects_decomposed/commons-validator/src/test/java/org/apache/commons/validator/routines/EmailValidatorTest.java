@@ -231,23 +231,11 @@ public class EmailValidatorTest {
        assertEquals(validator, noLocal);
        
        // Depends on the validator
-       assertTrue(
-             "@localhost.localdomain should be accepted but wasn't",
-             allowLocal.isValid("joe@localhost.localdomain")
-       );
-       assertTrue(
-             "@localhost should be accepted but wasn't",
-             allowLocal.isValid("joe@localhost")
-       );
+       assertTrue("@localhost.localdomain should be accepted but wasn't",allowLocal.isValid("joe@localhost.localdomain"));
+       assertTrue("@localhost should be accepted but wasn't",allowLocal.isValid("joe@localhost"));
        
-       assertFalse(
-             "@localhost.localdomain should be accepted but wasn't",
-             noLocal.isValid("joe@localhost.localdomain")
-       );
-       assertFalse(
-             "@localhost should be accepted but wasn't",
-             noLocal.isValid("joe@localhost")
-       );
+       assertFalse("@localhost.localdomain should be accepted but wasn't",noLocal.isValid("joe@localhost.localdomain"));
+       assertFalse("@localhost should be accepted but wasn't",noLocal.isValid("joe@localhost"));
     }
     
     /**
@@ -256,18 +244,9 @@ public class EmailValidatorTest {
      */
     @Test
     public void testEmailWithSlashes() {
-       assertTrue(
-             "/ and ! valid in username",
-             validator.isValid("joe!/blow@apache.org")
-       );
-       assertFalse(
-             "/ not valid in domain",
-             validator.isValid("joe@ap/ache.org")
-       );
-       assertFalse(
-             "! not valid in domain",
-             validator.isValid("joe@apac!he.org")
-       );
+       assertTrue("/ and ! valid in username",validator.isValid("joe!/blow@apache.org"));
+       assertFalse("/ not valid in domain",validator.isValid("joe@ap/ache.org"));
+       assertFalse("! not valid in domain",validator.isValid("joe@apac!he.org"));
     }
 
     /**
@@ -285,72 +264,7 @@ public class EmailValidatorTest {
 
         assertTrue(validator.isValid("joe_@apache.org"));
 
-        assertTrue(validator.isValid("joe+@apache.org")); // + is valid unquoted
-
-        assertTrue(validator.isValid("joe!@apache.org")); // ! is valid unquoted
-
-        assertTrue(validator.isValid("joe*@apache.org")); // * is valid unquoted
-
-        assertTrue(validator.isValid("joe'@apache.org")); // ' is valid unquoted
-
-        assertTrue(validator.isValid("joe%45@apache.org")); // % is valid unquoted
-
-        assertTrue(validator.isValid("joe?@apache.org")); // ? is valid unquoted
-
-        assertTrue(validator.isValid("joe&@apache.org")); // & ditto
-
-        assertTrue(validator.isValid("joe=@apache.org")); // = ditto
-
-        assertTrue(validator.isValid("+joe@apache.org")); // + is valid unquoted
-
-        assertTrue(validator.isValid("!joe@apache.org")); // ! is valid unquoted
-
-        assertTrue(validator.isValid("*joe@apache.org")); // * is valid unquoted
-
-        assertTrue(validator.isValid("'joe@apache.org")); // ' is valid unquoted
-
-        assertTrue(validator.isValid("%joe45@apache.org")); // % is valid unquoted
-
-        assertTrue(validator.isValid("?joe@apache.org")); // ? is valid unquoted
-
-        assertTrue(validator.isValid("&joe@apache.org")); // & ditto
-
-        assertTrue(validator.isValid("=joe@apache.org")); // = ditto
-
-        assertTrue(validator.isValid("+@apache.org")); // + is valid unquoted
-
-        assertTrue(validator.isValid("!@apache.org")); // ! is valid unquoted
-
-        assertTrue(validator.isValid("*@apache.org")); // * is valid unquoted
-
-        assertTrue(validator.isValid("'@apache.org")); // ' is valid unquoted
-
-        assertTrue(validator.isValid("%@apache.org")); // % is valid unquoted
-
-        assertTrue(validator.isValid("?@apache.org")); // ? is valid unquoted
-
-        assertTrue(validator.isValid("&@apache.org")); // & ditto
-
-        assertTrue(validator.isValid("=@apache.org")); // = ditto
-
-
-        //UnQuoted Special characters are invalid
-
-        assertFalse(validator.isValid("joe.@apache.org")); // . not allowed at end of local part
-
-        assertFalse(validator.isValid(".joe@apache.org")); // . not allowed at start of local part
-
-        assertFalse(validator.isValid(".@apache.org")); // . not allowed alone
-
-        assertTrue(validator.isValid("joe.ok@apache.org")); // . allowed embedded
-
-        assertFalse(validator.isValid("joe..ok@apache.org")); // .. not allowed embedded
-
-        assertFalse(validator.isValid("..@apache.org")); // .. not allowed alone
-
-        assertFalse(validator.isValid("joe(@apache.org"));
-
-        assertFalse(validator.isValid("joe)@apache.org"));
+        assertTrue(validator.isValid("joe+@apache.org"));// + is valid unquoted assertTrue(validator.isValid("joe!@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("joe*@apache.org"));// * is valid unquoted assertTrue(validator.isValid("joe'@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("joe%45@apache.org"));// % is valid unquoted assertTrue(validator.isValid("joe?@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("joe&@apache.org"));// & ditto assertTrue(validator.isValid("joe=@apache.org"));// = ditto assertTrue(validator.isValid("+joe@apache.org"));// + is valid unquoted assertTrue(validator.isValid("!joe@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("*joe@apache.org"));// * is valid unquoted assertTrue(validator.isValid("'joe@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("%joe45@apache.org"));// % is valid unquoted assertTrue(validator.isValid("?joe@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("&joe@apache.org"));// & ditto assertTrue(validator.isValid("=joe@apache.org"));// = ditto assertTrue(validator.isValid("+@apache.org"));// + is valid unquoted assertTrue(validator.isValid("!@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("*@apache.org"));// * is valid unquoted assertTrue(validator.isValid("'@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("%@apache.org"));// % is valid unquoted assertTrue(validator.isValid("?@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("&@apache.org"));// & ditto assertTrue(validator.isValid("=@apache.org"));// = ditto assertFalse(validator.isValid("joe.@apache.org"));// . not allowed at end of local part assertFalse(validator.isValid(".joe@apache.org"));// . not allowed at start of local part assertFalse(validator.isValid(".@apache.org"));// . not allowed alone assertTrue(validator.isValid("joe.ok@apache.org"));// . allowed embedded assertFalse(validator.isValid("joe..ok@apache.org"));// .. not allowed embedded assertFalse(validator.isValid("..@apache.org"));// .. not allowed alone assertFalse(validator.isValid("joe(@apache.org"));assertFalse(validator.isValid("joe)@apache.org"));
 
         assertFalse(validator.isValid("joe,@apache.org"));
 
@@ -516,30 +430,7 @@ public class EmailValidatorTest {
 
     @Test
     public void testValidator365() {
-        assertFalse(validator.isValid(
-                "Loremipsumdolorsitametconsecteturadipiscingelit.Nullavitaeligulamattisrhoncusnuncegestasmattisleo."+
-                "Donecnonsapieninmagnatristiquedictumaacturpis.Fusceorciduifacilisisutsapieneuconsequatpharetralectus."+
-                "Quisqueenimestpulvinarutquamvitaeportamattisex.Nullamquismaurisplaceratconvallisjustoquisportamauris."+
-                "Innullalacusconvalliseufringillautvenenatissitametdiam.Maecenasluctusligulascelerisquepulvinarfeugiat."+
-                "Sedmolestienullaaliquetorciluctusidpharetranislfinibus.Suspendissemalesuadatinciduntduisitametportaarcusollicitudinnec."+
-                "Donecetmassamagna.Curabitururnadiampretiumveldignissimporttitorfringillaeuneque."+
-                "Duisantetelluspharetraidtinciduntinterdummolestiesitametfelis.Utquisquamsitametantesagittisdapibusacnonodio."+
-                "Namrutrummolestiediamidmattis.Cumsociisnatoquepenatibusetmagnisdisparturientmontesnasceturridiculusmus."+
-                "Morbiposueresedmetusacconsectetur.Etiamquisipsumvitaejustotempusmaximus.Sedultriciesplaceratvolutpat."+
-                "Integerlacuslectusmaximusacornarequissagittissitametjusto."+
-                "Cumsociisnatoquepenatibusetmagnisdisparturientmontesnasceturridiculusmus.Maecenasindictumpurussedrutrumex.Nullafacilisi."+
-                "Integerfinibusfinibusmietpharetranislfaucibusvel.Maecenasegetdolorlacinialobortisjustovelullamcorpersem."+
-                "Vivamusaliquetpurusidvariusornaresapienrisusrutrumnisitinciduntmollissemnequeidmetus."+
-                "Etiamquiseleifendpurus.Nuncfelisnuncscelerisqueiddignissimnecfinibusalibero."+
-                "Nuncsemperenimnequesitamethendreritpurusfacilisisac.Maurisdapibussemperfelisdignissimgravida."+
-                "Aeneanultricesblanditnequealiquamfinibusodioscelerisqueac.Aliquamnecmassaeumaurisfaucibusfringilla."+
-                "Etiamconsequatligulanisisitametaliquamnibhtemporquis.Nuncinterdumdignissimnullaatsodalesarcusagittiseu."+
-                "Proinpharetrametusneclacuspulvinarsedvolutpatliberoornare.Sedligulanislpulvinarnonlectuseublanditfacilisisante."+
-                "Sedmollisnislalacusauctorsuscipit.Inhachabitasseplateadictumst.Phasellussitametvelittemporvenenatisfeliseuegestasrisus."+
-                "Aliquameteratsitametnibhcommodofinibus.Morbiefficiturodiovelpulvinariaculis."+
-                "Aeneantemporipsummassaaconsecteturturpisfaucibusultrices.Praesentsodalesmaurisquisportafermentum."+
-                "Etiamnisinislvenenatisvelauctorutullamcorperinjusto.Proinvelligulaerat.Phasellusvestibulumgravidamassanonfeugiat."+
-                "Maecenaspharetraeuismodmetusegetefficitur.Suspendisseamet@gmail.com"));
+        assertFalse(validator.isValid("Loremipsumdolorsitametconsecteturadipiscingelit.Nullavitaeligulamattisrhoncusnuncegestasmattisleo."+ "Donecnonsapieninmagnatristiquedictumaacturpis.Fusceorciduifacilisisutsapieneuconsequatpharetralectus."+ "Quisqueenimestpulvinarutquamvitaeportamattisex.Nullamquismaurisplaceratconvallisjustoquisportamauris."+ "Innullalacusconvalliseufringillautvenenatissitametdiam.Maecenasluctusligulascelerisquepulvinarfeugiat."+ "Sedmolestienullaaliquetorciluctusidpharetranislfinibus.Suspendissemalesuadatinciduntduisitametportaarcusollicitudinnec."+ "Donecetmassamagna.Curabitururnadiampretiumveldignissimporttitorfringillaeuneque."+ "Duisantetelluspharetraidtinciduntinterdummolestiesitametfelis.Utquisquamsitametantesagittisdapibusacnonodio."+ "Namrutrummolestiediamidmattis.Cumsociisnatoquepenatibusetmagnisdisparturientmontesnasceturridiculusmus."+ "Morbiposueresedmetusacconsectetur.Etiamquisipsumvitaejustotempusmaximus.Sedultriciesplaceratvolutpat."+ "Integerlacuslectusmaximusacornarequissagittissitametjusto."+ "Cumsociisnatoquepenatibusetmagnisdisparturientmontesnasceturridiculusmus.Maecenasindictumpurussedrutrumex.Nullafacilisi."+ "Integerfinibusfinibusmietpharetranislfaucibusvel.Maecenasegetdolorlacinialobortisjustovelullamcorpersem."+ "Vivamusaliquetpurusidvariusornaresapienrisusrutrumnisitinciduntmollissemnequeidmetus."+ "Etiamquiseleifendpurus.Nuncfelisnuncscelerisqueiddignissimnecfinibusalibero."+ "Nuncsemperenimnequesitamethendreritpurusfacilisisac.Maurisdapibussemperfelisdignissimgravida."+ "Aeneanultricesblanditnequealiquamfinibusodioscelerisqueac.Aliquamnecmassaeumaurisfaucibusfringilla."+ "Etiamconsequatligulanisisitametaliquamnibhtemporquis.Nuncinterdumdignissimnullaatsodalesarcusagittiseu."+ "Proinpharetrametusneclacuspulvinarsedvolutpatliberoornare.Sedligulanislpulvinarnonlectuseublanditfacilisisante."+ "Sedmollisnislalacusauctorsuscipit.Inhachabitasseplateadictumst.Phasellussitametvelittemporvenenatisfeliseuegestasrisus."+ "Aliquameteratsitametnibhcommodofinibus.Morbiefficiturodiovelpulvinariaculis."+ "Aeneantemporipsummassaaconsecteturturpisfaucibusultrices.Praesentsodalesmaurisquisportafermentum."+ "Etiamnisinislvenenatisvelauctorutullamcorperinjusto.Proinvelligulaerat.Phasellusvestibulumgravidamassanonfeugiat."+ "Maecenaspharetraeuismodmetusegetefficitur.Suspendisseamet@gmail.com"));
     }
 
     /**

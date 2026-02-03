@@ -217,9 +217,7 @@ public class RetrieveFormTest extends TestCase {
         // Validate the expected Form is retrieved by checking the "localeVar"
         // value of the field.
         Field testField = testForm.getField("testProperty");
-        assertEquals("Incorrect Form '"   + formKey  + "' for locale '" + locale + "'",
-                     expectedVarValue, 
-                     testField.getVarValue("localeVar"));
+        assertEquals("Incorrect Form '" + formKey + "' for locale '" + locale + "'",expectedVarValue,testField.getVarValue("localeVar"));
     }
 
     private void checkFormNotFound(Locale locale, String formKey) {

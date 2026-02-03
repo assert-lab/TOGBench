@@ -68,8 +68,7 @@ public class TestImageInfo {
                 width, progressive, transparent, usesPalette, colorType, compressionAlgorithm);
         assertEquals(formatDetails, imageInfo.getFormatDetails());
         assertEquals(bitsPerPixel, imageInfo.getBitsPerPixel());
-        assertEquals(comments.toString(), imageInfo.getComments()
-                .toString());
+        assertEquals(comments.toString(),imageInfo.getComments().toString());
         assertEquals(format, imageInfo.getFormat());
         assertEquals(formatName, imageInfo.getFormatName());
         assertEquals(height, imageInfo.getHeight());

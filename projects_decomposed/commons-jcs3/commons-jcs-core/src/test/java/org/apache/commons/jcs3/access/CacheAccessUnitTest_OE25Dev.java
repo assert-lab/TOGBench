@@ -270,7 +270,7 @@ public class CacheAccessUnitTest_OE25Dev
 
         access.setDefaultElementAttributes( attr );
 
-        assertEquals( "Wrong element attributes.", attr.getMaxLife(), access.getDefaultElementAttributes() .getMaxLife() );
+        assertEquals("Wrong element attributes.",attr.getMaxLife(),access.getDefaultElementAttributes().getMaxLife());
     }
 
     public void testSetDefaultElementAttributes_3_oe()
@@ -294,7 +294,7 @@ public class CacheAccessUnitTest_OE25Dev
 
         final ICacheElement<String, String> element = access.getCacheElement( key );
 
-        assertEquals( "Wrong max life.  Should have the new value.", maxLife, element.getElementAttributes() .getMaxLife() );
+        assertEquals("Wrong max life. Should have the new value.",maxLife,element.getElementAttributes().getMaxLife());
     }
 
     public void testGetCacheElements_1_oe()

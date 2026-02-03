@@ -57,11 +57,11 @@ public class TestBaseSingleFieldPeriod extends TestCase {
         DateTime end1 = new DateTime(2006, 6, 12, 12, 0, 0, 0, PARIS);
         DateTime end2 = new DateTime(2006, 6, 15, 18, 0, 0, 0, PARIS);
         
-        assertEquals(3, Single.between(start, end1, DurationFieldType.days()));
-        assertEquals(0, Single.between(start, start, DurationFieldType.days()));
-        assertEquals(0, Single.between(end1, end1, DurationFieldType.days()));
-        assertEquals(-3, Single.between(end1, start, DurationFieldType.days()));
-        assertEquals(6, Single.between(start, end2, DurationFieldType.days()));
+        assertEquals(3,Single.between(start,end1,DurationFieldType.days()));
+        assertEquals(0,Single.between(start,start,DurationFieldType.days()));
+        assertEquals(0,Single.between(end1,end1,DurationFieldType.days()));
+        assertEquals(-3,Single.between(end1,start,DurationFieldType.days()));
+        assertEquals(6,Single.between(start,end2,DurationFieldType.days()));
         try {
             Single.between(start, (ReadableInstant) null, DurationFieldType.days());
             fail();
@@ -89,11 +89,11 @@ public class TestBaseSingleFieldPeriod extends TestCase {
         YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
         
         Single zero = new Single(0);
-        assertEquals(3, Single.between(start, end1, zero));
-        assertEquals(0, Single.between(start, start, zero));
-        assertEquals(0, Single.between(end1, end1, zero));
-        assertEquals(-3, Single.between(end1, start, zero));
-        assertEquals(6, Single.between(start, end2, zero));
+        assertEquals(3,Single.between(start,end1,zero));
+        assertEquals(0,Single.between(start,start,zero));
+        assertEquals(0,Single.between(end1,end1,zero));
+        assertEquals(-3,Single.between(end1,start,zero));
+        assertEquals(6,Single.between(start,end2,zero));
         try {
             Single.between(start, (ReadablePartial) null, zero);
             fail();
@@ -136,15 +136,15 @@ public class TestBaseSingleFieldPeriod extends TestCase {
     }
 
     public void testFactory_standardPeriodIn_RPeriod() {
-        assertEquals(0, Single.standardPeriodIn((ReadablePeriod) null, DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(0, Single.standardPeriodIn(Period.ZERO, DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(1, Single.standardPeriodIn(new Period(0, 0, 0, 1, 0, 0, 0, 0), DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(123, Single.standardPeriodIn(Period.days(123), DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(-987, Single.standardPeriodIn(Period.days(-987), DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(1, Single.standardPeriodIn(Period.hours(47), DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(2, Single.standardPeriodIn(Period.hours(48), DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(2, Single.standardPeriodIn(Period.hours(49), DateTimeConstants.MILLIS_PER_DAY));
-        assertEquals(14, Single.standardPeriodIn(Period.weeks(2), DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(0,Single.standardPeriodIn((ReadablePeriod)null,DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(0,Single.standardPeriodIn(Period.ZERO,DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(1,Single.standardPeriodIn(new Period(0,0,0,1,0,0,0,0),DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(123,Single.standardPeriodIn(Period.days(123),DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(-987,Single.standardPeriodIn(Period.days(-987),DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(1,Single.standardPeriodIn(Period.hours(47),DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(2,Single.standardPeriodIn(Period.hours(48),DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(2,Single.standardPeriodIn(Period.hours(49),DateTimeConstants.MILLIS_PER_DAY));
+        assertEquals(14,Single.standardPeriodIn(Period.weeks(2),DateTimeConstants.MILLIS_PER_DAY));
         try {
             Single.standardPeriodIn(Period.months(1), DateTimeConstants.MILLIS_PER_DAY);
             fail();
@@ -156,8 +156,8 @@ public class TestBaseSingleFieldPeriod extends TestCase {
     //-----------------------------------------------------------------------
     public void testValueIndexMethods() {
         Single test = new Single(20);
-        assertEquals(1, test.size());
-        assertEquals(20, test.getValue(0));
+        assertEquals(1,test.size());
+        assertEquals(20,test.getValue(0));
         try {
             test.getValue(1);
             fail();
@@ -168,8 +168,8 @@ public class TestBaseSingleFieldPeriod extends TestCase {
 
     public void testFieldTypeIndexMethods() {
         Single test = new Single(20);
-        assertEquals(1, test.size());
-        assertEquals(DurationFieldType.days(), test.getFieldType(0));
+        assertEquals(1,test.size());
+        assertEquals(DurationFieldType.days(),test.getFieldType(0));
         try {
             test.getFieldType(1);
             fail();
@@ -180,69 +180,69 @@ public class TestBaseSingleFieldPeriod extends TestCase {
 
     public void testIsSupported() {
         Single test = new Single(20);
-        assertEquals(false, test.isSupported(DurationFieldType.years()));
-        assertEquals(false, test.isSupported(DurationFieldType.months()));
-        assertEquals(false, test.isSupported(DurationFieldType.weeks()));
-        assertEquals(true, test.isSupported(DurationFieldType.days()));
-        assertEquals(false, test.isSupported(DurationFieldType.hours()));
-        assertEquals(false, test.isSupported(DurationFieldType.minutes()));
-        assertEquals(false, test.isSupported(DurationFieldType.seconds()));
-        assertEquals(false, test.isSupported(DurationFieldType.millis()));
+        assertEquals(false,test.isSupported(DurationFieldType.years()));
+        assertEquals(false,test.isSupported(DurationFieldType.months()));
+        assertEquals(false,test.isSupported(DurationFieldType.weeks()));
+        assertEquals(true,test.isSupported(DurationFieldType.days()));
+        assertEquals(false,test.isSupported(DurationFieldType.hours()));
+        assertEquals(false,test.isSupported(DurationFieldType.minutes()));
+        assertEquals(false,test.isSupported(DurationFieldType.seconds()));
+        assertEquals(false,test.isSupported(DurationFieldType.millis()));
     }        
 
     public void testGet() {
         Single test = new Single(20);
-        assertEquals(0, test.get(DurationFieldType.years()));
-        assertEquals(0, test.get(DurationFieldType.months()));
-        assertEquals(0, test.get(DurationFieldType.weeks()));
-        assertEquals(20, test.get(DurationFieldType.days()));
-        assertEquals(0, test.get(DurationFieldType.hours()));
-        assertEquals(0, test.get(DurationFieldType.minutes()));
-        assertEquals(0, test.get(DurationFieldType.seconds()));
-        assertEquals(0, test.get(DurationFieldType.millis()));
+        assertEquals(0,test.get(DurationFieldType.years()));
+        assertEquals(0,test.get(DurationFieldType.months()));
+        assertEquals(0,test.get(DurationFieldType.weeks()));
+        assertEquals(20,test.get(DurationFieldType.days()));
+        assertEquals(0,test.get(DurationFieldType.hours()));
+        assertEquals(0,test.get(DurationFieldType.minutes()));
+        assertEquals(0,test.get(DurationFieldType.seconds()));
+        assertEquals(0,test.get(DurationFieldType.millis()));
     }
 
     //-----------------------------------------------------------------------
     public void testEqualsHashCode() {
         Single testA = new Single(20);
         Single testB = new Single(20);
-        assertEquals(true, testA.equals(testB));
-        assertEquals(true, testB.equals(testA));
-        assertEquals(true, testA.equals(testA));
-        assertEquals(true, testB.equals(testB));
-        assertEquals(true, testA.hashCode() == testB.hashCode());
-        assertEquals(true, testA.hashCode() == testA.hashCode());
-        assertEquals(true, testB.hashCode() == testB.hashCode());
+        assertEquals(true,testA.equals(testB));
+        assertEquals(true,testB.equals(testA));
+        assertEquals(true,testA.equals(testA));
+        assertEquals(true,testB.equals(testB));
+        assertEquals(true,testA.hashCode()== testB.hashCode());
+        assertEquals(true,testA.hashCode()== testA.hashCode());
+        assertEquals(true,testB.hashCode()== testB.hashCode());
         
         Single testC = new Single(30);
-        assertEquals(false, testA.equals(testC));
-        assertEquals(false, testB.equals(testC));
-        assertEquals(false, testC.equals(testA));
-        assertEquals(false, testC.equals(testB));
-        assertEquals(false, testA.hashCode() == testC.hashCode());
-        assertEquals(false, testB.hashCode() == testC.hashCode());
+        assertEquals(false,testA.equals(testC));
+        assertEquals(false,testB.equals(testC));
+        assertEquals(false,testC.equals(testA));
+        assertEquals(false,testC.equals(testB));
+        assertEquals(false,testA.hashCode()== testC.hashCode());
+        assertEquals(false,testB.hashCode()== testC.hashCode());
         
-        assertEquals(true, testA.equals(Days.days(20)));
-        assertEquals(true, testA.equals(new Period(0, 0, 0, 20, 0, 0, 0, 0, PeriodType.days())));
-        assertEquals(false, testA.equals(Period.days(2)));
-        assertEquals(false, testA.equals("Hello"));
-        assertEquals(false, testA.equals(Hours.hours(2)));
-        assertEquals(false, testA.equals(null));
+        assertEquals(true,testA.equals(Days.days(20)));
+        assertEquals(true,testA.equals(new Period(0,0,0,20,0,0,0,0,PeriodType.days())));
+        assertEquals(false,testA.equals(Period.days(2)));
+        assertEquals(false,testA.equals("Hello"));
+        assertEquals(false,testA.equals(Hours.hours(2)));
+        assertEquals(false,testA.equals(null));
     }
 
     public void testCompareTo() {
         Single test1 = new Single(21);
         Single test2 = new Single(22);
         Single test3 = new Single(23);
-        assertEquals(true, test1.compareTo(test1) == 0);
-        assertEquals(true, test1.compareTo(test2) < 0);
-        assertEquals(true, test1.compareTo(test3) < 0);
-        assertEquals(true, test2.compareTo(test1) > 0);
-        assertEquals(true, test2.compareTo(test2) == 0);
-        assertEquals(true, test2.compareTo(test3) < 0);
-        assertEquals(true, test3.compareTo(test1) > 0);
-        assertEquals(true, test3.compareTo(test2) > 0);
-        assertEquals(true, test3.compareTo(test3) == 0);
+        assertEquals(true,test1.compareTo(test1)== 0);
+        assertEquals(true,test1.compareTo(test2)< 0);
+        assertEquals(true,test1.compareTo(test3)< 0);
+        assertEquals(true,test2.compareTo(test1)> 0);
+        assertEquals(true,test2.compareTo(test2)== 0);
+        assertEquals(true,test2.compareTo(test3)< 0);
+        assertEquals(true,test3.compareTo(test1)> 0);
+        assertEquals(true,test3.compareTo(test2)> 0);
+        assertEquals(true,test3.compareTo(test3)== 0);
         
 //        try {
 //            test1.compareTo("Hello");
@@ -268,32 +268,32 @@ public class TestBaseSingleFieldPeriod extends TestCase {
     public void testToPeriod() {
         Single test = new Single(20);
         Period expected = Period.days(20);
-        assertEquals(expected, test.toPeriod());
+        assertEquals(expected,test.toPeriod());
     }
 
     public void testToMutablePeriod() {
         Single test = new Single(20);
         MutablePeriod expected = new MutablePeriod(0, 0, 0, 20, 0, 0, 0, 0);
-        assertEquals(expected, test.toMutablePeriod());
+        assertEquals(expected,test.toMutablePeriod());
     }
 
 //    public void testToDurationFrom() {
 //        Period test = new Period(123L);
-//        assertEquals(new Duration(123L), test.toDurationFrom(new Instant(0L)));
+//        assertEquals(new Duration(123L),test.toDurationFrom(new Instant(0L)));
 //    }
 //
 //    public void testToDurationTo() {
 //        Period test = new Period(123L);
-//        assertEquals(new Duration(123L), test.toDurationTo(new Instant(123L)));
+//        assertEquals(new Duration(123L),test.toDurationTo(new Instant(123L)));
 //    }
 //
 
     //-----------------------------------------------------------------------
     public void testGetSetValue() {
         Single test = new Single(20);
-        assertEquals(20, test.getValue());
+        assertEquals(20,test.getValue());
         test.setValue(10);
-        assertEquals(10, test.getValue());
+        assertEquals(10,test.getValue());
     }
 
     //-----------------------------------------------------------------------

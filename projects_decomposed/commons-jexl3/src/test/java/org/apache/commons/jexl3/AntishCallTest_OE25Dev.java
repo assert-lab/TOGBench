@@ -274,7 +274,7 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         result = null;
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
-        Assert.assertNull(result); // safe navigation, null;
+        Assert.assertNull(result);// safe navigation,null result = null;
     }
 
     @Test
@@ -306,8 +306,6 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
@@ -346,8 +344,6 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
@@ -395,8 +391,6 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);
@@ -453,8 +447,6 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
         script = JEXL.createScript("x?.y?.z");
         result = script.execute(ctxt);
         // removed other assertion
-
-        result = null;
         script = JEXL.createScript("x?.y?.z = 3");
         try {
              result = script.execute(ctxt);

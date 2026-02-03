@@ -3437,7 +3437,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("C", map.entry.getKey());  // entry is reused;
+        assertEquals("C",map.entry.getKey());// entry is reused assertEquals("c",map.entry.getValue());// entry is reused assertEquals(false,map.containsKey("A"));
     }
 
     public void testRemoveLRU_8_oe() {
@@ -3452,7 +3452,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("c", map.entry.getValue());  // entry is reused;
+        assertEquals(true, map.containsKey("B"));
     }
 
     public void testRemoveLRU_9_oe() {
@@ -3463,41 +3463,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put((K) "B", "b");
         // removed other assertion
         map.put((K) "C", "c");  // removes oldest, which is A=a
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, map.containsKey("A"));
-    }
-
-    public void testRemoveLRU_10_oe() {
-        final MockLRUMapSubclass<K, String> map = new MockLRUMapSubclass<>(2);
-        // removed other assertion
-        map.put((K) "A", "a");
-        // removed other assertion
-        map.put((K) "B", "b");
-        // removed other assertion
-        map.put((K) "C", "c");  // removes oldest, which is A=a
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true, map.containsKey("B"));
-    }
-
-    public void testRemoveLRU_11_oe() {
-        final MockLRUMapSubclass<K, String> map = new MockLRUMapSubclass<>(2);
-        // removed other assertion
-        map.put((K) "A", "a");
-        // removed other assertion
-        map.put((K) "B", "b");
-        // removed other assertion
-        map.put((K) "C", "c");  // removes oldest, which is A=a
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -3847,7 +3812,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(one, map.header.after.key);  // LRU;
+        assertEquals(one,map.header.after.key);// LRU assertEquals(two,map.header.after.after.key);
     }
 
     public void testInternalState_Buckets_5_oe() {
@@ -3871,7 +3836,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(two, map.header.after.after.key);
+        assertEquals(three,map.header.after.after.after.key);// MRU assertEquals(three,map.data[hashIndex].key);
     }
 
     public void testInternalState_Buckets_6_oe() {
@@ -3896,7 +3861,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.header.after.after.after.key);  // MRU;
+        assertEquals(two, map.data[hashIndex].next.key);
     }
 
     public void testInternalState_Buckets_7_oe() {
@@ -3922,7 +3887,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.data[hashIndex].key);
+        assertEquals(one, map.data[hashIndex].next.next.key);
     }
 
     public void testInternalState_Buckets_8_oe() {
@@ -3949,7 +3914,10 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(two, map.data[hashIndex].next.key);
+
+        map.put((K) four, (V) "D");  // reuses last in next list
+
+        assertEquals(4, map.data.length);
     }
 
     public void testInternalState_Buckets_9_oe() {
@@ -3976,8 +3944,11 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
+
+        map.put((K) four, (V) "D");  // reuses last in next list
+
         // removed other assertion
-        assertEquals(one, map.data[hashIndex].next.next.key);
+        assertEquals(3, map.size);
     }
 
     public void testInternalState_Buckets_10_oe() {
@@ -4004,12 +3975,12 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        assertEquals(4, map.data.length);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, map.header.next);
     }
 
     public void testInternalState_Buckets_11_oe() {
@@ -4036,13 +4007,13 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
         // removed other assertion
-        assertEquals(3, map.size);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(two,map.header.after.key);// LRU assertEquals(three,map.header.after.after.key);
     }
 
     public void testInternalState_Buckets_12_oe() {
@@ -4069,14 +4040,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
         // removed other assertion
         // removed other assertion
-        assertEquals(null, map.header.next);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four,map.header.after.after.after.key);// MRU assertEquals(four,map.data[hashIndex].key);
     }
 
     public void testInternalState_Buckets_13_oe() {
@@ -4103,15 +4074,15 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(two, map.header.after.key);  // LRU;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three, map.data[hashIndex].next.key);
     }
 
     public void testInternalState_Buckets_14_oe() {
@@ -4138,8 +4109,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -4147,7 +4116,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.header.after.after.key);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(two, map.data[hashIndex].next.next.key);
     }
 
     public void testInternalState_Buckets_15_oe() {
@@ -4174,8 +4145,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -4184,7 +4153,12 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.header.after.after.after.key);  // MRU;
+        // removed other assertion
+        // removed other assertion
+
+        map.get(three);
+
+        assertEquals(4, map.data.length);
     }
 
     public void testInternalState_Buckets_16_oe() {
@@ -4211,8 +4185,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -4222,7 +4194,12 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.data[hashIndex].key);
+        // removed other assertion
+
+        map.get(three);
+
+        // removed other assertion
+        assertEquals(3, map.size);
     }
 
     public void testInternalState_Buckets_17_oe() {
@@ -4249,8 +4226,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -4261,7 +4236,12 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.data[hashIndex].next.key);
+
+        map.get(three);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, map.header.next);
     }
 
     public void testInternalState_Buckets_18_oe() {
@@ -4288,8 +4268,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -4300,8 +4278,13 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
+
+        map.get(three);
+
         // removed other assertion
-        assertEquals(two, map.data[hashIndex].next.next.key);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(two,map.header.after.key);// LRU assertEquals(four,map.header.after.after.key);
     }
 
     public void testInternalState_Buckets_19_oe() {
@@ -4328,8 +4311,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -4340,12 +4321,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        assertEquals(4, map.data.length);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three,map.header.after.after.after.key);// MRU assertEquals(four,map.data[hashIndex].key);
     }
 
     public void testInternalState_Buckets_20_oe() {
@@ -4372,13 +4355,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4390,7 +4369,11 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.get(three);
 
         // removed other assertion
-        assertEquals(3, map.size);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three, map.data[hashIndex].next.key);
     }
 
     public void testInternalState_Buckets_21_oe() {
@@ -4417,13 +4400,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4436,7 +4415,11 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(null, map.header.next);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(two, map.data[hashIndex].next.next.key);
     }
 
     public void testInternalState_Buckets_22_oe() {
@@ -4463,13 +4446,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4483,7 +4462,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(two, map.header.after.key);  // LRU;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) five, (V) "E");  // reuses last in next list
+
+        assertEquals(4, map.data.length);
     }
 
     public void testInternalState_Buckets_23_oe() {
@@ -4510,13 +4496,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4531,7 +4513,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.header.after.after.key);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) five, (V) "E");  // reuses last in next list
+
+        // removed other assertion
+        assertEquals(3, map.size);
     }
 
     public void testInternalState_Buckets_24_oe() {
@@ -4558,13 +4547,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4580,7 +4565,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.header.after.after.after.key);  // MRU;
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) five, (V) "E");  // reuses last in next list
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, map.header.next);
     }
 
     public void testInternalState_Buckets_25_oe() {
@@ -4607,13 +4599,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4630,7 +4618,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.data[hashIndex].key);
+        // removed other assertion
+
+        map.put((K) five, (V) "E");  // reuses last in next list
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four,map.header.after.key);// LRU assertEquals(three,map.header.after.after.key);
     }
 
     public void testInternalState_Buckets_26_oe() {
@@ -4657,13 +4652,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4681,7 +4672,14 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.data[hashIndex].next.key);
+
+        map.put((K) five, (V) "E");  // reuses last in next list
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(five,map.header.after.after.after.key);// MRU assertEquals(five,map.data[hashIndex].key);
     }
 
     public void testInternalState_Buckets_27_oe() {
@@ -4708,13 +4706,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4732,8 +4726,15 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
+
+        map.put((K) five, (V) "E");  // reuses last in next list
+
         // removed other assertion
-        assertEquals(two, map.data[hashIndex].next.next.key);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four, map.data[hashIndex].next.key);
     }
 
     public void testInternalState_Buckets_28_oe() {
@@ -4760,13 +4761,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4784,12 +4781,16 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
-        assertEquals(4, map.data.length);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three, map.data[hashIndex].next.next.key);
     }
 
     public void testInternalState_Buckets_29_oe() {
@@ -4816,13 +4817,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4840,13 +4837,21 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
         // removed other assertion
-        assertEquals(3, map.size);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
+        assertEquals(4, map.data.length);
     }
 
     public void testInternalState_Buckets_30_oe() {
@@ -4873,13 +4878,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4897,14 +4898,22 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
         // removed other assertion
         // removed other assertion
-        assertEquals(null, map.header.next);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
+        // removed other assertion
+        assertEquals(3, map.size);
     }
 
     public void testInternalState_Buckets_31_oe() {
@@ -4931,13 +4940,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4955,15 +4960,23 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.header.after.key);  // LRU;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, map.header.next);
     }
 
     public void testInternalState_Buckets_32_oe() {
@@ -4990,13 +5003,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5014,8 +5023,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
@@ -5023,7 +5030,17 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.header.after.after.key);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four,map.header.after.key);// LRU assertEquals(three,map.header.after.after.key);
     }
 
     public void testInternalState_Buckets_33_oe() {
@@ -5050,13 +5067,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5074,8 +5087,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
@@ -5084,7 +5095,17 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(five, map.header.after.after.after.key);  // MRU;
+        // removed other assertion
+        // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(five,map.header.after.after.after.key);// MRU assertEquals(five,map.data[hashIndex].key);
     }
 
     public void testInternalState_Buckets_34_oe() {
@@ -5111,13 +5132,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5135,8 +5152,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
@@ -5146,7 +5161,17 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(five, map.data[hashIndex].key);
+        // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four, map.data[hashIndex].next.key);
     }
 
     public void testInternalState_Buckets_35_oe() {
@@ -5173,13 +5198,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5197,8 +5218,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
@@ -5209,7 +5228,17 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.data[hashIndex].next.key);
+
+        map.get(three);
+        map.get(five);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three, map.data[hashIndex].next.next.key);
     }
 
     public void testInternalState_Buckets_36_oe() {
@@ -5236,13 +5265,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5260,8 +5285,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) five, (V) "E");  // reuses last in next list
 
@@ -5272,8 +5295,21 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
+
+        map.get(three);
+        map.get(five);
+
         // removed other assertion
-        assertEquals(three, map.data[hashIndex].next.next.key);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) six, (V) "F");  // reuses middle in next list
+
+        assertEquals(4, map.data.length);
     }
 
     public void testInternalState_Buckets_37_oe() {
@@ -5300,8 +5336,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -5312,13 +5346,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5336,13 +5366,22 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
         map.get(five);
 
-        assertEquals(4, map.data.length);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) six, (V) "F");  // reuses middle in next list
+
+        // removed other assertion
+        assertEquals(3, map.size);
     }
 
     public void testInternalState_Buckets_38_oe() {
@@ -5369,8 +5408,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -5381,13 +5418,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5405,14 +5438,23 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
         map.get(five);
 
         // removed other assertion
-        assertEquals(3, map.size);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) six, (V) "F");  // reuses middle in next list
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, map.header.next);
     }
 
     public void testInternalState_Buckets_39_oe() {
@@ -5439,8 +5481,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -5451,13 +5491,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5475,15 +5511,24 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
         map.get(five);
 
         // removed other assertion
         // removed other assertion
-        assertEquals(null, map.header.next);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) six, (V) "F");  // reuses middle in next list
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three,map.header.after.key);// LRU assertEquals(five,map.header.after.after.key);
     }
 
     public void testInternalState_Buckets_40_oe() {
@@ -5510,8 +5555,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -5522,13 +5565,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5546,8 +5585,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
         map.get(five);
@@ -5555,7 +5592,18 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(four, map.header.after.key);  // LRU;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) six, (V) "F");  // reuses middle in next list
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(six,map.header.after.after.after.key);// MRU assertEquals(six,map.data[hashIndex].key);
     }
 
     public void testInternalState_Buckets_41_oe() {
@@ -5582,8 +5630,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -5594,13 +5640,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5618,8 +5660,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
         map.get(five);
@@ -5628,7 +5668,18 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(three, map.header.after.after.key);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put((K) six, (V) "F");  // reuses middle in next list
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(five, map.data[hashIndex].next.key);
     }
 
     public void testInternalState_Buckets_42_oe() {
@@ -5655,8 +5706,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.put((K) four, (V) "D");  // reuses last in next list
 
@@ -5667,13 +5716,9 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
 
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5691,316 +5736,10 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
         map.get(three);
         map.get(five);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(five, map.header.after.after.after.key);  // MRU;
-    }
-
-    public void testInternalState_Buckets_43_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(five, map.data[hashIndex].key);
-    }
-
-    public void testInternalState_Buckets_44_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(four, map.data[hashIndex].next.key);
-    }
-
-    public void testInternalState_Buckets_45_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(three, map.data[hashIndex].next.next.key);
-    }
-
-    public void testInternalState_Buckets_46_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6011,684 +5750,6 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
 
         map.put((K) six, (V) "F");  // reuses middle in next list
 
-        assertEquals(4, map.data.length);
-    }
-
-    public void testInternalState_Buckets_47_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        assertEquals(3, map.size);
-    }
-
-    public void testInternalState_Buckets_48_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(null, map.header.next);
-    }
-
-    public void testInternalState_Buckets_49_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(three, map.header.after.key);  // LRU;
-    }
-
-    public void testInternalState_Buckets_50_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(five, map.header.after.after.key);
-    }
-
-    public void testInternalState_Buckets_51_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(six, map.header.after.after.after.key);  // MRU;
-    }
-
-    public void testInternalState_Buckets_52_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(six, map.data[hashIndex].key);
-    }
-
-    public void testInternalState_Buckets_53_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(five, map.data[hashIndex].next.key);
-    }
-
-    public void testInternalState_Buckets_54_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final SingleHashCode one = new SingleHashCode("1");
-        final SingleHashCode two = new SingleHashCode("2");
-        final SingleHashCode three = new SingleHashCode("3");
-        final SingleHashCode four = new SingleHashCode("4");
-        final SingleHashCode five = new SingleHashCode("5");
-        final SingleHashCode six = new SingleHashCode("6");
-
-        final LRUMap<K, V> map = new LRUMap<>(3, 1.0f);
-        final int hashIndex = map.hashIndex(map.hash(one), 4);
-        map.put((K) one, (V) "A");
-        map.put((K) two, (V) "B");
-        map.put((K) three, (V) "C");
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) four, (V) "D");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) five, (V) "E");  // reuses last in next list
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.get(three);
-        map.get(five);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        map.put((K) six, (V) "F");  // reuses middle in next list
-
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6909,7 +5970,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         // removed other assertion
-        assertTrue("Each thread should have put at least 1 element into the map, but only " + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     public void testSynchronizedRemoveFromEntrySet_2_oe() throws InterruptedException {
@@ -7072,7 +6133,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         // removed other assertion
-        assertTrue("Each thread should have put at least 1 element into the map, but only " + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     public void testSynchronizedRemoveFromKeySet_2_oe() throws InterruptedException {
@@ -7235,7 +6296,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         // removed other assertion
-        assertTrue("Each thread should have put at least 1 element into the map, but only " + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
     public void testSynchronizedRemoveFromValues_2_oe() throws InterruptedException {
@@ -7396,7 +6457,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         }
 
         // removed other assertion
-        assertTrue("Each thread should have put at least 1 element into the map, but only " + counter[0] + " did succeed", counter[0] >= threads.length);
+        assertTrue("Each thread should have put at least 1 element into the map,but only " + counter[0] + " did succeed",counter[0] >= threads.length);
     }
 
 }

@@ -28,8 +28,7 @@ public class ResourceUtilTest {
 
 		System.out.println(ResourceUtil.getResources("META-INF/MANIFEST.MF"));
 
-		assertThat(ResourceUtil.getResources("META-INF/MANIFEST.MF", ResourceUtilTest.class.getClassLoader()).size())
-				.isGreaterThan(1);
+		assertThat(ResourceUtil.getResources("META-INF/MANIFEST.MF",ResourceUtilTest.class.getClassLoader()).size()).isGreaterThan(1);
 
 	}
 

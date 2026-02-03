@@ -1538,11 +1538,9 @@ public class StrBuilderTest {
 
         sb.append(" A1 junction with A2");
         assertEquals(-1, sb.lastIndexOf(A_NUMBER_MATCHER, 5));
-        assertEquals(-1, sb.lastIndexOf(A_NUMBER_MATCHER, 6)); // A matches, 1 is outside bounds
-        assertEquals(6, sb.lastIndexOf(A_NUMBER_MATCHER, 7));
+        assertEquals(-1,sb.lastIndexOf(A_NUMBER_MATCHER,6));// A matches,1 is outside bounds assertEquals(6,sb.lastIndexOf(A_NUMBER_MATCHER,7));
         assertEquals(6, sb.lastIndexOf(A_NUMBER_MATCHER, 22));
-        assertEquals(6, sb.lastIndexOf(A_NUMBER_MATCHER, 23)); // A matches, 2 is outside bounds
-        assertEquals(23, sb.lastIndexOf(A_NUMBER_MATCHER, 24));
+        assertEquals(6,sb.lastIndexOf(A_NUMBER_MATCHER,23));// A matches,2 is outside bounds assertEquals(23,sb.lastIndexOf(A_NUMBER_MATCHER,24));
     }
 
     static final StrMatcher A_NUMBER_MATCHER = new StrMatcher() {

@@ -61,33 +61,26 @@ class JDKRandomBridgeTest_OE25Dev {
     private void checkSameSequence(Random rng1,
                                    Random rng2) {
         for (int i = 0; i < 4; i++) {
-            Assertions.assertEquals(rng1.nextInt(),
-                                    rng2.nextInt());
+            Assertions.assertEquals(rng1.nextInt(),rng2.nextInt());
         }
         for (int i = 0; i < 7; i++) {
-            Assertions.assertEquals(rng1.nextLong(),
-                                    rng2.nextLong());
+            Assertions.assertEquals(rng1.nextLong(),rng2.nextLong());
         }
         for (int i = 0; i < 9; i++) {
-            Assertions.assertEquals(rng1.nextFloat(),
-                                    rng2.nextFloat());
+            Assertions.assertEquals(rng1.nextFloat(),rng2.nextFloat());
         }
         for (int i = 0; i < 12; i++) {
-            Assertions.assertEquals(rng1.nextDouble(),
-                                    rng2.nextDouble());
+            Assertions.assertEquals(rng1.nextDouble(),rng2.nextDouble());
         }
         for (int i = 0; i < 17; i++) {
-            Assertions.assertEquals(rng1.nextGaussian(),
-                                    rng2.nextGaussian());
+            Assertions.assertEquals(rng1.nextGaussian(),rng2.nextGaussian());
         }
         for (int i = 0; i < 18; i++) {
-            Assertions.assertEquals(rng1.nextBoolean(),
-                                    rng2.nextBoolean());
+            Assertions.assertEquals(rng1.nextBoolean(),rng2.nextBoolean());
         }
         for (int i = 0; i < 19; i++) {
             final int max = i + 123456;
-            Assertions.assertEquals(rng1.nextInt(max),
-                                    rng2.nextInt(max));
+            Assertions.assertEquals(rng1.nextInt(max),rng2.nextInt(max));
         }
 
         final int len = 233;
@@ -96,8 +89,7 @@ class JDKRandomBridgeTest_OE25Dev {
         rng1.nextBytes(store1);
         rng2.nextBytes(store2);
         for (int i = 0; i < len; i++) {
-            Assertions.assertEquals(store1[i],
-                                    store2[i]);
+            Assertions.assertEquals(store1[i],store2[i]);
         }
     }
 

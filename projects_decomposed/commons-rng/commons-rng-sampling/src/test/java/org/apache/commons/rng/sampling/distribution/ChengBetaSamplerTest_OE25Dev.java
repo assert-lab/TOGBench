@@ -109,7 +109,7 @@ class ChengBetaSamplerTest_OE25Dev {
     @Test
     void testToString_1_oe() {
         final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertTrue(new ChengBetaSampler(rng, 1.0, 2.0).toString() .toLowerCase().contains("beta"));
+        Assertions.assertTrue(new ChengBetaSampler(rng,1.0,2.0).toString().toLowerCase().contains("beta"));
     }
 
 }

@@ -72,36 +72,36 @@ public class TestReadablePartialConverter extends TestCase {
     //-----------------------------------------------------------------------
     public void testSingleton() throws Exception {
         Class cls = ReadablePartialConverter.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isProtected(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isProtected(con.getModifiers()));
         
         Field fld = cls.getDeclaredField("INSTANCE");
-        assertEquals(false, Modifier.isPublic(fld.getModifiers()));
-        assertEquals(false, Modifier.isProtected(fld.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(fld.getModifiers()));
+        assertEquals(false,Modifier.isPublic(fld.getModifiers()));
+        assertEquals(false,Modifier.isProtected(fld.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testSupportedType() throws Exception {
-        assertEquals(ReadablePartial.class, ReadablePartialConverter.INSTANCE.getSupportedType());
+        assertEquals(ReadablePartial.class,ReadablePartialConverter.INSTANCE.getSupportedType());
     }
 
     //-----------------------------------------------------------------------
     public void testGetChronology_Object_Zone() throws Exception {
-        assertEquals(ISO_PARIS, ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L), PARIS));
-        assertEquals(ISO, ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L), DateTimeZone.getDefault()));
-        assertEquals(ISO, ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L), (DateTimeZone) null));
+        assertEquals(ISO_PARIS,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),PARIS));
+        assertEquals(ISO,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),DateTimeZone.getDefault()));
+        assertEquals(ISO,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),(DateTimeZone)null));
     }
 
     public void testGetChronology_Object_Chronology() throws Exception {
-        assertEquals(JULIAN, ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L, BUDDHIST), JULIAN));
-        assertEquals(JULIAN, ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L), JULIAN));
-        assertEquals(BUDDHIST.withUTC(), ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L, BUDDHIST), (Chronology) null));
+        assertEquals(JULIAN,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L,BUDDHIST),JULIAN));
+        assertEquals(JULIAN,ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L),JULIAN));
+        assertEquals(BUDDHIST.withUTC(),ReadablePartialConverter.INSTANCE.getChronology(new TimeOfDay(123L,BUDDHIST),(Chronology)null));
     }
 
     //-----------------------------------------------------------------------
@@ -109,7 +109,7 @@ public class TestReadablePartialConverter extends TestCase {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = new int[] {1, 2, 3, 4};
         int[] actual = ReadablePartialConverter.INSTANCE.getPartialValues(tod, new TimeOfDay(1, 2, 3, 4), ISOChronology.getInstance(PARIS));
-        assertEquals(true, Arrays.equals(expected, actual));
+        assertEquals(true,Arrays.equals(expected,actual));
         
         try {
             ReadablePartialConverter.INSTANCE.getPartialValues(tod, new YearMonthDay(2005, 6, 9), JULIAN);
@@ -143,7 +143,7 @@ public class TestReadablePartialConverter extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testToString() {
-        assertEquals("Converter[org.joda.time.ReadablePartial]", ReadablePartialConverter.INSTANCE.toString());
+        assertEquals("Converter[org.joda.time.ReadablePartial]",ReadablePartialConverter.INSTANCE.toString());
     }
 
 }

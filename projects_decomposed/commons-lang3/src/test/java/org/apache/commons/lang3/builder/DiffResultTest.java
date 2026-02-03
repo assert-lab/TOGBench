@@ -91,9 +91,7 @@ public class DiffResultTest {
         final DiffResult list = new DiffBuilder(new EmptyClass(), new EmptyClass(),
                 ToStringStyle.SHORT_PREFIX_STYLE).append("test", false, true)
                 .build();
-        assertEquals(
-                "DiffResultTest.EmptyClass[test=false] differs from DiffResultTest.EmptyClass[test=true]",
-                list.toString());
+        assertEquals("DiffResultTest.EmptyClass[test=false] differs from DiffResultTest.EmptyClass[test=true]",list.toString());
     }
 
     @Test
@@ -111,8 +109,7 @@ public class DiffResultTest {
 
         final String expectedOutput = String.format("%s differs from %s", lhsString,
                 rhsString);
-        assertEquals(expectedOutput,
-                list.toString(ToStringStyle.MULTI_LINE_STYLE));
+        assertEquals(expectedOutput,list.toString(ToStringStyle.MULTI_LINE_STYLE));
     }
 
     @Test

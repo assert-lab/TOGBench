@@ -97,9 +97,7 @@ public abstract class NumberConverterTestBase extends TestCase {
         for(int i=0;i<number.length;i++) {
             final Object val = makeConverter().convert(getExpectedType(),number[i]);
             assertNotNull("Convert " + message[i] + " should not be null",val);
-            assertTrue(
-                "Convert " + message[i] + " should return a " + getExpectedType().getName(),
-                getExpectedType().isInstance(val));
+            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),getExpectedType().isInstance(val));
         }
     }
     /**

@@ -705,7 +705,6 @@ net_238_10,commons-net,TimeStampTest,testCompare_10_oe,src/test/java/org/apache/
 net_238_11,commons-net,TimeStampTest,testCompare_11_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertTrue
 net_238_12,commons-net,TimeStampTest,testCompare_12_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertEquals
 net_238_13,commons-net,TimeStampTest,testCompare_13_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertTrue
-net_238_14,commons-net,TimeStampTest,testCompare_14_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertTrue
 net_239_1,commons-net,TimeStampTest,testUTCString_1_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertEquals
 net_240_1,commons-net,TimeStampTest,testDateConversion_1_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertEquals
 net_240_2,commons-net,TimeStampTest,testDateConversion_2_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,assertEquals
@@ -713,7 +712,6 @@ net_241_1,commons-net,TimeStampTest,testNotSame_1_oe,src/test/java/org/apache/co
 net_241_2,commons-net,TimeStampTest,testNotSame_2_oe,src/test/java/org/apache/commons/net/ntp/TimeStampTest.java,,,,assert,unknown,standard,fail
 net_242_1,commons-net,TestTimeInfo,testEquals_1_oe,src/test/java/org/apache/commons/net/ntp/TestTimeInfo.java,,,,assert,unknown,standard,assertEquals
 net_242_2,commons-net,TestTimeInfo,testEquals_2_oe,src/test/java/org/apache/commons/net/ntp/TestTimeInfo.java,,,,assert,unknown,standard,assertEquals
-net_242_3,commons-net,TestTimeInfo,testEquals_3_oe,src/test/java/org/apache/commons/net/ntp/TestTimeInfo.java,,,,assert,unknown,standard,assertEquals
 net_243_1,commons-net,TestTimeInfo,testComputeDetails_1_oe,src/test/java/org/apache/commons/net/ntp/TestTimeInfo.java,,,,assert,unknown,standard,assertSame
 net_243_2,commons-net,TestTimeInfo,testComputeDetails_2_oe,src/test/java/org/apache/commons/net/ntp/TestTimeInfo.java,,,,assert,unknown,standard,assertEquals
 net_243_3,commons-net,TestTimeInfo,testComputeDetails_3_oe,src/test/java/org/apache/commons/net/ntp/TestTimeInfo.java,,,,assert,unknown,standard,assertEquals

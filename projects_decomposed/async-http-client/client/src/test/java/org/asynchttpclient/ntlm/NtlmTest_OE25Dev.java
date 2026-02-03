@@ -200,7 +200,7 @@ public class NtlmTest_OE25Dev extends AbstractBasicTest {
     String type3Msg = engine.generateType3Msg("username", "password", "localhost", "workstation", 
             Base64.getEncoder().encodeToString(buf.toByteArray()));
     buf.close();
-    assertEquals( type3Msg, "TlRMTVNTUAADAAAAGAAYAEgAAAAYABgAYAAAABIAEgB4AAAAEAAQAIoAAAAWABYAmgAAAAAAAACwAAAAAQAAAgUBKAoAAAAP1g6lqqN1HZ0wSSxeQ5riQkyh7/UexwVlCPQm0SHU2vsDQm2wM6NbT2zPonPzLJL0TABPAEMAQQBMAEgATwBTAFQAdQBzAGUAcgBuAGEAbQBlAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=", "Incorrect type3 message generated");
+    assertEquals(type3Msg,"TlRMTVNTUAADAAAAGAAYAEgAAAAYABgAYAAAABIAEgB4AAAAEAAQAIoAAAAWABYAmgAAAAAAAACwAAAAAQAAAgUBKAoAAAAP1g6lqqN1HZ0wSSxeQ5riQkyh7/UexwVlCPQm0SHU2vsDQm2wM6NbT2zPonPzLJL0TABPAEMAQQBMAEgATwBTAFQAdQBzAGUAcgBuAGEAbQBlAFcATwBSAEsAUwBUAEEAVABJAE8ATgA=","Incorrect type3 message generated");
   }
 
   @Test

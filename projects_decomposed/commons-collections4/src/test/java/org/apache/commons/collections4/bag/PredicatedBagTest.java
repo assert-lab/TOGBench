@@ -83,8 +83,7 @@ public class PredicatedBagTest<T> extends AbstractBagTest<T> {
         assertTrue("Unique set contains the first element",set.contains(els[0]));
         assertEquals(true, bag.remove(els[0]));
         set = ((PredicatedBag<T>) bag).uniqueSet();
-        assertTrue("Unique set now does not contain the first element",
-            !set.contains(els[0]));
+        assertTrue("Unique set now does not contain the first element",!set.contains(els[0]));
     }
 
     @SuppressWarnings("unchecked")
@@ -97,8 +96,7 @@ public class PredicatedBagTest<T> extends AbstractBagTest<T> {
         } catch (final IllegalArgumentException e) {
             // expected
         }
-        assertTrue("Collection shouldn't contain illegal element",
-         !bag.contains(i));
+        assertTrue("Collection shouldn't contain illegal element",!bag.contains(i));
     }
 
     @SuppressWarnings("unchecked")

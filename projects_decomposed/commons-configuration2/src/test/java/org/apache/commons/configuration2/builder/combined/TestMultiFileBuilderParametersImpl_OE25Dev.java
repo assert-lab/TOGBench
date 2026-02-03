@@ -157,7 +157,7 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
         final MultiFileBuilderParametersImpl clone = params.clone();
         // removed other assertion
         // removed other assertion
-        assertEquals("Wrong file name", managedParams.getFileHandler().getFileName(), ((FileBasedBuilderParametersImpl) clone.getManagedBuilderParameters()).getFileHandler().getFileName());
+        assertEquals("Wrong file name",managedParams.getFileHandler().getFileName(),((FileBasedBuilderParametersImpl)clone.getManagedBuilderParameters()).getFileHandler().getFileName());
     }
 
     @Test

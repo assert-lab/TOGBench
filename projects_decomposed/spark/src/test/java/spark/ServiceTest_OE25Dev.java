@@ -195,7 +195,7 @@ public class ServiceTest_OE25Dev {
 
     @Test
     public void testEmbeddedServerIdentifier_defaultAndSet_1_oe() {
-        assertEquals("Should return defaultIdentifier()", EmbeddedServers.defaultIdentifier(), service.embeddedServerIdentifier());
+        assertEquals("Should return defaultIdentifier()",EmbeddedServers.defaultIdentifier(),service.embeddedServerIdentifier());
     }
 
     @Test
@@ -206,7 +206,7 @@ public class ServiceTest_OE25Dev {
 
         service.embeddedServerIdentifier(obj);
 
-        assertEquals("Should return expected obj", obj, service.embeddedServerIdentifier());
+        assertEquals("Should return expected obj",obj,service.embeddedServerIdentifier());
     }
 
     @Test

@@ -209,10 +209,8 @@ class TriangleSamplerTest {
             }
         }
         // Show the triangle is too big to compute vectors between points.
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, c2[2][0] - c2[0][0],
-            "Expect vector c - a to be infinite in the x dimension");
-        Assertions.assertEquals(Double.NEGATIVE_INFINITY, c2[2][1] - c2[1][1],
-            "Expect vector c - b to be infinite in the y dimension");
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,c2[2][0] - c2[0][0],"Expect vector c - a to be infinite in the x dimension");
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,c2[2][1] - c2[1][1],"Expect vector c - b to be infinite in the y dimension");
 
         final TriangleSampler sampler1 = TriangleSampler.of(
                 RandomSource.XO_RO_SHI_RO_128_PP.create(seed), c1[0], c1[1], c1[2]);
@@ -451,8 +449,7 @@ class TriangleSamplerTest {
             final double[] s1 = sampler1.sample();
             final double[] s2 = sampler2.sample();
             Assertions.assertEquals(s1.length, s2.length);
-            Assertions.assertFalse(Arrays.equals(s1, s2),
-                    "First sampler has used the vertices by reference");
+            Assertions.assertFalse(Arrays.equals(s1,s2),"First sampler has used the vertices by reference");
             for (int i = 0; i < dimension; i++) {
                 Assertions.assertEquals(s1[i] + offset, s2[i], 1e-10);
             }

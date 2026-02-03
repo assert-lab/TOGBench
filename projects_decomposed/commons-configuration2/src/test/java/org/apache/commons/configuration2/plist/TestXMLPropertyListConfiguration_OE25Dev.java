@@ -954,7 +954,7 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
                     if (value1 instanceof Configuration) {
                         final ConfigurationComparator comparator = new StrictConfigurationComparator();
-                        assertTrue("The dictionnary at index " + i + " for the key '" + key + "' doesn't match", comparator.compare((Configuration) value1, (Configuration) value2));
+                        assertTrue("The dictionnary at index " + i + " for the key '" + key + "' doesn't match",comparator.compare((Configuration)value1,(Configuration)value2));
     }
     }
     }

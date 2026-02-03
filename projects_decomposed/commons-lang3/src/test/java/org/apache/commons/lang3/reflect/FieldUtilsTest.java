@@ -214,8 +214,7 @@ public class FieldUtilsTest {
         final Field[] annotatedFields = sort(new Field[] {
                 FieldUtilsTest.class.getDeclaredField("publicChild"),
                 FieldUtilsTest.class.getDeclaredField("privatelyShadowedChild") });
-        assertArrayEquals(annotatedFields,
-                sort(FieldUtils.getFieldsWithAnnotation(FieldUtilsTest.class, Annotated.class)));
+        assertArrayEquals(annotatedFields,sort(FieldUtils.getFieldsWithAnnotation(FieldUtilsTest.class,Annotated.class)));
     }
 
     @Test

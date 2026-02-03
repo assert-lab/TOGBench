@@ -583,7 +583,7 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
             final String keyTab = "newNodes.tables.table(" + i + ").";
             // removed other assertion
             for (int j = 0; j < NodeStructureHelper.fieldsLength(i); j++) {
-                assertEquals("Invalid field " + j + " in table " + i, NodeStructureHelper.field(i, j), configDest.getString(keyTab + "fields.field(" + j + ").name"));
+                assertEquals("Invalid field " + j + " in table " + i,NodeStructureHelper.field(i,j),configDest.getString(keyTab + "fields.field(" + j + ").name"));
     }
     }
     }

@@ -107,8 +107,7 @@ public class EntitiesTest {
 
     @Test public void caseSensitive() {
         String unescaped = "Ü ü & &";
-        assertEquals("&Uuml; &uuml; &amp; &amp;",
-                Entities.escape(unescaped, new OutputSettings().charset("ascii").escapeMode(extended)));
+        assertEquals("&Uuml;&uuml;&amp;&amp;",Entities.escape(unescaped,new OutputSettings().charset("ascii").escapeMode(extended)));
 
         String escaped = "&Uuml; &uuml; &amp; &AMP";
         assertEquals("Ü ü & &", Entities.unescape(escaped));

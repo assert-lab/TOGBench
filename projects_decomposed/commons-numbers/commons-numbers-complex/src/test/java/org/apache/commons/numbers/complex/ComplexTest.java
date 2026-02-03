@@ -438,9 +438,7 @@ class ComplexTest {
         int count = isNaN ? 1 : 0;
         count += isInfinite ? 1 : 0;
         count += isFinite ? 1 : 0;
-        Assertions.assertEquals(1, count,
-            () -> String.format("Complex can be only one type: isNaN=%s, isInfinite=%s, isFinite=%s: %s", isNaN,
-                isInfinite, isFinite, z));
+        Assertions.assertEquals(1,count,()-> String.format("Complex can be only one type: isNaN=%s,isInfinite=%s,isFinite=%s: %s",isNaN,isInfinite,isFinite,z));
         switch (type) {
         case FINITE:
             Assertions.assertTrue(isFinite, () -> "not finite: " + z);
@@ -1344,10 +1342,8 @@ class ComplexTest {
                     expectedFailures >>>= 1;
                     // Check the same answer. Sign is allowed to be different for zero.
                     Assertions.assertEquals(y.getReal(), z.getReal(), 0, () -> c + " " + name + " " + arg + ": real");
-                    Assertions.assertEquals(y.getImaginary(), z.getImaginary(), 0,
-                        () -> c + " " + name + " " + arg + ": imaginary");
-                    Assertions.assertEquals(expectedFailure, !y.equals(z),
-                        () -> c + " " + name + " " + arg + ": sign-difference");
+                    Assertions.assertEquals(y.getImaginary(),z.getImaginary(),0,()-> c + " " + name + " " + arg + ": imaginary");
+                    Assertions.assertEquals(expectedFailure,!y.equals(z),()-> c + " " + name + " " + arg + ": sign-difference");
                 }
             }
         }
@@ -1399,12 +1395,9 @@ class ComplexTest {
                         Assertions.assertEquals(yb, zb, () -> c + " divideImaginary " + arg + ": imaginary");
                     } else {
                         // Check the same answer. Sign is allowed to be different for zero.
-                        Assertions.assertEquals(y.getReal(), z.getReal(), 0,
-                            () -> c + " divideImaginary " + arg + ": real");
-                        Assertions.assertEquals(y.getImaginary(), z.getImaginary(), 0,
-                            () -> c + " divideImaginary " + arg + ": imaginary");
-                        Assertions.assertEquals(expectedFailure, !y.equals(z),
-                            () -> c + " divideImaginary " + arg + ": sign-difference");
+                        Assertions.assertEquals(y.getReal(),z.getReal(),0,()-> c + " divideImaginary " + arg + ": real");
+                        Assertions.assertEquals(y.getImaginary(),z.getImaginary(),0,()-> c + " divideImaginary " + arg + ": imaginary");
+                        Assertions.assertEquals(expectedFailure,!y.equals(z),()-> c + " divideImaginary " + arg + ": sign-difference");
                     }
                 }
             }
@@ -1834,8 +1827,7 @@ class ComplexTest {
         final boolean expected = Arrays.equals(new double[] {c1.getReal(), c1.getImaginary()},
             new double[] {c2.getReal(), c2.getImaginary()});
         final boolean actual = c1.equals(c2);
-        Assertions.assertEquals(expected, actual,
-            () -> String.format("equals(Object) is not consistent with Arrays.equals: %s. %s vs %s", msg, c1, c2));
+        Assertions.assertEquals(expected,actual,()-> String.format("equals(Object)is not consistent with Arrays.equals: %s. %s vs %s",msg,c1,c2));
     }
 
     /**

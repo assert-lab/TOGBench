@@ -76,7 +76,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         MappedResource<WebSocketCreator> mappedResource = webSocketConfiguration.getMatch("/websocket");
         PathSpec pathSpec = mappedResource.getPathSpec();
 
-        assertEquals("Should return the WebSocket path specified when context handler was created", webSocketPath, pathSpec.getDeclaration());
+        assertEquals("Should return the WebSocket path specified when context handler was created",webSocketPath,pathSpec.getDeclaration());
     }
 
     @Test
@@ -120,7 +120,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
             (NativeWebSocketConfiguration) servletContext.getAttribute(NativeWebSocketConfiguration.class.getName());
 
         WebSocketServerFactory webSocketServerFactory = webSocketConfiguration.getFactory();
-        assertEquals("Timeout value should be the same as the timeout specified when context handler was created", timeout.longValue(), webSocketServerFactory.getPolicy().getIdleTimeout());
+        assertEquals("Timeout value should be the same as the timeout specified when context handler was created",timeout.longValue(),webSocketServerFactory.getPolicy().getIdleTimeout());
     }
 
     @Test
@@ -150,7 +150,7 @@ public class WebSocketServletContextHandlerFactoryTest_OE25Dev {
         MappedResource<WebSocketCreator> mappedResource = webSocketConfiguration.getMatch("/websocket");
         PathSpec pathSpec = mappedResource.getPathSpec();
 
-        assertEquals("Should return the WebSocket path specified when context handler was created", webSocketPath, pathSpec.getDeclaration());
+        assertEquals("Should return the WebSocket path specified when context handler was created",webSocketPath,pathSpec.getDeclaration());
     }
 
     @Test

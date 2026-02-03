@@ -75,8 +75,7 @@ public class TestMultiFileBuilderParametersImpl {
         final MultiFileBuilderParametersImpl clone = params.clone();
         assertEquals("Wrong pattern", params.getFilePattern(), clone.getFilePattern());
         assertNotSame("Managed parameters not cloned", params.getManagedBuilderParameters(), clone.getManagedBuilderParameters());
-        assertEquals("Wrong file name", managedParams.getFileHandler().getFileName(),
-            ((FileBasedBuilderParametersImpl) clone.getManagedBuilderParameters()).getFileHandler().getFileName());
+        assertEquals("Wrong file name",managedParams.getFileHandler().getFileName(),((FileBasedBuilderParametersImpl)clone.getManagedBuilderParameters()).getFileHandler().getFileName());
     }
 
     /**

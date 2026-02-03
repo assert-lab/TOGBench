@@ -111,10 +111,8 @@ public class MethodUtilsTestCase extends TestCase {
 
     private static void assertMethod(final Method method, final String methodName) {
         assertNotNull(method);
-        assertEquals("Method is not named correctly", methodName,
-                method.getName());
-        assertTrue("Method is not public",
-                Modifier.isPublic(method.getModifiers()));
+        assertEquals("Method is not named correctly",methodName,method.getName());
+        assertTrue("Method is not public",Modifier.isPublic(method.getModifiers()));
     }
 
     /**
@@ -178,19 +176,14 @@ public class MethodUtilsTestCase extends TestCase {
         final AbstractParent parent = new AlphaBean("parent");
         final BetaBean childOne = new BetaBean("ChildOne");
 
-        assertEquals(
-                        "Cannot invoke through abstract class (1)",
-                        "ChildOne",
-                        MethodUtils.invokeMethod(parent, "testAddChild", childOne));
+        assertEquals("Cannot invoke through abstract class(1)","ChildOne",MethodUtils.invokeMethod(parent,"testAddChild",childOne));
     }
 
     public void testInvokeMethodObject() throws Exception {
         final AbstractParent parent = new AlphaBean("parent");
         final Child childTwo = new AlphaBean("ChildTwo");
 
-        assertEquals("Cannot invoke through interface (1)",
-                        "ChildTwo",
-                        MethodUtils.invokeMethod(parent, "testAddChild", childTwo));
+        assertEquals("Cannot invoke through interface(1)","ChildTwo",MethodUtils.invokeMethod(parent,"testAddChild",childTwo));
     }
 
     public void testInvokeMethodArray() throws Exception {
@@ -201,9 +194,7 @@ public class MethodUtilsTestCase extends TestCase {
         params[0] = "parameter";
         params[1] = childTwo;
 
-        assertEquals("Cannot invoke through abstract class",
-                        "ChildTwo",
-                        MethodUtils.invokeMethod(parent, "testAddChild2", params));
+        assertEquals("Cannot invoke through abstract class","ChildTwo",MethodUtils.invokeMethod(parent,"testAddChild2",params));
     }
 
 
@@ -330,11 +321,8 @@ public class MethodUtilsTestCase extends TestCase {
             value = MethodUtils.invokeMethod
                 (bean, "currentCounter", new Object[0], new Class[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
             // Increment via no-arguments version
             MethodUtils.invokeMethod
@@ -345,11 +333,8 @@ public class MethodUtilsTestCase extends TestCase {
             value = MethodUtils.invokeMethod
                 (bean, "currentCounter", new Object[0], new Class[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
             // Increment via specified-argument version
             MethodUtils.invokeMethod
@@ -362,11 +347,8 @@ public class MethodUtilsTestCase extends TestCase {
             value = MethodUtils.invokeMethod
                 (bean, "currentCounter", new Object[0], new Class[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
         } catch (final Exception e) {
             fail("Threw exception" + e);
@@ -390,11 +372,8 @@ public class MethodUtilsTestCase extends TestCase {
             value = MethodUtils.invokeExactMethod
                 (bean, "currentCounter", new Object[0], new Class[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
             // Increment via no-arguments version
             MethodUtils.invokeExactMethod
@@ -405,11 +384,8 @@ public class MethodUtilsTestCase extends TestCase {
             value = MethodUtils.invokeExactMethod
                 (bean, "currentCounter", new Object[0], new Class[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
             // Increment via specified-argument version
             MethodUtils.invokeExactMethod
@@ -422,11 +398,8 @@ public class MethodUtilsTestCase extends TestCase {
             value = MethodUtils.invokeExactMethod
                 (bean, "currentCounter", new Object[0], new Class[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
         } catch (final Exception e) {
             fail("Threw exception" + e);
@@ -448,57 +421,33 @@ public class MethodUtilsTestCase extends TestCase {
             final Method currentCounterMethod = MethodUtils.getAccessibleMethod
                 (TestBean.class, "currentCounter",
                  new Class[0]);
-            assertNotNull("currentCounterMethod exists",
-                          currentCounterMethod);
-            assertEquals("currentCounterMethod name",
-                         "currentCounter",
-                         currentCounterMethod.getName());
-            assertEquals("currentCounterMethod args",
-                         0,
-                         currentCounterMethod.getParameterTypes().length);
-            assertTrue("currentCounterMethod public",
-                       Modifier.isPublic(currentCounterMethod.getModifiers()));
-            assertTrue("currentCounterMethod static",
-                       Modifier.isStatic(currentCounterMethod.getModifiers()));
+            assertNotNull("currentCounterMethod exists",currentCounterMethod);
+            assertEquals("currentCounterMethod name","currentCounter",currentCounterMethod.getName());
+            assertEquals("currentCounterMethod args",0,currentCounterMethod.getParameterTypes().length);
+            assertTrue("currentCounterMethod public",Modifier.isPublic(currentCounterMethod.getModifiers()));
+            assertTrue("currentCounterMethod static",Modifier.isStatic(currentCounterMethod.getModifiers()));
             final Method incrementCounterMethod1 = MethodUtils.getAccessibleMethod
                 (TestBean.class, "incrementCounter",
                  new Class[0]);
-            assertNotNull("incrementCounterMethod1 exists",
-                          incrementCounterMethod1);
-            assertEquals("incrementCounterMethod1 name",
-                         "incrementCounter",
-                         incrementCounterMethod1.getName());
-            assertEquals("incrementCounterMethod1 args",
-                         0,
-                         incrementCounterMethod1.getParameterTypes().length);
-            assertTrue("incrementCounterMethod1 public",
-                       Modifier.isPublic(incrementCounterMethod1.getModifiers()));
-            assertTrue("incrementCounterMethod1 static",
-                       Modifier.isStatic(incrementCounterMethod1.getModifiers()));
+            assertNotNull("incrementCounterMethod1 exists",incrementCounterMethod1);
+            assertEquals("incrementCounterMethod1 name","incrementCounter",incrementCounterMethod1.getName());
+            assertEquals("incrementCounterMethod1 args",0,incrementCounterMethod1.getParameterTypes().length);
+            assertTrue("incrementCounterMethod1 public",Modifier.isPublic(incrementCounterMethod1.getModifiers()));
+            assertTrue("incrementCounterMethod1 static",Modifier.isStatic(incrementCounterMethod1.getModifiers()));
             final Method incrementCounterMethod2 = MethodUtils.getAccessibleMethod
                 (TestBean.class, "incrementCounter",
                  new Class[] { Integer.TYPE });
-            assertNotNull("incrementCounterMethod2 exists",
-                          incrementCounterMethod2);
-            assertEquals("incrementCounterMethod2 name",
-                         "incrementCounter",
-                         incrementCounterMethod2.getName());
-            assertEquals("incrementCounterMethod2 args",
-                         1,
-                         incrementCounterMethod2.getParameterTypes().length);
-            assertTrue("incrementCounterMethod2 public",
-                       Modifier.isPublic(incrementCounterMethod2.getModifiers()));
-            assertTrue("incrementCounterMethod2 static",
-                       Modifier.isStatic(incrementCounterMethod2.getModifiers()));
+            assertNotNull("incrementCounterMethod2 exists",incrementCounterMethod2);
+            assertEquals("incrementCounterMethod2 name","incrementCounter",incrementCounterMethod2.getName());
+            assertEquals("incrementCounterMethod2 args",1,incrementCounterMethod2.getParameterTypes().length);
+            assertTrue("incrementCounterMethod2 public",Modifier.isPublic(incrementCounterMethod2.getModifiers()));
+            assertTrue("incrementCounterMethod2 static",Modifier.isStatic(incrementCounterMethod2.getModifiers()));
 
             // Return initial value of the counter
             value = currentCounterMethod.invoke(null, new Object[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
             // Increment via no-arguments version
             incrementCounterMethod1.invoke(null, new Object[0]);
@@ -507,11 +456,8 @@ public class MethodUtilsTestCase extends TestCase {
             current++;
             value = currentCounterMethod.invoke(null, new Object[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
             // Increment via specified-argument version
             incrementCounterMethod2.invoke(null,
@@ -521,11 +467,8 @@ public class MethodUtilsTestCase extends TestCase {
             current += 5;
             value = currentCounterMethod.invoke(null, new Object[0]);
             assertNotNull("currentCounter exists", value);
-            assertTrue("currentCounter type",
-                       value instanceof Integer);
-            assertEquals("currentCounter value",
-                         current,
-                         ((Integer) value).intValue());
+            assertTrue("currentCounter type",value instanceof Integer);
+            assertEquals("currentCounter value",current,((Integer)value).intValue());
 
         } catch (final Exception e) {
             fail("Threw exception" + e);

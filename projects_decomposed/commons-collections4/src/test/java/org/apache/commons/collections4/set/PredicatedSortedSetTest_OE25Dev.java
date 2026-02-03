@@ -99,7 +99,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
         } catch (final IllegalArgumentException e) {
             // expected
         }
-        assertTrue("Collection shouldn't contain illegal element", !set.contains(testString));
+        assertTrue("Collection shouldn't contain illegal element",!set.contains(testString));
     }
 
     public void testIllegalAddAll_2_oe() {

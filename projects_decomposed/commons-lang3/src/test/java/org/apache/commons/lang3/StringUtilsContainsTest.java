@@ -261,12 +261,10 @@ public class StringUtilsContainsTest  {
         for (final Locale testLocale : locales) {
             Locale.setDefault(testLocale);
             for (int j = 0; j < tdata.length; j++) {
-                assertTrue(StringUtils.containsIgnoreCase(tdata[j][0], tdata[j][1]),
-                    Locale.getDefault() + ": " + j + " " + tdata[j][0] + " " + tdata[j][1]);
+                assertTrue(StringUtils.containsIgnoreCase(tdata[j][0],tdata[j][1]),Locale.getDefault()+ ": " + j + " " + tdata[j][0] + " " + tdata[j][1]);
             }
             for (int j = 0; j < fdata.length; j++) {
-                assertFalse(StringUtils.containsIgnoreCase(fdata[j][0], fdata[j][1]),
-                    Locale.getDefault() + ": " + j + " " + fdata[j][0] + " " + fdata[j][1]);
+                assertFalse(StringUtils.containsIgnoreCase(fdata[j][0],fdata[j][1]),Locale.getDefault()+ ": " + j + " " + fdata[j][0] + " " + fdata[j][1]);
             }
         }
     }

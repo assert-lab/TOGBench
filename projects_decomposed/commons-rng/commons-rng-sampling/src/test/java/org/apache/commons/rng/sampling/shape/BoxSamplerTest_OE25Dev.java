@@ -94,8 +94,7 @@ class BoxSamplerTest_OE25Dev {
             }
         }
         // Show the box is too big to compute vectors between points.
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, c2[1][0] - c2[0][0],
-            "Expect vector b - a to be infinite in the x dimension");
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,c2[1][0] - c2[0][0],"Expect vector b - a to be infinite in the x dimension");
 
         final BoxSampler sampler1 = BoxSampler.of(
             RandomSource.XO_RO_SHI_RO_128_PP.create(seed), c1[0], c1[1]);
@@ -283,8 +282,7 @@ class BoxSamplerTest_OE25Dev {
             final double[] s1 = sampler1.sample();
             final double[] s2 = sampler2.sample();
             Assertions.assertEquals(s1.length, s2.length);
-            Assertions.assertFalse(Arrays.equals(s1, s2),
-                "First sampler has used the vertices by reference");
+            Assertions.assertFalse(Arrays.equals(s1,s2),"First sampler has used the vertices by reference");
             for (int i = 0; i < dimension; i++) {
                 Assertions.assertEquals(s1[i] + offset, s2[i], 1e-10);
             }

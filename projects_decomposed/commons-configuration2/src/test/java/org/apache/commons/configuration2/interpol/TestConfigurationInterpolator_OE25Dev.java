@@ -800,7 +800,7 @@ public class TestConfigurationInterpolator_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Incorrect string converter value", "1", interpolator.getStringConverter().apply(Arrays.asList(1, 2)));
+        assertEquals("Incorrect string converter value","1",interpolator.getStringConverter().apply(Arrays.asList(1,2)));
     }
 
     @Test

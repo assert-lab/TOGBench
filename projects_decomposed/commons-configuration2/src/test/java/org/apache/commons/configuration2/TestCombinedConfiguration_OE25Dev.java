@@ -929,7 +929,7 @@ public class TestCombinedConfiguration_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertTrue("Found duplicate event listeners", Collections.disjoint(cc2.getEventListeners(ConfigurationEvent.ANY), config.getEventListeners(ConfigurationEvent.ANY)));
+        assertTrue("Found duplicate event listeners",Collections.disjoint(cc2.getEventListeners(ConfigurationEvent.ANY),config.getEventListeners(ConfigurationEvent.ANY)));
     }
 
     @Test

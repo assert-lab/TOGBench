@@ -87,8 +87,7 @@ public class PredicateUtilsTest extends AbstractPredicateTest {
         assertEquals(false, PredicateUtils.identityPredicate(Integer.valueOf(6)).evaluate(null));
         assertEquals(false, PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cObject));
         assertEquals(false, PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cString));
-        assertEquals(false, PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger)); // Cannot use valueOf here
-        assertEquals(true, PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
+        assertEquals(false,PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger));// Cannot use valueOf here assertEquals(true,PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
     }
 
     // truePredicate
@@ -673,9 +672,7 @@ public class PredicateUtilsTest extends AbstractPredicateTest {
 
     @Test
     public void testTransformedPredicate() {
-        assertEquals(true, PredicateUtils.transformedPredicate(
-                TransformerUtils.nopTransformer(),
-                TruePredicate.truePredicate()).evaluate(new Object()));
+        assertEquals(true,PredicateUtils.transformedPredicate(TransformerUtils.nopTransformer(),TruePredicate.truePredicate()).evaluate(new Object()));
 
         final Map<Object, Object> map = new HashMap<>();
         map.put(Boolean.TRUE, "Hello");

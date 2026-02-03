@@ -312,8 +312,7 @@ public final class RandomAssert {
         try {
             assertNextLongNonZeroOutput(rng, warmupCycles, testCycles);
         } catch (AssertionError ex) {
-            Assertions.fail("No non-zero output after " + (warmupCycles + testCycles) + " cycles. " +
-                        "Seed element [" + seedElement + "], bit=" + bit);
+            Assertions.fail("No non-zero output after " +(warmupCycles + testCycles)+ " cycles. " + "Seed element [" + seedElement + "],bit=" + bit);
         }
     }
 

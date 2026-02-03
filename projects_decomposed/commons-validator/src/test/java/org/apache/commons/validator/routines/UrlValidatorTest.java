@@ -147,8 +147,7 @@ public class UrlValidatorTest {
    @Test
    public void testValidator218() {
        UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_2_SLASHES);
-       assertTrue("parentheses should be valid in URLs",
-               validator.isValid("http://somewhere.com/pathxyz/file(1).html"));
+       assertTrue("parentheses should be valid in URLs",validator.isValid("http://somewhere.com/pathxyz/file(1).html"));
    }
 
    @Test
@@ -172,65 +171,48 @@ public class UrlValidatorTest {
         RegexValidator regex = new RegexValidator(new String[] {"localhost", ".*\\.my-testing"});
         UrlValidator validator = new UrlValidator(regex, 0);
 
-        assertTrue("localhost URL should validate",
-                validator.isValid("http://localhost/test/index.html"));
-        assertTrue("first.my-testing should validate",
-                validator.isValid("http://first.my-testing/test/index.html"));
-        assertTrue("sup3r.my-testing should validate",
-                validator.isValid("http://sup3r.my-testing/test/index.html"));
+        assertTrue("localhost URL should validate",validator.isValid("http://localhost/test/index.html"));
+        assertTrue("first.my-testing should validate",validator.isValid("http://first.my-testing/test/index.html"));
+        assertTrue("sup3r.my-testing should validate",validator.isValid("http://sup3r.my-testing/test/index.html"));
 
-        assertFalse("broke.my-test should not validate",
-                validator.isValid("http://broke.my-test/test/index.html"));
+        assertFalse("broke.my-test should not validate",validator.isValid("http://broke.my-test/test/index.html"));
 
-        assertTrue("www.apache.org should still validate",
-                validator.isValid("http://www.apache.org/test/index.html"));
+        assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
 
         // Now check using options
         validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
-        assertTrue("localhost URL should validate",
-              validator.isValid("http://localhost/test/index.html"));
+        assertTrue("localhost URL should validate",validator.isValid("http://localhost/test/index.html"));
 
-        assertTrue("machinename URL should validate",
-              validator.isValid("http://machinename/test/index.html"));
+        assertTrue("machinename URL should validate",validator.isValid("http://machinename/test/index.html"));
 
-        assertTrue("www.apache.org should still validate",
-              validator.isValid("http://www.apache.org/test/index.html"));
+        assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
     }
 
     @Test
     public void testValidator288() {
         UrlValidator validator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 
-        assertTrue("hostname should validate",
-                validator.isValid("http://hostname"));
+        assertTrue("hostname should validate",validator.isValid("http://hostname"));
 
-        assertTrue("hostname with path should validate",
-                validator.isValid("http://hostname/test/index.html"));
+        assertTrue("hostname with path should validate",validator.isValid("http://hostname/test/index.html"));
 
-        assertTrue("localhost URL should validate",
-                validator.isValid("http://localhost/test/index.html"));
+        assertTrue("localhost URL should validate",validator.isValid("http://localhost/test/index.html"));
 
-        assertFalse("first.my-testing should not validate",
-                validator.isValid("http://first.my-testing/test/index.html"));
+        assertFalse("first.my-testing should not validate",validator.isValid("http://first.my-testing/test/index.html"));
 
-        assertFalse("broke.hostname should not validate",
-                validator.isValid("http://broke.hostname/test/index.html"));
+        assertFalse("broke.hostname should not validate",validator.isValid("http://broke.hostname/test/index.html"));
 
-        assertTrue("www.apache.org should still validate",
-                validator.isValid("http://www.apache.org/test/index.html"));
+        assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
 
         // Turn it off, and check
         validator = new UrlValidator(0);
 
-        assertFalse("hostname should no longer validate",
-                validator.isValid("http://hostname"));
+        assertFalse("hostname should no longer validate",validator.isValid("http://hostname"));
 
-        assertFalse("localhost URL should no longer validate",
-                validator.isValid("http://localhost/test/index.html"));
+        assertFalse("localhost URL should no longer validate",validator.isValid("http://localhost/test/index.html"));
 
-        assertTrue("www.apache.org should still validate",
-                validator.isValid("http://www.apache.org/test/index.html"));
+        assertTrue("www.apache.org should still validate",validator.isValid("http://www.apache.org/test/index.html"));
     }
 
     @Test
@@ -238,52 +220,36 @@ public class UrlValidatorTest {
         // file:// isn't allowed by default
         UrlValidator validator = new UrlValidator();
 
-        assertTrue("http://apache.org/ should be allowed by default",
-                 validator.isValid("http://www.apache.org/test/index.html"));
+        assertTrue("http://apache.org/ should be allowed by default",validator.isValid("http://www.apache.org/test/index.html"));
 
-        assertFalse("file:///c:/ shouldn't be allowed by default",
-                 validator.isValid("file:///C:/some.file"));
+        assertFalse("file:///c:/ shouldn't be allowed by default",validator.isValid("file:///C:/some.file"));
 
-        assertFalse("file:///c:\\ shouldn't be allowed by default",
-              validator.isValid("file:///C:\\some.file"));
+        assertFalse("file:///c:\\ shouldn't be allowed by default",validator.isValid("file:///C:\\some.file"));
 
-        assertFalse("file:///etc/ shouldn't be allowed by default",
-              validator.isValid("file:///etc/hosts"));
+        assertFalse("file:///etc/ shouldn't be allowed by default",validator.isValid("file:///etc/hosts"));
 
-        assertFalse("file://localhost/etc/ shouldn't be allowed by default",
-              validator.isValid("file://localhost/etc/hosts"));
+        assertFalse("file://localhost/etc/ shouldn't be allowed by default",validator.isValid("file://localhost/etc/hosts"));
 
-        assertFalse("file://localhost/c:/ shouldn't be allowed by default",
-              validator.isValid("file://localhost/c:/some.file"));
+        assertFalse("file://localhost/c:/ shouldn't be allowed by default",validator.isValid("file://localhost/c:/some.file"));
 
         // Turn it on, and check
         // Note - we need to enable local urls when working with file:
         validator = new UrlValidator(new String[] {"http","file"}, UrlValidator.ALLOW_LOCAL_URLS);
 
-        assertTrue("http://apache.org/ should be allowed by default",
-                 validator.isValid("http://www.apache.org/test/index.html"));
+        assertTrue("http://apache.org/ should be allowed by default",validator.isValid("http://www.apache.org/test/index.html"));
 
-        assertTrue("file:///c:/ should now be allowed",
-                 validator.isValid("file:///C:/some.file"));
+        assertTrue("file:///c:/ should now be allowed",validator.isValid("file:///C:/some.file"));
 
-        assertFalse("file:///c:\\ should not be allowed", // Only allow forward slashes
-              validator.isValid("file:///C:\\some.file"));
+        assertTrue("file:///etc/ should now be allowed",validator.isValid("file:///etc/hosts"));
 
-        assertTrue("file:///etc/ should now be allowed",
-              validator.isValid("file:///etc/hosts"));
+        assertTrue("file://localhost/etc/ should now be allowed",validator.isValid("file://localhost/etc/hosts"));
 
-        assertTrue("file://localhost/etc/ should now be allowed",
-              validator.isValid("file://localhost/etc/hosts"));
-
-        assertTrue("file://localhost/c:/ should now be allowed",
-              validator.isValid("file://localhost/c:/some.file"));
+        assertTrue("file://localhost/c:/ should now be allowed",validator.isValid("file://localhost/c:/some.file"));
 
         // These are never valid
-        assertFalse("file://c:/ shouldn't ever be allowed, needs file:///c:/",
-              validator.isValid("file://C:/some.file"));
+        assertFalse("file://c:/ shouldn't ever be allowed,needs file:///c:/",validator.isValid("file://C:/some.file"));
 
-        assertFalse("file://c:\\ shouldn't ever be allowed, needs file:///c:/",
-              validator.isValid("file://C:\\some.file"));
+        assertFalse("file://c:\\ shouldn't ever be allowed,needs file:///c:/",validator.isValid("file://C:\\some.file"));
     }
 
     @Test
@@ -315,10 +281,7 @@ public class UrlValidatorTest {
     @Test
     public void testValidator339(){
         UrlValidator urlValidator = new UrlValidator();
-        assertTrue(urlValidator.isValid("http://www.cnn.com/WORLD/?hpt=sitenav")); // without
-        assertTrue(urlValidator.isValid("http://www.cnn.com./WORLD/?hpt=sitenav")); // with
-        assertFalse(urlValidator.isValid("http://www.cnn.com../")); // doubly dotty
-        assertFalse(urlValidator.isValid("http://www.cnn.invalid/"));
+        assertTrue(urlValidator.isValid("http://www.cnn.com/WORLD/?hpt=sitenav"));// without assertTrue(urlValidator.isValid("http://www.cnn.com./WORLD/?hpt=sitenav"));// with assertFalse(urlValidator.isValid("http://www.cnn.com../"));// doubly dotty assertFalse(urlValidator.isValid("http://www.cnn.invalid/"));
         assertFalse(urlValidator.isValid("http://www.cnn.invalid./")); // check . does not affect invalid domains
     }
 

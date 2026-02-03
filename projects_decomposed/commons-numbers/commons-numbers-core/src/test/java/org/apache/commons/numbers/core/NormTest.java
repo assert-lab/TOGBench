@@ -58,12 +58,9 @@ class NormTest {
         Assertions.assertEquals(Double.NaN, Norm.L1.of(1d, Double.NaN));
         Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.POSITIVE_INFINITY, Double.NaN));
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L1.of(Double.POSITIVE_INFINITY, 0d));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L1.of(0d, Double.POSITIVE_INFINITY));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L1.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(0d,Double.POSITIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
     }
 
     @Test
@@ -78,12 +75,9 @@ class NormTest {
         Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, 1d, Double.NaN));
         Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.POSITIVE_INFINITY, Double.NaN));
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L1.of(Double.POSITIVE_INFINITY, 2d, -4d));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L1.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, -4d));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L1.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,2d,-4d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,-4d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
     }
 
     @Test
@@ -122,15 +116,11 @@ class NormTest {
         Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d));
         Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, Double.POSITIVE_INFINITY));
         Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN));
-        Assertions.assertEquals(Double.NaN,
-                Norm.L2.of(Double.NaN, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.NaN,Double.NEGATIVE_INFINITY));
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L2.of(1d, Double.NEGATIVE_INFINITY));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L2.of(Double.POSITIVE_INFINITY, -1d));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L2.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(1d,Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,-1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
     }
 
     @Test
@@ -186,8 +176,7 @@ class NormTest {
 
         // act/assert
         for (final double[] input : inputs) {
-            Assertions.assertEquals(Norm.L2.of(input), Norm.L2.of(input[0], input[1]),
-                () -> "Expected inline method result to equal array result for input " + Arrays.toString(input));
+            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
         }
     }
 
@@ -235,13 +224,9 @@ class NormTest {
         final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
 
         // ensure that we are within the ballpark of Math.hypot
-        Assertions.assertTrue(normStats.getMean() <= (hypotStats.getMean() + HYPOT_COMPARE_EPS),
-            () -> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " +
-                    hypotStats.getMean() + ", norm error mean= " + normStats.getMean());
+        Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= " + hypotStats.getMean()+ ",norm error mean= " + normStats.getMean());
 
-        Assertions.assertTrue(normStats.getStdDev() <= (hypotStats.getStdDev() + HYPOT_COMPARE_EPS),
-            () -> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " +
-                    hypotStats.getStdDev() + ", norm std dev= " + normStats.getStdDev());
+        Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> "Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= " + hypotStats.getStdDev()+ ",norm std dev= " + normStats.getStdDev());
     }
 
     @Test
@@ -254,21 +239,17 @@ class NormTest {
         Assertions.assertEquals(5 * Math.sqrt(2), Norm.L2.of(-3d, -4d, 5d));
         Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, 0d, Double.MIN_VALUE));
         Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d, 0d));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L2.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE));
 
         Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(1d, -1d, 1d));
 
         Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d, 0d));
         Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN, 0d));
         Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, 0d, Double.NaN));
-        Assertions.assertEquals(Double.NaN,
-                Norm.L2.of(Double.POSITIVE_INFINITY, Double.NaN, 1d));
+        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NaN,1d));
 
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L2.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, 1d));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.L2.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
     }
 
     @Test
@@ -316,8 +297,7 @@ class NormTest {
 
         // act/assert
         for (final double[] input : inputs) {
-            Assertions.assertEquals(Norm.L2.of(input), Norm.L2.of(input[0], input[1], input[2]),
-                () -> "Expected inline method result to equal array result for input " + Arrays.toString(input));
+            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1],input[2]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
         }
     }
 
@@ -403,8 +383,7 @@ class NormTest {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d));
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.NEGATIVE_INFINITY, 0d));
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.NEGATIVE_INFINITY));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.LINF.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
     }
 
     @Test
@@ -423,8 +402,7 @@ class NormTest {
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, 1d));
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.POSITIVE_INFINITY, 1d));
         Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, 1d, Double.NEGATIVE_INFINITY));
-        Assertions.assertEquals(Double.POSITIVE_INFINITY,
-                Norm.LINF.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
     }
 
     @Test
@@ -490,15 +468,11 @@ class NormTest {
             final double actual = Norm.L2.of(v);
 
             // assert
-            Assertions.assertTrue(Double.isFinite(actual), () ->
-                "Computed norm was not finite; vector= " + Arrays.toString(v) + ", exact= " + exact +
-                ", direct= " + direct + ", actual= " + actual);
+            Assertions.assertTrue(Double.isFinite(actual),()-> "Computed norm was not finite;vector= " + Arrays.toString(v)+ ",exact= " + exact + ",direct= " + direct + ",actual= " + actual);
 
             final int ulpError = Math.abs(DoubleTestUtils.computeUlpDifference(exact, actual));
 
-            Assertions.assertTrue(ulpError <= MAX_ULP_ERR, () ->
-                "Computed norm ulp error exceeds bounds; vector= " + Arrays.toString(v) +
-                ", exact= " + exact + ", actual= " + actual + ", ulpError= " + ulpError);
+            Assertions.assertTrue(ulpError <= MAX_ULP_ERR,()-> "Computed norm ulp error exceeds bounds;vector= " + Arrays.toString(v)+ ",exact= " + exact + ",actual= " + actual + ",ulpError= " + ulpError);
         }
     }
 

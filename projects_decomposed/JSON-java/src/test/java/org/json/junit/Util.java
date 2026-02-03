@@ -25,8 +25,7 @@ public class Util {
      */
     public static void compareActualVsExpectedJsonArrays(JSONArray jsonArray,
             JSONArray expectedJsonArray) {
-        assertTrue("jsonArray lengths should be equal",
-                jsonArray.length() == expectedJsonArray.length());
+        assertTrue("jsonArray lengths should be equal",jsonArray.length()== expectedJsonArray.length());
         for (int i = 0; i < jsonArray.length(); ++i) {
             Object value = jsonArray.get(i);
             Object expectedValue = expectedJsonArray.get(i);
@@ -42,8 +41,7 @@ public class Util {
      */
     public static void compareActualVsExpectedJsonObjects(
             JSONObject jsonObject, JSONObject expectedJsonObject) {
-        assertTrue("jsonObjects should have the same length",
-                jsonObject.length() == expectedJsonObject.length());
+        assertTrue("jsonObjects should have the same length",jsonObject.length()== expectedJsonObject.length());
         Iterator<String> keys = jsonObject.keys();
         while (keys.hasNext()) {
             String key = keys.next();
@@ -82,18 +80,12 @@ public class Util {
              */
             if (!(value instanceof Number && expectedValue instanceof Number)) {
                 // Non-Number and non-matching types
-                assertEquals("object types should be equal ",
-                    expectedValue.getClass().toString(),
-                    value.getClass().toString()
-                );
+                assertEquals("object types should be equal ",expectedValue.getClass().toString(),value.getClass().toString());
             }
             /**
              * Same types or both Numbers, compare by toString()
              */
-            assertEquals("values should be equal",
-                expectedValue.toString(),
-                value.toString()
-            );
+            assertEquals("values should be equal",expectedValue.toString(),value.toString());
         }
     }
 

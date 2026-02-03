@@ -92,7 +92,6 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest {
     @Test
     void testToString() {
         final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertTrue(new AhrensDieterMarsagliaTsangGammaSampler(rng, 1.0, 2.0).toString()
-                .toLowerCase().contains("gamma"));
+        Assertions.assertTrue(new AhrensDieterMarsagliaTsangGammaSampler(rng,1.0,2.0).toString().toLowerCase().contains("gamma"));
     }
 }

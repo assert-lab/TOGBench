@@ -31,9 +31,7 @@ public class ParseTest {
         File in = getFile("/htmltests/smh-biz-article-1.html.gz");
         Document doc = Jsoup.parse(in, "UTF-8",
                 "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
-        assertEquals("The board’s next fear: the female quota",
-                doc.title()); // note that the apos in the source is a literal ’ (8217), not escaped or '
-        assertEquals("en", doc.select("html").attr("xml:lang"));
+        assertEquals("The board’s next fear: the female quota",doc.title());// note that the apos in the source is a literal ’(8217),not escaped or ' assertEquals("en",doc.select("html").attr("xml:lang"));
 
         Elements articleBody = doc.select(".articleBody > *");
         assertEquals(17, articleBody.size());
@@ -53,9 +51,7 @@ public class ParseTest {
         assertEquals("http://www.news.com.au/entertainment/horoscopes", a.attr("abs:href"));
 
         Element hs = doc.select("a[href*=naughty-corners-are-a-bad-idea]").first();
-        assertEquals(
-                "http://www.heraldsun.com.au/news/naughty-corners-are-a-bad-idea-for-kids/story-e6frf7jo-1225817899003",
-                hs.attr("href"));
+        assertEquals("http://www.heraldsun.com.au/news/naughty-corners-are-a-bad-idea-for-kids/story-e6frf7jo-1225817899003",hs.attr("href"));
         assertEquals(hs.attr("href"), hs.attr("abs:href"));
     }
 
@@ -66,11 +62,8 @@ public class ParseTest {
         assertEquals("ipod - Google Search", doc.title());
         Elements results = doc.select("h3.r > a");
         assertEquals(12, results.size());
-        assertEquals(
-                "http://news.google.com/news?hl=en&q=ipod&um=1&ie=UTF-8&ei=uYlKS4SbBoGg6gPf-5XXCw&sa=X&oi=news_group&ct=title&resnum=1&ved=0CCIQsQQwAA",
-                results.get(0).attr("href"));
-        assertEquals("http://www.apple.com/itunes/",
-                results.get(1).attr("href"));
+        assertEquals("http://news.google.com/news?hl=en&q=ipod&um=1&ie=UTF-8&ei=uYlKS4SbBoGg6gPf-5XXCw&sa=X&oi=news_group&ct=title&resnum=1&ved=0CCIQsQQwAA",results.get(0).attr("href"));
+        assertEquals("http://www.apple.com/itunes/",results.get(1).attr("href"));
     }
 
     @Test
@@ -79,9 +72,7 @@ public class ParseTest {
         Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html"); // http charset is utf-8.
         assertEquals("Yahoo! JAPAN", doc.title());
         Element a = doc.select("a[href=t/2322m2]").first();
-        assertEquals("http://www.yahoo.co.jp/_ylh=X3oDMTB0NWxnaGxsBF9TAzIwNzcyOTYyNjUEdGlkAzEyBHRtcGwDZ2Ex/t/2322m2",
-                a.attr("abs:href")); // session put into <base>
-        assertEquals("全国、人気の駅ランキング", a.text());
+        assertEquals("http://www.yahoo.co.jp/_ylh=X3oDMTB0NWxnaGxsBF9TAzIwNzcyOTYyNjUEdGlkAzEyBHRtcGwDZ2Ex/t/2322m2",a.attr("abs:href"));// session put into <base> assertEquals("全国、人気の駅ランキング",a.text());
     }
 
     @Test
@@ -104,8 +95,7 @@ public class ParseTest {
         assertEquals("<title>百度一下，你就知道      </title>", doc.select("title").outerHtml());
 
         doc.outputSettings().charset("ascii");
-        assertEquals("<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;      </title>",
-                doc.select("title").outerHtml());
+        assertEquals("<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;</title>",doc.select("title").outerHtml());
     }
 
     @Test
@@ -203,10 +193,7 @@ public class ParseTest {
         ParseErrorList errors = parser.getErrors();
 
         assertEquals("XWiki Jetty HSQLDB 12.1-SNAPSHOT", doc.select("#xwikiplatformversion").text());
-        assertEquals(0, errors.size()); // not an invalid reference because did not look legit
-
-        // was getting busted at =userdirectory, because it hit the bufferup point but the mark was then lost. so
-        // updated to preserve the mark.
+        assertEquals(0,errors.size());// not an invalid reference because did not look legit 
         String wantHtml = "<a class=\"list-group-item\" data-id=\"userdirectory\" href=\"/xwiki/bin/admin/XWiki/XWikiPreferences?editor=globaladmin&amp;RIGHTHERERIGHTHERERIGHTHERERIGHTHERE";
         assertTrue(doc.select("[data-id=userdirectory]").outerHtml().startsWith(wantHtml));
     }

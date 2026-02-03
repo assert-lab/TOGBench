@@ -869,7 +869,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("pattern day",    11, result.get(Calendar.MONTH)); // months are 0-11;
+        assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
     }
 
     public void testTimeZone_21_oe() {
@@ -917,7 +917,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("pattern day",    31, result.get(Calendar.DATE));
+        assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_22_oe() {
@@ -966,7 +966,7 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
+        assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
     }
 
     public void testTimeZone_23_oe() {
@@ -1016,7 +1016,11 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("pattern minute", 05, result.get(Calendar.MINUTE));
+        result = null;
+
+        // Locale & Pattern, default TimeZone
+        result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
+        assertNotNull("pattern result", result);
     }
 
     public void testTimeZone_24_oe() {
@@ -1066,12 +1070,12 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
         result = null;
 
         // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
-        assertNotNull("pattern result", result);
+        // removed other assertion
+        assertEquals("pattern zone",  GMT, result.getTimeZone());
     }
 
     public void testTimeZone_25_oe() {
@@ -1121,13 +1125,13 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
         result = null;
 
         // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
         // removed other assertion
-        assertEquals("pattern zone",  GMT, result.getTimeZone());
+        // removed other assertion
+        assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
     }
 
     public void testTimeZone_26_oe() {
@@ -1177,14 +1181,14 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
         result = null;
 
         // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
         // removed other assertion
         // removed other assertion
-        assertEquals("pattern day",  2005, result.get(Calendar.YEAR));
+        // removed other assertion
+        assertEquals("pattern day",11,result.get(Calendar.MONTH));// months are 0-11 assertEquals("pattern day",31,result.get(Calendar.DATE));
     }
 
     public void testTimeZone_27_oe() {
@@ -1234,7 +1238,6 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
         result = null;
 
         // Locale & Pattern, default TimeZone
@@ -1242,7 +1245,8 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("pattern day",    11, result.get(Calendar.MONTH)); // months are 0-11;
+        // removed other assertion
+        assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
     }
 
     public void testTimeZone_28_oe() {
@@ -1292,131 +1296,10 @@ public class TimeValidatorTest_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
         result = null;
 
         // Locale & Pattern, default TimeZone
         result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("pattern day",    31, result.get(Calendar.DATE));
-    }
-
-    public void testTimeZone_29_oe() {
-        // Set the default Locale & TimeZone
-        Locale.setDefault(Locale.UK);
-        TimeZone.setDefault(GMT);
-
-        Calendar result = null;
-
-        // Default Locale, Default TimeZone
-        result = validator.validate("18:01");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Default Locale, diff TimeZone
-        result = validator.validate("16:49", EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Pattern, diff TimeZone
-        result = validator.validate("14-34", "HH-mm", EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Locale, diff TimeZone
-        result = validator.validate("7:18 PM", Locale.US, EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Locale & Pattern, diff TimeZone
-        result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Locale & Pattern, default TimeZone
-        result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("pattern hour",   21, result.get(Calendar.HOUR_OF_DAY));
-    }
-
-    public void testTimeZone_30_oe() {
-        // Set the default Locale & TimeZone
-        Locale.setDefault(Locale.UK);
-        TimeZone.setDefault(GMT);
-
-        Calendar result = null;
-
-        // Default Locale, Default TimeZone
-        result = validator.validate("18:01");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Default Locale, diff TimeZone
-        result = validator.validate("16:49", EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Pattern, diff TimeZone
-        result = validator.validate("14-34", "HH-mm", EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Locale, diff TimeZone
-        result = validator.validate("7:18 PM", Locale.US, EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Locale & Pattern, diff TimeZone
-        result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN, EST);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        result = null;
-
-        // Locale & Pattern, default TimeZone
-        result = validator.validate("31/Dez/05 21-05", "dd/MMM/yy HH-mm", Locale.GERMAN);
-        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion

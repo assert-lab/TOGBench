@@ -54,8 +54,7 @@ public class SystemPropertyUnitTest
         JCS.setConfigFilename( "/TestSystemProperties.ccf" );
 
         final CacheAccess<String, String> cache = JCS.getInstance( "test1" );
-        assertEquals( "We should have used the system property for the memory size", maxMemory, cache
-            .getCacheAttributes().getMaxObjects() );
+        assertEquals("We should have used the system property for the memory size",maxMemory,cache .getCacheAttributes().getMaxObjects());
 
         System.clearProperty("MY_SYSTEM_PROPERTY_DISK_DIR");
         System.clearProperty("MY_SYSTEM_PROPERTY_MAX_SIZE");
@@ -79,8 +78,7 @@ public class SystemPropertyUnitTest
 
         final CacheAccess<String, String> cache = JCS.getInstance( "missing" );
         // TODO check against the actual default def
-        assertEquals( "We should have used the default property for the memory size", 100, cache.getCacheAttributes()
-            .getMaxObjects() );
+        assertEquals("We should have used the default property for the memory size",100,cache.getCacheAttributes().getMaxObjects());
 
         System.clearProperty("MY_SYSTEM_PROPERTY_DISK_DIR");
 

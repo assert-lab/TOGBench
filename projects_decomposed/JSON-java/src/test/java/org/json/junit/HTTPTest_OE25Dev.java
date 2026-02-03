@@ -194,7 +194,7 @@ public class HTTPTest_OE25Dev {
             HTTP.toString(jsonObject);
             // removed other assertion
         } catch (JSONException e) {
-            assertTrue("Expecting an exception message", "Not enough material for an HTTP header.".equals(e.getMessage()));
+            assertTrue("Expecting an exception message","Not enough material for an HTTP header.".equals(e.getMessage()));
     }
     }
 

@@ -201,9 +201,7 @@ public class RandomStringUtilsTest {
             }
         }
         for (int i = 0; i < testChars.length; i++) {
-            assertTrue(found[i],
-                    "alphanumeric character not generated in 1000 attempts: " +
-                            testChars[i] + " -- repeated failures indicate a problem ");
+            assertTrue(found[i],"alphanumeric character not generated in 1000 attempts: " + testChars[i] + " -- repeated failures indicate a problem ");
         }
     }
 
@@ -224,9 +222,7 @@ public class RandomStringUtilsTest {
             }
         }
         for (int i = 0; i < testChars.length; i++) {
-            assertTrue(found[i],
-                    "digit not generated in 1000 attempts: " + testChars[i] +
-                            " -- repeated failures indicate a problem ");
+            assertTrue(found[i],"digit not generated in 1000 attempts: " + testChars[i] + " -- repeated failures indicate a problem ");
         }
     }
 
@@ -247,9 +243,7 @@ public class RandomStringUtilsTest {
             }
         }
         for (int i = 0; i < testChars.length; i++) {
-            assertTrue(found[i],
-                    "alphanumeric character not generated in 1000 attempts: " + testChars[i] +
-                            " -- repeated failures indicate a problem ");
+            assertTrue(found[i],"alphanumeric character not generated in 1000 attempts: " + testChars[i] + " -- repeated failures indicate a problem ");
         }
     }
 
@@ -270,9 +264,7 @@ public class RandomStringUtilsTest {
             }
         }
         for (int i = 0; i < testChars.length; i++) {
-            assertTrue(found[i],
-                    "ascii character not generated in 1000 attempts: " + (int) testChars[i] +
-                            " -- repeated failures indicate a problem");
+            assertTrue(found[i],"ascii character not generated in 1000 attempts: " +(int)testChars[i] + " -- repeated failures indicate a problem");
         }
     }
 
@@ -498,9 +490,7 @@ public class RandomStringUtilsTest {
         for (int i=0; i < orig.length() && i < copy.length(); i++) {
             final char o = orig.charAt(i);
             final char c = copy.charAt(i);
-            assertEquals(o, c,
-                    "differs at " + i + "(" + Integer.toHexString(Character.valueOf(o).hashCode()) + "," +
-                            Integer.toHexString(Character.valueOf(c).hashCode()) + ")");
+            assertEquals(o,c,"differs at " + i + "(" + Integer.toHexString(Character.valueOf(o).hashCode())+ "," + Integer.toHexString(Character.valueOf(c).hashCode())+ ")");
         }
         // compare length also
         assertEquals(orig.length(), copy.length());

@@ -123,17 +123,14 @@ public class SocketConnectorFactoryTest {
 
         Map<String, ConnectionFactory> factories = Whitebox.getInternalState(serverConnector, "_factories");
 
-        assertTrue("Should return true because factory for SSL should have been set",
-                factories.containsKey("ssl") && factories.get("ssl") != null);
+        assertTrue("Should return true because factory for SSL should have been set",factories.containsKey("ssl")&& factories.get("ssl")!= null);
 
         SslConnectionFactory sslConnectionFactory = (SslConnectionFactory) factories.get("ssl");
         SslContextFactory sslContextFactory = sslConnectionFactory.getSslContextFactory();
 
-        assertEquals("Should return the Keystore file specified", keystoreFile,
-                sslContextFactory.getKeyStoreResource().getFile().getName());
+        assertEquals("Should return the Keystore file specified",keystoreFile,sslContextFactory.getKeyStoreResource().getFile().getName());
 
-        assertEquals("Should return the Truststore file specified", truststoreFile,
-                sslContextFactory.getTrustStoreResource().getFile().getName());
+        assertEquals("Should return the Truststore file specified",truststoreFile,sslContextFactory.getTrustStoreResource().getFile().getName());
 
     }
 

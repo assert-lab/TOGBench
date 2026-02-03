@@ -1156,26 +1156,21 @@ class SimpleTextParserTest {
         final SimpleTextParser p = parser("abc\ndef");
 
         // act/assert
-        Assertions.assertEquals("Parsing failed at line 1, column 1: expected test but found no current token",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 1: expected test but found no current token",p.unexpectedToken("test").getMessage());
 
         p.nextAlphanumeric();
-        Assertions.assertEquals("Parsing failed at line 1, column 1: expected test but found [abc]",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 1: expected test but found [abc]",p.unexpectedToken("test").getMessage());
 
         p.nextAlphanumeric();
-        Assertions.assertEquals("Parsing failed at line 1, column 4: expected test but found end of line",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 4: expected test but found end of line",p.unexpectedToken("test").getMessage());
 
         p.discardLine();
 
         p.next(SimpleTextParser::isWhitespace);
-        Assertions.assertEquals("Parsing failed at line 2, column 1: expected test but found empty token followed by [d]",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 2,column 1: expected test but found empty token followed by [d]",p.unexpectedToken("test").getMessage());
 
         p.next(3).next(10);
-        Assertions.assertEquals("Parsing failed at line 2, column 4: expected test but found end of content",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 2,column 4: expected test but found end of content",p.unexpectedToken("test").getMessage());
     }
 
     @Test
@@ -1188,8 +1183,7 @@ class SimpleTextParserTest {
         p.nextLine();
 
         final IllegalStateException exc = p.unexpectedToken("test", cause);
-        Assertions.assertEquals("Parsing failed at line 1, column 1: expected test but found [abc]",
-                exc.getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 1: expected test but found [abc]",exc.getMessage());
         Assertions.assertSame(cause, exc.getCause());
     }
 
@@ -1203,20 +1197,17 @@ class SimpleTextParserTest {
         b.setFail(false);
         p.next(SimpleTextParser::isDecimalPart);
         b.setFail(true);
-        Assertions.assertEquals("Parsing failed at line 1, column 1: expected test but found empty token",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 1: expected test but found empty token",p.unexpectedToken("test").getMessage());
 
         b.setFail(false);
         p.nextAlphanumeric();
         b.setFail(true);
-        Assertions.assertEquals("Parsing failed at line 1, column 1: expected test but found [abc]",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 1: expected test but found [abc]",p.unexpectedToken("test").getMessage());
 
         b.setFail(false);
         p.nextAlphanumeric();
         b.setFail(true);
-        Assertions.assertEquals("Parsing failed at line 1, column 4: expected test but found no current token",
-                p.unexpectedToken("test").getMessage());
+        Assertions.assertEquals("Parsing failed at line 1,column 4: expected test but found no current token",p.unexpectedToken("test").getMessage());
     }
 
     @Test

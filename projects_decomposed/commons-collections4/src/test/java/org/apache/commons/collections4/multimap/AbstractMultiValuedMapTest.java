@@ -753,8 +753,7 @@ public abstract class AbstractMultiValuedMapTest<K, V> extends AbstractObjectTes
                 (MultiValuedMap) readExternalFormFromDisk(getCanonicalFullCollectionName(map));
         assertEquals("Map is the right size", map.size(), map2.size());
         for (final Object key : map.keySet()) {
-            assertTrue("Map had inequal elements",
-                       CollectionUtils.isEqualCollection(map.get(key), map2.get(key)));
+            assertTrue("Map had inequal elements",CollectionUtils.isEqualCollection(map.get(key),map2.get(key)));
             if (isRemoveSupported()) {
                 map2.remove(key);
             }

@@ -101,17 +101,17 @@ public class TestMutableInterval_Updates extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testTest() {
-        assertEquals("2002-06-09T00:00:00.000Z", new Instant(TEST_TIME_NOW).toString());
-        assertEquals("2002-04-05T12:24:00.000Z", new Instant(TEST_TIME1).toString());
-        assertEquals("2003-05-06T14:28:00.000Z", new Instant(TEST_TIME2).toString());
+        assertEquals("2002-06-09T00:00:00.000Z",new Instant(TEST_TIME_NOW).toString());
+        assertEquals("2002-04-05T12:24:00.000Z",new Instant(TEST_TIME1).toString());
+        assertEquals("2003-05-06T14:28:00.000Z",new Instant(TEST_TIME2).toString());
     }
 
     //-----------------------------------------------------------------------
     public void testSetInterval_long_long1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(TEST_TIME1 - 1, TEST_TIME2 + 1);
-        assertEquals(TEST_TIME1 - 1, test.getStartMillis());
-        assertEquals(TEST_TIME2 + 1, test.getEndMillis());
+        assertEquals(TEST_TIME1 - 1,test.getStartMillis());
+        assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
     public void testSetInterval_long_long2() {
@@ -126,8 +126,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetInterval_RI_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Instant(TEST_TIME1 - 1), new Instant(TEST_TIME2 + 1));
-        assertEquals(TEST_TIME1 - 1, test.getStartMillis());
-        assertEquals(TEST_TIME2 + 1, test.getEndMillis());
+        assertEquals(TEST_TIME1 - 1,test.getStartMillis());
+        assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
     public void testSetInterval_RI_RI2() {
@@ -141,30 +141,30 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetInterval_RI_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(null, new Instant(TEST_TIME2 + 1));
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME2 + 1, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
     public void testSetInterval_RI_RI4() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Instant(TEST_TIME1 - 1), null);
-        assertEquals(TEST_TIME1 - 1, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME1 - 1,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     public void testSetInterval_RI_RI5() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(null, null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testSetInterval_RInterval1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setInterval(new Interval(TEST_TIME1 - 1, TEST_TIME2 + 1));
-        assertEquals(TEST_TIME1 - 1, test.getStartMillis());
-        assertEquals(TEST_TIME2 + 1, test.getEndMillis());
+        assertEquals(TEST_TIME1 - 1,test.getStartMillis());
+        assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
     public void testSetInterval_RInterval2() {
@@ -199,8 +199,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetStartMillis_long1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStartMillis(TEST_TIME1 - 1);
-        assertEquals(TEST_TIME1 - 1, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME1 - 1,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     public void testSetStartMillis_long2() {
@@ -215,8 +215,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetStart_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStart(new Instant(TEST_TIME1 - 1));
-        assertEquals(TEST_TIME1 - 1, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME1 - 1,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     public void testSetStart_RI2() {
@@ -230,16 +230,16 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetStart_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setStart(null);
-        assertEquals(TEST_TIME_NOW, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME_NOW,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testSetEndMillis_long1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEndMillis(TEST_TIME2 + 1);
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME2 + 1, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
     public void testSetEndMillis_long2() {
@@ -254,8 +254,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetEnd_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEnd(new Instant(TEST_TIME2 + 1));
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME2 + 1, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME2 + 1,test.getEndMillis());
     }
 
     public void testSetEnd_RI2() {
@@ -269,16 +269,16 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetEnd_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setEnd(null);
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME_NOW, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME_NOW,test.getEndMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testSetDurationAfterStart_long1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(123L);
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME1 + 123L, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME1 + 123L,test.getEndMillis());
     }
 
     public void testSeDurationAfterStart_long2() {
@@ -293,8 +293,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetDurationAfterStart_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(new Duration(123L));
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME1 + 123L, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME1 + 123L,test.getEndMillis());
     }
 
     public void testSeDurationAfterStart_RI2() {
@@ -308,16 +308,16 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetDurationAfterStart_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationAfterStart(null);
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME1, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME1,test.getEndMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testSetDurationBeforeEnd_long1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(123L);
-        assertEquals(TEST_TIME2 - 123L, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME2 - 123L,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     public void testSeDurationBeforeEnd_long2() {
@@ -332,8 +332,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetDurationBeforeEnd_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(new Duration(123L));
-        assertEquals(TEST_TIME2 - 123L, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME2 - 123L,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     public void testSeDurationBeforeEnd_RI2() {
@@ -347,16 +347,16 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetDurationBeforeEnd_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setDurationBeforeEnd(null);
-        assertEquals(TEST_TIME2, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME2,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testSetPeriodAfterStart_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodAfterStart(new Period(123L));
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME1 + 123L, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME1 + 123L,test.getEndMillis());
     }
 
     public void testSePeriodAfterStart_RI2() {
@@ -370,16 +370,16 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetPeriodAfterStart_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodAfterStart(null);
-        assertEquals(TEST_TIME1, test.getStartMillis());
-        assertEquals(TEST_TIME1, test.getEndMillis());
+        assertEquals(TEST_TIME1,test.getStartMillis());
+        assertEquals(TEST_TIME1,test.getEndMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testSetPeriodBeforeEnd_RI1() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodBeforeEnd(new Period(123L));
-        assertEquals(TEST_TIME2 - 123L, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME2 - 123L,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
     public void testSePeriodBeforeEnd_RI2() {
@@ -393,8 +393,8 @@ public class TestMutableInterval_Updates extends TestCase {
     public void testSetPeriodBeforeEnd_RI3() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME2);
         test.setPeriodBeforeEnd(null);
-        assertEquals(TEST_TIME2, test.getStartMillis());
-        assertEquals(TEST_TIME2, test.getEndMillis());
+        assertEquals(TEST_TIME2,test.getStartMillis());
+        assertEquals(TEST_TIME2,test.getEndMillis());
     }
 
 }

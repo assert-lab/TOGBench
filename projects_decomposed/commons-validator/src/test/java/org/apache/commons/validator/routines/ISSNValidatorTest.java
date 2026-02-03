@@ -191,8 +191,7 @@ public class ISSNValidatorTest extends TestCase {
     public void testValidCheckDigitEan13() {
         assertNull(VALIDATOR.extractFromEAN13("9771234567001"));
         assertNull(VALIDATOR.extractFromEAN13("9771234567002"));
-        assertNotNull(VALIDATOR.extractFromEAN13("9771234567003")); // valid check digit
-        assertNull(VALIDATOR.extractFromEAN13("9771234567004"));
+        assertNotNull(VALIDATOR.extractFromEAN13("9771234567003"));// valid check digit assertNull(VALIDATOR.extractFromEAN13("9771234567004"));
         assertNull(VALIDATOR.extractFromEAN13("9771234567005"));
         assertNull(VALIDATOR.extractFromEAN13("9771234567006"));
         assertNull(VALIDATOR.extractFromEAN13("9771234567007"));

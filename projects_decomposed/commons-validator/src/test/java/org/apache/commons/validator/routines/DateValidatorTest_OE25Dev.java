@@ -694,7 +694,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20050101 = createDate(GMT, 20050101, sameTime);   // same year
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
-        assertEquals("date LT", -1, dateValidator.compareDates(value, date20050824, GMT)); // +1 day;
+        assertEquals("date LT",-1,dateValidator.compareDates(value,date20050824,GMT));// +1 day;
     }
 
     public void testCompare_2_oe() {
@@ -724,7 +724,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         Date date20041231 = createDate(GMT, 20041231, sameTime);   // -1 year
 
         // removed other assertion
-        assertEquals("date EQ", 0,  dateValidator.compareDates(value, diffHour, GMT));    // same day, diff hour;
+        assertEquals("date EQ",0,dateValidator.compareDates(value,diffHour,GMT));// same day,diff hour;
     }
 
     public void testCompare_3_oe() {
@@ -755,7 +755,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
 
         // removed other assertion
         // removed other assertion
-        assertEquals("date GT", 1,  dateValidator.compareDates(value, date20050822, GMT)); // -1 day;
+        assertEquals("date GT",1,dateValidator.compareDates(value,date20050822,GMT));// -1 day;
     }
 
     public void testCompare_4_oe() {
@@ -787,8 +787,7 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        assertEquals("week LT", -1, dateValidator.compareWeeks(value, date20050830, GMT)); // +1 week;
+        assertEquals("week LT",-1,dateValidator.compareWeeks(value,date20050830,GMT));// +1 week;
     }
 
     public void testCompare_5_oe() {
@@ -820,9 +819,8 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("week =1", 0,  dateValidator.compareWeeks(value, date20050824, GMT)); // +1 day;
+        assertEquals("week =1",0,dateValidator.compareWeeks(value,date20050824,GMT));// +1 day;
     }
 
     public void testCompare_6_oe() {
@@ -854,10 +852,9 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-        assertEquals("week =2", 0,  dateValidator.compareWeeks(value, date20050822, GMT)); // same week;
+        assertEquals("week =2",0,dateValidator.compareWeeks(value,date20050822,GMT));// same week;
     }
 
     public void testCompare_7_oe() {
@@ -889,11 +886,10 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("week =3", 0,  dateValidator.compareWeeks(value, date20050822, GMT)); // -1 day;
+        assertEquals("week =3",0,dateValidator.compareWeeks(value,date20050822,GMT));// -1 day;
     }
 
     public void testCompare_8_oe() {
@@ -925,12 +921,11 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("week GT", 1,  dateValidator.compareWeeks(value, date20050816, GMT)); // -1 week;
+        assertEquals("week GT",1,dateValidator.compareWeeks(value,date20050816,GMT));// -1 week;
     }
 
     public void testCompare_9_oe() {
@@ -962,14 +957,12 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        assertEquals("mnth LT", -1, dateValidator.compareMonths(value, date20050901, GMT)); // +1 month;
+        assertEquals("mnth LT",-1,dateValidator.compareMonths(value,date20050901,GMT));// +1 month;
     }
 
     public void testCompare_10_oe() {
@@ -1001,15 +994,13 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("mnth =1", 0,  dateValidator.compareMonths(value, date20050830, GMT)); // +1 week;
+        assertEquals("mnth =1",0,dateValidator.compareMonths(value,date20050830,GMT));// +1 week;
     }
 
     public void testCompare_11_oe() {
@@ -1041,16 +1032,14 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-        assertEquals("mnth =2", 0,  dateValidator.compareMonths(value, date20050801, GMT)); // same month;
+        assertEquals("mnth =2",0,dateValidator.compareMonths(value,date20050801,GMT));// same month;
     }
 
     public void testCompare_12_oe() {
@@ -1082,17 +1071,15 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("mnth =3", 0,  dateValidator.compareMonths(value, date20050816, GMT)); // -1 week;
+        assertEquals("mnth =3",0,dateValidator.compareMonths(value,date20050816,GMT));// -1 week;
     }
 
     public void testCompare_13_oe() {
@@ -1124,18 +1111,16 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("mnth GT", 1,  dateValidator.compareMonths(value, date20050731, GMT)); // -1 month;
+        assertEquals("mnth GT",1,dateValidator.compareMonths(value,date20050731,GMT));// -1 month;
     }
 
     public void testCompare_14_oe() {
@@ -1167,20 +1152,17 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        assertEquals("qtrA <1", -1, dateValidator.compareQuarters(value, date20051101, GMT)); // +1 quarter (Feb);
+        assertEquals("qtrA <1",-1,dateValidator.compareQuarters(value,date20051101,GMT));// +1 quarter(Feb);
     }
 
     public void testCompare_15_oe() {
@@ -1212,21 +1194,18 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("qtrA <2", -1, dateValidator.compareQuarters(value, date20051001, GMT)); // +1 quarter;
+        assertEquals("qtrA <2",-1,dateValidator.compareQuarters(value,date20051001,GMT));// +1 quarter;
     }
 
     public void testCompare_16_oe() {
@@ -1258,22 +1237,19 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrA =1", 0,  dateValidator.compareQuarters(value, date20050901, GMT)); // +1 month;
+        assertEquals("qtrA =1",0,dateValidator.compareQuarters(value,date20050901,GMT));// +1 month;
     }
 
     public void testCompare_17_oe() {
@@ -1305,23 +1281,20 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrA =2", 0,  dateValidator.compareQuarters(value, date20050701, GMT)); // same quarter;
+        assertEquals("qtrA =2",0,dateValidator.compareQuarters(value,date20050701,GMT));// same quarter;
     }
 
     public void testCompare_18_oe() {
@@ -1353,24 +1326,21 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrA =3", 0,  dateValidator.compareQuarters(value, date20050731, GMT)); // -1 month;
+        assertEquals("qtrA =3",0,dateValidator.compareQuarters(value,date20050731,GMT));// -1 month;
     }
 
     public void testCompare_19_oe() {
@@ -1402,25 +1372,22 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrA GT", 1,  dateValidator.compareQuarters(value, date20050630, GMT)); // -1 quarter;
+        assertEquals("qtrA GT",1,dateValidator.compareQuarters(value,date20050630,GMT));// -1 quarter;
     }
 
     public void testCompare_20_oe() {
@@ -1452,28 +1419,23 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
-        assertEquals("qtrB LT", -1, dateValidator.compareQuarters(value, date20051101, GMT, 2)); // +1 quarter (Feb);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB LT",-1,dateValidator.compareQuarters(value,date20051101,GMT,2));// +1 quarter(Feb);
     }
 
     public void testCompare_21_oe() {
@@ -1505,29 +1467,24 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
-        assertEquals("qtrB =1", 0,  dateValidator.compareQuarters(value, date20051001, GMT, 2));  // same quarter;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB =1",0,dateValidator.compareQuarters(value,date20051001,GMT,2));// same quarter;
     }
 
     public void testCompare_22_oe() {
@@ -1559,30 +1516,25 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrB =2", 0,  dateValidator.compareQuarters(value, date20050901, GMT, 2)); // +1 month;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB =2",0,dateValidator.compareQuarters(value,date20050901,GMT,2));// +1 month;
     }
 
     public void testCompare_23_oe() {
@@ -1614,31 +1566,26 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrB =3", 1,  dateValidator.compareQuarters(value, date20050701, GMT, 2)); // same quarter;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB =3",1,dateValidator.compareQuarters(value,date20050701,GMT,2));// same quarter;
     }
 
     public void testCompare_24_oe() {
@@ -1670,32 +1617,27 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrB =4", 1,  dateValidator.compareQuarters(value, date20050731, GMT, 2)); // -1 month;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB =4",1,dateValidator.compareQuarters(value,date20050731,GMT,2));// -1 month;
     }
 
     public void testCompare_25_oe() {
@@ -1727,33 +1669,28 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrB GT", 1,  dateValidator.compareQuarters(value, date20050630, GMT, 2)); // -1 quarter;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB GT",1,dateValidator.compareQuarters(value,date20050630,GMT,2));// -1 quarter;
     }
 
     public void testCompare_26_oe() {
@@ -1785,34 +1722,29 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("qtrB prev", 1,  dateValidator.compareQuarters(value, date20050110, GMT, 2)); // Jan Prev year qtr;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("qtrB prev",1,dateValidator.compareQuarters(value,date20050110,GMT,2));// Jan Prev year qtr;
     }
 
     public void testCompare_27_oe() {
@@ -1844,27 +1776,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1872,8 +1783,23 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        assertEquals("year LT", -1, dateValidator.compareYears(value, date20060101, GMT)); // +1 year;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("year LT",-1,dateValidator.compareYears(value,date20060101,GMT));// +1 year;
     }
 
     public void testCompare_28_oe() {
@@ -1905,27 +1831,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1933,9 +1838,24 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
-        assertEquals("year EQ", 0,  dateValidator.compareYears(value, date20050101, GMT)); // same year;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("year EQ",0,dateValidator.compareYears(value,date20050101,GMT));// same year;
     }
 
     public void testCompare_29_oe() {
@@ -1967,27 +1887,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -1995,10 +1894,25 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
-        assertEquals("year GT", 1,  dateValidator.compareYears(value, date20041231, GMT)); // -1 year;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("year GT",1,dateValidator.compareYears(value,date20041231,GMT));// -1 year;
     }
 
     public void testCompare_30_oe() {
@@ -2030,27 +1944,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2058,13 +1951,26 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Compare using alternative TimeZone
-        Date sameDayTwoAm    = createDate(GMT, testDate, 20000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Date sameDayTwoAm = createDate(GMT,testDate,20000);
         assertEquals("date LT", -1, dateValidator.compareDates(value, date20050824, EST)); // +1 day;
     }
 
@@ -2097,27 +2003,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2125,13 +2010,26 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Compare using alternative TimeZone
-        Date sameDayTwoAm    = createDate(GMT, testDate, 20000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Date sameDayTwoAm = createDate(GMT,testDate,20000);
         // removed other assertion
         assertEquals("date EQ", 0,  dateValidator.compareDates(value, diffHour, EST));    // same day, diff hour;
     }
@@ -2165,27 +2063,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2193,13 +2070,26 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Compare using alternative TimeZone
-        Date sameDayTwoAm    = createDate(GMT, testDate, 20000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Date sameDayTwoAm = createDate(GMT,testDate,20000);
         // removed other assertion
         // removed other assertion
         assertEquals("date EQ", 1,  dateValidator.compareDates(value, sameDayTwoAm, EST));    // same day, diff hour;
@@ -2234,27 +2124,6 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Change quarter 1 to start in Feb
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -2262,13 +2131,26 @@ public class DateValidatorTest_OE25Dev extends AbstractCalendarValidatorTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
         // removed other assertion
         // removed other assertion
         // removed other assertion
-
-        // Compare using alternative TimeZone
-        Date sameDayTwoAm    = createDate(GMT, testDate, 20000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Date sameDayTwoAm = createDate(GMT,testDate,20000);
         // removed other assertion
         // removed other assertion
         // removed other assertion

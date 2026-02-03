@@ -19,8 +19,7 @@ public class ClassUtilTest {
 
 		assertThat(ClassUtil.getPackageName(ClassUtilTest.class)).isEqualTo("org.springside.modules.utils.reflect");
 		assertThat(ClassUtil.getPackageName(BClass.class)).isEqualTo("org.springside.modules.utils.reflect");
-		assertThat(ClassUtil.getPackageName(ClassUtilTest.class.getName()))
-				.isEqualTo("org.springside.modules.utils.reflect");
+		assertThat(ClassUtil.getPackageName(ClassUtilTest.class.getName())).isEqualTo("org.springside.modules.utils.reflect");
 		assertThat(ClassUtil.getPackageName(BClass.class.getName())).isEqualTo("org.springside.modules.utils.reflect");
 
 	}
@@ -28,30 +27,19 @@ public class ClassUtilTest {
 	@Test
 	public void getAllClass() {
 
-		assertThat(ClassUtil.getAllInterfaces(BClass.class)).hasSize(4).contains(AInterface.class, BInterface.class,
-				CInterface.class, DInterface.class);
+		assertThat(ClassUtil.getAllInterfaces(BClass.class)).hasSize(4).contains(AInterface.class,BInterface.class,CInterface.class,DInterface.class);
 
 		assertThat(ClassUtil.getAllSuperclasses(BClass.class)).hasSize(2).contains(AClass.class, Object.class);
 
 		assertThat(ClassUtil.getAllAnnotations(BClass.class)).hasSize(4);
 
-		assertThat(ClassUtil.getAnnotatedPublicFields(BClass.class, AAnnotation.class)).hasSize(2).contains(
-				ClassUtil.getAccessibleField(BClass.class, "sfield"),
-				ClassUtil.getAccessibleField(BClass.class, "tfield"));
+		assertThat(ClassUtil.getAnnotatedPublicFields(BClass.class,AAnnotation.class)).hasSize(2).contains(ClassUtil.getAccessibleField(BClass.class,"sfield"),ClassUtil.getAccessibleField(BClass.class,"tfield"));
 
-		assertThat(ClassUtil.getAnnotatedFields(BClass.class, EAnnotation.class)).hasSize(3).contains(
-				ClassUtil.getAccessibleField(BClass.class, "bfield"),
-				ClassUtil.getAccessibleField(BClass.class, "efield"),
-				ClassUtil.getAccessibleField(AClass.class, "afield"));
+		assertThat(ClassUtil.getAnnotatedFields(BClass.class,EAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleField(BClass.class,"bfield"),ClassUtil.getAccessibleField(BClass.class,"efield"),ClassUtil.getAccessibleField(AClass.class,"afield"));
 
-		assertThat(ClassUtil.getAnnotatedFields(BClass.class, FAnnotation.class)).hasSize(1)
-				.contains(ClassUtil.getAccessibleField(AClass.class, "dfield"));
+		assertThat(ClassUtil.getAnnotatedFields(BClass.class,FAnnotation.class)).hasSize(1).contains(ClassUtil.getAccessibleField(AClass.class,"dfield"));
 
-		assertThat(ClassUtil.getAnnotatedPublicMethods(BClass.class, FAnnotation.class)).hasSize(3).contains(
-				ClassUtil.getAccessibleMethodByName(BClass.class, "hello"),
-				ClassUtil.getAccessibleMethodByName(BClass.class, "hello3"),
-				ClassUtil.getAccessibleMethodByName(AClass.class, "hello4")
-				);
+		assertThat(ClassUtil.getAnnotatedPublicMethods(BClass.class,FAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleMethodByName(BClass.class,"hello"),ClassUtil.getAccessibleMethodByName(BClass.class,"hello3"),ClassUtil.getAccessibleMethodByName(AClass.class,"hello4"));
 	}
 
 	@Test

@@ -100,7 +100,7 @@ public class TestPeriodFormatter extends TestCase {
     //-----------------------------------------------------------------------
     public void testPrint_simple() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals("P1Y2M3W4DT5H6M7.008S", f.print(p));
+        assertEquals("P1Y2M3W4DT5H6M7.008S",f.print(p));
     }
 
     //-----------------------------------------------------------------------
@@ -108,7 +108,7 @@ public class TestPeriodFormatter extends TestCase {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         StringBuffer buf = new StringBuffer();
         f.printTo(buf, p);
-        assertEquals("P1Y2M3W4DT5H6M7.008S", buf.toString());
+        assertEquals("P1Y2M3W4DT5H6M7.008S",buf.toString());
         
         buf = new StringBuffer();
         try {
@@ -122,7 +122,7 @@ public class TestPeriodFormatter extends TestCase {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         CharArrayWriter out = new CharArrayWriter();
         f.printTo(out, p);
-        assertEquals("P1Y2M3W4DT5H6M7.008S", out.toString());
+        assertEquals("P1Y2M3W4DT5H6M7.008S",out.toString());
         
         out = new CharArrayWriter();
         try {
@@ -134,39 +134,39 @@ public class TestPeriodFormatter extends TestCase {
     //-----------------------------------------------------------------------
     public void testWithGetLocaleMethods() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
-        assertEquals(Locale.FRENCH, f2.getLocale());
-        assertSame(f2, f2.withLocale(Locale.FRENCH));
+        assertEquals(Locale.FRENCH,f2.getLocale());
+        assertSame(f2,f2.withLocale(Locale.FRENCH));
         
         f2 = f.withLocale(null);
-        assertEquals(null, f2.getLocale());
-        assertSame(f2, f2.withLocale(null));
+        assertEquals(null,f2.getLocale());
+        assertSame(f2,f2.withLocale(null));
     }
 
     public void testWithGetParseTypeMethods() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
-        assertEquals(PeriodType.dayTime(), f2.getParseType());
-        assertSame(f2, f2.withParseType(PeriodType.dayTime()));
+        assertEquals(PeriodType.dayTime(),f2.getParseType());
+        assertSame(f2,f2.withParseType(PeriodType.dayTime()));
         
         f2 = f.withParseType(null);
-        assertEquals(null, f2.getParseType());
-        assertSame(f2, f2.withParseType(null));
+        assertEquals(null,f2.getParseType());
+        assertSame(f2,f2.withParseType(null));
     }
 
     public void testPrinterParserMethods() {
         Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         PeriodFormatter f2 = new PeriodFormatter(f.getPrinter(), f.getParser());
-        assertEquals(f.getPrinter(), f2.getPrinter());
-        assertEquals(f.getParser(), f2.getParser());
-        assertEquals(true, f2.isPrinter());
-        assertEquals(true, f2.isParser());
+        assertEquals(f.getPrinter(),f2.getPrinter());
+        assertEquals(f.getParser(),f2.getParser());
+        assertEquals(true,f2.isPrinter());
+        assertEquals(true,f2.isParser());
         assertNotNull(f2.print(p));
         assertNotNull(f2.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
         
         f2 = new PeriodFormatter(f.getPrinter(), null);
-        assertEquals(f.getPrinter(), f2.getPrinter());
-        assertEquals(null, f2.getParser());
-        assertEquals(true, f2.isPrinter());
-        assertEquals(false, f2.isParser());
+        assertEquals(f.getPrinter(),f2.getPrinter());
+        assertEquals(null,f2.getParser());
+        assertEquals(true,f2.isPrinter());
+        assertEquals(false,f2.isParser());
         assertNotNull(f2.print(p));
         try {
             assertNotNull(f2.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
@@ -174,10 +174,10 @@ public class TestPeriodFormatter extends TestCase {
         } catch (UnsupportedOperationException ex) {}
         
         f2 = new PeriodFormatter(null, f.getParser());
-        assertEquals(null, f2.getPrinter());
-        assertEquals(f.getParser(), f2.getParser());
-        assertEquals(false, f2.isPrinter());
-        assertEquals(true, f2.isParser());
+        assertEquals(null,f2.getPrinter());
+        assertEquals(f.getParser(),f2.getParser());
+        assertEquals(false,f2.isPrinter());
+        assertEquals(true,f2.isParser());
         try {
             f2.print(p);
             fail();
@@ -188,7 +188,7 @@ public class TestPeriodFormatter extends TestCase {
     //-----------------------------------------------------------------------
     public void testParsePeriod_simple() {
         Period expect = new Period(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals(expect, f.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
+        assertEquals(expect,f.parsePeriod("P1Y2M3W4DT5H6M7.008S"));
         
         try {
             f.parsePeriod("ABC");
@@ -198,7 +198,7 @@ public class TestPeriodFormatter extends TestCase {
 
     public void testParsePeriod_parseType() {
         Period expect = new Period(0, 0, 0, 4, 5, 6, 7, 8, PeriodType.dayTime());
-        assertEquals(expect, f.withParseType(PeriodType.dayTime()).parsePeriod("P4DT5H6M7.008S"));
+        assertEquals(expect,f.withParseType(PeriodType.dayTime()).parsePeriod("P4DT5H6M7.008S"));
         try {
             f.withParseType(PeriodType.dayTime()).parsePeriod("P3W4DT5H6M7.008S");
             fail();
@@ -208,7 +208,7 @@ public class TestPeriodFormatter extends TestCase {
     //-----------------------------------------------------------------------
     public void testParseMutablePeriod_simple() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals(expect, f.parseMutablePeriod("P1Y2M3W4DT5H6M7.008S"));
+        assertEquals(expect,f.parseMutablePeriod("P1Y2M3W4DT5H6M7.008S"));
         
         try {
             f.parseMutablePeriod("ABC");
@@ -220,15 +220,15 @@ public class TestPeriodFormatter extends TestCase {
     public void testParseInto_simple() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         MutablePeriod result = new MutablePeriod();
-        assertEquals(20, f.parseInto(result, "P1Y2M3W4DT5H6M7.008S", 0));
-        assertEquals(expect, result);
+        assertEquals(20,f.parseInto(result,"P1Y2M3W4DT5H6M7.008S",0));
+        assertEquals(expect,result);
         
         try {
             f.parseInto(null, "P1Y2M3W4DT5H6M7.008S", 0);
             fail();
         } catch (IllegalArgumentException ex) {}
         
-        assertEquals(~0, f.parseInto(result, "ABC", 0));
+        assertEquals(~0,f.parseInto(result,"ABC",0));
     }
 
 }

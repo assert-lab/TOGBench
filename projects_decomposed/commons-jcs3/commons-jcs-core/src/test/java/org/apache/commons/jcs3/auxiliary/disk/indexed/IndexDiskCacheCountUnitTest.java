@@ -92,8 +92,7 @@ public class IndexDiskCacheCountUnitTest extends IndexDiskCacheUnitTestAbstract 
 		                }
 		                else
 		                {
-		                    assertNotNull( "The element for key [" + "key:" + test[i] + "] should not be null. i = " + i,
-		                                   element );
+		                    assertNotNull("The element for key [" + "key:" + test[i] + "] should not be null. i = " + i,element);
 		                    assertEquals( "Elements contents do not match expected", element.getVal(), expectedValue );
 		                }
 		            }

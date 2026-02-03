@@ -152,10 +152,8 @@ public class HashCodeBuilderTest {
     public void testReflectionHierarchyHashCode() {
         assertEquals(17 * 37 * 37, HashCodeBuilder.reflectionHashCode(new TestSubObject(0, 0, 0)));
         assertEquals(17 * 37 * 37 * 37, HashCodeBuilder.reflectionHashCode(new TestSubObject(0, 0, 0), true));
-        assertEquals((17 * 37 + 7890) * 37 + 123456, HashCodeBuilder.reflectionHashCode(new TestSubObject(123456, 7890,
-                0)));
-        assertEquals(((17 * 37 + 7890) * 37 + 0) * 37 + 123456, HashCodeBuilder.reflectionHashCode(new TestSubObject(
-                123456, 7890, 0), true));
+        assertEquals((17 * 37 + 7890)* 37 + 123456,HashCodeBuilder.reflectionHashCode(new TestSubObject(123456,7890,0)));
+        assertEquals(((17 * 37 + 7890)* 37 + 0)* 37 + 123456,HashCodeBuilder.reflectionHashCode(new TestSubObject(123456,7890,0),true));
     }
 
     @Test
@@ -186,8 +184,7 @@ public class HashCodeBuilderTest {
     @Test
     public void testSuper() {
         final Object obj = new Object();
-        assertEquals(17 * 37 + 19 * 41 + obj.hashCode(), new HashCodeBuilder(17, 37).appendSuper(
-                new HashCodeBuilder(19, 41).append(obj).toHashCode()).toHashCode());
+        assertEquals(17 * 37 + 19 * 41 + obj.hashCode(),new HashCodeBuilder(17,37).appendSuper(new HashCodeBuilder(19,41).append(obj).toHashCode()).toHashCode());
     }
 
     @Test
@@ -210,8 +207,7 @@ public class HashCodeBuilderTest {
     @SuppressWarnings("cast") // cast is not really needed, keep for consistency
     public void testLong() {
         assertEquals(17 * 37, new HashCodeBuilder(17, 37).append(0L).toHashCode());
-        assertEquals(17 * 37 + (int) (123456789L ^ 123456789L >> 32), new HashCodeBuilder(17, 37).append(
-                123456789L).toHashCode());
+        assertEquals(17 * 37 +(int)(123456789L ^ 123456789L >> 32),new HashCodeBuilder(17,37).append(123456789L).toHashCode());
     }
 
     @Test
@@ -271,8 +267,7 @@ public class HashCodeBuilderTest {
         obj[0] = new Object();
         assertEquals((17 * 37 + obj[0].hashCode()) * 37, new HashCodeBuilder(17, 37).append(obj).toHashCode());
         obj[1] = new Object();
-        assertEquals((17 * 37 + obj[0].hashCode()) * 37 + obj[1].hashCode(), new HashCodeBuilder(17, 37).append(obj)
-                .toHashCode());
+        assertEquals((17 * 37 + obj[0].hashCode())* 37 + obj[1].hashCode(),new HashCodeBuilder(17,37).append(obj).toHashCode());
     }
 
     @Test
@@ -282,8 +277,7 @@ public class HashCodeBuilderTest {
         obj[0] = new Object();
         assertEquals((17 * 37 + obj[0].hashCode()) * 37, new HashCodeBuilder(17, 37).append((Object) obj).toHashCode());
         obj[1] = new Object();
-        assertEquals((17 * 37 + obj[0].hashCode()) * 37 + obj[1].hashCode(), new HashCodeBuilder(17, 37).append(
-                (Object) obj).toHashCode());
+        assertEquals((17 * 37 + obj[0].hashCode())* 37 + obj[1].hashCode(),new HashCodeBuilder(17,37).append((Object)obj).toHashCode());
     }
 
     @Test
@@ -561,8 +555,7 @@ public class HashCodeBuilderTest {
     @Test
     public void testToHashCodeEqualsHashCode() {
         final HashCodeBuilder hcb = new HashCodeBuilder(17, 37).append(new Object()).append('a');
-        assertEquals(hcb.toHashCode(), hcb.hashCode(),
-            "hashCode() is no longer returning the same value as toHashCode() - see LANG-520");
+        assertEquals(hcb.toHashCode(),hcb.hashCode(),"hashCode()is no longer returning the same value as toHashCode()- see LANG-520");
     }
 
     static class TestObjectHashCodeExclude {

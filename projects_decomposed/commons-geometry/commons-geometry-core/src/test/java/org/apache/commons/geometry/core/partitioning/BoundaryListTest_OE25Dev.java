@@ -98,7 +98,7 @@ class BoundaryListTest_OE25Dev {
     void testCount_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertEquals(1, new BoundaryList<>(Collections.singletonList( new TestLineSegment(0, 0, 1, 1) )).count());
+        Assertions.assertEquals(1,new BoundaryList<>(Collections.singletonList(new TestLineSegment(0,0,1,1))).count());
     }
 
     @Test
@@ -106,7 +106,7 @@ class BoundaryListTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertEquals(2, new BoundaryList<>(Arrays.asList( new TestLineSegment(0, 0, 1, 1), new TestLineSegment(1, 1, 0, 2) )).count());
+        Assertions.assertEquals(2,new BoundaryList<>(Arrays.asList(new TestLineSegment(0,0,1,1),new TestLineSegment(1,1,0,2))).count());
     }
 
     @Test

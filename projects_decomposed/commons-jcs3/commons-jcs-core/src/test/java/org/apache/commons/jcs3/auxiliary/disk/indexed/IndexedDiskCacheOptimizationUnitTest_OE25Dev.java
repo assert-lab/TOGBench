@@ -87,7 +87,7 @@ public class IndexedDiskCacheOptimizationUnitTest_OE25Dev
             SleepUtil.sleepAtLeast( 2000 );
         }
 
-        assertTrue( "The post optimization size should be smaller." +"sizeAfterRemove=" + sizeAfterRemove + " sizeBeforeRemove= " +sizeBeforeRemove , sizeAfterRemove < sizeBeforeRemove );
+        assertTrue("The post optimization size should be smaller." +"sizeAfterRemove=" + sizeAfterRemove + " sizeBeforeRemove= " +sizeBeforeRemove,sizeAfterRemove < sizeBeforeRemove);
     }
 
     public void testBasicOptimization_2_oe()

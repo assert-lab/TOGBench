@@ -480,18 +480,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(false, PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger)); // Cannot use valueOf here;
-    }
-
-    @Test
-    public void testIdentityPredicate_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true, PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
+        assertEquals(false,PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger));// Cannot use valueOf here assertEquals(true,PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
     }
 
     @Test
@@ -1837,7 +1826,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     @Test
     public void testTransformedPredicate_1_oe() {
-        assertEquals(true, PredicateUtils.transformedPredicate( TransformerUtils.nopTransformer(), TruePredicate.truePredicate()).evaluate(new Object()));
+        assertEquals(true,PredicateUtils.transformedPredicate(TransformerUtils.nopTransformer(),TruePredicate.truePredicate()).evaluate(new Object()));
     }
 
     @Test

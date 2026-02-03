@@ -104,8 +104,7 @@ public class PathTests extends AbstractProviderTestCase {
                 final FileObject f2 = getManager().resolveFile(pathStr, options)) {
 
                 assertEquals("Two files resolved by URI must be equals on " + pathStr, f1, f2);
-                assertSame("Resolving two times should not produce new filesystem on " + pathStr, f1.getFileSystem(),
-                    f2.getFileSystem());
+                assertSame("Resolving two times should not produce new filesystem on " + pathStr,f1.getFileSystem(),f2.getFileSystem());
             }
         }
     }

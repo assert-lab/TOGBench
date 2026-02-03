@@ -46,81 +46,121 @@ public class CharEncodingTest_OE25Dev  {
     }
 
     @Test
-    public void testSupported() {
+    public void testMustBeSupportedJava1_3_1_and_above() {
+        this.assertSupportedEncoding(CharEncoding.ISO_8859_1);
+        this.assertSupportedEncoding(CharEncoding.US_ASCII);
+        this.assertSupportedEncoding(CharEncoding.UTF_16);
+        this.assertSupportedEncoding(CharEncoding.UTF_16BE);
+        this.assertSupportedEncoding(CharEncoding.UTF_16LE);
+        this.assertSupportedEncoding(CharEncoding.UTF_8);
+    }
+
+    @Test
+    public void testSupported_1_oe() {
         assertTrue(CharEncoding.isSupported("UTF8"));
+    }
+
+    @Test
+    public void testSupported_2_oe() {
+        // removed other assertion
         assertTrue(CharEncoding.isSupported("UTF-8"));
+    }
+
+    @Test
+    public void testSupported_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertTrue(CharEncoding.isSupported("ASCII"));
     }
 
     @Test
-    public void testNotSupported() {
+    public void testNotSupported_1_oe() {
         assertFalse(CharEncoding.isSupported(null));
+    }
+
+    @Test
+    public void testNotSupported_2_oe() {
+        // removed other assertion
         assertFalse(CharEncoding.isSupported(""));
+    }
+
+    @Test
+    public void testNotSupported_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertFalse(CharEncoding.isSupported(" "));
+    }
+
+    @Test
+    public void testNotSupported_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(CharEncoding.isSupported("\t\r\n"));
+    }
+
+    @Test
+    public void testNotSupported_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(CharEncoding.isSupported("DOESNOTEXIST"));
+    }
+
+    @Test
+    public void testNotSupported_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertFalse(CharEncoding.isSupported("this is not a valid encoding name"));
     }
 
     @Test
-    public void testStandardCharsetsEquality() {
+    public void testStandardCharsetsEquality_1_oe() {
         assertEquals(StandardCharsets.ISO_8859_1.name(), CharEncoding.ISO_8859_1);
+    }
+
+    @Test
+    public void testStandardCharsetsEquality_2_oe() {
+        // removed other assertion
         assertEquals(StandardCharsets.US_ASCII.name(), CharEncoding.US_ASCII);
+    }
+
+    @Test
+    public void testStandardCharsetsEquality_3_oe() {
+        // removed other assertion
+        // removed other assertion
         assertEquals(StandardCharsets.UTF_8.name(), CharEncoding.UTF_8);
+    }
+
+    @Test
+    public void testStandardCharsetsEquality_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(StandardCharsets.UTF_16.name(), CharEncoding.UTF_16);
+    }
+
+    @Test
+    public void testStandardCharsetsEquality_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(StandardCharsets.UTF_16BE.name(), CharEncoding.UTF_16BE);
+    }
+
+    @Test
+    public void testStandardCharsetsEquality_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(StandardCharsets.UTF_16LE.name(), CharEncoding.UTF_16LE);
-    }
-
-@Test
-    public void testMustBeSupportedJava1_3_1_and_above_1_oe_1() {
-        final String name = CharEncoding.ISO_8859_1;
-        assertTrue(CharEncoding.isSupported(name), "Encoding should be supported: " + name);
-    }
-
-@Test
-    public void testMustBeSupportedJava1_3_1_and_above_2_oe_1() {
-        // removed other assertion
-        final String name = CharEncoding.US_ASCII;
-        assertTrue(CharEncoding.isSupported(name), "Encoding should be supported: " + name);
-    }
-
-@Test
-    public void testMustBeSupportedJava1_3_1_and_above_3_oe_1() {
-        // removed other assertion
-        // removed other assertion
-        final String name = CharEncoding.UTF_16;
-        assertTrue(CharEncoding.isSupported(name), "Encoding should be supported: " + name);
-    }
-
-@Test
-    public void testMustBeSupportedJava1_3_1_and_above_4_oe_1() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final String name = CharEncoding.UTF_16BE;
-        assertTrue(CharEncoding.isSupported(name), "Encoding should be supported: " + name);
-    }
-
-@Test
-    public void testMustBeSupportedJava1_3_1_and_above_5_oe_1() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final String name = CharEncoding.UTF_16LE;
-        assertTrue(CharEncoding.isSupported(name), "Encoding should be supported: " + name);
-    }
-
-@Test
-    public void testMustBeSupportedJava1_3_1_and_above_6_oe_1() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final String name = CharEncoding.UTF_8;
-        assertTrue(CharEncoding.isSupported(name), "Encoding should be supported: " + name);
     }
 
 }

@@ -115,8 +115,7 @@ public class DomainValidatorStartupTest {
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{"ch"});
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_MINUS, new String[]{"ch"});
         DomainValidator validator = DomainValidator.getInstance();
-        assertFalse(validator.isValidGenericTld("ch")); // show that minus overrides the rest
-        assertTrue(validator.isValidGenericTld("com"));
+        assertFalse(validator.isValidGenericTld("ch"));// show that minus overrides the rest assertTrue(validator.isValidGenericTld("com"));
     }
 
     @Test
@@ -207,12 +206,8 @@ public class DomainValidatorStartupTest {
         items.add(new DomainValidator.Item(ArrayType.COUNTRY_CODE_MINUS,new String[]{""}));
         validator = DomainValidator.getInstance(false, items);
         assertTrue(validator.isValidGenericTld("gp"));
-        assertTrue(validator.isValidGenericTld("com")); // Should be true again
-        assertTrue(validator.isValidCountryCodeTld("cp"));
-        assertTrue(validator.isValidCountryCodeTld("ch")); // Should be true again
-
-        // Show the class overrides are unaffected
-        validator = DomainValidator.getInstance(false);
+        assertTrue(validator.isValidGenericTld("com"));// Should be true again assertTrue(validator.isValidCountryCodeTld("cp"));
+        assertTrue(validator.isValidCountryCodeTld("ch"));// Should be true again validator = DomainValidator.getInstance(false);
         assertTrue(validator.isValidGenericTld("gp"));
         assertFalse(validator.isValidGenericTld("com"));
         assertTrue(validator.isValidCountryCodeTld("cp"));

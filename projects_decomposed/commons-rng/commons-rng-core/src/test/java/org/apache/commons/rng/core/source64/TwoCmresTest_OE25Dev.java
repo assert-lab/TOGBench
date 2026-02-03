@@ -128,7 +128,7 @@ class TwoCmresTest_OE25Dev {
         list.add(new Cmres(multiply, rotate, start));
 
         long nextMultiply = multiply + 1;
-        Assertions.assertDoesNotThrow( () -> Cmres.Factory.checkUnique(list, nextMultiply), () -> "The next multiply should be unique: " + nextMultiply);
+        Assertions.assertDoesNotThrow(()-> Cmres.Factory.checkUnique(list,nextMultiply),()-> "The next multiply should be unique: " + nextMultiply);
     }
 
     @Test

@@ -28,8 +28,7 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
         final FTPClientConfig config = key == null ? new FTPClientConfig() : new FTPClientConfig(key);
         final FTPFileEntryParser parser = fact.createFileEntryParser(config);
         assertNotNull(parser);
-        assertTrue("Expected "+expected.getCanonicalName()+" got "+parser.getClass().getCanonicalName(),
-                expected.isInstance(parser));
+        assertTrue("Expected "+expected.getCanonicalName()+" got "+parser.getClass().getCanonicalName(),expected.isInstance(parser));
     }
     public void testDefaultParserFactoryConfig() throws Exception {
         final DefaultFTPFileEntryParserFactory factory =
@@ -284,7 +283,7 @@ public class DefaultFTPFileEntryParserFactoryTest_OE25Dev extends TestCase
             // removed other assertion
         } catch (final ParserInitializationException pie) {
             // removed other assertion
-            assertTrue(pie.getMessage()+ "should contain 'Unknown parser type:'", pie.getMessage().contains("Unknown parser type:"));
+            assertTrue(pie.getMessage()+ "should contain 'Unknown parser type:'",pie.getMessage().contains("Unknown parser type:"));
     }
     }
 

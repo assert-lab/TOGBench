@@ -577,9 +577,7 @@ public class TestPropertiesConfigurationLayout {
 
         assertEquals("Wrong header comment", "Header comment", layout.getCanonicalHeaderComment(false));
         assertFalse("Include property was stored", layout.getKeys().contains(PropertiesConfiguration.getInclude()));
-        assertEquals("Wrong comment for property",
-            TEST_COMMENT + CRNORM + "A nested header comment." + CRNORM + "With multiple lines" + CRNORM + CRNORM + "Second comment",
-            layout.getCanonicalComment(TEST_KEY, false));
+        assertEquals("Wrong comment for property",TEST_COMMENT + CRNORM + "A nested header comment." + CRNORM + "With multiple lines" + CRNORM + CRNORM + "Second comment",layout.getCanonicalComment(TEST_KEY,false));
     }
 
     /**
@@ -701,9 +699,7 @@ public class TestPropertiesConfigurationLayout {
      */
     @Test
     public void testTrimComment() {
-        assertEquals("Wrong trimmed comment", "This is a comment" + CR + "that spans multiple" + CR + "lines in a" + CR + " complex way.",
-            PropertiesConfigurationLayout.trimComment("   # This is a comment" + CR + "that spans multiple" + CR + "!lines in a" + CR + " complex way.",
-                false));
+        assertEquals("Wrong trimmed comment","This is a comment" + CR + "that spans multiple" + CR + "lines in a" + CR + " complex way.",PropertiesConfigurationLayout.trimComment(" # This is a comment" + CR + "that spans multiple" + CR + "!lines in a" + CR + " complex way.",false));
     }
 
     /**
@@ -711,8 +707,7 @@ public class TestPropertiesConfigurationLayout {
      */
     @Test
     public void testTrimCommentFalse() {
-        assertEquals("Wrong trimmed comment", "# Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "# lines",
-            PropertiesConfigurationLayout.trimComment("Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "lines", true));
+        assertEquals("Wrong trimmed comment","# Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "# lines",PropertiesConfigurationLayout.trimComment("Comment with" + CR + " ! some mixed " + CR + "#comment" + CR + "lines",true));
     }
 
     /**
@@ -720,7 +715,6 @@ public class TestPropertiesConfigurationLayout {
      */
     @Test
     public void testTrimCommentTrainlingCR() {
-        assertEquals("Wrong trimmed comment", "Comment with" + CR + "trailing CR" + CR,
-            PropertiesConfigurationLayout.trimComment("Comment with" + CR + "! trailing CR" + CR, false));
+        assertEquals("Wrong trimmed comment","Comment with" + CR + "trailing CR" + CR,PropertiesConfigurationLayout.trimComment("Comment with" + CR + "! trailing CR" + CR,false));
     }
 }

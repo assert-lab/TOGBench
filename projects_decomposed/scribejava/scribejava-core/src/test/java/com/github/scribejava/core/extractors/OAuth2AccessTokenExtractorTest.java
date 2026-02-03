@@ -30,8 +30,7 @@ public class OAuth2AccessTokenExtractorTest {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
-        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",
-                extracted.getAccessToken());
+        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",extracted.getAccessToken());
     }
 
     @Test
@@ -42,8 +41,7 @@ public class OAuth2AccessTokenExtractorTest {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
-        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",
-                extracted.getAccessToken());
+        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",extracted.getAccessToken());
         assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
     }
 
@@ -55,8 +53,7 @@ public class OAuth2AccessTokenExtractorTest {
         try (Response response = ok(responseBody)) {
             extracted = extractor.extract(response);
         }
-        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",
-                extracted.getAccessToken());
+        assertEquals("166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE",extracted.getAccessToken());
         assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
         assertEquals("bearer", extracted.getTokenType());
         assertEquals("166942940015970", extracted.getRefreshToken());

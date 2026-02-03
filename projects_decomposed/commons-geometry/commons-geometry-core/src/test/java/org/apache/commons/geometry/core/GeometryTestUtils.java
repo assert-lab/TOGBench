@@ -65,8 +65,7 @@ public final class GeometryTestUtils {
     public static <T extends Throwable> void assertThrowsWithMessage(final Executable executable,
             final Class<T> exceptionType, final Pattern pattern) {
         final String message = Assertions.assertThrows(exceptionType, executable).getMessage();
-        Assertions.assertTrue(pattern.matcher(message).matches(),
-                "Expected exception message to match /" + pattern + "/ but was [" + message + "]");
+        Assertions.assertTrue(pattern.matcher(message).matches(),"Expected exception message to match /" + pattern + "/ but was [" + message + "]");
     }
 
     /** Assert that a string contains a given substring value.

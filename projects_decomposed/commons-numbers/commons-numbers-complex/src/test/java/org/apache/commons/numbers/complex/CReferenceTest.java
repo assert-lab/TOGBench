@@ -140,8 +140,7 @@ class CReferenceTest {
         }
 
         if (!equal) {
-            Assertions.fail(String.format("%s: expected <%s> != actual <%s> (ulps=%s)",
-                    msg.get(), expected, actual, Long.toUnsignedString(delta)));
+            Assertions.fail(String.format("%s: expected <%s> != actual <%s>(ulps=%s)",msg.get(),expected,actual,Long.toUnsignedString(delta)));
         }
     }
 

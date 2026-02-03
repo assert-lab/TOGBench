@@ -50,26 +50,15 @@ public class FTPConfigEntryParserTest extends TestCase {
         assertNotNull("Could not parse entry.", f);
         assertFalse("Is not a directory.", f.isDirectory());
 
-        assertTrue("Should have user read permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should have user write permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertFalse("Should NOT have user execute permission.", f
-                .hasPermission(FTPFile.USER_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have group read permission.", f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.READ_PERMISSION));
-        assertFalse("Should NOT have group write permission.", f
-                .hasPermission(FTPFile.GROUP_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertFalse("Should NOT have group execute permission.",
-                f.hasPermission(FTPFile.GROUP_ACCESS,
-                        FTPFile.EXECUTE_PERMISSION));
-        assertFalse("Should NOT have world read permission.", f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.READ_PERMISSION));
-        assertFalse("Should NOT have world write permission.", f
-                .hasPermission(FTPFile.WORLD_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertFalse("Should NOT have world execute permission.",
-                f.hasPermission(FTPFile.WORLD_ACCESS,
-                        FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertFalse("Should NOT have user execute permission.",f .hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
+        assertFalse("Should NOT have group write permission.",f .hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertFalse("Should NOT have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertFalse("Should NOT have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
+        assertFalse("Should NOT have world write permission.",f .hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertFalse("Should NOT have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
 
         assertEquals(1, f.getHardLinkCount());
 
@@ -91,8 +80,7 @@ public class FTPConfigEntryParserTest extends TestCase {
         // TODO this is probably a bug - it should default to the current year
         cal.set(Calendar.YEAR, 1970);
 
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp()
-                .getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
     }
 
     /**
@@ -114,24 +102,15 @@ public class FTPConfigEntryParserTest extends TestCase {
         assertFalse("Is not a directory.", f.isDirectory());
         assertTrue("Is a symbolic link", f.isSymbolicLink());
 
-        assertTrue("Should have user read permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should have user write permission.", f.hasPermission(
-                FTPFile.USER_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have user execute permission.", f
-                .hasPermission(FTPFile.USER_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have group read permission.", f.hasPermission(
-                FTPFile.GROUP_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should have group write permission.", f
-                .hasPermission(FTPFile.GROUP_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have group execute permission.",
-                f.hasPermission(FTPFile.GROUP_ACCESS, FTPFile.EXECUTE_PERMISSION));
-        assertTrue("Should have world read permission.", f.hasPermission(
-                FTPFile.WORLD_ACCESS, FTPFile.READ_PERMISSION));
-        assertTrue("Should have world write permission.", f
-                .hasPermission(FTPFile.WORLD_ACCESS, FTPFile.WRITE_PERMISSION));
-        assertTrue("Should have world execute permission.",
-                f.hasPermission(FTPFile.WORLD_ACCESS, FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have user read permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should have user write permission.",f.hasPermission(FTPFile.USER_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have user execute permission.",f .hasPermission(FTPFile.USER_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have group read permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should have group write permission.",f .hasPermission(FTPFile.GROUP_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have group execute permission.",f.hasPermission(FTPFile.GROUP_ACCESS,FTPFile.EXECUTE_PERMISSION));
+        assertTrue("Should have world read permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.READ_PERMISSION));
+        assertTrue("Should have world write permission.",f .hasPermission(FTPFile.WORLD_ACCESS,FTPFile.WRITE_PERMISSION));
+        assertTrue("Should have world execute permission.",f.hasPermission(FTPFile.WORLD_ACCESS,FTPFile.EXECUTE_PERMISSION));
 
         assertEquals(1, f.getHardLinkCount());
 
@@ -150,8 +129,7 @@ public class FTPConfigEntryParserTest extends TestCase {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.YEAR, 2005);
 
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp()
-                .getTime()));
+        assertEquals(df.format(cal.getTime()),df.format(f.getTimestamp().getTime()));
 
     }
 

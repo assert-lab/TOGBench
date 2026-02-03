@@ -153,7 +153,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         map.put("C", 8);
         // removed other assertion
         // removed other assertion
-        assertEquals("First key in tail map should be B", "B", map.tailMap("B").firstKey());
+        assertEquals("First key in tail map should be B","B",map.tailMap("B").firstKey());
     }
 
     public void testSortOrder_4_oe() {
@@ -164,7 +164,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Last key in head map should be B", "B", map.headMap("C").lastKey());
+        assertEquals("Last key in head map should be B","B",map.headMap("C").lastKey());
     }
 
     public void testSortOrder_5_oe() {
@@ -176,7 +176,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals("Last key in submap should be B", "B", map.subMap("A","C").lastKey());
+        assertEquals("Last key in submap should be B","B",map.subMap("A","C").lastKey());
     }
 
     public void testSortOrder_6_oe() {
@@ -191,7 +191,7 @@ public class LazySortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTest<K, V>
         // removed other assertion
 
         final Comparator<?> c = map.comparator();
-        assertTrue("natural order, so comparator should be null", c == null);
+        assertTrue("natural order,so comparator should be null",c == null);
     }
 
     public void testTransformerDecorate_1_oe() {

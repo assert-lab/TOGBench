@@ -448,13 +448,11 @@ public class AnnotationUtilsTest {
                 long.class, float.class, double.class, boolean.class, String.class, Class.class,
                 NestAnnotation.class, TestAnnotation.class, Stooge.class, ElementType.class }) {
             assertTrue(AnnotationUtils.isValidAnnotationMemberType(type));
-            assertTrue(AnnotationUtils.isValidAnnotationMemberType(Array.newInstance(type, 0)
-                    .getClass()));
+            assertTrue(AnnotationUtils.isValidAnnotationMemberType(Array.newInstance(type,0).getClass()));
         }
         for (final Class<?> type : new Class[] { Object.class, Map.class, Collection.class }) {
             assertFalse(AnnotationUtils.isValidAnnotationMemberType(type));
-            assertFalse(AnnotationUtils.isValidAnnotationMemberType(Array.newInstance(type, 0)
-                    .getClass()));
+            assertFalse(AnnotationUtils.isValidAnnotationMemberType(Array.newInstance(type,0).getClass()));
         }
     }
 

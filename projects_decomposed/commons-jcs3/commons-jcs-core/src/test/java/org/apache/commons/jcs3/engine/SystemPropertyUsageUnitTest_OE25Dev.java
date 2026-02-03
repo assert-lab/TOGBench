@@ -103,7 +103,7 @@ public class SystemPropertyUsageUnitTest_OE25Dev
 
         final CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
 
-        assertEquals( "System property value should not be reflected", Integer.parseInt( props.getProperty( JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS ) ), jcs.getCacheAttributes().getMaxObjects());
+        assertEquals("System property value should not be reflected",Integer.parseInt(props.getProperty(JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS)),jcs.getCacheAttributes().getMaxObjects());
     }
 
 }

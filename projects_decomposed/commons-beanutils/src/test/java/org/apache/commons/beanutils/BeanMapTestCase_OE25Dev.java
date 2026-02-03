@@ -370,7 +370,7 @@ public class BeanMapTestCase_OE25Dev extends AbstractTestMap {
                 // removed other assertion
             }
         } catch (final CloneNotSupportedException exception) {
-            fail("BeanMap.clone() should not throw a " + "CloneNotSupportedException when clone should succeed.");
+            fail("BeanMap.clone()should not throw a " + "CloneNotSupportedException when clone should succeed.");
     }
     }
 

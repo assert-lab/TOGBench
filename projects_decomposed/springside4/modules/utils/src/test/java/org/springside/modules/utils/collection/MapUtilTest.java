@@ -116,9 +116,8 @@ public class MapUtilTest {
 		initExpireAllMap(weakKeyMap);
 		System.gc();
 		assertThat(weakKeyMap.get(new MyBean("A"))).isNull();
-		assertThat(weakKeyMap).hasSize(1); // key仍然在
-
-		ConcurrentMap<MyBean, MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		assertThat(weakKeyMap).hasSize(1);// key仍然在 
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
 		MyBean value = new MyBean("B");
 		initExpireKeyMap(weakKeyMap2, value);
 		System.gc();

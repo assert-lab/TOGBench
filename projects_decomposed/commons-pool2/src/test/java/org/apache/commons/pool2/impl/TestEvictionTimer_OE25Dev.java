@@ -96,7 +96,7 @@ public class TestEvictionTimer_OE25Dev {
             final Field evictorExecutorField = EvictionTimer.class.getDeclaredField("executor");
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            assertEquals(2, evictionExecutor.getQueue().size()); // Reaper plus one eviction task;
+            assertEquals(2,evictionExecutor.getQueue().size());// Reaper plus one eviction task assertEquals(1,EvictionTimer.getNumTasks());
     }
     }
 
@@ -132,7 +132,15 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            assertEquals(1, EvictionTimer.getNumTasks());
+
+            // Start evictor #2
+            final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
+            EvictionTimer.schedule(evictor2, TestConstants.ONE_MINUTE_DURATION, TestConstants.ONE_MINUTE_DURATION);
+
+            // Assert that eviction objects are correctly allocated
+            // 1 - the evictor timer task is created
+            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
+            assertFalse(sf.isCancelled());
     }
     }
 
@@ -168,7 +176,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -177,7 +184,9 @@ public class TestEvictionTimer_OE25Dev {
             // Assert that eviction objects are correctly allocated
             // 1 - the evictor timer task is created
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
-            assertFalse(sf.isCancelled());
+            // removed other assertion
+            // 2- and, the eviction action is added to executor thread pool
+            assertEquals(3,evictionExecutor.getQueue().size());// Reaper plus 2 eviction tasks assertEquals(2,EvictionTimer.getNumTasks());
     }
     }
 
@@ -213,7 +222,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -224,7 +232,15 @@ public class TestEvictionTimer_OE25Dev {
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
             // removed other assertion
             // 2- and, the eviction action is added to executor thread pool
-            assertEquals(3, evictionExecutor.getQueue().size()); // Reaper plus 2 eviction tasks;
+            // removed other assertion
+
+            // Stop evictor #1
+            EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
+
+            // Assert that eviction objects are correctly cleaned
+            // 1 - the evictor timer task is cancelled
+            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
+            assertTrue(sf.isCancelled());
     }
     }
 
@@ -260,7 +276,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -272,7 +287,17 @@ public class TestEvictionTimer_OE25Dev {
             // removed other assertion
             // 2- and, the eviction action is added to executor thread pool
             // removed other assertion
-            assertEquals(2, EvictionTimer.getNumTasks());
+
+            // Stop evictor #1
+            EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
+
+            // Assert that eviction objects are correctly cleaned
+            // 1 - the evictor timer task is cancelled
+            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
+            // removed other assertion
+            // 2- and, the eviction action is removed from executor thread pool
+            final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
+            assertEquals(2, evictionExecutorOnStop.getQueue().size());
     }
     }
 
@@ -308,7 +333,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -320,7 +344,6 @@ public class TestEvictionTimer_OE25Dev {
             // removed other assertion
             // 2- and, the eviction action is added to executor thread pool
             // removed other assertion
-            // removed other assertion
 
             // Stop evictor #1
             EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
@@ -328,7 +351,11 @@ public class TestEvictionTimer_OE25Dev {
             // Assert that eviction objects are correctly cleaned
             // 1 - the evictor timer task is cancelled
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
-            assertTrue(sf.isCancelled());
+            // removed other assertion
+            // 2- and, the eviction action is removed from executor thread pool
+            final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
+            // removed other assertion
+            assertEquals(1, EvictionTimer.getNumTasks());
     }
     }
 
@@ -364,7 +391,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -376,7 +402,6 @@ public class TestEvictionTimer_OE25Dev {
             // removed other assertion
             // 2- and, the eviction action is added to executor thread pool
             // removed other assertion
-            // removed other assertion
 
             // Stop evictor #1
             EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
@@ -387,7 +412,16 @@ public class TestEvictionTimer_OE25Dev {
             // removed other assertion
             // 2- and, the eviction action is removed from executor thread pool
             final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            assertEquals(2, evictionExecutorOnStop.getQueue().size());
+            // removed other assertion
+            // removed other assertion
+
+            // Stop evictor #2
+            EvictionTimer.cancel(evictor2, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
+
+            // Assert that eviction objects are correctly cleaned
+            // 1 - the evictor timer task is cancelled
+            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
+            assertTrue(sf.isCancelled());
     }
     }
 
@@ -423,7 +457,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -434,7 +467,6 @@ public class TestEvictionTimer_OE25Dev {
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
             // removed other assertion
             // 2- and, the eviction action is added to executor thread pool
-            // removed other assertion
             // removed other assertion
 
             // Stop evictor #1
@@ -447,7 +479,17 @@ public class TestEvictionTimer_OE25Dev {
             // 2- and, the eviction action is removed from executor thread pool
             final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            assertEquals(1, EvictionTimer.getNumTasks());
+            // removed other assertion
+
+            // Stop evictor #2
+            EvictionTimer.cancel(evictor2, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
+
+            // Assert that eviction objects are correctly cleaned
+            // 1 - the evictor timer task is cancelled
+            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
+            // removed other assertion
+            // 2- and, the eviction thread pool executor is freed
+            assertNull(evictorExecutorField.get(null));
     }
     }
 
@@ -483,7 +525,6 @@ public class TestEvictionTimer_OE25Dev {
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
             // removed other assertion
-            // removed other assertion
 
             // Start evictor #2
             final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
@@ -494,145 +535,6 @@ public class TestEvictionTimer_OE25Dev {
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
             // removed other assertion
             // 2- and, the eviction action is added to executor thread pool
-            // removed other assertion
-            // removed other assertion
-
-            // Stop evictor #1
-            EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
-
-            // Assert that eviction objects are correctly cleaned
-            // 1 - the evictor timer task is cancelled
-            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
-            // removed other assertion
-            // 2- and, the eviction action is removed from executor thread pool
-            final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            // removed other assertion
-            // removed other assertion
-
-            // Stop evictor #2
-            EvictionTimer.cancel(evictor2, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
-
-            // Assert that eviction objects are correctly cleaned
-            // 1 - the evictor timer task is cancelled
-            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
-            assertTrue(sf.isCancelled());
-    }
-    }
-
-    @Test
-    public void testStartStopEvictionTimer_11_oe() throws Exception {
-
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(new BasePooledObjectFactory<String>() {
-
-            @Override
-            public String create() throws Exception {
-                return null;
-            }
-
-            @Override
-            public PooledObject<String> wrap(final String obj) {
-                return new DefaultPooledObject<>(obj);
-            }
-        })) {
-
-            // Start evictor #1
-            final BaseGenericObjectPool<String>.Evictor evictor1 = pool.new Evictor();
-            EvictionTimer.schedule(evictor1, TestConstants.ONE_MINUTE_DURATION, TestConstants.ONE_MINUTE_DURATION);
-
-            // Assert that eviction objects are correctly allocated
-            // 1 - the evictor timer task is created
-            final Field evictorTaskFutureField =
-                    evictor1.getClass().getDeclaredField("scheduledFuture");
-            evictorTaskFutureField.setAccessible(true);
-            ScheduledFuture<?> sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
-            // removed other assertion
-            // 2- and, the eviction action is added to executor thread pool
-            final Field evictorExecutorField = EvictionTimer.class.getDeclaredField("executor");
-            evictorExecutorField.setAccessible(true);
-            final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            // removed other assertion
-            // removed other assertion
-
-            // Start evictor #2
-            final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
-            EvictionTimer.schedule(evictor2, TestConstants.ONE_MINUTE_DURATION, TestConstants.ONE_MINUTE_DURATION);
-
-            // Assert that eviction objects are correctly allocated
-            // 1 - the evictor timer task is created
-            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
-            // removed other assertion
-            // 2- and, the eviction action is added to executor thread pool
-            // removed other assertion
-            // removed other assertion
-
-            // Stop evictor #1
-            EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
-
-            // Assert that eviction objects are correctly cleaned
-            // 1 - the evictor timer task is cancelled
-            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
-            // removed other assertion
-            // 2- and, the eviction action is removed from executor thread pool
-            final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            // removed other assertion
-            // removed other assertion
-
-            // Stop evictor #2
-            EvictionTimer.cancel(evictor2, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
-
-            // Assert that eviction objects are correctly cleaned
-            // 1 - the evictor timer task is cancelled
-            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
-            // removed other assertion
-            // 2- and, the eviction thread pool executor is freed
-            assertNull(evictorExecutorField.get(null));
-    }
-    }
-
-    @Test
-    public void testStartStopEvictionTimer_12_oe() throws Exception {
-
-        try (final GenericObjectPool<String> pool = new GenericObjectPool<>(new BasePooledObjectFactory<String>() {
-
-            @Override
-            public String create() throws Exception {
-                return null;
-            }
-
-            @Override
-            public PooledObject<String> wrap(final String obj) {
-                return new DefaultPooledObject<>(obj);
-            }
-        })) {
-
-            // Start evictor #1
-            final BaseGenericObjectPool<String>.Evictor evictor1 = pool.new Evictor();
-            EvictionTimer.schedule(evictor1, TestConstants.ONE_MINUTE_DURATION, TestConstants.ONE_MINUTE_DURATION);
-
-            // Assert that eviction objects are correctly allocated
-            // 1 - the evictor timer task is created
-            final Field evictorTaskFutureField =
-                    evictor1.getClass().getDeclaredField("scheduledFuture");
-            evictorTaskFutureField.setAccessible(true);
-            ScheduledFuture<?> sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor1);
-            // removed other assertion
-            // 2- and, the eviction action is added to executor thread pool
-            final Field evictorExecutorField = EvictionTimer.class.getDeclaredField("executor");
-            evictorExecutorField.setAccessible(true);
-            final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            // removed other assertion
-            // removed other assertion
-
-            // Start evictor #2
-            final BaseGenericObjectPool<String>.Evictor evictor2 = pool.new Evictor();
-            EvictionTimer.schedule(evictor2, TestConstants.ONE_MINUTE_DURATION, TestConstants.ONE_MINUTE_DURATION);
-
-            // Assert that eviction objects are correctly allocated
-            // 1 - the evictor timer task is created
-            sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
-            // removed other assertion
-            // 2- and, the eviction action is added to executor thread pool
-            // removed other assertion
             // removed other assertion
 
             // Stop evictor #1

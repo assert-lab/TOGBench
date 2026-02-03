@@ -78,7 +78,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
                 ElementValueGen.PRIMITIVE_INT, cp, 555);
         // Creation of an element like that should leave a new entry in the
         // cpool
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + cp.lookupInteger(555), evg.getIndex() == cp.lookupInteger(555));
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + cp.lookupInteger(555),evg.getIndex()== cp.lookupInteger(555));
     }
 
     public void testCreateFloatElementValue_1_oe() throws Exception
@@ -89,7 +89,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
                 ElementValueGen.PRIMITIVE_FLOAT, cp, 111.222f);
         // Creation of an element like that should leave a new entry in the
         // cpool
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + cp.lookupFloat(111.222f), evg .getIndex() == cp.lookupFloat(111.222f));
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + cp.lookupFloat(111.222f),evg .getIndex()== cp.lookupFloat(111.222f));
     }
 
     public void testCreateDoubleElementValue_1_oe() throws Exception
@@ -101,7 +101,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         // Creation of an element like that should leave a new entry in the
         // cpool
         final int idx = cp.lookupDouble(333.44);
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + idx, evg.getIndex() == idx);
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
     public void testCreateLongElementValue_1_oe() throws Exception
@@ -113,7 +113,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         // Creation of an element like that should leave a new entry in the
         // cpool
         final int idx = cp.lookupLong(3334455L);
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + idx, evg.getIndex() == idx);
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
     public void testCreateCharElementValue_1_oe() throws Exception
@@ -125,7 +125,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         // Creation of an element like that should leave a new entry in the
         // cpool
         final int idx = cp.lookupInteger('t');
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + idx, evg.getIndex() == idx);
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
     public void testCreateByteElementValue_1_oe() throws Exception
@@ -137,7 +137,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         // Creation of an element like that should leave a new entry in the
         // cpool
         final int idx = cp.lookupInteger((byte) 'z');
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + idx, evg.getIndex() == idx);
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
     public void testCreateBooleanElementValue_1_oe() throws Exception
@@ -149,7 +149,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         // Creation of an element like that should leave a new entry in the
         // cpool
         final int idx = cp.lookupInteger(1); // 1 == true
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + idx, evg.getIndex() == idx);
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
     public void testCreateShortElementValue_1_oe() throws Exception
@@ -161,7 +161,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         // Creation of an element like that should leave a new entry in the
         // cpool
         final int idx = cp.lookupInteger(42);
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + idx, evg.getIndex() == idx);
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + idx,evg.getIndex()== idx);
     }
 
     public void testCreateStringElementValue_1_oe() throws Exception
@@ -173,7 +173,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
                 ElementValueGen.STRING, cp, "hello");
         // Creation of an element like that should leave a new entry in the
         // cpool
-        assertTrue("Should have the same index in the constantpool but " + evg.getIndex() + "!=" + cp.lookupUtf8("hello"), evg .getIndex() == cp.lookupUtf8("hello"));
+        assertTrue("Should have the same index in the constantpool but " + evg.getIndex()+ "!=" + cp.lookupUtf8("hello"),evg .getIndex()== cp.lookupUtf8("hello"));
     }
 
     public void testCreateEnumElementValue_1_oe() throws Exception
@@ -185,7 +185,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         final EnumElementValueGen evg = new EnumElementValueGen(enumType, "Red", cp);
         // Creation of an element like that should leave a new entry in the
         // cpool
-        assertTrue( "The new ElementValue value index should match the contents of the constantpool but " + evg.getValueIndex() + "!=" + cp.lookupUtf8("Red"), evg.getValueIndex() == cp.lookupUtf8("Red"));
+        assertTrue("The new ElementValue value index should match the contents of the constantpool but " + evg.getValueIndex()+ "!=" + cp.lookupUtf8("Red"),evg.getValueIndex()== cp.lookupUtf8("Red"));
     }
 
     public void testCreateClassElementValue_1_oe() throws Exception
@@ -194,7 +194,7 @@ public class ElementValueGenTestCase_OE25Dev extends AbstractTestCase
         final ConstantPoolGen cp = cg.getConstantPool();
         final ObjectType classType = new ObjectType("java.lang.Integer");
         final ClassElementValueGen evg = new ClassElementValueGen(classType, cp);
-        assertTrue("Unexpected value for contained class: '" + evg.getClassString() + "'", evg.getClassString().contains("Integer"));
+        assertTrue("Unexpected value for contained class: '" + evg.getClassString()+ "'",evg.getClassString().contains("Integer"));
     }
 
 }

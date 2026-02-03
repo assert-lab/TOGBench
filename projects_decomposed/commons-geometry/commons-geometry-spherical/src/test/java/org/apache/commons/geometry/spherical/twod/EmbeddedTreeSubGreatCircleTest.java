@@ -356,10 +356,8 @@ class EmbeddedTreeSubGreatCircleTest {
         final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle, tree);
 
         // act/assert
-        Assertions.assertEquals(SplitLocation.NEITHER,
-                sub.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION)).getLocation());
-        Assertions.assertEquals(SplitLocation.NEITHER,
-                sub.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,sub.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z,TEST_PRECISION)).getLocation());
+        Assertions.assertEquals(SplitLocation.NEITHER,sub.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z,TEST_PRECISION)).getLocation());
     }
 
     @Test

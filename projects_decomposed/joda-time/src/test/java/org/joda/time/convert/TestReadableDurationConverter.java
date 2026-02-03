@@ -77,34 +77,33 @@ public class TestReadableDurationConverter extends TestCase {
     //-----------------------------------------------------------------------
     public void testSingleton() throws Exception {
         Class cls = ReadableDurationConverter.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isProtected(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isProtected(con.getModifiers()));
         
         Field fld = cls.getDeclaredField("INSTANCE");
-        assertEquals(false, Modifier.isPublic(fld.getModifiers()));
-        assertEquals(false, Modifier.isProtected(fld.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(fld.getModifiers()));
+        assertEquals(false,Modifier.isPublic(fld.getModifiers()));
+        assertEquals(false,Modifier.isProtected(fld.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testSupportedType() throws Exception {
-        assertEquals(ReadableDuration.class, ReadableDurationConverter.INSTANCE.getSupportedType());
+        assertEquals(ReadableDuration.class,ReadableDurationConverter.INSTANCE.getSupportedType());
     }
 
     //-----------------------------------------------------------------------
     public void testGetDurationMillis_Object() throws Exception {
-        assertEquals(123L, ReadableDurationConverter.INSTANCE.getDurationMillis(new Duration(123L)));
+        assertEquals(123L,ReadableDurationConverter.INSTANCE.getDurationMillis(new Duration(123L)));
     }
 
     //-----------------------------------------------------------------------
     public void testGetPeriodType_Object() throws Exception {
-        assertEquals(PeriodType.standard(),
-            ReadableDurationConverter.INSTANCE.getPeriodType(new Duration(123L)));
+        assertEquals(PeriodType.standard(),ReadableDurationConverter.INSTANCE.getPeriodType(new Duration(123L)));
     }
 
     public void testSetInto_Object() throws Exception {
@@ -113,19 +112,19 @@ public class TestReadableDurationConverter extends TestCase {
             3L * DateTimeConstants.MILLIS_PER_DAY +
             4L * DateTimeConstants.MILLIS_PER_MINUTE + 5L
         ), null);
-        assertEquals(0, m.getYears());
-        assertEquals(0, m.getMonths());
-        assertEquals(0, m.getWeeks());
-        assertEquals(0, m.getDays());
-        assertEquals(3 * 24, m.getHours());
-        assertEquals(4, m.getMinutes());
-        assertEquals(0, m.getSeconds());
-        assertEquals(5, m.getMillis());
+        assertEquals(0,m.getYears());
+        assertEquals(0,m.getMonths());
+        assertEquals(0,m.getWeeks());
+        assertEquals(0,m.getDays());
+        assertEquals(3 * 24,m.getHours());
+        assertEquals(4,m.getMinutes());
+        assertEquals(0,m.getSeconds());
+        assertEquals(5,m.getMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testToString() {
-        assertEquals("Converter[org.joda.time.ReadableDuration]", ReadableDurationConverter.INSTANCE.toString());
+        assertEquals("Converter[org.joda.time.ReadableDuration]",ReadableDurationConverter.INSTANCE.toString());
     }
 
 }

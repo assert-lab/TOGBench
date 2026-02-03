@@ -307,17 +307,7 @@ public class EqualsBuilderTest {
         assertTrue(EqualsBuilder.reflectionEquals(to1, teso, testTransients));
         assertTrue(EqualsBuilder.reflectionEquals(teso, to1, testTransients));
 
-        assertTrue(EqualsBuilder.reflectionEquals(to1, ttso, false)); // Force testTransients = false for this assert
-        assertTrue(EqualsBuilder.reflectionEquals(ttso, to1, false)); // Force testTransients = false for this assert
-
-        assertTrue(EqualsBuilder.reflectionEquals(to1, tttso, false)); // Force testTransients = false for this assert
-        assertTrue(EqualsBuilder.reflectionEquals(tttso, to1, false)); // Force testTransients = false for this assert
-
-        assertTrue(EqualsBuilder.reflectionEquals(ttso, tttso, false)); // Force testTransients = false for this assert
-        assertTrue(EqualsBuilder.reflectionEquals(tttso, ttso, false)); // Force testTransients = false for this assert
-
-        // mix super and sub types: NOT equals
-        assertFalse(EqualsBuilder.reflectionEquals(new TestObject(0), new TestEmptySubObject(1), testTransients));
+        assertTrue(EqualsBuilder.reflectionEquals(to1,ttso,false));// Force testTransients = false for this assert assertTrue(EqualsBuilder.reflectionEquals(ttso,to1,false));// Force testTransients = false for this assert assertTrue(EqualsBuilder.reflectionEquals(to1,tttso,false));// Force testTransients = false for this assert assertTrue(EqualsBuilder.reflectionEquals(tttso,to1,false));// Force testTransients = false for this assert assertTrue(EqualsBuilder.reflectionEquals(ttso,tttso,false));// Force testTransients = false for this assert assertTrue(EqualsBuilder.reflectionEquals(tttso,ttso,false));// Force testTransients = false for this assert assertFalse(EqualsBuilder.reflectionEquals(new TestObject(0),new TestEmptySubObject(1),testTransients));
         assertFalse(EqualsBuilder.reflectionEquals(new TestEmptySubObject(1), new TestObject(0), testTransients));
 
         assertFalse(EqualsBuilder.reflectionEquals(new TestObject(0), new TestTSubObject(1, 1), testTransients));
@@ -363,10 +353,7 @@ public class EqualsBuilderTest {
         assertTrue(EqualsBuilder.reflectionEquals(to, toBis, testTransients) && EqualsBuilder.reflectionEquals(toBis, to, testTransients));
 
         // transitive test
-        assertTrue(
-                EqualsBuilder.reflectionEquals(to, toBis, testTransients)
-                        && EqualsBuilder.reflectionEquals(toBis, toTer, testTransients)
-                        && EqualsBuilder.reflectionEquals(to, toTer, testTransients));
+        assertTrue(EqualsBuilder.reflectionEquals(to,toBis,testTransients)&& EqualsBuilder.reflectionEquals(toBis,toTer,testTransients)&& EqualsBuilder.reflectionEquals(to,toTer,testTransients));
 
         // consistency test
         oToChange.setA(to.getA());

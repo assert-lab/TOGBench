@@ -286,8 +286,7 @@ public class TestAbstractHierarchicalConfiguration {
             final String keyTab = "newNodes.tables.table(" + i + ").";
             assertEquals("Table " + i + " not found", NodeStructureHelper.table(i), configDest.getString(keyTab + "name"));
             for (int j = 0; j < NodeStructureHelper.fieldsLength(i); j++) {
-                assertEquals("Invalid field " + j + " in table " + i, NodeStructureHelper.field(i, j),
-                    configDest.getString(keyTab + "fields.field(" + j + ").name"));
+                assertEquals("Invalid field " + j + " in table " + i,NodeStructureHelper.field(i,j),configDest.getString(keyTab + "fields.field(" + j + ").name"));
             }
         }
     }

@@ -102,73 +102,73 @@ public class TestDuration_Constructors extends TestCase {
      */
     public void testZERO() throws Throwable {
         Duration test = Duration.ZERO;
-        assertEquals(0, test.getMillis());
+        assertEquals(0,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
     public void testParse_noFormatter() throws Throwable {
-        assertEquals(new Duration(3200), Duration.parse("PT3.2S"));
-        assertEquals(new Duration(6000), Duration.parse("PT6S"));
+        assertEquals(new Duration(3200),Duration.parse("PT3.2S"));
+        assertEquals(new Duration(6000),Duration.parse("PT6S"));
     }
 
     //-----------------------------------------------------------------------
     public void testFactory_standardDays_long() throws Throwable {
         Duration test = Duration.standardDays(1);
-        assertEquals(24L * 60L * 60L * 1000L, test.getMillis());
+        assertEquals(24L * 60L * 60L * 1000L,test.getMillis());
         
         test = Duration.standardDays(2);
-        assertEquals(2L * 24L * 60L * 60L * 1000L, test.getMillis());
+        assertEquals(2L * 24L * 60L * 60L * 1000L,test.getMillis());
         
         test = Duration.standardDays(0);
-        assertSame(Duration.ZERO, test);
+        assertSame(Duration.ZERO,test);
     }
 
     //-----------------------------------------------------------------------
     public void testFactory_standardHours_long() throws Throwable {
         Duration test = Duration.standardHours(1);
-        assertEquals(60L * 60L * 1000L, test.getMillis());
+        assertEquals(60L * 60L * 1000L,test.getMillis());
         
         test = Duration.standardHours(2);
-        assertEquals(2L * 60L * 60L * 1000L, test.getMillis());
+        assertEquals(2L * 60L * 60L * 1000L,test.getMillis());
         
         test = Duration.standardHours(0);
-        assertSame(Duration.ZERO, test);
+        assertSame(Duration.ZERO,test);
     }
 
     //-----------------------------------------------------------------------
     public void testFactory_standardMinutes_long() throws Throwable {
         Duration test = Duration.standardMinutes(1);
-        assertEquals(60L * 1000L, test.getMillis());
+        assertEquals(60L * 1000L,test.getMillis());
         
         test = Duration.standardMinutes(2);
-        assertEquals(2L * 60L * 1000L, test.getMillis());
+        assertEquals(2L * 60L * 1000L,test.getMillis());
         
         test = Duration.standardMinutes(0);
-        assertSame(Duration.ZERO, test);
+        assertSame(Duration.ZERO,test);
     }
 
     //-----------------------------------------------------------------------
     public void testFactory_standardSeconds_long() throws Throwable {
         Duration test = Duration.standardSeconds(1);
-        assertEquals(1000L, test.getMillis());
+        assertEquals(1000L,test.getMillis());
         
         test = Duration.standardSeconds(2);
-        assertEquals(2L * 1000L, test.getMillis());
+        assertEquals(2L * 1000L,test.getMillis());
         
         test = Duration.standardSeconds(0);
-        assertSame(Duration.ZERO, test);
+        assertSame(Duration.ZERO,test);
     }
 
     //-----------------------------------------------------------------------
     public void testFactory_millis_long() throws Throwable {
         Duration test = Duration.millis(1);
-        assertEquals(1L, test.getMillis());
+        assertEquals(1L,test.getMillis());
         
         test = Duration.millis(2);
-        assertEquals(2L, test.getMillis());
+        assertEquals(2L,test.getMillis());
         
         test = Duration.millis(0);
-        assertSame(Duration.ZERO, test);
+        assertSame(Duration.ZERO,test);
     }
 
     //-----------------------------------------------------------------------
@@ -178,7 +178,7 @@ public class TestDuration_Constructors extends TestCase {
                 6 * DateTimeConstants.MILLIS_PER_MINUTE +
                 7 * DateTimeConstants.MILLIS_PER_SECOND + 8;
         Duration test = new Duration(length);
-        assertEquals(length, test.getMillis());
+        assertEquals(length,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -186,7 +186,7 @@ public class TestDuration_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Duration test = new Duration(dt1.getMillis(), dt2.getMillis());
-        assertEquals(dt2.getMillis() - dt1.getMillis(), test.getMillis());
+        assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -194,28 +194,28 @@ public class TestDuration_Constructors extends TestCase {
         DateTime dt1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Duration test = new Duration(dt1, dt2);
-        assertEquals(dt2.getMillis() - dt1.getMillis(), test.getMillis());
+        assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
     public void testConstructor_RI_RI2() throws Throwable {
         DateTime dt1 = null;  // 2002-06-09T01:00+01:00
         DateTime dt2 = new DateTime(2005, 7, 17, 1, 1, 1, 1);
         Duration test = new Duration(dt1, dt2);
-        assertEquals(dt2.getMillis() - TEST_TIME_NOW, test.getMillis());
+        assertEquals(dt2.getMillis()- TEST_TIME_NOW,test.getMillis());
     }
 
     public void testConstructor_RI_RI3() throws Throwable {
         DateTime dt1 = new DateTime(2005, 7, 17, 1, 1, 1, 1);
         DateTime dt2 = null;  // 2002-06-09T01:00+01:00
         Duration test = new Duration(dt1, dt2);
-        assertEquals(TEST_TIME_NOW - dt1.getMillis(), test.getMillis());
+        assertEquals(TEST_TIME_NOW - dt1.getMillis(),test.getMillis());
     }
 
     public void testConstructor_RI_RI4() throws Throwable {
         DateTime dt1 = null;  // 2002-06-09T01:00+01:00
         DateTime dt2 = null;  // 2002-06-09T01:00+01:00
         Duration test = new Duration(dt1, dt2);
-        assertEquals(0L, test.getMillis());
+        assertEquals(0L,test.getMillis());
     }
 
     //-----------------------------------------------------------------------
@@ -224,12 +224,12 @@ public class TestDuration_Constructors extends TestCase {
      */
     public void testConstructor_Object1() throws Throwable {
         Duration test = new Duration("PT72.345S");
-        assertEquals(72345, test.getMillis());
+        assertEquals(72345,test.getMillis());
     }
 
     public void testConstructor_Object2() throws Throwable {
         Duration test = new Duration((Object) null);
-        assertEquals(0L, test.getMillis());
+        assertEquals(0L,test.getMillis());
     }
 
     public void testConstructor_Object3() throws Throwable {
@@ -239,7 +239,7 @@ public class TestDuration_Constructors extends TestCase {
                 7 * DateTimeConstants.MILLIS_PER_SECOND + 8;
         Long base = new Long(length);
         Duration test = new Duration(base);
-        assertEquals(length, test.getMillis());
+        assertEquals(length,test.getMillis());
     }
 
     public void testConstructor_Object4() throws Throwable {
@@ -247,7 +247,7 @@ public class TestDuration_Constructors extends TestCase {
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Duration base = new Duration(dt1, dt2);
         Duration test = new Duration(base);
-        assertEquals(dt2.getMillis() - dt1.getMillis(), test.getMillis());
+        assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
     public void testConstructor_Object5() throws Throwable {
@@ -255,7 +255,7 @@ public class TestDuration_Constructors extends TestCase {
         DateTime dt2 = new DateTime(2005, 7, 10, 1, 1, 1, 1);
         Interval base = new Interval(dt1, dt2);
         Duration test = new Duration(base);
-        assertEquals(dt2.getMillis() - dt1.getMillis(), test.getMillis());
+        assertEquals(dt2.getMillis()- dt1.getMillis(),test.getMillis());
     }
 
     //-----------------------------------------------------------------------

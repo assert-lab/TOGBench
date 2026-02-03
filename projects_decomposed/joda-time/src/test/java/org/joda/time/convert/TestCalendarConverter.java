@@ -69,60 +69,60 @@ public class TestCalendarConverter extends TestCase {
     //-----------------------------------------------------------------------
     public void testSingleton() throws Exception {
         Class cls = CalendarConverter.class;
-        assertEquals(false, Modifier.isPublic(cls.getModifiers()));
-        assertEquals(false, Modifier.isProtected(cls.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(cls.getModifiers()));
+        assertEquals(false,Modifier.isPublic(cls.getModifiers()));
+        assertEquals(false,Modifier.isProtected(cls.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(cls.getModifiers()));
         
         Constructor con = cls.getDeclaredConstructor((Class[]) null);
-        assertEquals(1, cls.getDeclaredConstructors().length);
-        assertEquals(true, Modifier.isProtected(con.getModifiers()));
+        assertEquals(1,cls.getDeclaredConstructors().length);
+        assertEquals(true,Modifier.isProtected(con.getModifiers()));
         
         Field fld = cls.getDeclaredField("INSTANCE");
-        assertEquals(false, Modifier.isPublic(fld.getModifiers()));
-        assertEquals(false, Modifier.isProtected(fld.getModifiers()));
-        assertEquals(false, Modifier.isPrivate(fld.getModifiers()));
+        assertEquals(false,Modifier.isPublic(fld.getModifiers()));
+        assertEquals(false,Modifier.isProtected(fld.getModifiers()));
+        assertEquals(false,Modifier.isPrivate(fld.getModifiers()));
     }
 
     //-----------------------------------------------------------------------
     public void testSupportedType() throws Exception {
-        assertEquals(Calendar.class, CalendarConverter.INSTANCE.getSupportedType());
+        assertEquals(Calendar.class,CalendarConverter.INSTANCE.getSupportedType());
     }
 
     //-----------------------------------------------------------------------
     public void testGetInstantMillis_Object_Chronology() throws Exception {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date(123L));
-        assertEquals(123L, CalendarConverter.INSTANCE.getInstantMillis(cal, JULIAN));
-        assertEquals(123L, cal.getTime().getTime());
+        assertEquals(123L,CalendarConverter.INSTANCE.getInstantMillis(cal,JULIAN));
+        assertEquals(123L,cal.getTime().getTime());
     }
 
     //-----------------------------------------------------------------------
     public void testGetChronology_Object_Zone() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
-        assertEquals(GJChronology.getInstance(MOSCOW), CalendarConverter.INSTANCE.getChronology(cal, MOSCOW));
+        assertEquals(GJChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(cal,MOSCOW));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
-        assertEquals(GJChronology.getInstance(), CalendarConverter.INSTANCE.getChronology(cal, (DateTimeZone) null));
+        assertEquals(GJChronology.getInstance(),CalendarConverter.INSTANCE.getChronology(cal,(DateTimeZone)null));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
         cal.setGregorianChange(new Date(0L));
-        assertEquals(GJChronology.getInstance(MOSCOW, 0L, 4), CalendarConverter.INSTANCE.getChronology(cal, MOSCOW));
+        assertEquals(GJChronology.getInstance(MOSCOW,0L,4),CalendarConverter.INSTANCE.getChronology(cal,MOSCOW));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
         cal.setGregorianChange(new Date(Long.MAX_VALUE));
-        assertEquals(JulianChronology.getInstance(PARIS), CalendarConverter.INSTANCE.getChronology(cal, PARIS));
+        assertEquals(JulianChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(cal,PARIS));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
         cal.setGregorianChange(new Date(Long.MIN_VALUE));
-        assertEquals(GregorianChronology.getInstance(PARIS), CalendarConverter.INSTANCE.getChronology(cal, PARIS));
+        assertEquals(GregorianChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(cal,PARIS));
         
         Calendar uc = new MockUnknownCalendar(TimeZone.getTimeZone("Europe/Moscow"));
-        assertEquals(ISOChronology.getInstance(PARIS), CalendarConverter.INSTANCE.getChronology(uc, PARIS));
+        assertEquals(ISOChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(uc,PARIS));
         
         try {
             Calendar bc = (Calendar) Class.forName("sun.util.BuddhistCalendar").newInstance();
             bc.setTimeZone(TimeZone.getTimeZone("Europe/Moscow"));
-            assertEquals(BuddhistChronology.getInstance(PARIS), CalendarConverter.INSTANCE.getChronology(bc, PARIS));
+            assertEquals(BuddhistChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(bc,PARIS));
         } catch (ClassNotFoundException ex) {
             // ignore not Sun JDK
         } catch (IllegalAccessException ex) {
@@ -132,30 +132,30 @@ public class TestCalendarConverter extends TestCase {
 
     public void testGetChronology_Object_nullChronology() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
-        assertEquals(GJChronology.getInstance(PARIS), CalendarConverter.INSTANCE.getChronology(cal, (Chronology) null));
+        assertEquals(GJChronology.getInstance(PARIS),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
         cal.setGregorianChange(new Date(0L));
-        assertEquals(GJChronology.getInstance(MOSCOW, 0L, 4), CalendarConverter.INSTANCE.getChronology(cal, (Chronology) null));
+        assertEquals(GJChronology.getInstance(MOSCOW,0L,4),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
         cal.setGregorianChange(new Date(Long.MAX_VALUE));
-        assertEquals(JulianChronology.getInstance(MOSCOW), CalendarConverter.INSTANCE.getChronology(cal, (Chronology) null));
+        assertEquals(JulianChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
         
         cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Moscow"));
         cal.setGregorianChange(new Date(Long.MIN_VALUE));
-        assertEquals(GregorianChronology.getInstance(MOSCOW), CalendarConverter.INSTANCE.getChronology(cal, (Chronology) null));
+        assertEquals(GregorianChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
         
         cal = new GregorianCalendar(new MockUnknownTimeZone());
-        assertEquals(GJChronology.getInstance(), CalendarConverter.INSTANCE.getChronology(cal, (Chronology) null));
+        assertEquals(GJChronology.getInstance(),CalendarConverter.INSTANCE.getChronology(cal,(Chronology)null));
         
         Calendar uc = new MockUnknownCalendar(TimeZone.getTimeZone("Europe/Moscow"));
-        assertEquals(ISOChronology.getInstance(MOSCOW), CalendarConverter.INSTANCE.getChronology(uc, (Chronology) null));
+        assertEquals(ISOChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(uc,(Chronology)null));
         
         try {
             Calendar bc = (Calendar) Class.forName("sun.util.BuddhistCalendar").newInstance();
             bc.setTimeZone(TimeZone.getTimeZone("Europe/Moscow"));
-            assertEquals(BuddhistChronology.getInstance(MOSCOW), CalendarConverter.INSTANCE.getChronology(bc, (Chronology) null));
+            assertEquals(BuddhistChronology.getInstance(MOSCOW),CalendarConverter.INSTANCE.getChronology(bc,(Chronology)null));
         } catch (ClassNotFoundException ex) {
             // ignore not Sun JDK
         } catch (IllegalAccessException ex) {
@@ -165,7 +165,7 @@ public class TestCalendarConverter extends TestCase {
 
     public void testGetChronology_Object_Chronology() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(TimeZone.getTimeZone("Europe/Paris"));
-        assertEquals(JULIAN, CalendarConverter.INSTANCE.getChronology(cal, JULIAN));
+        assertEquals(JULIAN,CalendarConverter.INSTANCE.getChronology(cal,JULIAN));
     }
 
     //-----------------------------------------------------------------------
@@ -175,12 +175,12 @@ public class TestCalendarConverter extends TestCase {
         TimeOfDay tod = new TimeOfDay();
         int[] expected = ISO.get(tod, 12345678L);
         int[] actual = CalendarConverter.INSTANCE.getPartialValues(tod, cal, ISO);
-        assertEquals(true, Arrays.equals(expected, actual));
+        assertEquals(true,Arrays.equals(expected,actual));
     }
 
     //-----------------------------------------------------------------------
     public void testToString() {
-        assertEquals("Converter[java.util.Calendar]", CalendarConverter.INSTANCE.toString());
+        assertEquals("Converter[java.util.Calendar]",CalendarConverter.INSTANCE.toString());
     }
 
 }

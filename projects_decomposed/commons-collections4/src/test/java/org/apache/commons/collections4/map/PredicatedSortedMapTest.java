@@ -78,12 +78,10 @@ public class PredicatedSortedMapTest<K, V> extends AbstractSortedMapTest<K, V> {
     @SuppressWarnings("unchecked")
     public void testEntrySet() {
         SortedMap<K, V> map = makeTestMap();
-        assertTrue("returned entryset should not be null",
-            map.entrySet() != null);
+        assertTrue("returned entryset should not be null",map.entrySet()!= null);
         map = decorateMap(new TreeMap<K, V>(), null, null);
         map.put((K) "oneKey", (V) "oneValue");
-        assertTrue("returned entryset should contain one entry",
-            map.entrySet().size() == 1);
+        assertTrue("returned entryset should contain one entry",map.entrySet().size()== 1);
         map = decorateMap(map, null, null);
     }
 
@@ -158,16 +156,12 @@ public class PredicatedSortedMapTest<K, V> extends AbstractSortedMapTest<K, V> {
         }
         assertEquals("First key should be A", "A", map.firstKey());
         assertEquals("Last key should be C", "C", map.lastKey());
-        assertEquals("First key in tail map should be B",
-            "B", map.tailMap((K) "B").firstKey());
-        assertEquals("Last key in head map should be B",
-            "B", map.headMap((K) "C").lastKey());
-        assertEquals("Last key in submap should be B",
-           "B", map.subMap((K) "A",(K) "C").lastKey());
+        assertEquals("First key in tail map should be B","B",map.tailMap((K)"B").firstKey());
+        assertEquals("Last key in head map should be B","B",map.headMap((K)"C").lastKey());
+        assertEquals("Last key in submap should be B","B",map.subMap((K)"A",(K)"C").lastKey());
 
         final Comparator<? super K> c = map.comparator();
-        assertTrue("natural order, so comparator should be null",
-            c == null);
+        assertTrue("natural order,so comparator should be null",c == null);
     }
 
     @Override

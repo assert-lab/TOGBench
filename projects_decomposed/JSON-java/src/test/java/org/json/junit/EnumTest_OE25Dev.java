@@ -838,7 +838,7 @@ public class EnumTest_OE25Dev {
         MyEnumClass myEnumClass = new MyEnumClass();
         
         String str1 = JSONObject.valueToString(myEnum);
-        assertTrue("actual myEnum: "+str1+" expected: "+expectedStr1, str1.equals(expectedStr1));
+        assertTrue("actual myEnum: "+str1+" expected: "+expectedStr1,str1.equals(expectedStr1));
     }
 
     @Test
@@ -852,7 +852,7 @@ public class EnumTest_OE25Dev {
         String str1 = JSONObject.valueToString(myEnum);
         // removed other assertion
         String str2 = JSONObject.valueToString(myEnumField);
-        assertTrue("actual myEnumField: "+str2+" expected: "+expectedStr2, str2.equals(expectedStr2));
+        assertTrue("actual myEnumField: "+str2+" expected: "+expectedStr2,str2.equals(expectedStr2));
     }
 
     @Test
@@ -876,7 +876,7 @@ public class EnumTest_OE25Dev {
         myEnumClass.setMyEnum(MyEnum.VAL1);
         myEnumClass.setMyEnumField(MyEnumField.VAL1);
         String str3 = JSONObject.valueToString(myEnumClass);
-        assertTrue("actual myEnumClass: "+str3+" expected: "+expectedStr3, str3.startsWith(expectedStr3));
+        assertTrue("actual myEnumClass: "+str3+" expected: "+expectedStr3,str3.startsWith(expectedStr3));
     }
 
     @Test
@@ -2284,7 +2284,7 @@ public class EnumTest_OE25Dev {
         actualEnum = jsonObject.optEnum(MyEnumField.class, "noKey", null);
         // removed other assertion
         
-        assertNull("Expected Null when the enum class is null", jsonObject.optEnum(null, "enumKey"));
+        assertNull("Expected Null when the enum class is null",jsonObject.optEnum(null,"enumKey"));
     }
 
     @Test

@@ -30,8 +30,7 @@ public class ReflectionToStringBuilderSummaryTest {
 
     @Test
     public void testSummary() {
-        assertEquals("[stringField=string,summaryString=<String>]",
-                new ReflectionToStringBuilder(this, ToStringStyle.NO_CLASS_NAME_STYLE).build());
+        assertEquals("[stringField=string,summaryString=<String>]",new ReflectionToStringBuilder(this,ToStringStyle.NO_CLASS_NAME_STYLE).build());
     }
 
 }

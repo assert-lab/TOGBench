@@ -107,8 +107,7 @@ public class DomainValidatorTest extends TestCase {
         assertTrue(".BiZ should validate as TLD", validator.isValidTld(".BiZ"));
 
         // corner cases
-        assertFalse("invalid TLD shouldn't validate", validator.isValid(".nope")); // TODO this is not guaranteed invalid forever
-        assertFalse("empty string shouldn't validate as TLD", validator.isValid(""));
+        assertFalse("invalid TLD shouldn't validate",validator.isValid(".nope"));// TODO this is not guaranteed invalid forever assertFalse("empty string shouldn't validate as TLD",validator.isValid(""));
         assertFalse("null shouldn't validate as TLD", validator.isValid(null));
     }
 
@@ -193,9 +192,7 @@ public class DomainValidatorTest extends TestCase {
     // labels are a max of 63 chars and domains 253
     public void testValidator306() {
         final String longString = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789A";
-        assertEquals(63, longString.length()); // 26 * 2 + 11
-        
-        assertTrue("63 chars label should validate", validator.isValidDomainSyntax(longString+".com"));
+        assertEquals(63,longString.length());// 26 * 2 + 11 assertTrue("63 chars label should validate",validator.isValidDomainSyntax(longString+".com"));
         assertFalse("64 chars label should fail", validator.isValidDomainSyntax(longString+"x.com"));
 
         assertTrue("63 chars TLD should validate", validator.isValidDomainSyntax("test."+longString));

@@ -628,8 +628,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
                 if (tracker.getId() >= 4) {
                     assertEquals( 0, tracker.getValidateCount(),"Unexpected instance visited " + tracker.getId());
                 } else {
-                    assertEquals( 1,
-                            tracker.getValidateCount(),"Instance " + tracker.getId() + " visited wrong number of times.");
+                    assertEquals(1,tracker.getValidateCount(),"Instance " + tracker.getId()+ " visited wrong number of times.");
                 }
             }
             // 0's are all out
@@ -664,11 +663,9 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             for (int i = 0; i < 8; i++) {
                 final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ONE);
                 if ((lifo && tracker.getId() > 1) || (!lifo && tracker.getId() > 2)) {
-                    assertEquals( 1,
-                            tracker.getValidateCount(),"Instance " + tracker.getId() + " visited wrong number of times.");
+                    assertEquals(1,tracker.getValidateCount(),"Instance " + tracker.getId()+ " visited wrong number of times.");
                 } else {
-                    assertEquals( 2,
-                            tracker.getValidateCount(),"Instance " + tracker.getId() + " visited wrong number of times.");
+                    assertEquals(2,tracker.getValidateCount(),"Instance " + tracker.getId()+ " visited wrong number of times.");
                 }
             }
         }
@@ -727,18 +724,14 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
                         tracker = intPool.borrowObject(KEY_ZERO);
                         visitCount = tracker.getValidateCount();
                         if (visitCount < cycleCount || visitCount > cycleCount + 1) {
-                            fail(formatSettings("ZERO", "runs", runs, "lifo", lifo, "i", i, "j", j, "k", k,
-                                    "visitCount", visitCount, "cycleCount", cycleCount, "totalInstances",
-                                    totalInstances, zeroLength, oneLength, twoLength));
+                            fail(formatSettings("ZERO","runs",runs,"lifo",lifo,"i",i,"j",j,"k",k,"visitCount",visitCount,"cycleCount",cycleCount,"totalInstances",totalInstances,zeroLength,oneLength,twoLength));
                         }
                     }
                     for (int k = 0; k < oneLength; k++) {
                         tracker = intPool.borrowObject(KEY_ONE);
                         visitCount = tracker.getValidateCount();
                         if (visitCount < cycleCount || visitCount > cycleCount + 1) {
-                            fail(formatSettings("ONE", "runs", runs, "lifo", lifo, "i", i, "j", j, "k", k, "visitCount",
-                                    visitCount, "cycleCount", cycleCount, "totalInstances", totalInstances, zeroLength,
-                                    oneLength, twoLength));
+                            fail(formatSettings("ONE","runs",runs,"lifo",lifo,"i",i,"j",j,"k",k,"visitCount",visitCount,"cycleCount",cycleCount,"totalInstances",totalInstances,zeroLength,oneLength,twoLength));
                         }
                     }
                     final int[] visits = new int[twoLength];
@@ -751,9 +744,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
                             for (int l = 0; l <= k; l++) {
                                 sb.append(visits[l]).append(' ');
                             }
-                            fail(formatSettings("TWO " + sb.toString(), "runs", runs, "lifo", lifo, "i", i, "j", j, "k",
-                                    k, "visitCount", visitCount, "cycleCount", cycleCount, "totalInstances",
-                                    totalInstances, zeroLength, oneLength, twoLength));
+                            fail(formatSettings("TWO " + sb.toString(),"runs",runs,"lifo",lifo,"i",i,"j",j,"k",k,"visitCount",visitCount,"cycleCount",cycleCount,"totalInstances",totalInstances,zeroLength,oneLength,twoLength));
                         }
                     }
                 }
@@ -844,8 +835,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
                 Waiter.sleepQuietly(500L);
             }
             if(testThread.failed()) {
-                fail("Thread failed: " + threads.indexOf(testThread) + "\n" +
-                        getExceptionTrace(testThread.exception));
+                fail("Thread failed: " + threads.indexOf(testThread)+ "\n" + getExceptionTrace(testThread.exception));
             }
         }
     }
@@ -1317,7 +1307,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         // If it passes it should be almost instant
         // Use 3000ms as the threshold - should avoid timing issues on most
         // (all? platforms)
-        assertTrue((endMillis - startMillis) < 4000, "Elapsed time: " + (endMillis - startMillis) + " should be less than 4000");
+        assertTrue((endMillis - startMillis)< 4000,"Elapsed time: " +(endMillis - startMillis)+ " should be less than 4000");
     }
 
     @Test
@@ -1799,7 +1789,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             // removed other assertion
             //
-            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS, objPool.getMinEvictableIdleTimeMillis());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME_MILLIS,objPool.getMinEvictableIdleTimeMillis());
     }
     }
 
@@ -1832,7 +1822,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             //
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME, objPool.getMinEvictableIdleTime());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME,objPool.getMinEvictableIdleTime());
     }
     }
 
@@ -1866,7 +1856,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             //
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME, objPool.getMinEvictableIdleDuration());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_MIN_EVICTABLE_IDLE_TIME,objPool.getMinEvictableIdleDuration());
     }
     }
 
@@ -1939,7 +1929,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             //
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_BORROW), Boolean.valueOf(objPool.getTestOnBorrow()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_BORROW),Boolean.valueOf(objPool.getTestOnBorrow()));
     }
     }
 
@@ -1977,7 +1967,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             //
             // removed other assertion
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_RETURN), Boolean.valueOf(objPool.getTestOnReturn()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_ON_RETURN),Boolean.valueOf(objPool.getTestOnReturn()));
     }
     }
 
@@ -2016,7 +2006,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             // removed other assertion
             // removed other assertion
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_WHILE_IDLE), Boolean.valueOf(objPool.getTestWhileIdle()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_TEST_WHILE_IDLE),Boolean.valueOf(objPool.getTestWhileIdle()));
     }
     }
 
@@ -2057,7 +2047,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             // removed other assertion
             //
-            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, objPool.getDurationBetweenEvictionRuns());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS,objPool.getDurationBetweenEvictionRuns());
     }
     }
 
@@ -2099,7 +2089,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             //
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS_MILLIS, objPool.getTimeBetweenEvictionRunsMillis());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS_MILLIS,objPool.getTimeBetweenEvictionRunsMillis());
     }
     }
 
@@ -2142,7 +2132,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             //
             // removed other assertion
             // removed other assertion
-            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS, objPool.getTimeBetweenEvictionRuns());
+            assertEquals(BaseObjectPoolConfig.DEFAULT_TIME_BETWEEN_EVICTION_RUNS,objPool.getTimeBetweenEvictionRuns());
     }
     }
 
@@ -2187,7 +2177,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             // removed other assertion
             // removed other assertion
             //
-            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_BLOCK_WHEN_EXHAUSTED), Boolean.valueOf(objPool.getBlockWhenExhausted()));
+            assertEquals(Boolean.valueOf(BaseObjectPoolConfig.DEFAULT_BLOCK_WHEN_EXHAUSTED),Boolean.valueOf(objPool.getBlockWhenExhausted()));
     }
     }
 
@@ -5670,7 +5660,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         // removed other assertion
         // removed other assertion
-        assertEquals(gkoPool.getMaxTotal(), gkoPool.getNumActive("b") + gkoPool.getNumActive("b"));
+        assertEquals(gkoPool.getMaxTotal(),gkoPool.getNumActive("b")+ gkoPool.getNumActive("b"));
     }
 
     @Test
@@ -5706,7 +5696,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(gkoPool.getNumActive(), gkoPool.getMaxTotal());
+        assertEquals(gkoPool.getNumActive(),gkoPool.getMaxTotal());
     }
 
     @Test
@@ -6412,7 +6402,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         final String key = "A";
 
         gkoPool.preparePool(key);
-        assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+        assertEquals(5,gkoPool.getNumIdle(),"Should be 5 idle,found " + gkoPool.getNumIdle());
     }
 
     @Test
