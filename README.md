@@ -156,22 +156,6 @@ OE25Dev enables:
 - Analyzing oracle quality in real-world contexts
 - Studying the impact of test decomposition on oracle effectiveness
 
-## Citation
-
-If you use OE25Dev in your research, please cite our paper:
-
-```bibtex
-@article{oe25dev,
-  title={OE25Dev: A Benchmark for Evaluating Test Oracle Generation on Developer-Written Test Suites},
-  author={[Authors]},
-  journal={[Journal/Conference]},
-  year={2025}
-}
-```
-
-## License
-
-[License information to be added]
 
 ---
 
